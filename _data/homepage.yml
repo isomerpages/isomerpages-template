@@ -5,12 +5,12 @@
 ##################################
 
 # Agency logo
-agency-logo: /misc/logo_blueprint.png
+agency-logo: /do-not-touch/logo_blueprint.png
 
 # Hero Banner
 hero-title: Isomer Page Template
 hero-subtitle: This website was built using the Isomer Design System and Jekyll
-hero-banner: images/banner_GardenBay.png
+hero-banner: /images/banner_GardenBay.png
 
 # I want to dropdown
 i-want-to:
