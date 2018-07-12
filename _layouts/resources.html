@@ -101,7 +101,7 @@ layout: default
                             <small class="has-text-white">{{ post.date | date_to_string | upcase }}</small>
                             {% if post.file_url %}
                                 <small class="has-text-white">
-                                    <span class="sgds-icon sgds-icon-download align-right"></span>
+                                    <span class="sgds-icon sgds-icon-download align-right is-size-4"></span>
                                 </small>
                             {% endif %}
                         </div>
@@ -117,9 +117,9 @@ layout: default
 {% if paginator.total_pages > 1 %}
     <div class="pagination padding--bottom--xl">
         {% if paginator.previous_page %}
-            <a href="{{ site.baseurl }}{{ paginator.previous_page_path | replace: '//', '/' }}"><span class="sgds-icon sgds-icon-arrow-left"></span></a>
+            <a href="{{ site.baseurl }}{{ paginator.previous_page_path | replace: '//', '/' }}"><span class="sgds-icon sgds-icon-arrow-left is-size-4"></span></a>
         {% else %}
-            <span class="sgds-icon sgds-icon-arrow-left sgds-icon-disabled"></span>
+            <span class="sgds-icon sgds-icon-arrow-left sgds-icon-disabled is-size-4"></span>
         {% endif %}
 
         <!-- Paginate-v1 -->
@@ -161,9 +161,9 @@ layout: default
         {% endif %} -->
 
         {% if paginator.next_page %}
-            <a href="{{ site.baseurl }}{{ paginator.next_page_path | replace: '//', '/' }}"><span class="sgds-icon sgds-icon-arrow-right"></span></a>
+            <a href="{{ site.baseurl }}{{ paginator.next_page_path | replace: '//', '/' }}"><span class="sgds-icon sgds-icon-arrow-right is-size-4"></span></a>
         {% else %}
-            <span class="sgds-icon sgds-icon-arrow-right sgds-icon-disabled"></span>
+            <span class="sgds-icon sgds-icon-arrow-right sgds-icon-disabled is-size-4"></span>
         {% endif %}
     </div>
 {% endif %}
