@@ -1,0 +1,27 @@
+<!-- DYN -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet">
+<script src="{{ "/assets/js/sideNav-offset.js" | relative_url }}"></script>
+<script src="{{ "/assets/js/jquery.sticky-sidebar.js" | relative_url }}"></script>
+<script src="{{ "/assets/js/common.js" | relative_url }}"></script>
+{% if page.url == "/" %}
+<script src="{{ "/assets/js/home.js" | relative_url }}"></script>
+<script src="{{ "/assets/js/cancel-notification.js" | relative_url }}"></script>
+{% endif %}
+
+{% if page.url contains 'our-journey' %}
+<script src="{{ "/assets/js/accordion.js" | relative_url }}"></script>
+{% endif %}
+
+{% if page.url contains 'our-team' %}
+<script src="{{ "/assets/js/our-team.js" | relative_url }}"></script>
+<script src="{{ "/assets/js/accordion.js" | relative_url }}"></script>
+{% endif %}
+
+{% if page.url contains 'search' %}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.4/purify.min.js"></script>
+<script src="{{ "/assets/posts.json" | relative_url }}"></script>
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script src="{{ "/assets/js/worker.js" | relative_url }}"></script>
+<script src="{{ "/assets/js/search.js" | relative_url }}"></script>
+<script src="{{ "/assets/js/build-index.js" | relative_url }}"></script>
+{% endif %}

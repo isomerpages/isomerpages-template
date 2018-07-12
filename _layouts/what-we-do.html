@@ -1,0 +1,75 @@
+---
+layout: default
+---
+
+<section class="bp-section is-small bp-section-pagetitle">
+    <div class="bp-container">
+        {% include header-breadcrumb.html %}
+    </div>
+    <div class="bp-container">
+        <div class="row">
+            <div class="col">
+                <h1 class="has-text-white"><b>{{page.title}}</b></h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bp-section">
+	<div class="bp-container content padding--top--lg padding--bottom--xl">
+	    <div class="row">
+		    <div class="col is-8 is-offset-2">
+		    	{{content}}
+	    	</div>
+	    </div>
+	</div>
+</section>
+
+{% assign digital-transformation = site.data.digital-transformation %}
+
+<section class="bp-section bg-newssection">
+	<div class="bp-container content padding--top--xl padding--bottom--xl">
+	    <div class="row">
+		    <div class="col is-8 is-offset-2">
+				<h1 class="has-text-centered"><b> {{ digital-transformation.centex-title }} </b></h1> 
+				<p class="has-text-centered"> {{ digital-transformation.centex-description }} </p>
+	    	</div>
+	    </div>
+
+	    <div class="row is-multiline">
+	    	{% for project in digital-transformation.centex-projects %}
+		    	<div class="col {% cycle 'is-offset-2', '', '' %} is-3 padding--top--lg">
+					<img class="digital-transformation-icon" src="{{site.baseurl}}{{project.icon-url}}">
+					<h4 class="margin--top--lg has-text-grey-darker"><b>{{ project.name }}</b></h4>
+					<p class="margin--top--sm">{{ project.description }}</p>
+				</div>
+			{% endfor %}
+	    </div>
+	</div>
+</section>
+
+<section class="bp-section">
+	<div class="bp-container content padding--top--xl padding--bottom--xl">
+	    <div class="row ">
+		    <div class="col is-8 is-offset-2">
+				<h1 class="has-text-centered"><b> {{ digital-transformation.standards-and-guides-title }} </b></h1> 
+				<p class="has-text-centered""> {{ digital-transformation.standards-and-guides-description }} </p>
+	    	</div>
+	    </div>
+
+	    <div class="row is-multiline padding--top--lg">
+	    	{% for project in digital-transformation.standards-and-guides-projects %}
+		    	<div class="col is-4 {% cycle 'is-offset-2', '' %}">
+					<img class="digital-transformation-icon" src="{{site.baseurl}}{{project.icon-url}}">
+					<h4 class="margin--top--lg has-text-grey-darker"><b>{{project.name}}</b></h4>
+					<p class="margin--top--sm padding--bottom">{{project.description}}</p>
+					{% if project.file-url %}
+						<a href="{{site.baseurl}}{{project.file-url}}" target="_blank" style="text-decoration: none">
+							<button type="submit" class="bp-button is-secondary is-medium has-text-white search-button"><span class="sgds-icon sgds-icon-download is-size-6 padding--right--sm"></span>DOWNLOAD</button>
+						</a>
+					{% endif %}
+				</div>
+			{% endfor %}
+	    </div>
+	</div>
+</section>

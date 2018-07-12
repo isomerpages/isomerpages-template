@@ -1,0 +1,6 @@
+<!-- This deals with the mixture of internal and external links -->
+
+{% assign sublink-base-url = "" %}
+{% if sublink.external != true %}
+  {% assign sublink-base-url = {{site.baseurl}} %}
+{% endif %}

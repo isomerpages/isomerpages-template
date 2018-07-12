@@ -1,0 +1,32 @@
+##################################
+#                                #
+# Feel free to edit this file :) #
+#                                #
+##################################
+
+#Contact Us
+
+# HQ Address
+address: Avenue Q<br>Sesame Street<br>Singapore 123456
+find-directions: https://maps.google.com
+
+# Operating Hours
+operating-hours:
+  - days: Mon - Fri
+    time: 8.30am - 6.00pm
+    description: Closed on Weekends and Public Holidays
+
+# Contact Us
+column:
+  - title: General Enquiries & Feedback
+    content:
+    - line: +65 1234 5678
+    - line: dummy_email@dummy.com (email)
+    # If you have an email, put (email) after the actual email
+
+  - title: Fax
+    content:
+    - line: +65 1234 5678
+
+# Image
+image-url: /images/contact-us.png

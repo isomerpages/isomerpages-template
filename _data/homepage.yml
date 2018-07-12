@@ -1,0 +1,70 @@
+##################################
+#                                #
+# Feel free to edit this file :) #
+#                                #
+##################################
+
+# Agency logo
+agency-logo: /misc/logo_blueprint.png
+
+# Hero Banner
+hero-title: Isomer Page Template
+hero-subtitle: This website was built using the Isomer Design System and Jekyll
+hero-banner: images/banner_GardenBay.png
+
+# I want to dropdown
+i-want-to:
+  - title: apply for licence
+    url: /application-guidelines/applying-for-licence/
+  - title: cancel hotel licence
+    url: /application-guidelines/cancellation-of-licence/
+  - title: change hotel keeper
+    url: /application-guidelines/change-of-hotel-keeper/
+  - title: change hotel name
+    url: /application-guidelines/change-of-hotel-name/
+  - title: apply for exemption for hotel licence
+    url: /application-guidelines/exemption/
+  - title: renew hotel licence
+    url: /application-guidelines/renew-hotel-licence/
+
+# Key Highlights
+key-highlights:
+  - title: Templates and Forms
+    description: Downladable templates and forms
+    url: /resource_room/
+  - title: Google
+    description: LMGTFY
+    url: https://google.com
+    external: true
+  - title: Yahoo
+    description: Another search engine
+    url: https://yahoo.com/
+    external: true
+  - title: Wikipedia
+    description: More information
+    url: https://wikipedia.org
+    external: true
+
+# Programmes Section
+# To edit the programme details, go to programmes.yml
+programmes-title: Programmes
+programmes-subtitle: Co-creating for better value
+programmes-description: Using technology to make an impact, inspire change. We have programmes for citizens, businesses and government agencies to get on board. Be involved now. 
+programmes-more-button: More Programmes
+programmes-more-button-url:
+
+# Resources Section
+resources-title: Resources
+resources-subtitle: Be in the know
+resources-more-button: More Resources
+resources-more-button-url: resources/
+
+# Careers Section
+# To edit the careers details, go to careers-stories.yml
+careers-title: Careers
+careers-subtitle: Be part of the digital transformation
+careers-description: We harness the transformative power of technology to deliver user-centric services for Singapore and Singaporeans. Be part of the team.
+careers-more-button: Explore Opportunities
+careers-more-button-url: https://www.tech.gov.sg/sub/careers
+
+

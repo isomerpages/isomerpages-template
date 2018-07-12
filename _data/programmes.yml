@@ -1,0 +1,23 @@
+##################################
+#                                #
+# Edit this file carefully.      #
+#                                #
+##################################
+
+- title: Beeline
+  category: CITIZEN
+  desc: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores dicta distinctio enim harum labore libero magni non tempora ullam.
+  img: images/programme/citizen/BeeLine.png
+  bg-color: bg-beeline
+
+- title: ParkingSG
+  category: CITIZEN
+  desc: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores dicta distinctio enim harum labore libero magni non tempora ullam.
+  img: images/programme/citizen/ParkingSG.png
+  bg-color: bg-parkingsg
+
+- title: SingPass
+  category: CITIZEN
+  desc: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores dicta distinctio enim harum labore libero magni non tempora ullam.
+  img: images/programme/citizen/SingPass.png
+  bg-color: bg-singpass

@@ -1,0 +1,23 @@
+##################################
+#                                #
+# Edit this file carefully.      #
+#                                #
+##################################
+
+# Who We Are Board Members
+board-members:
+  - name: Person A
+    title: Title A
+    email: person_a@test.com
+  - name: Person B
+    title: Title B
+    email: person_b@test.com
+  - name: Person C
+    title: Title C
+    email: person_c@test.com
+  - name: Person D
+    title: Title D
+    email: person_d@test.com
+  - name: Person E
+    title: Title E
+    email: person_e@test.com

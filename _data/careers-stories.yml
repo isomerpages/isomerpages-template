@@ -1,0 +1,26 @@
+- title: Govtechies Stories
+  name: Kaiwen
+  position: Tech Associate
+  # dept: Government Digital Services, Data Science Division
+  story: We get to experiment and build meaningful things that can bring a positive impact to the lives of Singaporeans.
+  img: images/career/stories/TAP_kaiwen.jpg
+  button-text: Read story
+  button-url: 
+
+- title: Govtechies Stories 1
+  name: Wei Jian
+  position: Tech Associate
+  # dept: Government Digital Services, Data Science Division
+  story: I am always learning something new everyday and there is enough flexibility for me to explore new ways of doing things.
+  img: images/career/stories/TAP_weijian.jpg
+  button-text: Read story
+  button-url: 
+
+- title: Govtechies Stories
+  name: Serena
+  position: Intern
+  # dept: Government Digital Services, Data Science Division
+  story: I like the flexibility of working here, the games provided in the office during our breaks, allows us to recharge ourselves.
+  img: images/career/stories/INTERN_serena.jpg
+  button-text: Read story
+  button-url: 

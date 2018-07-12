@@ -1,0 +1,44 @@
+---
+layout: default
+---
+{% if page.url == "/" %}
+	{% assign notification_content = content | strip_html | strip %}
+	{% if notification_content != "" %}
+		<div id="notification-bar" class="bp-notification bg-secondary is-marginless">
+		    <div class="bp-container">
+		        <div class="row">
+		            <div class="col">
+		            	<div class="field has-addons bp-notification-flex">
+			                <div class="control has-text-centered has-text-white">
+			                    {{ content }}
+			                </div>
+			                <div class="control">
+			        			<a id="cancel-notification" class="button has-text-white">
+							        <span class="delete sgds-icon sgds-icon-cross"></span>
+							    </a>
+			                </div>
+						</div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	{% endif %}
+{% endif %}
+
+<!-- Hero mandatory -->
+{% include homepage/hero.html %}
+
+<!-- Programmes homepage toggle -->
+{% if site.homepage_programmes == true %}
+	{% include homepage/programmes.html %}
+{% endif %}
+
+<!-- Resources homepage toggle -->
+{% if site.homepage_resources == true %}
+	{% include homepage/resources-homepage.html %}
+{% endif %}
+
+<!-- Careers homepage toggle -->
+{% if site.homepage_careers == true %}
+	{% include homepage/careers.html %}
+{% endif %}

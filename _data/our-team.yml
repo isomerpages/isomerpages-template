@@ -1,0 +1,131 @@
+##################################
+#                                #
+# Edit this file carefully.      #
+#                                #
+##################################
+
+# Board of Directors
+board-of-directors:
+  - name: Mr NG Chee Khern
+    title: Chairman
+    organisation: Permanent Secretary (Smart Nation and Digital Government)
+    image-url: /images/our-team/ng-chee-khern.jpg
+  - name: Mr TAN Kok Yam
+    title: Deputy Secretary
+    organisation: Smart Nation and Digital Government
+    image-url: /images/our-team/tan-kok-yam.jpg
+  - name: Mr KOK Ping Soon
+    title: Chief Executive
+    organisation: Government Technology Agency of Singapore
+    image-url: /images/our-team/kok-ping-soon.png
+  - name: Mr David KOH
+    title: Deputy Secretary (Special Projects)/ Defence Cyber Chief, Ministry of Defence and Chief Executive, Cyber Security Agency of Singapore
+    organisation: Cyber Security Agency, Prime Minister’s Office
+    image-url: /images/our-team/david-koh.jpg
+  - name: Mr TAN Kiat How
+    title: Chief Executive
+    organisation: Info-communications Media Development Authority of Singapore
+    image-url: /images/our-team/tan-kiat-how.jpg
+  - name: Prof Freddy BOEY
+    title: Deputy President and Provost
+    organisation: Nanyang Technological University
+    image-url: /images/our-team/freddy-boey.jpg
+  - name: Mr Peter HO
+    title: Chief Executive Officer
+    organisation: HOPE Technik Pte Ltd
+    image-url: /images/our-team/peter-ho.jpg
+  - name: Ms Mariam JAAFAR
+    title: Partner and Managing Director (Singapore)
+    organisation: The Boston Consulting Group
+    image-url: /images/our-team/mariam-jaafar.jpg
+  - name: Mr Alexander KLEINBERG
+    title: Managing Director
+    organisation: MoPub, Asia-Pacific/Japan, Twitter Inc
+    image-url: /images/our-team/alexander-kleinberg.jpg
+  - name: Prof Annie KOH
+    title: Vice President
+    organisation: Office of Business Development, Professor of Finance (Practice) Singapore Management University
+    image-url: /images/our-team/annie-koh.png
+  - name: Dr Bruno LANVIN
+    title: Executive Director
+    organisation: Global Indices INSEAD
+    image-url: /images/our-team/bruno-lanvin.jpg
+  - name: Mr Matt QUINLAN
+    title: Director
+    organisation: Ontrack Advisory
+    image-url: /images/our-team/matt-quinlan.jpg
+  - name: Mr Muthukrishnan RAMASWAMI
+    title: President
+    organisation: Singapore Exchange Ltd
+    image-url: /images/our-team/muthukrishnan-ramaswami.jpg
+  - name: Mr TAN Peng Yam
+    title: Chief Executive
+    organisation: Defence Science and Technology Agency
+    image-url: /images/our-team/tan-peng-yam.jpg
+
+# Senior Leadership
+senior-leadership:
+  - name: Mr KOK Ping Soon
+    title: Chief Executive
+    organisation: Government Technology Agency of Singapore
+    image-url: /images/our-team/kok-ping-soon.png
+  - name: Mr CHAN Cheow Hoe
+    title: Deputy Chief Executive
+    organisation: Products
+    image-url: /images/our-team/chan-cheow-hoe.jpg
+  - name: Mr FOONG Sew Bun
+    title: Deputy Chief Executive
+    organisation: Services, Governance & Cybersecurity
+    image-url: /images/our-team/foong-sew-bun.jpg
+  - name: Ms LIM Bee Kwan
+    title: Assistant Chief Executive
+    organisation: Governance & Cybersecurity
+    image-url: /images/our-team/lim-bee-kwan.jpg
+  - name: Mr TAN Eng Pheng
+    title: Assistant Chief Executive
+    organisation: Services
+    image-url: /images/our-team/tan-eng-pheng.jpg
+  - name: Mr CHAI Chin Loon
+    title: Senior Director
+    organisation: Cyber Security Group
+    image-url: /images/our-team/chai-chin-loon.jpg
+  - name: Mr KWOK Quek Sin
+    title: Senior Director
+    organisation: National Digital Identity
+    image-url: /images/our-team/kwok-quek-sin.png
+  - name: Ms ONG Seok Leng
+    title: Senior Director
+    organisation: Governance Group
+    image-url: /images/our-team/ong-seok-leng.jpg
+  - name: Ms Jacqueline LIM
+    title: Acting Senior Director
+    organisation: Government Infrastructure Group
+    image-url: /images/our-team/jacqueline-lim.png
+  - name: Mr Parimal ASWANI
+    title: Director
+    organisation: Government Digital Services
+    image-url: /images/our-team/parimal-aswani.jpg
+  - name: Mr LIU Feng Yuan
+    title: Director
+    organisation: Data Science and Artificial Intelligence
+    image-url: /images/our-team/liu-feng-yuan.jpg
+  - name: Ms Evangeline CHUA
+    title: Chief People Officer
+    organisation: People & Organisation Group
+    image-url: /images/our-team/evangeline-chua.jpg
+  - name: Mr Vincent KOR
+    title: General Counsel
+    organisation: Legal
+    image-url: /images/our-team/vincent-kor.jpg
+  - name: Ms LEE Kai Nee
+    title: Chief Financial Officer
+    organisation: Finance, Investment & Procurement
+    image-url: /images/our-team/lee-kai-nee.jpg
+  - name: Mr LIM Keng Soon
+    title: Chief Communications Officer
+    organisation: Communications and Marketing Group
+    image-url: /images/our-team/lim-keng-soon.jpg
+  - name: Ms Jennifer TAN
+    title: Director
+    organisation: Strategic Planning and International
+    image-url: /images/our-team/jennifer-tan.jpg

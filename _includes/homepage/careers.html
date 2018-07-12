@@ -1,0 +1,82 @@
+{% assign homepage = site.data.homepage %}
+{% assign careers-stories = site.data.careers-stories %}
+
+<section class="bp-section">
+    <div class="bp-container is-fluid">
+        <div class="row">
+            <div class="col is-half is-offset-one-quarter has-text-centered padding--top--xl">
+                <p class="padding--bottom eyebrow is-uppercase">
+                    {{ homepage.careers-title }}
+                </p>
+                <h1 class="has-text-secondary padding--bottom">
+                    <b>{{ homepage.careers-subtitle }}</b>
+                </h1>
+                <h5 class="padding--bottom">
+                    {{ homepage.careers-description }}
+                </h5>
+            </div>
+        </div>
+    </div>
+    <div class="row has-text-centered margin--top padding--bottom">
+        <div class="col is-offset-one-third is-one-third">
+            <a href="{{ homepage.careers-more-button-url }}" class="bp-sec-button">
+                <div>
+                    <span>{{ homepage.careers-more-button }}</span>
+                    <i class="sgds-icon sgds-icon-arrow-right" aria-hidden="true"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<section class="bp-section is-full career-container is-paddingless">
+    <div class="bp-container is-fluid is-full is-marginless">
+        <div class="row is-gapless">
+            <div class="col has-carousel is-position-relative bg-gradient">
+                <div class="career-carousel owl-theme owl-carousel">
+
+                    {%- for story in careers-stories -%}
+                    <div class="item">
+                        <div class="career-item padding--xl">
+
+                            <p class="eyebrow has-text-white is-uppercase padding--bottom--lg">{{story.title}}</p>
+                            <h3 class="has-text-white padding--bottom has-text-weight-normal">"{{story.story}}"</h3>
+                            <h5 class="has-text-weight-bold has-text-white is-hidden-desktop padding--bottom">- {{story.name}}, {{story.position}}</h5>
+                            <a href="{{ story.button-url }}" class="bp-button is-white is-outlined is-medium margin--top--lg">
+                                <span class="is-uppercase">{{ story.button-text }}&nbsp;</span>
+                            </a>
+
+                        </div>
+                    </div>
+                    {%- endfor -%}
+
+                </div>
+                <div class="carousel-nav-container career-nav is-hidden-touch">
+                    <div class="carousel-nav left">
+                        <i class="sgds-icon sgds-icon-angle-left" aria-hidden="true"></i>
+                    </div>
+                    <div class="carousel-nav right">
+                        <i class="sgds-icon sgds-icon-angle-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col has-carousel is-hidden-touch">
+                <div class="career-carousel owl-theme owl-carousel">
+
+                    {%- for story in careers-stories -%}
+                    <div class="item">
+                        <div class="career-item">
+                            <img src="{{story.img}}" alt="">
+                            <div class="profile-content">
+                                <h5 class="has-text-weight-bold">{{story.name}}, {{story.position}}</h5>
+                                <p>{{story.dept}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {%- endfor -%}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,78 @@
+{% assign homepage = site.data.homepage %}
+{% assign programmes = site.data.programmes %}
+
+<section class="bp-section">
+    <div class="bp-container is-fluid">
+        <div class="row">
+            <div class="col is-half is-offset-one-quarter has-text-centered padding--top--xl">
+                <p class="padding--bottom eyebrow is-uppercase">
+                    {{ homepage.programmes-title }}
+                </p>
+                <h1 class="has-text-secondary padding--bottom"><b>{{ homepage.programmes-subtitle }}</b></h1>
+                <h5> {{ homepage.programmes-description }} </h5>
+            </div>
+        </div>
+    </div>
+    <div class="row has-text-centered margin--top padding--bottom">
+        <div class="col is-offset-one-third is-one-third">
+            <a href="{{ homepage.programmes-more-button-url }}" class="bp-sec-button">
+                <div>
+                    <span>{{ homepage.programmes-more-button }}</span>
+                    <i class="sgds-icon sgds-icon-arrow-right" aria-hidden="true"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="bp-section is-full programme-container bg-newssection is-paddingless">
+    <div class="bp-container is-fluid is-full is-marginless">
+        <div class="row is-gapless bg-gradient offset-margin">
+            <div class="col has-carousel">
+                <div class="owl-theme owl-carousel programme-carousel ">
+                    {%- for programme in programmes -%}
+                    <div class="item {{programme.bg-color}}">
+                        <img src="{{programme.img}}" alt="">
+                        <p class="has-text-white is-hidden-desktop padding--left--sm has-text-centered-touch">{{programme.category}}</p>
+                        <h3 class="has-text-weight-bold has-text-white is-hidden-desktop padding--left--sm padding--bottom--sm has-text-centered-touch">{{programme.title}}</h3>
+                    </div>
+                    {%- endfor -%}
+
+                </div>
+            </div>
+        </div>
+        <div class="row offset-top  is-hidden-touch">
+            <div class="col is-8 is-offset-2 has-carousel">
+                <div class="programme-carousel owl-carousel">
+                    {%- for programme in programmes -%}
+                    <div class="item bg-white">
+                        <div class="row padding">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col is-3 has-text-centered-touch">
+                                        <small class="has-text-grey">{{programme.category}}</small>
+                                        <h3 class="has-text-weight-bold has-text-grey-dark-">{{programme.title}}</h3>
+                                    </div>
+                                    <div class="col is-9 is-hidden-touch">
+                                        <p>{{programme.desc}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {%- endfor -%}
+                </div>
+            </div>
+            <div class="col">
+                <div class="carousel-nav-container programme-nav">
+                    <div class="carousel-nav left">
+                        <i class="sgds-icon sgds-icon-angle-left" aria-hidden="true"></i>
+                    </div>
+                    <div class="carousel-nav right">
+                        <i class="sgds-icon sgds-icon-angle-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

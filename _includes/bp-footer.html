@@ -1,0 +1,85 @@
+<footer class="bp-footer top-section">
+    <div class="bp-container ">
+        <div class="row">
+            <div class="col footer-col header padding--top--lg padding--bottom--lg">
+                <h5 class="sub-header has-text-white"><b>{{site.title}}</b></h5>
+            </div>
+        </div>
+        <div class="row is-top">
+            {%- assign links = site.data.footer -%}
+
+            <!-- Footer links for tablet/desktop -->
+            {%- for link in links -%}
+            {% include links-baseurl.html %}
+                <div class="col footer-col is-hidden-mobile">
+                  {%- if base-url == "" -%}
+                    <p class="sub-header"><b><a class="has-text-white" href="{{ base-url }}{{ link.url }}" target="_blank">{{link.title}}</a></b></p>
+                  {% else %}
+                    <p class="sub-header"><b><a class="has-text-white" href="{{ base-url }}{{ link.url }}">{{link.title}}</a></b></p>
+                  {% endif %}
+                  {%- for sublink in link.sub-links -%}
+                    {% include sublinks-baseurl.html %}
+                    {%- if sublink-base-url == "" -%}
+                      <p class="is-hidden-mobile"><a href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank">{{sublink.title}}</a></p>
+                    {% else %}
+                      <p class="is-hidden-mobile"><a href="{{ sublink-base-url }}{{ sublink.url }}">{{sublink.title}}</a></p>
+                    {% endif %}
+                  {%- endfor -%}
+                </div>
+            {%- endfor -%}
+            <div class="col footer-col is-hidden-mobile"></div>
+
+            <!-- Footer links for mobile -->
+            <div class="col footer-col is-hidden-tablet is-hidden-desktop">
+              {%- for link in links -%}
+                {% include links-baseurl.html %}
+                {%- if base-url == "" -%}
+                  <p><a href="{{ base-url }}{{ link.url }}" target="_blank">{{link.title}}</a></p>
+                {% else %}
+                  <p><a href="{{ base-url }}{{ link.url }}">{{link.title}}</a></p>
+                {% endif %}
+              {%- endfor -%}
+            </div>
+
+        </div>
+        <div class="row">
+          <div class="col footer-col padding--top--sm padding--bottom--sm is-right-desktop-only">
+            <ul>
+               <li class="is-inline-block-desktop-only">
+                   <p><a href="{{site.baseurl}}/contact-us/">Contact Us</a></p>
+               </li>
+               <li class="is-inline-block-desktop-only">
+                  <p><a href="{{site.feedback_form_url}}" target="_blank">Feedback</a></p>
+               </li>
+               <li class="is-inline-block-desktop-only">
+                   <p><a href="http://www.ifaq.gov.sg/HLB/apps/Fcd_faqmain.aspx" target="_blank">FAQ</a></p>
+               </li>
+           </ul>
+          </div>
+        </div>
+    </div>
+</footer>
+<footer class="bp-footer bottom-section">
+    <div class="bp-container ">
+        <div class="row is-vcentered">
+          <div class="col footer-col padding--top--none padding--bottom--none">
+            <div class="col footer-col divider padding--top--none padding--bottom--none"></div>
+          </div>
+        </div>
+        <div class="row is-vcentered padding--top--sm">
+            <div class="col footer-col">
+                <ul>
+                    <li><a href="{{site.baseurl}}/privacy/">Privacy Statement</a></li>
+                    <li><a href="{{site.baseurl}}/terms-of-use/">Terms of Use</a></li>
+                    <!-- <li><a>Rate Service</a></li> -->
+                </ul>
+            </div>
+            <div class="col footer-col has-text-right-desktop has-text-right-tablet has-text-left-mobile">
+                <p class="is-hidden-touch"> © {{ site.time | date: "%Y" }} Singapore Government. Last Updated {{ site.time | date_to_string }}</p>
+                <p class="is-hidden-desktop">© {{ site.time | date: "%Y" }} Singapore Government</p>
+                <p class="is-hidden-desktop last-updated">Last Updated {{ site.time | date_to_string }}</b>
+            </div>
+
+        </div>
+    </div>
+</footer>

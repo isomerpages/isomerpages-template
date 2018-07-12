@@ -1,0 +1,29 @@
+##################################
+#                                #
+# Edit this file carefully.      #
+#                                #
+##################################
+
+- product:
+  title: Product 1
+  description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur cum debitis delectus hic impedit, molestiae molestias porro quisquam rerum.
+  bg-img: 'http://placehold.it/1920x1080'
+  link:
+
+- product:
+  title: Product 2
+  description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur cum debitis delectus hic impedit, molestiae molestias porro quisquam rerum.
+  bg-img: 'http://placehold.it/1920x1080'
+  link:
+
+- product:
+  title: Product 3
+  description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur cum debitis delectus hic impedit, molestiae molestias porro quisquam rerum.
+  bg-img: 'http://placehold.it/1920x1080'
+  link: /
+
+- product:
+  title: Product 4
+  description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur cum debitis delectus hic impedit, molestiae molestias porro quisquam rerum.
+  bg-img: 'http://placehold.it/1920x1080'
+  link: /

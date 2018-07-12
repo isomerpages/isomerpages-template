@@ -1,0 +1,160 @@
+---
+layout: default
+---
+{%- assign collection-name = page.collection_name -%}
+{% assign current-collection = site[collection-name] %}
+
+
+<section class="bp-section is-small bp-section-pagetitle">
+    <div class="bp-container ">
+        {% include header-breadcrumb.html %}
+    </div>
+    <div class="bp-container ">
+        <div class="row">
+            <div class="col">
+                <h1 class="has-text-white"><b>{{page.title}}</b></h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bp-section padding--none is-hidden-desktop">
+    <div class="bp-dropdown">
+        <div class="bp-dropdown-trigger">
+            <a class="bp-button bp-dropdown-button is-fullwidth" aria-haspopup="true" aria-controls="dropdown-menu">
+                <span><b><p>{{page.title}}</p></b></span>
+                <span class="icon is-small">
+                    <i class="sgds-icon sgds-icon-angle-down" aria-hidden="true"></i>
+                </span>
+            </a>
+        </div>
+        <div class="bp-dropdown-menu has-text-left" id="dropdown-menu" role="menu">
+            <div class="bp-dropdown-content">
+                <!-- <a href="#" class="bp-dropdown-item"> -->
+                    {% for collection-document in current-collection %}
+                        {% if page.url == collection-document.permalink %}
+                        <!-- <div class="bp-section padding--top--none padding--bottom--none"> -->
+                            <a class="bp-dropdown-item has-text-secondary" href="{{ site.baseurl }}{{collection-document.permalink}}">
+                                <b><p>{{collection-document.title}}</p></b>
+                            </a>
+                        <!-- </div> -->
+                        {% else %}
+                        <!-- <div class="bp-section"> -->
+                            <a class="bp-dropdown-item" href="{{ site.baseurl }}{{collection-document.permalink}}">
+                                <p>{{collection-document.title}}</p>
+                            </a>
+                        <!-- </div> -->
+                        {% endif %}
+                    {% endfor %}
+                <!-- </a> -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- <section class="bp-section bg-secondary is-hidden-desktop padding--top--none padding--bottom--none">
+    <div class="row is-hidden-desktop margin--none">
+        <div class="col padding--left--none padding--right--none">
+            <div class="bp-dropdown">
+                <div class="bp-dropdown-trigger">
+                    <a class="bp-button is-large padding--none" aria-haspopup="true" aria-controls="dropdown-menu">
+                        <span>{{page.title}}</span>
+                        <span class="icon is-small">
+                            <i class="sgds-icon sgds-icon-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+                <div class="bp-dropdown-menu has-text-left" id="dropdown-menu" role="menu">
+                    <div class="bp-dropdown-content">
+                        <a href="#" class="bp-dropdown-item">
+                            {% for collection-document in current-collection %}
+                                {% if page.url == collection-document.permalink %}
+                                    <a class="bp-dropdown-item" href="{{ site.baseurl }}{{collection-document.permalink}}"><b>{{collection-document.title}}</b></a>
+                                {% else %}
+                                    <a class="bp-dropdown-item" href="{{ site.baseurl }}{{collection-document.permalink}}">{{collection-document.title}}</a>
+                                {% endif %}
+                            {% endfor %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<section class="bp-section">
+    <div class="bp-container padding--bottom--xl">
+        <div class="row">
+            <div class="col is-2 is-position-relative has-side-nav is-hidden-touch">
+                <div class="sidenav">
+                    <aside class="bp-menu is-gt sidebar__inner">
+                        <ul class="bp-menu-list">
+                            {% for collection-document in current-collection %}
+                            <li>
+                                {% if page.url == collection-document.permalink %}
+                                <b><a class="is-active"
+                                      href="{{ site.baseurl }}{{collection-document.permalink}}">{{collection-document.title}}</a></b>
+                                {% else %}
+                                <a href="{{ site.baseurl }}{{collection-document.permalink}}">{{collection-document.title}}</a>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+            <div class="col is-8 is-offset-1-desktop is-12-touch">
+                <div class="row">
+                    <div class="col">
+                        {{content}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% for collection-document in current-collection %}
+    {% if page.url == collection-document.permalink %}
+        <!-- If the page is the first in the list -->
+        {% if forloop.first %}
+            {% assign nextIndex = forloop.index0 | plus: 1 %}
+            <section class="bp-section bottom-navigation">
+                <div>
+                    <a href="{{ site.baseurl }}{{current-collection[nextIndex].permalink}}" class="is-full is-right">
+                        <p class="has-text-weight-semibold">NEXT <span class="sgds-icon sgds-icon-arrow-right"></span></p>
+                        <p class="is-hidden-mobile">{{ current-collection[nextIndex].title }}</p>
+                    </a>
+                </div>
+            </section>
+
+        <!-- If the page is last in the list -->
+        {% elsif forloop.last %}
+            {% assign prevIndex = forloop.index0 | minus: 1 %}
+
+            <section class="bp-section bottom-navigation">
+                <div>
+                    <a href="{{ site.baseurl }}{{current-collection[prevIndex].permalink}}" class="is-full">
+                        <p class="has-text-weight-semibold"><span class="sgds-icon sgds-icon-arrow-left"></span> PREVIOUS </p>
+                        <p class="is-hidden-mobile">{{ current-collection[prevIndex].title }}</p>
+                    </a>
+                </div>
+            </section>
+
+        <!-- For all other intermediate pages in the list -->
+        {% else %}
+            {% assign prevIndex = forloop.index0 | minus: 1 %}
+            {% assign nextIndex = forloop.index0 | plus: 1 %}
+
+            <section class="bp-section bottom-navigation">
+                <div>
+                    <a href="{{ site.baseurl }}{{current-collection[prevIndex].permalink}}" class="is-half is-left">
+                        <p class="has-text-weight-semibold"><span class="sgds-icon sgds-icon-arrow-left"></span> PREVIOUS </p>
+                        <p class="is-hidden-mobile">{{ current-collection[prevIndex].title }}</p>
+                    </a>
+                    <a href="{{ site.baseurl }}{{current-collection[nextIndex].permalink}}" class="is-half is-right">
+                        <p class="has-text-weight-semibold">NEXT <span class="sgds-icon sgds-icon-arrow-right"></span></p>
+                        <p class="is-hidden-mobile">{{ current-collection[nextIndex].title }}</p>
+                    </a>
+                </div>
+            </section>
+        {% endif %}
+    {% endif %}
+{% endfor %}

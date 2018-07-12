@@ -1,0 +1,109 @@
+---
+layout: default
+---
+
+<section class="bp-section is-small bp-section-pagetitle">
+    <div class="bp-container ">
+        {% include header-breadcrumb.html %}
+    </div>
+    <div class="bp-container ">
+        <div class="row">
+            <div class="col">
+                <h1 class="has-text-white"><b>{{page.title}}</b></h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bp-section">
+	<div class="bp-container padding--top--lg">
+	    <div class="row">
+	      <div class="col content is-8 is-offset-2">
+	    		{{content}}
+	      </div>
+	    </div>
+		<div class="row">
+			<div class="col padding--top--lg">
+				<span class="bp-sec-button has-text-centered">
+					<a class="is-uppercase media-category-button selected" id="citizens-button"><b>Citizens</b></a>
+					<a class="is-uppercase media-category-button" id="business-button"><b>Business</b></a>
+					<a class="is-uppercase media-category-button" id="government-button"><b>Government</b></a>
+				</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="bp-section" id="citizens">
+	<div class="bp-container">
+		<div class="row is-multiline">
+			{% for document in site.initiatives %}
+				{% if document.tag == "citizens" %}
+					<div class="col is-4 padding--bottom--lg">
+						<a href="{{ document.permalink | relative_url }}">
+		                <img src="{{site.baseurl}}{{document.thumbnail_image}}" alt="">
+		                <div class="news-content">
+		                    <div>
+		                        <small class="tag is-uppercase padding--bottom--sm">{{document.tag}}</small>
+		                        <h3 class="title">
+		                        <p>{{document.title}}</p>
+		                        </h3>
+		                    </div>
+		                </div>
+		                </a>
+		            </div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<section class="bp-section" id="business">
+	<div class="bp-container">
+		<div class="row is-multiline">
+			{% for document in site.initiatives %}
+				{% if document.tag == "business" %}
+					<div class="col is-4 padding--bottom--lg">
+						<a href="{{ document.permalink | relative_url }}">
+		                <img src="{{site.baseurl}}{{document.thumbnail_image}}" alt="">
+		                <div class="news-content">
+		                    <div>
+		                        <small class="tag has-text-grey is-uppercase padding--bottom--sm">{{document.tag}}</small>
+		                        <h3 class="title">
+		                        <p class="has-text-grey-dark">{{document.title}}</p>
+		                        </h3>
+		                    </div>
+		                </div>
+		                </a>
+		            </div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<section class="bp-section" id="government">
+	<div class="bp-container">
+		<div class="row is-multiline">
+			{% for document in site.initiatives %}
+				{% if document.tag == "government" %}
+					<div class="col is-4 padding--bottom--lg">
+						<a href="{{ document.permalink | relative_url }}">
+		                <img src="{{site.baseurl}}{{document.thumbnail_image}}" alt="">
+		                <div class="news-content">
+		                    <div>
+		                        <small class="tag has-text-grey is-uppercase padding--bottom--sm">{{document.tag}}</small>
+		                        <h3 class="title">
+		                        <p class="has-text-grey-dark">{{document.title}}</p>
+		                        </h3>
+		                    </div>
+		                </div>
+		                </a>
+		            </div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<script src="{{ "/assets/js/initiatives.js" | relative_url }}"></script>

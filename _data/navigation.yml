@@ -1,0 +1,36 @@
+##################################
+#                                #
+# Edit this file carefully.      #
+#                                #
+##################################
+
+# This file contains the structure for the top navigation
+
+- title: APPLICATION GUIDELINES
+  url: /application-guidelines/lorem-ipsum-one/
+  sub-links:
+  - title: Lorem Ipsum One
+    url: /application-guidelines/lorem-ipsum-one/ 
+  - title: Lorem Ipsum Two
+    url: /application-guidelines/lorem-ipsum-two/ 
+- title: LEGISLATION
+  url: https://google.com
+  external: true
+  sub-links:
+  - title: External Link One
+    url: https://en.wikipedia.org/wiki/Year
+    external: true
+  - title: External Link Two
+    url: https://en.wikipedia.org/wiki/Spring_(season)
+    external: true
+- title: RESOURCES
+  url: /resource_room/
+  sub-links:
+  - title: Forms and Templates
+    url: /resource_room/forms-and-templates/
+  - title: Guides
+    url: /resource_room/guides/
+- title: WHO WE ARE
+  url: /who-we-are/
+- title: CONTACT US
+  url: /contact-us/

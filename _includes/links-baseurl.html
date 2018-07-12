@@ -1,0 +1,6 @@
+<!-- This deals with the mixture of internal and external links -->
+
+{% assign base-url = "" %}
+{% if link.external != true %}
+  {% assign base-url = {{site.baseurl}} %}
+{% endif %}

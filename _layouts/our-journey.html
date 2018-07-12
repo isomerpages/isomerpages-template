@@ -1,0 +1,29 @@
+---
+layout: leftnav-page-content
+---
+
+{{ content }}
+
+<!-- Accordion section -->
+{% assign our-journey = site.data.our-journey %}
+{% for our-journey-section in our-journey %}
+	<!-- Accordion header -->
+	<div class="col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless">
+		<div class="col is-expanded is-fullwidth is-paddingless">
+			<h4 class="has-text-grey-dark is-marginless"><b> {{ our-journey-section.title }}
+			</b></h4>
+		</div>
+		<span class="sgds-icon sgds-icon-plus is-size-5 bp-accordion-button"></span>
+	</div>
+	<!-- Accordion body -->
+	<div id="accordion-body-{{forloop.index0}}" class="col padding bp-accordion-body">
+		{% for year in our-journey-section.years %}
+			<h3 class="margin--top--none"><b>{{ year.subtitle }}</b></h3>
+			{% for information in year.description %}
+				<p class="margin--top--none">{{ information.line }}</p>
+			{% endfor %}
+			{% if forloop.last == false %}<hr>{% endif %}
+		{% endfor %}
+		<br />
+	</div>
+{% endfor %}

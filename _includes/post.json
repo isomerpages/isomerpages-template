@@ -1,0 +1,6 @@
+{
+    "id": "{{- index -}}",
+    "url": "{{- post.permalink | relative_url -}}{{- post.file_url | relative_url -}}",
+    "title": "{{- post.title -}}",
+    "content": "{{- post.content | markdownify | strip_html | remove: '<br>' | remove: '\"' | strip_newlines -}}",
+}

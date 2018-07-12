@@ -1,0 +1,76 @@
+{% assign homepage = site.data.homepage %}
+
+<section class="bp-section bg-newssection">
+    <div class="bp-container">
+        <div class="row">
+            <div class="col is-half is-offset-one-quarter has-text-centered padding--top--xl">
+                <p class="padding--bottom eyebrow is-uppercase">
+                    {{ homepage.resources-title }}
+                </p>
+                <h1 class="has-text-secondary padding--bottom"><b>{{ homepage.resources-subtitle }}</b></h1>
+            </div>
+        </div>
+        <div class="row padding--bottom">
+            {% for post in site.posts limit:3 %}
+            <div class="col">
+                <!-- Define category_index - the index used to determine the bg-color-{{category_index}} -->
+                {% for category in site.categories %}
+                    {%- capture category_name -%} {{- category | first -}} {% endcapture %}
+                    {%- if category_name == post.categories[1] -%}
+                        {% assign category_index = forloop.index0 %}
+                    {% endif %}
+                {% endfor %}
+                {% if post.image %}
+                <div class="image-card">
+                    <a href="{{ post.url | relative_url | append: '.html'}}" class="has-text-grey-dark">
+                    <img src="{{site.baseurl}}{{post.image}}" alt="">
+                    <div class="news-content bg-media-color-{{category_index}} media-card-plain padding--lg">
+                        <div>
+                            <small class="tag padding--bottom">{{ post.categories[1] | upcase | replace: '-', ' ' }}</small>
+                            <h5>
+                            <b>{{ post.title | truncatewords: 10 }}</b>
+                            </h5>
+                        </div>
+                        <small class="date is-uppercase padding--top--lg">
+                            {{ post.date | date_to_string }}
+                        </small>
+                    </div>
+                    </a>
+                </div>
+                {% else %}
+                    {% if post.permalink %}
+                        <a href="{{ post.permalink | relative_url }}">
+                    {% else %}
+                        <a href="{{ post.file_url | relative_url }}">
+                    {% endif %}
+
+                    <div class="media-card-plain bg-media-color-{{category_index}} padding--lg"  style="height:100%">
+                        <div>
+                            <small class="has-text-white padding--bottom">{{ post.categories[1] | upcase | replace: '-', ' ' }}</small>
+                            <h4 class="has-text-white padding--bottom--lg" style="line-height: 2.25rem"><b>{{ post.title | truncatewords: 15 }}</b></h4>
+                        </div>
+                        <div class="is-fluid padding--top--md description">
+                            <small class="has-text-white">{{ post.date | date_to_string | upcase }}</small>
+                            {% if post.file_url %}
+                                <small class="has-text-white">
+                                    <span class="sgds-icon sgds-icon-download align-right"></span>
+                                </small>
+                            {% endif %}
+                        </div>
+                    </div>
+                    </a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row has-text-centered margin--top padding--bottom--xl">
+            <div class="col is-offset-one-third is-one-third">
+                <a href="{{ homepage.resources-more-button-url }}" class="bp-sec-button">
+                    <div>
+                        <span>{{ homepage.resources-more-button }}</span>
+                        <i class="sgds-icon sgds-icon-arrow-right" aria-hidden="true"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+</section>

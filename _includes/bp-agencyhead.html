@@ -1,0 +1,138 @@
+<div class="masthead-container" id="navbar">
+{% include bp-masthead.html %}
+    <nav class="navbar is-transparent">
+        <div class="bp-container">
+
+        {% assign homepage = site.data.homepage %}
+
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{{ site.baseurl }}/">
+                <img src="{{ site.baseurl }}{{ homepage.agency-logo }}" alt="" width="240" height="27.406">
+            </a>
+            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="navbarExampleTransparentExample" class="bp-container is-fluid margin--none navbar-menu">
+            <div class="navbar-start">
+                <div class="navbar-item is-hidden-widescreen is-search-bar">
+                    <form action="{{ site.baseurl }}/search/" method="get">
+                        <div class="field has-addons">
+                            <div class="control has-icons-left is-expanded">
+                                <input class="input is-fullwidth" id="search-box" type="text" placeholder="What are you looking for?" name="query">
+                                <span class="is-large is-left">
+                                  <i class="sgds-icon sgds-icon-search search-bar"></i>
+                                </span>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+    <!--             {%- assign links = site.data.navigation -%}
+
+                {%- for link in links -%}
+                    {% assign class = nil %}
+                    {% if page.url contains link.url %}
+                        {% assign class = 'active' %}
+                    {% endif %}
+                    <div class="navbar-item">
+                        <a class="{{class}}" href="{{link.url}}" target="{{link.target}}">
+                            {{link.title}}
+                        </a>
+                        <div class="selector {{class}} is-hidden-touch"></div>
+                    </div>
+
+                {%- endfor -%}
+            </div> -->
+
+                {%- assign links = site.data.navigation -%}
+                {%- for link in links -%}
+                    {% include links-baseurl.html %}
+                    <!-- Generates base-url based on whether the link is internal or external -->
+
+                    {%- assign class = nil -%}
+                    {%- if page.url contains link.url -%}
+                        {%- assign class = 'active' -%}
+                    {%- endif -%}
+                    {%- if link.sub-links -%}
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        {%- if base-url == "" -%}
+                        <a class="navbar-link" href="{{ base-url }}{{ link.url }}" target="_blank">
+                            {{ link.title }}
+                        </a>
+                        {%- else -%}
+                        <a class="navbar-link" href="{{ base-url }}{{ link.url }}">
+                            {{ link.title }}
+                        </a>
+                        {% endif %}
+                        <div class="selector {{class}} is-hidden-touch is-hidden-desktop-only"></div>
+                        <div class="navbar-dropdown">
+                            {%- for sublink in link.sub-links -%}
+                                {%- include sublinks-baseurl.html -%}
+                                {%- assign class = nil -%}
+                                    {%- if page.url contains sublink.url -%}
+                                        {%- if sublink-base-url == "" -%}
+                                        <a class="navbar-item sub-link is-active" href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank">
+                                            {{ sublink.title }}
+                                        </a>
+                                        {% else %}
+                                        <a class="navbar-item sub-link is-active" href="{{ sublink-base-url }}{{ sublink.url }}">
+                                            {{ sublink.title }}
+                                        </a>
+                                        {% endif %}
+
+                                    {%- else -%}
+                                        {%- if sublink-base-url == "" -%}
+                                        <a class="navbar-item sub-link" href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank">
+                                            {{ sublink.title }}
+                                        </a>
+                                        {% else %}
+                                        <a class="navbar-item sub-link" href="{{ sublink-base-url }}{{ sublink.url }}">
+                                            {{ sublink.title }}
+                                        </a>
+                                        {% endif %}
+                                    {%- endif -%}
+                            {%- endfor -%}
+                        </div>
+                    </div>
+                    {%- else -%}
+                    <li class="navbar-item">
+                        {%- if base-url == "" -%}
+                        <a href="{{ base-url }}{{ link.url }}" target="_blank">{{ link.title }}</a>
+                        {% else %}
+                        <a href="{{ base-url }}{{ link.url }}">{{ link.title }}</a>
+                        {% endif %}
+                        <div class="selector {{class}} is-hidden-touch"></div>
+                    </li>
+                    {%- endif -%}
+                {%- endfor -%}
+            </div>
+
+            <div class="navbar-end is-hidden-touch is-hidden-desktop-only">
+                <div class="navbar-item">
+                    {% if page.layout != 'search' %}
+                    <a class="bp-button is-text is-large" style="text-decoration: none" id="search-activate">
+                        <span class="sgds-icon sgds-icon-search is-size-4"></span>
+                    </a>
+                    {% else %}
+                    <a class="bp-button is-text is-large" style="text-decoration: none; pointer-events: none;" id="search-activate" disabled></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <div class="bp-container hide is-hidden-touch is-hidden-desktop-only search-bar" id="search-bar">
+        <div class="row margin--top--sm margin--bottom--sm is-gapless">
+
+            <div class="col">
+                <form action="{{ site.baseurl }}/search/" method="get">
+                    {% include bp-search-box.html %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

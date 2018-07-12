@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+<section class="bp-section is-small bp-section-pagetitle">
+    <div class="bp-container">
+        {% include header-breadcrumb.html %}
+    </div>
+    <div class="bp-container">
+        <div class="row">
+            <div class="col">
+                <h1 class="has-text-white"><b>{{page.title}}</b></h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bp-section">
+	<div class="bp-container content padding--top--lg padding--bottom--xl">
+	    <div class="row">
+		    <div class="col is-8 is-offset-2">
+		    	{{ content }}
+	    	</div>
+	    </div>
+	    {% for member in site.data.who-we-are.board-members %}
+		    {% assign index = forloop.index0 | modulo:2 %}
+		    {% if index == 0 %}
+		    <div class="row person-info">
+		    	<div class="col is-4 is-offset-2">
+					<p><b>{{ member.name }}</b><br>
+					<small>{{ member.title }}</small><br>
+					<a href="mailto:{{member.email}}">{{ member.email }}</a>
+	        		</p>
+				</div>
+				
+				{% if forloop.last == true %}
+				</div>
+				{% endif %}
+			{% endif %}
+
+			{% if index == 1 %}
+		    	<div class="col is-4">
+					<p><b>{{ member.name }}</b><br>
+					<small>{{ member.title }}</small><br>
+					<a href="mailto:{{member.email}}">{{ member.email }}</a>
+	        		</p>
+				</div>
+			</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+</section>

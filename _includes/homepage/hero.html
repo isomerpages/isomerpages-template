@@ -1,0 +1,76 @@
+{% assign homepage = site.data.homepage %}
+
+<style>
+
+  .bg-hero {
+    background: url('{{homepage.hero-banner}}') no-repeat top left;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+  
+</style>
+{%- assign collection-name = page.collection_name -%}
+{% assign current-collection = site[collection-name] %}
+
+<section class="bp-hero bg-hero">
+    <div class="bp-hero-body">
+        <div class="bp-container ">
+            <div class="row is-vcentered">
+                <div class="col is-8 is-offset-2 has-text-centered has-text-white">
+                  <h1 class="display padding--bottom--lg margin--none">
+                    <b class="is-hidden-touch">{{ homepage.hero-title }}</b>
+                    <b class="is-hidden-desktop">{{ homepage.hero-title }}</b>
+                  </h1>
+                  <h5 class="is-hidden-mobile padding--bottom--sm">
+                    {{ homepage.hero-subtitle }}
+                  </h5>
+              </div>
+            </div>
+        </div>
+        {% if site.homepage_hero_i_want_to == true %}
+        <div class="bp-container">
+          <div class="bp-dropdown">
+            <div class="bp-dropdown-trigger">
+                <a class="bp-button bp-dropdown-button is-three-fifths-mobile hero-dropdown is-centered" aria-haspopup="true" aria-controls="dropdown-menu"">
+                    <span><b><p>I want to...</p></b></span>
+                    <span class="icon is-small">
+                        <i class="sgds-icon sgds-icon-angle-down" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+            <div class="bp-dropdown-menu has-text-left" id="dropdown-menu" role="menu" >
+                <div class="bp-dropdown-content is-three-fifths-mobile is-centered">
+                  {% for element in homepage.i-want-to %}
+                  <a class="bp-dropdown-item" href="{{ site.baseurl }}{{element.url}}">
+                      <b><p>{{element.title}}</p></b>
+                  </a>
+                  {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% if site.homepage_hero_i_want_to == false %}
+<section id="key-highlights" class="bp-section is-paddingless">
+    <div class="bp-container">
+       <div class="row is-gapless has-text-centered">
+          {% for link in homepage.key-highlights %}
+
+          <div class="col">
+            {% include links-baseurl.html %}
+            {% if base-url == "" %}
+            <a href="{{ base-url }}{{ link.url }}" target="_blank">
+            {% else %}
+            <a href="{{ base-url }}{{ link.url }}">
+            {% endif %}
+              <p class="has-text-weight-semibold has-text-white key-highlight-title is-uppercase padding--top--xs">{{ link.title }}</p>
+              <p class="has-text-white-trans padding--bottom--sm">{{ link.description }}</p>
+            </a>
+          </div>
+
+          {% endfor %}
+       </div>
+    </div>
+</section>
+{% endif %}
