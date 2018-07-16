@@ -3,7 +3,7 @@
 <section class="bp-section bg-newssection">
     <div class="bp-container">
         <div class="row">
-            <div class="col is-half is-offset-one-quarter has-text-centered padding--top--xl">
+            <div class="col is-half is-offset-one-quarter has-text-centered padding--top--lg">
                 <p class="padding--bottom eyebrow is-uppercase">
                     {{ homepage.resources-title }}
                 </p>
@@ -53,7 +53,7 @@
                             <small class="has-text-white">{{ post.date | date_to_string | upcase }}</small>
                             {% if post.file_url %}
                                 <small class="has-text-white">
-                                    <span class="sgds-icon sgds-icon-download align-right is-size-4"></span>
+                                    <span class="sgds-icon sgds-icon-download align-right"></span>
                                 </small>
                             {% endif %}
                         </div>
@@ -63,12 +63,12 @@
             </div>
             {% endfor %}
         </div>
-        <div class="row has-text-centered margin--top padding--bottom--xl">
+        <div class="row has-text-centered margin--top padding--bottom--lg">
             <div class="col is-offset-one-third is-one-third">
                 <a href="{{ homepage.resources-more-button-url }}" class="bp-sec-button">
                     <div>
                         <span>{{ homepage.resources-more-button }}</span>
-                        <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
+                        <i class="sgds-icon sgds-icon-arrow-right" aria-hidden="true"></i>
                     </div>
                 </a>
             </div>

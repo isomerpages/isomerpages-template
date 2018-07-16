@@ -40,7 +40,7 @@ layout: default
 	    	{% for project in digital-transformation.centex-projects %}
 		    	<div class="col {% cycle 'is-offset-2', '', '' %} is-3 padding--top--lg">
 					<img class="digital-transformation-icon" src="{{site.baseurl}}{{project.icon-url}}">
-					<h4 class="margin--top--lg has-text-grey-darker"><b>{{ project.name }}</b></h4>
+					<h5 class="margin--top--lg has-text-grey-darker"><b>{{ project.name }}</b></h5>
 					<p class="margin--top--sm">{{ project.description }}</p>
 				</div>
 			{% endfor %}
@@ -61,7 +61,7 @@ layout: default
 	    	{% for project in digital-transformation.standards-and-guides-projects %}
 		    	<div class="col is-4 {% cycle 'is-offset-2', '' %}">
 					<img class="digital-transformation-icon" src="{{site.baseurl}}{{project.icon-url}}">
-					<h4 class="margin--top--lg has-text-grey-darker"><b>{{project.name}}</b></h4>
+					<h5 class="margin--top--lg has-text-grey-darker"><b>{{project.name}}</b></h5>
 					<p class="margin--top--sm padding--bottom">{{project.description}}</p>
 					{% if project.file-url %}
 						<a href="{{site.baseurl}}{{project.file-url}}" target="_blank" style="text-decoration: none">

@@ -3,7 +3,7 @@
 <style>
 
   .bg-hero {
-    background: url('{{site.baseurl}}{{homepage.hero-banner}}') no-repeat top left;
+    background: url('{{homepage.hero-banner}}') no-repeat top left;
     -webkit-background-size: cover;
     background-size: cover;
   }
@@ -21,9 +21,9 @@
                     <b class="is-hidden-touch">{{ homepage.hero-title }}</b>
                     <b class="is-hidden-desktop">{{ homepage.hero-title }}</b>
                   </h1>
-                  <h5 class="is-hidden-mobile padding--bottom--sm">
+                  <p class="is-hidden-mobile padding--bottom--sm">
                     {{ homepage.hero-subtitle }}
-                  </h5>
+                  </p>
               </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                 <a class="bp-button bp-dropdown-button is-three-fifths-mobile hero-dropdown is-centered" aria-haspopup="true" aria-controls="dropdown-menu"">
                     <span><b><p>I want to...</p></b></span>
                     <span class="icon is-small">
-                        <i class="sgds-icon sgds-icon-chevron-down is-size-4" aria-hidden="true"></i>
+                        <i class="sgds-icon sgds-icon-angle-down" aria-hidden="true"></i>
                     </span>
                 </a>
             </div>
@@ -42,7 +42,7 @@
                 <div class="bp-dropdown-content is-three-fifths-mobile is-centered">
                   {% for element in homepage.i-want-to %}
                   <a class="bp-dropdown-item" href="{{ site.baseurl }}{{element.url}}">
-                      <b><p>{{element.title}}</p></b>
+                      <h5>{{element.title}}</h5>
                   </a>
                   {% endfor %}
                 </div>
