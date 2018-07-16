@@ -14,8 +14,8 @@
 
 <section class="bp-hero bg-hero">
     <div class="bp-hero-body">
-        <div class="bp-container ">
-            <div class="row is-vcentered">
+        <div class="bp-container margin--top--lg">
+            <div class="row is-vcentered ma">
                 <div class="col is-8 is-offset-2 has-text-centered has-text-white">
                   <h1 class="display padding--bottom--lg margin--none">
                     <b class="is-hidden-touch">{{ homepage.hero-title }}</b>
@@ -24,6 +24,11 @@
                   <p class="is-hidden-mobile padding--bottom--sm">
                     {{ homepage.hero-subtitle }}
                   </p>
+                  {% if site.homepage_hero_i_want_to == false %}
+                  {% for button in homepage.button %}
+                  <a href="{{ site.baseurl }}{{ button.url }}" class="bp-button is-secondary is-uppercase margin--top margin--bottom">{{ button.text}}</a>
+                  {% endfor %}
+                  {% endif %}
               </div>
             </div>
         </div>
@@ -34,7 +39,7 @@
                 <a class="bp-button bp-dropdown-button is-three-fifths-mobile hero-dropdown is-centered" aria-haspopup="true" aria-controls="dropdown-menu"">
                     <span><b><p>I want to...</p></b></span>
                     <span class="icon is-small">
-                        <i class="sgds-icon sgds-icon-angle-down" aria-hidden="true"></i>
+                        <i class="sgds-icon sgds-icon-chevron-down is-size-4" aria-hidden="true"></i>
                     </span>
                 </a>
             </div>
