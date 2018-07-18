@@ -58,18 +58,24 @@ layout: leftnav-page
 			<!-- Accordion header -->
 			<div class="col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless">
 				<div class="col is-expanded is-fullwidth is-paddingless">
-					<h4 class="has-text-grey-dark is-marginless"><b> {{ division.title }}
-					</b></h4>
+					<h5 class="has-text-grey-dark is-marginless"><b> {{ division.title }}
+					</b></h5>
 				</div>
 				<span class="sgds-icon sgds-icon-plus is-size-5 bp-accordion-button"></span>
 			</div>
 			<!-- Accordion body -->
 			<div id="accordion-body-{{forloop.index0}}" class="col padding bp-accordion-body">
-				{% for team in division.teams %}
-					<h6 class="margin--top--none">
-						<b><a href="">{{ team.name }}</a></b>
-					</h6>
-				{% endfor %}
+				<div class="bp-container is-full padding--top--lg padding--bottom" style="width: 100%">
+        			<div class="row is-multiline">
+						{% for team in division.teams %}
+						    <div class="col is-4 padding--right--xl padding--bottom">
+								<h6 class="margin--top--none">
+									<b><a href="{{ site.baseurl }}{{ team.url }}">{{ team.name }}</a></b>
+								</h6>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
 			</div>
 		{% endfor %}
 		{{ content }}

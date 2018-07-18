@@ -166,6 +166,14 @@ $widescreen: 1152px + (4 * $gap) !default;
 	border-bottom: 1px solid $secondary !important;
 }
 
+//Accordion
+
+.bp-accordion-button {
+  &.sgds-icon-minus {
+    color: $secondary;
+  }
+}
+
 // Button
 
 .bp-button.is-text span {
@@ -304,6 +312,24 @@ $widescreen: 1152px + (4 * $gap) !default;
 	blockquote > ul {
 		color: $secondary;
 	}
+}
+
+// Tables
+table.table-h {
+  th {
+    background-color: $secondary;
+    color: white;
+  }
+  tbody {
+    tr {
+      &:last-child {
+        td,
+        th {
+          border-bottom: solid 4px $secondary;
+        }
+      }
+    }
+  }
 }
 
 // Media category buttons - not used now but will be used in the future
