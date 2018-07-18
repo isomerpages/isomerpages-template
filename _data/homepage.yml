@@ -12,6 +12,11 @@ hero-title: Isomer Page Template
 hero-subtitle: This website was built using the Isomer Design System and Jekyll
 hero-banner: /images/banner_GardenBay.png
 
+#Call to Action Button
+button:
+  - text: Learn More
+    url: /who-we-are/
+
 # I want to dropdown
 i-want-to:
   - title: apply for licence
