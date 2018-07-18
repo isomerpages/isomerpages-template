@@ -60,12 +60,15 @@
       description:
         - line: "The tender award was announced for G-Cloud, which will provide Government agencies with efficient, scalable and resilient cloud computing resources that meet different levels of security and governance requirements."
     - subtitle: 2013
+      img: /images/our-journey/govtech-logo.png
       description:
         - line: "The Government launched a five-year National Cyber Security Masterplan 2018 to further secure Singapore’s cyber environment."
     - subtitle: 2014
+      img: /images/our-journey/govtech-logo.png
       description:
         - line: "Announcement of the Smart Nation Platform, a technical architecture built by GovTech. This will bring together a nationwide sensor network and data analytics capabilities for better situational awareness."
     - subtitle: 2015
+      img: /images/our-journey/govtech-logo.png
       description:
         - line: "GovTech worked with the Municipal Services Office to develop the OneService app, which automatically sends feedback on various issues to the relevant agency, bringing about more timely response."
         
