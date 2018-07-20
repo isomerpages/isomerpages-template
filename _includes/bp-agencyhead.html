@@ -59,10 +59,16 @@
                     {%- if link.sub-links -%}
                     <div class="navbar-item has-dropdown is-hoverable">
                         {%- if base-url == "" -%}
-                        <a class="navbar-link" href="{{ base-url }}{{ link.url }}" target="_blank">
+                            {% if link.external == true %}
+                            <a class="navbar-link" href="{{ base-url }}{{ link.url }}" target="_blank">
                             {{ link.title }}
-                        </a>
-                        {%- else -%}
+                            </a>
+                            {% else %}
+                            <a class="navbar-link" href="{{ base-url }}{{ link.url }}">
+                            {{ link.title }}
+                            </a>
+                            {%- endif -%}
+                        {% else %}
                         <a class="navbar-link" href="{{ base-url }}{{ link.url }}">
                             {{ link.title }}
                         </a>
@@ -74,9 +80,15 @@
                                 {%- assign class = nil -%}
                                     {%- if page.url contains sublink.url -%}
                                         {%- if sublink-base-url == "" -%}
-                                        <a class="navbar-item sub-link is-active" href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank">
-                                            {{ sublink.title }}
-                                        </a>
+                                            {% if sublink.external == true %}
+                                            <a class="navbar-item sub-link is-active" href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank">
+                                                {{ sublink.title }}
+                                            </a>
+                                            {% else %}
+                                            <a class="navbar-item sub-link is-active" href="{{ sublink-base-url }}{{ sublink.url }}">
+                                                {{ sublink.title }}
+                                            </a>
+                                            {% endif %}
                                         {% else %}
                                         <a class="navbar-item sub-link is-active" href="{{ sublink-base-url }}{{ sublink.url }}">
                                             {{ sublink.title }}
@@ -85,9 +97,15 @@
 
                                     {%- else -%}
                                         {%- if sublink-base-url == "" -%}
-                                        <a class="navbar-item sub-link" href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank">
-                                            {{ sublink.title }}
-                                        </a>
+                                            {% if sublink.external == true %}
+                                            <a class="navbar-item sub-link is-active" href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank">
+                                                {{ sublink.title }}
+                                            </a>
+                                            {% else %}
+                                            <a class="navbar-item sub-link is-active" href="{{ sublink-base-url }}{{ sublink.url }}">
+                                                {{ sublink.title }}
+                                            </a>
+                                            {% endif %}
                                         {% else %}
                                         <a class="navbar-item sub-link" href="{{ sublink-base-url }}{{ sublink.url }}">
                                             {{ sublink.title }}
@@ -100,7 +118,11 @@
                     {%- else -%}
                     <li class="navbar-item">
                         {%- if base-url == "" -%}
-                        <a href="{{ base-url }}{{ link.url }}" target="_blank">{{ link.title }}</a>
+                            {% if link.external == true %}
+                            <a href="{{ base-url }}{{ link.url }}" target="_blank">{{ link.title }}</a>
+                            {% else %}
+                            <a href="{{ base-url }}{{ link.url }}">{{ link.title }}</a>
+                            {% endif %}
                         {% else %}
                         <a href="{{ base-url }}{{ link.url }}">{{ link.title }}</a>
                         {% endif %}
