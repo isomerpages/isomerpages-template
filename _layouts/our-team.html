@@ -61,7 +61,7 @@ layout: leftnav-page
 					<h5 class="has-text-grey-dark is-marginless"><b> {{ division.title }}
 					</b></h5>
 				</div>
-				<span class="sgds-icon sgds-icon-plus is-size-5 bp-accordion-button"></span>
+				<span class="sgds-icon sgds-icon-plus is-size-4 bp-accordion-button"></span>
 			</div>
 			<!-- Accordion body -->
 			<div id="accordion-body-{{forloop.index0}}" class="col padding bp-accordion-body">
@@ -69,9 +69,9 @@ layout: leftnav-page
         			<div class="row is-multiline">
 						{% for team in division.teams %}
 						    <div class="col is-4 padding--right--xl padding--bottom">
-								<h6 class="margin--top--none">
-									<b><a href="{{ site.baseurl }}{{ team.url }}">{{ team.name }}</a></b>
-								</h6>
+								<div class="margin--top--none">
+									<a href="{{ site.baseurl }}{{ team.url }}">{{ team.name }}</a>
+								</div>
 							</div>
 						{% endfor %}
 					</div>
