@@ -36,14 +36,14 @@
         <div class="bp-container">
           <div class="bp-dropdown">
             <div class="bp-dropdown-trigger">
-                <a class="bp-button bp-dropdown-button is-three-fifths-mobile hero-dropdown is-centered" aria-haspopup="true" aria-controls="dropdown-menu"">
+                <a class="bp-button bp-dropdown-button is-three-fifths-mobile hero-dropdown is-centered" aria-haspopup="true" aria-controls="hero-dropdown-menu">
                     <span><b><p>I want to...</p></b></span>
                     <span class="icon is-small">
                         <i class="sgds-icon sgds-icon-chevron-down is-size-4" aria-hidden="true"></i>
                     </span>
                 </a>
             </div>
-            <div class="bp-dropdown-menu has-text-left" id="dropdown-menu" role="menu" >
+            <div class="bp-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
                 <div class="bp-dropdown-content is-three-fifths-mobile is-centered">
                   {% for element in homepage.i-want-to %}
                   <a class="bp-dropdown-item" href="{{ site.baseurl }}{{element.url}}">
