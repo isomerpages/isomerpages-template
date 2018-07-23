@@ -77,7 +77,7 @@ layout: default
                         <div>
                             <small class="tag has-text-grey">{{ post.categories[1] | upcase | replace: '-', ' ' }}</small>
                             <h4 class="title">
-                            <a href="{{ post.url | relative_url | append: '.html'}}" class="has-text-grey-dark">{{ post.title | truncatewords : 10}}</a>
+                            <a href="{{ post.url | relative_url | append: '.html'}}" class="has-text-grey-dark is-media-card">{{ post.title | truncatewords : 10}}</a>
                             </h4>
                         </div>
                         <small class="date has-text-grey">
@@ -88,9 +88,9 @@ layout: default
                 {%- elsif post.categories[1] == page_category -%}
                 <div class="col is-3">
                     {% if post.permalink %}
-                        <a href="{{ post.permalink | relative_url }}">
+                        <a href="{{ post.permalink | relative_url }}" class="is-media-card">
                     {% else %}
-                        <a href="{{ post.file_url | relative_url }}">
+                        <a href="{{ post.file_url | relative_url }}" class="is-media-card">
                     {% endif %}
                     <div class="media-card-plain bg-media-color-{{category_index}} padding--lg"  style="height:100%; min-height:336px"">
                         <div>
