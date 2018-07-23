@@ -1,15 +1,17 @@
-<section class="bp-section">
+<section class="bp-section bg-newssection">
     <div class="bp-container">
-        <div class="row has-text-centered">
-            <div class="col is-offset-one-third is-two-thirds padding--top--xl">
+        <div class="row">
+            <div class="col is-half padding--top--xl padding--bottom--xl" style="overflow: hidden; background-size: cover; background-position: center; background-image: url('{{site.baseurl}}{{section.section-image-path}}')">
+            </div>
+            <div class="col is-half padding--top--xl padding--bottom--xl padding--left--lg padding--right--lg">
                 <p class="padding--bottom eyebrow is-uppercase">
-                    DEVELOPERS
+                    {{section.section-title}}
                 </p>
-                <h1 class="has-text-secondary padding--bottom"><b>Develop seamlessly</b></h1>
-                <p> With the NDI platform, app developers only need one client ID to gain access to multiple government services.</p>
-                <a href="{{ homepage.programmes-more-button-url }}" class="bp-sec-button margin--top padding--bottom">
+                <h1 class="has-text-secondary padding--bottom"><b>{{section.section-subtitle}}</b></h1>
+                <p>{{section.section-description}}</p>
+                <a href="{{section.programmes-more-button-url }}" class="bp-sec-button margin--top padding--bottom">
                     <div>
-                        <span>API References</span>
+                        <span>{{section.section-more-button}}</span>
                         <i class="sgds-icon sgds-icon-arrow-right" aria-hidden="true"></i>
                     </div>
                 </a>

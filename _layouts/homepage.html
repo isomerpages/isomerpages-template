@@ -28,6 +28,18 @@ layout: default
 <!-- Hero mandatory -->
 {% include homepage/hero.html %}
 
+<!-- Information sections -->
+{% if site.data.homepage.info-sections %}
+{% for section in site.data.homepage.info-sections %}
+	{% assign oddEven = forloop.index0 | modulo: 2 %}
+	{% if oddEven == 0 %}
+		{% include homepage/homepage-info-left.html %}
+	{% else %}
+		{% include homepage/homepage-info-right.html %}
+	{% endif %}
+{% endfor %}
+{% endif %}
+
 <!-- Programmes homepage toggle -->
 {% if site.homepage_programmes == true %}
 	{% include homepage/programmes.html %}

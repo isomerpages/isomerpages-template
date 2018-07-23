@@ -1,21 +1,20 @@
 <section class="bp-section">
     <div class="bp-container">
-        <div class="row has-text-centered">
-            <div class="col is-one-third padding--top--xl">
-                <img src={{site.baseurl}}"/images/digital-transformation/govtech-hive.jpg" alt="">
-            </div>
-            <div class="col is-two-thirds padding--top--xl">
+        <div class="row">
+            <div class="col is-half padding--top--xl padding--bottom--xl padding--left--lg padding--right--lg">
                 <p class="padding--bottom eyebrow is-uppercase">
-                    USERS
+                    {{section.section-title}}
                 </p>
-                <h1 class="has-text-secondary padding--bottom"><b>Hassle-free registration</b></h1>
-                <p>We streamline your user registration process by removing your need for password and user management.</p>
-                <a href="{{ homepage.programmes-more-button-url }}" class="bp-sec-button margin--top padding--bottom">
+                <h1 class="has-text-secondary padding--bottom"><b>{{section.section-subtitle}}</b></h1>
+                <p>{{section.section-description}}</p>
+                <a href="{{site.baseurl}}{{section.section-more-button-url}}" class="bp-sec-button margin--top padding--bottom">
                     <div>
-                        <span>API References</span>
+                        <span>{{section.section-more-button}}</span>
                         <i class="sgds-icon sgds-icon-arrow-right" aria-hidden="true"></i>
                     </div>
                 </a>
+            </div>
+            <div class="col is-half padding--top--xl padding--bottom--xl" style="overflow: hidden; background-size: cover; background-position: center; background-image: url('{{site.baseurl}}{{section.section-image-path}}')">
             </div>
         </div>
     </div>
