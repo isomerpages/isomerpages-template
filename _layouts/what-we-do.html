@@ -64,7 +64,7 @@ layout: default
 					<h5 class="margin--top--lg has-text-grey-darker"><b>{{project.name}}</b></h5>
 					<p class="margin--top--sm padding--bottom">{{project.description}}</p>
 					{% if project.file-url %}
-						<a href="{{site.baseurl}}{{project.file-url}}" target="_blank" style="text-decoration: none">
+						<a href="{{site.baseurl}}{{project.file-url}}" target="_blank" class="is-download-button" style="text-decoration: none">
 							<button type="submit" class="bp-button is-secondary is-medium has-text-white search-button"><span class="sgds-icon sgds-icon-download is-size-6 padding--right--sm"></span>DOWNLOAD</button>
 						</a>
 					{% endif %}
