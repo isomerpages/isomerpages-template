@@ -12,10 +12,10 @@ layout: leftnav-page
 
 {% assign our-team = site.data.our-team %}
 <div class="content">
-	<div class="row is-multiline padding--top--lg padding--bottom--lg" id="board-of-directors">
+	<div class="row is-multiline padding--bottom--lg" id="board-of-directors">
 		{% for director in our-team.board-of-directors %}
 			<div class="col is-half person-info-card padding--right">
-				<div class="row bg-grey-light padding--top--sm padding--bottom--sm padding--right">
+				<div class="row margin--bottom--xs margin--right">
 					<div class="col is-one-third image-col">
 						{% if director.image-url %}
 							<img class="margin--right--none" src="{{ site.baseurl }}{{ director.image-url }}">
@@ -25,18 +25,18 @@ layout: leftnav-page
 						<p class="is-marginless padding--top--sm">
 							<b>{{ director.name }}</b><br>
 							<small class="is-uppercase" style="font-size: 0.75rem">{{ director.title }}</small><br>
-							<b><h6 class="is-marginless margin--top--xs">{{ director.organisation }}</h6></b>
 						</p>
+						<h6 class="is-marginless margin--top--xs"><b>{{ director.organisation }}</b></h6>
 					</div>
 				</div>
 			</div>
 		{% endfor %}
 	</div>
 
-	<div class="row is-multiline padding--top--lg padding--bottom--lg" id="senior-leadership">
+	<div class="row is-multiline padding--bottom--lg" id="senior-leadership">
 		{% for member in our-team.senior-leadership %}
 			<div class="col is-half person-info-card padding--right">
-				<div class="row bg-grey-light padding--top--sm padding--bottom--sm padding--right">
+				<div class="row margin--bottom--xs margin--right">
 					<div class="col is-one-third image-col">
 						{% if member.image-url %}
 							<img class="margin--right--none" src="{{ site.baseurl }}{{ member.image-url }}">
@@ -45,9 +45,9 @@ layout: leftnav-page
 					<div class="col padding--top padding--bottom bg-table-grey">
 						<p class="is-marginless padding--top--sm">
 							<b>{{ member.name }}</b><br>
-							<small class="is-uppercase">{{ member.title }}</small><br>
-							<h6 class="is-marginless margin--top--xs">{{ member.organisation }}</h6>
+							<small class="is-uppercase" style="font-size: 0.75rem">{{ member.title }}</small><br>
 						</p>
+						<h6 class="is-marginless margin--top--xs"><b>{{ member.organisation }}</b></h6>
 					</div>
 				</div>
 			</div>
