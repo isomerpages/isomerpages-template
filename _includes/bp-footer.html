@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="row is-top">
-            {%- assign links = site.data.footer -%}
+            {%- assign links = site.data.footer.links -%}
 
             <!-- Footer links for tablet/desktop -->
             {%- for link in links -%}
@@ -27,7 +27,45 @@
                   {%- endfor -%}
                 </div>
             {%- endfor -%}
-            <div class="col footer-col is-hidden-mobile"></div>
+            <!-- Social links for desktop -->
+            {% assign social = site.data.footer.social-links %}
+            <div class="col footer-col is-hidden-mobile is-hidden-tablet-only">
+                {% if social.facebook %}
+                  <a href="{{ social.facebook }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-facebook is-size-4"></span></a>
+                {% endif %}
+                {% if social.twitter %}
+                  <a href="{{ social.twitter }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-twitter is-size-4"></span></a>
+                {% endif %}
+                {% if social.youtube %}
+                  <a href="{{ social.youtube }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-youtube is-size-4"></span></a>
+                {% endif %}
+                {% if social.instagram %}
+                  <a href="{{ social.instagram }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-instagram is-size-4"></span></a>
+                {% endif %}
+            </div>
+            <!-- Social links for tablet -->
+            <div class="col footer-col is-hidden-mobile is-hidden-desktop" id="social-link-tablet">
+                {% if social.facebook %}
+                <div class="row">
+                  <a href="{{ social.facebook }}" target="_blank" class="social-link margin--bottom"><span class="sgds-icon sgds-icon-facebook is-size-4"></span></a>
+                </div>
+                {% endif %}
+                {% if social.twitter %}
+                <div class="row">
+                  <a href="{{ social.twitter }}" target="_blank" class="social-link margin--bottom"><span class="sgds-icon sgds-icon-twitter is-size-4"></span></a>
+                </div>
+                {% endif %}
+                {% if social.youtube %}
+                <div class="row">
+                  <a href="{{ social.youtube }}" target="_blank" class="social-link margin--bottom"><span class="sgds-icon sgds-icon-youtube is-size-4"></span></a>
+                </div>
+                {% endif %}
+                {% if social.instagram %}
+                <div class="row">
+                  <a href="{{ social.instagram }}" target="_blank" class="social-link margin--bottom"><span class="sgds-icon sgds-icon-instagram is-size-4"></span></a>
+                </div>
+                {% endif %}
+            </div>
 
             <!-- Footer links for mobile -->
             <div class="col footer-col is-hidden-tablet is-hidden-desktop">
@@ -40,22 +78,37 @@
                 {% endif %}
               {%- endfor -%}
             </div>
-
+            
         </div>
-        <div class="row">
+        <div class="row" id="footer-remove-link">
           <div class="col footer-col padding--top--sm padding--bottom--sm is-right-desktop-only">
             <ul>
-               <li class="is-inline-block-desktop-only">
+              <li class="is-inline-block-desktop-only">
                    <p><a href="{{site.baseurl}}/contact-us/">Contact Us</a></p>
-               </li>
-               <li class="is-inline-block-desktop-only">
+              </li>
+              <li class="is-inline-block-desktop-only">
                   <p><a href="{{site.feedback_form_url}}" target="_blank">Feedback</a></p>
-               </li>
-               <li class="is-inline-block-desktop-only">
+              </li>
+              <li class="is-inline-block-desktop-only">
                    <p><a href="http://www.ifaq.gov.sg/HLB/apps/Fcd_faqmain.aspx" target="_blank">FAQ</a></p>
-               </li>
-           </ul>
+              </li>
+            </ul>
           </div>
+        </div>
+        <!-- Social links for mobile -->
+        <div class="col footer-col is-hidden-tablet is-hidden-desktop padding--left--none">
+            {% if social.facebook %}
+              <a href="{{ social.facebook }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-facebook is-size-4"></span></a>
+            {% endif %}
+            {% if social.twitter %}
+              <a href="{{ social.twitter }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-twitter is-size-4"></span></a>
+            {% endif %}
+            {% if social.youtube %}
+              <a href="{{ social.youtube }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-youtube is-size-4"></span></a>
+            {% endif %}
+            {% if social.instagram %}
+              <a href="{{ social.instagram }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-instagram is-size-4"></span></a>
+            {% endif %}
         </div>
     </div>
 </footer>
