@@ -23,32 +23,36 @@ layout: default
 	      </div>
 	    </div>
 		<div class="row">
-			<div class="col padding--top--lg">
+			<div class="col">
 				<span class="bp-sec-button has-text-centered">
-					<a class="is-uppercase media-category-button selected" id="citizens-button"><b>Citizens</b></a>
-					<a class="is-uppercase media-category-button" id="business-button"><b>Business</b></a>
-					<a class="is-uppercase media-category-button" id="government-button"><b>Government</b></a>
+					<a class="is-uppercase media-category-button selected" id="citizens-button"><b>For Citizens</b></a>
+					<a class="is-uppercase media-category-button" id="business-button"><b>For Businesses</b></a>
+					<a class="is-uppercase media-category-button" id="government-button"><b>For Government</b></a>
 				</span>
 			</div>
 		</div>
 	</div>
 </section>
 
-<section class="bp-section" id="citizens">
+<section class="bp-section bg-table-grey" id="citizens">
 	<div class="bp-container">
 		<div class="row is-multiline">
 			{% for document in site.initiatives %}
 				{% if document.tag == "citizens" %}
 					<div class="col is-4 padding--bottom--lg">
-						<a href="{{ document.permalink | relative_url }}">
+						<a href="{{ document.permalink | relative_url }}" class="project-link">
 		                <img src="{{site.baseurl}}{{document.thumbnail_image}}" alt="">
-		                <div class="news-content">
-		                    <div>
-		                        <small class="tag is-uppercase padding--bottom--sm">{{document.tag}}</small>
-		                        <h3 class="title">
-		                        <p>{{document.title}}</p>
-		                        </h3>
+		                <div class="project-card">
+		                    <div class="project-title margin--bottom--xs">
+		                    	<small class="tag is-uppercase padding--bottom--sm">{{document.tag}}</small>
+		                        <h5><b>{{document.title | truncate: 43}}</b></h5>
 		                    </div>
+		                    <div class="project-description margin--top--sm">
+		                    	{{document.content | strip_html | truncatewords : 36}}
+		                    </div>
+							<div class="bp-button is-outlined is-small margin--top--lg">
+                                <span class="is-uppercase">READ MORE&nbsp;</span>
+                            </div>
 		                </div>
 		                </a>
 		            </div>
@@ -58,21 +62,25 @@ layout: default
 	</div>
 </section>
 
-<section class="bp-section" id="business">
+<section class="bp-section bg-table-grey" id="business">
 	<div class="bp-container">
 		<div class="row is-multiline">
 			{% for document in site.initiatives %}
 				{% if document.tag == "business" %}
 					<div class="col is-4 padding--bottom--lg">
-						<a href="{{ document.permalink | relative_url }}">
+						<a href="{{ document.permalink | relative_url }}" class="project-link">
 		                <img src="{{site.baseurl}}{{document.thumbnail_image}}" alt="">
-		                <div class="news-content">
-		                    <div>
-		                        <small class="tag has-text-grey is-uppercase padding--bottom--sm">{{document.tag}}</small>
-		                        <h3 class="title">
-		                        <p class="has-text-grey-dark">{{document.title}}</p>
-		                        </h3>
+		                <div class="project-card">
+		                    <div class="project-title margin--bottom--xs">
+		                    	<small class="tag is-uppercase padding--bottom--sm">{{document.tag}}</small>
+		                        <h5><b>{{document.title | truncate: 43}}</b></h5>
 		                    </div>
+		                    <div class="project-description margin--top--sm">
+		                    	{{document.content | strip_html | truncatewords : 36}}
+		                    </div>
+							<div class="bp-button is-outlined is-small margin--top--lg">
+                                <span class="is-uppercase">READ MORE&nbsp;</span>
+                            </div>
 		                </div>
 		                </a>
 		            </div>
@@ -82,21 +90,25 @@ layout: default
 	</div>
 </section>
 
-<section class="bp-section" id="government">
+<section class="bp-section bg-table-grey" id="government">
 	<div class="bp-container">
 		<div class="row is-multiline">
 			{% for document in site.initiatives %}
 				{% if document.tag == "government" %}
 					<div class="col is-4 padding--bottom--lg">
-						<a href="{{ document.permalink | relative_url }}">
+						<a href="{{ document.permalink | relative_url }}" class="project-link">
 		                <img src="{{site.baseurl}}{{document.thumbnail_image}}" alt="">
-		                <div class="news-content">
-		                    <div>
-		                        <small class="tag has-text-grey is-uppercase padding--bottom--sm">{{document.tag}}</small>
-		                        <h3 class="title">
-		                        <p class="has-text-grey-dark">{{document.title}}</p>
-		                        </h3>
+		                <div class="project-card">
+		                    <div class="project-title margin--bottom--xs">
+		                    	<small class="tag is-uppercase padding--bottom--sm">{{document.tag}}</small>
+		                        <h5><b>{{document.title | truncate: 43}}</b></h5>
 		                    </div>
+		                    <div class="project-description margin--top--sm">
+		                    	{{document.content | strip_html | truncatewords : 36}}
+		                    </div>
+							<div class="bp-button is-outlined is-small margin--top--lg">
+                                <span class="is-uppercase">READ MORE&nbsp;</span>
+                            </div>
 		                </div>
 		                </a>
 		            </div>
