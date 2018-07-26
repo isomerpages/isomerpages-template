@@ -41,7 +41,7 @@
                     {% if post.permalink %}
                         <a href="{{ post.permalink | relative_url }}" class="is-media-card">
                     {% else %}
-                        <a href="{{ post.file_url | relative_url }}" class="is-media-card">
+                        <a href="{{ post.file_url | relative_url }}" class="is-media-card" target="_blank">
                     {% endif %}
 
                     <div class="media-card-plain bg-media-color-{{category_index}} padding--lg"  style="height:100%; min-height:336px">
