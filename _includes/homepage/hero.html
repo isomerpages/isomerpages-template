@@ -21,12 +21,12 @@
                     <b class="is-hidden-touch">{{ homepage.hero-title }}</b>
                     <b class="is-hidden-desktop">{{ homepage.hero-title }}</b>
                   </h1>
-                  <p class="is-hidden-mobile padding--bottom--sm">
+                  <p class="is-hidden-mobile padding--bottom--lg">
                     {{ homepage.hero-subtitle }}
                   </p>
                   {% if site.homepage_hero_i_want_to == false %}
                   {% for button in homepage.button %}
-                  <a href="{{ site.baseurl }}{{ button.url }}" class="bp-button is-secondary is-uppercase margin--top margin--bottom">{{ button.text}}</a>
+                  <a href="{{ site.baseurl }}{{ button.url }}" class="bp-button is-secondary is-uppercase search-button">{{ button.text}}</a>
                   {% endfor %}
                   {% endif %}
               </div>
