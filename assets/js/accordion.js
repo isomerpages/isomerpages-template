@@ -14,8 +14,8 @@ function setUpEventListeners(){
 			    console.log(closureIndex, accordionButton);
 			    if (accordionBody.style.display === "" || accordionBody.style.display === "none") {
 			    	accordionBody.style.display = "block";
-			    	accordionButton.classList.remove("sgds-icon-minus");
-			    	accordionButton.classList.add("sgds-icon-cross");
+			    	accordionButton.classList.remove("sgds-icon-plus");
+			    	accordionButton.classList.add("sgds-icon-minus");
 			    } else {
 			    	accordionBody.style.display = "none";
 			    	accordionButton.classList.remove("sgds-icon-minus");
