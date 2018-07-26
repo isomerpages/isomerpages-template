@@ -29,31 +29,30 @@
                   <a href="{{ site.baseurl }}{{ button.url }}" class="bp-button is-secondary is-uppercase search-button">{{ button.text}}</a>
                   {% endfor %}
                   {% endif %}
-              </div>
-            </div>
-        </div>
-        {% if site.homepage_hero_i_want_to == true %}
-        <div class="bp-container">
-          <div class="bp-dropdown">
-            <div class="bp-dropdown-trigger">
-                <a class="bp-button bp-dropdown-button is-three-fifths-mobile hero-dropdown is-centered" aria-haspopup="true" aria-controls="hero-dropdown-menu">
-                    <span><b><p>I want to...</p></b></span>
-                    <span class="icon is-small">
-                        <i class="sgds-icon sgds-icon-chevron-down is-size-4" aria-hidden="true"></i>
-                    </span>
-                </a>
-            </div>
-            <div class="bp-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
-                <div class="bp-dropdown-content is-three-fifths-mobile is-centered">
-                  {% for element in homepage.i-want-to %}
-                  <a class="bp-dropdown-item" href="{{ site.baseurl }}{{element.url}}">
-                      <h5>{{element.title}}</h5>
-                  </a>
-                  {% endfor %}
+                  {% if site.homepage_hero_i_want_to == true %}
+                    <div class="bp-dropdown margin--top--sm">
+                      <div class="bp-dropdown-trigger">
+                          <a class="bp-button bp-dropdown-button hero-dropdown is-centered" aria-haspopup="true" aria-controls="hero-dropdown-menu">
+                              <span><b><p>I want to...</p></b></span>
+                              <span class="icon is-small">
+                                  <i class="sgds-icon sgds-icon-chevron-down is-size-4" aria-hidden="true"></i>
+                              </span>
+                          </a>
+                      </div>
+                      <div class="bp-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
+                          <div class="bp-dropdown-content is-centered">
+                            {% for element in homepage.i-want-to %}
+                            <a class="bp-dropdown-item" href="{{ site.baseurl }}{{element.url}}">
+                                <h5>{{element.title}}</h5>
+                            </a>
+                            {% endfor %}
+                          </div>
+                      </div>
+                    </div>
+                  {% endif %}    
                 </div>
             </div>
         </div>
-        {% endif %}
     </div>
 </section>
 {% if site.homepage_hero_i_want_to == false %}
