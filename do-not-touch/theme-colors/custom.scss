@@ -381,32 +381,3 @@ table.table-h {
 #government {
   display: none;
 }
-
-.hero-dropdown {
-  display: flex;
-  padding-top: 1.75rem;
-  padding-bottom: 1.75rem;
-}
-
-.is-centered {
-  margin: auto;
-}
-
-.is-three-fifths-mobile {
-  width: 60%;
-  @include touch(){
-    width: 100%;
-  }
-}
-
-#hero-dropdown-menu {
-  position: absolute;
-  top: 50%;
-  // left: 15%;
-  transform: translateY(-50%);
-  // @include touch(){
-  //   top: 0;
-  //   left: 0;
-  //   transform: translateY(0%);
-  // }
-}
