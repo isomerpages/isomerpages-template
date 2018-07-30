@@ -57,10 +57,10 @@
                         {%- assign class = 'active' -%}
                     {%- endif -%}
                     {%- if link.sub-links -%}
-                    <div class="navbar-item has-dropdown is-hoverable is-uppercase">
+                    <div class="navbar-item has-dropdown is-hoverable">
                         {%- if base-url == "" -%}
                             {% if link.external == true %}
-                            <a class="navbar-link" href="{{ base-url }}{{ link.url }}" target="_blank">
+                            <a class="navbar-link is-uppercase" href="{{ base-url }}{{ link.url }}" target="_blank">
                             {{ link.title }}
                             </a>
                             {% else %}

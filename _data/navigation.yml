@@ -6,7 +6,7 @@
 
 # This file contains the structure for the top navigation
 
-- title: APPLICATION GUIDELINES
+- title: APPLICATION guidelines
   url: /application-guidelines/lorem-ipsum-one/
   sub-links:
   - title: Lorem Ipsum One
@@ -30,7 +30,7 @@
     url: /resource_room/forms-and-templates/
   - title: Guides
     url: /resource_room/guides/
-- title: WHO WE ARE
+- title: WHO WE are
   url: /who-we-are/
 - title: CONTACT US
   url: /contact-us/
