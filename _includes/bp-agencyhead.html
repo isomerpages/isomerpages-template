@@ -57,19 +57,19 @@
                         {%- assign class = 'active' -%}
                     {%- endif -%}
                     {%- if link.sub-links -%}
-                    <div class="navbar-item has-dropdown is-hoverable">
+                    <div class="navbar-item has-dropdown is-hoverable is-uppercase">
                         {%- if base-url == "" -%}
                             {% if link.external == true %}
                             <a class="navbar-link" href="{{ base-url }}{{ link.url }}" target="_blank">
                             {{ link.title }}
                             </a>
                             {% else %}
-                            <a class="navbar-link" href="{{ base-url }}{{ link.url }}">
+                            <a class="navbar-link is-uppercase" href="{{ base-url }}{{ link.url }}">
                             {{ link.title }}
                             </a>
                             {%- endif -%}
                         {% else %}
-                        <a class="navbar-link" href="{{ base-url }}{{ link.url }}">
+                        <a class="navbar-link is-uppercase" href="{{ base-url }}{{ link.url }}">
                             {{ link.title }}
                         </a>
                         {% endif %}
@@ -119,12 +119,12 @@
                     <li class="navbar-item">
                         {%- if base-url == "" -%}
                             {% if link.external == true %}
-                            <a href="{{ base-url }}{{ link.url }}" target="_blank">{{ link.title }}</a>
+                            <a href="{{ base-url }}{{ link.url }}" target="_blank" class="is-uppercase">{{ link.title }}</a>
                             {% else %}
-                            <a href="{{ base-url }}{{ link.url }}">{{ link.title }}</a>
+                            <a href="{{ base-url }}{{ link.url }}" class="is-uppercase">{{ link.title }}</a>
                             {% endif %}
                         {% else %}
-                        <a href="{{ base-url }}{{ link.url }}">{{ link.title }}</a>
+                        <a href="{{ base-url }}{{ link.url }}" class="is-uppercase">{{ link.title }}</a>
                         {% endif %}
                         <div class="selector {{class}} is-hidden-touch"></div>
                     </li>
