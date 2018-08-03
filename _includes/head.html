@@ -7,7 +7,12 @@
     <meta property="og:description" content="{{site.description}}">
     <meta property="og:image" content="{{site.baseurl}}/assets/img/logo_blueprint.png">
     <meta property="og:url" content="{{site.baseurl}}">
-    <link rel="shortcut icon" href="{{site.baseurl}}/assets/img/favicon.ico" type="image/x-icon">
+    {% assign homepage = site.data.homepage %}
+    {% if homepage.favicon %}
+        <link rel="shortcut icon" href="{{site.baseurl}}{{homepage.favicon}}" type="image/x-icon">
+    {% else %}
+        <link rel="shortcut icon" href="{{site.baseurl}}/assets/img/favicon.ico" type="image/x-icon">
+    {% endif %}
     <link rel="stylesheet" href="https://datagovsg.github.io/blueprint-css/blueprint.css">
     <link rel="stylesheet" href="{{site.baseurl}}{{site.custom_css_path}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">

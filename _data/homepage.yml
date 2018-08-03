@@ -4,6 +4,9 @@
 #                                #
 ##################################
 
+# Favicon
+favicon: /assets/img/favicon.ico
+
 # Agency logo
 agency-logo: /do-not-touch/logo_blueprint.png
 
