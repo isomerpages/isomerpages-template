@@ -4,16 +4,16 @@
 #                                #
 ##################################
 
-# This file contains the structure for the top navigation
+# This file contains the structure for the top navigation and bottom footer
 
-- title: APPLICATION guidelines
+- title: Application Guidelines
   url: /application-guidelines/lorem-ipsum-one/
   sub-links:
   - title: Lorem Ipsum One
     url: /application-guidelines/lorem-ipsum-one/ 
   - title: Lorem Ipsum Two
     url: /application-guidelines/lorem-ipsum-two/ 
-- title: LEGISLATION
+- title: Legislation
   url: https://google.com
   external: true
   sub-links:
@@ -23,14 +23,14 @@
   - title: External Link Two
     url: https://en.wikipedia.org/wiki/Spring_(season)
     external: true
-- title: RESOURCES
+- title: Resources
   url: /resource_room/
   sub-links:
   - title: Forms and Templates
     url: /resource_room/forms-and-templates/
   - title: Guides
     url: /resource_room/guides/
-- title: WHO WE are
+- title: Who We Are
   url: /who-we-are/
-- title: CONTACT US
+- title: Contact Us
   url: /contact-us/

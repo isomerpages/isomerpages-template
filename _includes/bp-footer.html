@@ -6,11 +6,17 @@
             </div>
         </div>
         <div class="row is-top">
-            {%- assign links = site.data.footer -%}
+            {%- if site.data.footer -%}
+                {%- assign links = site.data.footer -%}
+            {% else %}
+                {%- assign links = site.data.navigation -%}
+            {% endif %}
 
             <!-- Footer links for tablet/desktop -->
             {%- for link in links -%}
             {% include links-baseurl.html %}
+            {% assign linkTitle = link.title | downcase %}
+            {% if linkTitle != "contact us" %}
                 <div class="col footer-col is-hidden-mobile">
                   {%- if base-url == "" -%}
                     <p class="sub-header"><b><a class="has-text-white" href="{{ base-url }}{{ link.url }}" target="_blank">{{link.title}}</a></b></p>
@@ -26,6 +32,7 @@
                     {% endif %}
                   {%- endfor -%}
                 </div>
+            {% endif %}
             {%- endfor -%}
             <div class="col footer-col is-hidden-mobile"></div>
 
