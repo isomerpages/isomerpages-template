@@ -18,14 +18,14 @@
             {% assign linkTitle = link.title | downcase %}
             {% if linkTitle != "contact us" %}
                 <div class="col footer-col is-hidden-mobile">
-                  {%- if base-url == "" -%}
+                  {%- if base-url == "" and link.external == true -%}
                     <p class="sub-header"><b><a class="has-text-white" href="{{ base-url }}{{ link.url }}" target="_blank">{{link.title}}</a></b></p>
                   {% else %}
                     <p class="sub-header"><b><a class="has-text-white" href="{{ base-url }}{{ link.url }}">{{link.title}}</a></b></p>
                   {% endif %}
                   {%- for sublink in link.sub-links -%}
                     {% include sublinks-baseurl.html %}
-                    {%- if sublink-base-url == "" -%}
+                    {%- if sublink-base-url == "" and sublink.external == true -%}
                       <p class="is-hidden-mobile"><a href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank">{{sublink.title}}</a></p>
                     {% else %}
                       <p class="is-hidden-mobile"><a href="{{ sublink-base-url }}{{ sublink.url }}">{{sublink.title}}</a></p>
@@ -40,7 +40,7 @@
             <div class="col footer-col is-hidden-tablet is-hidden-desktop">
               {%- for link in links -%}
                 {% include links-baseurl.html %}
-                {%- if base-url == "" -%}
+                {%- if base-url == "" and link.external == true -%}
                   <p><a href="{{ base-url }}{{ link.url }}" target="_blank">{{link.title}}</a></p>
                 {% else %}
                   <p><a href="{{ base-url }}{{ link.url }}">{{link.title}}</a></p>
