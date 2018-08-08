@@ -37,7 +37,7 @@ layout: default
 <section class="bp-section bg-table-grey" id="citizens">
 	<div class="bp-container">
 		<div class="row is-multiline">
-			{% for document in site.initiatives %}
+			{% for document in site.products-and-services %}
 				{% if document.tag == "citizens" %}
 					<div class="col is-4 padding--bottom--lg">
 						<a href="{{ document.permalink | relative_url }}" class="project-link">
@@ -65,7 +65,7 @@ layout: default
 <section class="bp-section bg-table-grey" id="business">
 	<div class="bp-container">
 		<div class="row is-multiline">
-			{% for document in site.initiatives %}
+			{% for document in site.products-and-services %}
 				{% if document.tag == "business" %}
 					<div class="col is-4 padding--bottom--lg">
 						<a href="{{ document.permalink | relative_url }}" class="project-link">
@@ -93,7 +93,7 @@ layout: default
 <section class="bp-section bg-table-grey" id="government">
 	<div class="bp-container">
 		<div class="row is-multiline">
-			{% for document in site.initiatives %}
+			{% for document in site.products-and-services %}
 				{% if document.tag == "government" %}
 					<div class="col is-4 padding--bottom--lg">
 						<a href="{{ document.permalink | relative_url }}" class="project-link">
@@ -118,4 +118,4 @@ layout: default
 	</div>
 </section>
 
-<script src="{{ "/assets/js/initiatives.js" | relative_url }}"></script>
+<script src="{{ "/assets/js/products-and-services.js" | relative_url }}"></script>
