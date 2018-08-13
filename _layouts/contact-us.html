@@ -32,14 +32,15 @@ layout: default
             <div class="col is-8 is-offset-2">
                 {% for location in contact.locations %}
                     <div class="row is-multiline margin--bottom">
-                        {% if location.operating-hours %}
                             {% if forloop.first == true %}
                             <div class="col is-6 padding--bottom--none">
                                 <p></p>
                                 <h5 class="has-text-secondary"><b>HQ Address</b></h5>
                             </div>
                             <div class="col is-6 padding--bottom--none">
+                                {% if location.operating-hours %}
                                 <h5 class="has-text-secondary"><b>Operating Hours</b></h5>
+                                {% endif %}
                             </div>
                             {% elsif forloop.index == 2 %}
                                 <div class="col is-6 padding--bottom--none">
@@ -47,7 +48,9 @@ layout: default
                                     <h5 class="has-text-secondary"><b>Other Offices</b></h5>
                                 </div>
                                 <div class="col is-6 padding--bottom--none">
-                                <h5 class="has-text-secondary"><b>Operating Hours</b></h5>
+                                    {% if location.operating-hours %}
+                                    <h5 class="has-text-secondary"><b>Operating Hours</b></h5>
+                                    {% endif %}
                             </div>
                             {% endif %}
                             <div class="col is-6">
@@ -62,43 +65,19 @@ layout: default
                                     </a>
                                 </div>
                             </div>
-                            {% assign operating-hours = location.operating-hours %}
-                                <div class="col is-6">
-                                    <div>
-                                        {% for operation in operating-hours%}
-                                        <p class="margin--top--none">
-                                            <b>{{operation.days}}</b>:&nbsp;{{operation.time}}<br>
-                                            {{operation.description}}
-                                        </p>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                        {% else %}
-
-                            {% if forloop.first == true %}
-                            <div class="col is-12 padding--bottom--none">
-                                <p></p>
-                                <h5 class="has-text-secondary"><b>HQ Address</b></h5>
-                            </div>
-                            {% elsif forloop.index == 2 %}
-                                <div class="col is-12 padding--bottom--none">
-                                    <p></p>
-                                    <h5 class="has-text-secondary"><b>Other Offices</b></h5>
-                                </div>
-                            {% endif %}
-                            <div class="col is-12">
+                            <div class="col is-6">
+                                {% if location.operating-hours %}
+                                {% assign operating-hours = location.operating-hours %}
                                 <div>
-                                    <p class="margin--top--none margin--bottom--none"><b>{{location.title}}</b></p>
-                                    <p class="content margin--top--none">{{location.address}}</p>
-                                    <a href="{{location.find-directions}}" target="_blank" class="bp-sec-button has-text-secondary">
-                                        <div>
-                                            <span>FIND DIRECTIONS</span>
-                                            <i class="sgds-icon sgds-icon-arrow-right" aria-hidden="true"></i>
-                                        </div>
-                                    </a>
+                                    {% for operation in operating-hours%}
+                                    <p class="margin--top--none">
+                                        <b>{{operation.days}}</b>:&nbsp;{{operation.time}}<br>
+                                        {{operation.description}}
+                                    </p>
+                                    {% endfor %}
                                 </div>
+                                {% endif %}
                             </div>
-                        {% endif %}
                     </div>
                 {% endfor %}
                 <div class="row is-multiline margin--top--lg margin--bottom--xl">
