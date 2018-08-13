@@ -5,30 +5,16 @@
 ##################################
 
 #Contact Us
-location:
-  # HQ Address [REQUIRED]
-  - title:
-    address: Avenue Q<br>Sesame Street<br>Singapore 123456
-    find-directions: https://maps.google.com
-  # Operating Hours [OPTIONAL]
-    operating-hours:
-      - days: Mon - Fri
-        time: 8.30am - 6.00pm
-        description: Closed on Weekends and Public Holidays
-  # Other Office Addresses [OPTIONAL]
-  - title: Hive @ Isomer Cooperation
-    address: 1 Fusionopolis View <br>#08-01 Sandcrawler<br>Singapore 138577
-    find-directions: https://maps.google.com
-  # Operating Hours [OPTIONAL]
-    operating-hours:
-      - days: Mon - Thu
-        time: 8.30am - 6.00pm
-      - days: Fri
-        time: 8.30am - 5.30pm
-        description: Closed on Weekends and Public Holidays
-  - title: BirdsNest @ Isomer Cooperation
-    address: 1 Fusionopolis View <br>#08-01 Sandcrawler<br>Singapore 138577
-    find-directions: https://maps.google.com
+
+# HQ Address
+address: Avenue Q<br>Sesame Street<br>Singapore 123456
+find-directions: https://maps.google.com
+
+# Operating Hours
+operating-hours:
+  - days: Mon - Fri
+    time: 8.30am - 6.00pm
+    description: Closed on Weekends and Public Holidays
 
 # Contact Us
 column:
