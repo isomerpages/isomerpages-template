@@ -66,6 +66,10 @@ homepage_careers: true
 # Feedback Form URL
 feedback_form_url: "https://form.sg/#!/forms/govtech/5a9ce876b3a3b6006e6b8335"
 
+# FAQ URL
+faq_url: "http://www.ifaq.gov.sg/HLB/apps/Fcd_faqmain.aspx"
+faq_url_external: true
+
 # Custom CSS file path
 custom_css_path: "/do-not-touch/theme-colors/custom.css"
 
