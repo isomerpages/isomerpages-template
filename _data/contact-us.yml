@@ -5,7 +5,7 @@
 ##################################
 
 #Contact Us
-location:
+locations:
   # HQ Address [REQUIRED]
   - title:
     address: Avenue Q<br>Sesame Street<br>Singapore 123456
