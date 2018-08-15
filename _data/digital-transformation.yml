@@ -35,7 +35,7 @@ standards-and-guides-projects:
   - name: Ministry Family Digitalisation Guide
     description: The Ministry Family Digitalisation Guide helps all Government ministries and agencies in formulating their digitalisation plans.
     icon-url: /images/digital-transformation/digitalisation-guide.svg
-    file-url: /EDIT-THIS/digital-transformation/files/ministry-family-digitalisation-guide.pdf
+    file-url: /files/digital-transformation/ministry-family-digitalisation-guide.pdf
   - name: Web Interface Standards (WIS)
     description: A set of standards to ensure a consistent level of usability and accessibility across Government public-facing digital services (specifically those using gov.sg domains).
     icon-url: /images/digital-transformation/web-standards.svg
