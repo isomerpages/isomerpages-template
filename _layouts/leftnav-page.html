@@ -80,6 +80,10 @@ layout: default
     </div>
 </section> -->
 <section class="bp-section">
+    <div class="float-buttons">
+        {% include print.html %}
+        <!-- {{page.layout}} -->
+    </div>
     <div class="bp-container padding--bottom--xl">
         <div class="row">
             <div class="col is-2 is-position-relative has-side-nav is-hidden-touch">
@@ -100,7 +104,7 @@ layout: default
                     </aside>
                 </div>
             </div>
-            <div class="col is-8 is-offset-1-desktop is-12-touch">
+            <div class="col is-8 is-offset-1-desktop is-12-touch" id="print-content">
                 <div class="row">
                     <div class="col">
                         {{content}}
