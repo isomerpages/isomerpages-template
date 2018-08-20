@@ -1,11 +1,22 @@
-<div onclick="print()">Print</div>
+<div class="col is-1 has-float-btns is-position-relative is-hidden-touch">
+    <div class="float-buttons">
+        <div class="actionbar__inner">
+            <div onclick="printContent()">Print</div>
+        </div>
+    </div>
+</div>
 
 <script>
- function print() {
-   console.log('HELLO')
+  var url = [
+    "{{site.baseurl}}{{site.custom_print_css_path}}",
+    "https://datagovsg.github.io/blueprint-css/blueprint.css"
+  ]
+
+  function printContent() {
     printJS({
-     printable: 'print-content',
+     printable: 'main-content',
      type: 'html',
+     css: url,
      scanStyles: false,
      font: 'Source Sans Pro',
     });
