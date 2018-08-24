@@ -80,7 +80,7 @@ layout: default
     </div>
 </section> -->
 <section class="bp-section">
-    <div class="bp-container padding--bottom--xl">
+    <div class="bp-container padding--top--lg padding--bottom--xl">
         <div class="row">
             <div class="col is-2 is-position-relative has-side-nav is-hidden-touch">
                 <div class="sidenav">
@@ -100,13 +100,14 @@ layout: default
                     </aside>
                 </div>
             </div>
-            <div class="col is-8 is-offset-1-desktop is-12-touch">
+            <div class="col is-8 is-offset-1-desktop is-12-touch print-content">
                 <div class="row">
                     <div class="col">
                         {{content}}
                     </div>
                 </div>
             </div>
+            {% include print.html %}
         </div>
     </div>
 </section>

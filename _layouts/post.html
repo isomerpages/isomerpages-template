@@ -28,9 +28,10 @@ layout: default
 <section class="bp-section">
 	<div class="bp-container padding--top--lg content">
     <div class="row">
-      <div class="col is-8 is-offset-2">
+      <div class="col is-8 is-offset-2 print-content">
     		{{content}}
       </div>
+      {% include print.html %}
     </div>
   </div>
 </section>

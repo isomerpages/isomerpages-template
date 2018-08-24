@@ -7447,9 +7447,12 @@ h6, h6 center {
 .is-offset-sideNav {
   position: fixed;
   width: 22%;
-  top: 40px; }
-  .touch .is-offset-sideNav {
-    position: relative !important;
-    width: 100%; }
+  top: 40px; 
+}
+  
+.touch .is-offset-sideNav {
+  position: relative !important;
+  width: 100%; 
+}
 
 /*# sourceMappingURL=blueprint.css.map */

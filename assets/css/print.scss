@@ -1,0 +1,31 @@
+---
+---
+@charset "utf-8";
+@import "../../do-not-touch/theme-colors/custom.css";
+.bp-section .bp-container .has-side-nav,
+.bp-section .bp-container .has-float-btns,
+.bp-section.bottom-navigation {
+ display: none;
+}
+.bp-section .bp-container .print-content {
+ margin-left: 0px;
+ width: 100%;
+}
+
+@media print {
+  section.bp-section.is-small.bp-section-pagetitle {
+    background: none !important;
+    
+    a small, .has-text-white {
+      color: black !important;
+    }
+  }
+
+  section.bp-section.bg-secondary {
+  	background: none !important;
+
+  	a small, .has-text-white {
+  		color: black !important;
+  	}
+  }
+}
