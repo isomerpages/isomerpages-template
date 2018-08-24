@@ -15,13 +15,17 @@
 @media print {
   section.bp-section.is-small.bp-section-pagetitle {
     background: none !important;
-  }
-
-  section.bp-section.is-small.bp-section-pagetitle {
-    background: none !important;
     
     a small, .has-text-white {
       color: black !important;
     }
+  }
+
+  section.bp-section.bg-secondary {
+  	background: none !important;
+
+  	a small, .has-text-white {
+  		color: black !important;
+  	}
   }
 }
