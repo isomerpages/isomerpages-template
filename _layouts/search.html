@@ -38,3 +38,27 @@ layout: default
         </div>
     </div>
 </section>
+
+<div class="pagination padding--bottom--xl">
+
+	<a href="{{ site.baseurl }}{{ paginator.previous_page_path | replace: '//', '/' }}"><span class="sgds-icon sgds-icon-arrow-left is-size-4"></span></a>
+	
+	<span class="sgds-icon sgds-icon-arrow-left sgds-icon-disabled is-size-4"></span>
+
+	<!-- Paginate-v1 -->
+		<span class="selected-page">
+			{{ 1 }}
+		</span>
+		<a href="{{ site.baseurl }}/{{site.resources_name}}/" title="{{trail.title}}">
+		<span>
+		</span>
+		</a>            
+		<a href="{{ site.baseurl }}/{{site.resources_name}}/page{{ each_page }}" title="{{trail.title}}">
+		<span>
+			{{ 2 }}
+		</span>
+		</a>
+
+	<a href="{{ site.baseurl }}{{ paginator.next_page_path | replace: '//', '/' }}"><span class="sgds-icon sgds-icon-arrow-right is-size-4"></span></a>
+	<span class="sgds-icon sgds-icon-arrow-right sgds-icon-disabled is-size-4"></span>
+</div>
