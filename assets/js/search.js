@@ -136,7 +136,6 @@ var runSearch = function(json_data, posts_data) {
     // document.getElementById('search-bar').setAttribute("value", searchTerm);
     document.getElementsByName('query')[1].setAttribute("value", searchTerm);
     
-    console.log(!results.length, pageResults.length<= 1)
     paginateSearchResults();
     if (!results.length || pageResults.length <= 1) return;
     displayPagination();
@@ -244,7 +243,6 @@ var runSearch = function(json_data, posts_data) {
   }
 
   var searchTerm = getQueryVariable('query');
-  console.log(searchTerm);
   if (searchTerm) {
 
     // Load the pre-built lunr index
