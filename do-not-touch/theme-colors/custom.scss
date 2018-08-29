@@ -241,6 +241,22 @@ $widescreen: 1152px + (4 * $gap) !default;
     }
 }
 
+.pagination {
+  display: none;
+
+  .sgds-icon-disabled {
+    pointer-events: none;
+  }
+
+  #paginator-pages {
+    display: inline-block;
+  
+    span {
+      cursor: pointer;
+    }
+  }
+}
+
 
 // Homepage
 #key-highlights{
