@@ -20,7 +20,10 @@
 
                 <!-- Special case for the media index.html since the media page is paginated and cannot have a permalink -->
                 {% if current_breadcrumb_url == breadcrumb_page.file_url or current_breadcrumb_md_url == breadcrumb_page.file_url %}
+                <!-- prevent repetition of paginated pages -->
+                {% unless breadcrumb_page.url contains 'page' %}
                     <li><a href="{{ site.baseurl }}{{breadcrumb_page.file_url}}"><small>{{breadcrumb_page.breadcrumb | upcase}}</small></a></li>
+                {% endunless %}
                 {% endif %}
             {% endfor %}
 
