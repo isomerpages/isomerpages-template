@@ -18,11 +18,11 @@ layout: default
 	</div>
 	<div class="bp-container">
 		<form action="{{ site.baseurl }}/search/" method="get">
-		<div class="row">
-			<div id="search-container" class="col is-8 right-padding-zero is-offset-2">
-                {% include bp-search-box.html %}
+			<div class="row">
+				<div id="search-container" class="col is-8 right-padding-zero is-offset-2">
+					{% include bp-search-box.html %}
+				</div>
 			</div>
-		</div>
 		</form>
 	</div>
 </section>
@@ -38,3 +38,10 @@ layout: default
         </div>
     </div>
 </section>
+
+<div class="search pagination padding--bottom--xl">
+	<span class="sgds-icon sgds-icon-arrow-left is-size-4"></span>
+	<!-- To insert page selectors -->
+	<div id="paginator-pages"></div>
+	<span class="sgds-icon sgds-icon-arrow-right is-size-4"></span>
+</div>

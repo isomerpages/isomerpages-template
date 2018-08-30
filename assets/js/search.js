@@ -1,12 +1,18 @@
 var runSearch = function(json_data, posts_data) {
 
+  const RESULTS_PER_PAGE = 10;
+  const PREVIEW_SIZE = 300;
+  const NUM_LEADING_CHARS = 30;
+  let results;
+  let pageResults;
+  let currentPageIndex = 0;
+
   // Bolds the keywords in the preview string
   function highlightKeywords(content, previewStartPosition, matchMetadata) {
-    var previewSize = 300;
     var matchMap = {};
 
     // Create an object containing search hit position and length of search hit in the document (for content within preview)
-    for (keyword in matchMetadata) {
+    for (var keyword in matchMetadata) {
       var positionArray;
 
       if (!matchMetadata[keyword]['content']) {
@@ -17,7 +23,7 @@ var runSearch = function(json_data, posts_data) {
 
       for (var positionIndex = 0; positionIndex < positionArray.length; positionIndex++) {
         var hitPosition = positionArray[positionIndex][0];
-        if ((hitPosition >= previewStartPosition) && (hitPosition < previewStartPosition+previewSize)) {
+        if ((hitPosition >= previewStartPosition) && (hitPosition < previewStartPosition+PREVIEW_SIZE)) {
           matchMap[hitPosition] = positionArray[positionIndex][1];
         }
       }
@@ -27,28 +33,27 @@ var runSearch = function(json_data, posts_data) {
     if (Object.keys(matchMap).length !== 0) {
       var processedPreview = '';
       var currPosition = previewStartPosition;
-      for (wordPosition in matchMap) {
+      for (var wordPosition in matchMap) {
         var wordEnd = parseInt(wordPosition) + parseInt(matchMap[wordPosition]) + 1;
         processedPreview += content.substring(currPosition, wordPosition) + '<b>' + content.substring(wordPosition, wordEnd) + '</b>';
         currPosition = wordEnd;
       }
 
-      if (wordEnd < previewStartPosition+previewSize) {
-        processedPreview += content.substring(currPosition, previewStartPosition+previewSize);
+      if (wordEnd < previewStartPosition+PREVIEW_SIZE) {
+        processedPreview += content.substring(currPosition, previewStartPosition+PREVIEW_SIZE);
       }
       return processedPreview;
     }
 
-    return content.substring(previewStartPosition, previewStartPosition+previewSize);
+    return content.substring(previewStartPosition, previewStartPosition+PREVIEW_SIZE);
   }
 
-  // Find the earliest space in the preview closest to (firstPosition - numLeadingChars)
+  // Find the earliest space in the preview closest to (firstPosition - NUM_LEADING_CHARS)
   function returnStartOfPreview(content, firstPosition) {
-    var numLeadingChars = 30;
-    if (firstPosition-numLeadingChars <= 0) {
+    if (firstPosition-NUM_LEADING_CHARS <= 0) {
       return 0;
     } else {
-      for (var index = firstPosition-numLeadingChars; index < firstPosition; index++) {
+      for (var index = firstPosition-NUM_LEADING_CHARS; index < firstPosition; index++) {
         if (content.charAt(index) === ' ') {
           return index;
         }
@@ -62,7 +67,7 @@ var runSearch = function(json_data, posts_data) {
     var firstPosition = -1;
 
     // Iterate over each keyword in the search query
-    for (keyword in matchMetadata) {
+    for (var keyword in matchMetadata) {
 
       if (matchMetadata[keyword]['content'] !== undefined) {
         var positionArray = matchMetadata[keyword]['content']['position'];
@@ -125,17 +130,101 @@ var runSearch = function(json_data, posts_data) {
   }
 
   // Display search results if there are results, else, state that there are no results found
-  function displaySearchResults(results, searchTerm) {
-    var searchResults = document.getElementById('search-results');
+  function displaySearchResults(searchTerm) {
     var searchResultsCount = document.getElementById('search-results-count');
+    searchResultsCount.innerHTML = results.length + " results for '" + searchTerm + "'";
     // document.getElementById('search-bar').setAttribute("value", searchTerm);
     document.getElementsByName('query')[1].setAttribute("value", searchTerm);
-    searchResultsCount.innerHTML = results.length + " results for '" + searchTerm + "'";
-    if (results.length) { // If there are results
-      searchResults.innerHTML = returnResultsList(results);
-    } else {
-      searchResults.innerHTML = '';
+    
+    paginateSearchResults();
+    if (!results.length || pageResults.length <= 1) return;
+    displayPagination();
+  }
+
+  function paginateSearchResults() {
+    var searchResults = document.getElementById('search-results');
+    searchResults.innerHTML = returnResultsList(pageResults[currentPageIndex]);
+  }
+
+  // Populate the pagination elements
+  function displayPagination() {
+    document.querySelector(".pagination").style.display = "block";
+    var pagination = document.getElementById('paginator-pages');
+    
+    for (let i = 0; i < pageResults.length; i++) {
+      let ele = document.createElement("span");
+      let text = document.createTextNode(i + 1);
+      
+      ele.appendChild(text);
+      ele.onclick = function(e) {
+        changePage(e.target, i)
+      }
+      pagination.appendChild(ele);
     }
+
+    // Initialise selected page and nav arrows
+    setCurrentPage(pagination.firstChild);
+    displayNavArrows(currentPageIndex);
+    setNavArrowHandlers();
+  }
+
+  function changePage(curr, index) {
+    let prev = document.querySelector("#paginator-pages .selected-page");
+    prev.className = "";
+    prev.style.pointerEvents = "auto";
+    currentPageIndex = index;
+    setCurrentPage(curr);
+    displayNavArrows(index);
+    paginateSearchResults();
+  }
+
+  // Set click handlers for nav arrows
+  function setNavArrowHandlers() {
+    let left = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-left");
+    let right = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-right");
+    let sel = document.querySelector("#paginator-pages .selected-page");
+
+    left.onclick = function(e) {
+      let sel = document.querySelector("#paginator-pages .selected-page");
+      changePage(sel.previousSibling, currentPageIndex - 1)
+    }
+
+    right.onclick = function(e) {
+      let sel = document.querySelector("#paginator-pages .selected-page");
+      changePage(sel.nextSibling, currentPageIndex + 1)
+    }
+  }
+
+  function displayNavArrows(i) {
+    let left = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-left");
+    let right = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-right");
+
+    if (i === 0) {
+      left.classList.add("sgds-icon-disabled");
+    } else {
+      left.classList.remove("sgds-icon-disabled");
+    }
+    if (i === pageResults.length - 1) {
+      right.classList.add("sgds-icon-disabled")
+    } else {
+      right.classList.remove("sgds-icon-disabled");
+    }
+  }
+
+  function setCurrentPage(ele) {
+    ele.className = "selected-page";
+    ele.style.pointerEvents = "none";
+  }
+
+  function splitPages(results, pageSize) {
+    var tempArray = [];
+
+    for (let i = 0; i < results.length; i += pageSize) {
+        var chunk = results.slice(i, i + pageSize);
+        tempArray.push(chunk);
+    }
+
+    return tempArray;
   }
 
   // Obtain the query string, load the pre-built lunr index, and perform search
@@ -154,15 +243,15 @@ var runSearch = function(json_data, posts_data) {
   }
 
   var searchTerm = getQueryVariable('query');
-  console.log(searchTerm);
   if (searchTerm) {
 
     // Load the pre-built lunr index
     var idx = lunr.Index.load(JSON.parse(json_data));
 
     // Get lunr to perform a search
-    var results = idx.search(searchTerm);
+    results = idx.search(searchTerm);
+    pageResults = splitPages(results, RESULTS_PER_PAGE);
 
-    window.onload = displaySearchResults(results, searchTerm);
+    window.onload = displaySearchResults(searchTerm);
   }
 };
