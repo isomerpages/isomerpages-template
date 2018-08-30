@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Service Increment for 2011 and Salary Range in CA for 2011-2013"
+title:  Service Increment for 2011 and Salary Range in CA for 2011-2013"
 date:   2012-07-20
 excerpt: "The Singapore Manual & Mercantile Workers' Union v. China Airlines Limited: The Court rhas been adjourned to a date to be fixed."
 permalink: "/media/corporate-publications/service-increment"
