@@ -28,7 +28,7 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-assets
-  - jekyll-paginate
+  # - jekyll-paginate
   - jekyll-sitemap
   # - jekyll-paginate-v2
   # - sanitize
@@ -52,7 +52,6 @@ collections:
 # Resource Room and Pagination
 resources_name: "resource_room"
 paginate: 12
-paginate_path: "/resource_room/page:num"
 
 # Site configuration for Isomer Pages
 ##################################
