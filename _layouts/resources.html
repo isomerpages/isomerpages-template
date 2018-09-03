@@ -61,9 +61,9 @@ layout: default
 <section class="bp-section is-small">
     <div class="bp-container padding--top padding--bottom--xl">
         <div class="row is-multiline">
-            {% for post in paginator.posts %}
+            {% for post in site.posts %}
                 {% if post.categories[1] == ' '%}
-                <div class="col is-3 ">
+<!--                 <div class="col is-3 ">
                     <img src="/assets/img/media-releases/1.jpg" alt="">
                     <div class="news-content">
                         <div>
@@ -76,7 +76,7 @@ layout: default
                             {{ post.date | date_to_string }}
                         </small>
                     </div>
-                </div>
+                </div> -->
                 {% else %}
                 <!-- Define category_index - the index used to determine the bg-color-{{category_index}} -->
                 {% for category in site.categories %}
@@ -86,7 +86,7 @@ layout: default
                     {% endif %}
                 {% endfor %}
 
-                <div class="col is-3">
+                <div class="col is-3 resource-card-element hide">
                     {% if post.permalink %}
                         <a href="{{ post.permalink | relative_url }}" class="is-media-card">
                     {% else %}
@@ -114,57 +114,10 @@ layout: default
     </div>
 </section>
 
-{% if paginator.total_pages > 1 %}
-    <div class="pagination padding--bottom--xl">
-        {% if paginator.previous_page %}
-            <a href="{{ site.baseurl }}{{ paginator.previous_page_path | replace: '//', '/' }}"><span class="sgds-icon sgds-icon-arrow-left is-size-4"></span></a>
-        {% else %}
-            <span class="sgds-icon sgds-icon-arrow-left sgds-icon-disabled is-size-4"></span>
-        {% endif %}
 
-        <!-- Paginate-v1 -->
-        {% for each_page in (1..paginator.total_pages) %}
-            {% if each_page == paginator.page %}
-                <span class="selected-page">
-                    {{ each_page }}
-                </span>
-            {% elsif each_page == 1 %}
-                <a href="{{ site.baseurl }}/{{site.resources_name}}/" title="{{trail.title}}">
-                <span>
-                    {{ each_page }}
-                </span>
-                </a>            
-            {% else %}
-                <a href="{{ site.baseurl }}/{{site.resources_name}}/page{{ each_page }}" title="{{trail.title}}">
-                <span>
-                    {{ each_page }}
-                </span>
-                </a>
-            {% endif %}
-        {% endfor %}
-
-        <!-- Paginate-v2 -->
-<!--         {% if paginator.page_trail %}
-            {% for trail in paginator.page_trail %}
-                {% if page.url == trail.path %}
-                    <span class="pagination selected-page">
-                        {{ trail.num }}
-                    </span>
-                {% else %}
-                    <a href="{{ site.baseurl }}{{ trail.path }}" title="{{trail.title}}">
-                    <span class="pagination">
-                        {{ trail.num }}
-                    </span>
-                    </a>
-                {% endif %}
-            {% endfor %}
-        {% endif %} -->
-
-        {% if paginator.next_page %}
-            <a href="{{ site.baseurl }}{{ paginator.next_page_path | replace: '//', '/' }}"><span class="sgds-icon sgds-icon-arrow-right is-size-4"></span></a>
-        {% else %}
-            <span class="sgds-icon sgds-icon-arrow-right sgds-icon-disabled is-size-4"></span>
-        {% endif %}
-    </div>
-{% endif %}
-<br>
+<div class="search pagination padding--bottom--xl">
+    <span class="sgds-icon sgds-icon-arrow-left is-size-4"></span>
+    <!-- To insert page selectors -->
+    <div id="paginator-pages"></div>
+    <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span>
+</div>
