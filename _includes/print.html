@@ -6,6 +6,13 @@
               onclick="printContent()">
             </i>
         </div>
+        <div id="copy-link" class="actionbar__inner padding--top">
+            <i 
+              class="sgds-icon sgds-icon-link is-size-4"">
+            </i>
+            <input id="page-url" type="text" class="hide" value="{{page.url|absolute_url}}">
+            <!-- The only cross-browser compatible way to copy the current page url into a clipboard is to store it in a hidden input box -->
+        </div>
     </div>
 </div>
 
