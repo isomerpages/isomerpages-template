@@ -51,6 +51,29 @@ layout: default
                         </span>
 
                     {% endfor %}
+<!--                     <div class="bp-dropdown filter-selector-div">
+                        <div class="bp-dropdown-trigger">
+                            <button class="bp-button" aria-haspopup="true" aria-controls="bp-dropdown-menu">
+                                <span>All</span>
+                                <span class="icon is-small">
+                            <span class="sgds-icon sgds-icon-chevron-down"></span>
+                        </span>
+                            </button>
+                        </div>
+                        <div class="bp-dropdown-menu" id="bp-dropdown-menu" role="menu">
+                            <div class="bp-dropdown-content">
+                                <a href="#" class="bp-dropdown-item">Dropdown item</a>
+                                <a class="bp-dropdown-item">Other dropdown item</a>
+                                <a href="#" class="bp-dropdown-item is-active">Active dropdown item</a>
+                                <a href="#" class="bp-dropdown-item">Other dropdown item</a>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="filter-selector-div">
+                        <select id="yearFilter" class="sgds-selector" onchange="applyFilter(this.value)">
+                            <option value="All">All</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -86,7 +109,7 @@ layout: default
                     {% endif %}
                 {% endfor %}
 
-                <div class="col is-3 resource-card-element hide">
+                <div class="col is-3 resource-card-element hide" id="{{ post.date | date: "%Y"}}">
                     {% if post.permalink %}
                         <a href="{{ post.permalink | relative_url }}" class="is-media-card">
                     {% else %}
