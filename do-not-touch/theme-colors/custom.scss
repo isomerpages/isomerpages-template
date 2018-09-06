@@ -462,7 +462,10 @@ table.table-h {
   background-color: transparent;
   padding: 1rem 0.75rem;
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   width: 100%;
+  line-height: 27px;
   // border: 1px solid #d8d8d8;
   // padding: 1rem 0.75rem;
 }

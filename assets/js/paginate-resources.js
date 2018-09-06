@@ -23,11 +23,15 @@ function paginateResources() {
 }
 
 function applyFilter(selectedYear) {
-  hideAllPostsAndPagination()
+  console.log(selectedYear, 'applyfilter is run', typeof(selectedYear));
+  hideAllPostsAndPagination();
 
   // Only keep posts in the selected year
   filteredArray = extractPostsByYear(selectedYear);
+  console.log(filteredArray, 'filtered');
+
   chunkArray = splitPages(filteredArray, PAGE_SIZE);
+  console.log(chunkArray, selectedYear);
   unhideChunk(currentPageIndex, currentPageIndex);
 
   if (!filteredArray.length || filteredArray.length <= PAGE_SIZE) return;
@@ -35,13 +39,27 @@ function applyFilter(selectedYear) {
 }
 
 function displayFilterDropdown(earliestYear, currYear) {
-  var yearFilter = document.getElementById('yearFilter');
+  var yearFilterDesktop = document.getElementById('year-filter-desktop');
+  var yearFilterMobile = document.getElementById('year-filter-mobile');
 
   for (var year = earliestYear; year <= currYear; year++) {
+    // Creating the select element for mobile view
     var option = document.createElement("option");
     option.value = year;
     option.text = year;
-    yearFilter.appendChild(option);
+    yearFilterMobile.appendChild(option);
+
+    // Creating the a tags for desktop view
+    var a_element = document.createElement("a");
+    a_element.id = year;
+    a_element.text = year;
+    a_element.classList.add("bp-dropdown-item", "padding--top--sm", "padding--bottom--none");
+    a_element.onclick = function(){
+        var closureYear = year.toString();
+        console.log(closureYear, typeof(year), 'creating a tags');
+        return function(){applyFilter(closureYear);}
+    }();
+    yearFilterDesktop.appendChild(a_element);
   }
 }
 

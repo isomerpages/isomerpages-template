@@ -32,7 +32,7 @@ layout: default
 
 <!-- Resource category buttons -->
 <section class="bp-section is-small padding--bottom--none">
-    <div class="bp-container padding--top--lg padding--bottom">
+    <div class="bp-container padding--top">
         <div class="row">
             <div class="col is-fullwidth bp-overflow-buttons">
                 <div class="bp-buttons">
@@ -59,12 +59,35 @@ layout: default
                         </span>
 
                     {% endfor %}
-                    <div class="filter-selector-div is-hidden-desktop">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Display filter for desktop -->
+            <div class="col is-one-quarter padding--top--lg is-hidden-touch">
+                <div class="filter-selector-div bp-dropdown">
+                    <a class="bp-dropdown-button hero-dropdown is-centered padding--none" aria-haspopup="true" aria-controls="hero-dropdown-menu">
+                    <div class="bp-dropdown-trigger">
                         <span class="sgds-icon sgds-icon-chevron-down is-size-4" id="filter-arrow"></span>
-                        <select id="yearFilter" class="sgds-selector" onchange="applyFilter(this.value)">
-                            <option value="All">All Years</option>
-                        </select>
+                        <div class="sgds-selector">All Years</div>
                     </div>
+                    </a>
+                    <div class="bp-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
+                      <div id="year-filter-desktop" class="bp-dropdown-content is-centered">
+                        <a class="bp-dropdown-item padding--top--sm padding--bottom--none" onclick="applyFilter('All')">
+                            <p>All Years</p>
+                        </a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Display filter for mobile and tablet -->
+            <div class="col is-fullwidth padding--top--lg is-hidden-desktop">
+                <div class="filter-selector-div is-hidden-desktop">
+                    <span class="sgds-icon sgds-icon-chevron-down is-size-4" id="filter-arrow"></span>
+                    <select id="year-filter-mobile" class="sgds-selector" onchange="applyFilter(this.value)">
+                        <option value="All">All Years</option>
+                    </select>
                 </div>
             </div>
         </div>
