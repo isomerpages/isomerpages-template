@@ -34,7 +34,7 @@ layout: default
 <section class="bp-section is-small padding--bottom--none">
     <div class="bp-container padding--top--lg padding--bottom">
         <div class="row">
-            <div class="col is-fullwidth">
+            <div class="col is-fullwidth bp-overflow-buttons">
                 <div class="bp-buttons">
                     {% for category in site.categories %}
                         {%- capture category_name -%} {{- category | first -}} {% endcapture %}
@@ -59,9 +59,10 @@ layout: default
                         </span>
 
                     {% endfor %}
-                    <div class="filter-selector-div">
+                    <div class="filter-selector-div is-hidden-desktop">
+                        <span class="sgds-icon sgds-icon-chevron-down is-size-4" id="filter-arrow"></span>
                         <select id="yearFilter" class="sgds-selector" onchange="applyFilter(this.value)">
-                            <option value="All">All</option>
+                            <option value="All">All Years</option>
                         </select>
                     </div>
                 </div>

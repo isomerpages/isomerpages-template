@@ -17,7 +17,7 @@ layout: default
 
 <!-- Resource category buttons -->
 <section class="bp-section is-small padding--bottom--none">
-    <div class="bp-container padding--top--lg padding--bottom">
+    <div class="bp-container padding--top">
         <div class="row">
             <div class="col is-fullwidth bp-overflow-buttons">
                 <div class="bp-buttons">
@@ -51,29 +51,35 @@ layout: default
                         </span>
 
                     {% endfor %}
-<!--                     <div class="bp-dropdown filter-selector-div">
-                        <div class="bp-dropdown-trigger">
-                            <button class="bp-button" aria-haspopup="true" aria-controls="bp-dropdown-menu">
-                                <span>All</span>
-                                <span class="icon is-small">
-                            <span class="sgds-icon sgds-icon-chevron-down"></span>
-                        </span>
-                            </button>
-                        </div>
-                        <div class="bp-dropdown-menu" id="bp-dropdown-menu" role="menu">
-                            <div class="bp-dropdown-content">
-                                <a href="#" class="bp-dropdown-item">Dropdown item</a>
-                                <a class="bp-dropdown-item">Other dropdown item</a>
-                                <a href="#" class="bp-dropdown-item is-active">Active dropdown item</a>
-                                <a href="#" class="bp-dropdown-item">Other dropdown item</a>
-                            </div>
-                        </div>
-                    </div> -->
-                    <div class="filter-selector-div">
-                        <select id="yearFilter" class="sgds-selector" onchange="applyFilter(this.value)">
-                            <option value="All">All Years</option>
-                        </select>
+                </div>
+            </div>
+<!--             <div class="col">
+                <div class="bp-dropdown filter-selector-div">
+                    <div class="bp-dropdown-trigger">
+                        <button class="bp-button" aria-haspopup="true" aria-controls="bp-dropdown-menu">
+                            <span>All Years</span>
+                            <span class="icon is-small">
+                        <span class="sgds-icon sgds-icon-chevron-down"></span>
+                    </span>
+                        </button>
                     </div>
+                    <div class="bp-dropdown-menu" id="bp-dropdown-menu" role="menu">
+                        <div class="bp-dropdown-content">
+                            <a href="#" class="bp-dropdown-item">2018</a>
+                            <a href="#" class="bp-dropdown-item is-active">2017</a>
+                            <a href="#" class="bp-dropdown-item">2016</a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div class="row">
+            <div class="col is-fullwidth padding--top--lg">
+                <div class="filter-selector-div is-hidden-desktop">
+                    <span class="sgds-icon sgds-icon-chevron-down is-size-4" id="filter-arrow"></span>
+                    <select id="yearFilter" class="sgds-selector" onchange="applyFilter(this.value)">
+                        <option value="All">All Years</option>
+                    </select>
                 </div>
             </div>
         </div>
