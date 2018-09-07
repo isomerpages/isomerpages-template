@@ -18,21 +18,21 @@ function paginateResources() {
   var currYear = (new Date()).getFullYear();
   displayFilterDropdown(earliestYear, currYear);
 
-  var selectedYear = "All";
+  var selectedYear = "Recent";
   applyFilter(selectedYear);
 }
 
 function applyFilter(selectedYear) {
-  console.log(selectedYear, 'applyfilter is run', typeof(selectedYear));
   hideAllPostsAndPagination();
 
   // Only keep posts in the selected year
   filteredArray = extractPostsByYear(selectedYear);
-  console.log(filteredArray, 'filtered');
 
   chunkArray = splitPages(filteredArray, PAGE_SIZE);
-  console.log(chunkArray, selectedYear);
   unhideChunk(currentPageIndex, currentPageIndex);
+
+  var filterDropdownDesktop = document.getElementById('sgds-selector-text-desktop');
+  filterDropdownDesktop.innerHTML = selectedYear;
 
   if (!filteredArray.length || filteredArray.length <= PAGE_SIZE) return;
   displayPagination();
@@ -52,14 +52,16 @@ function displayFilterDropdown(earliestYear, currYear) {
     // Creating the a tags for desktop view
     var a_element = document.createElement("a");
     a_element.id = year;
-    a_element.text = year;
     a_element.classList.add("bp-dropdown-item", "padding--top--sm", "padding--bottom--none");
     a_element.onclick = function(){
         var closureYear = year.toString();
-        console.log(closureYear, typeof(year), 'creating a tags');
         return function(){applyFilter(closureYear);}
     }();
+
     yearFilterDesktop.appendChild(a_element);
+    var p_element = document.createElement("p");
+    p_element.innerHTML = year;
+    a_element.appendChild(p_element);
   }
 }
 
@@ -94,7 +96,7 @@ function findEarliestYear() {
 
 // If the year is set to 'All', return all posts; else filter only the posts in that year
 function extractPostsByYear(year){
-  if (year === 'All'){
+  if (year === 'Recent'){
     return resourceCardArray;
   }
   var tempArray = [];

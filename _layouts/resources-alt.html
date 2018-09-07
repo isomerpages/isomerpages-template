@@ -68,14 +68,14 @@ layout: default
                 <div class="filter-selector-div bp-dropdown">
                     <a class="bp-dropdown-button hero-dropdown is-centered padding--none" aria-haspopup="true" aria-controls="hero-dropdown-menu">
                     <div class="bp-dropdown-trigger">
-                        <span class="sgds-icon sgds-icon-chevron-down is-size-4" id="filter-arrow"></span>
-                        <div class="sgds-selector">All Years</div>
+                        <span class="sgds-icon sgds-icon-chevron-down is-size-4 has-text-black" id="filter-arrow"></span>
+                        <div class="sgds-selector has-text-black" id="sgds-selector-text-desktop">Recent</div>
                     </div>
                     </a>
                     <div class="bp-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
                       <div id="year-filter-desktop" class="bp-dropdown-content is-centered">
-                        <a class="bp-dropdown-item padding--top--sm padding--bottom--none" onclick="applyFilter('All')">
-                            <p>All Years</p>
+                        <a class="bp-dropdown-item padding--top--sm padding--bottom--none" onclick="applyFilter('Recent')">
+                            <p>Recent</p>
                         </a>
                       </div>
                     </div>
@@ -93,6 +93,7 @@ layout: default
         </div>
     </div>
 </section>
+
 
 <!-- Posts -->
 <section class="bp-section is-small">
