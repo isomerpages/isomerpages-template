@@ -449,3 +449,17 @@ table.table-h {
     }
   }
 }
+
+.float-buttons {
+  & a:hover {
+    text-decoration: none;
+  }
+  & a[target=_blank]:after {
+    content: none;
+  }
+  & button.bp-button, & button.bp-button:hover, & button.bp-button:focus, & button.bp-button:active, & button.bp-button:visited {
+    border-color: transparent;
+    box-shadow: none;
+    padding-right: 0;
+  }
+}
