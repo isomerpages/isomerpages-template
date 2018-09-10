@@ -123,7 +123,7 @@ function unhideChunk(hidePageIndex, unhidePageIndex){
 
 // Populate the pagination elements
 function displayPagination() {
-  document.querySelector(".pagination").style.display = "block";
+  document.querySelector(".pagination").style.display = "flex";
   var pagination = document.getElementById('paginator-pages');
 
   for (let i = 0; i < chunkArray.length; i++) {

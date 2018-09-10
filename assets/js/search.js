@@ -1,6 +1,7 @@
 var runSearch = function(json_data, posts_data) {
 
-  const RESULTS_PER_PAGE = 10;
+  const RESULTS_PER_PAGE = 2;
+  const MAX_PAGE_BUTTONS = 5; // excluding nav btns
   const PREVIEW_SIZE = 300;
   const NUM_LEADING_CHARS = 30;
   let results;
@@ -148,7 +149,7 @@ var runSearch = function(json_data, posts_data) {
 
   // Populate the pagination elements
   function displayPagination() {
-    document.querySelector(".pagination").style.display = "block";
+    document.querySelector(".pagination").style.display = "flex";
     var pagination = document.getElementById('paginator-pages');
     
     for (let i = 0; i < pageResults.length; i++) {
