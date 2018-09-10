@@ -32,9 +32,9 @@ layout: default
 
 <!-- Resource category buttons -->
 <section class="bp-section is-small padding--bottom--none">
-    <div class="bp-container padding--top--lg padding--bottom">
+    <div class="bp-container padding--top">
         <div class="row">
-            <div class="col is-fullwidth">
+            <div class="col is-fullwidth bp-overflow-buttons">
                 <div class="bp-buttons">
                     {% for category in site.categories %}
                         {%- capture category_name -%} {{- category | first -}} {% endcapture %}
@@ -62,8 +62,38 @@ layout: default
                 </div>
             </div>
         </div>
+        <div class="row">
+            <!-- Display filter for desktop -->
+            <div class="col is-one-quarter padding--top--lg is-hidden-touch">
+                <div class="filter-selector-div bp-dropdown">
+                    <a class="bp-dropdown-button hero-dropdown is-centered padding--none" aria-haspopup="true" aria-controls="hero-dropdown-menu">
+                    <div class="bp-dropdown-trigger">
+                        <span class="sgds-icon sgds-icon-chevron-down is-size-4 has-text-black" id="filter-arrow"></span>
+                        <div class="sgds-selector has-text-black" id="sgds-selector-text-desktop">Recent</div>
+                    </div>
+                    </a>
+                    <div class="bp-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
+                      <div id="year-filter-desktop" class="bp-dropdown-content is-centered">
+                        <a class="bp-dropdown-item padding--top--sm padding--bottom--none" onclick="applyFilter('Recent')">
+                            <p>Recent</p>
+                        </a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Display filter for mobile and tablet -->
+            <div class="col is-fullwidth padding--top--lg is-hidden-desktop">
+                <div class="filter-selector-div is-hidden-desktop">
+                    <span class="sgds-icon sgds-icon-chevron-down is-size-4" id="filter-arrow"></span>
+                    <select id="year-filter-mobile" class="sgds-selector" onchange="applyFilter(this.value)">
+                        <option value="All">All Years</option>
+                    </select>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
 
 <!-- Posts -->
 <section class="bp-section is-small">
@@ -86,7 +116,7 @@ layout: default
                     </div>
                 </div> -->
                 {%- elsif post.categories[1] == page_category -%}
-                <div class="col is-3 resource-card-element hide">
+                <div class="col is-3 resource-card-element hide" id="{{ post.date | date: "%Y"}}">
                     {% if post.permalink %}
                         <a href="{{ post.permalink | relative_url }}" class="is-media-card">
                     {% else %}

@@ -450,6 +450,49 @@ table.table-h {
   }
 }
 
+.filter-selector-div {
+  border: 1px solid #d8d8d8;
+}
+
+.sgds-selector {
+  font-family: Lato;
+  font-size: 18px;
+  border: none;
+  background-color: transparent;
+  padding: 1rem 0.75rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  line-height: 27px;
+}
+
+.bp-overflow-buttons {
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  & .bp-buttons {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-y: visible;
+    & .bp-sec-button {
+      display: inline-block;
+    }
+  }
+}
+
+#filter-arrow {
+  position: relative;
+  float: right;
+  height: 0px;
+  width: 0px;
+  right: 34px;
+  top: 17px;
+  pointer-events: none;
+
 .float-buttons {
   & a:hover {
     text-decoration: none;
