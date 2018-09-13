@@ -1,7 +1,8 @@
 var runSearch = function(json_data, posts_data) {
 
   const RESULTS_PER_PAGE = 2;
-  const MAX_PAGE_BUTTONS = 5; // excluding nav btns
+  const MAX_ADJACENT_PAGE_BTNS = 4;
+  const MAX_ADJACENT_MOBILE_PAGE_BTNS = 1;
   const PREVIEW_SIZE = 300;
   const NUM_LEADING_CHARS = 30;
   let results;
@@ -164,7 +165,7 @@ var runSearch = function(json_data, posts_data) {
     }
 
     // Initialise selected page and nav arrows
-    setCurrentPage(pagination.firstChild);
+    setCurrentPage(pagination.firstElementChild);
     displayNavArrows(currentPageIndex);
     setNavArrowHandlers();
   }
@@ -187,12 +188,12 @@ var runSearch = function(json_data, posts_data) {
 
     left.onclick = function(e) {
       let sel = document.querySelector("#paginator-pages .selected-page");
-      changePage(sel.previousSibling, currentPageIndex - 1)
+      changePage(sel.previousElementSibling, currentPageIndex - 1)
     }
 
     right.onclick = function(e) {
       let sel = document.querySelector("#paginator-pages .selected-page");
-      changePage(sel.nextSibling, currentPageIndex + 1)
+      changePage(sel.nextElementSibling, currentPageIndex + 1)
     }
   }
 
@@ -212,9 +213,40 @@ var runSearch = function(json_data, posts_data) {
     }
   }
 
+  function resetDisplayPages(pages) {
+    for (let p = 0; p < pages.length; p++) {
+      pages[p].classList.add("is-hidden-mobile");
+      pages[p].style.display = "none";
+    }
+  }
+
   function setCurrentPage(ele) {
+    var pages = document.getElementById('paginator-pages').children;
+    resetDisplayPages(pages);
+
     ele.className = "selected-page";
+    ele.style.display = "inline-block";
     ele.style.pointerEvents = "none";
+
+    for (let i = 1; i <= MAX_ADJACENT_PAGE_BTNS; i++) {
+      if (pages[currentPageIndex + i]) {
+        pages[currentPageIndex + i].style.display = "inline-block";
+      }
+
+      if (pages[currentPageIndex - i]) {
+        pages[currentPageIndex - i].style.display = "inline-block";
+      }
+    }
+
+    for (let i = 1; i <= MAX_ADJACENT_MOBILE_PAGE_BTNS; i++) {
+      if (pages[currentPageIndex + i]) {
+        pages[currentPageIndex + i].classList.remove("is-hidden-mobile");
+      }
+
+      if (pages[currentPageIndex - i]) {
+        pages[currentPageIndex - i].classList.remove("is-hidden-mobile");
+      }
+    }
   }
 
   function splitPages(results, pageSize) {

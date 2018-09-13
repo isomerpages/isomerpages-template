@@ -1,7 +1,9 @@
 ---
 ---
 
-let PAGE_SIZE = {{site.paginate}};
+const PAGE_SIZE = {{site.paginate}};
+const MAX_ADJACENT_PAGE_BTNS = 4;
+const MAX_ADJACENT_MOBILE_PAGE_BTNS = 1;
 let chunkArray;
 let currentPageIndex = 0;
 let resourceCardArray;
@@ -73,8 +75,8 @@ function hideAllPostsAndPagination(){
   }
 
   var paginationElement = document.getElementById("paginator-pages");
-  while (paginationElement.firstChild) {
-      paginationElement.removeChild(paginationElement.firstChild);
+  while (paginationElement.firstElementChild) {
+      paginationElement.removeChild(paginationElement.firstElementChild);
   }
 
   document.querySelector(".pagination").style.display = "none";
@@ -138,7 +140,7 @@ function displayPagination() {
   }
 
   // Initialise selected page and nav arrows
-  setCurrentPage(pagination.firstChild);
+  setCurrentPage(pagination.firstElementChild);
   displayNavArrows(currentPageIndex);
   setNavArrowHandlers();
 }
@@ -165,12 +167,12 @@ function setNavArrowHandlers() {
 
   left.onclick = function(e) {
     let sel = document.querySelector("#paginator-pages .selected-page");
-    changePage(sel.previousSibling, currentPageIndex - 1)
+    changePage(sel.previousElementSibling, currentPageIndex - 1)
   }
 
   right.onclick = function(e) {
     let sel = document.querySelector("#paginator-pages .selected-page");
-    changePage(sel.nextSibling, currentPageIndex + 1)
+    changePage(sel.nextElementSibling, currentPageIndex + 1)
   }
 }
 
@@ -190,9 +192,40 @@ function displayNavArrows(i) {
   }
 }
 
+function resetDisplayPages(pages) {
+  for (let p = 0; p < pages.length; p++) {
+    pages[p].classList.add("is-hidden-mobile");
+    pages[p].style.display = "none";
+  }
+}
+
 function setCurrentPage(ele) {
+  var pages = document.getElementById('paginator-pages').children;
+  resetDisplayPages(pages);
+
   ele.className = "selected-page";
+  ele.style.display = "inline-block";
   ele.style.pointerEvents = "none";
+
+  for (let i = 1; i <= MAX_ADJACENT_PAGE_BTNS; i++) {
+    if (pages[currentPageIndex + i]) {
+      pages[currentPageIndex + i].style.display = "inline-block";
+    }
+
+    if (pages[currentPageIndex - i]) {
+      pages[currentPageIndex - i].style.display = "inline-block";
+    }
+  }
+
+  for (let i = 1; i <= MAX_ADJACENT_MOBILE_PAGE_BTNS; i++) {
+    if (pages[currentPageIndex + i]) {
+      pages[currentPageIndex + i].classList.remove("is-hidden-mobile");
+    }
+
+    if (pages[currentPageIndex - i]) {
+      pages[currentPageIndex - i].classList.remove("is-hidden-mobile");
+    }
+  }
 }
 
 function splitPages(resourceCardArray, pageSize) {
