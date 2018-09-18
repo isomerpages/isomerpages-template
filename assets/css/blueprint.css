@@ -3769,6 +3769,8 @@ a[href$=".pdf"][target=_blank]:after {
   display: block;
   height: 1px;
   margin: 0.5rem 0; }
+.bp-dropdown-trigger {
+  width: 100%; }
 
 .filter-selector-div {
   border: 1px solid #D6D6D6; }
@@ -3805,17 +3807,20 @@ a[href$=".pdf"][target=_blank]:after {
   height: 0px;
   width: 0px;
   right: 34px;
-  top: 13px;
+  top: 12px;
   pointer-events: none; }
 
-.float-buttons a:hover {
-  text-decoration: none; }
-.float-buttons a[target=_blank]:after {
-  content: none; }
-.float-buttons button.bp-button, .float-buttons button.bp-button:hover, .float-buttons button.bp-button:focus, .float-buttons button.bp-button:active, .float-buttons button.bp-button:visited {
-  border-color: transparent;
-  box-shadow: none;
-  padding-right: 0; }
+.float-buttons {
+  cursor: pointer;
+  text-align: right; }
+  .float-buttons a:hover {
+    text-decoration: none; }
+  .float-buttons a[target=_blank]:after {
+    content: none; }
+  .float-buttons button.bp-button, .float-buttons button.bp-button:hover, .float-buttons button.bp-button:focus, .float-buttons button.bp-button:active, .float-buttons button.bp-button:visited {
+    border-color: transparent;
+    box-shadow: none;
+    padding-right: 0; }
 
 .media {
   align-items: flex-start;
