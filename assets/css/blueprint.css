@@ -3769,6 +3769,8 @@ a[href$=".pdf"][target=_blank]:after {
   display: block;
   height: 1px;
   margin: 0.5rem 0; }
+.bp-dropdown-trigger {
+  width: 100%; }
 
 .filter-selector-div {
   border: 1px solid #D6D6D6; }
