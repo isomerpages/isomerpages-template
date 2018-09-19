@@ -1,6 +1,6 @@
 var runSearch = function(json_data, posts_data) {
 
-  const RESULTS_PER_PAGE = 2;
+  const RESULTS_PER_PAGE = 10;
   const MAX_ADJACENT_PAGE_BTNS = 4;
   const MAX_ADJACENT_MOBILE_PAGE_BTNS = 1;
   const PREVIEW_SIZE = 300;
@@ -184,7 +184,6 @@ var runSearch = function(json_data, posts_data) {
   function setNavArrowHandlers() {
     let left = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-left");
     let right = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-right");
-    let sel = document.querySelector("#paginator-pages .selected-page");
 
     left.onclick = function(e) {
       let sel = document.querySelector("#paginator-pages .selected-page");
@@ -220,6 +219,21 @@ var runSearch = function(json_data, posts_data) {
     }
   }
 
+  // function to ensure that number of pagination btns 
+  // displayed are constant
+  function computeAdjacentPages(max) {
+    let btns = max;
+    if (currentPageIndex < max) {
+      btns += max - currentPageIndex;
+    }
+
+    if ((pageResults.length - currentPageIndex - 1) < max) {
+      btns += max - (pageResults.length - currentPageIndex - 1);
+    }
+
+    return btns;
+  }
+
   function setCurrentPage(ele) {
     var pages = document.getElementById('paginator-pages').children;
     resetDisplayPages(pages);
@@ -228,7 +242,7 @@ var runSearch = function(json_data, posts_data) {
     ele.style.display = "inline-block";
     ele.style.pointerEvents = "none";
 
-    for (let i = 1; i <= MAX_ADJACENT_PAGE_BTNS; i++) {
+    for (let i = 1; i <= computeAdjacentPages(MAX_ADJACENT_PAGE_BTNS); i++) {
       if (pages[currentPageIndex + i]) {
         pages[currentPageIndex + i].style.display = "inline-block";
       }
@@ -238,7 +252,7 @@ var runSearch = function(json_data, posts_data) {
       }
     }
 
-    for (let i = 1; i <= MAX_ADJACENT_MOBILE_PAGE_BTNS; i++) {
+    for (let i = 1; i <= computeAdjacentPages(MAX_ADJACENT_MOBILE_PAGE_BTNS); i++) {
       if (pages[currentPageIndex + i]) {
         pages[currentPageIndex + i].classList.remove("is-hidden-mobile");
       }
