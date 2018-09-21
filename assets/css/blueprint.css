@@ -4552,7 +4552,7 @@ a.navbar-item:hover, a.navbar-item.is-active,
 a.navbar-link:hover,
 a.navbar-link.is-active {
   background-color: white;
-  color: #4372d6; }
+  color: #6b4370; }
 
 .navbar-item {
   flex-grow: 0;
@@ -4570,13 +4570,13 @@ a.navbar-link.is-active {
     padding-bottom: calc(0.5rem - 1px); }
     .navbar-item.is-tab:hover {
       background-color: transparent;
-      border-bottom-color: #4372d6; }
+      border-bottom-color: #6b4370; }
     .navbar-item.is-tab.is-active {
       background-color: transparent;
-      border-bottom-color: #4372d6;
+      border-bottom-color: #6b4370;
       border-bottom-style: solid;
       border-bottom-width: 3px;
-      color: #4372d6;
+      color: #6b4370;
       padding-bottom: calc(0.5rem - 3px); }
 
 .navbar-content {
@@ -4704,7 +4704,7 @@ a.navbar-link.is-active {
       color: #0a0a0a; }
     .navbar.is-transparent .navbar-dropdown a.navbar-item.is-active {
       background-color: whitesmoke;
-      color: #4372d6; }
+      color: #6b4370; }
 
   .navbar-burger {
     display: none; }
@@ -4783,7 +4783,7 @@ a.navbar-link.is-active {
         color: #0a0a0a; }
       .navbar-dropdown a.navbar-item.is-active {
         background-color: whitesmoke;
-        color: #4372d6; }
+        color: #6b4370; }
     .navbar-dropdown.is-boxed {
       border-radius: 5px;
       border-top: none;
