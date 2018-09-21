@@ -13,6 +13,8 @@
     url: /application-guidelines/lorem-ipsum-one/ 
   - title: Lorem Ipsum Two
     url: /application-guidelines/lorem-ipsum-two/ 
+  - title: Lorem Ipsum Three
+    url: /application-guidelines/lorem-ipsum-three/ 
 - title: Legislation
   url: https://google.com
   external: true
@@ -26,6 +28,8 @@
 - title: Resources
   url: /resource_room/
   sub-links:
+  - title: All
+    url: /resource_room/
   - title: Forms and Templates
     url: /resource_room/forms-and-templates/
   - title: Guides
