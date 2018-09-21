@@ -131,9 +131,6 @@ var runSearch = function(json_data, posts_data) {
 
   // Display search results if there are results, else, state that there are no results found
   function displaySearchResults(searchTerm) {
-    var searchResultsCount = document.getElementById('search-results-count');
-    searchResultsCount.innerHTML = results.length + " results for '" + searchTerm + "'";
-    // document.getElementById('search-bar').setAttribute("value", searchTerm);
     document.getElementsByName('query')[1].setAttribute("value", searchTerm);
     
     paginateSearchResults();
@@ -142,6 +139,8 @@ var runSearch = function(json_data, posts_data) {
   }
 
   function paginateSearchResults() {
+    var searchResultsCount = document.getElementById('search-results-count');
+    searchResultsCount.innerHTML = "Page " + (currentPageIndex + 1) + " of " + results.length + " results for '" + searchTerm + "'";
     var searchResults = document.getElementById('search-results');
     searchResults.innerHTML = returnResultsList(pageResults[currentPageIndex]);
   }
