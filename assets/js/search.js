@@ -141,6 +141,10 @@ var runSearch = function(json_data, posts_data) {
   function paginateSearchResults() {
     var searchResultsCount = document.getElementById('search-results-count');
     searchResultsCount.innerHTML = "Page " + (currentPageIndex + 1) + " of " + results.length + " results for '" + searchTerm + "'";
+    // scroll to top of results
+    var searchHeader = document.getElementById('search-content');
+    searchHeader.scrollIntoView({behavior: "smooth", block: "start"});
+    
     var searchResults = document.getElementById('search-results');
     searchResults.innerHTML = returnResultsList(pageResults[currentPageIndex]);
   }
