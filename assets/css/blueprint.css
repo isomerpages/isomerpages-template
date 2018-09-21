@@ -1904,6 +1904,16 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   .bp-buttons.is-right {
     justify-content: flex-end; }
 
+.media-category-button {
+  text-decoration: none !important;
+  color: #323232;
+  margin-right: 2.5rem;
+  letter-spacing: 0.5px;
+  line-height: 34px; }
+  .media-category-button:hover, .media-category-button.selected {
+    color: #6b4370;
+    border-bottom: 2px solid #6b4370; }
+
 .bp-sec-button {
   display: block;
   text-transform: uppercase;
@@ -3788,16 +3798,23 @@ a[href$=".pdf"][target=_blank]:after {
   line-height: 28px; }
 
 .bp-overflow-buttons {
-  overflow-x: auto;
-  overflow-y: visible;
   padding-left: 0;
   padding-right: 0;
   margin-left: 0.75rem;
-  margin-right: 0.75rem; }
+  margin-right: -1rem; }
+  @media screen and (max-width: 1023px) {
+    .bp-overflow-buttons {
+      overflow-x: auto;
+      overflow-y: visible;
+      margin-right: 0.75rem; } }
   .bp-overflow-buttons .bp-buttons {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     white-space: nowrap;
-    overflow-y: visible; }
+    overflow-y: visible;
+    height: 100%; }
+    @media screen and (max-width: 1023px) {
+      .bp-overflow-buttons .bp-buttons {
+        flex-wrap: nowrap; } }
     .bp-overflow-buttons .bp-buttons .bp-sec-button {
       display: inline-block; }
 
