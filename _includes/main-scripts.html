@@ -22,11 +22,13 @@
 <script src="{{ "/assets/posts.json" | relative_url }}"></script>
 <script src="https://unpkg.com/lunr/lunr.js"></script>
 <script src="{{ "/assets/js/worker.js" | relative_url }}"></script>
+<script src="{{ "/assets/js/pagination-util.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/search.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/build-index.js" | relative_url }}"></script>
 {% endif %}
 
 {% if page.layout == 'resources-alt' or page.layout == 'resources' %}
+<script src="{{ "/assets/js/pagination-util.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/paginate-resources.js" | relative_url }}"></script>
 {% endif %}
 
