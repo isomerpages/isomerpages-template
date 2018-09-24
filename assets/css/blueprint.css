@@ -3813,7 +3813,7 @@ a[href$=".pdf"][target=_blank]:after {
 .float-buttons {
   cursor: pointer;
   text-align: right; }
-  .float-buttons a:hover {
+  .float-buttons .actionbar__inner a, .float-buttons .actionbar__inner a:hover {
     text-decoration: none; }
   .float-buttons a[target=_blank]:after {
     content: none; }
@@ -4552,7 +4552,7 @@ a.navbar-item:hover, a.navbar-item.is-active,
 a.navbar-link:hover,
 a.navbar-link.is-active {
   background-color: white;
-  color: #6b4370; }
+  color: #4372d6; }
 
 .navbar-item {
   flex-grow: 0;
@@ -4570,13 +4570,13 @@ a.navbar-link.is-active {
     padding-bottom: calc(0.5rem - 1px); }
     .navbar-item.is-tab:hover {
       background-color: transparent;
-      border-bottom-color: #6b4370; }
+      border-bottom-color: #4372d6; }
     .navbar-item.is-tab.is-active {
       background-color: transparent;
-      border-bottom-color: #6b4370;
+      border-bottom-color: #4372d6;
       border-bottom-style: solid;
       border-bottom-width: 3px;
-      color: #6b4370;
+      color: #4372d6;
       padding-bottom: calc(0.5rem - 3px); }
 
 .navbar-content {
@@ -4704,7 +4704,7 @@ a.navbar-link.is-active {
       color: #0a0a0a; }
     .navbar.is-transparent .navbar-dropdown a.navbar-item.is-active {
       background-color: whitesmoke;
-      color: #6b4370; }
+      color: #4372d6; }
 
   .navbar-burger {
     display: none; }
@@ -4783,7 +4783,7 @@ a.navbar-link.is-active {
         color: #0a0a0a; }
       .navbar-dropdown a.navbar-item.is-active {
         background-color: whitesmoke;
-        color: #6b4370; }
+        color: #4372d6; }
     .navbar-dropdown.is-boxed {
       border-radius: 5px;
       border-top: none;
@@ -7568,6 +7568,11 @@ h6, h6 center {
     color: #767676; }
   .search-content p:last-child {
     margin-bottom: 0.8rem; }
+  .search-content .search-summary {
+    display: flex;
+    justify-content: space-between; }
+    .search-content .search-summary #search-page-indicator {
+      display: none; }
 
 .bp-section.bp-section-pagetitle.search-section {
   padding-top: 60px;
@@ -7769,10 +7774,8 @@ h6, h6 center {
   display: none; }
 
 .content a {
-  font-size: 18px;
   line-height: 1.25;
   color: #4372d6;
-  text-decoration: none;
   margin-bottom: 2rem; }
   .content a:hover {
     color: #3a79ff;

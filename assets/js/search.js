@@ -131,6 +131,8 @@ var runSearch = function(json_data, posts_data) {
 
   // Display search results if there are results, else, state that there are no results found
   function displaySearchResults(searchTerm) {
+    var searchResultsCount = document.getElementById('search-results-count');
+    searchResultsCount.innerHTML = results.length + " results for '" + searchTerm + "'";
     document.getElementsByName('query')[1].setAttribute("value", searchTerm);
     
     paginateSearchResults();
@@ -139,11 +141,11 @@ var runSearch = function(json_data, posts_data) {
   }
 
   function paginateSearchResults() {
-    var searchResultsCount = document.getElementById('search-results-count');
-    searchResultsCount.innerHTML = "Page " + (currentPageIndex + 1) + " of " + results.length + " results for '" + searchTerm + "'";
+    var searchPageIndicator = document.getElementById('search-page-indicator');
+    searchPageIndicator.style.display = pageResults.length > 1 ? "flex" : "none";
+    searchPageIndicator.innerHTML = "Page " + (currentPageIndex + 1) + " of " + pageResults.length;
     // scroll to top of results
-    var searchHeader = document.getElementById('search-content');
-    searchHeader.scrollIntoView({behavior: "smooth", block: "start"});
+    window.scroll({top: 0, left: 0, behavior: 'smooth' });
     
     var searchResults = document.getElementById('search-results');
     searchResults.innerHTML = returnResultsList(pageResults[currentPageIndex]);
