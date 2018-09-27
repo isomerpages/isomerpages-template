@@ -40,10 +40,13 @@
             <div class="col footer-col is-hidden-tablet is-hidden-desktop">
               {%- for link in links -%}
                 {% include links-baseurl.html %}
-                {%- if base-url == "" and link.external == true -%}
-                  <p><a href="{{ base-url }}{{ link.url }}" target="_blank">{{link.title}}</a></p>
-                {% else %}
-                  <p><a href="{{ base-url }}{{ link.url }}">{{link.title}}</a></p>
+                {% assign linkTitle = link.title | downcase %}
+                {% if linkTitle != "contact us" %}
+                  {%- if base-url == "" and link.external == true -%}
+                    <p><a href="{{ base-url }}{{ link.url }}" target="_blank">{{link.title}}</a></p>
+                  {% else %}
+                    <p><a href="{{ base-url }}{{ link.url }}">{{link.title}}</a></p>
+                  {% endif %}
                 {% endif %}
               {%- endfor -%}
             </div>
