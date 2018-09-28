@@ -29,56 +29,22 @@ layout: default
         </div>
         <div class="bp-dropdown-menu has-text-left" id="dropdown-menu" role="menu">
             <div class="bp-dropdown-content">
-                <!-- <a href="#" class="bp-dropdown-item"> -->
                     {% for collection-document in current-collection %}
                         {% if page.url == collection-document.permalink %}
-                        <!-- <div class="bp-section padding--top--none padding--bottom--none"> -->
                             <a class="bp-dropdown-item has-text-secondary" href="{{ site.baseurl }}{{collection-document.permalink}}">
                                 <b><p>{{collection-document.title}}</p></b>
                             </a>
-                        <!-- </div> -->
                         {% else %}
-                        <!-- <div class="bp-section"> -->
                             <a class="bp-dropdown-item" href="{{ site.baseurl }}{{collection-document.permalink}}">
                                 <p>{{collection-document.title}}</p>
                             </a>
-                        <!-- </div> -->
                         {% endif %}
                     {% endfor %}
-                <!-- </a> -->
             </div>
         </div>
     </div>
 </section>
-<!-- <section class="bp-section bg-secondary is-hidden-desktop padding--top--none padding--bottom--none">
-    <div class="row is-hidden-desktop margin--none">
-        <div class="col padding--left--none padding--right--none">
-            <div class="bp-dropdown">
-                <div class="bp-dropdown-trigger">
-                    <a class="bp-button is-large padding--none" aria-haspopup="true" aria-controls="dropdown-menu">
-                        <span>{{page.title}}</span>
-                        <span class="icon is-small">
-                            <i class="sgds-icon sgds-icon-angle-down" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                </div>
-                <div class="bp-dropdown-menu has-text-left" id="dropdown-menu" role="menu">
-                    <div class="bp-dropdown-content">
-                        <a href="#" class="bp-dropdown-item">
-                            {% for collection-document in current-collection %}
-                                {% if page.url == collection-document.permalink %}
-                                    <a class="bp-dropdown-item" href="{{ site.baseurl }}{{collection-document.permalink}}"><b>{{collection-document.title}}</b></a>
-                                {% else %}
-                                    <a class="bp-dropdown-item" href="{{ site.baseurl }}{{collection-document.permalink}}">{{collection-document.title}}</a>
-                                {% endif %}
-                            {% endfor %}
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
+
 <section class="bp-section">
     <div class="bp-container padding--top--lg padding--bottom--xl">
         <div class="row">
@@ -86,14 +52,35 @@ layout: default
                 <div class="sidenav">
                     <aside class="bp-menu is-gt sidebar__inner">
                         <ul class="bp-menu-list">
+                            {%- assign prev-second-nav-title = "" -%}
                             {% for collection-document in current-collection %}
                             <li>
+                                <!-- If this page is selected -->
                                 {% if page.url == collection-document.permalink %}
-                                <b><a class="is-active"
-                                      href="{{ site.baseurl }}{{collection-document.permalink}}">{{collection-document.title}}</a></b>
+                                    {%- if collection-document.second_nav_title -%}
+                                        {%- unless prev-second-nav-title == collection-document.second_nav_title -%}
+                                            <b><a class="is-active second-level-nav-header" href="{{site.baseurl}}{{collection-document.permalink}}">{{collection-document.second_nav_title}}<i class="sgds-icon sgds-icon-chevron-down is-pulled-right is-size-4" aria-hidden="true"></i></a></b>
+                                        {%- endunless -%}
+                                        <b><a class="is-active second-level-nav-item padding--top--none" href="{{ site.baseurl }}{{collection-document.permalink}}">{{collection-document.title}}</a></b>
+                                    {%- else -%}
+                                        <b><a class="is-active" href="{{ site.baseurl }}{{collection-document.permalink}}">{{collection-document.title}}</a></b>
+                                    {%- endif -%}
+                                <!-- If this page is not the one that is selected -->
                                 {% else %}
-                                <a href="{{ site.baseurl }}{{collection-document.permalink}}">{{collection-document.title}}</a>
+                                    {%- if collection-document.second_nav_title -%}
+                                        {%- unless prev-second-nav-title == collection-document.second_nav_title -%}
+                                            {% if page.second_nav_title == collection-document.second_nav_title %}
+                                                <a class="is-active second-level-nav-header" href="{{ site.baseurl }}{{collection-document.permalink}}">{{collection-document.second_nav_title}}<i class="sgds-icon sgds-icon-chevron-down is-pulled-right is-size-4" aria-hidden="true"></i></a>
+                                            {% else %}
+                                                <a class="second-level-nav-header" href="{{ site.baseurl }}{{collection-document.permalink}}">{{collection-document.second_nav_title}}<i class="sgds-icon sgds-icon-chevron-down is-pulled-right is-size-4" aria-hidden="true"></i></a>
+                                            {% endif %}
+                                        {%- endunless -%}
+                                        <a class="second-level-nav-item padding--top--none" href="{{ site.baseurl }}{{collection-document.permalink}}">{{collection-document.title}}</a>
+                                    {%- else -%}
+                                        <a href="{{ site.baseurl }}{{collection-document.permalink}}">{{collection-document.title}}</a>
+                                    {%- endif -%}
                                 {% endif %}
+                                {%- assign prev-second-nav-title = collection-document.second_nav_title -%}
                             </li>
                             {% endfor %}
                         </ul>

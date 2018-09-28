@@ -449,3 +449,32 @@ table.table-h {
     }
   }
 }
+
+// To be integrated into main css
+
+.second-level-nav-header {
+  @at-root {
+    .bp-menu-list a#{&} {
+      border-bottom: 1px solid white;
+    }
+  }
+  .bp-menu-list &.is-active, .bp-menu-list &:hover, .bp-menu-list &.is-active:hover {
+    border-bottom: 1px solid white !important;
+  }
+}
+
+.bp-menu-list a {
+  border-top: 1px solid #767676;
+}
+
+
+
+.second-level-nav-item {
+  .bp-menu-list &:hover, .bp-menu-list &.is-active, .bp-menu-list &.is-active:hover {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white !important;
+  }
+  border-top: 1px solid white !important;
+  border-bottom: 1px solid white !important;
+  padding-left: 1.5rem !important;
+}
