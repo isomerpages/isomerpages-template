@@ -452,15 +452,11 @@ table.table-h {
 
 // To be integrated into main css
 
-.bp-menu-list a {
-  border-top: 1px solid #767676;
-}
-
 .bp-menu-list {
-  a {
+  li:not(:first-child) a {
     border-top: 1px solid #767676;
   }
-  & a.second-level-nav-header, .second-level-nav-header.is-active, .second-level-nav-header:hover, .second-level-nav-header.is-active:hover {
+  & a.second-level-nav-header, a.second-level-nav-header.is-active, a.second-level-nav-header:hover, a.second-level-nav-header.is-active:hover {
     border-bottom: 1px solid white !important;
   }
 }
@@ -469,6 +465,15 @@ table.table-h {
   + div.second-level-nav-div {
     display: block;
     visibility: visible;
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+    opacity: 1;
+    &.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
   }
 }
 
@@ -476,6 +481,15 @@ table.table-h {
     + div.second-level-nav-div {
     display: block;
     visibility: visible;
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+    opacity: 1;
+    &.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
   }
 }
 
