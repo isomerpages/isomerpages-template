@@ -3,10 +3,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta property="og:title" content="{{site.title}}">
-    <meta property="og:description" content="{{site.description}}">
-    <meta property="og:image" content="{{site.baseurl}}/assets/img/logo_blueprint.png">
-    <meta property="og:url" content="{{site.baseurl}}">
+    <meta property="og:title" content="{{page.title}}">
+    <meta property="og:description" content="{{page.content | truncatewords: 20 | strip_html}}">
+    {% assign homepage = site.data.homepage %}
+    <meta property="og:image" content="{% if page.image %}{{page.image | absolute_url}}{% else %}{{homepage.agency-logo | absolute_url}}{% endif %}">
+    <meta property="og:url" content="{{page.permalink | absolute_url}}">
     
     {% assign homepage = site.data.homepage %}
     {% if homepage.favicon %}
