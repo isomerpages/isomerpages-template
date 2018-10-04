@@ -2,7 +2,8 @@
 layout: leftnav-page-content
 permalink: /application-guidelines/lorem-ipsum-one/ 
 title: Lorem Ipsum One
-breadcrumb: Application Guidelines (Lorem Ipsum One) 
+breadcrumb: Application Guidelines (Lorem Ipsum One)
+image: "/images/banner_Merlion.png" 
 last_updated: 01-04-2018 
 collection_name: application-guidelines
 ---
