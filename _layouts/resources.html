@@ -19,7 +19,7 @@ layout: default
 <section class="bp-section is-small padding--bottom--none">
     <div class="bp-container padding--top">
         <div class="row">
-            <div class="col is-fullwidth bp-overflow-buttons">
+            <div class="col is-three-quarters-desktop is-fullwidth bp-overflow-buttons padding--left--none padding--right--none">
                 <div class="bp-buttons">
                     {% for category in site.categories %}
                         {%- capture category_name -%} {{- category | first -}} {% endcapture %}
@@ -53,29 +53,9 @@ layout: default
                     {% endfor %}
                 </div>
             </div>
-<!--             <div class="col">
-                <div class="bp-dropdown filter-selector-div">
-                    <div class="bp-dropdown-trigger">
-                        <button class="bp-button" aria-haspopup="true" aria-controls="bp-dropdown-menu">
-                            <span>All Years</span>
-                            <span class="icon is-small">
-                        <span class="sgds-icon sgds-icon-chevron-down"></span>
-                    </span>
-                        </button>
-                    </div>
-                    <div class="bp-dropdown-menu" id="bp-dropdown-menu" role="menu">
-                        <div class="bp-dropdown-content">
-                            <a href="#" class="bp-dropdown-item">2018</a>
-                            <a href="#" class="bp-dropdown-item is-active">2017</a>
-                            <a href="#" class="bp-dropdown-item">2016</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-        </div>
-        <div class="row">
+
             <!-- Display filter for desktop -->
-            <div class="col is-one-quarter padding--top--lg is-hidden-touch">
+            <div class="col is-one-quarter padding--top padding--left padding--right--sm is-hidden-touch">
                 <div class="filter-selector-div bp-dropdown">
                     <a class="bp-dropdown-button hero-dropdown is-centered padding--none" aria-haspopup="true" aria-controls="hero-dropdown-menu">
                     <div class="bp-dropdown-trigger">
@@ -92,6 +72,8 @@ layout: default
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <!-- Display filter for mobile and tablet -->
             <div class="col is-fullwidth padding--top--lg is-hidden-desktop">
                 <div class="filter-selector-div is-hidden-desktop">

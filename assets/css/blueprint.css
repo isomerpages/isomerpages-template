@@ -1904,6 +1904,16 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   .bp-buttons.is-right {
     justify-content: flex-end; }
 
+.media-category-button {
+  text-decoration: none !important;
+  color: #323232;
+  margin-right: 2.5rem;
+  letter-spacing: 0.5px;
+  line-height: 34px; }
+  .media-category-button:hover, .media-category-button.selected {
+    color: #6b4370;
+    border-bottom: 2px solid #6b4370; }
+
 .bp-sec-button {
   display: block;
   text-transform: uppercase;
@@ -3792,16 +3802,23 @@ a[href$=".pdf"][target=_blank]:after {
   line-height: 28px; }
 
 .bp-overflow-buttons {
-  overflow-x: auto;
-  overflow-y: visible;
   padding-left: 0;
   padding-right: 0;
   margin-left: 0.75rem;
-  margin-right: 0.75rem; }
+  margin-right: -1rem; }
+  @media screen and (max-width: 1023px) {
+    .bp-overflow-buttons {
+      overflow-x: auto;
+      overflow-y: visible;
+      margin-right: 0.75rem; } }
   .bp-overflow-buttons .bp-buttons {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     white-space: nowrap;
-    overflow-y: visible; }
+    overflow-y: visible;
+    height: 100%; }
+    @media screen and (max-width: 1023px) {
+      .bp-overflow-buttons .bp-buttons {
+        flex-wrap: nowrap; } }
     .bp-overflow-buttons .bp-buttons .bp-sec-button {
       display: inline-block; }
 
@@ -3817,7 +3834,7 @@ a[href$=".pdf"][target=_blank]:after {
 .float-buttons {
   cursor: pointer;
   text-align: right; }
-  .float-buttons a:hover {
+  .float-buttons .actionbar__inner a, .float-buttons .actionbar__inner a:hover {
     text-decoration: none; }
   .float-buttons a[target=_blank]:after {
     content: none; }
@@ -7595,6 +7612,11 @@ h6, h6 center {
     color: #767676; }
   .search-content p:last-child {
     margin-bottom: 0.8rem; }
+  .search-content .search-summary {
+    display: flex;
+    justify-content: space-between; }
+    .search-content .search-summary #search-page-indicator {
+      display: none; }
 
 .bp-section.bp-section-pagetitle.search-section {
   padding-top: 60px;
@@ -7796,10 +7818,8 @@ h6, h6 center {
   display: none; }
 
 .content a {
-  font-size: 18px;
   line-height: 1.25;
   color: #4372d6;
-  text-decoration: none;
   margin-bottom: 2rem; }
   .content a:hover {
     color: #3a79ff;

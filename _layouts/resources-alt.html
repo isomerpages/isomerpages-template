@@ -34,7 +34,7 @@ layout: default
 <section class="bp-section is-small padding--bottom--none">
     <div class="bp-container padding--top">
         <div class="row">
-            <div class="col is-fullwidth bp-overflow-buttons">
+            <div class="col is-three-quarters-desktop is-fullwidth bp-overflow-buttons padding--left--none padding--right--none">
                 <div class="bp-buttons">
                     {% for category in site.categories %}
                         {%- capture category_name -%} {{- category | first -}} {% endcapture %}
@@ -61,10 +61,9 @@ layout: default
                     {% endfor %}
                 </div>
             </div>
-        </div>
-        <div class="row">
+            
             <!-- Display filter for desktop -->
-            <div class="col is-one-quarter padding--top--lg is-hidden-touch">
+            <div class="col is-one-quarter padding--top padding--left padding--right--sm is-hidden-touch">
                 <div class="filter-selector-div bp-dropdown">
                     <a class="bp-dropdown-button hero-dropdown is-centered padding--none" aria-haspopup="true" aria-controls="hero-dropdown-menu">
                     <div class="bp-dropdown-trigger">
@@ -81,6 +80,8 @@ layout: default
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <!-- Display filter for mobile and tablet -->
             <div class="col is-fullwidth padding--top--lg is-hidden-desktop">
                 <div class="filter-selector-div is-hidden-desktop">
