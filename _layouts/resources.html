@@ -21,8 +21,19 @@ layout: default
         <div class="row">
             <div class="col is-three-quarters-desktop is-fullwidth bp-overflow-buttons padding--left--none padding--right--none">
                 <div class="bp-buttons">
-                    {% for category in site.categories %}
-                        {%- capture category_name -%} {{- category | first -}} {% endcapture %}
+                    {% if site.data.resources %}
+                        {% assign categories = site.data.resources.categories %}
+                    {% else %}
+                        {% assign categories = site.categories %}
+                    {% endif %}
+
+                    {% for category-element in categories %}
+                        {% if site.data.resources %}
+                            {%- capture category_name -%} {{- category-element.category-name -}} {% endcapture %}
+                        {% else %}
+                            {%- capture category_name -%} {{- category-element | first -}} {% endcapture %}
+                        {% endif %}
+
                         {%- capture category_url -%} 
                             {%- if category_name == site.resources_name -%}
                                 /{{site.resources_name}}/
