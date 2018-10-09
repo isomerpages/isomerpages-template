@@ -3736,6 +3736,10 @@ a[href$=".pdf"][target=_blank]:after {
     padding-bottom: 0px;
     padding-top: unset;
     top: auto; }
+  .bp-dropdown .second-level-nav-div-mobile {
+    padding-left: 1rem !important;
+    display: block;
+    visibility: visible; }
 .bp-dropdown-menu {
   display: none;
   left: 0;
@@ -3907,10 +3911,33 @@ a[href$=".pdf"][target=_blank]:after {
       font-weight: 600;
       border-color: #6b4370;
       border-bottom: 2px solid #6b4370; }
+    .bp-menu-list a.second-level-nav-header i.sgds-icon {
+      line-height: 1.25; }
+    .bp-menu-list a.second-level-nav-header, .bp-menu-list a.second-level-nav-header.is-active, .bp-menu-list a.second-level-nav-header:hover, .bp-menu-list a.second-level-nav-header.is-active:hover {
+      border-bottom: 1px solid white !important; }
   .bp-menu-list li ul {
     border-left: 1px dotted #6b4370;
     margin: 0.75em;
     padding-left: 0.75em; }
+  .bp-menu-list li.second-level-nav-header.is-active + div.second-level-nav-div {
+    display: block;
+    visibility: visible; }
+    .bp-menu-list li.second-level-nav-header.is-active + div.second-level-nav-div.is-hidden {
+      visibility: hidden; }
+  .bp-menu-list li.second-level-nav-header:active + div.second-level-nav-div, .bp-menu-list li.second-level-nav-header:hover + div.second-level-nav-div {
+    display: block;
+    visibility: visible; }
+    .bp-menu-list li.second-level-nav-header:active + div.second-level-nav-div.is-hidden, .bp-menu-list li.second-level-nav-header:hover + div.second-level-nav-div.is-hidden {
+      visibility: hidden; }
+  .bp-menu-list li a.second-level-nav-item:hover, .bp-menu-list li a.second-level-nav-item.is-active, .bp-menu-list li a.second-level-nav-item.is-active:hover {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white !important; }
+  .bp-menu-list li a.second-level-nav-item {
+    border-top: 1px solid white !important;
+    border-bottom: 1px solid white;
+    padding-left: 1.5rem; }
+  .bp-menu-list li:not(:first-child) a {
+    border-top: 1px solid #767676; }
 .bp-menu-label {
   color: #767676;
   font-size: 0.75em;
