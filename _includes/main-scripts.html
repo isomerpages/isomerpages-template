@@ -35,6 +35,10 @@
 <script src="{{ "/assets/js/build-index.js" | relative_url }}"></script>
 {% endif %}
 
+{% if page.layout == 'datagovsg-search' %}
+<script src="{{ "/assets/js/datagovsg-search.js" | relative_url }}"></script>
+{% endif %}
+
 {% if page.layout == 'resources-alt' or page.layout == 'resources' %}
 <script src="{{ "/assets/js/paginate-resources.js" | relative_url }}"></script>
 {% endif %}
