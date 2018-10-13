@@ -8,12 +8,22 @@ $.ajax({
   data: data,
   dataType: 'json',
   success: function(data) {
-  	console.log(data.result);
+
+  	function remove(array, elements) {
+    	return array.filter(e => !elements.includes(e.id));
+	}
+
+	var fieldArray = remove(data.result.fields, ["_id", "_full_count", "rank"])
+	console.log(fieldArray);
 
   	var resultString = "";
   	for (index in data.result.records) {
   		console.log(data.result.records[index])
-  		resultString += data.result.records[index];
+  		for (fieldArrayIndex in fieldArray) {
+  			var fieldId = fieldArray[fieldArrayIndex].id;
+  			resultString += data.result.records[index][fieldId] + ' ';
+  		}
+  		resultString += '<br>'
   	}
   	document.getElementsByClassName("content")[0].innerHTML = resultString;
   }
