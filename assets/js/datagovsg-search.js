@@ -3,28 +3,31 @@ var data = {
   limit: 5,
   q: 'tan' // query for 'jones'
 };
-$.ajax({
+
+var request = $.ajax({
   url: 'https://data.gov.sg/api/action/datastore_search',
   data: data,
   dataType: 'json',
-  success: function(data) {
+});
 
-  	function remove(array, elements) {
-    	return array.filter(e => !elements.includes(e.id));
-	}
-
+request.done(function(data){
 	var fieldArray = remove(data.result.fields, ["_id", "_full_count", "rank"])
 	console.log(fieldArray);
 
-  	var resultString = "";
+  	var resultString = "<table class=\"table-h\"><tr>";
   	for (index in data.result.records) {
   		console.log(data.result.records[index])
+  		resultString += '<tr>'
   		for (fieldArrayIndex in fieldArray) {
   			var fieldId = fieldArray[fieldArrayIndex].id;
-  			resultString += data.result.records[index][fieldId] + ' ';
+  			resultString += '<td>' + data.result.records[index][fieldId] + '</td>';
   		}
-  		resultString += '<br>'
+  		resultString += '</tr>'
   	}
+  	resultString += '</table>'
   	document.getElementsByClassName("content")[0].innerHTML = resultString;
-  }
 });
+
+function remove(array, elements) {
+	return array.filter(e => !elements.includes(e.id));
+}
