@@ -17,16 +17,16 @@
 <script src="{{ "/assets/js/cancel-notification.js" | relative_url }}"></script>
 {% endif %}
 
-{% if page.url contains 'our-journey' %}
+{% if page.layout == 'our-journey' %}
 <script src="{{ "/assets/js/accordion.js" | relative_url }}"></script>
 {% endif %}
 
-{% if page.url contains 'our-team' %}
+{% if page.layout == 'our-team' %}
 <script src="{{ "/assets/js/our-team.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/accordion.js" | relative_url }}"></script>
 {% endif %}
 
-{% if page.url contains 'search' %}
+{% if page.layout == 'search' %}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.4/purify.min.js"></script>
 <script src="{{ "/assets/posts.json" | relative_url }}"></script>
 <script src="https://unpkg.com/lunr/lunr.js"></script>
@@ -34,6 +34,11 @@
 <script src="{{ "/assets/js/pagination-util.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/search.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/build-index.js" | relative_url }}"></script>
+{% endif %}
+
+{% if page.layout == 'datagovsg-search' %}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.4/purify.min.js"></script>
+<script src="{{ "/assets/js/datagovsg-search.js" | relative_url }}"></script>
 {% endif %}
 
 {% if page.layout == 'resources-alt' or page.layout == 'resources' %}

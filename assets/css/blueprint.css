@@ -2206,6 +2206,11 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 .content .person-info a {
   line-height: 2.3rem; }
 
+.horizontal-scroll {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap; }
+
 .input,
 .textarea {
   -moz-appearance: none;
@@ -7655,6 +7660,9 @@ h6, h6 center {
     display: inline-block; }
     .search.pagination #paginator-pages span {
       cursor: pointer; }
+
+#database-search-container input {
+  border: 1px solid #D6D6D6; }
 
 .pagination {
   text-align: center;
