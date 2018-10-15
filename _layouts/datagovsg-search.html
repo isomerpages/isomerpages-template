@@ -15,12 +15,36 @@ layout: default
     </div>
 </section>
 
+<section class="bp-section padding--bottom--none">
+    <div class="bp-container">
+        <form action="{{site.baseurl}}{{page.url}}" method="get">
+            <div class="row">
+                <div id="database-search-container" class="col">
+                    {% include bp-search-box.html %}
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
 <section class="bp-section">
-    <div class="bp-container padding--top--lg">
+    <div class="bp-container padding--top--sm">
         <div class="row">
-          <div class="col content">
+            <div class="col content horizontal-scroll"">
                 {{content}}
-          </div>
+            </div>
         </div>
     </div>
 </section>
+
+
+<div class="search pagination padding--bottom--xl">
+    <span class="sgds-icon sgds-icon-arrow-left is-size-4"></span>
+    <!-- To insert page selectors -->
+    <div id="paginator-pages"></div>
+    <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span>
+</div>
+
+<script>
+    let resourceId = '{{page.datagovsg-id}}';
+</script>
