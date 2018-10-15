@@ -3,7 +3,7 @@ layout: leftnav-page-content
 permalink: /application-guidelines/lorem-ipsum-one/second-level-b/
 title: Lorem Ipsum One B
 breadcrumb: Application Guidelines (Lorem Ipsum One B) 
-last_updated: 01-04-2018 
+image: "/images/banner_Merlion.png" 
 collection_name: application-guidelines
 second_nav_title: "Second Level A"
 ---

@@ -24,9 +24,9 @@ $widescreen: 1152px + (4 * $gap) !default;
 // Mixins
 
 @mixin touch() {
-	@media screen and (max-width: $desktop - 1px){
-    	@content
-	}
+  @media screen and (max-width: $desktop - 1px){
+      @content
+  }
 }
 
 @mixin mobile() {
@@ -36,9 +36,9 @@ $widescreen: 1152px + (4 * $gap) !default;
 }
 
 @mixin desktop() {
-	@media screen and (min-width: $desktop){
-    	@content
-	}
+  @media screen and (min-width: $desktop){
+      @content
+  }
 }
 
 @mixin widescreen() {
@@ -56,36 +56,36 @@ $widescreen: 1152px + (4 * $gap) !default;
     background-color: $secondary !important;
   }
   &-media-color {
-  	&-1 {
-  		background-color: $media-color-one;
-  		&:hover {
-  			background-color: darken($media-color-one, 10%);
-		}
-  	}
-  	&-2 {
-  		background-color: $media-color-two;
-  		&:hover {
-  			background-color: darken($media-color-two, 10%);
-		}
-  	}
-  	&-3 {
-  		background-color: $media-color-three;
-  		&:hover {
-  			background-color: darken($media-color-three, 10%);
-		}
-  	}
-  	&-4 {
-  		background-color: $media-color-four;
-  		&:hover {
-  			background-color: darken($media-color-four, 10%);
-		}
-  	}
-  	&-5 {
-  		background-color: $media-color-five;
-  		&:hover {
-  			background-color: darken($media-color-five, 10%);
-		}
-  	}
+    &-1 {
+      background-color: $media-color-one;
+      &:hover {
+        background-color: darken($media-color-one, 10%);
+    }
+    }
+    &-2 {
+      background-color: $media-color-two;
+      &:hover {
+        background-color: darken($media-color-two, 10%);
+    }
+    }
+    &-3 {
+      background-color: $media-color-three;
+      &:hover {
+        background-color: darken($media-color-three, 10%);
+    }
+    }
+    &-4 {
+      background-color: $media-color-four;
+      &:hover {
+        background-color: darken($media-color-four, 10%);
+    }
+    }
+    &-5 {
+      background-color: $media-color-five;
+      &:hover {
+        background-color: darken($media-color-five, 10%);
+    }
+    }
   }
   &-1{
     //background-color: $primary;
@@ -144,33 +144,33 @@ $widescreen: 1152px + (4 * $gap) !default;
 
 // Color definitions
 .is {
-	&-primary {
-		background-color: $primary !important;
-	}
-	&-secondary {
-		background-color: $secondary !important;
-	}
+  &-primary {
+    background-color: $primary !important;
+  }
+  &-secondary {
+    background-color: $secondary !important;
+  }
 }
 
 // Text color
 .has-text-primary {
-	color: $primary !important;
+  color: $primary !important;
 }
 .has-text-secondary {
-	color: $secondary !important;
+  color: $secondary !important;
 }
 
 // Menu/Left-nav
 .bp-menu-list a.is-active {
-	color: $secondary !important;
-	border-bottom: 2px solid $secondary !important;
-	&:hover {
-		border-bottom: 2px solid $secondary !important;
-	}
+  color: $secondary !important;
+  border-bottom: 2px solid $secondary !important;
+  &:hover {
+    border-bottom: 2px solid $secondary !important;
+  }
 }
 .bp-menu-list a:hover {
-	color: $secondary !important;
-	border-bottom: 1px solid $secondary !important;
+  color: $secondary !important;
+  border-bottom: 1px solid $secondary !important;
 }
 
 //Accordion
@@ -194,29 +194,29 @@ $widescreen: 1152px + (4 * $gap) !default;
 
 // Secondary button
 .bp-sec-button {
-	color: $secondary;
-	& span {
-		border-bottom: 2px solid $secondary !important;
-	}
-	&:hover {
-		& span {
-	    	border-bottom: 2px solid $secondary-hover !important;
-	    	color: $secondary-hover !important;
-	  	}
-	  	& i {
-	    	color: $secondary-hover !important;
-	  	}
-	}
+  color: $secondary;
+  & span {
+    border-bottom: 2px solid $secondary !important;
+  }
+  &:hover {
+    & span {
+        border-bottom: 2px solid $secondary-hover !important;
+        color: $secondary-hover !important;
+      }
+      & i {
+        color: $secondary-hover !important;
+      }
+  }
 }
 
 // Bottom navigation bar
 .bottom-navigation {
-	a {
-		background-color: $secondary;
-	    &:hover{
-	      background-color: darken($secondary,10%) !important;
-	    }
-	}
+  a {
+    background-color: $secondary;
+      &:hover{
+        background-color: darken($secondary,10%) !important;
+      }
+  }
 }
 
 .bp-section.bp-section-pagetitle {
@@ -225,16 +225,16 @@ $widescreen: 1152px + (4 * $gap) !default;
 
 // Pagination
 .pagination {
-	span {
-		&:hover {
+  span {
+    &:hover {
             border-color: $secondary;
             color: $secondary;
-		}
+    }
         &.selected-page:hover {
             background-color: $secondary;
             border-color: $secondary;
         }
-	}
+  }
     .selected-page {
         background-color: $secondary;
         border-color: $secondary;
@@ -243,16 +243,16 @@ $widescreen: 1152px + (4 * $gap) !default;
 
 // Homepage
 #key-highlights{
-	background-color: $primary;
-	.col {
-		border-left:1px solid darken($primary,10%);
-		@include touch(){
-			border-top:1px solid darken($primary,10%);
-		}
-		&:hover{
-			background-color: darken($primary,10%);
-		}
-	}
+  background-color: $primary;
+  .col {
+    border-left:1px solid darken($primary,10%);
+    @include touch(){
+      border-top:1px solid darken($primary,10%);
+    }
+    &:hover{
+      background-color: darken($primary,10%);
+    }
+  }
 }
 
 // Navbar
@@ -303,21 +303,21 @@ $widescreen: 1152px + (4 * $gap) !default;
 
 // Post-content
 .content {
-	h1, h2, h3, h4, h5 {
-		color: $secondary;
-		strong {
-			color: $secondary;
-		}
-	}
-	blockquote {
-		border-left-color: $secondary;
-	}
-	blockquote > p {
-		color: $secondary;
-	}
-	blockquote > ul {
-		color: $secondary;
-	}
+  h1, h2, h3, h4, h5 {
+    color: $secondary;
+    strong {
+      color: $secondary;
+    }
+  }
+  blockquote {
+    border-left-color: $secondary;
+  }
+  blockquote > p {
+    color: $secondary;
+  }
+  blockquote > ul {
+    color: $secondary;
+  }
 }
 
 // Tables
@@ -336,20 +336,6 @@ table.table-h {
       }
     }
   }
-}
-
-// Media category buttons - not used now but will be used in the future
-
-.media-category-button {
-  text-decoration: none !important;
-  color: #323232;
-  margin-right: 2.5rem;
-  letter-spacing: 0.5px;
-}
-
-.media-category-button:hover, .media-category-button.selected {
-  color: $secondary;
-  border-bottom: 2px solid $secondary;
 }
 
 // CSS to be refactored into the Blueprint template
@@ -448,43 +434,4 @@ table.table-h {
       opacity: 1;
     }
   }
-}
-
-// To be integrated into main css
-
-.bp-menu-list a {
-  border-top: 1px solid #767676;
-}
-
-.bp-menu-list {
-  a {
-    border-top: 1px solid #767676;
-  }
-  & a.second-level-nav-header, .second-level-nav-header.is-active, .second-level-nav-header:hover, .second-level-nav-header.is-active:hover {
-    border-bottom: 1px solid white !important;
-  }
-}
-
-.bp-menu-list li.second-level-nav-header.is-active {
-  + div.second-level-nav-div {
-    display: block;
-    visibility: visible;
-  }
-}
-
-.bp-menu-list li.second-level-nav-header:active, .bp-menu-list li.second-level-nav-header:hover {
-    + div.second-level-nav-div {
-    display: block;
-    visibility: visible;
-  }
-}
-
-.second-level-nav-item {
-  .bp-menu-list &:hover, .bp-menu-list &.is-active, .bp-menu-list &.is-active:hover {
-    border-top: 1px solid white;
-    border-bottom: 1px solid white !important;
-  }
-  border-top: 1px solid white !important;
-  border-bottom: 1px solid white !important;
-  padding-left: 1.5rem !important;
 }
