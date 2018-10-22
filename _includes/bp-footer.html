@@ -12,6 +12,7 @@
                 {%- assign links = site.data.navigation -%}
             {% endif %}
 
+            {% assign social = site.data.social-media %}
             <!-- Footer links for tablet/desktop -->
             {%- for link in links -%}
             {% include links-baseurl.html %}
@@ -34,7 +35,51 @@
                 </div>
             {% endif %}
             {%- endfor -%}
-            <div class="col footer-col is-hidden-mobile"></div>
+            <div class="col footer-col is-hidden-mobile is-hidden-tablet-only">
+              {% if social.facebook %}
+                <a href="{{ social.facebook }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-facebook is-size-4"></span></a>
+              {% endif %}
+              {% if social.twitter %}
+                <a href="{{ social.twitter }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-twitter is-size-4"></span></a>
+              {% endif %}
+              {% if social.youtube %}
+                <a href="{{ social.youtube }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-youtube is-size-4"></span></a>
+              {% endif %}
+              {% if social.instagram %}
+                <a href="{{ social.instagram }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-instagram is-size-4"></span></a>
+              {% endif %}
+              {% if social.linkedin %}
+                <a href="{{ social.linkedin }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-linkedin is-size-4"></span></a>
+              {% endif %}
+            </div>
+            <!-- Social links for tablet -->
+            <div class="col footer-col is-hidden-mobile is-hidden-desktop" id="social-link-tablet">
+              {% if social.facebook %}
+                <div class="row">
+                  <a href="{{ social.facebook }}" target="_blank" class="social-link margin--bottom"><span class="sgds-icon sgds-icon-facebook is-size-4"></span></a>
+                </div>
+              {% endif %}
+              {% if social.twitter %}
+                <div class="row">
+                  <a href="{{ social.twitter }}" target="_blank" class="social-link margin--bottom"><span class="sgds-icon sgds-icon-twitter is-size-4"></span></a>
+                </div>
+              {% endif %}
+              {% if social.youtube %}
+                <div class="row">
+                  <a href="{{ social.youtube }}" target="_blank" class="social-link margin--bottom"><span class="sgds-icon sgds-icon-youtube is-size-4"></span></a>
+                </div>
+              {% endif %}
+              {% if social.instagram %}
+                <div class="row">
+                  <a href="{{ social.instagram }}" target="_blank" class="social-link margin--bottom"><span class="sgds-icon sgds-icon-instagram is-size-4"></span></a>
+                </div>
+              {% endif %}
+              {% if social.linkedin %}
+                <div class="row">
+                  <a href="{{ social.linkedin }}" target="_blank" class="social-link margin--bottom"><span class="sgds-icon sgds-icon-linkedin is-size-4"></span></a>
+                </div>
+              {% endif %}
+            </div>
 
             <!-- Footer links for mobile -->
             <div class="col footer-col is-hidden-tablet is-hidden-desktop">
@@ -70,6 +115,23 @@
                </li>
            </ul>
           </div>
+          <div class="col footer-col is-hidden-tablet is-hidden-desktop padding--top--lg padding--bottom--none">
+              {% if social.facebook %}
+                <a href="{{ social.facebook }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-facebook is-size-4"></span></a>
+              {% endif %}
+              {% if social.twitter %}
+                <a href="{{ social.twitter }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-twitter is-size-4"></span></a>
+              {% endif %}
+              {% if social.youtube %}
+                <a href="{{ social.youtube }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-youtube is-size-4"></span></a>
+              {% endif %}
+              {% if social.instagram %}
+                <a href="{{ social.instagram }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-instagram is-size-4"></span></a>
+              {% endif %}
+              {% if social.linkedin %}
+                <a href="{{ social.linkedin }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-linkedin is-size-4"></span></a>
+              {% endif %}
+            </div>
         </div>
     </div>
 </footer>
