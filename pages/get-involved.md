@@ -32,3 +32,5 @@ At GovTech, we embrace this "outside-in approach". Only when we have taken in th
 By joining the community, you get to try out our new tech products and services before they are available. Too many government apps today? That's alright, we will evaluate the landscape of apps as we move towards addressing the various Moments of Life for citizens. As a user, your insights are valuable in creating digital offerings that are useful to citizens.
 
 ![Image of Hive]({{site.baseurl}}/images/digital-transformation/govtech-hive.jpg)
+
+<iframe onload="resizeIframe(this)" src="/AmchartModule/chart.aspx?id=9eb66ccb-ba4d-490b-9ebf-2fb583a9fcc2" scrolling="no" frameborder="0" allowfullscreen="" style="width: 0px; min-height: 441px; min-width: 100%; height: 0px;"></iframe>
