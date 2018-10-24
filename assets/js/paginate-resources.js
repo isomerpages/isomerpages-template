@@ -73,8 +73,8 @@ function hideAllPostsAndPagination(){
   }
 
   var paginationElement = document.getElementById("paginator-pages");
-  while (paginationElement.firstElementChild) {
-      paginationElement.removeChild(paginationElement.firstElementChild);
+  while (paginationElement.firstChild) {
+      paginationElement.removeChild(paginationElement.firstChild);
   }
 
   document.querySelector(".pagination").style.display = "none";
