@@ -7,7 +7,7 @@
   title: Title B
   organisation: Organisation B
   image-url: /images/board-of-directors/Person_B.jpg
-  - name: Person C
+- name: Person C
   title: Title C
   organisation: Organisation C
   image-url: /images/board-of-directors/Person_C.jpg
