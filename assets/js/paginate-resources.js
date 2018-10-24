@@ -2,6 +2,8 @@
 ---
 
 let PAGE_SIZE = {{site.paginate}};
+const MAX_ADJACENT_PAGE_BTNS = 4;
+const MAX_ADJACENT_MOBILE_PAGE_BTNS = 1;
 let pageResults;
 let currentPageIndex = 0;
 let resourceCardArray;
@@ -73,8 +75,8 @@ function hideAllPostsAndPagination(){
   }
 
   var paginationElement = document.getElementById("paginator-pages");
-  while (paginationElement.firstChild) {
-      paginationElement.removeChild(paginationElement.firstChild);
+  while (paginationElement.firstElementChild) {
+      paginationElement.removeChild(paginationElement.firstElementChild);
   }
 
   document.querySelector(".pagination").style.display = "none";

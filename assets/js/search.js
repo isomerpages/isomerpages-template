@@ -1,4 +1,6 @@
-const RESULTS_PER_PAGE = 10;
+const RESULTS_PER_PAGE = 1;
+const MAX_ADJACENT_PAGE_BTNS = 2;
+const MAX_ADJACENT_MOBILE_PAGE_BTNS = 1;
 const PREVIEW_SIZE = 300;
 const NUM_LEADING_CHARS = 30;
 let results;
