@@ -7,12 +7,14 @@
 # This file contains the structure for the top navigation and bottom footer
 
 - title: Application Guidelines
-  url: /application-guidelines/lorem-ipsum-one/
+  url: /application-guidelines/lorem-ipsum-one/second-level-a/
   sub-links:
-  - title: Lorem Ipsum One
-    url: /application-guidelines/lorem-ipsum-one/ 
-  - title: Lorem Ipsum Two
-    url: /application-guidelines/lorem-ipsum-two/ 
+  - title: Second Level A
+    url: /application-guidelines/lorem-ipsum-one/second-level-a/
+  - title: Second Level B
+    url: /application-guidelines/lorem-ipsum-two/part-A/
+  - title: Lorem Ipsum Three
+    url: /application-guidelines/lorem-ipsum-three/ 
 - title: Legislation
   url: https://google.com
   external: true
@@ -26,6 +28,8 @@
 - title: Resources
   url: /resource_room/
   sub-links:
+  - title: All
+    url: /resource_room/
   - title: Forms and Templates
     url: /resource_room/forms-and-templates/
   - title: Guides
@@ -34,3 +38,5 @@
   url: /who-we-are/
 - title: Contact Us
   url: /contact-us/
+- title: Board of Directors
+  url: /board-of-directors/

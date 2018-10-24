@@ -1,12 +1,11 @@
 ---
 layout: leftnav-page-content
-permalink: /application-guidelines/lorem-ipsum-one/ 
-title: Lorem Ipsum One
-breadcrumb: Application Guidelines (Lorem Ipsum One) 
-last_updated: 01-04-2018 
+permalink: /application-guidelines/lorem-ipsum-two/part-B/
+breadcrumb: Application Guidelines (Lorem Ipsum Two B) 
+title: Lorem Ipsum Two B
 collection_name: application-guidelines
+second_nav_title: "Second Level B"
 ---
-
 ### **What is Lorem Ipsum?**
 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book:
@@ -18,22 +17,6 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 > * Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
 > * Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
 
-### **Where does it come from?**
-
-<table class="table-v">
-	<tr>
-		<td>More content</td>
-		<td>Test: <br><br> (1) Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. <br> (2) This book is a treatise on the theory of ethics, very popular during the Renaissance.</td>
-	</tr>
-	<tr>
-		<td>New content</td>
-		<td>he first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</td>
-	</tr>
-	<tr>
-		<td>Some content</td>
-		<td><b>Certificate of Registration</b> <br>(i) Dummy content - blah <br>(ii) More dummy content - bleh <br> (iii) Some more dummy content - blub <br><br> **Last bit of dummy content** - gah</td>
-	</tr>
-</table>
 
 ### **Why do we use it?**
 
@@ -45,10 +28,8 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 * Various versions have evolved over the [years](https://www.google.com.sg/search?q=year&oq=year&aqs=chrome..69i57j69i61j0l4.326j0j4&sourceid=chrome&ie=UTF-8){:target="_blank"} 
 * sometimes by accident, sometimes on purpose (injected humour and the like).
 
-New content - let's try this again...
-
 ---
 
 A sample download file can be found [here]({{site.baseurl}}/files/guides/guide-new-application.pdf)
 
-For further clarification, please email [dummy_email@dummy.com](mailto:dummy_email@dummy.com).      
+For further clarification, please email [dummy_email@dummy.com](mailto:dummy_email@dummy.com).     

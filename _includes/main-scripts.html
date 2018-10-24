@@ -1,5 +1,14 @@
 <!-- DYN -->
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet">
+{%- if jekyll.environment == "staging" -%}
+    <script src="https://assets.adobedtm.com/a63ef04a8a06d4763abe9b28a8d967e7e749d199/satelliteLib-db3891214175cc48594c242657d262be8297f3d8-staging.js"></script>
+{% else %}
+    <script src="https://assets.adobedtm.com/a63ef04a8a06d4763abe9b28a8d967e7e749d199/satelliteLib-db3891214175cc48594c242657d262be8297f3d8.js"></script>
+{% endif %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+
 <script src="{{ "/assets/js/sideNav-offset.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/jquery.sticky-sidebar.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/common.js" | relative_url }}"></script>
@@ -8,31 +17,39 @@
 <script src="{{ "/assets/js/cancel-notification.js" | relative_url }}"></script>
 {% endif %}
 
-{% if page.url contains 'our-journey' %}
+{% if page.layout == 'our-journey' %}
 <script src="{{ "/assets/js/accordion.js" | relative_url }}"></script>
 {% endif %}
 
-{% if page.url contains 'our-team' %}
+{% if page.layout == 'our-team' %}
 <script src="{{ "/assets/js/our-team.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/accordion.js" | relative_url }}"></script>
 {% endif %}
 
-{% if page.url contains 'search' %}
+{% if page.layout == 'search' %}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.4/purify.min.js"></script>
 <script src="{{ "/assets/posts.json" | relative_url }}"></script>
 <script src="https://unpkg.com/lunr/lunr.js"></script>
 <script src="{{ "/assets/js/worker.js" | relative_url }}"></script>
+<script src="{{ "/assets/js/pagination-util.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/search.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/build-index.js" | relative_url }}"></script>
 {% endif %}
 
+{% if page.layout == 'datagovsg-search' %}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.4/purify.min.js"></script>
+<script src="{{ "/assets/js/datagovsg-search.js" | relative_url }}"></script>
+{% endif %}
+
 {% if page.layout == 'resources-alt' or page.layout == 'resources' %}
+<script src="{{ "/assets/js/pagination-util.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/paginate-resources.js" | relative_url }}"></script>
 {% endif %}
 
 {% if page.layout == 'post' or page.layout == 'simple-page' or page.layout == 'leftnav-page-content' or page.layout == 'our-team' or page.layout == 'our-journey' %}
 <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
 <script src="{{ "/assets/js/floating-buttons.js" | relative_url }}"></script>
+<script src="{{ "/assets/js/left-nav-interaction.js" | relative_url }}"></script>
 {% endif %}
 
 <script type="text/javascript">_satellite.pageBottom();</script>

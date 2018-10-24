@@ -53,7 +53,7 @@
                     <!-- Generates base-url based on whether the link is internal or external -->
 
                     {%- assign class = nil -%}
-                    {%- if page.url contains link.url -%}
+                    {%- if page.url == link.url -%}
                         {%- assign class = 'active' -%}
                     {%- endif -%}
                     {%- if link.sub-links -%}
@@ -73,12 +73,11 @@
                             {{ link.title }}
                         </a>
                         {% endif %}
-                        <div class="selector {{class}} is-hidden-touch is-hidden-desktop-only"></div>
                         <div class="navbar-dropdown">
                             {%- for sublink in link.sub-links -%}
                                 {%- include sublinks-baseurl.html -%}
-                                {%- assign class = nil -%}
-                                    {%- if page.url contains sublink.url -%}
+                                    {%- if page.url == sublink.url -%}
+                                        {%- assign class = 'active' -%}
                                         {%- if sublink-base-url == "" -%}
                                             {% if sublink.external == true %}
                                             <a class="navbar-item sub-link is-active" href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank">
@@ -98,11 +97,11 @@
                                     {%- else -%}
                                         {%- if sublink-base-url == "" -%}
                                             {% if sublink.external == true %}
-                                            <a class="navbar-item sub-link is-active" href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank">
+                                            <a class="navbar-item sub-link " href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank">
                                                 {{ sublink.title }}
                                             </a>
                                             {% else %}
-                                            <a class="navbar-item sub-link is-active" href="{{ sublink-base-url }}{{ sublink.url }}">
+                                            <a class="navbar-item sub-link " href="{{ sublink-base-url }}{{ sublink.url }}">
                                                 {{ sublink.title }}
                                             </a>
                                             {% endif %}
@@ -114,6 +113,7 @@
                                     {%- endif -%}
                             {%- endfor -%}
                         </div>
+                        <div class="selector {{class}} is-hidden-touch is-hidden-desktop-only"></div>
                     </div>
                     {%- else -%}
                     <li class="navbar-item">

@@ -20,7 +20,8 @@
                         {% assign category_index = forloop.index0 %}
                     {% endif %}
                 {% endfor %}
-                {% if post.image %}
+                <!-- Temporarily disable post.image thumbnail display - change post.imageStuff back to post.image when we are ready to release the feature -->
+                {% if post.imageStuff %}
                 <div class="image-card">
                     <a href="{{ post.url | relative_url | append: '.html'}}" class="has-text-grey-dark is-media-card">
                     <img src="{{site.baseurl}}{{post.image}}" alt="">
