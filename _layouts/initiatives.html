@@ -39,20 +39,14 @@ layout: default
 		<div class="row is-multiline">
 			{% for document in site.products-and-services %}
 				{% if document.tag == "citizens" %}
-					<div class="col is-4 padding--bottom--lg">
+					<div class="col is-one-quarter-widescreen is-one-third-desktop is-half-tablet padding--bottom--lg">
 						<a href="{{ document.permalink | relative_url }}" class="project-link">
-		                <img src="{{site.baseurl}}{{document.thumbnail_image}}" alt="">
+		                <img src="{{site.baseurl}}{{document.thumbnail_image}}" alt="Image for {{document.title}}" class="project-image">
 		                <div class="project-card">
 		                    <div class="project-title margin--bottom--xs">
 		                    	<small class="tag is-uppercase padding--bottom--sm">{{document.tag}}</small>
 		                        <h5><b>{{document.title | truncate: 43}}</b></h5>
 		                    </div>
-		                    <div class="project-description margin--top--sm">
-		                    	{{document.content | strip_html | truncatewords : 36}}
-		                    </div>
-							<div class="bp-button is-outlined is-small margin--top--lg">
-                                <span class="is-uppercase">READ MORE&nbsp;</span>
-                            </div>
 		                </div>
 		                </a>
 		            </div>
@@ -67,20 +61,14 @@ layout: default
 		<div class="row is-multiline">
 			{% for document in site.products-and-services %}
 				{% if document.tag == "business" %}
-					<div class="col is-4 padding--bottom--lg">
+					<div class="col is-one-quarter-widescreen is-one-third-desktop is-half-tablet padding--bottom--lg">
 						<a href="{{ document.permalink | relative_url }}" class="project-link">
-		                <img src="{{site.baseurl}}{{document.thumbnail_image}}" alt="">
+		                <img src="{{site.baseurl}}{{document.thumbnail_image}}" alt="Image for {{document.title}}" class="project-image">
 		                <div class="project-card">
 		                    <div class="project-title margin--bottom--xs">
 		                    	<small class="tag is-uppercase padding--bottom--sm">{{document.tag}}</small>
 		                        <h5><b>{{document.title | truncate: 43}}</b></h5>
 		                    </div>
-		                    <div class="project-description margin--top--sm">
-		                    	{{document.content | strip_html | truncatewords : 36}}
-		                    </div>
-							<div class="bp-button is-outlined is-small margin--top--lg">
-                                <span class="is-uppercase">READ MORE&nbsp;</span>
-                            </div>
 		                </div>
 		                </a>
 		            </div>
@@ -95,20 +83,14 @@ layout: default
 		<div class="row is-multiline">
 			{% for document in site.products-and-services %}
 				{% if document.tag == "government" %}
-					<div class="col is-4 padding--bottom--lg">
+					<div class="col is-one-quarter-widescreen is-one-third-desktop is-half-tablet padding--bottom--lg">
 						<a href="{{ document.permalink | relative_url }}" class="project-link">
-		                <img src="{{site.baseurl}}{{document.thumbnail_image}}" alt="">
+		                <img src="{{site.baseurl}}{{document.thumbnail_image}}" alt="Image for {{document.title}}" class="project-image">
 		                <div class="project-card">
 		                    <div class="project-title margin--bottom--xs">
 		                    	<small class="tag is-uppercase padding--bottom--sm">{{document.tag}}</small>
 		                        <h5><b>{{document.title | truncate: 43}}</b></h5>
 		                    </div>
-		                    <div class="project-description margin--top--sm">
-		                    	{{document.content | strip_html | truncatewords : 36}}
-		                    </div>
-							<div class="bp-button is-outlined is-small margin--top--lg">
-                                <span class="is-uppercase">READ MORE&nbsp;</span>
-                            </div>
 		                </div>
 		                </a>
 		            </div>

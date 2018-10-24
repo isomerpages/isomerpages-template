@@ -46,7 +46,7 @@ collections:
     output: true
   who-we-are:
     output: true
-  initiatives:
+  products-and-services:
     output: true
 
 # Resource Room and Pagination

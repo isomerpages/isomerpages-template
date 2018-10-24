@@ -5,7 +5,7 @@ permalink: /products-and-services/data-gov-sg/
 breadcrumb: Data.gov.sg
 collection_name: products-and-services
 tag: citizens
-thumbnail_image: /images/programmes/products-and-services/test2.jpg
+thumbnail_image: /images/programmes/products-and-services/test.jpg
 ---
 
 [Data.gov.sg](https://data.gov.sg/){:target="_blank"} was first launched in 2011 as the government's one-stop portal to its publicly available datasets from 70 public agencies. To date, more than 100 apps have been created using the government’s open data.
@@ -16,4 +16,4 @@ A new  [sub-site](https://developers.data.gov.sg/){:target="_blank"} for develop
 
 Created something interesting with the government’s open data? Share it with us! Drop us an email at [feedback@data.gov.sg](mailto:feedback@data.gov.sg), or Tweet to us [@datagovsg](https://twitter.com/datagovsg){:target="_blank"} or message us on [Facebook](https://fb.com/opendatasg){:target="_blank"}. We also welcome any requests for new datasets or data stories, and ideas on how we may further improve the site.
 
-[Data.gov.sg factsheet]({{"/products-and-services/files/9-Datagovsg-Factsheet.pdf" | absolute_url }}){:target="_blank"}
+[Data.gov.sg factsheet](/files/products-and-services/9-Datagovsg-Factsheet.pdf){:target="_blank"}

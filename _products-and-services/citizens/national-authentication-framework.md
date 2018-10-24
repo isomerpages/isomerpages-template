@@ -43,4 +43,4 @@ The management of Assurity reports to their Board of Directors which includes se
 **Additional Information**
 <br>For more information regarding Assurity, please visit this website: [www.assurity.sg](http://www.assurity.sg){:target="_blank"}
 
-[Factsheet on National Authentication Framework (NAF)]({{"/initiatives/files/NAF_Factsheet.pdf" | absolute_url }}){:target="_blank"}
+[Factsheet on National Authentication Framework (NAF)](/files/products-and-services/NAF_Factsheet.pdf){:target="_blank"}
