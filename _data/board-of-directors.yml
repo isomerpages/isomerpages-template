@@ -1,0 +1,13 @@
+# Board of Directors
+- name: Person A
+  title: Title A
+  organisation: Organisation A
+  image-url: /images/board-of-directors/Person_A.jpg
+- name: Person B
+  title: Title B
+  organisation: Organisation B
+  image-url: /images/board-of-directors/Person_B.jpg
+  - name: Person C
+  title: Title C
+  organisation: Organisation C
+  image-url: /images/board-of-directors/Person_C.jpg
