@@ -4,11 +4,13 @@ title: Singapore Government Tech Stack
 permalink: /products-and-services/singapore-government-tech-stack/
 breadcrumb: SGTS
 collection_name: products-and-services
-tag: business
-thumbnail_image: /images/programmes/products-and-services/test.jpg
+tag: government
+thumbnail_image: /images/programmes/products-and-services/sgts-thumbnail-foto-jet.jpg
 ---
 
-![SGTS](/images/programmes/products-and-services/sgts-infographic-28-Sep.jpg)
+![SGTS](/images/programmes/products-and-services/singapore-government-tech-stack-part-1.jpg)
+
+![SGTS](/images/programmes/products-and-services/singapore-government-tech-stack-part-2.jpg)
 
 ## Background of SGTS
 As digital services become an integral part of everyday life, they have to be easy to use, adaptable and relevant. In other words, they have to be developed, deployed and updated fast. To enable government agencies to build such services quickly and effectively, GovTech is developing the Singapore Government Tech Stack (SGTS), a common platform that makes the process simpler and more streamlined.
@@ -27,6 +29,8 @@ Agencies can focus on designing solutions that best meet the needs of those they
 
 One of the early uses of SGTS was the [MyInfo](http://myinfo.gov.sg){:target="_blank"} bank pilot. It was developed and delivered in four months, instead of the usual timeframe of a year. [MyCareersFuture.sg](http://www.MyCareersFuture.sg){:target="_blank"} is another project built on SGTS. This allowed the development team to focus on building a scalable web service, without the need to develop its own infrastructure.
 
-[Singapore Government Tech Stack Infographic](/files/products-and-services/sg-tech-stack-media-factsheet-sep-2018.pdf){:target="_blank"}
+[Singapore Government Tech Stack Infographic](/images/programmes/products-and-services/sgts-infographic-28-Sep.jpg){:target="_blank"}
 
-[Singapore Government Tech Stack Factsheet](/images/programmes/products-and-services/sgts-infographic-28-Sep.jpg){:target="_blank"}
+[Singapore Government Tech Stack Factsheet](/files/products-and-services/sg-tech-stack-media-factsheet-sep-2018.pdf){:target="_blank"}
+
+More on NECTAR and APEX [here.](/media/technews/getting-to-know-nectar-and-apex/){:target="_blank"} 
