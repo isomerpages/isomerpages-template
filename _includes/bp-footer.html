@@ -20,7 +20,7 @@
             {% include links-baseurl.html %}
             {% assign linkTitle = link.title | downcase %}
             {% if linkTitle != "contact us" %}
-                <div class="col is-one-quarter is-hidden-mobile">
+                <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg">
                   {%- if base-url == "" and link.external == true -%}
                     <p class="sub-header"><b><a class="has-text-white" href="{{ base-url }}{{ link.url }}" target="_blank">{{link.title}}</a></b></p>
                   {% else %}
@@ -39,7 +39,8 @@
             {%- endfor -%}
             </div>
 
-            <div class="col is-one-fifth is-hidden-mobile is-hidden-tablet-only">
+            <!-- Social links for desktop -->
+            <div class="col is-one-fifth is-hidden-mobile is-hidden-tablet-only" id="social-link-desktop">
               {% if social.facebook %}
                 <a href="{{ social.facebook }}" target="_blank" class="social-link padding--right padding--bottom is-inline-block"><span class="sgds-icon sgds-icon-facebook is-size-4"></span></a>
               {% endif %}
