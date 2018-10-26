@@ -1,7 +1,7 @@
 <footer class="bp-footer top-section">
     <div class="bp-container ">
         <div class="row">
-            <div class="col footer-col header padding--top--lg padding--bottom--lg">
+            <div class="col header padding--top--lg padding--bottom--lg">
                 <h5 class="sub-header has-text-white"><b>{{site.title}}</b></h5>
             </div>
         </div>
@@ -13,12 +13,14 @@
             {% endif %}
 
             {% assign social = site.data.social-media %}
+            
+            <div class="row col is-four-fifths is-multiline is-hidden-mobile">
             <!-- Footer links for tablet/desktop -->
             {%- for link in links -%}
             {% include links-baseurl.html %}
             {% assign linkTitle = link.title | downcase %}
             {% if linkTitle != "contact us" %}
-                <div class="col footer-col is-hidden-mobile">
+                <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg">
                   {%- if base-url == "" and link.external == true -%}
                     <p class="sub-header"><b><a class="has-text-white" href="{{ base-url }}{{ link.url }}" target="_blank">{{link.title}}</a></b></p>
                   {% else %}
@@ -35,7 +37,10 @@
                 </div>
             {% endif %}
             {%- endfor -%}
-            <div class="col footer-col is-hidden-mobile is-hidden-tablet-only">
+            </div>
+
+            <!-- Social links for desktop -->
+            <div class="col is-one-fifth is-hidden-mobile is-hidden-tablet-only" id="social-link-desktop">
               {% if social.facebook %}
                 <a href="{{ social.facebook }}" target="_blank" class="social-link padding--right padding--bottom is-inline-block"><span class="sgds-icon sgds-icon-facebook is-size-4"></span></a>
               {% endif %}
@@ -49,11 +54,11 @@
                 <a href="{{ social.instagram }}" target="_blank" class="social-link padding--right padding--bottom is-inline-block"><span class="sgds-icon sgds-icon-instagram is-size-4"></span></a>
               {% endif %}
               {% if social.linkedin %}
-                <a href="{{ social.linkedin }}" target="_blank" class="social-link padding--right padding--bottom is-inline-block"><span class="sgds-icon sgds-icon-linkedin is-size-4"></span></a>
+                <a href="{{ social.linkedin }}" target="_blank" class="social-link padding--bottom is-inline-block"><span class="sgds-icon sgds-icon-linkedin is-size-4"></span></a>
               {% endif %}
             </div>
             <!-- Social links for tablet -->
-            <div class="col footer-col is-hidden-mobile is-hidden-desktop" id="social-link-tablet">
+            <div class="col is-one-quarter is-hidden-mobile is-hidden-desktop" id="social-link-tablet">
               {% if social.facebook %}
                 <div class="row">
                   <a href="{{ social.facebook }}" target="_blank" class="social-link margin--bottom"><span class="sgds-icon sgds-icon-facebook is-size-4"></span></a>
@@ -82,7 +87,7 @@
             </div>
 
             <!-- Footer links for mobile -->
-            <div class="col footer-col is-hidden-tablet is-hidden-desktop">
+            <div class="col is-hidden-tablet is-hidden-desktop">
               {%- for link in links -%}
                 {% include links-baseurl.html %}
                 {% assign linkTitle = link.title | downcase %}
@@ -98,7 +103,7 @@
 
         </div>
         <div class="row">
-          <div class="col footer-col padding--top--sm padding--bottom--sm is-right-desktop-only">
+          <div class="col padding--top--sm padding--bottom--sm is-right-desktop-only">
             <ul>
                <li class="is-inline-block-desktop-only">
                    <p><a href="{{site.baseurl}}/contact-us/">Contact Us</a></p>
@@ -115,7 +120,7 @@
                </li>
            </ul>
           </div>
-          <div class="col footer-col is-hidden-tablet is-hidden-desktop padding--top--lg padding--bottom--none">
+          <div class="col is-hidden-tablet is-hidden-desktop padding--top--lg padding--bottom--none">
               {% if social.facebook %}
                 <a href="{{ social.facebook }}" target="_blank" class="social-link padding--right"><span class="sgds-icon sgds-icon-facebook is-size-4"></span></a>
               {% endif %}
@@ -138,19 +143,19 @@
 <footer class="bp-footer bottom-section">
     <div class="bp-container ">
         <div class="row is-vcentered">
-          <div class="col footer-col padding--top--none padding--bottom--none">
-            <div class="col footer-col divider padding--top--none padding--bottom--none"></div>
+          <div class="col padding--top--none padding--bottom--none">
+            <div class="col divider padding--top--none padding--bottom--none"></div>
           </div>
         </div>
         <div class="row is-vcentered padding--top--sm">
-            <div class="col footer-col">
+            <div class="col">
                 <ul>
                     <li><a href="{{site.baseurl}}/privacy/">Privacy Statement</a></li>
                     <li><a href="{{site.baseurl}}/terms-of-use/">Terms of Use</a></li>
                     <!-- <li><a>Rate Service</a></li> -->
                 </ul>
             </div>
-            <div class="col footer-col has-text-right-desktop has-text-right-tablet has-text-left-mobile">
+            <div class="col has-text-right-desktop has-text-right-tablet has-text-left-mobile">
                 <p class="is-hidden-touch"> © {{ site.time | date: "%Y" }} Singapore Government. Last Updated {{ site.time | date_to_string }}</p>
                 <p class="is-hidden-desktop">© {{ site.time | date: "%Y" }} Singapore Government</p>
                 <p class="is-hidden-desktop last-updated">Last Updated {{ site.time | date_to_string }}</b>
