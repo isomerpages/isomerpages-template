@@ -2,6 +2,8 @@
 ---
 
 let PAGE_SIZE = {{site.paginate}};
+const MAX_ADJACENT_PAGE_BTNS = 4;
+const MAX_ADJACENT_MOBILE_PAGE_BTNS = 1;
 let pageResults;
 let currentPageIndex = 0;
 let resourceCardArray;

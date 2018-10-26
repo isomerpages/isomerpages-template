@@ -1,4 +1,6 @@
-const RESULTS_PER_PAGE = 10;
+const RESULTS_PER_PAGE = 1;
+const MAX_ADJACENT_PAGE_BTNS = 2;
+const MAX_ADJACENT_MOBILE_PAGE_BTNS = 1;
 const PREVIEW_SIZE = 300;
 const NUM_LEADING_CHARS = 30;
 let results;
@@ -10,6 +12,7 @@ var runSearch = function(json_data, posts_data) {
   postsData = posts_data
   var searchTerm = getQueryVariable('query');
   if (searchTerm) {
+
     // Load the pre-built lunr index
     var idx = lunr.Index.load(JSON.parse(json_data));
 
@@ -103,14 +106,16 @@ function returnResultsList(results) {
   var searchPara = '';
   var post_data = postsData; // Obtain JSON var of all the posts in the site
 
+
   // Iterate over the results
   for (var i = 0; i < results.length; i++) {
     var key = parseInt(results[i]['ref']);
     var resultObject = post_data[key];
 
+
     var matchMetadata = results[i]['matchData']['metadata'];
     var keywordSet = new Set();
-    
+
     var titleTruncateLength = 90;
     var resultTitle = resultObject['title'].substring(0, titleTruncateLength);
 

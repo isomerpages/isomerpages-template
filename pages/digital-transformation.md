@@ -1,5 +1,5 @@
 ---
-layout: what-we-do
+layout: simple-page
 title: Digital Transformation
 permalink: /digital-transformation/
 breadcrumb: Digital Transformation

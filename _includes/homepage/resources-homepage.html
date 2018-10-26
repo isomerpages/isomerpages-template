@@ -45,7 +45,7 @@
                         <a href="{{ post.file_url | relative_url }}" class="is-media-card" target="_blank">
                     {% endif %}
 
-                    <div class="media-card-plain bg-media-color-{{category_index}} padding--lg"  style="height:100%; min-height:336px">
+                    <div class="media-card-plain bg-media-color-{{category_index}} padding--lg">
                         <div>
                             <small class="has-text-white padding--bottom">{{ post.categories[1] | upcase | replace: '-', ' ' }}</small>
                             <h4 class="has-text-white padding--bottom--lg" style="line-height: 2.25rem"><b>{{ post.title | truncatewords: 15 }}</b></h4>

@@ -5,7 +5,7 @@ permalink: /products-and-services/tech-kaki-community/
 breadcrumb: Tech Kaki Community
 collection_name: products-and-services
 tag: citizens
-thumbnail_image: /images/programmes/products-and-services/test2.jpg
+thumbnail_image: /images/programmes/products-and-services/TechKaki_Thumbnail.png
 ---
 
 We want to solve problems. In fact, we want to solve problems with you!
