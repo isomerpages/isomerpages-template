@@ -19,8 +19,8 @@
             {%- for link in links -%}
             {% include links-baseurl.html %}
             {% assign linkTitle = link.title | downcase %}
-            {% if linkTitle != "contact us" %}
-                <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg">
+            {% if linkTitle != "contact us" and linkTitle != "faq" %}
+                <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
                   {%- if base-url == "" and link.external == true -%}
                     <p class="sub-header"><b><a class="has-text-white" href="{{ base-url }}{{ link.url }}" target="_blank">{{link.title}}</a></b></p>
                   {% else %}
@@ -91,7 +91,7 @@
               {%- for link in links -%}
                 {% include links-baseurl.html %}
                 {% assign linkTitle = link.title | downcase %}
-                {% if linkTitle != "contact us" %}
+                {% if linkTitle != "contact us" and linkTitle != "faq" %}
                   {%- if base-url == "" and link.external == true -%}
                     <p><a href="{{ base-url }}{{ link.url }}" target="_blank">{{link.title}}</a></p>
                   {% else %}
