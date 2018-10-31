@@ -1,4 +1,8 @@
+{% if site.is_government %}
 <section class="bp-section bp-masthead">
+{% else %}
+<section class="bp-section bp-masthead is-invisible">
+{% endif %}
     <div class="bp-container ">
         <div class="row is-multiline is-vcentered">
             <div class="col is-9-desktop is-12-touch has-text-centered-touch">

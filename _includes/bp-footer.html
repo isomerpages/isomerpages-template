@@ -156,8 +156,14 @@
                 </ul>
             </div>
             <div class="col has-text-right-desktop has-text-right-tablet has-text-left-mobile">
-                <p class="is-hidden-touch"> © {{ site.time | date: "%Y" }} Singapore Government. Last Updated {{ site.time | date_to_string }}</p>
-                <p class="is-hidden-desktop">© {{ site.time | date: "%Y" }} Singapore Government</p>
+                <p class="is-hidden-touch"> © {{ site.time | date: "%Y" }} 
+                {% if site.is_government %}
+                  Singapore Government. 
+                {% endif %}
+                Last Updated {{ site.time | date_to_string }}</p>
+                {% if site.is_government %}
+                  <p class="is-hidden-desktop">© {{ site.time | date: "%Y" }} Singapore Government</p>
+                {% endif %}
                 <p class="is-hidden-desktop last-updated">Last Updated {{ site.time | date_to_string }}</b>
             </div>
 
