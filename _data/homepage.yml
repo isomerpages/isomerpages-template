@@ -13,6 +13,9 @@ agency-logo: /do-not-touch/logo_blueprint.png
 # Google analytics
 google-analytics: UA-test
 
+# AskJamie
+ask-jamie: non-empty string
+
 # Hero Banner
 hero-title: Isomer Page Template
 hero-subtitle: This website was built using the Isomer Design System and Jekyll

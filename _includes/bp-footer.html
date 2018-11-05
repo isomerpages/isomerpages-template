@@ -111,6 +111,8 @@
                <li class="is-inline-block-desktop-only">
                   <p><a href="{{site.feedback_form_url}}" target="_blank">Feedback</a></p>
                </li>
+               {% assign homepage = site.data.homepage %}
+               {% unless homepage.ask-jamie %}
                <li class="is-inline-block-desktop-only">
                   {% if site.faq_url_external %}
                     <p><a href="{{site.faq_url}}" target="_blank">FAQ</a></p>
@@ -118,6 +120,7 @@
                     <p><a href="{{site.baseurl}}{{site.faq_url}}">FAQ</a></p>
                   {% endif %}
                </li>
+               {% endunless %}
            </ul>
           </div>
           <div class="col is-hidden-tablet is-hidden-desktop padding--top--lg padding--bottom--none">
