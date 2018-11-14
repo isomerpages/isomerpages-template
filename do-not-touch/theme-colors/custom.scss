@@ -301,6 +301,10 @@ $widescreen: 1152px + (4 * $gap) !default;
   }
 }
 
+.datagovsg-table {
+  display: none;
+}
+
 // Post-content
 .content {
   h1, h2, h3, h4, h5 {

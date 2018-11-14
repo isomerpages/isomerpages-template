@@ -30,7 +30,12 @@ layout: default
 <section class="bp-section">
     <div class="bp-container padding--top--sm">
         <div class="row">
-            <div class="col content horizontal-scroll"">
+            <div id="loading-spinner" class="col">
+                <div class="lds-default">
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                </div>
+            </div>
+            <div class="col content horizontal-scroll datagovsg-table">
                 {{content}}
             </div>
         </div>

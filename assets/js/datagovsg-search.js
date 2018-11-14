@@ -39,6 +39,7 @@ function databaseSearch(searchTerm){
   });
 
   request.done(function(data){
+    document.getElementById("loading-spinner").style.display = 'none';
     hideAllPostsAndPagination();
     fieldArray = remove(data.result.fields, ["_id", "_full_count", "rank"])
     chunkArray = splitPages(data.result.records, CHUNK_SIZE);
@@ -72,9 +73,11 @@ function displayTable(chunk, fields) {
   resultString += '</table>'
 
   document.getElementsByClassName("content")[0].innerHTML = resultString;
+  document.getElementsByClassName("content")[0].style.display = 'block';
+
 }
 
-function hideAllPostsAndPagination(){
+function hideAllPostsAndPagination() {
 
   var paginationElement = document.getElementById("paginator-pages");
   while (paginationElement.firstChild) {
