@@ -4,7 +4,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta property="og:title" content="{{page.title}}">
-    <meta property="og:description" content="{{page.content | truncatewords: 20 | strip_html}}">
+    <!-- If page contains a description in the YML header of the markdown file, use the page description. Otherwise, take an excerpt of its markdown content -->
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{page.content | truncatewords: 20 | strip_html}}{% endif %}"> 
     {% assign homepage = site.data.homepage %}
     <meta property="og:image" content="{% if page.image %}{{page.image | absolute_url}}{% else %}{{homepage.agency-logo | absolute_url}}{% endif %}">
     <meta property="og:url" content="{{page.permalink | absolute_url}}">
