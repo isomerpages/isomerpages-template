@@ -158,6 +158,7 @@ function displaySearchResults(searchTerm) {
 }
 
 function paginateSearchResults() {
+  if (!results.length) return;
   var searchPageIndicator = document.getElementById('search-page-indicator');
   searchPageIndicator.style.display = pageResults.length > 1 ? "flex" : "none";
   searchPageIndicator.innerHTML = "Page " + (currentPageIndex + 1) + " of " + pageResults.length;
