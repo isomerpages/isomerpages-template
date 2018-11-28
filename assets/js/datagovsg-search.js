@@ -1,7 +1,9 @@
 ---
 ---
-let CHUNK_SIZE = 10;
-let chunkArray;
+const RESULTS_PER_PAGE = 10;
+const MAX_ADJACENT_PAGE_BTNS = 2;
+const MAX_ADJACENT_MOBILE_PAGE_BTNS = 1;
+let pageResults;
 let fieldArray;
 let currentPageIndex = 0;
 
@@ -41,9 +43,9 @@ function databaseSearch(searchTerm){
   request.done(function(data){
     hideAllPostsAndPagination();
     fieldArray = remove(data.result.fields, ["_id", "_full_count", "rank"])
-    chunkArray = splitPages(data.result.records, CHUNK_SIZE);
-    displayTable(chunkArray[currentPageIndex], fieldArray);
-    if (!chunkArray || data.result.records.length < CHUNK_SIZE) return;
+    pageResults = splitPages(data.result.records, RESULTS_PER_PAGE);
+    displayTable(pageResults[currentPageIndex], fieldArray);
+    if (!pageResults || data.result.records.length < RESULTS_PER_PAGE) return;
     displayPagination();
   });
 }
@@ -90,10 +92,10 @@ function remove(array, elements) {
 
 // Populate the pagination elements
 function displayPagination() {
-  document.querySelector(".pagination").style.display = "block";
+  document.querySelector(".pagination").style.display = "flex";
   var pagination = document.getElementById('paginator-pages');
 
-  for (let i = 0; i < chunkArray.length; i++) {
+  for (let i = 0; i < pageResults.length; i++) {
     let ele = document.createElement("span");
     let text = document.createTextNode(i + 1);
     
@@ -111,63 +113,6 @@ function displayPagination() {
 }
 
 function changePage(curr, index) {
-  let prev = document.querySelector("#paginator-pages .selected-page");
-  prev.className = "";
-  prev.style.pointerEvents = "auto";
-  currentPageIndex = index;
-  setCurrentPage(curr);
-  displayNavArrows(index);
-
-  // Use the number in the paginated button to figure out next page index
-  var selectedIndex = parseInt(curr.innerHTML);
-  displayTable(chunkArray[selectedIndex-1], fieldArray);
-}
-
-// Set click handlers for nav arrows
-function setNavArrowHandlers() {
-  let left = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-left");
-  let right = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-right");
-  let sel = document.querySelector("#paginator-pages .selected-page");
-
-  left.onclick = function(e) {
-    let sel = document.querySelector("#paginator-pages .selected-page");
-    changePage(sel.previousSibling, currentPageIndex - 1)
-  }
-
-  right.onclick = function(e) {
-    let sel = document.querySelector("#paginator-pages .selected-page");
-    changePage(sel.nextSibling, currentPageIndex + 1)
-  }
-}
-
-function displayNavArrows(i) {
-  let left = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-left");
-  let right = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-right");
-
-  if (i === 0) {
-    left.classList.add("sgds-icon-disabled");
-  } else {
-    left.classList.remove("sgds-icon-disabled");
-  }
-  if (i === chunkArray.length - 1) {
-    right.classList.add("sgds-icon-disabled")
-  } else {
-    right.classList.remove("sgds-icon-disabled");
-  }
-}
-
-function setCurrentPage(ele) {
-  ele.className = "selected-page";
-  ele.style.pointerEvents = "none";
-}
-
-function splitPages(resourceCardArray, pageSize) {
-  var tempArray = [];
-
-  for (let i = 0; i < resourceCardArray.length; i += pageSize) {
-      var chunk = resourceCardArray.slice(i, i + pageSize);
-      tempArray.push(chunk);
-  }
-
-  return tempArray;
+  changePageUtil(curr, index);
+  displayTable(pageResults[currentPageIndex], fieldArray);
 }
