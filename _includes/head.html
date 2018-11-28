@@ -3,13 +3,28 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta property="og:title" content="{{page.title}}">
-    <meta property="og:description" content="{{page.content | truncatewords: 20 | strip_html}}">
+    <meta property="og:title" content="{{page.title | markdownify | strip_html}}">
+    <!-- If page contains a description in the YML header of the markdown file, use the page description. Otherwise, take an excerpt of its markdown content -->
+    <meta property="og:description" content="{% if page.description %}{{ page.description | markdownify | strip_html }}{% else %}{{page.content | truncatewords: 20 | markdownify | strip_html }}{% endif %}"> 
     {% assign homepage = site.data.homepage %}
     <meta property="og:image" content="{% if page.image %}{{page.image | absolute_url}}{% else %}{{homepage.agency-logo | absolute_url}}{% endif %}">
     <meta property="og:url" content="{{page.permalink | absolute_url}}">
     
     {% assign homepage = site.data.homepage %}
+    {% if homepage.google-analytics %}
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', '{{homepage.google-analytics}}', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
+    {% endif %}
+
     {% if homepage.favicon %}
         <link rel="shortcut icon" href="{{site.baseurl}}{{homepage.favicon}}" type="image/x-icon">
     {% else %}
