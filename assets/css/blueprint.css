@@ -7405,10 +7405,14 @@ html.has-navbar-fixed-top-widescreen {
   font-family: 'Lato', sans-serif;
   font-size: 5.25rem;
   letter-spacing: -1.5px;
-  line-height: 5.25rem; }
+  line-height: 5.25rem;
+  word-wrap: normal; }
   @media screen and (max-width: 1023px) {
     .display {
       font-size: 4rem; } }
+  @media screen and (max-width: 768px) {
+    .display {
+      font-size: 3rem; } }
 
 p, li, center {
   font-family: 'Lato', sans-serif;
@@ -7428,10 +7432,14 @@ h1, h1 center {
   font-family: 'Lato', sans-serif;
   font-size: 3.375rem;
   line-height: 3.75rem;
-  letter-spacing: -1.5px; }
+  letter-spacing: -1.5px;
+  word-wrap: normal; }
   @media screen and (max-width: 1023px) {
     h1, h1 center {
       font-size: 3rem; } }
+  @media screen and (max-width: 768px) {
+    h1, h1 center {
+      font-size: 2.75rem; } }
 
 h2, h2 center {
   font-family: 'Lato', sans-serif;
