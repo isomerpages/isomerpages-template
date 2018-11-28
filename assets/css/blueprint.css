@@ -7412,7 +7412,7 @@ html.has-navbar-fixed-top-widescreen {
       font-size: 4rem; } }
   @media screen and (max-width: 768px) {
     .display {
-      font-size: 3.5rem; } }
+      font-size: 3rem; } }
 
 p, li, center {
   font-family: 'Lato', sans-serif;
