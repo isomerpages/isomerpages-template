@@ -1,4 +1,4 @@
-const RESULTS_PER_PAGE = 1;
+const RESULTS_PER_PAGE = 10;
 const MAX_ADJACENT_PAGE_BTNS = 2;
 const MAX_ADJACENT_MOBILE_PAGE_BTNS = 1;
 const PREVIEW_SIZE = 300;
@@ -158,6 +158,7 @@ function displaySearchResults(searchTerm) {
 }
 
 function paginateSearchResults() {
+  if (!results.length) return;
   var searchPageIndicator = document.getElementById('search-page-indicator');
   searchPageIndicator.style.display = pageResults.length > 1 ? "flex" : "none";
   searchPageIndicator.innerHTML = "Page " + (currentPageIndex + 1) + " of " + pageResults.length;

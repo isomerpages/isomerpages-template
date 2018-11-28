@@ -7519,8 +7519,6 @@ h6, h6 center {
     color: white; }
   .bp-footer .divider {
     border-top: 1px solid #484848; }
-  .bp-footer .row {
-    justify-content: space-between; }
   .bp-footer a {
     color: #b7b7b7;
     font-size: 17px;
@@ -7575,16 +7573,15 @@ h6, h6 center {
 .social-link {
   padding-right: 2rem; }
 
-#social-link-desktop {
-  display: flex;
-  justify-content: flex-end; }
-
 #social-link-tablet {
   margin-top: 0.75rem;
   display: flex;
   flex-direction: column;
   padding-right: 48px;
-  align-items: flex-end; }
+  align-items: center; }
+
+.bp-footer.row {
+  justify-content: flex-start; }
 
 .bg-light {
   background-color: #f0f0f0; }
