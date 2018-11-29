@@ -148,6 +148,7 @@ function returnResultsList(results) {
 
 // Display search results if there are results, else, state that there are no results found
 function displaySearchResults(searchTerm) {
+  document.getElementById("loading-spinner").style.display = 'none';
   var searchResultsCount = document.getElementById('search-results-count');
   searchResultsCount.innerHTML = results.length + " results for '" + searchTerm + "'";
   document.getElementsByName('query')[1].setAttribute("value", searchTerm);
@@ -165,6 +166,7 @@ function paginateSearchResults() {
   
   var searchResults = document.getElementById('search-results');
   searchResults.innerHTML = returnResultsList(pageResults[currentPageIndex]);
+  document.getElementsByClassName("search-results-display")[0].style.display = 'block';
 }
 
 function changePage(curr, index) {
