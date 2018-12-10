@@ -40,6 +40,7 @@ key-highlights:
   - title: Templates and Forms
     description: Downladable templates and forms
     url: /resource_room/
+    external: false
   - title: Google
     description: LMGTFY
     url: https://google.com

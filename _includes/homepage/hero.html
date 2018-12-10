@@ -59,14 +59,14 @@
 <section id="key-highlights" class="bp-section is-paddingless">
     <div class="bp-container">
        <div class="row is-gapless has-text-centered">
-          {% for link in homepage.key-highlights %}
+          {% for link in homepage.key-highlights limit:4 %}
 
           <div class="col">
             {% include links-baseurl.html %}
-            {% if base-url == "" %}
+            {% if link.external %}
             <a href="{{ base-url }}{{ link.url }}" target="_blank" class="is-highlight">
             {% else %}
-            <a href="{{ base-url }}{{ link.url }}" class="is-highlight">
+            <a href="{{ link.url }}" class="is-highlight">
             {% endif %}
               <p class="has-text-weight-semibold has-text-white key-highlight-title is-uppercase padding--top--xs">{{ link.title }}</p>
               <p class="has-text-white-trans padding--bottom--sm">{{ link.description }}</p>
