@@ -3,7 +3,8 @@ $(document).ready(function(){
         topSpacing: 40,
         bottomSpacing: 40,
         containerSelector: '.has-side-nav',
-        innerWrapperSelector: '.sidebar__inner'
+        innerWrapperSelector: '.sidebar__inner',
+        resizeSensor: true
     });
 
     $('.float-buttons').stickySidebar({
