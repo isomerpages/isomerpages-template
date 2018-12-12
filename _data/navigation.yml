@@ -40,9 +40,9 @@
   url: /contact-us/
 - title: Data.gov Search
   url: /data-gov-sg/
-- title: Board of Directors
-  url: /board-of-directors/
-- title: FAQ
-  url: /faq/
-- title: Stuff
-  url: /stuff/
+# - title: Board of Directors
+#   url: /board-of-directors/
+# - title: FAQ
+#   url: /faq/
+# - title: Stuff
+#   url: /stuff/

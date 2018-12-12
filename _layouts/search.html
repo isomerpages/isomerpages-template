@@ -29,7 +29,12 @@ layout: default
 <section class="bp-section">
     <div class="bp-container search-content">
         <div class="row">
-            <div class="col is-8 is-offset-2">
+			<div id="loading-spinner" class="col">
+				<div class="lds-default">
+					<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+				</div>
+			</div>
+            <div class="col is-8 is-offset-2 search-results-display">
                 <div>
 					<div class="search-summary">
 						<h4 class="search-results-count" id="search-results-count"></h4>
