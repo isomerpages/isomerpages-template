@@ -68,10 +68,10 @@ function displayTable(chunk, fields) {
     return;
   }
 
-  var resultString = "<table class=\"table-h\"><tr>";
+  var resultString = "<div><table class=\"table-h\"><tr>";
   for (fieldIndex in fields) {
     var fieldId = fields[fieldIndex].id;
-    resultString += '<td><b>' + fieldId.replace(/_/g, ' ').toUpperCase() + '</b></td>';
+    resultString += '<td><h6 class=\"margin--none\"><b>' + fieldId.replace(/_/g, ' ').toUpperCase() + '</b></h6></td>';
   }
   resultString += '</tr>'
 
@@ -79,11 +79,11 @@ function displayTable(chunk, fields) {
     resultString += '<tr>'
     for (fieldIndex in fields) {
       var fieldId = fields[fieldIndex].id;
-      resultString += '<td>' + chunk[chunkIndex][fieldId] + '</td>';
+      resultString += '<td><h6 class=\"margin--none\">' + chunk[chunkIndex][fieldId] + '</h6></td>';
     }
     resultString += '</tr>'
   }
-  resultString += '</table>'
+  resultString += '</table></div>'
 
   document.getElementsByClassName("content")[0].innerHTML = resultString;
   document.getElementsByClassName("content")[0].style.display = 'block';
