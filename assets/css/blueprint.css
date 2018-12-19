@@ -7412,7 +7412,7 @@ html.has-navbar-fixed-top-widescreen {
       font-size: 4rem; } }
   @media screen and (max-width: 768px) {
     .display {
-      font-size: 3rem; } }
+      font-size: 3.5rem; } }
 
 p, li, center {
   font-family: 'Lato', sans-serif;
@@ -7527,6 +7527,8 @@ h6, h6 center {
     color: white; }
   .bp-footer .divider {
     border-top: 1px solid #484848; }
+  .bp-footer .row {
+    justify-content: flex-start; }
   .bp-footer a {
     color: #b7b7b7;
     font-size: 17px;
@@ -7581,15 +7583,16 @@ h6, h6 center {
 .social-link {
   padding-right: 2rem; }
 
+#social-link-desktop {
+  display: flex;
+  justify-content: flex-end; }
+
 #social-link-tablet {
   margin-top: 0.75rem;
   display: flex;
   flex-direction: column;
   padding-right: 48px;
-  align-items: center; }
-
-.bp-footer.row {
-  justify-content: flex-start; }
+  align-items: flex-end; }
 
 .bg-light {
   background-color: #f0f0f0; }
@@ -7989,6 +7992,9 @@ h6, h6 center {
   .touch .is-offset-sideNav {
     position: relative !important;
     width: 100%; }
+
+.horizontal-scroll {
+  overflow-x: scroll; }
 
 #loading-spinner {
   text-align: center; }
