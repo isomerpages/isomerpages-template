@@ -33,7 +33,11 @@
                     <div class="bp-dropdown margin--top--sm">
                       <div class="bp-dropdown-trigger">
                           <a class="bp-button bp-dropdown-button hero-dropdown is-centered" aria-haspopup="true" aria-controls="hero-dropdown-menu">
-                              <span><b><p>I want to...</p></b></span>
+                              {% if homepage.hero-dropdown-text %}
+                                <span><b><p>{{ homepage.hero-dropdown-text }}</p></b></span>
+                              {% else %}
+                                <span><b><p>I want to...</p></b></span>
+                              {% endif %}
                               <span class="icon is-small">
                                   <i class="sgds-icon sgds-icon-chevron-down is-size-4" aria-hidden="true"></i>
                               </span>
