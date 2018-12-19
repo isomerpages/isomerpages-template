@@ -7648,6 +7648,11 @@ h6, h6 center {
   font-weight: 600;
   height: 2.4rem; }
 
+.has-border-grey-light {
+  border: 1px solid #D6D6D6; }
+  .has-border-grey-light:hover, .has-border-grey-light:focus, .has-border-grey-light:active {
+    border: 1px solid #D6D6D6; }
+
 .pagination {
   text-align: center;
   vertical-align: middle;

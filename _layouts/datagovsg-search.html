@@ -20,7 +20,18 @@ layout: default
         <form action="{{site.baseurl}}{{page.url}}" method="get">
             <div class="row">
                 <div id="database-search-container" class="col">
-                    {% include bp-search-box.html %}
+                  <div class="field has-addons">
+                      <div class="control has-icons-left is-expanded">
+                          <input class="input is-fullwidth is-large has-border-grey-light" id="search-box" type="text" placeholder="What are you looking for?" name="query" autocomplete="off">
+                          <span class="is-large is-left">
+                            <i class="sgds-icon sgds-icon-search is-size-4 search-bar"></i>
+                          </span>
+
+                      </div>
+                      <div class="control">
+                          <button type="submit" class="bp-button is-secondary is-medium has-text-white search-button">SEARCH</button>
+                      </div>
+                  </div>
                 </div>
             </div>
         </form>
@@ -30,12 +41,12 @@ layout: default
 <section class="bp-section">
     <div class="bp-container padding--top--sm">
         <div class="row">
-            <div id="loading-spinner" class="col">
+            <div id="loading-spinner" class="col is-full">
                 <div class="lds-default">
                     <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
                 </div>
             </div>
-            <div class="col content horizontal-scroll datagovsg-table">
+            <div class="col is-full content horizontal-scroll datagovsg-table">
                 {{content}}
             </div>
         </div>
