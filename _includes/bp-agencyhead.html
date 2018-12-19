@@ -152,7 +152,18 @@
 
             <div class="col">
                 <form action="{{ site.baseurl }}/search/" method="get">
-                    {% include bp-search-box.html %}
+                  <div class="field has-addons">
+                      <div class="control has-icons-left is-expanded">
+                          <input class="input is-fullwidth is-large" id="search-box" type="text" placeholder="What are you looking for?" name="query" autocomplete="off">
+                          <span class="is-large is-left">
+                            <i class="sgds-icon sgds-icon-search is-size-4 search-bar"></i>
+                          </span>
+
+                      </div>
+                      <div class="control">
+                          <button type="submit" class="bp-button is-secondary is-medium has-text-white search-button">SEARCH</button>
+                      </div>
+                  </div>
                 </form>
             </div>
         </div>
