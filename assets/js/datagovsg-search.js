@@ -3,16 +3,24 @@
 const RESULTS_PER_PAGE = 10;
 const MAX_ADJACENT_PAGE_BTNS = 2;
 const MAX_ADJACENT_MOBILE_PAGE_BTNS = 1;
-let pageResults;
+let pageResults = [];
 let fieldArray;
+let startIndex = 0;
+
+let datagovsgOffset = 0; 
+// The datagovsg API only retrieves 100 rows at a go.
+// If users want to view more than 100 rows, we need to call the
+// API with an offset to obtain the right slice of data.
+
+let datagovsgTotal; // The total number of rows of data in the datagovsg API
+
 let currentPageIndex = 0;
 
 var searchTerm = getQueryVariable('query');
-if (searchTerm) {
-  databaseSearch(searchTerm);
-} else {
-  databaseSearch('');
+if (! searchTerm) {
+  searchTerm = '';
 }
+databaseSearch(searchTerm, startIndex);
 
 function getQueryVariable(variable) {
   var query = window.location.search.substring(1);
@@ -28,10 +36,11 @@ function getQueryVariable(variable) {
   }
 }
 
-function databaseSearch(searchTerm){
+function databaseSearch(searchTerm, index){
   var data = {
     resource_id: resourceId, // the resource id
-    q: searchTerm
+    q: searchTerm,
+    offset: datagovsgOffset
   };
 
   var request = $.ajax({
@@ -44,16 +53,18 @@ function databaseSearch(searchTerm){
     document.getElementById("loading-spinner").style.display = 'none';
     hideAllPostsAndPagination();
     fieldArray = remove(data.result.fields, ["_id", "_full_count", "rank"])
-    pageResults = splitPages(data.result.records, RESULTS_PER_PAGE);
+    pageResults = pageResults.concat(splitPages(data.result.records, RESULTS_PER_PAGE));
+    datagovsgTotal = data.result.total
     displayTable(pageResults[currentPageIndex], fieldArray);
-    if (!pageResults || data.result.records.length < RESULTS_PER_PAGE) return;
-    displayPagination();
+    if (!pageResults || pageResults.length < RESULTS_PER_PAGE) return;
+    displayPagination(index);
   });
 }
 
 function displayTable(chunk, fields) {
   if (!chunk || chunk.length === 0) {
     document.getElementsByClassName("content")[0].innerHTML = '<center>No results found</center>';
+    document.getElementsByClassName("content")[0].style.display = 'block';
     return;
   }
 
@@ -90,18 +101,17 @@ function hideAllPostsAndPagination() {
 }
 
 function remove(array, elements) {
-	return array.filter(e => !elements.includes(e.id));
+  return array.filter(e => !elements.includes(e.id));
 }
 
 // Populate the pagination elements
-function displayPagination() {
+function displayPagination(index) {
   document.querySelector(".pagination").style.display = "flex";
   var pagination = document.getElementById('paginator-pages');
 
   for (let i = 0; i < pageResults.length; i++) {
     let ele = document.createElement("span");
     let text = document.createTextNode(i + 1);
-    
     ele.appendChild(text);
     ele.onclick = function(e) {
       changePage(e.target, i)
@@ -110,12 +120,35 @@ function displayPagination() {
   }
 
   // Initialise selected page and nav arrows
-  setCurrentPage(pagination.firstChild);
+  setCurrentPage(pagination.childNodes[index]);
   displayNavArrows(currentPageIndex);
   setNavArrowHandlers();
 }
 
 function changePage(curr, index) {
+  if (shouldCallAPI(index)) {
+    datagovsgOffset += 100;
+    databaseSearch(searchTerm, index);
+  }
+
   changePageUtil(curr, index);
   displayTable(pageResults[currentPageIndex], fieldArray);
+}
+
+// Evaluates to true if we should call the datagovsg API for the 
+// next 100 rows of data
+function shouldCallAPI(index) {
+  // Checks to make sure that the last digit of the page number is greater than 5.
+  // i.e. we should call the API for the next 100 rows if the user is currently at 
+  // page number 26.
+  // Note: the index starts from 0, so a page index of 14 corresponds to a page number of 15.
+  if (index % 10 < 4) return false
+
+  // Makes sure that there is more data to be retrieved from the API.
+  if (datagovsgOffset + 100 > datagovsgTotal) return false
+
+  // Makes sure that we haven't already called the API for the next 100 rows.
+  if (index * RESULTS_PER_PAGE < datagovsgOffset) return false
+
+  return true
 }
