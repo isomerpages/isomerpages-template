@@ -1,7 +1,7 @@
-{% if site.is_government %}
-<section class="bp-section bp-masthead">
-{% else %}
+{% if site.is_government == false %}
 <section class="bp-section bp-masthead is-invisible">
+{% else %}
+<section class="bp-section bp-masthead">
 {% endif %}
     <div class="bp-container ">
         <div class="row is-multiline is-vcentered">
