@@ -11,6 +11,13 @@
     <meta property="og:url" content="{{page.permalink | absolute_url}}">
     <link rel="canonical" href="{{ page.url | absolute_url}}" />
     
+    <!-- WOGAA -->
+    {%- if jekyll.environment == "staging" -%}
+    <script src="https://assets.adobedtm.com/a63ef04a8a06d4763abe9b28a8d967e7e749d199/satelliteLib-db3891214175cc48594c242657d262be8297f3d8-staging.js"></script>
+    {% else %}
+    <script src="https://assets.adobedtm.com/a63ef04a8a06d4763abe9b28a8d967e7e749d199/satelliteLib-db3891214175cc48594c242657d262be8297f3d8.js"></script>
+    {% endif %}
+
     {% assign homepage = site.data.homepage %}
     {% if homepage.google-analytics %}
     <!-- Google Analytics -->
