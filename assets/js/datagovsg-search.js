@@ -100,8 +100,10 @@ function hideAllPostsAndPagination() {
   document.querySelector(".pagination").style.display = "none";
 }
 
-function remove(array, elements) {
-  return array.filter(e => !elements.includes(e.id));
+function remove(array, elements){
+  return array.filter(function(e) { 
+    return (!elements.includes(e.id));
+  })
 }
 
 // Populate the pagination elements
