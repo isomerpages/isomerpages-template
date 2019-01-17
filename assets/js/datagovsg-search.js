@@ -16,18 +16,18 @@ let datagovsgTotal; // The total number of rows of data in the datagovsg API
 
 let currentPageIndex = 0;
 
-var searchTerm = getQueryVariable('query');
+let searchTerm = getQueryVariable('query');
 if (! searchTerm) {
   searchTerm = '';
 }
 databaseSearch(searchTerm, startIndex);
 
 function getQueryVariable(variable) {
-  var query = window.location.search.substring(1);
-  var vars = query.split('&');
+  let query = window.location.search.substring(1);
+  let vars = query.split('&');
 
-  for (var i = 0; i < vars.length; i++) {
-    var pair = vars[i].split('=');
+  for (let i = 0; i < vars.length; i++) {
+    let pair = vars[i].split('=');
 
     if (pair[0] === variable) {
       const dirtyString = decodeURIComponent(pair[1].replace(/\+/g, '%20'));
@@ -37,13 +37,21 @@ function getQueryVariable(variable) {
 }
 
 function databaseSearch(searchTerm, index){
-  var data = {
-    resource_id: resourceId, // the resource id
-    q: searchTerm,
-    offset: datagovsgOffset
-  };
+  if (searchTerm !== ''){
+    var data = {
+      resource_id: resourceId, // the resource id
+      q: searchTerm,
+      offset: datagovsgOffset
+    }
+  }
+  else {
+    var data = {
+      resource_id: resourceId, // the resource id
+      offset: datagovsgOffset
+    }    
+  }
 
-  var request = $.ajax({
+  let request = $.ajax({
     url: 'https://data.gov.sg/api/action/datastore_search',
     data: data,
     dataType: 'json',
@@ -68,17 +76,17 @@ function displayTable(chunk, fields) {
     return;
   }
 
-  var resultString = "<div><table class=\"table-h\"><tr>";
+  let resultString = "<div><table class=\"table-h\"><tr>";
   for (fieldIndex in fields) {
-    var fieldId = fields[fieldIndex].id;
+    let fieldId = fields[fieldIndex].id;
     resultString += '<td><h6 class=\"margin--none\"><b>' + fieldId.replace(/_/g, ' ').toUpperCase() + '</b></h6></td>';
   }
   resultString += '</tr>'
 
-  for (var chunkIndex = 0; chunkIndex < chunk.length; chunkIndex++) {
+  for (let chunkIndex = 0; chunkIndex < chunk.length; chunkIndex++) {
     resultString += '<tr>'
     for (fieldIndex in fields) {
-      var fieldId = fields[fieldIndex].id;
+      let fieldId = fields[fieldIndex].id;
       resultString += '<td><h6 class=\"margin--none\">' + chunk[chunkIndex][fieldId] + '</h6></td>';
     }
     resultString += '</tr>'
@@ -92,7 +100,7 @@ function displayTable(chunk, fields) {
 
 function hideAllPostsAndPagination() {
 
-  var paginationElement = document.getElementById("paginator-pages");
+  let paginationElement = document.getElementById("paginator-pages");
   while (paginationElement.firstChild) {
       paginationElement.removeChild(paginationElement.firstChild);
   }
@@ -107,7 +115,7 @@ function remove(array, elements) {
 // Populate the pagination elements
 function displayPagination(index) {
   document.querySelector(".pagination").style.display = "flex";
-  var pagination = document.getElementById('paginator-pages');
+  let pagination = document.getElementById('paginator-pages');
 
   for (let i = 0; i < pageResults.length; i++) {
     let ele = document.createElement("span");
