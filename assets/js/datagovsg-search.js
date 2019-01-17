@@ -37,18 +37,13 @@ function getQueryVariable(variable) {
 }
 
 function databaseSearch(searchTerm, index){
-  if (searchTerm !== ''){
-    var data = {
-      resource_id: resourceId, // the resource id
-      q: searchTerm,
-      offset: datagovsgOffset
-    }
+  let data = {
+    resource_id: resourceId, // the resource id
+    offset: datagovsgOffset
   }
-  else {
-    var data = {
-      resource_id: resourceId, // the resource id
-      offset: datagovsgOffset
-    }    
+  
+  if (searchTerm !== '') {
+    data.q = searchTerm
   }
 
   let request = $.ajax({
