@@ -6790,7 +6790,7 @@ a.navbar-link.is-active {
 
 @font-face {
   font-family: 'sgds-icons';
-  src: url("./fonts/sgds-icons.ttf?742wbr") format("truetype"), url("./fonts/sgds-icons.woff?742wbr") format("woff"), url("./fonts/sgds-icons.svg?742wbr#sgds-icons") format("svg");
+  src: url("./fonts/sgds-icons.eot?#iefix") format("embedded-opentype"), url("./fonts/sgds-icons.ttf?742wbr") format("truetype"), url("./fonts/sgds-icons.woff?742wbr") format("woff"), url("./fonts/sgds-icons.svg?742wbr#sgds-icons") format("svg");
   font-weight: normal;
   font-style: normal; }
 .sgds-icon {
@@ -7648,11 +7648,6 @@ h6, h6 center {
   font-weight: 600;
   height: 2.4rem; }
 
-.has-border-grey-light {
-  border: 1px solid #D6D6D6; }
-  .has-border-grey-light:hover, .has-border-grey-light:focus, .has-border-grey-light:active {
-    border: 1px solid #D6D6D6; }
-
 .pagination {
   text-align: center;
   vertical-align: middle;
@@ -7997,9 +7992,6 @@ h6, h6 center {
   .touch .is-offset-sideNav {
     position: relative !important;
     width: 100%; }
-
-.horizontal-scroll {
-  overflow-x: scroll; }
 
 #loading-spinner {
   text-align: center; }
