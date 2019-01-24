@@ -1,15 +1,17 @@
-const RESULTS_PER_PAGE = 10;
-const MAX_ADJACENT_PAGE_BTNS = 2;
-const MAX_ADJACENT_MOBILE_PAGE_BTNS = 1;
-const PREVIEW_SIZE = 300;
-const NUM_LEADING_CHARS = 30;
-let results;
-let postsData;
-let pageResults;
-let currentPageIndex = 0;
+'use strict';
 
-var runSearch = function(json_data, posts_data) {
-  postsData = posts_data
+var RESULTS_PER_PAGE = 10;
+var MAX_ADJACENT_PAGE_BTNS = 2;
+var MAX_ADJACENT_MOBILE_PAGE_BTNS = 1;
+var PREVIEW_SIZE = 300;
+var NUM_LEADING_CHARS = 30;
+var results = void 0;
+var postsData = void 0;
+var pageResults = void 0;
+var currentPageIndex = 0;
+
+var runSearch = function runSearch(json_data, posts_data) {
+  postsData = posts_data;
   var searchTerm = getQueryVariable('query');
   if (searchTerm) {
 
@@ -40,7 +42,7 @@ function highlightKeywords(content, previewStartPosition, matchMetadata) {
 
     for (var positionIndex = 0; positionIndex < positionArray.length; positionIndex++) {
       var hitPosition = positionArray[positionIndex][0];
-      if ((hitPosition >= previewStartPosition) && (hitPosition < previewStartPosition+PREVIEW_SIZE)) {
+      if (hitPosition >= previewStartPosition && hitPosition < previewStartPosition + PREVIEW_SIZE) {
         matchMap[hitPosition] = positionArray[positionIndex][1];
       }
     }
@@ -56,21 +58,21 @@ function highlightKeywords(content, previewStartPosition, matchMetadata) {
       currPosition = wordEnd;
     }
 
-    if (wordEnd < previewStartPosition+PREVIEW_SIZE) {
-      processedPreview += content.substring(currPosition, previewStartPosition+PREVIEW_SIZE);
+    if (wordEnd < previewStartPosition + PREVIEW_SIZE) {
+      processedPreview += content.substring(currPosition, previewStartPosition + PREVIEW_SIZE);
     }
     return processedPreview;
   }
 
-  return content.substring(previewStartPosition, previewStartPosition+PREVIEW_SIZE);
+  return content.substring(previewStartPosition, previewStartPosition + PREVIEW_SIZE);
 }
 
 // Find the earliest space in the preview closest to (firstPosition - NUM_LEADING_CHARS)
 function returnStartOfPreview(content, firstPosition) {
-  if (firstPosition-NUM_LEADING_CHARS <= 0) {
+  if (firstPosition - NUM_LEADING_CHARS <= 0) {
     return 0;
   } else {
-    for (var index = firstPosition-NUM_LEADING_CHARS; index < firstPosition; index++) {
+    for (var index = firstPosition - NUM_LEADING_CHARS; index < firstPosition; index++) {
       if (content.charAt(index) === ' ') {
         return index;
       }
@@ -88,10 +90,10 @@ function returnFirstKeywordPosition(matchMetadata) {
 
     if (matchMetadata[keyword]['content'] !== undefined) {
       var positionArray = matchMetadata[keyword]['content']['position'];
-      
+
       // Find the earliest first position across all keywords
       for (var positionIndex = 0; positionIndex < positionArray.length; positionIndex++) {
-        if (firstPosition == -1 || (firstPosition > positionArray[positionIndex][0])) {
+        if (firstPosition == -1 || firstPosition > positionArray[positionIndex][0]) {
           firstPosition = positionArray[positionIndex][0];
         }
       }
@@ -112,7 +114,6 @@ function returnResultsList(results) {
     var key = parseInt(results[i]['ref']);
     var resultObject = post_data[key];
 
-
     var matchMetadata = results[i]['matchData']['metadata'];
     var keywordSet = new Set();
 
@@ -120,12 +121,12 @@ function returnResultsList(results) {
     var resultTitle = resultObject['title'].substring(0, titleTruncateLength);
 
     if (resultObject['title'].length > titleTruncateLength) {
-      var indexOfLastWord = resultObject['title'].substring(0,titleTruncateLength).lastIndexOf(" ");
+      var indexOfLastWord = resultObject['title'].substring(0, titleTruncateLength).lastIndexOf(" ");
       var resultTitle = resultObject['title'].substring(0, indexOfLastWord);
       resultTitle += ' ...';
     }
-    searchPara += '<a class="search-content" href="' + resultObject['url']  + '">' + ' ' + resultTitle + '</a>';
-    
+    searchPara += '<a class="search-content" href="' + resultObject['url'] + '">' + ' ' + resultTitle + '</a>';
+
     // Find the position of the earliest keyword in the document
     var firstPosition = returnFirstKeywordPosition(matchMetadata);
 
@@ -137,7 +138,7 @@ function returnResultsList(results) {
     // var postDate = new Date(resultObject['datestring']).toDateString().substring(4);
     searchPara += '<p class="search-content permalink">' + resultObject['url'] + '</p><br>';
     // searchPara += '<p class="search-content" > '+ postDate + ' ...' + processedPreview + '...</p><br>';
-    
+
     if (processedPreview) {
       searchPara += '<p class="search-content" > ' + ' ...' + processedPreview + '...</p><br>';
     }
@@ -152,7 +153,7 @@ function displaySearchResults(searchTerm) {
   var searchResultsCount = document.getElementById('search-results-count');
   searchResultsCount.innerHTML = results.length + " results for '" + searchTerm + "'";
   document.getElementsByName('query')[1].setAttribute("value", searchTerm);
-  
+
   paginateSearchResults();
   if (!results.length || pageResults.length <= 1) return;
   displayPagination();
@@ -163,7 +164,7 @@ function paginateSearchResults() {
   var searchPageIndicator = document.getElementById('search-page-indicator');
   searchPageIndicator.style.display = pageResults.length > 1 ? "flex" : "none";
   searchPageIndicator.innerHTML = "Page " + (currentPageIndex + 1) + " of " + pageResults.length;
-  
+
   var searchResults = document.getElementById('search-results');
   searchResults.innerHTML = returnResultsList(pageResults[currentPageIndex]);
   document.getElementsByClassName("search-results-display")[0].style.display = 'block';
@@ -183,8 +184,8 @@ function getQueryVariable(variable) {
     var pair = vars[i].split('=');
 
     if (pair[0] === variable) {
-      const dirtyString = decodeURIComponent(pair[1].replace(/\+/g, '%20'));
-      return DOMPurify.sanitize(dirtyString, {ALLOWED_TAGS: [], ALLOWED_ATTR: []});
+      var dirtyString = decodeURIComponent(pair[1].replace(/\+/g, '%20'));
+      return DOMPurify.sanitize(dirtyString, { ALLOWED_TAGS: [], ALLOWED_ATTR: [] });
     }
   }
 }
