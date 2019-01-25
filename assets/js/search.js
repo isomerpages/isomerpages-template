@@ -13,6 +13,11 @@ var currentPageIndex = 0;
 var runSearch = function runSearch(json_data, posts_data) {
   postsData = posts_data;
   var searchTerm = getQueryVariable('query');
+  
+  if (!searchTerm || searchTerm === '+') {
+    searchTerm = ' ';
+  }
+  
   if (searchTerm) {
 
     // Load the pre-built lunr index
