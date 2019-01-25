@@ -19,7 +19,7 @@ var datagovsgTotal = void 0; // The total number of rows of data in the datagovs
 var currentPageIndex = 0;
 
 var searchTerm = getQueryVariable('query');
-if (!searchTerm) {
+if (!searchTerm || searchTerm === ' ') {
   searchTerm = '';
 }
 databaseSearch(searchTerm, startIndex);
@@ -33,6 +33,7 @@ function getQueryVariable(variable) {
 
     if (pair[0] === variable) {
       var dirtyString = decodeURIComponent(pair[1].replace(/\+/g, '%20'));
+      console.log(DOMPurify.sanitize(dirtyString, { ALLOWED_TAGS: [], ALLOWED_ATTR: [] }))
       return DOMPurify.sanitize(dirtyString, { ALLOWED_TAGS: [], ALLOWED_ATTR: [] });
     }
   }
@@ -57,13 +58,20 @@ function databaseSearch(searchTerm, index) {
   request.done(function (data) {
     document.getElementById("loading-spinner").style.display = 'none';
     hideAllPostsAndPagination();
+
+    // The fieldArray is the array containing the field names in the data.gov.sg table
     fieldArray = remove(data.result.fields, ["_id", "_full_count", "rank"]);
     pageResults = pageResults.concat(splitPages(data.result.records, RESULTS_PER_PAGE));
     datagovsgTotal = data.result.total;
     displayTable(pageResults[currentPageIndex], fieldArray);
-    if (!pageResults || pageResults.length < RESULTS_PER_PAGE) return;
+    if (!pageResults || pageResults.length <= 1) return;
     displayPagination(index);
-  });
+  })
+  .fail(function () { // Displays no results if the AJAX call fails
+    document.getElementById("loading-spinner").style.display = 'none';
+    hideAllPostsAndPagination();
+    displayTable(null, []);
+  })
 }
 
 function displayTable(chunk, fields) {
