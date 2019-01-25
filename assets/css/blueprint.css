@@ -7648,6 +7648,9 @@ h6, h6 center {
   font-weight: 600;
   height: 2.4rem; }
 
+.horizontal-scroll {
+  overflow: auto; }
+
 .pagination {
   text-align: center;
   vertical-align: middle;
