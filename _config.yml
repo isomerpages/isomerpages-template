@@ -33,7 +33,7 @@ plugins:
   # - jekyll-paginate-v2
   # - sanitize
 safe: false
-
+exclude: [travis-script.js, .travis.yml, README.md, package.json, package-lock.json, test_suite, node_modules]
 
 # Breadcrumbs
 breadcrumbs:
