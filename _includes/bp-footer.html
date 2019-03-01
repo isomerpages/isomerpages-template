@@ -172,12 +172,12 @@
             <div class="col is-one-third has-text-right-desktop has-text-right-tablet has-text-left-mobile">
                 <p class="is-hidden-touch is-hidden-desktop-only"> © {{ site.time | date: "%Y" }} 
                 {% unless site.is_government == false %}
-                  Singapore Government. 
-                {% endunless %}</p>
+                  {{site.title}}. 
+                {% endunless %}
                 <p class="is-hidden-touch is-hidden-desktop-only last-updated">
                 Last Updated {{ site.time | date_to_string }}</p>
                 {% unless site.is_government == false %}
-                  <p class="is-hidden-widescreen">© {{ site.time | date: "%Y" }} Singapore Government</p>
+                  <p class="is-hidden-widescreen">© {{ site.time | date: "%Y" }} {{site.title}}</p>
                 {% endunless %}
                 <p class="is-hidden-widescreen last-updated">Last Updated {{ site.time | date_to_string }}</b>
             </div>
