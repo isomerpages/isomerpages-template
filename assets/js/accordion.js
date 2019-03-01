@@ -11,7 +11,7 @@ function setUpEventListeners(){
 			    var accordionBody = document.getElementById("accordion-body-" + closureIndex);
 			    var accordionButtonArray = document.getElementsByClassName("bp-accordion-button");
 			    var accordionButton = accordionButtonArray[closureIndex];
-			    console.log(closureIndex, accordionButton);
+			    
 			    if (accordionBody.style.display === "" || accordionBody.style.display === "none") {
 			    	accordionBody.style.display = "block";
 			    	accordionButton.classList.remove("sgds-icon-plus");
