@@ -27,7 +27,7 @@ function initSecondLevelNavInteraction() {
 	}
 
 	var secondLevelNavHeaderMobileArray = document.querySelectorAll("a.second-level-nav-header-mobile");
-	console.log(secondLevelNavHeaderMobileArray);
+
 	for (var index = 0; index < secondLevelNavHeaderMobileArray.length; index++) {
 		function secondLevelNavMobileClosure() {
 			var closureIndex = index;
