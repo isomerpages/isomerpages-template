@@ -7577,8 +7577,8 @@ h6, h6 center {
   .bp-footer.bottom-section a, .bp-footer.bottom-section p {
     font-size: 16px !important; }
 
-.is-hidden-desktop.last-updated {
-  margin-top: 2px !important; }
+.last-updated {
+  margin-top: 0px !important; }
 
 .social-link {
   padding-right: 2rem; }
