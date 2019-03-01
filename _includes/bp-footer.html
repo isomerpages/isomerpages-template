@@ -173,7 +173,8 @@
                 <p class="is-hidden-touch is-hidden-desktop-only"> © {{ site.time | date: "%Y" }} 
                 {% unless site.is_government == false %}
                   Singapore Government. 
-                {% endunless %}
+                {% endunless %}</p>
+                <p class="is-hidden-touch is-hidden-desktop-only last-updated">
                 Last Updated {{ site.time | date_to_string }}</p>
                 {% unless site.is_government == false %}
                   <p class="is-hidden-widescreen">© {{ site.time | date: "%Y" }} Singapore Government</p>
