@@ -8,7 +8,7 @@
     <meta property="og:description" content="{% if page.description %}{{ page.description | markdownify | strip_html }}{% else %}{{page.content | truncatewords: 20 | markdownify | strip_html }}{% endif %}"> 
     <meta name="Description" CONTENT="{% if page.description %}{{ page.description | markdownify | strip_html }}{% else %}{{page.content | truncatewords: 20 | markdownify | strip_html }}{% endif %}">
     {% assign homepage = site.data.homepage %}
-    <meta property="og:image" content="{% if page.image %}{{page.image | absolute_url}}{% else %}{{homepage.agency-logo | absolute_url}}{% endif %}">
+    <meta property="og:image" content="{% if page.image %}{{page.image | absolute_url}}{% elsif homepage.shareicon %}{{homepage.shareicon | absolute_url}}{% else %}{{homepage.agency-logo | absolute_url}}{% endif %}">
     <meta property="og:url" content="{{page.permalink | absolute_url}}">
     <link rel="canonical" href="{{ page.url | absolute_url}}" />
     
