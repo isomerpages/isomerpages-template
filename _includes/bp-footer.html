@@ -118,6 +118,11 @@
                <li class="is-inline-block-desktop-only">
                    <p><a href="{{site.baseurl}}/contact-us/">Contact Us</a></p>
                </li>
+               {% if homepage.show-reach and homepage.show-reach == true %}
+               <li class="is-inline-block-desktop-only">
+                 <p><a href="https://www.reach.gov.sg/" target="_blank">REACH</a></p>
+               </li>
+               {% endif %}
                <li class="is-inline-block-desktop-only">
                   <p><a href="{{site.feedback_form_url}}" target="_blank">Feedback</a></p>
                </li>
