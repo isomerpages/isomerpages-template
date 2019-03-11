@@ -3576,11 +3576,8 @@ a[href$=".pdf"] {
     font-family: "sgds-icons";
     content: "";
     position: absolute;
-    top: 0;
-    left: -2.25rem;
+    left: -2rem;
     height: 100%;
-    display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center; }
     a[href$=".pdf"]:before:hover {
@@ -3906,6 +3903,9 @@ a[href$=".pdf"][target=_blank]:after {
     font-size: 1.5rem; }
 .bp-menu-list {
   line-height: 1.25; }
+.has-side-nav{
+  box-sizing: unset;
+}
   .bp-menu-list a {
     font-size: 1.0625rem;
     color: #323232;
