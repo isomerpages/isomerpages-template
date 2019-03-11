@@ -3903,6 +3903,9 @@ a[href$=".pdf"][target=_blank]:after {
     font-size: 1.5rem; }
 .bp-menu-list {
   line-height: 1.25; }
+.has-side-nav{
+  box-sizing: unset;
+}
   .bp-menu-list a {
     font-size: 1.0625rem;
     color: #323232;
