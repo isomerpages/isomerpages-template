@@ -70,7 +70,7 @@ layout: leftnav-page
 						{% for team in division.teams %}
 						    <div class="col is-4 padding--right--xl padding--bottom">
 								<div class="margin--top--none">
-									<a href="{{ site.baseurl }}{{ team.url }}">{{ team.name }}</a>
+									{% if team.link %}<a href="{{ site.baseurl }}{{ team.link }}">{% endif %}{{ team.name }}{% if team.link %}</a>{% endif %}
 								</div>
 							</div>
 						{% endfor %}

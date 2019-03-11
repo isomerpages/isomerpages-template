@@ -33,7 +33,6 @@ function getQueryVariable(variable) {
 
     if (pair[0] === variable) {
       var dirtyString = decodeURIComponent(pair[1].replace(/\+/g, '%20'));
-      console.log(DOMPurify.sanitize(dirtyString, { ALLOWED_TAGS: [], ALLOWED_ATTR: [] }))
       return DOMPurify.sanitize(dirtyString, { ALLOWED_TAGS: [], ALLOWED_ATTR: [] });
     }
   }

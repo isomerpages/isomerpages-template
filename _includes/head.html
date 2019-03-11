@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta property="og:title" content="{{page.title | markdownify | strip_html}}">
     <!-- If page contains a description in the YML header of the markdown file, use the page description. Otherwise, take an excerpt of its markdown content -->
-    <meta property="og:description" content="{% if page.description %}{{ page.description | markdownify | strip_html }}{% else %}{{page.content | truncatewords: 20 | markdownify | strip_html }}{% endif %}"> 
-    <meta name="Description" CONTENT="{% if page.description %}{{ page.description | markdownify | strip_html }}{% else %}{{page.content | truncatewords: 20 | markdownify | strip_html }}{% endif %}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description | markdownify | strip_html }}{% else %}{{page.content | markdownify | strip_html | truncatewords: 20}}{% endif %}"> 
+    <meta name="Description" CONTENT="{% if page.description %}{{ page.description | markdownify | strip_html }}{% else %}{{page.content | markdownify | strip_html | truncatewords: 20}}{% endif %}">
     {% assign homepage = site.data.homepage %}
-    <meta property="og:image" content="{% if page.image %}{{page.image | absolute_url}}{% else %}{{homepage.agency-logo | absolute_url}}{% endif %}">
+    <meta property="og:image" content="{% if page.image %}{{page.image | absolute_url}}{% elsif homepage.shareicon %}{{homepage.shareicon | absolute_url}}{% else %}{{homepage.agency-logo | absolute_url}}{% endif %}">
     <meta property="og:url" content="{{page.permalink | absolute_url}}">
     <link rel="canonical" href="{{ page.url | absolute_url}}" />
     
