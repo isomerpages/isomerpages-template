@@ -3576,11 +3576,8 @@ a[href$=".pdf"] {
     font-family: "sgds-icons";
     content: "";
     position: absolute;
-    top: 0;
-    left: -2.25rem;
+    left: -2rem;
     height: 100%;
-    display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center; }
     a[href$=".pdf"]:before:hover {
