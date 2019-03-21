@@ -380,4 +380,7 @@ $(document).ready(function(){
         searchBar_input.focus().val('');
         masthead_container.toggleClass('is-opened');
     });
+
+    // Wrap all tables in a <div> with the horizontal-scroll class so that the table will not be cut off on mobile
+    $('table').wrap('<div class="horizontal-scroll"></div>');
 });
