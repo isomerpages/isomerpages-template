@@ -310,7 +310,7 @@ code,
 pre {
   -moz-osx-font-smoothing: auto;
   -webkit-font-smoothing: auto;
-  font-family: monospace; }
+  font-family: monospace !important; }
 
 body {
   color: #484848;
