@@ -7,7 +7,7 @@
 
         <div class="navbar-brand">
             <a class="navbar-item" href="{{ site.baseurl }}/">
-                <img src="{{ site.baseurl }}{{ homepage.agency-logo }}" alt="" width="240" height="27.406" style="max-height:75px;">
+                <img src="{{ site.baseurl }}{{ homepage.agency-logo }}" alt="Homepage" width="240" height="27.406" style="max-height:75px;">
             </a>
             <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
                 <span></span>
@@ -21,7 +21,7 @@
                     <form action="{{ site.baseurl }}/search/" method="get">
                         <div class="field has-addons">
                             <div class="control has-icons-left is-expanded">
-                                <input class="input is-fullwidth" id="search-box" type="text" placeholder="What are you looking for?" name="query">
+                                <input class="input is-fullwidth" id="search-box-mobile" type="text" placeholder="What are you looking for?" name="query">
                                 <span class="is-large is-left">
                                   <i class="sgds-icon sgds-icon-search search-bar"></i>
                                 </span>
@@ -60,7 +60,7 @@
                     <div class="navbar-item has-dropdown is-hoverable">
                         {%- if base-url == "" -%}
                             {% if link.external == true %}
-                            <a class="navbar-link is-uppercase" href="{{ base-url }}{{ link.url }}" target="_blank">
+                            <a class="navbar-link is-uppercase" href="{{ base-url }}{{ link.url }}" target="_blank" rel="noreferrer">
                             {{ link.title }}
                             </a>
                             {% else %}
@@ -80,7 +80,7 @@
                                         {%- assign class = 'active' -%}
                                         {%- if sublink-base-url == "" -%}
                                             {% if sublink.external == true %}
-                                            <a class="navbar-item sub-link is-active" href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank">
+                                            <a class="navbar-item sub-link is-active" href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank" rel="noreferrer">
                                                 {{ sublink.title }}
                                             </a>
                                             {% else %}
@@ -97,7 +97,7 @@
                                     {%- else -%}
                                         {%- if sublink-base-url == "" -%}
                                             {% if sublink.external == true %}
-                                            <a class="navbar-item sub-link " href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank">
+                                            <a class="navbar-item sub-link " href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank" rel="noreferrer">
                                                 {{ sublink.title }}
                                             </a>
                                             {% else %}
@@ -119,7 +119,7 @@
                     <li class="navbar-item">
                         {%- if base-url == "" -%}
                             {% if link.external == true %}
-                            <a href="{{ base-url }}{{ link.url }}" target="_blank" class="is-uppercase">{{ link.title }}</a>
+                            <a href="{{ base-url }}{{ link.url }}" target="_blank" class="is-uppercase" rel="noreferrer">{{ link.title }}</a>
                             {% else %}
                             <a href="{{ base-url }}{{ link.url }}" class="is-uppercase">{{ link.title }}</a>
                             {% endif %}

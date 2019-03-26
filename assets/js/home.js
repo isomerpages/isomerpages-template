@@ -34,20 +34,24 @@ $( document ).ready(function() {
     var career_nav_left = $('.carousel-nav-container.career-nav .carousel-nav.left');
     var career_nav_right = $('.carousel-nav-container.career-nav .carousel-nav.right');
 
-    programme_carousel.owlCarousel(carousel_setting);
-    programme_nav_left.click(function(){
-        programme_carousel.trigger('prev.owl.carousel',[1000])
-    });
-    programme_nav_right.click(function(){
-        programme_carousel.trigger('next.owl.carousel',[1000])
-    });
+    if (programme_carousel.owlCarousel) {
+      programme_carousel.owlCarousel(carousel_setting);
+      programme_nav_left.click(function(){
+          programme_carousel.trigger('prev.owl.carousel',[1000])
+      });
+      programme_nav_right.click(function(){
+          programme_carousel.trigger('next.owl.carousel',[1000])
+      });
+    }
 
-    career_carousel.owlCarousel(carousel_setting);
-    career_nav_left.click(function(){
-        career_carousel.trigger('prev.owl.carousel',[1000])
-    });
-    career_nav_right.click(function(){
-        career_carousel.trigger('next.owl.carousel',[1000])
-    });
+    if (career_carousel.owlCarousel) {
+      career_carousel.owlCarousel(carousel_setting);
+      career_nav_left.click(function(){
+          career_carousel.trigger('prev.owl.carousel',[1000])
+      });
+      career_nav_right.click(function(){
+          career_carousel.trigger('next.owl.carousel',[1000])
+      });
+    }
 
 });
