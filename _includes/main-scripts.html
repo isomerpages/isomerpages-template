@@ -2,6 +2,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<!-- Carousel -->
 {% if page.layout == 'homepage'%}
   {% if site.homepage_programmes == true or site.homepage_careers == true %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
@@ -29,10 +30,11 @@
 <script src="{{ "/assets/js/accordion.js" | relative_url }}"></script>
 {% endif %}
 
+
 {% if page.layout == 'search' %}
+<script src="https://unpkg.com/lunr/lunr.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.9/purify.min.js"></script>
 <script src="{{ "/assets/posts.json" | relative_url }}"></script>
-<script src="https://unpkg.com/lunr/lunr.js"></script>
 <script src="{{ "/assets/js/worker.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/pagination-util.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/search.js" | relative_url }}"></script>
