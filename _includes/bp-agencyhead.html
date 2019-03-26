@@ -60,7 +60,7 @@
                     <div class="navbar-item has-dropdown is-hoverable">
                         {%- if base-url == "" -%}
                             {% if link.external == true %}
-                            <a class="navbar-link is-uppercase" href="{{ base-url }}{{ link.url }}" target="_blank">
+                            <a class="navbar-link is-uppercase" href="{{ base-url }}{{ link.url }}" target="_blank" rel="noreferrer">
                             {{ link.title }}
                             </a>
                             {% else %}
@@ -80,7 +80,7 @@
                                         {%- assign class = 'active' -%}
                                         {%- if sublink-base-url == "" -%}
                                             {% if sublink.external == true %}
-                                            <a class="navbar-item sub-link is-active" href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank">
+                                            <a class="navbar-item sub-link is-active" href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank" rel="noreferrer">
                                                 {{ sublink.title }}
                                             </a>
                                             {% else %}
@@ -97,7 +97,7 @@
                                     {%- else -%}
                                         {%- if sublink-base-url == "" -%}
                                             {% if sublink.external == true %}
-                                            <a class="navbar-item sub-link " href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank">
+                                            <a class="navbar-item sub-link " href="{{ sublink-base-url }}{{ sublink.url }}" target="_blank" rel="noreferrer">
                                                 {{ sublink.title }}
                                             </a>
                                             {% else %}
@@ -119,7 +119,7 @@
                     <li class="navbar-item">
                         {%- if base-url == "" -%}
                             {% if link.external == true %}
-                            <a href="{{ base-url }}{{ link.url }}" target="_blank" class="is-uppercase">{{ link.title }}</a>
+                            <a href="{{ base-url }}{{ link.url }}" target="_blank" class="is-uppercase" rel="noreferrer">{{ link.title }}</a>
                             {% else %}
                             <a href="{{ base-url }}{{ link.url }}" class="is-uppercase">{{ link.title }}</a>
                             {% endif %}
