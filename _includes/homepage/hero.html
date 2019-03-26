@@ -68,7 +68,7 @@
           <div class="col">
             {% include links-baseurl.html %}
             {% if link.external %}
-            <a href="{{ base-url }}{{ link.url }}" target="_blank" class="is-highlight">
+            <a href="{{ base-url }}{{ link.url }}" target="_blank" class="is-highlight" rel="noreferrer">
             {% else %}
             <a href="{{ link.url }}" class="is-highlight">
             {% endif %}
