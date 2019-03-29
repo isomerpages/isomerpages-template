@@ -105,6 +105,7 @@ layout: default
                     {% endfor %}
 
                 </div>
+                {% if site.feedback_form_url %}
                 <div class="row is-multiline margin--bottom--lg">
                     <div class="col is-12 padding--bottom--none">
                         <h5 class="has-text-secondary has-text-weight-semibold">Send us your feedback</h5>
@@ -116,6 +117,7 @@ layout: default
                         </p>
                     </div>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>
