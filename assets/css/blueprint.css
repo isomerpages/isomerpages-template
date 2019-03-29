@@ -312,9 +312,7 @@ code > span,
 pre > span {
   -moz-osx-font-smoothing: auto;
   -webkit-font-smoothing: auto;
-  font-family: monospace }
-
-
+  font-family: monospace; }
 
 body {
   color: #484848;
