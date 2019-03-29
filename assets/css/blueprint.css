@@ -307,10 +307,12 @@ textarea {
   font-family: "Lato", BlinkMacSystemFont, -apple-system, "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 code,
-pre {
+pre,
+code > span,
+pre > span {
   -moz-osx-font-smoothing: auto;
   -webkit-font-smoothing: auto;
-  font-family: monospace !important; }
+  font-family: monospace; }
 
 body {
   color: #484848;
