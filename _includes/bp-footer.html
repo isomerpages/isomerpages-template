@@ -130,6 +130,7 @@
                {% endif %}
                {% assign homepage = site.data.homepage %}
                {% unless homepage.ask-jamie %}
+               {% if site.faq_url %}
                <li class="is-inline-block-desktop-only">
                   {% if site.faq_url_external %}
                     <p><a href="{{site.faq_url}}" target="_blank" rel="noreferrer">FAQ</a></p>
@@ -137,6 +138,7 @@
                     <p><a href="{{site.baseurl}}{{site.faq_url}}">FAQ</a></p>
                   {% endif %}
                </li>
+               {% endif %}
                {% endunless %}
            </ul>
           </div>
@@ -177,12 +179,8 @@
                 </ul>
             </div>
             <div class="col is-one-third has-text-right-desktop has-text-right-tablet has-text-left-mobile">
-                <p class="is-hidden-touch is-hidden-desktop-only"> © {{ site.time | date: "%Y" }} 
-                  {{site.title}}
-                <p class="is-hidden-touch is-hidden-desktop-only last-updated">
-                Last Updated {{ site.time | date_to_string }}</p>
-                  <p class="is-hidden-widescreen">© {{ site.time | date: "%Y" }} {{site.title}}</p>
-                <p class="is-hidden-widescreen last-updated">Last Updated {{ site.time | date_to_string }}</p>
+                <p>© {{ site.time | date: "%Y" }} {{site.title}}</p>
+                <p class="last-updated">Last Updated {{ site.time | date_to_string }}</p>
             </div>
 
         </div>
