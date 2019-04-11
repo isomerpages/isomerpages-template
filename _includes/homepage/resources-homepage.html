@@ -14,11 +14,11 @@
             {% for post in site.posts limit:3 %}
             <div class="col">
                 <!-- Define category_index - the index used to determine the bg-color-{{category_index}} -->
-                <!-- Hacky fallback because sometimes category_index does not get assigned a value properly??? -->
+                <!-- Fallback in case category_index is not set in the for loop -->
                 {% assign category_index = 1 %}
                 {% for category in site.categories %}
-                    {%- capture category_name -%} {{- category | first -}} {% endcapture %}
-                    {%- if category_name == post.categories[1] -%}
+                    {% capture category_name %}{{ category | first }}{% endcapture %}
+                    {% if category_name == post.categories[1] %}
                         {% assign category_index = forloop.index0 %}
                         {% break %}
                     {% endif %}
