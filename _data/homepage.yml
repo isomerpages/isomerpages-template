@@ -102,7 +102,7 @@ programmes-more-button-url:
 resources-title: Resources
 resources-subtitle: Be in the know
 resources-more-button: More Resources
-resources-more-button-url: resources/
+resources-more-button-url: /resource_room/
 
 # Careers Section
 # To edit the careers details, go to careers-stories.yml
