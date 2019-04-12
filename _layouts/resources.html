@@ -122,10 +122,16 @@ layout: default
                 <!-- Define category_index - the index used to determine the bg-color-{{category_index}} -->
                 <!-- Fallback in case category_index is not set in the for loop -->
                 {% assign category_index = 1 %}
+                <!-- Edge case where subcategory has the same name as resource room (post.categories[1] becomes undefined) -->
+                {% if post.categories[1] %}
+                    {% assign post_category = post.categories[1] %}
+                {% else %}
+                    {% assign post_category = post.categories[0] %}
+                {% endif %}
                 {% for category in site.categories %}
                     {% capture category_name %}{{ category | first }}{% endcapture %}
-                    {%- if category_name == post.categories[1] -%}
-                        {% assign category_index = forloop.index0 %}
+                    {% if category_name == post_category %}
+                        {% assign category_index = forloop.index0 | modulo:5 | plus:1 %}
                         {% break %}
                     {% endif %}
                 {% endfor %}
@@ -138,7 +144,7 @@ layout: default
                     {% endif %}
                     <div class="media-card-plain bg-media-color-{{category_index}} padding--lg">
                         <div>
-                            <small class="has-text-white padding--bottom">{{ post.categories[1] | upcase | replace: '-', ' ' }}</small>
+                            <small class="has-text-white padding--bottom">{{ post_category | upcase | replace: '-', ' ' | replace: '_', ' ' }}</small>
                             <h5 class="has-text-white padding--bottom--lg"><b>{{ post.title | truncatewords: 15}}</b></h5>
                         </div>
                         <div class="is-fluid padding--top--md description">
