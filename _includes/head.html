@@ -14,9 +14,8 @@
     
     <!-- WOGAA -->
     {%- if jekyll.environment == "staging" -%}
-    <script src="https://assets.dcube.cloud/scripts/wogaa.js" async></script>
-    {% else %}
-    <script src="https://assets.wogaa.sg/scripts/wogaa.js" async></script>
+    <script src="https://assets.dcube.cloud/scripts/wogaa.js" integrity="sha384-af/oHMGJtms6JPFQpSNIfdu7ZYbdUetj9ZdqH6XN7+05GTgw1jy0ZhFv2snw/fsr" crossorigin="anonymous"></script>    {% else %}
+    <script src="https://assets.wogaa.sg/scripts/wogaa.js" integrity="sha384-1nnSv4AClBEAtBKqrnf6VVkyjJwsmbhJCiJmwhXSheJPkw3H7bhAzrkE4sA5iWUQ" crossorigin="anonymous"></script>
     {% endif %}
 
     {% assign homepage = site.data.homepage %}
@@ -41,7 +40,7 @@
     {% endif %}
     <link rel="stylesheet" href="{{site.baseurl}}/assets/css/blueprint.css">
     <link rel="stylesheet" href="{{site.baseurl}}{{site.custom_css_path}}">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,600" integrity="sha256-zgLzvS/UnH94+8Kq2I1W1u3ASsSiLi2fs2Fjgp6lJc8=" crossorigin="anonymous">
     {% feed_meta %}
 
     <title>{{ page.title }}</title>
