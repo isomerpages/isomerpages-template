@@ -1,6 +1,6 @@
 {
-    "id": "{{ index }}",
-    "url": "{{ post.permalink | relative_url }}{{ post.file_url | relative_url }}",
-    "title": "{{ post.title | escape }}",
-    "content": {{ post.content | markdownify | normalize_whitespace | strip_html | strip | remove: '<br>' | smartify | strip_newlines | escape_once | jsonify | normalize_whitespace }},
+    "id": "{{- index -}}",
+    "url": "{{- post.permalink | relative_url -}}{{- post.file_url | relative_url -}}",
+    "title": "{{- post.title | escape -}}",
+    "content": {{- post.content | markdownify | normalize_whitespace | strip_html | strip | remove: '<br>' | smartify | strip_newlines | escape_once | jsonify | normalize_whitespace -}},
 }

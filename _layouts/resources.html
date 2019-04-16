@@ -4,7 +4,7 @@ layout: default
 
 <section class="bp-section is-small bp-section-pagetitle">
     <div class="bp-container">
-        {% include header-breadcrumb.html %}
+        {%- include header-breadcrumb.html -%}
     </div>
     <div class="bp-container ">
         <div class="row">
@@ -21,18 +21,18 @@ layout: default
         <div class="row">
             <div class="col is-three-quarters-desktop is-fullwidth bp-overflow-buttons padding--left--none padding--right--none">
                 <div class="bp-buttons">
-                    {% if site.data.resources %}
-                        {% assign categories = site.data.resources.categories %}
-                    {% else %}
-                        {% assign categories = site.categories %}
-                    {% endif %}
+                    {%- if site.data.resources -%}
+                        {%- assign categories = site.data.resources.categories -%}
+                    {%- else -%}
+                        {%- assign categories = site.categories -%}
+                    {%- endif -%}
 
-                    {% for category-element in categories %}
-                        {% if site.data.resources %}
-                            {%- capture category_name -%} {{- category-element.category-name -}} {% endcapture %}
-                        {% else %}
-                            {%- capture category_name -%} {{- category-element | first -}} {% endcapture %}
-                        {% endif %}
+                    {%- for category-element in categories -%}
+                        {%- if site.data.resources -%}
+                            {%- capture category_name -%} {{- category-element.category-name -}} {%- endcapture -%}
+                        {%- else -%}
+                            {%- capture category_name -%} {{- category-element | first -}} {%- endcapture -%}
+                        {%- endif -%}
 
                         {%- capture category_url -%} 
                             {%- if category_name == site.resources_name -%}
@@ -47,21 +47,21 @@ layout: default
 
                         <span class="bp-sec-button">
                             {%- if category_name == site.resources_name -%}
-                                {% if page_url_no_whitespace == category_url %}
+                                {%- if page_url_no_whitespace == category_url -%}
                                     <a href="{{site.baseurl}}/{{site.resources_name}}/" class="is-uppercase media-category-button selected"><b>ALL</b></a>
-                                {% else %}
+                                {%- else -%}
                                     <a href="{{site.baseurl}}/{{site.resources_name}}/" class="is-uppercase media-category-button"><b>ALL</b></a>
-                                {% endif %}
-                            {% else %}
-                                {% if page_url_no_whitespace == category_url %}
+                                {%- endif -%}
+                            {%- else -%}
+                                {%- if page_url_no_whitespace == category_url -%}
                                     <a href="{{site.baseurl}}/{{site.resources_name}}/{{category_name}}/" class="is-uppercase media-category-button selected"><b>{{category_name | replace: '-', ' '}}</b></a>
-                                {% else %}
+                                {%- else -%}
                                     <a href="{{site.baseurl}}/{{site.resources_name}}/{{category_name}}/" class="is-uppercase media-category-button"><b>{{category_name | replace: '-', ' '}}</b></a>
-                                {% endif %}
-                            {% endif %}
+                                {%- endif -%}
+                            {%- endif -%}
                         </span>
 
-                    {% endfor %}
+                    {%- endfor -%}
                 </div>
             </div>
 
@@ -102,64 +102,64 @@ layout: default
 <section class="bp-section is-small">
     <div class="bp-container padding--top padding--bottom--xl">
         <div class="row is-multiline">
-            {% for post in site.posts %}
-                {% if post.categories[1] == ' '%}
+            {%- for post in site.posts -%}
+                {%- if post.categories[1] == ' ' -%}
 <!--                 <div class="col is-3 ">
                     <img src="/assets/img/media-releases/1.jpg" alt="">
                     <div class="news-content">
                         <div>
-                            <small class="tag has-text-grey">{{ post.categories[1] | upcase | replace: '-', ' ' }}</small>
+                            <small class="tag has-text-grey">{{- post.categories[1] | upcase | replace: '-', ' ' -}}</small>
                             <h4 class="title">
-                            <a href="{{ post.url | relative_url | append: '.html'}}" class="has-text-grey-dark is-media-card">{{ post.title | truncatewords : 10}}</a>
+                            <a href="{{- post.url | relative_url | append: '.html'}}" class="has-text-grey-dark is-media-card">{{- post.title | truncatewords : 10}}</a>
                             </h4>
                         </div>
                         <small class="date has-text-grey">
-                            {{ post.date | date_to_string }}
+                            {{- post.date | date_to_string -}}
                         </small>
                     </div>
                 </div> -->
-                {% else %}
+                {%- else -%}
                 <!-- Define category_index - the index used to determine the bg-color-{{category_index}} -->
                 <!-- Fallback in case category_index is not set in the for loop -->
-                {% assign category_index = 1 %}
+                {%- assign category_index = 1 -%}
                 <!-- Edge case where subcategory has the same name as resource room (post.categories[1] becomes undefined) -->
-                {% if post.categories[1] %}
-                    {% assign post_category = post.categories[1] %}
-                {% else %}
-                    {% assign post_category = post.categories[0] %}
-                {% endif %}
-                {% for category in site.categories %}
-                    {% capture category_name %}{{ category | first }}{% endcapture %}
-                    {% if category_name == post_category %}
-                        {% assign category_index = forloop.index0 | modulo:5 | plus:1 %}
-                        {% break %}
-                    {% endif %}
-                {% endfor %}
+                {%- if post.categories[1] -%}
+                    {%- assign post_category = post.categories[1] -%}
+                {%- else -%}
+                    {%- assign post_category = post.categories[0] -%}
+                {%- endif -%}
+                {%- for category in site.categories -%}
+                    {%- capture category_name -%}{{- category | first -}}{%- endcapture -%}
+                    {%- if category_name == post_category -%}
+                        {%- assign category_index = forloop.index0 | modulo:5 | plus:1 -%}
+                        {%- break -%}
+                    {%- endif -%}
+                {%- endfor -%}
 
-                <div class="col is-one-quarter-widescreen is-one-third-desktop is-half-tablet resource-card-element hide" id="{{ post.date | date: "%Y"}}">
-                    {% if post.permalink %}
-                        <a href="{{ post.permalink | relative_url }}" class="is-media-card">
-                    {% else %}
-                        <a href="{{ post.file_url | relative_url }}" class="is-media-card" target="_blank">
-                    {% endif %}
+                <div class="col is-one-quarter-widescreen is-one-third-desktop is-half-tablet resource-card-element hide" id="{{- post.date | date: "%Y"}}">
+                    {%- if post.permalink -%}
+                        <a href="{{- post.permalink | relative_url -}}" class="is-media-card">
+                    {%- else -%}
+                        <a href="{{- post.file_url | relative_url -}}" class="is-media-card" target="_blank">
+                    {%- endif -%}
                     <div class="media-card-plain bg-media-color-{{category_index}} padding--lg">
                         <div>
-                            <small class="has-text-white padding--bottom">{{ post_category | upcase | replace: '-', ' ' | replace: '_', ' ' }}</small>
-                            <h5 class="has-text-white padding--bottom--lg"><b>{{ post.title | truncatewords: 15}}</b></h5>
+                            <small class="has-text-white padding--bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</small>
+                            <h5 class="has-text-white padding--bottom--lg"><b>{{- post.title | truncatewords: 15 -}}</b></h5>
                         </div>
                         <div class="is-fluid padding--top--md description">
-                            <small class="has-text-white">{{ post.date | date_to_string | upcase }}</small>
-                            {% if post.file_url %}
+                            <small class="has-text-white">{{- post.date | date_to_string | upcase -}}</small>
+                            {%- if post.file_url -%}
                                 <small class="has-text-white">
                                     <span class="sgds-icon sgds-icon-download align-right is-size-4"></span>
                                 </small>
-                            {% endif %}
+                            {%- endif -%}
                         </div>
                     </div>
                     </a>
                 </div>
-                {% endif %}
-            {% endfor %}
+                {%- endif -%}
+            {%- endfor -%}
         </div>
     </div>
 </section>

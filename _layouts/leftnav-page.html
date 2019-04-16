@@ -2,12 +2,12 @@
 layout: default
 ---
 {%- assign collection-name = page.collection_name -%}
-{% assign current-collection = site[collection-name] %}
+{%- assign current-collection = site[collection-name] -%}
 
 
 <section class="bp-section is-small bp-section-pagetitle">
     <div class="bp-container ">
-        {% include header-breadcrumb.html %}
+        {%- include header-breadcrumb.html -%}
     </div>
     <div class="bp-container">
         <div class="row">
@@ -31,87 +31,87 @@ layout: default
             <div class="bp-dropdown-content">
                 {%- assign prev-second-nav-title = "" -%}
                 {%- assign is-in-second-level-div = false -%}
-                {% for collection-document in current-collection %}
+                {%- for collection-document in current-collection -%}
                     <!-- If collection-document is selected -->
-                    {% if page.url == collection-document.permalink %}
+                    {%- if page.url == collection-document.permalink -%}
                         <!-- If collection-document has a second_nav_title -->
-                        {% if collection-document.second_nav_title %}
+                        {%- if collection-document.second_nav_title -%}
                             {%- unless collection-document.second_nav_title == prev-second-nav-title -%}
-                                {% if is-in-second-level-div == true %}
+                                {%- if is-in-second-level-div == true -%}
                                     </div>
-                                {% endif %}
+                                {%- endif -%}
                                 <a class="bp-dropdown-item has-text-secondary second-level-nav-header-mobile">
                                     <b><p>{{collection-document.second_nav_title}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></p></b>
                                 </a>
                                 <div class="second-level-nav-div-mobile">
-                                    <a class="bp-dropdown-item has-text-secondary second-level-nav-item-mobile" href="{{ site.baseurl }}{{collection-document.permalink}}">
+                                    <a class="bp-dropdown-item has-text-secondary second-level-nav-item-mobile" href="{{- site.baseurl -}}{{collection-document.permalink}}">
                                         <b><p>{{collection-document.title}}</p></b>
                                     </a>
                                 {%- assign is-in-second-level-div = true -%}
                             {%- else -%}
-                                <a class="bp-dropdown-item has-text-secondary second-level-nav-item-mobile second-level-nav-item-mobile" href="{{ site.baseurl }}{{collection-document.permalink}}">
+                                <a class="bp-dropdown-item has-text-secondary second-level-nav-item-mobile second-level-nav-item-mobile" href="{{- site.baseurl -}}{{collection-document.permalink}}">
                                     <b><p>{{collection-document.title}}</p></b>
                                 </a>
                             {%- endunless -%}
 
                         <!-- Else collection-document is a single-level-nav item -->
-                        {% else %}
-                            {% if is-in-second-level-div == true %}
+                        {%- else -%}
+                            {%- if is-in-second-level-div == true -%}
                                 </div>
-                            {% endif %}
-                            <a class="bp-dropdown-item has-text-secondary" href="{{ site.baseurl }}{{collection-document.permalink}}">
+                            {%- endif -%}
+                            <a class="bp-dropdown-item has-text-secondary" href="{{- site.baseurl -}}{{collection-document.permalink}}">
                                 <b><p>{{collection-document.title}}</p></b>
                             </a>
                             {%- assign is-in-second-level-div = false -%}
-                        {% endif %}
+                        {%- endif -%}
                     <!-- Else; collection-document is not selected -->
-                    {% else %}
-                        {% if collection-document.second_nav_title %}
+                    {%- else -%}
+                        {%- if collection-document.second_nav_title -%}
                             {%- unless collection-document.second_nav_title == prev-second-nav-title -%}
                                 {%- if page.second_nav_title == collection-document.second_nav_title -%}
-                                    {% if is-in-second-level-div == true %}
+                                    {%- if is-in-second-level-div == true -%}
                                         </div>
-                                    {% endif %}
+                                    {%- endif -%}
                                     <a class="bp-dropdown-item has-text-secondary second-level-nav-header-mobile">
                                         <b><p>{{collection-document.second_nav_title}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></p></b>
                                     </a>
                                     <div class="second-level-nav-div-mobile">
-                                        <a class="bp-dropdown-item second-level-nav-item-mobile" href="{{ site.baseurl }}{{collection-document.permalink}}">
+                                        <a class="bp-dropdown-item second-level-nav-item-mobile" href="{{- site.baseurl -}}{{collection-document.permalink}}">
                                             <p>{{collection-document.title}}</p>
                                         </a>
                                     {%- assign is-in-second-level-div = true -%}
                                 {%- else -%}
-                                    {% if is-in-second-level-div == true %}
+                                    {%- if is-in-second-level-div == true -%}
                                         </div>
-                                    {% endif %}
+                                    {%- endif -%}
                                     <a class="bp-dropdown-item second-level-nav-header-mobile">
                                         <p>{{collection-document.second_nav_title}}<i class="sgds-icon sgds-icon-chevron-down is-pulled-right is-size-4" aria-hidden="true"></i></p>
                                     </a>
                                     <div class="second-level-nav-div-mobile is-hidden">
-                                        <a class="bp-dropdown-item second-level-nav-item-mobile" href="{{ site.baseurl }}{{collection-document.permalink}}">
+                                        <a class="bp-dropdown-item second-level-nav-item-mobile" href="{{- site.baseurl -}}{{collection-document.permalink}}">
                                             <p>{{collection-document.title}}</p>
                                         </a>
                                     {%- assign is-in-second-level-div = true -%}
                                 {%- endif -%}
                             {%- else -%}
-                                <a class="bp-dropdown-item second-level-nav-item-mobile" href="{{ site.baseurl }}{{collection-document.permalink}}">
+                                <a class="bp-dropdown-item second-level-nav-item-mobile" href="{{- site.baseurl -}}{{collection-document.permalink}}">
                                     <p>{{collection-document.title}}</p>
                                 </a>
                             {%- endunless -%}
 
                         <!-- Single level nav item that is inactive -->
-                        {% else %}
-                            {% if is-in-second-level-div == true %}
+                        {%- else -%}
+                            {%- if is-in-second-level-div == true -%}
                                 </div>
-                            {% endif %}
-                            <a class="bp-dropdown-item" href="{{ site.baseurl }}{{collection-document.permalink}}">
+                            {%- endif -%}
+                            <a class="bp-dropdown-item" href="{{- site.baseurl -}}{{collection-document.permalink}}">
                                 <p>{{collection-document.title}}</p>
                             </a>
                             {%- assign is-in-second-level-div = false -%}
-                        {% endif %}
-                    {% endif %}
+                        {%- endif -%}
+                    {%- endif -%}
                     {%- assign prev-second-nav-title = collection-document.second_nav_title -%}
-                {% endfor %}
+                {%- endfor -%}
             </div>
         </div>
     </div>
@@ -126,58 +126,58 @@ layout: default
                         <ul class="bp-menu-list">
                             {%- assign prev-second-nav-title = "" -%}
                             {%- assign is-in-second-level-div = false -%}
-                            {% for collection-document in current-collection %}
+                            {%- for collection-document in current-collection -%}
                                 <!-- If this page is selected -->
-                                {% if page.url == collection-document.permalink %}
+                                {%- if page.url == collection-document.permalink -%}
                                     {%- if collection-document.second_nav_title -%}
                                         {%- unless prev-second-nav-title == collection-document.second_nav_title -%}
-                                            {% if is-in-second-level-div == true %}
+                                            {%- if is-in-second-level-div == true -%}
                                                 </div>
-                                            {% endif %}
+                                            {%- endif -%}
                                             <li class="is-active second-level-nav-header"><a class="is-active second-level-nav-header">{{collection-document.second_nav_title}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></a></li>
                                             <div class="second-level-nav-div">
                                             {%- assign is-in-second-level-div = true -%}
                                         {%- endunless -%}
-                                        <li><a class="is-active second-level-nav-item padding--top--none" href="{{ site.baseurl }}{{collection-document.permalink}}">{{collection-document.title}}</a></li>
+                                        <li><a class="is-active second-level-nav-item padding--top--none" href="{{- site.baseurl -}}{{collection-document.permalink}}">{{collection-document.title}}</a></li>
                                     {%- else -%}
-                                        {% if is-in-second-level-div == true %}
+                                        {%- if is-in-second-level-div == true -%}
                                             </div>
-                                        {% endif %}
-                                        <li><a class="is-active" href="{{ site.baseurl }}{{collection-document.permalink}}">{{collection-document.title}}</a></li>
+                                        {%- endif -%}
+                                        <li><a class="is-active" href="{{- site.baseurl -}}{{collection-document.permalink}}">{{collection-document.title}}</a></li>
                                         {%- assign is-in-second-level-div = false -%}
                                     {%- endif -%}
                                 <!-- If this page is not the one that is selected -->
-                                {% else %}
+                                {%- else -%}
                                     {%- if collection-document.second_nav_title -%}
                                         {%- unless prev-second-nav-title == collection-document.second_nav_title -%}
-                                            {% if page.second_nav_title == collection-document.second_nav_title %}
-                                                {% if is-in-second-level-div == true %}
+                                            {%- if page.second_nav_title == collection-document.second_nav_title -%}
+                                                {%- if is-in-second-level-div == true -%}
                                                     </div>
-                                                {% endif %}
+                                                {%- endif -%}
                                                 <li class="is-active second-level-nav-header"><a class="is-active second-level-nav-header">{{collection-document.second_nav_title}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></a></li>
                                                 {%- assign is-in-second-level-div = true -%}
                                                 <div class="second-level-nav-div">
 
-                                            {% else %}
-                                                {% if is-in-second-level-div == true %}
+                                            {%- else -%}
+                                                {%- if is-in-second-level-div == true -%}
                                                     </div>
-                                                {% endif %}
+                                                {%- endif -%}
                                                 <li class="second-level-nav-header"><a class="second-level-nav-header">{{collection-document.second_nav_title}}<i class="sgds-icon sgds-icon-chevron-down is-pulled-right is-size-4" aria-hidden="true"></i></a></li>
                                                 {%- assign is-in-second-level-div = true -%}
                                                 <div class="second-level-nav-div is-hidden">
-                                            {% endif %}
+                                            {%- endif -%}
                                         {%- endunless -%}
-                                        <li><a class="second-level-nav-item padding--top--none" href="{{ site.baseurl }}{{collection-document.permalink}}">{{collection-document.title}}</a></li>
+                                        <li><a class="second-level-nav-item padding--top--none" href="{{- site.baseurl -}}{{collection-document.permalink}}">{{collection-document.title}}</a></li>
                                     {%- else -%}
-                                        {% if is-in-second-level-div == true %}
+                                        {%- if is-in-second-level-div == true -%}
                                             </div>
-                                        {% endif %}
-                                        <li><a href="{{ site.baseurl }}{{collection-document.permalink}}">{{collection-document.title}}</a></li>
+                                        {%- endif -%}
+                                        <li><a href="{{- site.baseurl -}}{{collection-document.permalink}}">{{collection-document.title}}</a></li>
                                         {%- assign is-in-second-level-div = false -%}
                                     {%- endif -%}
-                                {% endif %}
+                                {%- endif -%}
                                 {%- assign prev-second-nav-title = collection-document.second_nav_title -%}
-                            {% endfor %}
+                            {%- endfor -%}
                         </ul>
                     </aside>
                 </div>
@@ -189,55 +189,55 @@ layout: default
                     </div>
                 </div>
             </div>
-            {% include print.html %}
+            {%- include print.html -%}
         </div>
     </div>
 </section>
 
-{% for collection-document in current-collection %}
-    {% if page.url == collection-document.permalink %}
+{%- for collection-document in current-collection -%}
+    {%- if page.url == collection-document.permalink -%}
         <!-- If the page is the first in the list -->
-        {% if forloop.first %}
-            {% assign nextIndex = forloop.index0 | plus: 1 %}
+        {%- if forloop.first -%}
+            {%- assign nextIndex = forloop.index0 | plus: 1 -%}
             <section class="bp-section bottom-navigation">
                 <div>
-                    <a href="{{ site.baseurl }}{{current-collection[nextIndex].permalink}}" class="is-full is-right">
+                    <a href="{{- site.baseurl -}}{{current-collection[nextIndex].permalink}}" class="is-full is-right">
                         <p class="has-text-weight-semibold">NEXT <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span></p>
-                        <p class="is-hidden-mobile">{{ current-collection[nextIndex].title }}</p>
+                        <p class="is-hidden-mobile">{{- current-collection[nextIndex].title -}}</p>
                     </a>
                 </div>
             </section>
 
         <!-- If the page is last in the list -->
-        {% elsif forloop.last %}
-            {% assign prevIndex = forloop.index0 | minus: 1 %}
+        {%- elsif forloop.last -%}
+            {%- assign prevIndex = forloop.index0 | minus: 1 -%}
 
             <section class="bp-section bottom-navigation">
                 <div>
-                    <a href="{{ site.baseurl }}{{current-collection[prevIndex].permalink}}" class="is-full">
+                    <a href="{{- site.baseurl -}}{{current-collection[prevIndex].permalink}}" class="is-full">
                         <p class="has-text-weight-semibold"><span class="sgds-icon sgds-icon-arrow-left is-size-4"></span> PREVIOUS </p>
-                        <p class="is-hidden-mobile">{{ current-collection[prevIndex].title }}</p>
+                        <p class="is-hidden-mobile">{{- current-collection[prevIndex].title -}}</p>
                     </a>
                 </div>
             </section>
 
         <!-- For all other intermediate pages in the list -->
-        {% else %}
-            {% assign prevIndex = forloop.index0 | minus: 1 %}
-            {% assign nextIndex = forloop.index0 | plus: 1 %}
+        {%- else -%}
+            {%- assign prevIndex = forloop.index0 | minus: 1 -%}
+            {%- assign nextIndex = forloop.index0 | plus: 1 -%}
 
             <section class="bp-section bottom-navigation">
                 <div>
-                    <a href="{{ site.baseurl }}{{current-collection[prevIndex].permalink}}" class="is-half is-left">
+                    <a href="{{- site.baseurl -}}{{current-collection[prevIndex].permalink}}" class="is-half is-left">
                         <p class="has-text-weight-semibold"><span class="sgds-icon sgds-icon-arrow-left is-size-4"></span> PREVIOUS </p>
-                        <p class="is-hidden-mobile">{{ current-collection[prevIndex].title }}</p>
+                        <p class="is-hidden-mobile">{{- current-collection[prevIndex].title -}}</p>
                     </a>
-                    <a href="{{ site.baseurl }}{{current-collection[nextIndex].permalink}}" class="is-half is-right">
+                    <a href="{{- site.baseurl -}}{{current-collection[nextIndex].permalink}}" class="is-half is-right">
                         <p class="has-text-weight-semibold">NEXT <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span></p>
-                        <p class="is-hidden-mobile">{{ current-collection[nextIndex].title }}</p>
+                        <p class="is-hidden-mobile">{{- current-collection[nextIndex].title -}}</p>
                     </a>
                 </div>
             </section>
-        {% endif %}
-    {% endif %}
-{% endfor %}
+        {%- endif -%}
+    {%- endif -%}
+{%- endfor -%}
