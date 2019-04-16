@@ -100,7 +100,7 @@ layout: default
                     </a>
                     <div class="bp-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
                       <div id="year-filter-desktop" class="bp-dropdown-content is-centered">
-                        <a class="bp-dropdown-item padding--top--sm padding--bottom--none" onclick="applyFilter('Recent')">
+                        <a class="bp-dropdown-item padding--top--sm padding--bottom--none" id="apply-filter-recent">
                             <p>Recent</p>
                         </a>
                       </div>
@@ -113,7 +113,7 @@ layout: default
             <div class="col is-fullwidth padding--top--lg is-hidden-desktop">
                 <div class="filter-selector-div is-hidden-desktop">
                     <span class="sgds-icon sgds-icon-chevron-down is-size-4" id="filter-arrow"></span>
-                    <select id="year-filter-mobile" class="sgds-selector" onchange="applyFilter(this.value)">
+                    <select id="year-filter-mobile" class="sgds-selector">
                         <option value="Recent">Recent</option>
                     </select>
                 </div>
