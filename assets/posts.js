@@ -1,28 +1,23 @@
 ---
 
 ---
-{% assign index = 0 %} {% assign tempindex = 0 %}
 posts_json=[
-    {%- assign tempindex = -1 | plus: 0 -%}
-
+    {%- assign putComma = false -%}
     {%- for collection in site.collections -%}
         {%- for post in collection.docs -%}
-            {%- capture index -%} 
-                {{ tempindex | plus: forloop.index}}
-            {%- endcapture -%}
-            
-            {%- include post.json -%},
+            {%- if post.permalink or post.file_url -%}
+                {%- if putComma -%},{%- endif -%}
+                {%- include post.json -%}
+                {%- assign putComma = true -%}
+            {%- endif -%}
         {%- endfor -%}
-        {%- assign tempindex = index -%}
     {%- endfor -%}
 
     {%- for post in site.html_pages -%}
-
-		{%- capture index -%} 
-			{{ tempindex | plus: forloop.index}}
-		{%- endcapture -%}
-
-    	{%- include post.json -%}{% unless forloop.last %},{% endunless %}
+        {%- if post.permalink or post.file_url -%}
+            {%- if putComma -%},{%- endif -%}
+            {%- include post.json -%}
+            {%- assign putComma = true -%}
+        {%- endif -%}
     {%- endfor -%}
-
 ]

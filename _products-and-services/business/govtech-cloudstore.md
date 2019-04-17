@@ -8,7 +8,7 @@ tag: business
 thumbnail_image: /images/programmes/products-and-services/test.jpg
 ---
 
-![CloudStore]({{"/images/programmes/products-and-services/cloudstore2017.jpg" | absolute_url }})
+![CloudStore]({{- "/images/programmes/products-and-services/cloudstore2017.jpg" | absolute_url -}})
 
 Companies interested in participating in the CloudStore will need to submit their applications to GovTech for qualification via a Call for Participation process. Once a Service Offering has been qualified, it will be listed on the CloudStore for agencies to procure via quotations / tenders. Each CloudStore qualification is valid for 24 months.
 

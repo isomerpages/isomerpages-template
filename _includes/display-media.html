@@ -1,22 +1,22 @@
-<!-- {% if post.categories[1] == 'corporate-publications' or post.categories[1] == 'facts-&-figures' %}
+<!-- {%- if post.categories[1] == 'corporate-publications' or post.categories[1] == 'facts-&-figures' -%}
 <div class="col is-3 ">
     <img src="/assets/img/media-releases/1.jpg" alt="">
     <div class="news-content">
-        <small class="tag has-text-grey">{{ post.categories[1] | upcase | replace: '-', ' ' }}</small>
+        <small class="tag has-text-grey">{{- post.categories[1] | upcase | replace: '-', ' ' -}}</small>
         <h4 class="title">
-            <a href="{{ site.baseurl }}{{ post.url | relative_url | append: '.html'}}" class="has-text-grey-dark">{{ post.title | truncatewords : 10}}</a>
+            <a href="{{- site.baseurl -}}{{- post.url | relative_url | append: '.html'}}" class="has-text-grey-dark">{{- post.title | truncatewords : 10}}</a>
         </h4>
         <small class="date has-text-grey">
-            {{ post.date | date_to_string }}
+            {{- post.date | date_to_string -}}
         </small>
     </div>
 </div>
-{% else %}
+{%- else -%}
 <div class="col is-3">
     <div class="bg-{{post.categories[1] | replace: '-&' , ''}} padding--lg"  style="height:100%">
-        <small class="has-text-white padding--bottom--lg">{{ post.categories[1] | upcase | replace: '-', ' ' }}</small>
-        <h4 class="title"><a href="{{ site.baseurl }}{{ post.url | relative_url | append: '.html' }}" class="has-text-white">{{ post.title }}</a></h4>
-        <small class="has-text-white">{{ post.date | date_to_string | upcase }}</small>
+        <small class="has-text-white padding--bottom--lg">{{- post.categories[1] | upcase | replace: '-', ' ' -}}</small>
+        <h4 class="title"><a href="{{- site.baseurl -}}{{- post.url | relative_url | append: '.html' -}}" class="has-text-white">{{- post.title -}}</a></h4>
+        <small class="has-text-white">{{- post.date | date_to_string | upcase -}}</small>
     </div>
 </div>
-{% endif %} -->
+{%- endif -%} -->

@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{% assign contact = site.data.contact-us %}
+{%- assign contact = site.data.contact-us -%}
 
 <style>
   .bg-contact{
@@ -15,7 +15,7 @@ layout: default
     <div class="bp-container">
         <div class="row is-inverted">
             <div class="col is-8 is-offset-2">
-                {% include header-breadcrumb.html %}
+                {%- include header-breadcrumb.html -%}
             </div>
         </div>
         <div class="row">
@@ -30,29 +30,29 @@ layout: default
     <div class="bp-container">
         <div class="row">
             <div class="col is-8 is-offset-2">
-                {% for location in contact.locations %}
+                {%- for location in contact.locations -%}
                     <div class="row is-multiline margin--bottom">
-                            {% if forloop.first == true %}
+                            {%- if forloop.first == true -%}
                             <div class="col is-6 padding--bottom--none">
                                 <p></p>
                                 <h5 class="has-text-secondary"><b>HQ Address</b></h5>
                             </div>
                             <div class="col is-6 padding--bottom--none">
-                                {% if location.operating-hours %}
+                                {%- if location.operating-hours -%}
                                 <h5 class="has-text-secondary"><b>Operating Hours</b></h5>
-                                {% endif %}
+                                {%- endif -%}
                             </div>
-                            {% elsif forloop.index == 2 %}
+                            {%- elsif forloop.index == 2 -%}
                                 <div class="col is-6 padding--bottom--none">
                                     <p></p>
                                     <h5 class="has-text-secondary"><b>Other Offices</b></h5>
                                 </div>
                                 <div class="col is-6 padding--bottom--none">
-                                    {% if location.operating-hours %}
+                                    {%- if location.operating-hours -%}
                                     <h5 class="has-text-secondary"><b>Operating Hours</b></h5>
-                                    {% endif %}
+                                    {%- endif -%}
                             </div>
-                            {% endif %}
+                            {%- endif -%}
                             <div class="col is-6">
                                 <div>
                                     <p class="margin--top--none margin--bottom--none"><b>{{location.title}}</b></p>
@@ -66,46 +66,46 @@ layout: default
                                 </div>
                             </div>
                             <div class="col is-6">
-                                {% if location.operating-hours %}
-                                {% assign operating-hours = location.operating-hours %}
+                                {%- if location.operating-hours -%}
+                                {%- assign operating-hours = location.operating-hours -%}
                                 <div>
-                                    {% for operation in operating-hours%}
+                                    {%- for operation in operating-hours%}
                                     <p class="margin--top--none">
                                         <b>{{operation.days}}</b>:&nbsp;{{operation.time}}<br>
                                         {{operation.description}}
                                     </p>
-                                    {% endfor %}
+                                    {%- endfor -%}
                                 </div>
-                                {% endif %}
+                                {%- endif -%}
                             </div>
                     </div>
-                {% endfor %}
+                {%- endfor -%}
 
                 <div class="row is-multiline margin--bottom--xl">
                     <div class="col is-12 padding--bottom--none">
                         <h5 class="has-text-secondary"><b>Contact Us</b></h5>
                     </div>
-                    {% for column in site.data.contact-us.column %}
+                    {%- for column in site.data.contact-us.column -%}
                     <div class="col is-6">
                         <div>
                             <p class="has-text-weight-semibold margin--top--none margin--bottom--none">{{column.title}}</p>
-                            {% for content in column.content %}
+                            {%- for content in column.content -%}
                                 <p class="margin--top--none margin--bottom--none">
-                                    {% if content.line contains '(email)' %}
-                                        <a href="mailto:{{content.line | replace: '(email)' , '' }}">
-                                            <u>{{content.line | replace: '(email)' , '' }}</u>
+                                    {%- if content.line contains '(email)' -%}
+                                        <a href="mailto:{{content.line | replace: '(email)' , '' -}}">
+                                            <u>{{- content.line | replace: '(email)' , '' -}}</u>
                                         </a>
-                                    {% else %}
-                                        {{content.line}}
-                                    {% endif %}
+                                    {%- else -%}
+                                        {{- content.line -}}
+                                    {%- endif -%}
                                 </p>
-                            {% endfor %}
+                            {%- endfor -%}
                         </div>
                     </div>
-                    {% endfor %}
+                    {%- endfor -%}
 
                 </div>
-                {% if site.feedback_form_url %}
+                {%- if site.feedback_form_url -%}
                 <div class="row is-multiline margin--bottom--lg">
                     <div class="col is-12 padding--bottom--none">
                         <h5 class="has-text-secondary has-text-weight-semibold">Send us your feedback</h5>
@@ -117,13 +117,13 @@ layout: default
                         </p>
                     </div>
                 </div>
-                {% endif %}
+                {%- endif -%}
             </div>
         </div>
     </div>
 </section>
 
 
-{% if contact.image-url %}
+{%- if contact.image-url -%}
 <section class="bp-section is-vh-60 bg-contact"></section>
-{% endif %}
+{%- endif -%}

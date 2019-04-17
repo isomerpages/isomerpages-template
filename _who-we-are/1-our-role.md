@@ -10,7 +10,7 @@ collection_name: who-we-are
 
 Today’s government digital services are held to the highest standards by users. Not only must they be safe, secure and accurate, they have to be easy to use and empowering. This means business is not as usual anymore for the government seeking to connect more closely with citizens.
 
-![Organisational chart for Smart Nation and Digital Governance Group (SNDGG) in the Prime Minister Office (PMO)]({{ "/who-we-are/files/our-role-image.jpg" | relative_url }})
+![Organisational chart for Smart Nation and Digital Governance Group (SNDGG) in the Prime Minister Office (PMO)]({{- "/who-we-are/files/our-role-image.jpg" | relative_url -}})
 
 ###### <center>Organisational chart for Smart Nation and Digital Governance Group (SNDGG) in the Prime Minister Office</center>
 

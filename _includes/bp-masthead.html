@@ -1,8 +1,8 @@
-{% if site.is_government == false %}
+{%- if site.is_government == false -%}
 <section class="bp-section bp-masthead is-invisible">
-{% else %}
+{%- else -%}
 <section class="bp-section bp-masthead">
-{% endif %}
+{%- endif -%}
     <div class="bp-container ">
         <div class="row is-multiline is-vcentered">
             <div class="col is-9-desktop is-12-touch has-text-centered-touch">
@@ -12,7 +12,7 @@
                         A Singapore Government Agency Website
                         {%- if jekyll.environment == "staging" -%}
                             <b> [NOTE: THIS IS A STAGING WEBSITE] </b>
-                        {% endif %}
+                        {%- endif -%}
                     </span>
                 </a>
             </div>

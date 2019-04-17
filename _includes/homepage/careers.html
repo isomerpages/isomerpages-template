@@ -1,27 +1,27 @@
-{% assign homepage = site.data.homepage %}
-{% assign careers-stories = site.data.careers-stories %}
+{%- assign homepage = site.data.homepage -%}
+{%- assign careers-stories = site.data.careers-stories -%}
 
 <section class="bp-section">
     <div class="bp-container is-fluid">
         <div class="row">
             <div class="col is-half is-offset-one-quarter has-text-centered padding--top--lg">
                 <p class="padding--bottom eyebrow is-uppercase">
-                    {{ homepage.careers-title }}
+                    {{- homepage.careers-title -}}
                 </p>
                 <h1 class="has-text-secondary padding--bottom">
-                    <b>{{ homepage.careers-subtitle }}</b>
+                    <b>{{- homepage.careers-subtitle -}}</b>
                 </h1>
                 <p class="padding--bottom">
-                    {{ homepage.careers-description }}
+                    {{- homepage.careers-description -}}
                 </p>
             </div>
         </div>
     </div>
     <div class="row has-text-centered margin--top padding--bottom">
         <div class="col is-offset-one-third is-one-third">
-            <a href="{{ homepage.careers-more-button-url }}" class="bp-sec-button">
+            <a href="{{- homepage.careers-more-button-url -}}" class="bp-sec-button">
                 <div>
-                    <span>{{ homepage.careers-more-button }}</span>
+                    <span>{{- homepage.careers-more-button -}}</span>
                     <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
                 </div>
             </a>
@@ -43,8 +43,8 @@
                             <p class="eyebrow has-text-white is-uppercase padding--bottom--lg">{{story.title}}</p>
                             <h3 class="has-text-white padding--bottom has-text-weight-normal">"{{story.story}}"</h3>
                             <h5 class="has-text-weight-bold has-text-white is-hidden-desktop padding--bottom">- {{story.name}}, {{story.position}}</h5>
-                            <a href="{{ story.button-url }}" class="bp-button is-white is-outlined is-medium margin--top--lg">
-                                <span class="is-uppercase">{{ story.button-text }}&nbsp;</span>
+                            <a href="{{- story.button-url -}}" class="bp-button is-white is-outlined is-medium margin--top--lg">
+                                <span class="is-uppercase">{{- story.button-text -}}&nbsp;</span>
                             </a>
 
                         </div>

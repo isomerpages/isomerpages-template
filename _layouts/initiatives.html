@@ -4,7 +4,7 @@ layout: default
 
 <section class="bp-section is-small bp-section-pagetitle">
     <div class="bp-container ">
-        {% include header-breadcrumb.html %}
+        {%- include header-breadcrumb.html -%}
     </div>
     <div class="bp-container ">
         <div class="row">
@@ -19,7 +19,7 @@ layout: default
 	<div class="bp-container padding--top--lg">
 	    <div class="row">
 	      <div class="col content is-8 is-offset-2">
-	    		{{content}}
+	    		{{- content -}}
 	      </div>
 	    </div>
 		<div class="row">
@@ -37,10 +37,10 @@ layout: default
 <section class="bp-section bg-table-grey" id="citizens">
 	<div class="bp-container">
 		<div class="row is-multiline">
-			{% for document in site.products-and-services %}
-				{% if document.tag == "citizens" %}
+			{%- for document in site.products-and-services -%}
+				{%- if document.tag == "citizens" -%}
 					<div class="col is-one-quarter-widescreen is-one-third-desktop is-half-tablet padding--bottom--lg">
-						<a href="{{ document.permalink | relative_url }}" class="project-link">
+						<a href="{{- document.permalink | relative_url -}}" class="project-link">
 		                <img src="{{site.baseurl}}{{document.thumbnail_image}}" alt="Image for {{document.title}}" class="project-image">
 		                <div class="project-card">
 		                    <div class="project-title margin--bottom--xs">
@@ -50,8 +50,8 @@ layout: default
 		                </div>
 		                </a>
 		            </div>
-				{% endif %}
-			{% endfor %}
+				{%- endif -%}
+			{%- endfor -%}
 		</div>
 	</div>
 </section>
@@ -59,10 +59,10 @@ layout: default
 <section class="bp-section bg-table-grey" id="business">
 	<div class="bp-container">
 		<div class="row is-multiline">
-			{% for document in site.products-and-services %}
-				{% if document.tag == "business" %}
+			{%- for document in site.products-and-services -%}
+				{%- if document.tag == "business" -%}
 					<div class="col is-one-quarter-widescreen is-one-third-desktop is-half-tablet padding--bottom--lg">
-						<a href="{{ document.permalink | relative_url }}" class="project-link">
+						<a href="{{- document.permalink | relative_url -}}" class="project-link">
 		                <img src="{{site.baseurl}}{{document.thumbnail_image}}" alt="Image for {{document.title}}" class="project-image">
 		                <div class="project-card">
 		                    <div class="project-title margin--bottom--xs">
@@ -72,8 +72,8 @@ layout: default
 		                </div>
 		                </a>
 		            </div>
-				{% endif %}
-			{% endfor %}
+				{%- endif -%}
+			{%- endfor -%}
 		</div>
 	</div>
 </section>
@@ -81,10 +81,10 @@ layout: default
 <section class="bp-section bg-table-grey" id="government">
 	<div class="bp-container">
 		<div class="row is-multiline">
-			{% for document in site.products-and-services %}
-				{% if document.tag == "government" %}
+			{%- for document in site.products-and-services -%}
+				{%- if document.tag == "government" -%}
 					<div class="col is-one-quarter-widescreen is-one-third-desktop is-half-tablet padding--bottom--lg">
-						<a href="{{ document.permalink | relative_url }}" class="project-link">
+						<a href="{{- document.permalink | relative_url -}}" class="project-link">
 		                <img src="{{site.baseurl}}{{document.thumbnail_image}}" alt="Image for {{document.title}}" class="project-image">
 		                <div class="project-card">
 		                    <div class="project-title margin--bottom--xs">
@@ -94,10 +94,10 @@ layout: default
 		                </div>
 		                </a>
 		            </div>
-				{% endif %}
-			{% endfor %}
+				{%- endif -%}
+			{%- endfor -%}
 		</div>
 	</div>
 </section>
 
-<script src="{{ "/assets/js/products-and-services.js" | relative_url }}"></script>
+<script src="{{- "/assets/js/products-and-services.js" | relative_url -}}"></script>
