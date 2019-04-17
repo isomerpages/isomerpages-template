@@ -4,7 +4,7 @@ layout: default
 
 <section class="bp-section is-small bp-section-pagetitle">
     <div class="bp-container ">
-        {% include header-breadcrumb.html %}
+        {%- include header-breadcrumb.html -%}
     </div>
     <div class="bp-container ">
         <div class="row">
@@ -47,7 +47,7 @@ layout: default
                 </div>
             </div>
             <div class="col is-full content horizontal-scroll datagovsg-table">
-                {{content}}
+                {{- content -}}
             </div>
         </div>
     </div>

@@ -10,55 +10,55 @@ layout: leftnav-page
 	</span>
 </div>
 
-{% assign our-team = site.data.our-team %}
+{%- assign our-team = site.data.our-team -%}
 <div class="content">
 	<div class="row is-multiline padding--bottom--lg" id="board-of-directors">
-		{% for director in our-team.board-of-directors %}
+		{%- for director in our-team.board-of-directors -%}
 			<div class="col is-half person-info-card padding--right">
 				<div class="row margin--bottom--xs margin--right">
 					<div class="col is-one-third image-col">
-						{% if director.image-url %}
-							<img class="margin--right--none" src="{{ site.baseurl }}{{ director.image-url }}">
-						{% endif %}
+						{%- if director.image-url -%}
+							<img class="margin--right--none" src="{{- site.baseurl -}}{{- director.image-url -}}">
+						{%- endif -%}
 					</div>
 					<div class="col padding--top padding--bottom bg-table-grey">
 						<p class="is-marginless padding--top--sm">
-							<b>{{ director.name }}</b><br>
-							<small class="is-uppercase" style="font-size: 0.75rem">{{ director.title }}</small><br>
+							<b>{{- director.name -}}</b><br>
+							<small class="is-uppercase" style="font-size: 0.75rem">{{- director.title -}}</small><br>
 						</p>
-						<h6 class="is-marginless margin--top--xs"><b>{{ director.organisation }}</b></h6>
+						<h6 class="is-marginless margin--top--xs"><b>{{- director.organisation -}}</b></h6>
 					</div>
 				</div>
 			</div>
-		{% endfor %}
+		{%- endfor -%}
 	</div>
 
 	<div class="row is-multiline padding--bottom--lg" id="senior-leadership">
-		{% for member in our-team.senior-leadership %}
+		{%- for member in our-team.senior-leadership -%}
 			<div class="col is-half person-info-card padding--right">
 				<div class="row margin--bottom--xs margin--right">
 					<div class="col is-one-third image-col">
-						{% if member.image-url %}
-							<img class="margin--right--none" src="{{ site.baseurl }}{{ member.image-url }}">
-						{% endif %}
+						{%- if member.image-url -%}
+							<img class="margin--right--none" src="{{- site.baseurl -}}{{- member.image-url -}}">
+						{%- endif -%}
 					</div>
 					<div class="col padding--top padding--bottom bg-table-grey">
 						<p class="is-marginless padding--top--sm">
-							<b>{{ member.name }}</b><br>
-							<small class="is-uppercase" style="font-size: 0.75rem">{{ member.title }}</small><br>
+							<b>{{- member.name -}}</b><br>
+							<small class="is-uppercase" style="font-size: 0.75rem">{{- member.title -}}</small><br>
 						</p>
-						<h6 class="is-marginless margin--top--xs"><b>{{ member.organisation }}</b></h6>
+						<h6 class="is-marginless margin--top--xs"><b>{{- member.organisation -}}</b></h6>
 					</div>
 				</div>
 			</div>
-		{% endfor %}
+		{%- endfor -%}
 	</div>
 	<div id="organisational-structure">
-		{% for division in our-team.organisational-structure %}
+		{%- for division in our-team.organisational-structure -%}
 			<!-- Accordion header -->
 			<div class="col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless">
 				<div class="col is-expanded is-fullwidth is-paddingless">
-					<h5 class="has-text-grey-dark is-marginless"><b> {{ division.title }}
+					<h5 class="has-text-grey-dark is-marginless"><b> {{- division.title -}}
 					</b></h5>
 				</div>
 				<span class="sgds-icon sgds-icon-plus is-size-4 bp-accordion-button"></span>
@@ -67,17 +67,17 @@ layout: leftnav-page
 			<div id="accordion-body-{{forloop.index0}}" class="col padding bp-accordion-body">
 				<div class="bp-container is-full padding--top--lg padding--bottom" style="width: 100%">
         			<div class="row is-multiline">
-						{% for team in division.teams %}
+						{%- for team in division.teams -%}
 						    <div class="col is-4 padding--right--xl padding--bottom">
 								<div class="margin--top--none">
-									{% if team.link %}<a href="{{ site.baseurl }}{{ team.link }}">{% endif %}{{ team.name }}{% if team.link %}</a>{% endif %}
+									{%- if team.link -%}<a href="{{- site.baseurl -}}{{- team.link -}}">{%- endif -%}{{- team.name -}}{%- if team.link -%}</a>{%- endif -%}
 								</div>
 							</div>
-						{% endfor %}
+						{%- endfor -%}
 					</div>
 				</div>
 			</div>
-		{% endfor %}
-		{{ content }}
+		{%- endfor -%}
+		{{- content -}}
 	</div>
 </div>

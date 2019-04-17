@@ -39,9 +39,9 @@
                     {%- endif -%}
                     <div class="navbar-item">
                         <a class="{{class}}" href="{{link.url}}" target="{{link.target}}">
-                            {{link.title}}
+                            {{- link.title -}}
                         </a>
-                        <div class="selector {{class}} is-hidden-touch"></div>
+                        <div class="selector {{ class }} is-hidden-touch"></div>
                     </div>
 
                 {%- endfor -%}
@@ -66,7 +66,7 @@
                             {%- else -%}
                             <a class="navbar-link is-uppercase" href="{{- base-url -}}{{- link.url -}}">
                             {{- link.title -}}
-                            </a>
+                            </a>  
                             {%- endif -%}
                         {%- else -%}
                         <a class="navbar-link is-uppercase" href="{{- base-url -}}{{- link.url -}}">

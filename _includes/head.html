@@ -3,37 +3,54 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=yes, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta property="og:title" content="{{page.title | markdownify | strip_html}}">
+    <meta property="og:title" content="{{- page.title | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 25 -}}">
     <!-- If page contains a description in the YML header of the markdown file, use the page description. Otherwise, take an excerpt of its markdown content -->
-    <meta property="og:description" content="{% if page.description %}{{ page.description | markdownify | strip_html }}{% else %}{{page.content | markdownify | strip_html | truncatewords: 20}}{% endif %}"> 
-    <meta name="Description" CONTENT="{% if page.description %}{{ page.description | markdownify | strip_html }}{% else %}{{page.content | markdownify | strip_html | truncatewords: 20}}{% endif %}">
-    {% assign homepage = site.data.homepage %}
-    <meta property="og:image" content="{% if page.image %}{{page.image | absolute_url}}{% elsif homepage.shareicon %}{{homepage.shareicon | absolute_url}}{% else %}{{homepage.agency-logo | absolute_url}}{% endif %}">
-    <meta property="og:url" content="{{page.permalink | absolute_url}}">
-    <link rel="canonical" href="{{ page.url | absolute_url}}" />
+    <meta property="og:description" content="
+        {%- if page.description -%}
+            {{- page.description | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 20 -}}
+        {%- else -%}
+            {{- page.content | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 20 -}}
+        {%- endif -%}"> 
+    <meta name="Description" CONTENT="
+        {%- if page.description -%}
+            {{- page.description | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 20 -}}
+        {%- else -%}
+            {{- page.content | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 20 -}}
+        {%- endif -%}">
+    {%- assign homepage = site.data.homepage -%}
+    <meta property="og:image" content="
+    {%- if page.image -%}
+        {{- page.image | absolute_url -}}
+    {%- elsif homepage.shareicon -%}
+        {{- homepage.shareicon | absolute_url -}}
+    {%- else -%}
+        {{- homepage.agency-logo | absolute_url -}}
+    {%- endif -%}">
+    <meta property="og:url" content="{{- page.permalink | absolute_url -}}">
+    <link rel="canonical" href="{{- page.url | absolute_url -}}" />
     
     <!-- WOGAA -->
     {%- if jekyll.environment == "staging" -%}
     <script src="https://assets.dcube.cloud/scripts/wogaa.js" integrity="sha384-af/oHMGJtms6JPFQpSNIfdu7ZYbdUetj9ZdqH6XN7+05GTgw1jy0ZhFv2snw/fsr" crossorigin="anonymous"></script>
-    {% else %}
-    <script src="https://assets.wogaa.sg/scripts/wogaa.js" integrity="sha384-1nnSv4AClBEAtBKqrnf6VVkyjJwsmbhJCiJmwhXSheJPkw3H7bhAzrkE4sA5iWUQ" crossorigin="anonymous"></script> <!-- NO MATCH! -->
-    {% endif %}
+    {%- else -%}
+    <script src="https://assets.wogaa.sg/scripts/wogaa.js" integrity="sha384-1nnSv4AClBEAtBKqrnf6VVkyjJwsmbhJCiJmwhXSheJPkw3H7bhAzrkE4sA5iWUQ" crossorigin="anonymous"></script>
+    {%- endif -%}
 
-    {% assign homepage = site.data.homepage %}
-    {% if homepage.google-analytics %}
+    {%- assign homepage = site.data.homepage -%}
+    {%- if homepage.google-analytics -%}
     <!-- Google Analytics -->
-    <script src="{{site.baseurl}}/assets/js/google-analytics.js"></script>
-    {% endif %}
+    <script src="{{- site.baseurl -}}/assets/js/google-analytics.js"></script>
+    {%- endif -%}
 
-    {% if homepage.favicon %}
-        <link rel="shortcut icon" href="{{site.baseurl}}{{homepage.favicon}}" type="image/x-icon">
-    {% else %}
-        <link rel="shortcut icon" href="{{site.baseurl}}/assets/img/favicon.ico" type="image/x-icon">
-    {% endif %}
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/blueprint.css">
-    <link rel="stylesheet" href="{{site.baseurl}}{{site.custom_css_path}}">
+    {%- if homepage.favicon -%}
+        <link rel="shortcut icon" href="{{- site.baseurl- }}{{- homepage.favicon -}}" type="image/x-icon">
+    {%- else -%}
+        <link rel="shortcut icon" href="{{- site.baseurl -}}/assets/img/favicon.ico" type="image/x-icon">
+    {%- endif -%}
+    <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/blueprint.css">
+    <link rel="stylesheet" href="{{- site.baseurl -}}{{- site.custom_css_path -}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,600" crossorigin="anonymous">
-    {% feed_meta %}
+    {%- feed_meta -%}
 
-    <title>{{ page.title }}</title>
+    <title>{{- page.title -}}</title>
 </head>

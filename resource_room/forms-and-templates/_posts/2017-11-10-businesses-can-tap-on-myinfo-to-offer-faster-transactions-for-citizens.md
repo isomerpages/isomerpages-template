@@ -26,7 +26,7 @@ Following news of the bank pilot, GovTech has received strong interest from more
  
 The portal will also benefit developers as it offers a sandbox environment for them to build solutions faster. Developers can access the sandbox at [https://myinfo-api.app.gov.sg](https://myinfo-api.app.gov.sg/) to find out how to prototype their services. Locally-registered businesses can log in with their CorpPass credentials from December 2017 onwards.
 
-Please see [Annex A]({{ "/files/2017-11-10/Annex A.pdf" | absolute_url }}) for the quotes from participating banks and users.
+Please see [Annex A]({{- "/files/2017-11-10/Annex A.pdf" | absolute_url -}}) for the quotes from participating banks and users.
 
 --- 
 

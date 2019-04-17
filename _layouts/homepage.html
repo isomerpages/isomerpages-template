@@ -1,16 +1,16 @@
 ---
 layout: default
 ---
-{% if page.url == "/" %}
-	{% assign notification_content = content | strip_html | strip %}
-	{% if notification_content != "" %}
+{%- if page.url == "/" -%}
+	{%- assign notification_content = content | strip_html | strip -%}
+	{%- if notification_content != "" -%}
 		<div id="notification-bar" class="bp-notification bg-secondary is-marginless">
 		    <div class="bp-container">
 		        <div class="row">
 		            <div class="col">
 		            	<div class="field has-addons bp-notification-flex">
 			                <div class="control has-text-centered has-text-white">
-			                    {{ content }}
+			                    {{- content -}}
 			                </div>
 			                <div class="control">
 			        			<a id="cancel-notification" class="button has-text-white">
@@ -22,35 +22,35 @@ layout: default
 		        </div>
 		    </div>
 		</div>
-	{% endif %}
-{% endif %}
+	{%- endif -%}
+{%- endif -%}
 
 <!-- Hero mandatory -->
-{% include homepage/hero.html %}
+{%- include homepage/hero.html -%}
 
 <!-- Information sections -->
-{% if site.data.homepage.info-sections %}
-{% for section in site.data.homepage.info-sections %}
-	{% assign oddEven = forloop.index0 | modulo: 2 %}
-	{% if oddEven == 0 %}
-		{% include homepage/homepage-info-left.html %}
-	{% else %}
-		{% include homepage/homepage-info-right.html %}
-	{% endif %}
-{% endfor %}
-{% endif %}
+{%- if site.data.homepage.info-sections -%}
+{%- for section in site.data.homepage.info-sections -%}
+	{%- assign oddEven = forloop.index0 | modulo: 2 -%}
+	{%- if oddEven == 0 -%}
+		{%- include homepage/homepage-info-left.html -%}
+	{%- else -%}
+		{%- include homepage/homepage-info-right.html -%}
+	{%- endif -%}
+{%- endfor -%}
+{%- endif -%}
 
 <!-- Programmes homepage toggle -->
-{% if site.homepage_programmes == true %}
-	{% include homepage/programmes.html %}
-{% endif %}
+{%- if site.homepage_programmes == true -%}
+	{%- include homepage/programmes.html -%}
+{%- endif -%}
 
 <!-- Resources homepage toggle -->
-{% if site.homepage_resources == true %}
-	{% include homepage/resources-homepage.html %}
-{% endif %}
+{%- if site.homepage_resources == true -%}
+	{%- include homepage/resources-homepage.html -%}
+{%- endif -%}
 
 <!-- Careers homepage toggle -->
-{% if site.homepage_careers == true %}
-	{% include homepage/careers.html %}
-{% endif %}
+{%- if site.homepage_careers == true -%}
+	{%- include homepage/careers.html -%}
+{%- endif -%}

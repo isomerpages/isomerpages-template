@@ -1,14 +1,14 @@
 ---
 
 ---
-{% assign index = 0 %} {% assign tempindex = 0 %}
+{%- assign index = 0 -%} {%- assign tempindex = 0 -%}
 posts_json=[
     {%- assign tempindex = -1 | plus: 0 -%}
 
     {%- for collection in site.collections -%}
         {%- for post in collection.docs -%}
             {%- capture index -%} 
-                {{ tempindex | plus: forloop.index}}
+                {{- tempindex | plus: forloop.index}}
             {%- endcapture -%}
             
             {%- include post.json -%},
@@ -19,10 +19,10 @@ posts_json=[
     {%- for post in site.html_pages -%}
 
 		{%- capture index -%} 
-			{{ tempindex | plus: forloop.index}}
+			{{- tempindex | plus: forloop.index}}
 		{%- endcapture -%}
 
-    	{%- include post.json -%}{% unless forloop.last %},{% endunless %}
+    	{%- include post.json -%}{%- unless forloop.last -%},{%- endunless -%}
     {%- endfor -%}
 
 ]
