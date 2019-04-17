@@ -32,9 +32,9 @@ layout: default
                 {%- assign prev-second-nav-title = "" -%}
                 {%- assign is-in-second-level-div = false -%}
                 {%- for collection-document in current-collection -%}
-                    <!-- If collection-document is selected -->
+                    {%- comment -%} If collection-document is selected {%- endcomment -%}
                     {%- if page.url == collection-document.permalink -%}
-                        <!-- If collection-document has a second_nav_title -->
+                        {%- comment -%} If collection-document has a second_nav_title {%- endcomment -%}
                         {%- if collection-document.second_nav_title -%}
                             {%- unless collection-document.second_nav_title == prev-second-nav-title -%}
                                 {%- if is-in-second-level-div == true -%}
@@ -54,7 +54,7 @@ layout: default
                                 </a>
                             {%- endunless -%}
 
-                        <!-- Else collection-document is a single-level-nav item -->
+                        {%- comment -%} Else collection-document is a single-level-nav item {%- endcomment -%}
                         {%- else -%}
                             {%- if is-in-second-level-div == true -%}
                                 </div>
@@ -64,7 +64,7 @@ layout: default
                             </a>
                             {%- assign is-in-second-level-div = false -%}
                         {%- endif -%}
-                    <!-- Else; collection-document is not selected -->
+                    {%- comment -%} Else; collection-document is not selected {%- endcomment -%}
                     {%- else -%}
                         {%- if collection-document.second_nav_title -%}
                             {%- unless collection-document.second_nav_title == prev-second-nav-title -%}
@@ -99,7 +99,7 @@ layout: default
                                 </a>
                             {%- endunless -%}
 
-                        <!-- Single level nav item that is inactive -->
+                        {%- comment -%} Single level nav item that is inactive {%- endcomment -%}
                         {%- else -%}
                             {%- if is-in-second-level-div == true -%}
                                 </div>
@@ -127,7 +127,7 @@ layout: default
                             {%- assign prev-second-nav-title = "" -%}
                             {%- assign is-in-second-level-div = false -%}
                             {%- for collection-document in current-collection -%}
-                                <!-- If this page is selected -->
+                                {%- comment -%} If this page is selected {%- endcomment -%}
                                 {%- if page.url == collection-document.permalink -%}
                                     {%- if collection-document.second_nav_title -%}
                                         {%- unless prev-second-nav-title == collection-document.second_nav_title -%}
@@ -146,7 +146,7 @@ layout: default
                                         <li><a class="is-active" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">{{- collection-document.title -}}</a></li>
                                         {%- assign is-in-second-level-div = false -%}
                                     {%- endif -%}
-                                <!-- If this page is not the one that is selected -->
+                                {%- comment -%} If this page is not the one that is selected {%- endcomment -%}
                                 {%- else -%}
                                     {%- if collection-document.second_nav_title -%}
                                         {%- unless prev-second-nav-title == collection-document.second_nav_title -%}
@@ -196,7 +196,7 @@ layout: default
 
 {%- for collection-document in current-collection -%}
     {%- if page.url == collection-document.permalink -%}
-        <!-- If the page is the first in the list -->
+        {%- comment -%} If the page is the first in the list {%- endcomment -%}
         {%- if forloop.first -%}
             {%- assign nextIndex = forloop.index0 | plus: 1 -%}
             <section class="bp-section bottom-navigation">
@@ -208,7 +208,7 @@ layout: default
                 </div>
             </section>
 
-        <!-- If the page is last in the list -->
+        {%- comment -%} If the page is last in the list {%- endcomment -%}
         {%- elsif forloop.last -%}
             {%- assign prevIndex = forloop.index0 | minus: 1 -%}
 
@@ -221,7 +221,7 @@ layout: default
                 </div>
             </section>
 
-        <!-- For all other intermediate pages in the list -->
+        {%- comment -%} For all other intermediate pages in the list {%- endcomment -%}
         {%- else -%}
             {%- assign prevIndex = forloop.index0 | minus: 1 -%}
             {%- assign nextIndex = forloop.index0 | plus: 1 -%}

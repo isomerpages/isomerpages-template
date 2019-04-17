@@ -1,6 +1,6 @@
 <section class="bp-section bg-newssection">
     <div class="bp-container">
-        <!-- mobile edition -->
+        {%- comment -%} mobile edition {%- endcomment -%}
         <div class="row is-hidden-desktop is-hidden-tablet-only">
             <div class="col is-half padding--bottom">
                 <p class="padding--bottom eyebrow is-uppercase">
@@ -21,7 +21,7 @@
                 <img src="{{- site.baseurl -}}{{- section.section-image-path -}}" />
             </div>
         </div>
-        <!-- tablet edition -->
+        {%- comment -%} tablet edition {%- endcomment -%}
         <div class="row is-hidden-mobile is-hidden-desktop">
             <div class="col is-half is-half padding--top--xl padding--bottom--xl">
                 <img src="{{- site.baseurl -}}{{- section.section-image-path -}}" />
@@ -42,7 +42,7 @@
                 </a>
             </div>
         </div>
-        <!-- desktop edition -->
+        {%- comment -%} desktop edition {%- endcomment -%}
         <div class="row is-hidden-mobile is-hidden-tablet-only">
             <div class="col is-half is-half padding--top--xl padding--bottom--xl">
                 <img src="{{- site.baseurl -}}{{- section.section-image-path -}}" />

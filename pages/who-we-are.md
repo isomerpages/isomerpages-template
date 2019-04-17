@@ -16,5 +16,3 @@ These indicators, along with the beginning of spring, vary according to the loca
 ### **Our Board Members**
 
 During early spring, the axis of the Earth is increasing its tilt relative to the Sun, and the length of daylight rapidly increases for the relevant hemisphere. The hemisphere begins to warm significantly, causing new plant growth to "spring forth," giving the season its name.
-
-<!-- Refer to _data/who-we-are.yml to edit the list of board members -->

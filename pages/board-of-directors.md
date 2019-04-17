@@ -5,4 +5,4 @@ breadcrumb: Board of Directors
 title: Board of Directors
 ---
 
-<!-- Refer to _data/board-of-directors.yml to edit the list of board members -->
+{%- comment -%} Refer to _data/board-of-directors.yml to edit the list of board members {%- endcomment -%}

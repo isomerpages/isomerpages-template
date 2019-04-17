@@ -25,10 +25,10 @@ layout: default
 	{%- endif -%}
 {%- endif -%}
 
-<!-- Hero mandatory -->
+{%- comment -%} Hero mandatory {%- endcomment -%}
 {%- include homepage/hero.html -%}
 
-<!-- Information sections -->
+{%- comment -%} Information sections {%- endcomment -%}
 {%- if site.data.homepage.info-sections -%}
 {%- for section in site.data.homepage.info-sections -%}
 	{%- assign oddEven = forloop.index0 | modulo: 2 -%}
@@ -40,17 +40,17 @@ layout: default
 {%- endfor -%}
 {%- endif -%}
 
-<!-- Programmes homepage toggle -->
+{%- comment -%} Programmes homepage toggle {%- endcomment -%}
 {%- if site.homepage_programmes == true -%}
 	{%- include homepage/programmes.html -%}
 {%- endif -%}
 
-<!-- Resources homepage toggle -->
+{%- comment -%} Resources homepage toggle {%- endcomment -%}
 {%- if site.homepage_resources == true -%}
 	{%- include homepage/resources-homepage.html -%}
 {%- endif -%}
 
-<!-- Careers homepage toggle -->
+{%- comment -%} Careers homepage toggle {%- endcomment -%}
 {%- if site.homepage_careers == true -%}
 	{%- include homepage/careers.html -%}
 {%- endif -%}

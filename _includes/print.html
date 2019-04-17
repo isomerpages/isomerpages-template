@@ -14,7 +14,7 @@
               </i>
             </button>
             <input id="page-url" type="text" class="hide" value="{{page.url|absolute_url}}">
-            <!-- The only cross-browser compatible way to copy the current page url into a clipboard is to store it in a hidden input box -->
+            {%- comment -%} The only cross-browser compatible way to copy the current page url into a clipboard is to store it in a hidden input box {%- endcomment -%}
         </div>
         <div class="actionbar__inner padding--top--sm">
             <a href="mailto:?Subject={{page.title}}&amp;Body= {{page.url|absolute_url}}">
