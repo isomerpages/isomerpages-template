@@ -1,28 +1,20 @@
 ---
 
 ---
-{%- assign index = 0 -%} {%- assign tempindex = 0 -%}
 posts_json=[
-    {%- assign tempindex = -1 | plus: 0 -%}
-
     {%- for collection in site.collections -%}
+        {%- unless forloop.first -%},{%- endunless -%}
         {%- for post in collection.docs -%}
-            {%- capture index -%} 
-                {{- tempindex | plus: forloop.index}}
-            {%- endcapture -%}
-            
-            {%- include post.json -%},
+            {%- if post.permalink or post.file_url -%}
+                {%- include post.json -%}
+            {%- endif -%}
         {%- endfor -%}
-        {%- assign tempindex = index -%}
     {%- endfor -%}
 
     {%- for post in site.html_pages -%}
-
-		{%- capture index -%} 
-			{{- tempindex | plus: forloop.index}}
-		{%- endcapture -%}
-
-    	{%- include post.json -%}{%- unless forloop.last -%},{%- endunless -%}
+        ,
+        {%- if post.permalink or post.file_url -%}
+            {%- include post.json -%}
+        {%- endif -%}
     {%- endfor -%}
-
 ]
