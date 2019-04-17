@@ -13,10 +13,10 @@
         <div class="row padding--bottom">
             {%- for post in site.posts limit:3 -%}
             <div class="col">
-                <!-- Define category_index - the index used to determine the bg-color-{{category_index}} -->
-                <!-- Fallback in case category_index is not set in the for loop -->
+                {%- comment -%} Define category_index - the index used to determine the bg-color-{{category_index}} {%- endcomment -%}
+                {%- comment -%} Fallback in case category_index is not set in the for loop {%- endcomment -%}
                 {%- assign category_index = 1 -%}
-                <!-- Edge case where subcategory has the same name as resource room (post.categories[1] becomes undefined) -->
+                {%- comment -%} Edge case where subcategory has the same name as resource room (post.categories[1] becomes undefined) {%- endcomment -%}
                 {%- if post.categories[1] -%}
                     {%- assign post_category = post.categories[1] -%}
                 {%- else -%}
@@ -29,7 +29,7 @@
                         {%- break -%}
                     {%- endif -%}
                 {%- endfor -%}
-                <!-- Temporarily disable post.image thumbnail display - change post.imageStuff back to post.image when we are ready to release the feature -->
+                {%- comment -%} Temporarily disable post.image thumbnail display - change post.imageStuff back to post.image when we are ready to release the feature {%- endcomment -%}
                 {%- if post.imageStuff -%}
                 <div class="image-card">
                     <a href="{{- post.url | relative_url | append: '.html'}}" class="has-text-grey-dark is-media-card">

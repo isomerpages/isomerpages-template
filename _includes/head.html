@@ -4,7 +4,7 @@
           content="width=device-width, user-scalable=yes, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta property="og:title" content="{{- page.title | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 25 -}}">
-    <!-- If page contains a description in the YML header of the markdown file, use the page description. Otherwise, take an excerpt of its markdown content -->
+    {%- comment -%} If page contains a description in the YML header of the markdown file, use the page description. Otherwise, take an excerpt of its markdown content {%- endcomment -%}
     <meta property="og:description" content="
         {%- if page.description -%}
             {{- page.description | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 20 -}}
@@ -29,7 +29,7 @@
     <meta property="og:url" content="{{- page.permalink | absolute_url -}}">
     <link rel="canonical" href="{{- page.url | absolute_url -}}" />
     
-    <!-- WOGAA -->
+    {%- comment -%} WOGAA {%- endcomment -%}
     {%- if jekyll.environment == "staging" -%}
     <script src="https://assets.dcube.cloud/scripts/wogaa.js" integrity="sha384-af/oHMGJtms6JPFQpSNIfdu7ZYbdUetj9ZdqH6XN7+05GTgw1jy0ZhFv2snw/fsr" crossorigin="anonymous"></script>
     {%- else -%}
@@ -38,7 +38,7 @@
 
     {%- assign homepage = site.data.homepage -%}
     {%- if homepage.google-analytics -%}
-    <!-- Google Analytics -->
+    {%- comment -%} Google Analytics {%- endcomment -%}
     <script src="{{- site.baseurl -}}/assets/js/google-analytics.js"></script>
     {%- endif -%}
 

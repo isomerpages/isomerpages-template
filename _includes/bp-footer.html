@@ -14,7 +14,7 @@
 
             {%- assign social = site.data.social-media -%}
             
-            <!-- Set columns for nav links based on social media links -->
+            {%- comment -%} Set columns for nav links based on social media links {%- endcomment -%}
             {%- if social -%}
               {%- assign navClass = "is-four-fifths" -%}
             {%- else -%}
@@ -22,7 +22,7 @@
             {%- endif -%}
             
             <div class="row col {{navClass}} is-multiline is-hidden-mobile">
-            <!-- Footer links for tablet/desktop -->
+            {%- comment -%} Footer links for tablet/desktop {%- endcomment -%}
             {%- for link in links -%}
             {%- include links-baseurl.html -%}
             {%- assign linkTitle = link.title | downcase -%}
@@ -47,7 +47,7 @@
             </div>
 
             {%- if social -%}
-              <!-- Social links for desktop -->
+              {%- comment -%} Social links for desktop {%- endcomment -%}
               <div class="col is-one-fifth is-hidden-mobile is-hidden-tablet-only" id="social-link-desktop">
                 {%- if social.facebook -%}
                   <a href="{{- social.facebook -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer"><span class="sgds-icon sgds-icon-facebook is-size-4" title="Facebook"></span></a>
@@ -66,7 +66,7 @@
                 {%- endif -%}
               </div>
               
-              <!-- Social links for tablet -->
+              {%- comment -%} Social links for tablet {%- endcomment -%}
               <div class="col is-one-quarter is-hidden-mobile is-hidden-desktop" id="social-link-tablet">
                 {%- if social.facebook -%}
                   <div class="row">
@@ -96,7 +96,7 @@
               </div>
             {%- endif -%}
 
-            <!-- Footer links for mobile -->
+            {%- comment -%} Footer links for mobile {%- endcomment -%}
             <div class="col is-hidden-tablet is-hidden-desktop">
               {%- for link in links -%}
                 {%- include links-baseurl.html -%}
@@ -175,12 +175,12 @@
                     <li><a href="{{site.baseurl}}/privacy/">Privacy Statement</a></li>
                     <li><a href="{{site.baseurl}}/terms-of-use/">Terms of Use</a></li>
                     <li><a href="https://www.isomer.gov.sg">Built with Isomer</a></li>
-                    <!-- <li><a>Rate Service</a></li> -->
+                    {%- comment -%} <li><a>Rate Service</a></li> {%- endcomment -%}
                 </ul>
             </div>
             <div class="col is-one-third has-text-right-desktop has-text-right-tablet has-text-left-mobile">
-                <p>© {{- site.time | date: "%Y" -}} {{site.title}}</p>
-                <p class="last-updated">Last Updated {{- site.time | date_to_string -}}</p>
+                <p>© {{- site.time | date: "%Y" }} {{site.title -}}</p>
+                <p class="last-updated">Last Updated {{site.time | date_to_string -}}</p>
             </div>
 
         </div>

@@ -15,7 +15,7 @@ layout: default
     </div>
 </section>
 
-<!-- Resource category buttons -->
+{%- comment -%} Resource category buttons {%- endcomment -%}
 <section class="bp-section is-small padding--bottom--none">
     <div class="bp-container padding--top">
         <div class="row">
@@ -65,7 +65,7 @@ layout: default
                 </div>
             </div>
 
-            <!-- Display filter for desktop -->
+            {%- comment -%} Display filter for desktop {%- endcomment -%}
             <div class="col is-one-quarter padding--top padding--left padding--right--sm is-hidden-touch">
                 <div class="filter-selector-div bp-dropdown">
                     <a class="bp-dropdown-button hero-dropdown is-centered padding--none" aria-haspopup="true" aria-controls="hero-dropdown-menu">
@@ -85,7 +85,7 @@ layout: default
             </div>
         </div>
         <div class="row">
-            <!-- Display filter for mobile and tablet -->
+            {%- comment -%} Display filter for mobile and tablet {%- endcomment -%}
             <div class="col is-fullwidth padding--top--lg is-hidden-desktop">
                 <div class="filter-selector-div is-hidden-desktop">
                     <span class="sgds-icon sgds-icon-chevron-down is-size-4" id="filter-arrow"></span>
@@ -98,13 +98,13 @@ layout: default
     </div>
 </section>
 
-<!-- Posts -->
+{%- comment -%} Posts {%- endcomment -%}
 <section class="bp-section is-small">
     <div class="bp-container padding--top padding--bottom--xl">
         <div class="row is-multiline">
             {%- for post in site.posts -%}
                 {%- if post.categories[1] == ' ' -%}
-<!--                 <div class="col is-3 ">
+{%- comment -%}                 <div class="col is-3 ">
                     <img src="/assets/img/media-releases/1.jpg" alt="">
                     <div class="news-content">
                         <div>
@@ -117,12 +117,12 @@ layout: default
                             {{- post.date | date_to_string -}}
                         </small>
                     </div>
-                </div> -->
+                </div> {%- endcomment -%}
                 {%- else -%}
-                <!-- Define category_index - the index used to determine the bg-color-{{category_index}} -->
-                <!-- Fallback in case category_index is not set in the for loop -->
+                {%- comment -%} Define category_index - the index used to determine the bg-color-{{category_index}} {%- endcomment -%}
+                {%- comment -%} Fallback in case category_index is not set in the for loop {%- endcomment -%}
                 {%- assign category_index = 1 -%}
-                <!-- Edge case where subcategory has the same name as resource room (post.categories[1] becomes undefined) -->
+                {%- comment -%} Edge case where subcategory has the same name as resource room (post.categories[1] becomes undefined) {%- endcomment -%}
                 {%- if post.categories[1] -%}
                     {%- assign post_category = post.categories[1] -%}
                 {%- else -%}
@@ -167,7 +167,7 @@ layout: default
 
 <div class="search pagination padding--bottom--xl">
     <span class="sgds-icon sgds-icon-arrow-left is-size-4"></span>
-    <!-- To insert page selectors -->
+    {%- comment -%} To insert page selectors {%- endcomment -%}
     <div id="paginator-pages"></div>
     <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span>
 </div>

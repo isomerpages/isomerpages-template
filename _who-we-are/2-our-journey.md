@@ -17,4 +17,4 @@ The country’s infrastructure as well as government digital services are often 
 
 <center> See the list of key milestones on our digital journey towards today's GovTech, where we continue to deliver high quality public service to citizens and businesses alike. </center>
 
-<!-- Refer to _data/our-journey.yml to edit Our Journey & Milestones content -->
+{%- comment -%} Refer to _data/our-journey.yml to edit Our Journey & Milestones content {%- endcomment -%}

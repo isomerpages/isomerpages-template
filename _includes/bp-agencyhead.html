@@ -30,7 +30,7 @@
                         </div>
                     </form>
                 </div>
-    <!--             {%- assign links = site.data.navigation -%}
+    {%- comment -%}             {%- assign links = site.data.navigation -%}
 
                 {%- for link in links -%}
                     {%- assign class = nil -%}
@@ -45,12 +45,12 @@
                     </div>
 
                 {%- endfor -%}
-            </div> -->
+            </div> {%- endcomment -%}
 
                 {%- assign links = site.data.navigation -%}
                 {%- for link in links -%}
                     {%- include links-baseurl.html -%}
-                    <!-- Generates base-url based on whether the link is internal or external -->
+                    {%- comment -%} Generates base-url based on whether the link is internal or external {%- endcomment -%}
 
                     {%- assign class = nil -%}
                     {%- if page.url == link.url -%}

@@ -1,4 +1,4 @@
-<!-- {%- if post.categories[1] == 'corporate-publications' or post.categories[1] == 'facts-&-figures' -%}
+{%- comment -%} {%- if post.categories[1] == 'corporate-publications' or post.categories[1] == 'facts-&-figures' -%}
 <div class="col is-3 ">
     <img src="/assets/img/media-releases/1.jpg" alt="">
     <div class="news-content">
@@ -19,4 +19,4 @@
         <small class="has-text-white">{{- post.date | date_to_string | upcase -}}</small>
     </div>
 </div>
-{%- endif -%} -->
+{%- endif -%} {%- endcomment -%}

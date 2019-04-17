@@ -4,10 +4,10 @@ layout: leftnav-page-content
 
 {{- content -}}
 
-<!-- Accordion section -->
+{%- comment -%} Accordion section {%- endcomment -%}
 {%- assign our-journey = site.data.our-journey -%}
 {%- for our-journey-section in our-journey -%}
-	<!-- Accordion header -->
+	{%- comment -%} Accordion header {%- endcomment -%}
 	<div class="col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless">
 		<div class="col is-expanded is-fullwidth is-paddingless">
 			<h5 class="has-text-grey-dark is-marginless"><b> {{- our-journey-section.title -}}
@@ -15,7 +15,7 @@ layout: leftnav-page-content
 		</div>
 		<span class="sgds-icon sgds-icon-plus is-size-4 bp-accordion-button"></span>
 	</div>
-	<!-- Accordion body -->
+	{%- comment -%} Accordion body {%- endcomment -%}
 	<div id="accordion-body-{{forloop.index0}}" class="col padding bp-accordion-body">
 		{%- for year in our-journey-section.years -%}
 			{%- if year.img -%}

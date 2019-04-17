@@ -55,7 +55,7 @@ layout: leftnav-page
 	</div>
 	<div id="organisational-structure">
 		{%- for division in our-team.organisational-structure -%}
-			<!-- Accordion header -->
+			{%- comment -%} Accordion header {%- endcomment -%}
 			<div class="col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless">
 				<div class="col is-expanded is-fullwidth is-paddingless">
 					<h5 class="has-text-grey-dark is-marginless"><b> {{- division.title -}}
@@ -63,7 +63,7 @@ layout: leftnav-page
 				</div>
 				<span class="sgds-icon sgds-icon-plus is-size-4 bp-accordion-button"></span>
 			</div>
-			<!-- Accordion body -->
+			{%- comment -%} Accordion body {%- endcomment -%}
 			<div id="accordion-body-{{forloop.index0}}" class="col padding bp-accordion-body">
 				<div class="bp-container is-full padding--top--lg padding--bottom" style="width: 100%">
         			<div class="row is-multiline">
