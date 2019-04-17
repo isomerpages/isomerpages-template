@@ -117,13 +117,21 @@ function returnResultsList(results) {
   // Iterate over the results
   for (var i = 0; i < results.length; i++) {
     var key = parseInt(results[i]['ref']);
+    console.log("key:");
+    console.log(key);
     var resultObject = post_data[key];
+    console.log("resultObject:");
+    console.log(resultObject);
 
     var matchMetadata = results[i]['matchData']['metadata'];
-    var keywordSet = new Set();
+    console.log("matchMetadata:");
+    console.log(matchMetadata);
+    //var keywordSet = new Set();
 
     var titleTruncateLength = 90;
     var resultTitle = resultObject['title'].substring(0, titleTruncateLength);
+    console.log("resultTitle:");
+    console.log(resultTitle);
 
     if (resultObject['title'].length > titleTruncateLength) {
       var indexOfLastWord = resultObject['title'].substring(0, titleTruncateLength).lastIndexOf(" ");
@@ -134,9 +142,13 @@ function returnResultsList(results) {
 
     // Find the position of the earliest keyword in the document
     var firstPosition = returnFirstKeywordPosition(matchMetadata);
+    console.log("firstPosition:");
+    console.log(firstPosition);
 
     // Find the preview start position
     var previewStartPosition = returnStartOfPreview(resultObject['content'], firstPosition);
+    console.log("previewStartPosition:");
+    console.log(previewStartPosition);
 
     // Process the preview to embolden keywords
     var processedPreview = highlightKeywords(resultObject['content'], previewStartPosition, matchMetadata);
