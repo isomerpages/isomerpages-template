@@ -22,6 +22,9 @@ var searchTerm = getQueryVariable('query');
 if (!searchTerm || searchTerm === ' ') {
   searchTerm = '';
 }
+else {
+  document.getElementById("search-box-datagovsg").value = searchTerm;
+}
 databaseSearch(searchTerm, startIndex);
 
 function getQueryVariable(variable) {
@@ -39,6 +42,7 @@ function getQueryVariable(variable) {
 }
 
 function databaseSearch(searchTerm, index) {
+  const resourceId = document.getElementById("resourceId").innerHTML;
   var data = {
     resource_id: resourceId, // the resource id
     offset: datagovsgOffset
@@ -66,11 +70,11 @@ function databaseSearch(searchTerm, index) {
     if (!pageResults || pageResults.length <= 1) return;
     displayPagination(index);
   })
-  .fail(function () { // Displays no results if the AJAX call fails
-    document.getElementById("loading-spinner").style.display = 'none';
-    hideAllPostsAndPagination();
-    displayTable(null, []);
-  })
+    .fail(function () { // Displays no results if the AJAX call fails
+      document.getElementById("loading-spinner").style.display = 'none';
+      hideAllPostsAndPagination();
+      displayTable(null, []);
+    })
 }
 
 function displayTable(chunk, fields) {
@@ -128,7 +132,7 @@ function displayPagination(index) {
     ele.appendChild(text);
     ele.onclick = function () {
       var index = i;
-      return function (e){
+      return function (e) {
         changePage(e.target, index);
       };
     }();
