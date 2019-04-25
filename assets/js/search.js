@@ -154,7 +154,9 @@ function returnResultsList(results) {
 function displaySearchResults(searchTerm) {
   document.getElementById("loading-spinner").style.display = 'none';
   var searchResultsCount = document.getElementById('search-results-count');
-  searchResultsCount.innerHTML = results.length + " result" + results.length === 1 ? "" : "s" + " for '" + searchTerm + "'";
+  searchResultsCount.innerHTML = results.length + " result";
+  searchResultsCount.innerHTML += (results.length === 1) ? " " : "s "; 
+  searchResultsCount.innerHTML += "for '" + searchTerm + "'";
   document.getElementsByName('query')[1].setAttribute("value", searchTerm);
 
   paginateSearchResults();
