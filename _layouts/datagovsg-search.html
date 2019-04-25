@@ -9,7 +9,7 @@ layout: default
     <div class="bp-container ">
         <div class="row">
             <div class="col">
-                <h1 class="has-text-white"><b>{{page.title}}</b></h1>
+                <h1 class="has-text-white"><b>{{- page.title -}}</b></h1>
             </div>
         </div>
     </div>
@@ -61,6 +61,4 @@ layout: default
     <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span>
 </div>
 
-<script>
-    let resourceId = '{{page.datagovsg-id}}';
-</script>
+<span style="display: none;" id="resourceId">{{- page.datagovsg-id -}}</span>
