@@ -22,6 +22,9 @@ var searchTerm = getQueryVariable('query');
 if (!searchTerm || searchTerm === ' ') {
   searchTerm = '';
 }
+else {
+  document.getElementById("search-box-datagovsg").value = searchTerm;
+}
 databaseSearch(searchTerm, startIndex);
 
 function getQueryVariable(variable) {
@@ -39,7 +42,7 @@ function getQueryVariable(variable) {
 }
 
 function databaseSearch(searchTerm, index) {
-  const resourceId = $('#resourceId').innerHTML;
+  const resourceId = document.getElementById("resourceId").innerHTML;
   var data = {
     resource_id: resourceId, // the resource id
     offset: datagovsgOffset
