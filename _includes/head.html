@@ -29,18 +29,9 @@
     <meta property="og:url" content="{{- page.permalink | absolute_url -}}">
     <link rel="canonical" href="{{- page.url | absolute_url -}}" />
     
-    {%- comment -%} WOGAA {%- endcomment -%}
-    {%- if jekyll.environment == "staging" -%}
-    <script src="https://assets.dcube.cloud/scripts/wogaa.js" integrity="sha384-af/oHMGJtms6JPFQpSNIfdu7ZYbdUetj9ZdqH6XN7+05GTgw1jy0ZhFv2snw/fsr" crossorigin="anonymous"></script>
-    {%- else -%}
-    <script src="https://assets.wogaa.sg/scripts/wogaa.js" integrity="sha384-1nnSv4AClBEAtBKqrnf6VVkyjJwsmbhJCiJmwhXSheJPkw3H7bhAzrkE4sA5iWUQ" crossorigin="anonymous"></script>
-    {%- endif -%}
+    {%- include main-scripts.html -%}
 
     {%- assign homepage = site.data.homepage -%}
-    {%- if homepage.google-analytics -%}
-    {%- comment -%} Google Analytics {%- endcomment -%}
-    <script src="{{- site.baseurl -}}/assets/js/google-analytics.js"></script>
-    {%- endif -%}
 
     {%- if homepage.favicon -%}
         <link rel="shortcut icon" href="{{- site.baseurl- }}{{- homepage.favicon -}}" type="image/x-icon">
