@@ -44,11 +44,22 @@ function applyFilter(selectedYear) {
   displayPagination();
 }
 
+function yearHasPosts(year) {
+  for (var i = 0; i < resourceCardArray.length; i++) {
+    var post = resourceCardArray[i];
+    if (Number(post.id) === year) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function displayFilterDropdown(earliestYear, currYear) {
   var yearFilterDesktop = document.getElementById('year-filter-desktop');
   var yearFilterMobile = document.getElementById('year-filter-mobile');
 
   for (var year = earliestYear; year <= currYear; year++) {
+    if (!yearHasPosts(year)) continue;
     // Creating the select element for mobile view
     var option = document.createElement("option");
     option.value = year;
