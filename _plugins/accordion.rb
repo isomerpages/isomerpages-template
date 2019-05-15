@@ -9,8 +9,8 @@ module Jekyll
 
     def render(context)
       text = super
-      "<div class=\"accordion\"><div class=\"col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless\">
-    		<div class=\"col is-expanded is-fullwidth is-paddingless pointer\">
+      "<div class=\"accordion\"><div class=\"col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless pointer\">
+    		<div class=\"col is-expanded is-fullwidth is-paddingless\">
     			<h5 class=\"has-text-grey-dark is-marginless\"><b>#{@title}</b></h5>
     		</div>
     		<span class=\"sgds-icon sgds-icon-plus is-size-4 bp-accordion-button\"></span>
