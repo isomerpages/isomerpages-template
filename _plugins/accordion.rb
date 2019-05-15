@@ -1,22 +1,34 @@
 # frozen_string_literal: true
 
-module Jekyll
-  class AccordionTagBlock < Liquid::Block
-    def initialize(tag_name, title, tokens)
+require_relative 'base'
+
+module Isomer
+	class AccordionTagBlock < Liquid::Block
+		include Isomer::Base
+
+    def initialize(tag_name, options, tokens)
       super
-      @title = title
+      @title = options
     end
 
-    def render(context)
+		def render(context)
+			@context = context
       text = super
-      "<div class=\"accordion\"><div class=\"col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless pointer\">
-    		<div class=\"col is-expanded is-fullwidth is-paddingless\">
-    			<h5 class=\"has-text-grey-dark is-marginless\"><b>#{@title}</b></h5>
-    		</div>
-    		<span class=\"sgds-icon sgds-icon-plus is-size-4 bp-accordion-button\"></span>
-    	</div><div class=\"col padding bp-accordion-body\"><p class=\"margin--top--none\">#{text}</p></div></div>"
+			<<~ACCORDION
+			<div class="accordion">
+				<div class="col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless pointer">
+    			<div class="col is-expanded is-fullwidth is-paddingless">
+    				<h5 class="has-text-grey-dark is-marginless"><b>#{@title}</b></h5>
+    			</div>
+    			<span class="sgds-icon sgds-icon-plus is-size-4 bp-accordion-button"></span>
+				</div>
+				<div class="col padding bp-accordion-body">
+					#{markdown_converter.convert(text)}
+				</div>
+			</div>
+			ACCORDION
     end
   end
 end
 
-Liquid::Template.register_tag('accordion', Jekyll::AccordionTagBlock)
+Liquid::Template.register_tag('accordion', Isomer::AccordionTagBlock)
