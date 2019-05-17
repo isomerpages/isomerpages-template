@@ -5182,10 +5182,10 @@ a[href$=".pdf"][target="_blank"]:after {
     position: relative;
     vertical-align: top;
 }
-.bp-dropdown.is-active .bp-dropdown-menu,
-.bp-dropdown.is-hoverable:hover .bp-dropdown-menu {
+/*.bp-dropdown.is-active .bp-dropdown-menu,
+.bp-dropdown-visible {
     display: block;
-}
+}*/
 .bp-dropdown.is-right .bp-dropdown-menu {
     left: auto;
     right: 0;
@@ -5202,7 +5202,7 @@ a[href$=".pdf"][target="_blank"]:after {
     visibility: visible;
 }
 .bp-dropdown-menu {
-    display: none;
+    display: block;
     left: 0;
     min-width: 12rem;
     padding-top: 0px;
