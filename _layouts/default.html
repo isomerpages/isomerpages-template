@@ -2,7 +2,8 @@
 <html lang="en" class="has-navbar-fixed-top-widescreen">
 
 {%- include head.html -%}
-    <body>
+    {%- comment -%} onclick at body tag is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
+    <body onclick>
         {%- include bp-agencyhead.html -%}
         <div id="main-content">
         	{{- content -}}
