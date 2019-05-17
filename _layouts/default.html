@@ -2,10 +2,10 @@
 <html lang="en" class="has-navbar-fixed-top-widescreen">
 
 {%- include head.html -%}
-    {%- comment -%} onclick at body tag is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
-    <body onclick>
+    <body>
         {%- include bp-agencyhead.html -%}
-        <div id="main-content">
+        {%- comment -%} onclick is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
+        <div id="main-content" onclick>
         	{{- content -}}
     	</div>
         {%- include bp-footer.html -%}
