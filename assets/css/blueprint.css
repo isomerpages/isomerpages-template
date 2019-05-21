@@ -5182,10 +5182,10 @@ a[href$=".pdf"][target="_blank"]:after {
     position: relative;
     vertical-align: top;
 }
-/*.bp-dropdown.is-active .bp-dropdown-menu,
-.bp-dropdown-visible {
+.bp-dropdown.is-active .bp-dropdown-menu,
+.bp-dropdown.is-hoverable .bp-dropdown-menu {
     display: block;
-}*/
+}
 .bp-dropdown.is-right .bp-dropdown-menu {
     left: auto;
     right: 0;
@@ -5202,7 +5202,7 @@ a[href$=".pdf"][target="_blank"]:after {
     visibility: visible;
 }
 .bp-dropdown-menu {
-    display: block;
+    display: none;
     left: 0;
     min-width: 12rem;
     padding-top: 0px;
@@ -11028,8 +11028,8 @@ h6 center {
 }
 
 .hide {
-    display: none;
-    visibility: hidden;
+    display: none !important;
+    visibility: hidden !important;
 }
 
 .show {

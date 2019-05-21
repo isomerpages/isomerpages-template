@@ -362,6 +362,34 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
+// Custom dropdown code for mobile browsers
+const dropdowns = getAll('.bp-dropdown.is-hoverable');
+if (dropdowns.length > 0) {
+    dropdowns.forEach((dropdown) => {
+        const dropdownMenu = document.getElementById("dropdown-menu");
+        const [dropdownTrigger] = dropdown.getElementsByClassName("bp-dropdown-button");
+        if (dropdownMenu && dropdownTrigger) {
+            dropdownTrigger.onclick = () => {
+                dropdownMenu.classList.toggle("hide");
+            };
+            document.addEventListener("click", (evt) => {
+                let targetElement = evt.target; // clicked element
+
+                do {
+                    if (targetElement == dropdownMenu || targetElement == dropdownTrigger) {
+                        return;
+                    }
+                    // Go up the DOM
+                    targetElement = targetElement.parentNode;
+                } while (targetElement);
+
+                // This is a click outside.
+                dropdownMenu.classList.add("hide");
+            });
+        }
+    });
+}
+
 // Functions
 function getAll(selector) {
     return Array.prototype.slice.call(document.querySelectorAll(selector), 0);
@@ -383,27 +411,4 @@ $(document).ready(function () {
 
     // Wrap all tables in a <div> with the horizontal-scroll class so that the table will not be cut off on mobile
     $('table').wrap('<div class="horizontal-scroll"></div>');
-
-    const dropdownMenu = document.getElementById("dropdown-menu");
-    const [dropdownTrigger] = document.getElementsByClassName("bp-dropdown-button");
-    if (dropdownMenu && dropdownTrigger) {
-
-        dropdownTrigger.onclick = () => {
-            dropdownMenu.classList.toggle("hide");
-        };
-        document.addEventListener("click", (evt) => {
-            let targetElement = evt.target; // clicked element
-
-            do {
-                if (targetElement == dropdownMenu || targetElement == dropdownTrigger) {
-                    return;
-                }
-                // Go up the DOM
-                targetElement = targetElement.parentNode;
-            } while (targetElement);
-
-            // This is a click outside.
-            dropdownMenu.classList.add("hide");
-        });
-    }
 });
