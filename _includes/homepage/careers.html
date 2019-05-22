@@ -17,16 +17,20 @@
             </div>
         </div>
     </div>
+    {%- if homepage.careers-more-button-url -%}
     <div class="row has-text-centered margin--top padding--bottom">
         <div class="col is-offset-one-third is-one-third">
             <a href="{{- homepage.careers-more-button-url -}}" class="bp-sec-button">
                 <div>
+                    {%- if homepage.careers-more-button -%}
                     <span>{{- homepage.careers-more-button -}}</span>
+                    {%- endif -%}
                     <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
                 </div>
             </a>
         </div>
     </div>
+    {%- endif -%}
 </section>
 
 
