@@ -31,6 +31,7 @@ layout: default
             <div class="bp-dropdown-content">
                 {%- assign prev-second-nav-title = "" -%}
                 {%- assign is-in-second-level-div = false -%}
+                <!-- {{current-collection}} -->
                 {%- for collection-document in current-collection -%}
                     {%- comment -%} If collection-document is selected {%- endcomment -%}
                     {%- if page.url == collection-document.permalink -%}
