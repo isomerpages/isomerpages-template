@@ -5,7 +5,7 @@
         {%- assign splitted_url_parts = page_url_without_index_html | split: '/' -%}
         {%- capture forLoopMaxInt -%}{{- splitted_url_parts.size | minus:1 -}}{%- endcapture -%}
         {%- for i in (1..forLoopMaxInt) -%}
-            {%- if page.layout == "leftnav-page-content" or page.layout == "our-journey" or page.layout == "leftnav-page" or page.layout == "our-team" -%}
+            {%- if page.layout == "leftnav-page-content" or page.layout == "our-journey" or page.layout == "leftnav-page" or page.layout == "our-team" or page.layout == "board-of-directors-leftnav" -%}
                 {%- for leftnav_header in site.data.navigation -%}
                     {%- capture urlized_leftnav_header -%}{{- leftnav_header.title | downcase | replace: " ", "-" -}}{%- endcapture -%}
                     {%- if splitted_url_parts[i] == urlized_leftnav_header -%}
