@@ -1,4 +1,5 @@
-<footer class="bp-footer top-section">
+{%- comment -%} onclick at body tag is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
+<footer class="bp-footer top-section" onclick>
     <div class="bp-container ">
         <div class="row">
             <div class="col header padding--top--lg padding--bottom--lg">
@@ -162,7 +163,8 @@
         </div>
     </div>
 </footer>
-<footer class="bp-footer bottom-section">
+{%- comment -%} onclick at body tag is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
+<footer class="bp-footer bottom-section" onclick>
     <div class="bp-container ">
         <div class="row is-vcentered">
           <div class="col padding--top--none padding--bottom--none">

@@ -4,23 +4,23 @@ if (typeof BLUEPRINT !== "object") {
     BLUEPRINT = {};
 }
 
-(function() {
+(function () {
     var hashCode;
-    BLUEPRINT.hide = function(el) {
+    BLUEPRINT.hide = function (el) {
         var display;
         display = BLUEPRINT.isVisible(el);
         if (display) {
             el.style.display = 'none';
         }
     };
-    BLUEPRINT.show = function(el) {
+    BLUEPRINT.show = function (el) {
         var display;
         display = BLUEPRINT.isVisible(el);
         if (!display) {
             el.style.display = 'block';
         }
     };
-    BLUEPRINT.toggle = function(el) {
+    BLUEPRINT.toggle = function (el) {
         var display;
         display = BLUEPRINT.isVisible(el);
         if (!display) {
@@ -29,10 +29,10 @@ if (typeof BLUEPRINT !== "object") {
             el.style.display = 'none';
         }
     };
-    BLUEPRINT.getElements = function(name) {
+    BLUEPRINT.getElements = function (name) {
         return document.querySelectorAll('[data-blueprint="' + name + '"]');
     };
-    BLUEPRINT.isVisible = function(el) {
+    BLUEPRINT.isVisible = function (el) {
         var display;
         if (window.getComputedStyle) {
             display = getComputedStyle(el, null).display;
@@ -41,28 +41,28 @@ if (typeof BLUEPRINT !== "object") {
         }
         return display !== 'none';
     };
-    BLUEPRINT.hasClass = function(el, className) {
+    BLUEPRINT.hasClass = function (el, className) {
         if (el.classList) {
             return el.classList.contains(className);
         } else {
             return new RegExp('\\b' + className + '\\b').test(el.className);
         }
     };
-    BLUEPRINT.addClass = function(el, className) {
+    BLUEPRINT.addClass = function (el, className) {
         if (el.classList) {
             return el.classList.add(className);
         } else if (!BLUEPRINT.hasClass(el, className)) {
             return el.className += ' ' + className;
         }
     };
-    BLUEPRINT.removeClass = function(el, className) {
+    BLUEPRINT.removeClass = function (el, className) {
         if (el.classList) {
             return el.classList.remove(className);
         } else {
             return el.className = el.className.replace(new RegExp('\\b' + className + '\\b', 'g'), '');
         }
     };
-    BLUEPRINT.parseOptions = function(el) {
+    BLUEPRINT.parseOptions = function (el) {
         var j, len, option, options, opts;
         opts = {};
         options = el.getAttribute('data-options');
@@ -76,13 +76,13 @@ if (typeof BLUEPRINT !== "object") {
         }
         return opts;
     };
-    BLUEPRINT.click = function(el, handler) {
+    BLUEPRINT.click = function (el, handler) {
         if (!el.eventListener) {
             el.eventListener = true;
             return el.addEventListener('click', handler);
         }
     };
-    BLUEPRINT.unclick = function(el, handler) {
+    BLUEPRINT.unclick = function (el, handler) {
         if (el.eventListener) {
             el.eventListener = false;
             return el.removeEventListener('click', handler);
@@ -92,17 +92,17 @@ if (typeof BLUEPRINT !== "object") {
         BLUEPRINT.isReady = true;
         return;
     } else if (document.addEventListener) {
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             BLUEPRINT.isReady = true;
         });
     } else {
-        document.attachEvent('onreadystatechange', function() {
+        document.attachEvent('onreadystatechange', function () {
             if (document.readyState === 'complete') {
                 BLUEPRINT.isReady = true;
             }
         });
     }
-    return hashCode = function(str) {
+    return hashCode = function (str) {
         var hash, i, j, len, s;
         hash = 0;
         for (i = j = 0, len = str.length; j < len; i = ++j) {
@@ -115,11 +115,11 @@ if (typeof BLUEPRINT !== "object") {
 
 
 })();
-;var i, j, len, len1, list, lists, menu, menuElems, options, subMenu;
+; var i, j, len, len1, list, lists, menu, menuElems, options, subMenu;
 
-BLUEPRINT.toggleMenu = function(el, options) {
+BLUEPRINT.toggleMenu = function (el, options) {
     BLUEPRINT.collapseMenu(el, 'hide');
-    BLUEPRINT.click(el, function(e) {
+    BLUEPRINT.click(el, function (e) {
         var active, actives, i, len;
         e.preventDefault();
         e.stopPropagation();
@@ -139,7 +139,7 @@ BLUEPRINT.toggleMenu = function(el, options) {
     });
 };
 
-BLUEPRINT.collapseMenu = function(el, status) {
+BLUEPRINT.collapseMenu = function (el, status) {
     var smenu;
     smenu = el.nextElementSibling;
     if (status === 'show') {
@@ -180,13 +180,13 @@ if (!BLUEPRINT.isReady) {
     }
 }
 
-;var i, len, modal, modals, options;
+; var i, len, modal, modals, options;
 
-BLUEPRINT.toggleModal = function(el, options) {
+BLUEPRINT.toggleModal = function (el, options) {
     if (!options.target) {
         throw new Error('Found [BLUEPRINT-MODAL] but there is no target defined!');
     }
-    el.addEventListener('click', function(e) {
+    el.addEventListener('click', function (e) {
 
         var backdrop, closeBtn, closeModal, modal;
         e.preventDefault();
@@ -194,7 +194,7 @@ BLUEPRINT.toggleModal = function(el, options) {
         modal = document.getElementById(options.target);
         backdrop = modal.querySelector('.bp-modal-background');
         closeBtn = modal.querySelector('.bp-modal-close');
-        closeModal = function() {
+        closeModal = function () {
             if (BLUEPRINT.hasClass(modal, 'is-active')) {
                 BLUEPRINT.removeClass(modal, 'is-active');
                 return BLUEPRINT.unclick(this, closeModal);
@@ -220,13 +220,13 @@ if (!BLUEPRINT.isReady) {
         }
     }
 }
-;var i, len, notification, notifications, options;
+; var i, len, notification, notifications, options;
 
-BLUEPRINT.notification = function(el, status, options) {
+BLUEPRINT.notification = function (el, status, options) {
     var deleteBtn, deleteNotification;
     if (options.deletable === void 0 || options.deletable !== false) {
         deleteBtn = el.querySelector('.delete');
-        deleteNotification = function(e) {
+        deleteNotification = function (e) {
             e.preventDefault();
             e.stopPropagation();
             el.parentNode.removeChild(el);
@@ -257,9 +257,9 @@ if (!BLUEPRINT.isReady) {
         }
     }
 }
-;var i, j, len, len1, tab, tabs, target, targets;
+; var i, j, len, len1, tab, tabs, target, targets;
 
-BLUEPRINT.toggleTab = function(el) {
+BLUEPRINT.toggleTab = function (el) {
     var i, l, len, links;
     links = el.target.parentNode.parentNode;
     links = links.querySelectorAll('li');
@@ -362,18 +362,46 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
+// Custom dropdown code for mobile browsers
+const dropdowns = getAll('.bp-dropdown.is-hoverable');
+if (dropdowns.length > 0) {
+    dropdowns.forEach((dropdown) => {
+        const dropdownMenu = document.getElementById("dropdown-menu");
+        const [dropdownTrigger] = dropdown.getElementsByClassName("bp-dropdown-button");
+        if (dropdownMenu && dropdownTrigger) {
+            dropdownTrigger.onclick = () => {
+                dropdownMenu.classList.toggle("hide");
+            };
+            document.addEventListener("click", (evt) => {
+                let targetElement = evt.target; // clicked element
+
+                do {
+                    if (targetElement == dropdownMenu || targetElement == dropdownTrigger) {
+                        return;
+                    }
+                    // Go up the DOM
+                    targetElement = targetElement.parentNode;
+                } while (targetElement);
+
+                // This is a click outside.
+                dropdownMenu.classList.add("hide");
+            });
+        }
+    });
+}
+
 // Functions
 function getAll(selector) {
     return Array.prototype.slice.call(document.querySelectorAll(selector), 0);
 }
 
-$(document).ready(function(){
+$(document).ready(function () {
     var masthead_container = $('.masthead-container');
     var searchToggle = $('#search-activate');
     var searchIcon = $('#search-activate span');
     var searchBar = $('.search-bar');
     var searchBar_input = $('.search-bar input');
-    searchToggle.on('click',function(e){
+    searchToggle.on('click', function (e) {
         e.preventDefault();
         searchIcon.toggleClass('sgds-icon-search').toggleClass('sgds-icon-cross');;
         searchBar.toggleClass('hide');
