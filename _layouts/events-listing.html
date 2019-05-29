@@ -1,0 +1,139 @@
+---
+layout: default
+---
+
+<section class="bp-section is-small bp-section-pagetitle">
+    <div class="bp-container">
+        {%- include header-breadcrumb.html -%}
+    </div>
+    <div class="bp-container ">
+        <div class="row">
+            <div class="col">
+                <h1 class="has-text-white">
+                    <b>{{ page.title }}</b>
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bp-section">
+    <div class="bp-container">
+        <div class="row is-centered is-vcentered">
+            <div class="col is-6">
+                <div class="bp-dropdown">
+                    <div class="bp-dropdown-trigger pointer">
+                        <h2>
+                            <b>Events in March 2019 <span class="sgds-icon sgds-icon-chevron-down"></span></b>
+                        </h2>
+                    </div>
+                    <div class="bp-dropdown-menu" id="bp-dropdown-menu" role="menu">
+                        <div class="bp-dropdown-content has-text-weight-bold" style="border-top: 3px solid #4372d6;">
+                            <div class="row padding--left--lg padding--right--lg padding--top has-text-centered">
+                                <div class="col is-1 is-offset-3">
+                                    <p><span class="sgds-icon sgds-icon-chevron-left"></span></p>
+                                </div>
+                                <div class="col is-2 is-offset-1">
+                                    <p>2019</p>
+                                </div>
+                                <div class="col is-1 is-offset-1">
+                                    <p><span class="sgds-icon sgds-icon-chevron-right"></span></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col is-4 has-text-centered padding--none">
+                                    <a id="month1" class="bp-button is-text is-fullwidth padding--left--none padding--right--none">January</a>
+                                </div>
+                                <div class="col is-4 has-text-centered padding--none">
+                                    <a id="month2" class="bp-button is-text is-fullwidth padding--left--none padding--right--none">February</a>
+                                </div>
+                                <div class="col is-4 has-text-centered padding--none">
+                                    <a id="month3" class="bp-button is-text is-fullwidth padding--left--none padding--right--none">March</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col is-4 has-text-centered padding--none">
+                                    <a id="month4" class="bp-button is-text is-fullwidth padding--left--none padding--right--none">April</a>
+                                </div>
+                                <div class="col is-4 has-text-centered padding--none">
+                                    <a id="month5" class="bp-button is-text is-fullwidth padding--left--none padding--right--none">May</a>
+                                </div>
+                                <div class="col is-4 has-text-centered padding--none">
+                                    <a id="month6" class="bp-button is-text is-fullwidth padding--left--none padding--right--none">June</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col is-4 has-text-centered padding--none">
+                                    <a id="month7" class="bp-button is-text is-fullwidth padding--left--none padding--right--none">July</a>
+                                </div>
+                                <div class="col is-4 has-text-centered padding--none">
+                                    <a id="month8" class="bp-button is-text is-fullwidth padding--left--none padding--right--none">August</a>
+                                </div>
+                                <div class="col is-4 has-text-centered padding--none">
+                                    <a id="month9" class="bp-button is-text is-fullwidth padding--left--none padding--right--none">September</a>
+                                </div>
+                            </div>
+                            <div class="row padding--bottom">
+                                <div class="col is-4 has-text-centered padding--none">
+                                    <a id="month10" class="bp-button is-text is-fullwidth padding--left--none padding--right--none">October</a>
+                                </div>
+                                <div class="col is-4 has-text-centered padding--none">
+                                    <a id="month11" class="bp-button is-text is-fullwidth padding--left--none padding--right--none">November</a>
+                                </div>
+                                <div class="col is-4 has-text-centered padding--none">
+                                    <a id="month12" class="bp-button is-text is-fullwidth padding--left--none padding--right--none">December</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col is-4 is-offset-2" style="font-size: 24px;">
+                <div>
+                    <div class="row is-mobile is-gapless">
+                        <div class="col is-5">
+                            <a id="events-previous-button" class="media-category-button">Previous</a>
+                        </div>
+                        <div class="col is-6 is-offset-1">
+                            <a id="events-comingup-button" class="media-category-button selected">Coming Up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row is-multiline">
+            {%- for event in site.events -%}
+            <div class="col is-one-third-widescreen is-half-desktop is-half-tablet">
+                <a href="{{- event.permalink -}}">
+                    <div class="bp-card">
+                        <div class="bp-card-image">
+                            <img
+                                src="{{- event.image -}}"
+                                alt="Banner image for {{- event.title -}}"
+                                style="width:100%;height:100%;"
+                            />
+                        </div>
+                        <div class="row is-mobile bp-card-content">
+                            <div class="col is-3 has-text-centered">
+                                <p class="padding--top bp-menu-list"><small>{{- event.start | date: "%b" -}}</small></p>
+                                <p class="has-text-secondary has-text-weight-bold bp-menu-list">{{- event.start | date: "%-d" -}}</p>
+                            </div>
+                            <div class="col is-9">
+                                <h5 class="margin--bottom--sm"><b>{{- event.title -}}</b></h5>
+                                <small>{{- event.address | join: "</small><br /><small>" -}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {%- endfor -%}
+        </div>
+    </div>
+</section>
+
+<div class="search pagination padding--bottom--xl">
+    <span class="sgds-icon sgds-icon-arrow-left is-size-4"></span>
+    {%- comment -%} To insert page selectors {%- endcomment -%}
+    <div id="paginator-pages"></div>
+    <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span>
+</div>

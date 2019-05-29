@@ -1,0 +1,82 @@
+---
+layout: default
+---
+
+<section class="bp-section is-small bp-section-pagetitle">
+    <div class="bp-container">
+        {%- include header-breadcrumb.html -%}
+    </div>
+    <div class="bp-container ">
+        <div class="row">
+            <div class="col">
+                <h1 class="has-text-white">
+                    <b>{{ page.title }}</b>
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bp-section">
+    <div class="bp-container">
+        <div class="row is-gapless">
+            <div class="col is-8">
+                <img
+                    src="{{- page.image -}}"
+                    alt="Banner image for {{- page.title -}}"
+                    style="height:100%; width:100%;"
+                />
+            </div>
+            <div class="col is-4 is-position-relative" style="background-color: #ebe8ef">
+                <div class="row">
+                    <div class="col is-3 has-text-centered">
+                        <p class="padding--top bp-menu-list"><small>{{- page.start | date: "%b" -}}</small></p>
+                        <p class="has-text-secondary has-text-weight-bold bp-menu-list">{{- page.start | date: "%-d" -}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col is-12">
+                        <p class="has-text-weight-bold padding--left--lg padding--right--lg is-size-3">{{- page.title -}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="position:absolute;bottom:10%;width:100%;">
+                        <div style="display:flex;justify-content:center;">
+                            <div><a class="bp-button is-primary is-large has-text-weight-semibold">Register Now</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col is-8 padding--lg">
+                {{- content -}}
+            </div>
+            <div class="col is-4 padding--lg">
+                <div class="row">
+                    <div class="col is-1">
+                        <p><span class="sgds-icon sgds-icon-clock"></span></p>
+                    </div>
+                    <div class="col is-11">
+                        <p class="has-text-weight-bold">
+                            {{- page.start | date: "%a, %b %-d, %l:%M%P" }}
+                            {%- if page.end %}
+                                - {{ page.end | date: "%a, %b %-d, %l:%M%P" -}}
+                            {%- endif -%}
+                        </p>
+                        <p class="has-text-grey">3 days from now</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col is-1">
+                        <p><span class="sgds-icon sgds-icon-place"></span></p>
+                    </div>
+                    <div class="col is-11">
+                        <p class="has-text-weight-bold">{{- page.address | join: "</p><p class='has-text-grey'>" -}}</p>
+                        <p class="padding--top"><a href="https://maps.google.com/maps?q={{ page.address | join: "+" | replace: " ", "+" }}" target="_blank">View Map</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,8 +1,12 @@
 ---
-layout: events-listing
-permalink: /events/
-breadcrumb: Events
-title: Events
+layout: event
+permalink: /events/test-event-2/
+image: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F60116727%2F188368147152%2F1%2Foriginal.20190410-071406?w=512&amp;auto=compress&amp;rect=28%2C0%2C8984%2C4492&amp;s=afceb3dd8236774e492a07659577a09e"
+start: 2019-05-04 13:40
+end: 2019-05-04 15:20
+address: Test Street
+breadcrumb: Test Event 2
+title: Test Event 2
 ---
 The `layout` of this page is `simple-page`. Below is a set of accordions that is in the markdown itself.
 

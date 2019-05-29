@@ -48,6 +48,8 @@ collections:
     output: true
   products-and-services:
     output: true
+  events:
+    output: true
 
 # Resource Room and Pagination
 resources_name: "resource_room"
