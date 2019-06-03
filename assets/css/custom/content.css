@@ -1,0 +1,191 @@
+.content:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+.content li + li {
+    margin-top: 0.25em;
+}
+.content a {
+    color: #4372d6;
+    /*text-decoration: underline;*/
+    margin-bottom: 2rem;
+}
+.content a:hover {
+    color: #3a79ff;
+}
+.content p,
+.content li,
+.content center {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    line-height: 2.2rem;
+}
+.content p:last-child {
+    margin-bottom: 0rem;
+}
+.content p:not(:last-child),
+.content dl:not(:last-child),
+.content ol:not(:last-child),
+.content ul:not(:last-child),
+.content blockquote:not(:last-child),
+.content pre:not(:last-child),
+.content table:not(:last-child) {
+    margin-bottom: 1em;
+}
+.content code {
+    color: #767676;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5 {
+    color: #6b4370;
+    margin-top: 3.75rem;
+    margin-bottom: 0.75rem;
+}
+.content h6 {
+    margin-top: 3.75rem;
+    margin-bottom: 0.75rem;
+}
+.content strong {
+    color: #484848;
+}
+.content h1:first-child,
+.content h2:first-child,
+.content h3:first-child,
+.content h4:first-child,
+.content h5:first-child,
+.content p:first-child {
+    margin-top: 0rem;
+}
+.content blockquote {
+    background-color: white;
+    border-left: 2px solid #6b4370;
+    padding: 0 0 0 2rem;
+}
+.content blockquote > p {
+    color: #6b4370;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    margin-bottom: 0rem;
+}
+.content blockquote > ul {
+    padding-top: 0rem;
+    color: #6b4370;
+}
+.content ol {
+    list-style: decimal outside;
+    font-size: 1.2rem;
+    margin-left: 1.25rem;
+    margin-top: 1em;
+    line-height: 2.2rem;
+}
+.content ul {
+    list-style: disc outside;
+    margin-left: 2rem;
+    margin-top: 0.5rem;
+}
+.content ul ul {
+    list-style-type: circle;
+    margin-top: 0.5em;
+}
+.content ul ul ul {
+    list-style-type: square;
+}
+.content ol > li,
+.content ul > li {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.content ul > li:last-child {
+    margin-bottom: 2rem;
+}
+.content li > ul {
+    margin-top: 2rem;
+}
+.content dd {
+    margin-left: 2em;
+}
+.content img {
+    display: block;
+    margin: auto;
+    width: 100%;
+}
+.content figure {
+    margin-left: 2em;
+    margin-right: 2em;
+    text-align: center;
+}
+.content figure:not(:first-child) {
+    margin-top: 2em;
+}
+.content figure:not(:last-child) {
+    margin-bottom: 2em;
+}
+.content figure img {
+    display: block;
+    margin: auto;
+    width: 100%;
+}
+.content figure figcaption {
+    font-style: italic;
+}
+.content pre {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    padding: 1.25em 1.5em;
+    white-space: pre;
+    word-wrap: normal;
+}
+.content sup,
+.content sub {
+    font-size: 75%;
+}
+.content table {
+    width: 100%;
+}
+.content table td,
+.content table th {
+    border: 1px solid #d6d6d6;
+    border-width: 0 0 1px;
+    padding: 0.5em 0.75em;
+    vertical-align: top;
+}
+.content table th {
+    color: #323232;
+    text-align: left;
+}
+.content table thead td,
+.content table thead th {
+    border-width: 0 0 2px;
+    color: #323232;
+}
+.content table tfoot td,
+.content table tfoot th {
+    border-width: 2px 0 0;
+    color: #323232;
+}
+.content table tbody tr:last-child td,
+.content table tbody tr:last-child th {
+    border-bottom-width: 0;
+}
+.content.is-small {
+    font-size: 0.75rem;
+}
+.content.is-medium {
+    font-size: 1.25rem;
+}
+.content.is-large {
+    font-size: 1.5rem;
+}
+.content .person-info p {
+    line-height: 1.5rem;
+}
+.content .person-info small {
+    line-height: 1.7rem;
+}
+.content .person-info a {
+    line-height: 2.3rem;
+}

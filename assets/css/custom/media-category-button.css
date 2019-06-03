@@ -1,0 +1,12 @@
+.media-category-button {
+    text-decoration: none !important;
+    color: #323232;
+    margin-right: 2.5rem;
+    /*letter-spacing: 0.5px;*/
+    /*line-height: 34px;*/
+}
+.media-category-button:hover,
+.media-category-button.selected {
+    color: #6b4370;
+    /*border-bottom: 2px solid #6b4370;*/
+}
