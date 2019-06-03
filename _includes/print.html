@@ -1,46 +1,34 @@
 <div class="col is-1 has-float-btns is-position-relative is-hidden-touch">
     <div class="float-buttons">
         <div class="actionbar__inner">
-            <button class="bp-button" id="print-button">
+            <button class="sgds-button" id="print-button">
               <i 
-              class="sgds-icon sgds-icon-print is-size-4">
+              class="sgds-icon sgds-icon-print is-size-7">
               </i>
             </button>
         </div>
         <div class="actionbar__inner padding--top--sm">
-            <button class="bp-button" id="copy-link">
+            <button class="sgds-button" id="copy-link">
               <i 
-              class="sgds-icon sgds-icon-link is-size-4">
+              class="sgds-icon sgds-icon-link is-size-7">
               </i>
             </button>
             <input id="page-url" type="text" class="hide" value="{{page.url|absolute_url}}">
             {%- comment -%} The only cross-browser compatible way to copy the current page url into a clipboard is to store it in a hidden input box {%- endcomment -%}
         </div>
         <div class="actionbar__inner padding--top--sm">
-            <a href="mailto:?Subject={{page.title}}&amp;Body= {{page.url|absolute_url}}">
-            <button class="bp-button">
-            <i 
-              class="sgds-icon sgds-icon-mail is-size-4">
-            </i>
-            </button>
+            <a class="sgds-button" href="mailto:?Subject={{page.title}}&amp;Body= {{page.url|absolute_url}}">
+                <i class="sgds-icon sgds-icon-mail is-size-7"></i>
             </a>
         </div>
         <div class="actionbar__inner padding--top--sm">
-            <a href="http://www.facebook.com/sharer.php?u={{page.url|absolute_url|escape}}" target="_blank">
-            <button class="bp-button">
-              <i 
-              class="sgds-icon sgds-icon-facebook-alt is-size-4">
-              </i>
-            </button>
+            <a href="http://www.facebook.com/sharer.php?u={{page.url|absolute_url|escape}}" class="sgds-button" target="_blank">
+                <i class="sgds-icon sgds-icon-facebook-alt is-size-7"></i>
             </a>
         </div>
         <div class="actionbar__inner padding--top--sm">
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{page.url|absolute_url|escape}}&title={{page.title}}" target="_blank">
-            <button class="bp-button">
-              <i 
-              class="sgds-icon sgds-icon-linkedin-alt is-size-4">
-              </i>
-            </button>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{page.url|absolute_url|escape}}&title={{page.title}}" class="sgds-button" target="_blank">
+              <i class="sgds-icon sgds-icon-linkedin-alt is-size-7"></i>
             </a>
         </div>
     </div>

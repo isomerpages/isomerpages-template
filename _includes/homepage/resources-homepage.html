@@ -1,13 +1,13 @@
 {%- assign homepage = site.data.homepage -%}
 
-<section class="bp-section bg-newssection">
-    <div class="bp-container">
+<section class="sgds-section bg-newssection" style="background-color:#f0f4f6">
+    <div class="sgds-container">
         <div class="row">
             <div class="col is-half is-offset-one-quarter has-text-centered padding--top--lg">
                 <p class="padding--bottom eyebrow is-uppercase">
                     {{- homepage.resources-title -}}
                 </p>
-                <h1 class="has-text-secondary padding--bottom"><b>{{- homepage.resources-subtitle -}}</b></h1>
+                <h3 class="has-text-secondary padding--bottom"><b>{{- homepage.resources-subtitle -}}</b></h3>
             </div>
         </div>
         <div class="row padding--bottom">
@@ -53,21 +53,34 @@
                     {%- else -%}
                         <a href="{{- post.file_url | relative_url -}}" class="is-media-card" target="_blank" rel="noreferrer">
                     {%- endif -%}
-
-                    <div class="media-card-plain bg-media-color-{{category_index}} padding--lg">
-                        <div>
-                            <small class="has-text-white padding--bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</small>
-                            <h4 class="has-text-white padding--bottom--lg" style="line-height: 2.25rem"><b>{{- post.title | truncatewords: 15 -}}</b></h4>
+                        <div class="sgds-card bg-media-color-{{category_index}}">
+                            <div class="sgds-card-content has-text-white padding-lg">
+                                <header>
+                                    <p class="padding--bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</p>
+                                    <h5 class="has-text-weight-bold">{{- post.title | truncatewords: 15 -}}</h5>
+                                </header>
+                                <footer style="display:flex; justify-content: space-between">
+                                    {{- post.date | date_to_string | upcase -}}
+                                    {%- if post.file_url -%}
+                                        <span class="sgds-icon sgds-icon-download align-right is-size-7"></span>
+                                    {%- endif -%}
+                                </footer>
+                            </div>
                         </div>
-                        <div class="is-fluid padding--top--md description">
-                            <small class="has-text-white">{{- post.date | date_to_string | upcase -}}</small>
-                            {%- if post.file_url -%}
-                                <small class="has-text-white">
-                                    <span class="sgds-icon sgds-icon-download align-right is-size-4"></span>
-                                </small>
-                            {%- endif -%}
-                        </div>
-                    </div>
+<!--                    <div class="media-card-plain bg-media-color-{{category_index}} padding&#45;&#45;lg">-->
+<!--                        <div>-->
+<!--                            <small class="has-text-white padding&#45;&#45;bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</small>-->
+<!--                            <h4 class="has-text-white padding&#45;&#45;bottom&#45;&#45;lg" style="line-height: 2.25rem"><b>{{- post.title | truncatewords: 15 -}}</b></h4>-->
+<!--                        </div>-->
+<!--                        <div class="is-fluid padding&#45;&#45;top&#45;&#45;md description">-->
+<!--                            <small class="has-text-white">{{- post.date | date_to_string | upcase -}}</small>-->
+<!--                            {%- if post.file_url -%}-->
+<!--                                <small class="has-text-white">-->
+<!--                                    <span class="sgds-icon sgds-icon-download align-right is-size-4"></span>-->
+<!--                                </small>-->
+<!--                            {%- endif -%}-->
+<!--                        </div>-->
+<!--                    </div>-->
                     </a>
                 {%- endif -%}
             </div>
@@ -75,12 +88,10 @@
         </div>
         <div class="row has-text-centered margin--top padding--bottom--lg">
             <div class="col is-offset-one-third is-one-third">
-                <a href="{{- homepage.resources-more-button-url -}}" class="bp-sec-button">
-                    <div>
-                        <span>{{- homepage.resources-more-button -}}</span>
-                        <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                    </div>
+                <a href="{{- homepage.resources-more-button-url -}}" class="sgds-sec-button is-medium">
+                    <span>{{- homepage.resources-more-button -}}</span>
                 </a>
+
             </div>
         </div>
     </div>

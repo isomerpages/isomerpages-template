@@ -1,13 +1,13 @@
 {%- if site.is_government == false -%}
-<section class="bp-section bp-masthead is-invisible">
+<div class="sgds-masthead is-invisible">
 {%- else -%}
-<section class="bp-section bp-masthead">
+<div class="sgds-masthead">
 {%- endif -%}
-    <div class="bp-container ">
-        <div class="row is-multiline is-vcentered">
-            <div class="col is-9-desktop is-12-touch has-text-centered-touch">
+    <div class="sgds-container">
+        <div class="row">
+            <div class="col has-text-centered-touch">
                 <a href="https://www.gov.sg" alt="Singapore Government" target="_blank" rel="noreferrer">
-                    <span class="sgds-icon sgds-icon-sg-crest is-size-5" style="color:red"></span>
+                    <span class="sgds-icon sgds-icon-sg-crest"></span>
                     <span class="is-text">
                         A Singapore Government Agency Website
                         {%- if jekyll.environment == "staging" -%}
@@ -18,4 +18,4 @@
             </div>
         </div>
     </div>
-</section>
+</div>

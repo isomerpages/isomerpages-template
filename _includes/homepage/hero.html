@@ -11,9 +11,9 @@
 {%- assign collection-name = page.collection_name -%}
 {%- assign current-collection = site[collection-name] -%}
 
-<section class="bp-hero bg-hero">
-    <div class="bp-hero-body">
-        <div class="bp-container margin--top--lg">
+<section class="sgds-hero bg-hero">
+    <div class="sgds-hero-body">
+        <div class="sgds-container margin--top--lg">
             <div class="row is-vcentered is-centered ma">
                 <div class="col is-9 has-text-centered has-text-white">
                   <h1 class="display padding--bottom--lg margin--none">
@@ -25,28 +25,28 @@
                   </p>
                   {%- if site.homepage_hero_i_want_to == false -%}
                   {%- for button in homepage.button -%}
-                  <a href="{{- site.baseurl -}}{{- button.url -}}" class="bp-button is-secondary is-uppercase search-button">{{- button.text}}</a>
+                  <a href="{{- site.baseurl -}}{{- button.url -}}" class="sgds-button is-secondary is-uppercase search-button">{{- button.text -}}</a>
                   {%- endfor -%}
                   {%- endif -%}
                   {%- if site.homepage_hero_i_want_to == true -%}
-                    <div class="bp-dropdown margin--top--sm">
-                      <div class="bp-dropdown-trigger">
-                          <a class="bp-button bp-dropdown-button hero-dropdown is-centered" aria-haspopup="true" aria-controls="hero-dropdown-menu">
+                    <div class="sgds-dropdown margin--top--sm is-fullwidth is-menu-centered">
+                      <div class="sgds-dropdown-trigger">
+                          <a class="sgds-button hero-dropdown is-medium is-centered" aria-haspopup="true" aria-controls="hero-dropdown-menu">
                               {%- if homepage.hero-dropdown-text -%}
                                 <span><b><p>{{- homepage.hero-dropdown-text -}}</p></b></span>
                               {%- else -%}
                                 <span><b><p>I want to...</p></b></span>
                               {%- endif -%}
-                              <span class="icon is-small">
-                                  <i class="sgds-icon sgds-icon-chevron-down is-size-4" aria-hidden="true"></i>
+                              <span class="icon">
+                                  <i class="sgds-icon sgds-icon-chevron-down" aria-hidden="true"></i>
                               </span>
                           </a>
                       </div>
-                      <div class="bp-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
-                          <div class="bp-dropdown-content is-centered">
+                      <div class="sgds-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
+                          <div class="sgds-dropdown-content is-centered">
                             {%- for element in homepage.i-want-to -%}
-                            <a class="bp-dropdown-item" href="{{- site.baseurl -}}{{element.url}}">
-                                <h5>{{element.title}}</h5>
+                            <a class="sgds-dropdown-item" href="{{- site.baseurl -}}{{element.url}}">
+                                <h6>{{element.title}}</h6>
                             </a>
                             {%- endfor -%}
                           </div>
@@ -59,8 +59,8 @@
     </div>
 </section>
 {%- if site.homepage_hero_i_want_to == false -%}
-<section id="key-highlights" class="bp-section is-paddingless">
-    <div class="bp-container">
+<section id="key-highlights" class="sgds-section is-paddingless">
+    <div class="sgds-container">
        <div class="row is-gapless has-text-centered">
           {%- for link in homepage.key-highlights limit:4 -%}
           <div class="col">
