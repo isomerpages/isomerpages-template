@@ -2,11 +2,11 @@
 layout: default
 ---
 
-<section class="bp-section is-small bp-section-pagetitle">
-    <div class="bp-container">
+<section class="sgds-section is-small sgds-section-pagetitle">
+    <div class="sgds-container">
         {%- include header-breadcrumb.html -%}
     </div>
-    <div class="bp-container ">
+    <div class="sgds-container ">
         <div class="row">
             <div class="col">
                 <h1 class="has-text-white"><b>{{page.title}}</b></h1>
@@ -16,11 +16,12 @@ layout: default
 </section>
 
 {%- comment -%} Resource category buttons {%- endcomment -%}
-<section class="bp-section is-small padding--bottom--none">
-    <div class="bp-container padding--top">
+<section class="sgds-section is-small padding--bottom--none">
+    <div class="sgds-container padding--top">
         <div class="row">
-            <div class="col is-three-quarters-desktop is-fullwidth bp-overflow-buttons padding--left--none padding--right--none">
-                <div class="bp-buttons">
+            <div class="col is-9 sgds-overflow-buttons is-flex">
+
+                <div class="sgds-buttons margin--bottom--none">
                     {%- if site.data.resources -%}
                         {%- assign categories = site.data.resources.categories -%}
                     {%- else -%}
@@ -44,42 +45,61 @@ layout: default
 
                         {%- assign page_url_no_whitespace =  page.url -%}
 
-
-                        <span class="bp-sec-button">
                             {%- if category_name == site.resources_name -%}
                                 {%- if page_url_no_whitespace == category_url -%}
-                                    <a href="{{site.baseurl}}/{{site.resources_name}}/" class="is-uppercase media-category-button selected"><b>ALL</b></a>
+                                    <a href="{{site.baseurl}}/{{site.resources_name}}/" class="sgds-sec-button is-uppercase is-not-underlined is-active media-category-button">
+                                        <span>
+                                            <b>ALL</b>
+                                        </span>
+                                    </a>
+<!--                                    <a href="{{site.baseurl}}/{{site.resources_name}}/" class="is-uppercase media-category-button selected"><b>ALL</b></a>-->
                                 {%- else -%}
-                                    <a href="{{site.baseurl}}/{{site.resources_name}}/" class="is-uppercase media-category-button"><b>ALL</b></a>
+                                    <a href="{{site.baseurl}}/{{site.resources_name}}/" class="sgds-sec-button is-uppercase is-not-underlined media-category-button">
+                                        <span>
+                                            <b>ALL</b>
+                                        </span>
+                                    </a>
+<!--                                    <a href="{{site.baseurl}}/{{site.resources_name}}/" class="is-uppercase media-category-button"><b>ALL</b></a>-->
                                 {%- endif -%}
                             {%- else -%}
                                 {%- if page_url_no_whitespace == category_url -%}
-                                    <a href="{{site.baseurl}}/{{site.resources_name}}/{{category_name}}/" class="is-uppercase media-category-button selected"><b>{{category_name | replace: '-', ' '}}</b></a>
+                                    <a href="{{site.baseurl}}/{{site.resources_name}}/{{category_name}}/" class="sgds-sec-button is-uppercase is-not-underlined is-active media-category-button">
+                                        <span>
+                                            <b>{{category_name | replace: '-', ' '}}</b>
+                                        </span>
+                                    </a>
+<!--                                    <a href="{{site.baseurl}}/{{site.resources_name}}/{{category_name}}/" class="is-uppercase media-category-button selected"><b>{{category_name | replace: '-', ' '}}</b></a>-->
                                 {%- else -%}
-                                    <a href="{{site.baseurl}}/{{site.resources_name}}/{{category_name}}/" class="is-uppercase media-category-button"><b>{{category_name | replace: '-', ' '}}</b></a>
+                                    <a href="{{site.baseurl}}/{{site.resources_name}}/{{category_name}}/" class="sgds-sec-button is-uppercase is-not-underlined media-category-button">
+                                        <span>
+                                            <b>{{category_name | replace: '-', ' '}}</b>
+                                        </span>
+                                    </a>
+<!--                                    <a href="{{site.baseurl}}/{{site.resources_name}}/{{category_name}}/" class="is-uppercase media-category-button"><b>{{category_name | replace: '-', ' '}}</b></a>-->
                                 {%- endif -%}
                             {%- endif -%}
-                        </span>
-
                     {%- endfor -%}
-                </div>
-            </div>
 
-            {%- comment -%} Display filter for desktop {%- endcomment -%}
-            <div class="col is-one-quarter padding--top padding--left padding--right--sm is-hidden-touch">
-                <div class="filter-selector-div bp-dropdown">
-                    <a class="bp-dropdown-button hero-dropdown is-centered padding--none" aria-haspopup="true" aria-controls="hero-dropdown-menu">
-                    <div class="bp-dropdown-trigger">
-                        <span class="sgds-icon sgds-icon-chevron-down is-size-4 has-text-black" id="filter-arrow"></span>
-                        <div class="sgds-selector has-text-black" id="sgds-selector-text-desktop">Recent</div>
-                    </div>
-                    </a>
-                    <div class="bp-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
-                      <div id="year-filter-desktop" class="bp-dropdown-content is-centered">
-                        <a class="bp-dropdown-item padding--top--sm padding--bottom--none" id="apply-filter-recent">
-                            <p>Recent</p>
+                </div>
+
+
+            </div>
+            <div class="col">
+                {%- comment -%} Display filter for desktop {%- endcomment -%}
+
+                <div class="sgds-dropdown is-fullwidth is-right is-hidden-touch" style="margin-left:auto;">
+                    <div class="sgds-dropdown-trigger">
+                        <a class="sgds-button is-medium hero-dropdown has-text-left" aria-haspopup="true" aria-controls="hero-dropdown-menu">
+                            <div class="sgds-selector has-text-black" id="sgds-selector-text-desktop">Recent</div>
+                            <span class="sgds-icon sgds-icon-chevron-down has-text-black"></span>
                         </a>
-                      </div>
+                    </div>
+                    <div class="sgds-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
+                        <div id="year-filter-desktop" class="sgds-dropdown-content is-centered">
+                            <a class="sgds-dropdown-item padding--top--sm padding--bottom--none" id="apply-filter-recent">
+                                <p>Recent</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -88,7 +108,7 @@ layout: default
             {%- comment -%} Display filter for mobile and tablet {%- endcomment -%}
             <div class="col is-fullwidth padding--top--lg is-hidden-desktop">
                 <div class="filter-selector-div is-hidden-desktop">
-                    <span class="sgds-icon sgds-icon-chevron-down is-size-4" id="filter-arrow"></span>
+                    <span class="sgds-icon sgds-icon-chevron-down" id="filter-arrow"></span>
                     <select id="year-filter-mobile" class="sgds-selector">
                         <option value="Recent">Recent</option>
                     </select>
@@ -99,8 +119,8 @@ layout: default
 </section>
 
 {%- comment -%} Posts {%- endcomment -%}
-<section class="bp-section is-small">
-    <div class="bp-container padding--top padding--bottom--xl">
+<section class="sgds-section is-small">
+    <div class="sgds-container padding--top padding--bottom--xl">
         <div class="row is-multiline">
             {%- for post in site.posts -%}
                 {%- if post.categories[1] == ' ' -%}
@@ -142,18 +162,30 @@ layout: default
                     {%- else -%}
                         <a href="{{- post.file_url | relative_url -}}" class="is-media-card" target="_blank">
                     {%- endif -%}
-                    <div class="media-card-plain bg-media-color-{{category_index}} padding--lg">
-                        <div>
-                            <small class="has-text-white padding--bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</small>
-                            <h5 class="has-text-white padding--bottom--lg"><b>{{- post.title | truncatewords: 15 -}}</b></h5>
-                        </div>
-                        <div class="is-fluid padding--top--md description">
-                            <small class="has-text-white">{{- post.date | date_to_string | upcase -}}</small>
-                            {%- if post.file_url -%}
-                                <small class="has-text-white">
-                                    <span class="sgds-icon sgds-icon-download align-right is-size-4"></span>
-                                </small>
-                            {%- endif -%}
+                    <div class="sgds-card bg-media-color-{{category_index}}">
+                        <div class="sgds-card-content has-text-white padding--lg">
+                            <header>
+                                <p class="has-text-white padding--bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</p>
+                                <h6 class="has-text-white padding--bottom--lg"><b>{{- post.title | truncatewords: 15 -}}</b></h6>
+                            </header>
+                            <footer style="display:flex; justify-content: space-between">
+                                {{- post.date | date_to_string | upcase -}}
+                                {%- if post.file_url -%}
+                                <span class="sgds-icon sgds-icon-download align-right is-size-7"></span>
+                                {%- endif -%}
+                            </footer>
+<!--                        <div>-->
+<!--                            <small class="has-text-white padding&#45;&#45;bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</small>-->
+<!--                            <h5 class="has-text-white padding&#45;&#45;bottom&#45;&#45;lg"><b>{{- post.title | truncatewords: 15 -}}</b></h5>-->
+<!--                        </div>-->
+<!--                        <div class="is-fluid padding&#45;&#45;top&#45;&#45;md description">-->
+<!--                            <small class="has-text-white">{{- post.date | date_to_string | upcase -}}</small>-->
+<!--                            {%- if post.file_url -%}-->
+<!--                                <small class="has-text-white">-->
+<!--                                    <span class="sgds-icon sgds-icon-download align-right is-size-4"></span>-->
+<!--                                </small>-->
+<!--                            {%- endif -%}-->
+<!--                        </div>-->
                         </div>
                     </div>
                     </a>
@@ -166,8 +198,8 @@ layout: default
 
 
 <div class="search pagination padding--bottom--xl">
-    <span class="sgds-icon sgds-icon-arrow-left is-size-4"></span>
+    <span class="sgds-icon sgds-icon-arrow-left is-size-6"></span>
     {%- comment -%} To insert page selectors {%- endcomment -%}
     <div id="paginator-pages"></div>
-    <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span>
+    <span class="sgds-icon sgds-icon-arrow-right is-size-6"></span>
 </div>

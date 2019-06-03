@@ -2,11 +2,11 @@
 layout: default
 ---
 
-<section class="bp-section is-small bp-section-pagetitle">
-    <div class="bp-container">
+<section class="sgds-section is-small sgds-section-pagetitle">
+    <div class="sgds-container">
         {%- include header-breadcrumb.html -%}
     </div>
-    <div class="bp-container ">
+    <div class="sgds-container ">
         <div class="row">
             <div class="col">
                 <h1 class="has-text-white"><b>{{page.title}}</b></h1>
@@ -47,11 +47,11 @@ layout: default
 {%- endfor -%}
 
 {%- comment -%} Resource category buttons {%- endcomment -%}
-<section class="bp-section is-small padding--bottom--none">
-    <div class="bp-container padding--top">
+<section class="sgds-section is-small padding--bottom--none">
+    <div class="sgds-container padding--top">
         <div class="row">
-            <div class="col is-three-quarters-desktop is-fullwidth bp-overflow-buttons padding--left--none padding--right--none">
-                <div class="bp-buttons">
+            <div class="col is-three-quarters-desktop is-fullwidth sgds-overflow-buttons padding--left--none padding--right--none">
+                <div class="sgds-buttons">
                     {%- if site.data.resources -%}
                         {%- assign categories = site.data.resources.categories -%}
                     {%- else -%}
@@ -73,7 +73,7 @@ layout: default
                             {%- endif -%}
                         {%- endcapture -%}
 
-                        <span class="bp-sec-button">
+                        <span class="sgds-sec-button">
                             {%- if category_name == site.resources_name -%}
                                     <a href="{{site.baseurl}}/{{site.resources_name}}/" class="is-uppercase media-category-button"><b>ALL</b></a>
                             {%- else -%}
@@ -91,16 +91,16 @@ layout: default
             
             {%- comment -%} Display filter for desktop {%- endcomment -%}
             <div class="col is-one-quarter padding--top padding--left padding--right--sm is-hidden-touch">
-                <div class="filter-selector-div bp-dropdown">
-                    <a class="bp-dropdown-button hero-dropdown is-centered padding--none" aria-haspopup="true" aria-controls="hero-dropdown-menu">
-                    <div class="bp-dropdown-trigger">
+                <div class="filter-selector-div sgds-dropdown">
+                    <a class="sgds-dropdown-button hero-dropdown is-centered padding--none" aria-haspopup="true" aria-controls="hero-dropdown-menu">
+                    <div class="sgds-dropdown-trigger">
                         <span class="sgds-icon sgds-icon-chevron-down is-size-4 has-text-black" id="filter-arrow"></span>
                         <div class="sgds-selector has-text-black" id="sgds-selector-text-desktop">Recent</div>
                     </div>
                     </a>
-                    <div class="bp-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
-                      <div id="year-filter-desktop" class="bp-dropdown-content is-centered">
-                        <a class="bp-dropdown-item padding--top--sm padding--bottom--none" id="apply-filter-recent">
+                    <div class="sgds-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
+                      <div id="year-filter-desktop" class="sgds-dropdown-content is-centered">
+                        <a class="sgds-dropdown-item padding--top--sm padding--bottom--none" id="apply-filter-recent">
                             <p>Recent</p>
                         </a>
                       </div>
@@ -124,8 +124,8 @@ layout: default
 
 
 {%- comment -%} Posts {%- endcomment -%}
-<section class="bp-section is-small">
-    <div class="bp-container padding--top padding--bottom--xl">
+<section class="sgds-section is-small">
+    <div class="sgds-container padding--top padding--bottom--xl">
         <div class="row is-multiline">
             {%- for post in site.posts -%}
                 {%- if post.categories[1] == ' ' -%}
@@ -150,19 +150,31 @@ layout: default
                     {%- else -%}
                         <a href="{{- post.file_url | relative_url -}}" class="is-media-card" target="_blank">
                     {%- endif -%}
-                    <div class="media-card-plain bg-media-color-{{category_index}} padding--lg">
-                        <div>
-                            <small class="has-text-white padding--bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</small>
-                            <h5 class="has-text-white"><b>{{- post.title | truncatewords: 15 -}}</b></h5>
+                    <div class="sgds-card bg-media-color-{{category_index}}">
+                        <div class="sgds-card-content has-text-white padding-lg">
+                            <header>
+                                <p class="has-text-white padding--bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</p>
+                                <h6 class="has-text-white"><b>{{- post.title | truncatewords: 15 -}}</b></h6>
+                            </header>
+                            <footer style="display:flex; justify-content: space-between">
+                                {{- post.date | date_to_string | upcase -}}
+                                {%- if post.file_url -%}
+                                <span class="sgds-icon sgds-icon-download align-right is-size-7"></span>
+                                {%- endif -%}
+                            </footer>
                         </div>
-                        <div class="is-fluid padding--top-md description">
-                            <small class="has-text-white is-inline">{{- post.date | date_to_string | upcase -}}</small>
-                            {%- if post.file_url -%}
-                                <small class="has-text-white">  
-                                    <span class="sgds-icon sgds-icon-download align-right is-size-4"></span>
-                                </small>
-                            {%- endif -%}
-                        </div>
+<!--                        <div>-->
+<!--                            <small class="has-text-white padding&#45;&#45;bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</small>-->
+<!--                            <h5 class="has-text-white"><b>{{- post.title | truncatewords: 15 -}}</b></h5>-->
+<!--                        </div>-->
+<!--                        <div class="is-fluid padding&#45;&#45;top-md description">-->
+<!--                            <small class="has-text-white is-inline">{{- post.date | date_to_string | upcase -}}</small>-->
+<!--                            {%- if post.file_url -%}-->
+<!--                                <small class="has-text-white">  -->
+<!--                                    <span class="sgds-icon sgds-icon-download align-right is-size-4"></span>-->
+<!--                                </small>-->
+<!--                            {%- endif -%}-->
+<!--                        </div>-->
                     </div>
                     </a>
                 </div>
@@ -173,8 +185,8 @@ layout: default
 </section>
 
 <div class="search pagination padding--bottom--xl">
-    <span class="sgds-icon sgds-icon-arrow-left is-size-4"></span>
+    <span class="sgds-icon sgds-icon-arrow-left is-size-6"></span>
     {%- comment -%} To insert page selectors {%- endcomment -%}
     <div id="paginator-pages"></div>
-    <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span>
+    <span class="sgds-icon sgds-icon-arrow-right is-size-6"></span>
 </div>
