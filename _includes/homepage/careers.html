@@ -21,12 +21,9 @@
     <div class="row has-text-centered margin--top padding--bottom">
         <div class="col is-offset-one-third is-one-third">
             <a href="{{- homepage.careers-more-button-url -}}" class="sgds-sec-button is-medium">
-                <div>
-                    {%- if homepage.careers-more-button -%}
-                    <span>{{- homepage.careers-more-button -}}</span>
-                    {%- endif -%}
-                    <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                </div>
+                {%- if homepage.careers-more-button -%}
+                <span>{{- homepage.careers-more-button -}}</span>
+                {%- endif -%}
             </a>
         </div>
     </div>
