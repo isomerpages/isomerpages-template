@@ -9394,8 +9394,8 @@ a.navbar-link.is-active {
 
 @font-face {
     font-family: "sgds-icons";
-    src: url("./fonts/sgds-icons.eot?#iefix") format("embedded-opentype"), url("./fonts/sgds-icons.ttf?742wbr") format("truetype"), url("./fonts/sgds-icons.woff?742wbr") format("woff"),
-        url("./fonts/sgds-icons.svg?742wbr#sgds-icons") format("svg");
+    src: url("../fonts/sgds-icons.eot?#iefix") format("embedded-opentype"), url("../fonts/sgds-icons.ttf?742wbr") format("truetype"), url("../fonts/sgds-icons.woff?742wbr") format("woff"),
+        url("../fonts/sgds-icons.svg?742wbr#sgds-icons") format("svg");
     font-weight: normal;
     font-style: normal;
 }

@@ -1,0 +1,329 @@
+/*.is-size-1 {*/
+/*    font-size: 3rem !important;*/
+/*}*/
+
+/*.is-size-2 {*/
+/*    font-size: 2.5rem !important;*/
+/*}*/
+
+/*.is-size-3 {*/
+/*    font-size: 2rem !important;*/
+/*}*/
+
+/*.is-size-4 {*/
+/*    font-size: 1.5rem !important;*/
+/*}*/
+
+/*.is-size-5 {*/
+/*    font-size: 1.25rem !important;*/
+/*}*/
+
+/*.is-size-6 {*/
+/*    font-size: 1rem !important;*/
+/*}*/
+
+/*.is-size-7 {*/
+/*    font-size: 0.75rem !important;*/
+/*}*/
+
+/*@media screen and (max-width: 768px) {*/
+/*    .is-size-1-mobile {*/
+/*        font-size: 3rem !important;*/
+/*    }*/
+
+/*    .is-size-2-mobile {*/
+/*        font-size: 2.5rem !important;*/
+/*    }*/
+
+/*    .is-size-3-mobile {*/
+/*        font-size: 2rem !important;*/
+/*    }*/
+
+/*    .is-size-4-mobile {*/
+/*        font-size: 1.5rem !important;*/
+/*    }*/
+
+/*    .is-size-5-mobile {*/
+/*        font-size: 1.25rem !important;*/
+/*    }*/
+
+/*    .is-size-6-mobile {*/
+/*        font-size: 1rem !important;*/
+/*    }*/
+
+/*    .is-size-7-mobile {*/
+/*        font-size: 0.75rem !important;*/
+/*    }*/
+/*}*/
+/*@media screen and (min-width: 769px), print {*/
+/*    .is-size-1-tablet {*/
+/*        font-size: 3rem !important;*/
+/*    }*/
+
+/*    .is-size-2-tablet {*/
+/*        font-size: 2.5rem !important;*/
+/*    }*/
+
+/*    .is-size-3-tablet {*/
+/*        font-size: 2rem !important;*/
+/*    }*/
+
+/*    .is-size-4-tablet {*/
+/*        font-size: 1.5rem !important;*/
+/*    }*/
+
+/*    .is-size-5-tablet {*/
+/*        font-size: 1.25rem !important;*/
+/*    }*/
+
+/*    .is-size-6-tablet {*/
+/*        font-size: 1rem !important;*/
+/*    }*/
+
+/*    .is-size-7-tablet {*/
+/*        font-size: 0.75rem !important;*/
+/*    }*/
+/*}*/
+/*@media screen and (max-width: 1023px) {*/
+/*    .is-size-1-touch {*/
+/*        font-size: 3rem !important;*/
+/*    }*/
+
+/*    .is-size-2-touch {*/
+/*        font-size: 2.5rem !important;*/
+/*    }*/
+
+/*    .is-size-3-touch {*/
+/*        font-size: 2rem !important;*/
+/*    }*/
+
+/*    .is-size-4-touch {*/
+/*        font-size: 1.5rem !important;*/
+/*    }*/
+
+/*    .is-size-5-touch {*/
+/*        font-size: 1.25rem !important;*/
+/*    }*/
+
+/*    .is-size-6-touch {*/
+/*        font-size: 1rem !important;*/
+/*    }*/
+
+/*    .is-size-7-touch {*/
+/*        font-size: 0.75rem !important;*/
+/*    }*/
+/*}*/
+/*@media screen and (min-width: 1024px) {*/
+/*    .is-size-1-desktop {*/
+/*        font-size: 3rem !important;*/
+/*    }*/
+
+/*    .is-size-2-desktop {*/
+/*        font-size: 2.5rem !important;*/
+/*    }*/
+
+/*    .is-size-3-desktop {*/
+/*        font-size: 2rem !important;*/
+/*    }*/
+
+/*    .is-size-4-desktop {*/
+/*        font-size: 1.5rem !important;*/
+/*    }*/
+
+/*    .is-size-5-desktop {*/
+/*        font-size: 1.25rem !important;*/
+/*    }*/
+
+/*    .is-size-6-desktop {*/
+/*        font-size: 1rem !important;*/
+/*    }*/
+
+/*    .is-size-7-desktop {*/
+/*        font-size: 0.75rem !important;*/
+/*    }*/
+/*}*/
+/*@media screen and (min-width: 1280px) {*/
+/*    .is-size-1-widescreen {*/
+/*        font-size: 3rem !important;*/
+/*    }*/
+
+/*    .is-size-2-widescreen {*/
+/*        font-size: 2.5rem !important;*/
+/*    }*/
+
+/*    .is-size-3-widescreen {*/
+/*        font-size: 2rem !important;*/
+/*    }*/
+
+/*    .is-size-4-widescreen {*/
+/*        font-size: 1.5rem !important;*/
+/*    }*/
+
+/*    .is-size-5-widescreen {*/
+/*        font-size: 1.25rem !important;*/
+/*    }*/
+
+/*    .is-size-6-widescreen {*/
+/*        font-size: 1rem !important;*/
+/*    }*/
+
+/*    .is-size-7-widescreen {*/
+/*        font-size: 0.75rem !important;*/
+/*    }*/
+/*}*/
+/*@media screen and (min-width: 1408px) {*/
+/*    .is-size-1-fullhd {*/
+/*        font-size: 3rem !important;*/
+/*    }*/
+
+/*    .is-size-2-fullhd {*/
+/*        font-size: 2.5rem !important;*/
+/*    }*/
+
+/*    .is-size-3-fullhd {*/
+/*        font-size: 2rem !important;*/
+/*    }*/
+
+/*    .is-size-4-fullhd {*/
+/*        font-size: 1.5rem !important;*/
+/*    }*/
+
+/*    .is-size-5-fullhd {*/
+/*        font-size: 1.25rem !important;*/
+/*    }*/
+
+/*    .is-size-6-fullhd {*/
+/*        font-size: 1rem !important;*/
+/*    }*/
+
+/*    .is-size-7-fullhd {*/
+/*        font-size: 0.75rem !important;*/
+/*    }*/
+/*}*/
+
+h1,
+h1 center {
+    font-family: "Lato", sans-serif;
+    font-size: 3.375rem;
+    line-height: 3.75rem;
+    letter-spacing: -1.5px;
+    word-wrap: normal;
+}
+@media screen and (max-width: 1023px) {
+    h1,
+    h1 center {
+        font-size: 3rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    h1,
+    h1 center {
+        font-size: 2.75rem;
+    }
+}
+
+h2,
+h2 center {
+    font-family: "Lato", sans-serif;
+    font-size: 2.75rem;
+    line-height: 3.75rem;
+}
+@media screen and (max-width: 1023px) {
+    h2,
+    h2 center {
+        font-size: 2rem;
+    }
+}
+
+h3,
+h3 center {
+    font-family: "Lato", sans-serif;
+    font-size: 2rem;
+    line-height: 2.8125rem;
+}
+@media screen and (max-width: 1023px) {
+    h3,
+    h3 center {
+        font-size: 1.75rem;
+    }
+}
+
+h4,
+h4 center {
+    font-family: "Lato", sans-serif;
+    font-size: 1.625rem;
+    line-height: 1.875rem;
+}
+@media screen and (max-width: 1023px) {
+    h4,
+    h4 center {
+        font-size: 1.5rem;
+    }
+}
+
+h5,
+h5 center {
+    font-family: "Lato", sans-serif;
+    font-size: 1.375rem;
+    line-height: 1.875rem;
+}
+@media screen and (max-width: 1023px) {
+    h5,
+    h5 center {
+        font-size: 1.375rem;
+    }
+}
+
+h6,
+h6 center {
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
+@media screen and (max-width: 1023px) {
+    h6,
+    h6 center {
+        font-size: 1rem;
+    }
+}
+p, li{
+    font-size: 1.25rem;
+    line-height: 2rem;
+}
+
+.sgds-menu-alt-list li{
+    font-size: 1rem;
+}
+
+.sgds-menu-alt-list a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+small{
+    font-size: 0.9375rem!important;
+    letter-spacing: 0.2px;
+}
+
+.sgds-card-content small{
+    display: block;
+}
+
+.sgds-breadcrumb li a{
+    font-size: 0.9375rem;
+    letter-spacing: 0.2px;
+}
+
+.eyebrow {
+    font-size: 1rem !important;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+table.table-v tbody td {
+    font-size: 1.25rem;
+    padding: 1.5625rem;
+    padding-bottom: 2rem;
+}

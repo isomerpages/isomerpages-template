@@ -1,22 +1,22 @@
 ---
 layout: default
 ---
-<section class="bp-section is-small search-section bp-section-pagetitle">
-	<div class="bp-container">
+<section class="sgds-section is-small search-section sgds-section-pagetitle">
+	<div class="sgds-container">
 		<div class="row">
 			<div class="col is-8 is-offset-2">
 				<p class="has-text-white">{%- include header-breadcrumb.html -%}</p>
 			</div>
 		</div>
 	</div>
-	<div class="bp-container">
+	<div class="sgds-container">
 		<div class="row">
 			<div id="search-title" class="col is-8 is-offset-2">
 		      	<h1 class="has-text-white"><b>{{- page.title -}}</b></h1>
 			</div>
 		</div>
 	</div>
-	<div class="bp-container">
+	<div class="sgds-container">
 		<form action="{{- site.baseurl -}}/search/" method="get">
 			<div class="row">
 				<div id="search-container" class="col is-8 right-padding-zero is-offset-2">
@@ -29,7 +29,7 @@ layout: default
 
               </div>
               <div class="control">
-                  <button type="submit" class="bp-button is-secondary is-medium has-text-white search-button">SEARCH</button>
+                  <button type="submit" class="sgds-button is-secondary is-medium has-text-white search-button">SEARCH</button>
               </div>
           </div>
 				</div>
@@ -37,8 +37,8 @@ layout: default
 		</form>
 	</div>
 </section>
-<section class="bp-section">
-    <div class="bp-container search-content">
+<section class="sgds-section">
+    <div class="sgds-container search-content">
     <div class="row">
 			<div id="loading-spinner" class="col is-full">
 				<div class="lds-default">
@@ -60,8 +60,8 @@ layout: default
 </section>
 
 <div class="search pagination padding--bottom--xl">
-	<span class="sgds-icon sgds-icon-arrow-left is-size-4"></span>
+	<span class="sgds-icon sgds-icon-arrow-left is-size-6"></span>
 	{%- comment -%} To insert page selectors {%- endcomment -%}
 	<div id="paginator-pages"></div>
-	<span class="sgds-icon sgds-icon-arrow-right is-size-4"></span>
+	<span class="sgds-icon sgds-icon-arrow-right is-size-6"></span>
 </div>

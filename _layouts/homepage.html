@@ -4,24 +4,35 @@ layout: default
 {%- if page.url == "/" -%}
 	{%- assign notification_content = content | strip_html | strip -%}
 	{%- if notification_content != "" -%}
-		<div id="notification-bar" class="bp-notification bg-secondary is-marginless">
-		    <div class="bp-container">
-		        <div class="row">
-		            <div class="col">
-		            	<div class="field has-addons bp-notification-flex">
-			                <div class="control has-text-centered has-text-white">
-			                    {{- content -}}
-			                </div>
-			                <div class="control">
-			        			<a id="cancel-notification" class="button has-text-white">
-							        <span class="delete sgds-icon sgds-icon-cross is-size-4"></span>
-							    </a>
-			                </div>
-						</div>
-		            </div>
-		        </div>
-		    </div>
+
+	<div id="notification-bar" class="sgds-notification margin--none bg-secondary has-text-white" >
+		<div class="sgds-container">
+			<div class="sgds-notification-detail">
+				<div class="sgds-notification-content">
+					<h6>{{- content -}}</h6>
+				</div>
+				<span class="delete" id="cancel-notification"></span>
+			</div>
 		</div>
+	</div>
+<!--		<div id="notification-bar" class="sgds-notification bg-secondary is-marginless">-->
+<!--		    <div class="sgds-container">-->
+<!--		        <div class="row">-->
+<!--		            <div class="col">-->
+<!--		            	<div class="field has-addons sgds-notification-flex">-->
+<!--			                <div class="control has-text-centered has-text-white">-->
+<!--			                    {{- content -}}-->
+<!--			                </div>-->
+<!--			                <div class="control">-->
+<!--			        			<a id="cancel-notification" class="button has-text-white">-->
+<!--							        <span class="delete sgds-icon sgds-icon-cross is-size-4"></span>-->
+<!--							    </a>-->
+<!--			                </div>-->
+<!--						</div>-->
+<!--		            </div>-->
+<!--		        </div>-->
+<!--		    </div>-->
+<!--		</div>-->
 	{%- endif -%}
 {%- endif -%}
 

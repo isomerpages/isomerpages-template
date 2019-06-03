@@ -3,11 +3,11 @@
 
 {%- include head.html -%}
     <body>
-        {%- include bp-agencyhead.html -%}
+        {%- include sgds-agencyhead.html -%}
         {%- comment -%} onclick is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
-        <div id="main-content" onclick>
+        <div id="main-content">
         	{{- content -}}
     	</div>
-        {%- include bp-footer.html -%}
+        {%- include sgds-footer.html -%}
     </body>
 </html>

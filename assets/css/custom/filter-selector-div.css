@@ -1,0 +1,27 @@
+.filter-selector-div{
+    border:1px solid #d6d6d6;
+}
+
+#filter-arrow {
+    position: relative;
+    float: right;
+    height: 0;
+    width: 0;
+    right: 50px;
+    top: 8px;
+    font-size: 2rem;
+    pointer-events: none;
+}
+
+.sgds-selector{
+    font-family: Lato;
+    font-size: 18px;
+    border: none;
+    background-color: transparent;
+    padding: .625rem .75rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    line-height: 28px;
+}

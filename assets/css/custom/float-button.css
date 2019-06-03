@@ -1,0 +1,26 @@
+.float-buttons {
+    cursor: pointer;
+    text-align: right;
+}
+
+.float-buttons .sgds-button{
+    color: #323232;
+    border: 0;
+    margin-bottom: 0;
+    padding-right: 0;
+    text-decoration: none;
+}
+
+.float-buttons a[target="_blank"]:after {
+    content: none;
+}
+
+
+.float-buttons .sgds-button:hover,
+.float-buttons .sgds-button:focus,
+.float-buttons .sgds-button:active,
+.float-buttons .sgds-button:visited {
+    color: #4372d6;
+    border-color: transparent;
+    box-shadow: none;
+}

@@ -1,32 +1,29 @@
 {%- assign homepage = site.data.homepage -%}
 {%- assign programmes = site.data.programmes -%}
 
-<section class="bp-section">
-    <div class="bp-container is-fluid">
+<section class="sgds-section">
+    <div class="sgds-container is-fluid">
         <div class="row">
             <div class="col is-half is-offset-one-quarter has-text-centered padding--top--xl">
                 <p class="padding--bottom eyebrow is-uppercase">
                     {{- homepage.programmes-title -}}
                 </p>
-                <h1 class="has-text-secondary padding--bottom"><b>{{- homepage.programmes-subtitle -}}</b></h1>
+                <h3 class="has-text-secondary padding--bottom"><b>{{- homepage.programmes-subtitle -}}</b></h3>
                 <p> {{- homepage.programmes-description -}} </p>
             </div>
         </div>
     </div>
     <div class="row has-text-centered margin--top padding--bottom">
         <div class="col is-offset-one-third is-one-third">
-            <a href="{{- homepage.programmes-more-button-url -}}" class="bp-sec-button">
-                <div>
-                    <span>{{- homepage.programmes-more-button -}}</span>
-                    <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                </div>
+            <a href="{{- homepage.programmes-more-button-url -}}" class="sgds-sec-button is-medium">
+                <span>{{- homepage.programmes-more-button -}}</span>
             </a>
         </div>
     </div>
 </section>
 
-<section class="bp-section is-full programme-container bg-newssection is-paddingless">
-    <div class="bp-container is-fluid is-full is-marginless">
+<section class="sgds-section is-full programme-container is-paddingless" style="background-color:#f0f4f6">
+    <div class="sgds-container is-fluid is-full is-marginless">
         <div class="row is-gapless bg-gradient offset-margin">
             <div class="col has-carousel">
                 <div class="owl-theme owl-carousel programme-carousel ">
@@ -41,11 +38,11 @@
                 </div>
             </div>
         </div>
-        <div class="row offset-top  is-hidden-touch">
+        <div class="row carousel-offset-top is-hidden-touch">
             <div class="col is-8 is-offset-2 has-carousel">
                 <div class="programme-carousel owl-carousel">
                     {%- for programme in programmes -%}
-                    <div class="item bg-white">
+                    <div class="item has-background-white">
                         <div class="row padding">
                             <div class="col">
                                 <div class="row">

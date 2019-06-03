@@ -11,8 +11,8 @@ layout: default
   }
 </style>
 
-<section class="bp-section">
-    <div class="bp-container">
+<section class="sgds-section">
+    <div class="sgds-container">
         <div class="row is-inverted">
             <div class="col is-8 is-offset-2">
                 {%- include header-breadcrumb.html -%}
@@ -26,8 +26,8 @@ layout: default
     </div>
 </section>
 
-<section class="bp-section is-small padding--bottom--lg">
-    <div class="bp-container">
+<section class="sgds-section is-small padding--bottom--lg">
+    <div class="sgds-container">
         <div class="row">
             <div class="col is-8 is-offset-2">
                 {%- for location in contact.locations -%}
@@ -57,11 +57,8 @@ layout: default
                                 <div>
                                     <p class="margin--top--none margin--bottom--none"><b>{{location.title}}</b></p>
                                     <p class="content margin--top--none">{{location.address}}</p>
-                                    <a href="{{location.find-directions}}" target="_blank" class="bp-sec-button has-text-secondary">
-                                        <div>
-                                            <span>FIND DIRECTIONS</span>
-                                            <i class="sgds-icon sgds-icon-arrow-right" aria-hidden="true"></i>
-                                        </div>
+                                    <a href="{{location.find-directions}}" class="sgds-sec-button has-text-secondary">
+                                        <span>FIND DIRECTIONS</span>
                                     </a>
                                 </div>
                             </div>
@@ -125,5 +122,5 @@ layout: default
 
 
 {%- if contact.image-url -%}
-<section class="bp-section is-vh-60 bg-contact"></section>
+<section class="sgds-section is-vh-60 bg-contact"></section>
 {%- endif -%}
