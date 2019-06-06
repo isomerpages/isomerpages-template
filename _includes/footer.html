@@ -1,24 +1,24 @@
 <footer class="sgds-footer top-section">
     <div class="sgds-container">
         <div class="row">
-            <div class="col">
-                <h6 class="site-title"><b>{{site.title}}</b></h6>
+            <div class="col header">
+                <h5 class="sub-header has-text-white"><b>{{site.title}}</b></h5>
             </div>
         </div>
-        <div class="row is-top">
+        <div class="row">
             {%- if site.data.footer -%}
-            {%- assign links = site.data.footer -%}
+                {%- assign links = site.data.footer -%}
             {%- else -%}
-            {%- assign links = site.data.navigation -%}
+                {%- assign links = site.data.navigation -%}
             {%- endif -%}
 
             {%- assign social = site.data.social-media -%}
 
             {%- comment -%} Set columns for nav links based on social media links {%- endcomment -%}
             {%- if social -%}
-            {%- assign navClass = "is-four-fifths" -%}
+                {%- assign navClass = "is-four-fifths" -%}
             {%- else -%}
-            {%- assign navClass = "" -%}
+                {%- assign navClass = "" -%}
             {%- endif -%}
 
             <div class="row col {{navClass}} is-multiline is-hidden-mobile">

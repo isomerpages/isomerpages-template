@@ -1,0 +1,78 @@
+<section class="sgds-section is-small padding--bottom--none">
+    <div class="sgds-container padding--top">
+        <div class="row">
+            <div class="col is-9 sgds-overflow-buttons is-flex">
+                <div class="sgds-buttons margin--bottom--none">
+                    {%- if page.layout == "resources" -%}
+                        <a href="/{{site.resources_name}}/" class="sgds-sec-button is-uppercase is-not-underlined is-active media-category-button">
+                            <span>
+                                <b>ALL</b>
+                            </span>
+                        </a>
+                    {%- else -%}
+                        <a href="/{{site.resources_name}}/" class="sgds-sec-button is-uppercase is-not-underlined media-category-button">
+                            <span>
+                                <b>ALL</b>
+                            </span>
+                        </a>
+                    {%- endif -%}
+
+                    {%- assign categories = site.categories -%}
+
+                    {%- for category-element in categories -%}
+                        {%- if forloop.first and category-element.first == site.resources_name -%}
+                            {%- continue -%}
+                        {%- endif -%}
+
+                        {%- assign category_name = category-element.first -%}
+                        {%- capture category_url -%}/{{site.resources_name}}/{{category_name}}/{%- endcapture -%}
+
+                        {%- if page.url == category_url -%}
+                            <a href="{{category_url}}" class="sgds-sec-button is-uppercase is-not-underlined is-active media-category-button">
+                                <span>
+                                    <b>{{- category_name | replace: "-", " " | replace: "_", " " -}}</b>
+                                </span>
+                            </a>
+                        {%- else -%}
+                            <a href="{{category_url}}" class="sgds-sec-button is-uppercase is-not-underlined media-category-button">
+                                <span>
+                                    <b>{{- category_name | replace: "-", " " | replace: "_", " " -}}</b>
+                                </span>
+                            </a>
+                        {%- endif -%}
+                    {%- endfor -%}
+                </div>
+            </div>
+            <div class="col">
+                {%- comment -%} Display filter for desktop {%- endcomment -%}
+
+                <div class="sgds-dropdown is-fullwidth is-right is-hidden-touch" style="margin-left:auto;">
+                    <div class="sgds-dropdown-trigger">
+                        <a class="sgds-button is-medium hero-dropdown has-text-left" aria-haspopup="true" aria-controls="hero-dropdown-menu">
+                            <div class="sgds-selector has-text-black" id="sgds-selector-text-desktop">Recent</div>
+                            <span class="sgds-icon sgds-icon-chevron-down has-text-black"></span>
+                        </a>
+                    </div>
+                    <div class="sgds-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
+                        <div id="year-filter-desktop" class="sgds-dropdown-content is-centered">
+                            <a class="sgds-dropdown-item padding--top--sm padding--bottom--none" id="apply-filter-recent">
+                                <p>Recent</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {%- comment -%} Display filter for mobile and tablet {%- endcomment -%}
+            <div class="col is-fullwidth padding--top--lg is-hidden-desktop">
+                <div class="filter-selector-div is-hidden-desktop">
+                    <span class="sgds-icon sgds-icon-chevron-down" id="filter-arrow"></span>
+                    <select id="year-filter-mobile" class="sgds-selector">
+                        <option value="Recent">Recent</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
