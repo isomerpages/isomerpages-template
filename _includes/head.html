@@ -26,29 +26,29 @@
     {%- else -%}
         {{- homepage.agency-logo | absolute_url -}}
     {%- endif -%}">
-    <meta property="og:url" content="{{- page.permalink | absolute_url -}}">
+    <meta property="og:url" content="{{- page.url | absolute_url -}}">
     <link rel="canonical" href="{{- page.url | absolute_url -}}" />
     
     {%- assign homepage = site.data.homepage -%}
 
     {%- if homepage.favicon -%}
-        <link rel="shortcut icon" href="{{- site.baseurl- }}{{- homepage.favicon -}}" type="image/x-icon">
+        <link rel="shortcut icon" href="{{- homepage.favicon -}}" type="image/x-icon">
     {%- else -%}
-        <link rel="shortcut icon" href="{{- site.baseurl -}}/assets/img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
     {%- endif -%}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,600" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/custom/owl-carousel.css">
-    <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/custom/owl-carousel-custom.css">
-    <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/sgds.css">
-    <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/custom/float-button.css">
-    <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/custom/media-category-button.css">
-    <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/custom/content.css">
-    <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/custom/filter-selector-div.css">
-    <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/custom/pagination.css">
-    <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/custom/second-level-nav-div-mobile.css">
-<!--    <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/custom/typography.css">-->
-    <link rel="stylesheet" href="{{- site.baseurl -}}{{- site.custom_css_path -}}">
+    <link rel="stylesheet" href="/assets/css/custom/owl-carousel.css">
+    <link rel="stylesheet" href="/assets/css/custom/owl-carousel-custom.css">
+    <link rel="stylesheet" href="/assets/css/sgds.css">
+    <link rel="stylesheet" href="/assets/css/custom/float-button.css">
+    <link rel="stylesheet" href="/assets/css/custom/media-category-button.css">
+    <link rel="stylesheet" href="/assets/css/custom/content.css">
+    <link rel="stylesheet" href="/assets/css/custom/filter-selector-div.css">
+    <link rel="stylesheet" href="/assets/css/custom/pagination.css">
+    <link rel="stylesheet" href="/assets/css/custom/second-level-nav-div-mobile.css">
+<!--    <link rel="stylesheet" href="/assets/css/custom/typography.css">-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,600" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{- site.custom_css_path -}}">
 
     {%- feed_meta -%}
 

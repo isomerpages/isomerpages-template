@@ -7,27 +7,17 @@
 # This file contains the structure for the top navigation and bottom footer
 
 - title: Application Guidelines
-  url: /application-guidelines/lorem-ipsum-one/second-level-a/
-  sub-links:
-  - title: Second Level A
-    url: /application-guidelines/lorem-ipsum-one/second-level-a/
-  - title: Second Level B
-    url: /application-guidelines/lorem-ipsum-two/part-A/
-  - title: Lorem Ipsum Three
-    url: /application-guidelines/lorem-ipsum-three/ 
+  collection: application-guidelines
 - title: Legislation
   url: https://google.com
-  external: true
-  sub-links:
+  sublinks:
   - title: External Link One
     url: https://en.wikipedia.org/wiki/Year
-    external: true
   - title: External Link Two
     url: https://en.wikipedia.org/wiki/Spring_(season)
-    external: true
 - title: Resources
   url: /resource_room/
-  sub-links:
+  sublinks:
   - title: All
     url: /resource_room/
   - title: Forms and Templates

@@ -17,55 +17,54 @@
 <script src="https://assets.wogaa.sg/scripts/wogaa.js" crossorigin="anonymous"></script>
 {%- endif -%}
 
-<script src="{{- "/assets/js/sideNav-offset.js" | relative_url -}}" crossorigin="anonymous"></script>
-<script src="{{- "/assets/js/jquery.resize-sensor.js" | relative_url -}}" crossorigin="anonymous"></script>
-<script src="{{- "/assets/js/jquery.sticky-sidebar.js" | relative_url -}}" crossorigin="anonymous"></script>
-<script src="{{- "/assets/js/sgds.js" | relative_url -}}" crossorigin="anonymous"></script>
+<script src="/assets/js/sideNav-offset.js" crossorigin="anonymous"></script>
+<script src="/assets/js/jquery.resize-sensor.js" crossorigin="anonymous"></script>
+<script src="/assets/js/jquery.sticky-sidebar.js" crossorigin="anonymous"></script>
+<script src="/assets/js/sgds.js" crossorigin="anonymous"></script>
 {%- if page.url == "/" -%}
-<script src="{{- "/assets/js/home.js" | relative_url -}}" crossorigin="anonymous"></script>
-<script src="{{- "/assets/js/cancel-notification.js" | relative_url -}}" crossorigin="anonymous"></script>
+<script src="/assets/js/home.js" crossorigin="anonymous"></script>
+<script src="/assets/js/cancel-notification.js" crossorigin="anonymous"></script>
 {%- endif -%}
 
 {%- if page.layout == 'our-journey' -%}
-<script src="{{- "/assets/js/accordion.js" | relative_url -}}" crossorigin="anonymous"></script>
+<script src="/assets/js/accordion.js" crossorigin="anonymous"></script>
 {%- endif -%}
 
 {%- if page.layout == 'our-team' -%}
-<script src="{{- "/assets/js/our-team.js" | relative_url -}}" crossorigin="anonymous"></script>
-<script src="{{- "/assets/js/accordion.js" | relative_url -}}" crossorigin="anonymous"></script>
+<script src="/assets/js/our-team.js" crossorigin="anonymous"></script>
+<script src="/assets/js/accordion.js" crossorigin="anonymous"></script>
 {%- endif -%}
 
 
 {%- if page.layout == 'search' -%}
 <script src="https://unpkg.com/lunr@2.3.6/lunr.js" integrity="sha384-WYZhYwlpZbtVuVpKReDUDRhoKr0MubxAfgcS0k8y5lprnl0i482oHTKTBeWTbcaz" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.10/purify.min.js" integrity="sha384-rde2iD+4Po+9TlQo3k7zSYKn29zm1/22iCpWMA9QUzQqlB5+M4gpN5yQxqWvaMon" crossorigin="anonymous"></script>
-<script src="{{- "/assets/posts.js" | relative_url -}}"></script>
-<script src="{{- "/assets/js/worker.js" | relative_url -}}" crossorigin="anonymous"></script>
-<script src="{{- "/assets/js/pagination-util.js" | relative_url -}}" crossorigin="anonymous"></script>
-<script src="{{- "/assets/js/search.js" | relative_url -}}" crossorigin="anonymous"></script>
-<script src="{{- "/assets/js/build-index.js" | relative_url -}}" crossorigin="anonymous"></script>
+<script src="/assets/posts.js"></script>
+<script src="/assets/js/worker.js" crossorigin="anonymous"></script>
+<script src="/assets/js/pagination-util.js" crossorigin="anonymous"></script>
+<script src="/assets/js/search.js" crossorigin="anonymous"></script>
+<script src="/assets/js/build-index.js" crossorigin="anonymous"></script>
 {%- endif -%}
 
 {%- if page.layout == 'datagovsg-search' -%}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.10/purify.min.js" integrity="sha384-rde2iD+4Po+9TlQo3k7zSYKn29zm1/22iCpWMA9QUzQqlB5+M4gpN5yQxqWvaMon" crossorigin="anonymous"></script>
-<script src="{{- "/assets/js/pagination-util.js" | relative_url -}}" crossorigin="anonymous"></script>
-<script src="{{- "/assets/js/search.js" | relative_url -}}" crossorigin="anonymous"></script>
-<script src="{{- "/assets/js/datagovsg-search.js" | relative_url -}}" crossorigin="anonymous"></script>
+<script src="/assets/js/pagination-util.js" crossorigin="anonymous"></script>
+<script src="/assets/js/search.js" crossorigin="anonymous"></script>
+<script src="/assets/js/datagovsg-search.js" crossorigin="anonymous"></script>
 {%- endif -%}
 
 {%- if page.layout == 'resources-alt' or page.layout == 'resources' -%}
-<script src="{{- "/assets/js/pagination-util.js" | relative_url -}}" crossorigin="anonymous"></script>
-<script src="{{- "/assets/js/paginate-resources.js" | relative_url -}}" crossorigin="anonymous"></script>
+<script src="/assets/js/pagination-util.js" crossorigin="anonymous"></script>
+<script src="/assets/js/paginate-resources.js" crossorigin="anonymous"></script>
 {%- endif -%}
 
 {%- if page.layout == 'post' or page.layout == 'simple-page' or page.layout == 'leftnav-page-content' or page.layout == 'our-team' or page.layout == 'our-journey' -%}
 <script src="https://printjs-4de6.kxcdn.com/print.min.js" integrity="sha384-htjK5WN4qR+MbNZFQSenyRKW+3CjwUTTXs3vGU3DcZncFSI7AzNZUIOgyZjdetLU" crossorigin="anonymous"></script>
-<script src="{{- "/assets/js/floating-buttons.js" | relative_url -}}" crossorigin="anonymous"></script>
-<script src="{{- "/assets/js/left-nav-interaction.js" | relative_url -}}" crossorigin="anonymous"></script>
+<script src="/assets/js/floating-buttons.js" crossorigin="anonymous"></script>
+<script src="/assets/js/left-nav-interaction.js" crossorigin="anonymous"></script>
 {%- endif -%}
 
 {%- include chatbot-scripts.html -%}
 
-{%- assign homepage = site.data.homepage -%}
 {%- comment -%} Google Analytics {%- endcomment -%}
-<script src="{{- site.baseurl -}}/assets/js/google-analytics.js"></script>
+<script src="/assets/js/google-analytics.js"></script>

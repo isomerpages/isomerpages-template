@@ -64,9 +64,8 @@
        <div class="row is-gapless has-text-centered">
           {%- for link in homepage.key-highlights limit:4 -%}
           <div class="col">
-            {%- include links-baseurl.html -%}
             {%- if link.external and link.url -%}
-            <a href="{{- base-url -}}{{- link.url -}}" target="_blank" class="is-highlight" rel="noreferrer">
+            <a href="{{- link.url -}}" target="_blank" class="is-highlight" rel="noreferrer">
             {%- elsif link.url -%}
             <a href="{{- link.url -}}" class="is-highlight">
             {%- endif -%}

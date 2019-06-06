@@ -1,0 +1,195 @@
+{%- include masthead.html -%}
+<nav class="navbar">
+    <div class="sgds-container">
+
+    {%- assign homepage = site.data.homepage -%}
+
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <img src="{{- homepage.agency-logo -}}" alt="Homepage"> <!--style="max-height:75px;max-width:200px;height:auto;width:auto;">-->
+        </a>
+        <div class="navbar-burger burger" data-target="mainnav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div id="mainnav" class="navbar-menu">
+        <div class="navbar-start">
+            <div class="navbar-item is-hidden-desktop">
+                <form action="/search/" method="get">
+                    <div class="field has-addons">
+                        <div class="control is-expanded">
+                            <input class="input is-fullwidth" id="search-box" type="text" placeholder="What are you looking for?" name="query">
+                        </div>
+                    </div>
+                </form>
+                <hr class="is-marginless margin--top--sm">
+            </div>
+
+            {%- comment -%}
+                Left nav pages (level 2) will all belong to their own collection
+                navigation.yml will simply specify the order of level 1 and level 2 pages (1 level in navigation.yml only)
+                This portion of the code will automatically generate the navbar subitems for level 2 pages based on the content in the level 2 collection
+                For level 3 pages, the first page in the level 3 "collection" will appear in the navbar like other level 2 pages
+                Level 3 pages will also reside in the same collection as other level 2 and 3 pages under the same heading
+                But they will have an additional "second_nav_title" header in their front matter
+
+                This is done so that new level 2 pages will automatically appear in the navbar without the need for extra configuration in navigation.yml
+
+                Subitems can still be customized by including the sublinks array
+            {%- endcomment -%}
+
+            {%- assign navitems = site.data.navigation -%}
+            {%- for navitem in navitems -%}
+                {%- if navitem.collection -%}
+                    {%- comment -%} Leftnav page {%- endcomment -%}
+                    
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link is-uppercase" href="{{site[navitem.collection].first.url}}">
+                            {{- navitem.title -}}
+                        </a>
+                        <div class="navbar-dropdown">
+                            {%- comment -%} You can't initalize an array in liquid so we have to do this {%- endcomment -%}
+                            {% assign second_nav_titles = "" | split: ", " %}
+                            {%- for leftnavpage in site[navitem.collection] -%}
+                                {%- comment -%} Only show second level pages and the first page in third level pages {%- endcomment -%}
+                                {%- if leftnavpage.second_nav_title -%}
+                                    {%- if second_nav_titles contains leftnavpage.second_nav_title -%}
+                                        {%- continue -%}
+                                        {%- comment -%} Contains do not support the not operator {%- endcomment -%}
+                                    {%- else -%}
+                                        {%- comment -%} This is the first page in this third level nav, display link {%- endcomment -%}
+                                        <a class="navbar-item" href="{{leftnavpage.url}}">
+                                            {{- leftnavpage.second_nav_title -}}
+                                        </a>
+                                        {%- assign second_nav_titles = second_nav_titles | push: leftnavpage.second_nav_title -%}
+                                    {%- endif -%}
+                                {%- else -%}
+                                    <a class="navbar-item" href="{{leftnavpage.url}}">
+                                        {{- leftnavpage.title -}}
+                                    </a>
+                                {%- endif -%}
+                            {%- endfor -%}
+                        </div>
+                    </div>
+                {%- elsif navitem.sublinks -%}
+                    {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
+                    
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        {%- comment -%} Test if navitem.url starts with http:// or https:// (is external) {%- endcomment -%}
+                        {%- assign external = false -%}
+                        {%- assign checkArray = navitem.url | split: "https://" -%}
+                        {%- if checkArray.first.size == 0 -%}
+                            {%- comment -%} Starts with https:// {%- endcomment -%}
+                            {%- assign external = true -%}
+                        {%- else -%}
+                            {%- assign checkArray = navitem.url | split: "http://" -%}
+                            {%- if checkArray.first.size == 0 -%}
+                                {%- comment -%} Starts with http:// {%- endcomment -%}
+                                {%- assign external = true -%}
+                            {%- endif -%}
+                        {%- endif -%}
+                        
+                        {%- if external -%}
+                            <a class="navbar-link is-uppercase" href="{{navitem.url}}" target="_blank" rel="noreferrer">
+                                {{- navitem.title }} <i class="sgds-icon sgds-icon-external"></i>
+                            </a>
+                        {%- else -%}
+                            <a class="navbar-link is-uppercase" href="{{navitem.url}}">
+                                {{- navitem.title -}}
+                            </a>
+                        {%- endif -%}
+                        
+                        <div class="navbar-dropdown">
+                            {%- for sublink in navitem.sublinks -%}                 
+                                {%- comment -%} Test if sublink.url starts with http:// or https:// (is external) {%- endcomment -%}
+                                {%- assign external = false -%}
+                                {%- assign checkArray = sublink.url | split: "https://" -%}
+                                {%- if checkArray.first.size == 0 -%}
+                                    {%- comment -%} Starts with https:// {%- endcomment -%}
+                                    {%- assign external = true -%}
+                                {%- else -%}
+                                    {%- assign checkArray = sublink.url | split: "http://" -%}
+                                    {%- if checkArray.first.size == 0 -%}
+                                        {%- comment -%} Starts with http:// {%- endcomment -%}
+                                        {%- assign external = true -%}
+                                    {%- endif -%}
+                                {%- endif -%}
+                                
+                                {%- if external -%}
+                                    <a class="navbar-item" href="{{sublink.url}}" target="_blank" rel="noreferrer">
+                                        {{- sublink.title }} <i class="sgds-icon sgds-icon-external"></i>
+                                    </a>
+                                {%- else -%}
+                                    <a class="navbar-item" href="{{sublink.url}}">
+                                        {{- sublink.title -}}
+                                    </a>
+                                {%- endif -%}
+                            {%- endfor -%}
+                        </div>
+                    </div>
+                {%- else -%}
+                    {%- comment -%} Single page {%- endcomment -%}
+                    
+                    {%- comment -%} Test if navitem.url starts with http:// or https:// (is external) {%- endcomment -%}
+                    {%- assign external = false -%}
+                    {%- assign checkArray = navitem.url | split: "https://" -%}
+                    {%- if checkArray.first.size == 0 -%}
+                        {%- comment -%} Starts with https:// {%- endcomment -%}
+                        {%- assign external = true -%}
+                    {%- else -%}
+                        {%- assign checkArray = navitem.url | split: "http://" -%}
+                        {%- if checkArray.first.size == 0 -%}
+                            {%- comment -%} Starts with http:// {%- endcomment -%}
+                            {%- assign external = true -%}
+                        {%- endif -%}
+                    {%- endif -%}
+                    
+                    {%- if external -%}
+                        <a class="navbar-item is-uppercase" href="{{navitem.url}}" target="_blank" rel="noreferrer">
+                            {{- navitem.title }} <i class="sgds-icon sgds-icon-external"></i>
+                        </a>
+                    {%- else -%}
+                        <a class="navbar-item is-uppercase" href="{{navitem.url}}">
+                            {{- navitem.title -}}
+                        </a>
+                    {%- endif -%}
+                {%- endif -%}
+            {%- endfor -%}
+        </div>
+
+        <div class="navbar-end is-hidden-touch is-hidden-desktop-only">
+            <div class="navbar-item">
+                {%- if page.layout != 'search' -%}
+                <a class="sgds-button is-text is-large" style="text-decoration: none" id="search-activate">
+                    <span class="sgds-icon sgds-icon-search is-size-7"></span>
+                </a>
+                {%- else -%}
+                <a class="sgds-button is-text is-large" style="text-decoration: none; pointer-events: none;" id="search-activate" disabled></a>
+                {%- endif -%}
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="sgds-container hide is-hidden-touch is-hidden-desktop-only search-bar" id="search-bar">
+    <div class="row">
+        <div class="col">
+            <hr class="margin--bottom--sm">
+            <form action="/search/" method="get">
+                <div class="field has-addons padding--sm">
+                    <div class="control has-icons-left is-expanded padding--bottom--sm">
+                        <input class="input is-fullwidth is-borderless is-shadowless" id="search-box" type="text" placeholder="What are you looking for?" name="query" autocomplete="off">
+                        <span class="icon is-left">
+                        <i class="sgds-icon sgds-icon-search is-size-7 search-bar"></i>
+                        </span>
+
+                    </div>
+                    <div class="control">
+                        <button type="submit" class="sgds-button is-primary has-text-white padding--left padding--right">SEARCH</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

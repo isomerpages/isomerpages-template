@@ -24,14 +24,13 @@
             <div class="row col {{navClass}} is-multiline is-hidden-mobile">
                 {%- comment -%} Footer links for tablet/desktop {%- endcomment -%}
                 {%- for link in links -%}
-                {%- include links-baseurl.html -%}
                 {%- assign linkTitle = link.title | downcase -%}
                 {%- if linkTitle != "contact us" and linkTitle != "faq" -%}
                 <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
                     {%- if base-url == "" and link.external == true -%}
-                    <p class="sub-header"><b><a class="has-text-white" href="{{- base-url -}}{{- link.url -}}" target="_blank" rel="noreferrer">{{link.title}}</a></b></p>
+                    <p class="sub-header"><b><a class="has-text-white" href="{{- link.url -}}" target="_blank" rel="noreferrer">{{link.title}}</a></b></p>
                     {%- else -%}
-                    <p class="sub-header"><b><a class="has-text-white" href="{{- base-url -}}{{- link.url -}}">{{link.title}}</a></b></p>
+                    <p class="sub-header"><b><a class="has-text-white" href="{{- link.url -}}">{{link.title}}</a></b></p>
                     {%- endif -%}
                     {%- for sublink in link.sub-links -%}
                     {%- include sublinks-baseurl.html -%}
@@ -99,13 +98,12 @@
             {%- comment -%} Footer links for mobile {%- endcomment -%}
             <div class="col is-hidden-tablet is-hidden-desktop">
                 {%- for link in links -%}
-                {%- include links-baseurl.html -%}
                 {%- assign linkTitle = link.title | downcase -%}
                 {%- if linkTitle != "contact us" and linkTitle != "faq" -%}
                 {%- if base-url == "" and link.external == true -%}
-                <p><a href="{{- base-url -}}{{- link.url -}}" target="_blank" rel="noreferrer">{{link.title}}</a></p>
+                <p><a href="{{- link.url -}}" target="_blank" rel="noreferrer">{{link.title}}</a></p>
                 {%- else -%}
-                <p><a href="{{- base-url -}}{{- link.url -}}">{{link.title}}</a></p>
+                <p><a href="{{- link.url -}}">{{link.title}}</a></p>
                 {%- endif -%}
                 {%- endif -%}
                 {%- endfor -%}

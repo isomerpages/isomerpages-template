@@ -1,12 +1,9 @@
-{%- if site.is_government == false -%}
-<div class="sgds-masthead is-invisible">
-{%- else -%}
+{%- if site.is_government != false -%}
 <div class="sgds-masthead">
-{%- endif -%}
     <div class="sgds-container">
         <div class="row">
             <div class="col has-text-centered-touch">
-                <a href="https://www.gov.sg" alt="Singapore Government" target="_blank" rel="noreferrer">
+                <a href="https://www.gov.sg" target="_blank">
                     <span class="sgds-icon sgds-icon-sg-crest"></span>
                     <span class="is-text">
                         A Singapore Government Agency Website
@@ -19,3 +16,4 @@
         </div>
     </div>
 </div>
+{%- endif -%}
