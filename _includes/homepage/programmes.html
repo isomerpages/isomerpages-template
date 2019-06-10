@@ -1,31 +1,29 @@
 {%- assign homepage = site.data.homepage -%}
 {%- assign programmes = site.data.programmes -%}
 
-{%- if homepage.programmes-title or homepage.programmes-subtitle or homepage.programmes-description or homepage.programmes-more-button -%}
-    <section class="bp-section">
-        <div class="bp-container is-fluid">
-            <div class="row">
-                <div class="col is-half is-offset-one-quarter has-text-centered padding--top--xl">
-                    <p class="padding--bottom eyebrow is-uppercase">
-                        {{- homepage.programmes-title -}}
-                    </p>
-                    <h1 class="has-text-secondary padding--bottom"><b>{{- homepage.programmes-subtitle -}}</b></h1>
-                    <p> {{- homepage.programmes-description -}} </p>
+<section class="bp-section">
+    <div class="bp-container is-fluid">
+        <div class="row">
+            <div class="col is-half is-offset-one-quarter has-text-centered padding--top--xl">
+                <p class="padding--bottom eyebrow is-uppercase">
+                    {{- homepage.programmes-title -}}
+                </p>
+                <h1 class="has-text-secondary padding--bottom"><b>{{- homepage.programmes-subtitle -}}</b></h1>
+                <p> {{- homepage.programmes-description -}} </p>
+            </div>
+        </div>
+    </div>
+    <div class="row has-text-centered margin--top padding--bottom">
+        <div class="col is-offset-one-third is-one-third">
+            <a href="{{- homepage.programmes-more-button-url -}}" class="bp-sec-button">
+                <div>
+                    <span>{{- homepage.programmes-more-button -}}</span>
+                    <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
                 </div>
-            </div>
+            </a>
         </div>
-        <div class="row has-text-centered margin--top padding--bottom">
-            <div class="col is-offset-one-third is-one-third">
-                <a href="{{- homepage.programmes-more-button-url -}}" class="bp-sec-button">
-                    <div>
-                        <span>{{- homepage.programmes-more-button -}}</span>
-                        <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-{%- endif -%}
+    </div>
+</section>
 
 <section class="bp-section is-full programme-container bg-newssection is-paddingless">
     <div class="bp-container is-fluid is-full is-marginless">
