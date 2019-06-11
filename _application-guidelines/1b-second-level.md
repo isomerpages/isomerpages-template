@@ -5,7 +5,7 @@ title: Lorem Ipsum One B
 breadcrumb: Application Guidelines (Lorem Ipsum One B) 
 image: "/images/banner_Merlion.png" 
 collection_name: application-guidelines
-second_nav_title: "Second Level A"
+third_nav_title: "Second Level A"
 ---
 
 ### **What is Lorem Ipsum?**

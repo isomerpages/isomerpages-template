@@ -4,5 +4,5 @@ permalink: /application-guidelines/lorem-ipsum-two/part-G/
 breadcrumb: Application Guidelines (Lorem Ipsum Two B) 
 title: Lorem Ipsum Two B
 collection_name: application-guidelines
-second_nav_title: "Second Level B"
+third_nav_title: "Second Level B"
 ---

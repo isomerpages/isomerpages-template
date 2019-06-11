@@ -1,25 +1,11 @@
 ---
-layout: default
+layout: page
 ---
-
-<section class="sgds-section is-small sgds-section-pagetitle">
-    <div class="sgds-container">
-        {%- include header-breadcrumb.html -%}
-    </div>
-    <div class="sgds-container ">
-        <div class="row">
-            <div class="col">
-                <h1 class="has-text-white"><b>{{page.title}}</b></h1>
-            </div>
-        </div>
-    </div>
-</section>
-
 {%- include resource-category-buttons.html -%}
 
 {%- comment -%} Posts {%- endcomment -%}
 <section class="sgds-section is-small">
-    <div class="sgds-container padding--top padding--bottom--xl">
+    <div class="sgds-container">
         <div class="row is-multiline">
             {%- for post in site.posts -%}
                 {%- comment -%} Define category_index - the index used to determine the bg-color-(category_index) {%- endcomment -%}

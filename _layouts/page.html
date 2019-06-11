@@ -1,4 +1,34 @@
 ---
-layout: default
+layout: skeletal_page
 ---
-{{- content -}}
+{%- assign current-collection = site[page.collection] -%}
+
+<section class="sgds-section is-small sgds-section-pagetitle">
+    <div class="sgds-container ">
+        {%- include header-breadcrumb.html -%}
+    </div>
+    <div class="sgds-container">
+        <div class="row">
+            <div class="col">
+                <h2 class="has-text-white"><b>{{- page.title -}}</b></h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%- if page.collection -%}
+    {%- comment -%} This is a leftnav page - display leftnav navigation boxes {%- endcomment -%}
+    {%- include leftnav.html -%}
+{%- else -%}
+    {%- comment -%} This is not a leftnav page - display page content right away {%- endcomment -%}
+    <section class="sgds-section">
+        <div class="sgds-container content padding--top--lg padding--bottom--xl">
+            <div class="row">
+                <div class="col is-12 print-content">
+                    {{- content -}}
+                </div>
+                {%- include print.html -%}
+            </div>
+        </div>
+    </section>
+{%- endif -%}

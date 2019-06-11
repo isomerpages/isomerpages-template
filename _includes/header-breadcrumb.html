@@ -1,15 +1,14 @@
 <nav class="sgds-breadcrumb margin--top margin--bottom" aria-label="breadcrumbs">
     <ul>
         {%- assign class = 'has-text-white' -%}
-        {%- if page.url contains 'contact-us' -%}
+        {%- if page.layout == 'contact-us' -%}
             {%- assign class = '' -%}
         {%- endif -%}
-        <li><a class="{{class}}" href="{{- site.baseurl -}}/">{{- "Home" | upcase -}}</a></li>
-        {%- capture page_url_without_index_html -%}{{- page.url | remove: "/index.html" -}}{%- endcapture -%}
-        {%- assign splitted_url_parts = page_url_without_index_html | split: '/' -%}
-        {%- capture forLoopMaxInt -%}{{- splitted_url_parts.size | minus:1 -}}{%- endcapture -%}
+        <li><a class="{{class}}" href="/">{{- "HOME" -}}</a></li>
+        {%- assign splitted_url_parts = page.url | remove: "/index.html" | split: '/' -%}
+        {%- assign forLoopMaxInt = splitted_url_parts.size | minus:1 -%}
         {%- comment -%} Special breadcrumb case for leftnav pages {%- endcomment -%}
-        {%- if page.layout == "leftnav-page-content" or page.layout == "our-journey" or page.layout == "leftnav-page" or page.layout == "our-team" or page.layout == "board-of-directors-leftnav" -%}
+        {%- if page.collection -%}
             {%- for leftnav_header in site.data.navigation -%}
                 {%- capture urlized_leftnav_header -%}{{- leftnav_header.title | downcase | replace: " ", "-" -}}{%- endcapture -%}
                 {%- if splitted_url_parts[1] == urlized_leftnav_header -%}
@@ -17,10 +16,10 @@
                     {%- break -%}
                 {%- endif -%}
             {%- endfor -%}
-            {%- if page.collection_name and page.second_nav_title -%}
+            {%- if page.collection_name and page.third_nav_title -%}
                 {%- for collection_doc in site[page.collection_name] -%}
-                    {%- if collection_doc.second_nav_title == page.second_nav_title -%}
-                        <li><a class="{{class}}" href="{{- collection_doc.permalink -}}">{{page.second_nav_title | upcase}}</a></li>
+                    {%- if collection_doc.third_nav_title == page.third_nav_title -%}
+                        <li><a class="{{class}}" href="{{- collection_doc.url -}}">{{page.third_nav_title | upcase}}</a></li>
                         {%- break -%}
                     {%- endif -%}
                 {%- endfor -%}
@@ -32,14 +31,14 @@
                 {%- capture next_prepender -%}{{next_prepender}}/{{- splitted_url_parts[i] -}}{%- endcapture -%}
                 {%- for breadcrumb_page in site.pages -%}
                     {%- if current_breadcrumb_url == breadcrumb_page.permalink or current_breadcrumb_md_url == breadcrumb_page.permalink -%}
-                        <li><a class="{{class}}" href="{{- site.baseurl -}}{{breadcrumb_page.permalink}}">{{breadcrumb_page.breadcrumb | upcase}}</a></li>
+                        <li><a class="{{class}}" href="{{breadcrumb_page.url}}">{{breadcrumb_page.breadcrumb | upcase}}</a></li>
                         {%- break -%}
                     {%- endif -%}
                     {%- comment -%} Special case for the media index.html since the media page is paginated and cannot have a permalink {%- endcomment -%}
                     {%- if current_breadcrumb_url == breadcrumb_page.file_url or current_breadcrumb_md_url == breadcrumb_page.file_url -%}
                     {%- comment -%} prevent repetition of paginated pages {%- endcomment -%}
                         {%- unless breadcrumb_page.url contains 'page' -%}
-                            <li><a class="{{class}}" href="{{- site.baseurl -}}{{breadcrumb_page.file_url}}">{{breadcrumb_page.breadcrumb | upcase}}</a></li>
+                            <li><a class="{{class}}" href="{{breadcrumb_page.file_url}}">{{breadcrumb_page.breadcrumb | upcase}}</a></li>
                             {%- break -%}
                         {%- endunless -%}
                     {%- endif -%}
@@ -48,7 +47,7 @@
                 {%- for collection in site.collections -%}
                     {%- for breadcrumb_page in collection.docs -%}
                         {%- if current_breadcrumb_url == breadcrumb_page.permalink or current_breadcrumb_md_url == breadcrumb_page.permalink  -%}
-                            <li><a class="{{class}}" href="{{- site.baseurl -}}{{breadcrumb_page.permalink}}">{{breadcrumb_page.breadcrumb | upcase}}</a></li>
+                            <li><a class="{{class}}" href="{{breadcrumb_page.url}}">{{breadcrumb_page.breadcrumb | upcase}}</a></li>
                             {%- break -%}
                         {%- endif -%}
                     {%- endfor -%}

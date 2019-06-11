@@ -1,49 +1,156 @@
 <footer class="sgds-footer top-section">
-    <div class="sgds-container">
+    <div class="sgds-container is-widescreen">
         <div class="row">
             <div class="col header">
-                <h5 class="sub-header has-text-white"><b>{{site.title}}</b></h5>
+                <h5 class="sub-header has-text-white"><b>{{- site.title -}}</b></h5>
             </div>
         </div>
-        <div class="row">
-            {%- if site.data.footer -%}
-                {%- assign links = site.data.footer -%}
-            {%- else -%}
-                {%- assign links = site.data.navigation -%}
-            {%- endif -%}
+        <div class="row is-multiline">
+            {%- comment -%}
+                Left nav pages (level 2) will all belong to their own collection
+                navigation.yml will simply specify the order of level 1 and level 2 pages (1 level in navigation.yml only)
+                This portion of the code will automatically generate the navbar subitems for level 2 pages based on the content in the level 2 collection
+                For level 3 pages, the first page in the level 3 "collection" will appear in the navbar like other level 2 pages
+                Level 3 pages will also reside in the same collection as other level 2 and 3 pages under the same heading
+                But they will have an additional "third_nav_title" header in their front matter
 
-            {%- assign social = site.data.social-media -%}
+                This is done so that new level 2 pages will automatically appear in the navbar without the need for extra configuration in navigation.yml
 
-            {%- comment -%} Set columns for nav links based on social media links {%- endcomment -%}
-            {%- if social -%}
-                {%- assign navClass = "is-four-fifths" -%}
-            {%- else -%}
-                {%- assign navClass = "" -%}
-            {%- endif -%}
+                Subitems can still be customized by including the sublinks array
+            {%- endcomment -%}
 
-            <div class="row col {{navClass}} is-multiline is-hidden-mobile">
-                {%- comment -%} Footer links for tablet/desktop {%- endcomment -%}
-                {%- for link in links -%}
-                {%- assign linkTitle = link.title | downcase -%}
-                {%- if linkTitle != "contact us" and linkTitle != "faq" -%}
-                <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
-                    {%- if base-url == "" and link.external == true -%}
-                    <p class="sub-header"><b><a class="has-text-white" href="{{- link.url -}}" target="_blank" rel="noreferrer">{{link.title}}</a></b></p>
+            {%- assign navitems = site.data.navigation -%}
+            {%- for navitem in navitems -%}
+                {%- if navitem.collection -%}
+                    {%- comment -%} Leftnav page {%- endcomment -%}
+                    
+                    <div class="col is-3">
+                        <p class="sub-header">
+                            <a href="{{- navitem.url -}}">
+                                <b>{{- navitem.title -}}</b>
+                            </a>
+                        </p>
+                        {%- comment -%} You can't initalize an array in liquid so we have to do this {%- endcomment -%}
+                        {% assign third_nav_titles = "" | split: ", " %}
+                        {%- for leftnavpage in site[navitem.collection] -%}
+                            {%- comment -%} Only show second level pages and the first page in third level pages {%- endcomment -%}
+                            {%- if leftnavpage.third_nav_title -%}
+                                {%- if third_nav_titles contains leftnavpage.third_nav_title -%}
+                                    {%- continue -%}
+                                    {%- comment -%} Contains do not support the not operator {%- endcomment -%}
+                                {%- else -%}
+                                    {%- comment -%} This is the first page in this third level nav, display link {%- endcomment -%}
+                                    <p><a href="{{leftnavpage.url}}">
+                                        {{- leftnavpage.third_nav_title -}}
+                                    </a></p>
+                                    {%- assign third_nav_titles = third_nav_titles | push: leftnavpage.third_nav_title -%}
+                                {%- endif -%}
+                            {%- else -%}
+                                <p><a href="{{leftnavpage.url}}">
+                                    {{- leftnavpage.title -}}
+                                </a></p>
+                            {%- endif -%}
+                        {%- endfor -%}
+                    </div>
+                {%- elsif navitem.sublinks -%}
+                    {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
+                    
+                    <div class="col is-3">
+                        {%- comment -%} Test if navitem.url starts with http:// or https:// (is external) {%- endcomment -%}
+                        {%- assign external = false -%}
+                        {%- assign checkArray = navitem.url | split: "https://" -%}
+                        {%- if checkArray.first.size == 0 -%}
+                            {%- comment -%} Starts with https:// {%- endcomment -%}
+                            {%- assign external = true -%}
+                        {%- else -%}
+                            {%- assign checkArray = navitem.url | split: "http://" -%}
+                            {%- if checkArray.first.size == 0 -%}
+                                {%- comment -%} Starts with http:// {%- endcomment -%}
+                                {%- assign external = true -%}
+                            {%- endif -%}
+                        {%- endif -%}
+                        
+                        {%- if external -%}
+                            <p class="sub-header">
+                                <a href="{{navitem.url}}" target="_blank" rel="noreferrer">
+                                    <b>{{- navitem.title }} <i class="sgds-icon sgds-icon-external"></i></b>
+                                </a>
+                            </p>
+                            </a></p>
+                        {%- else -%}
+                            <p class="sub-header">
+                                <a href="{{- navitem.url -}}">
+                                    <b>{{- navitem.title -}}</b>
+                                </a>
+                            </p>
+                        {%- endif -%}
+                        
+                        {%- for sublink in navitem.sublinks -%}                 
+                            {%- comment -%} Test if sublink.url starts with http:// or https:// (is external) {%- endcomment -%}
+                            {%- assign external = false -%}
+                            {%- assign checkArray = sublink.url | split: "https://" -%}
+                            {%- if checkArray.first.size == 0 -%}
+                                {%- comment -%} Starts with https:// {%- endcomment -%}
+                                {%- assign external = true -%}
+                            {%- else -%}
+                                {%- assign checkArray = sublink.url | split: "http://" -%}
+                                {%- if checkArray.first.size == 0 -%}
+                                    {%- comment -%} Starts with http:// {%- endcomment -%}
+                                    {%- assign external = true -%}
+                                {%- endif -%}
+                            {%- endif -%}
+                            
+                            {%- if external -%}
+                                <p>
+                                    <a href="{{sublink.url}}" target="_blank" rel="noreferrer">
+                                        {{- sublink.title }} <i class="sgds-icon sgds-icon-external"></i>
+                                    </a>
+                                </p>
+                            {%- else -%}
+                                <p>
+                                    <a href="{{sublink.url}}">
+                                        {{- sublink.title -}}
+                                    </a>
+                                </p>
+                            {%- endif -%}
+                        {%- endfor -%}
+                    </div>
+                {%- else -%}
+                    {%- comment -%} Single page {%- endcomment -%}
+                    
+                    {%- comment -%} Test if navitem.url starts with http:// or https:// (is external) {%- endcomment -%}
+                    {%- assign external = false -%}
+                    {%- assign checkArray = navitem.url | split: "https://" -%}
+                    {%- if checkArray.first.size == 0 -%}
+                        {%- comment -%} Starts with https:// {%- endcomment -%}
+                        {%- assign external = true -%}
                     {%- else -%}
-                    <p class="sub-header"><b><a class="has-text-white" href="{{- link.url -}}">{{link.title}}</a></b></p>
+                        {%- assign checkArray = navitem.url | split: "http://" -%}
+                        {%- if checkArray.first.size == 0 -%}
+                            {%- comment -%} Starts with http:// {%- endcomment -%}
+                            {%- assign external = true -%}
+                        {%- endif -%}
                     {%- endif -%}
-                    {%- for sublink in link.sub-links -%}
-                    {%- include sublinks-baseurl.html -%}
-                    {%- if sublink-base-url == "" and sublink.external == true -%}
-                    <p class="is-hidden-mobile"><a href="{{- sublink-base-url -}}{{- sublink.url -}}" target="_blank" rel="noreferrer">{{sublink.title}}</a></p>
+                    
+                    {%- if external -%}
+                        <div class="col is-3">
+                            <p>
+                                <a href="{{navitem.url}}" target="_blank" rel="noreferrer">
+                                    <b>{{- navitem.title }} <i class="sgds-icon sgds-icon-external"></i></b>
+                                </a>
+                            </p>
+                        </div>
                     {%- else -%}
-                    <p class="is-hidden-mobile"><a href="{{- sublink-base-url -}}{{- sublink.url -}}">{{sublink.title}}</a></p>
+                        <div class="col is-3">
+                            <p>
+                                <a href="{{navitem.url}}">
+                                    <b>{{- navitem.title -}}</b>
+                                </a>
+                            </p>
+                        </div>
                     {%- endif -%}
-                    {%- endfor -%}
-                </div>
                 {%- endif -%}
-                {%- endfor -%}
-            </div>
+            {%- endfor -%}
 
             {%- if social -%}
             {%- comment -%} Social links for desktop {%- endcomment -%}
@@ -152,8 +259,8 @@
                 </ul>
             </div>
             <div class="col has-text-right-desktop has-text-right-tablet has-text-left-mobile">
-                <p class="is-hidden-touch">© {{ site.time | date: "%Y" }} {{site.title -}}.<br>Last Updated {{site.time | date_to_string -}}</p>
-                <p class="is-hidden-desktop">© {{ site.time | date: "%Y" }} {{site.title -}}</p>
+                <p class="is-hidden-touch">&copy; {{ site.time | date: "%Y" }} {{site.title -}}<br>Last Updated {{site.time | date_to_string -}}</p>
+                <p class="is-hidden-desktop">&copy; {{ site.time | date: "%Y" }} {{site.title -}}</p>
                 <p class="is-hidden-desktop last-updated">Last Updated {{site.time | date_to_string -}}</p>
             </div>
         </div>
