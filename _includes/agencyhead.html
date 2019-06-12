@@ -48,6 +48,8 @@
                     {%- if navitem.collection -%}
                         {%- comment -%} Leftnav page {%- endcomment -%}
                         
+                        {%- assign active = "" -%}
+
                         <div class="navbar-item has-dropdown is-hoverable">
                             <a class="navbar-link is-uppercase" href="{{site[navitem.collection].first.url}}">
                                 {{- navitem.title -}}
@@ -56,6 +58,9 @@
                                 {%- comment -%} You can't initalize an array in liquid so we have to do this {%- endcomment -%}
                                 {% assign third_nav_titles = "" | split: ", " %}
                                 {%- for leftnavpage in site[navitem.collection] -%}
+                                    {%- if page.url == leftnavpage.url -%}
+                                        {%- assign active = " active" -%}
+                                    {%- endif -%}
                                     {%- comment -%} Only show second level pages and the first page in third level pages {%- endcomment -%}
                                     {%- if leftnavpage.third_nav_title -%}
                                         {%- if third_nav_titles contains leftnavpage.third_nav_title -%}
@@ -75,10 +80,11 @@
                                     {%- endif -%}
                                 {%- endfor -%}
                             </div>
+                            <div class="selector is-hidden-touch is-hidden-desktop-only{{active}}"></div>
                         </div>
                     {%- elsif navitem.sublinks -%}
                         {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
-                        
+                        {%- assign active = "" -%}
                         <div class="navbar-item has-dropdown is-hoverable">
                             {%- comment -%} Test if navitem.url starts with http:// or https:// (is external) {%- endcomment -%}
                             {%- assign external = false -%}
@@ -102,6 +108,10 @@
                                 <a class="navbar-link is-uppercase" href="{{navitem.url}}">
                                     {{- navitem.title -}}
                                 </a>
+                            {%- endif -%}
+
+                            {%- if page.url == navitem.url -%}
+                                {%- assign active = " active" -%}
                             {%- endif -%}
                             
                             <div class="navbar-dropdown">
@@ -129,12 +139,19 @@
                                             {{- sublink.title -}}
                                         </a>
                                     {%- endif -%}
+
+                                    {%- if page.url == navitem.url -%}
+                                        {%- assign active = " active" -%}
+                                    {%- endif -%}
                                 {%- endfor -%}
                             </div>
+                            <div class="selector is-hidden-touch is-hidden-desktop-only{{active}}"></div>
                         </div>
                     {%- else -%}
                         {%- comment -%} Single page {%- endcomment -%}
                         
+                        {%- assign active = "" -%}
+
                         {%- comment -%} Test if navitem.url starts with http:// or https:// (is external) {%- endcomment -%}
                         {%- assign external = false -%}
                         {%- assign checkArray = navitem.url | split: "https://" -%}
@@ -149,15 +166,23 @@
                             {%- endif -%}
                         {%- endif -%}
                         
-                        {%- if external -%}
-                            <a class="navbar-item is-uppercase" href="{{navitem.url}}" target="_blank" rel="noreferrer">
-                                {{- navitem.title -}}
-                            </a>
-                        {%- else -%}
-                            <a class="navbar-item is-uppercase" href="{{navitem.url}}">
-                                {{- navitem.title -}}
-                            </a>
-                        {%- endif -%}
+                        <li class="navbar-item">
+                            {%- if external -%}
+                                <a class="navbar-item is-uppercase" href="{{navitem.url}}" target="_blank" rel="noreferrer">
+                                    {{- navitem.title -}}
+                                </a>
+                            {%- else -%}
+                                <a class="navbar-item is-uppercase" href="{{navitem.url}}">
+                                    {{- navitem.title -}}
+                                </a>
+                            {%- endif -%}
+                            
+                            {%- if page.url == navitem.url -%}
+                                {%- assign active = " active" -%}
+                            {%- endif -%}
+
+                            <div class="selector is-hidden-touch is-hidden-desktop-only{{active}}"></div>
+                        </li>
                     {%- endif -%}
                 {%- endfor -%}
             </div>
