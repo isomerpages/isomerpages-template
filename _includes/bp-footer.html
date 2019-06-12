@@ -116,9 +116,11 @@
         <div class="row">
           <div class="col padding--top--sm padding--bottom--sm is-right-desktop-only">
             <ul>
+               {%- unless site.no_contact -%}
                <li class="is-inline-block-desktop-only">
                    <p><a href="{{site.baseurl}}/contact-us/">Contact Us</a></p>
                </li>
+               {%- endunless -%}
                {%- if homepage.show-reach and homepage.show-reach == true -%}
                <li class="is-inline-block-desktop-only">
                  <p><a href="https://www.reach.gov.sg/" target="_blank" rel="noreferrer" title="Link to reach.gov.sg">REACH</a></p>
@@ -181,7 +183,12 @@
                 </ul>
             </div>
             <div class="col is-one-third has-text-right-desktop has-text-right-tablet has-text-left-mobile">
-                <p>© {{ site.time | date: "%Y" }} {{site.title -}}</p>
+                <p>&copy; {{ site.time | date: "%Y" -}}
+                {%- if site.copyright_agency %}
+                  {{ site.copyright_agency -}}
+                {%- else %}
+                  {{ site.title -}}
+                {%- endif -%}</p>
                 <p class="last-updated">Last Updated {{site.time | date_to_string -}}</p>
             </div>
 
