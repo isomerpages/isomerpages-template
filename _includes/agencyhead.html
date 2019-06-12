@@ -147,6 +147,46 @@
                             </div>
                             <div class="selector is-hidden-touch is-hidden-desktop-only{{active}}"></div>
                         </div>
+                    {%- elsif navitem.resource_room -%}
+                        {%- assign active = "" -%}
+                        {%- if page.layout == "resources" or page.layout == "resources-alt" or page.layout == "post" -%}
+                            {%- assign active = " active" -%}
+                        {%- endif -%}
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link is-uppercase" href="/{{site.resources_name}}/">
+                                {{- navitem.title -}}
+                            </a>
+                            <div class="navbar-dropdown">
+                                {%- unless site.categories.size < 3 -%}
+                                    {%- comment -%} 
+                                        No point displaying the 'all' entry if there is only 1 category
+                                        The numbers are all incremented by 1 as the resource room folder itself is counted as 1 category
+                                    {%- endcomment -%}
+                                    <a class="navbar-item sub-link" href="/{{site.resources_name}}/">
+                                        All
+                                    </a>
+                                {%- endunless -%}
+                                {%- comment -%} Sort resource rooms category alphabetically by name {%- endcomment -%}
+                                {%- assign categories = "" | split: "," -%}
+                                {%- for category in site.categories -%}
+                                    {%- if category[0] != site.resources_name -%}
+                                        {%- assign categories = categories | push: category[0] -%}
+                                    {%- endif -%}
+                                {%- endfor -%}
+                                {%- assign categories = categories | sort_natural -%}
+                                {%- comment -%} Display navlink for each category {%- endcomment -%}
+                                {%- for category in categories -%}
+                                    <a class="navbar-item sub-link" href="/{{site.resources_name}}/{{category}}/">
+                                        {%- assign words = category | replace: "-", " " | replace: "_", " " | split: " " -%}
+                                        {%- comment -%} Right now words are all in lowercase, and we want to Title Case them {%- endcomment -%}
+                                        {%- for word in words -%}
+                                            {{- word | capitalize | append: " " -}}
+                                        {%- endfor -%}
+                                    </a>
+                                {%- endfor -%}
+                            </div>
+                            <div class="selector is-hidden-touch is-hidden-desktop-only{{active}}"></div>
+                        </div>
                     {%- else -%}
                         {%- comment -%} Single page {%- endcomment -%}
                         
@@ -190,11 +230,11 @@
             <div class="navbar-end is-hidden-touch is-hidden-desktop-only">
                 <div class="navbar-item">
                     {%- if page.layout != 'search' -%}
-                    <a class="bp-button is-text is-large" style="text-decoration: none" id="search-activate">
-                        <span class="sgds-icon sgds-icon-search is-size-4"></span>
-                    </a>
+                        <a class="bp-button is-text is-large" style="text-decoration: none" id="search-activate">
+                            <span class="sgds-icon sgds-icon-search is-size-4"></span>
+                        </a>
                     {%- else -%}
-                    <a class="bp-button is-text is-large" style="text-decoration: none; pointer-events: none;" id="search-activate" disabled></a>
+                        <a class="bp-button is-text is-large" style="text-decoration: none; pointer-events: none;" id="search-activate" disabled></a>
                     {%- endif -%}
                 </div>
             </div>

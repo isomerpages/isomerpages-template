@@ -10,23 +10,13 @@
   collection: application-guidelines
 - title: Legislation
   url: https://google.com
-  external: true
   sublinks:
   - title: External Link One
     url: https://en.wikipedia.org/wiki/Year
-    external: true
   - title: External Link Two
     url: https://en.wikipedia.org/wiki/Spring_(season)
-    external: true
 - title: Resources
-  url: /resource_room/
-  sublinks:
-  - title: All
-    url: /resource_room/
-  - title: Forms and Templates
-    url: /resource_room/forms-and-templates/
-  - title: Guides
-    url: /resource_room/guides/
+  resource_room: true
 - title: 你好 மெய்யெழுத்து
   url: /who-we-are/
 - title: Contact Us
