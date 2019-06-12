@@ -34,14 +34,14 @@ layout: default
                 {%- for collection-document in current-collection -%}
                     {%- comment -%} If collection-document is selected {%- endcomment -%}
                     {%- if page.url == collection-document.permalink -%}
-                        {%- comment -%} If collection-document has a second_nav_title {%- endcomment -%}
-                        {%- if collection-document.second_nav_title -%}
-                            {%- unless collection-document.second_nav_title == prev-second-nav-title -%}
+                        {%- comment -%} If collection-document has a third_nav_title {%- endcomment -%}
+                        {%- if collection-document.third_nav_title -%}
+                            {%- unless collection-document.third_nav_title == prev-second-nav-title -%}
                                 {%- if is-in-second-level-div == true -%}
                                     </div>
                                 {%- endif -%}
                                 <a class="bp-dropdown-item has-text-secondary second-level-nav-header-mobile">
-                                    <b><p>{{- collection-document.second_nav_title -}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></p></b>
+                                    <b><p>{{- collection-document.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></p></b>
                                 </a>
                                 <div class="second-level-nav-div-mobile">
                                     <a class="bp-dropdown-item has-text-secondary second-level-nav-item-mobile" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">
@@ -66,14 +66,14 @@ layout: default
                         {%- endif -%}
                     {%- comment -%} Else; collection-document is not selected {%- endcomment -%}
                     {%- else -%}
-                        {%- if collection-document.second_nav_title -%}
-                            {%- unless collection-document.second_nav_title == prev-second-nav-title -%}
-                                {%- if page.second_nav_title == collection-document.second_nav_title -%}
+                        {%- if collection-document.third_nav_title -%}
+                            {%- unless collection-document.third_nav_title == prev-second-nav-title -%}
+                                {%- if page.third_nav_title == collection-document.third_nav_title -%}
                                     {%- if is-in-second-level-div == true -%}
                                         </div>
                                     {%- endif -%}
                                     <a class="bp-dropdown-item has-text-secondary second-level-nav-header-mobile">
-                                        <b><p>{{- collection-document.second_nav_title -}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></p></b>
+                                        <b><p>{{- collection-document.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></p></b>
                                     </a>
                                     <div class="second-level-nav-div-mobile">
                                         <a class="bp-dropdown-item second-level-nav-item-mobile" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">
@@ -85,7 +85,7 @@ layout: default
                                         </div>
                                     {%- endif -%}
                                     <a class="bp-dropdown-item second-level-nav-header-mobile">
-                                        <p>{{- collection-document.second_nav_title -}}<i class="sgds-icon sgds-icon-chevron-down is-pulled-right is-size-4" aria-hidden="true"></i></p>
+                                        <p>{{- collection-document.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-down is-pulled-right is-size-4" aria-hidden="true"></i></p>
                                     </a>
                                     <div class="second-level-nav-div-mobile is-hidden">
                                         <a class="bp-dropdown-item second-level-nav-item-mobile" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">
@@ -110,7 +110,7 @@ layout: default
                             {%- assign is-in-second-level-div = false -%}
                         {%- endif -%}
                     {%- endif -%}
-                    {%- assign prev-second-nav-title = collection-document.second_nav_title -%}
+                    {%- assign prev-second-nav-title = collection-document.third_nav_title -%}
                 {%- endfor -%}
             </div>
         </div>
@@ -129,12 +129,12 @@ layout: default
                             {%- for collection-document in current-collection -%}
                                 {%- comment -%} If this page is selected {%- endcomment -%}
                                 {%- if page.url == collection-document.permalink -%}
-                                    {%- if collection-document.second_nav_title -%}
-                                        {%- unless prev-second-nav-title == collection-document.second_nav_title -%}
+                                    {%- if collection-document.third_nav_title -%}
+                                        {%- unless prev-second-nav-title == collection-document.third_nav_title -%}
                                             {%- if is-in-second-level-div == true -%}
                                                 </div>
                                             {%- endif -%}
-                                            <li class="is-active second-level-nav-header"><a class="is-active second-level-nav-header">{{- collection-document.second_nav_title -}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></a></li>
+                                            <li class="is-active second-level-nav-header"><a class="is-active second-level-nav-header">{{- collection-document.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></a></li>
                                             <div class="second-level-nav-div">
                                             {%- assign is-in-second-level-div = true -%}
                                         {%- endunless -%}
@@ -148,13 +148,13 @@ layout: default
                                     {%- endif -%}
                                 {%- comment -%} If this page is not the one that is selected {%- endcomment -%}
                                 {%- else -%}
-                                    {%- if collection-document.second_nav_title -%}
-                                        {%- unless prev-second-nav-title == collection-document.second_nav_title -%}
-                                            {%- if page.second_nav_title == collection-document.second_nav_title -%}
+                                    {%- if collection-document.third_nav_title -%}
+                                        {%- unless prev-second-nav-title == collection-document.third_nav_title -%}
+                                            {%- if page.third_nav_title == collection-document.third_nav_title -%}
                                                 {%- if is-in-second-level-div == true -%}
                                                     </div>
                                                 {%- endif -%}
-                                                <li class="is-active second-level-nav-header"><a class="is-active second-level-nav-header">{{- collection-document.second_nav_title -}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></a></li>
+                                                <li class="is-active second-level-nav-header"><a class="is-active second-level-nav-header">{{- collection-document.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></a></li>
                                                 {%- assign is-in-second-level-div = true -%}
                                                 <div class="second-level-nav-div">
 
@@ -162,7 +162,7 @@ layout: default
                                                 {%- if is-in-second-level-div == true -%}
                                                     </div>
                                                 {%- endif -%}
-                                                <li class="second-level-nav-header"><a class="second-level-nav-header">{{- collection-document.second_nav_title -}}<i class="sgds-icon sgds-icon-chevron-down is-pulled-right is-size-4" aria-hidden="true"></i></a></li>
+                                                <li class="second-level-nav-header"><a class="second-level-nav-header">{{- collection-document.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-down is-pulled-right is-size-4" aria-hidden="true"></i></a></li>
                                                 {%- assign is-in-second-level-div = true -%}
                                                 <div class="second-level-nav-div is-hidden">
                                             {%- endif -%}
@@ -176,7 +176,7 @@ layout: default
                                         {%- assign is-in-second-level-div = false -%}
                                     {%- endif -%}
                                 {%- endif -%}
-                                {%- assign prev-second-nav-title = collection-document.second_nav_title -%}
+                                {%- assign prev-second-nav-title = collection-document.third_nav_title -%}
                             {%- endfor -%}
                         </ul>
                     </aside>

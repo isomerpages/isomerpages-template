@@ -13,10 +13,10 @@
                     {%- break -%}
                 {%- endif -%}
             {%- endfor -%}
-            {%- if page.collection_name and page.second_nav_title -%}
+            {%- if page.collection_name and page.third_nav_title -%}
                 {%- for collection_doc in site[page.collection_name] -%}
-                    {%- if collection_doc.second_nav_title == page.second_nav_title -%}
-                        <li><a href="{{- collection_doc.permalink -}}"><small>{{page.second_nav_title | upcase}}</small></a></li>
+                    {%- if collection_doc.third_nav_title == page.third_nav_title -%}
+                        <li><a href="{{- collection_doc.permalink -}}"><small>{{page.third_nav_title | upcase}}</small></a></li>
                         {%- break -%}
                     {%- endif -%}
                 {%- endfor -%}
