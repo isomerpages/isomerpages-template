@@ -18,14 +18,14 @@ request.then(function(response) {
   let relatedPostsString = ''
   let relatedPostsDiv = document.getElementById('related-content')
   let relatedPostsList = document.getElementById('related-content-list')
-  
+
   relatedPostsDiv.classList.remove('hide')
 
   let relatedPostArray = response.recommended_posts
   let slicedArray = relatedPostArray.slice(0,NUM_RECOMMENDED_PAGES)
 
   slicedArray.forEach(function(relatedPost) {
-    relatedPostsString += '<li><a href=\"' + relatedPost.url + '\"">' + relatedPost.title + '</a></li>'
+    relatedPostsString += '<li><a href=\"' + relatedPost.url + '?utm_source=recommender\"">' + relatedPost.title + '</a></li>'
   })
 
   relatedPostsList.innerHTML = relatedPostsString
