@@ -62,6 +62,9 @@
 <script src="https://printjs-4de6.kxcdn.com/print.min.js" integrity="sha384-htjK5WN4qR+MbNZFQSenyRKW+3CjwUTTXs3vGU3DcZncFSI7AzNZUIOgyZjdetLU" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/floating-buttons.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/left-nav-interaction.js" | relative_url -}}" crossorigin="anonymous"></script>
+  {%- if site.recommender == true -%}
+  <script src="{{- "/assets/js/recommender.js" | relative_url -}}" crossorigin="anonymous"></script>
+  {%- endif -%}
 {%- endif -%}
 
 {%- include chatbot-scripts.html -%}
