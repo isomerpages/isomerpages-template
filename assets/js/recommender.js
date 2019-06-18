@@ -5,7 +5,7 @@ let NUM_RECOMMENDED_PAGES = 5
 let pageUrl = document.getElementById('full-page-url').innerHTML
 
 let param = {
-  url: unescape(window.btoa(pageUrl))
+  url: window.btoa(unescape(pageUrl))
 }
 
 let request = $.ajax({
