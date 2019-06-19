@@ -3,9 +3,10 @@
 let NUM_RECOMMENDED_PAGES = 5
 
 let pageUrl = document.getElementById('full-page-url').innerHTML
+let base64PageUrl = window.btoa(unescape(pageUrl))
 
 let param = {
-  url: window.btoa(unescape(pageUrl))
+  url: base64PageUrl
 }
 
 let request = $.ajax({
@@ -25,7 +26,7 @@ request.then(function(response) {
   let slicedArray = relatedPostArray.slice(0,NUM_RECOMMENDED_PAGES)
 
   slicedArray.forEach(function(relatedPost) {
-    relatedPostsString += '<li><a href=\"' + relatedPost.url + '?utm_source=recommender\"">' + relatedPost.title + '</a></li>'
+    relatedPostsString += '<li><a href=\"' + relatedPost.url + '?utm_medium=recommender&utm_source=' + base64PageUrl + '\"">' + relatedPost.title + '</a></li>'
   })
 
   relatedPostsList.innerHTML = relatedPostsString
