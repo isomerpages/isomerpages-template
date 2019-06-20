@@ -3,5 +3,10 @@ layout: leftnav-page
 ---
 
 <div class="content">
-    {{- content -}}
+  {{- content -}}
+  {%- if site.recommender == true -%}
+    {%- unless page.recommender == false -%}
+      {%- include recommender.html -%}
+    {%- endunless -%}
+  {%- endif -%}
 </div>
