@@ -17,26 +17,32 @@
                         </span>
                     {%- endif -%}
 
-                    {%- assign categories = site.categories -%}
+                    {%- comment -%} Sort resource rooms category alphabetically by name {%- endcomment -%}
+                    {%- assign categories = "" | split: "," -%}
+                    {%- for category in site.categories -%}
+                        {%- if category[0] != site.resources_name -%}
+                            {%- assign categories = categories | push: category[0] -%}
+                        {%- endif -%}
+                    {%- endfor -%}
+                    {%- assign categories = categories | sort_natural -%}
 
-                    {%- for category-element in categories -%}
-                        {%- if forloop.first and category-element.first == site.resources_name -%}
+                    {%- for category in categories -%}
+                        {%- if forloop.first and category == site.resources_name -%}
                             {%- continue -%}
                         {%- endif -%}
 
-                        {%- assign category_name = category-element.first -%}
-                        {%- capture category_url -%}/{{site.resources_name}}/{{category_name}}/{%- endcapture -%}
+                        {%- capture category_url -%}/{{site.resources_name}}/{{category}}/{%- endcapture -%}
 
                         {%- if page.url == category_url -%}
                             <span class="bp-sec-button">
                                 <a href="{{category_url}}" class="is-uppercase media-category-button selected">
-                                    <b>{{- category_name | replace: "-", " " | replace: "_", " " -}}</b>
+                                    <b>{{- category | replace: "-", " " | replace: "_", " " -}}</b>
                                 </a>
                             </span>
                         {%- else -%}
                             <span class="bp-sec-button">
                                 <a href="{{category_url}}" class="is-uppercase media-category-button">
-                                    <b>{{- category_name | replace: "-", " " | replace: "_", " " -}}</b>
+                                    <b>{{- category | replace: "-", " " | replace: "_", " " -}}</b>
                                 </a>
                             </span>
                         {%- endif -%}
