@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: skeleton
 ---
 {%- assign collection-name = page.collection_name -%}
 {%- assign current-collection = site[collection-name] -%}
@@ -40,16 +40,16 @@ layout: default
                                 {%- if is-in-second-level-div == true -%}
                                     </div>
                                 {%- endif -%}
-                                <a class="bp-dropdown-item has-text-secondary second-level-nav-header-mobile">
+                                <a class="bp-dropdown-item has-text-secondary third-level-nav-header-mobile">
                                     <b><p>{{- collection-document.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></p></b>
                                 </a>
-                                <div class="second-level-nav-div-mobile">
-                                    <a class="bp-dropdown-item has-text-secondary second-level-nav-item-mobile" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">
+                                <div class="third-level-nav-div-mobile">
+                                    <a class="bp-dropdown-item has-text-secondary third-level-nav-item-mobile" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">
                                         <b><p>{{- collection-document.title -}}</p></b>
                                     </a>
                                 {%- assign is-in-second-level-div = true -%}
                             {%- else -%}
-                                <a class="bp-dropdown-item has-text-secondary second-level-nav-item-mobile second-level-nav-item-mobile" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">
+                                <a class="bp-dropdown-item has-text-secondary third-level-nav-item-mobile third-level-nav-item-mobile" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">
                                     <b><p>{{- collection-document.title -}}</p></b>
                                 </a>
                             {%- endunless -%}
@@ -72,11 +72,11 @@ layout: default
                                     {%- if is-in-second-level-div == true -%}
                                         </div>
                                     {%- endif -%}
-                                    <a class="bp-dropdown-item has-text-secondary second-level-nav-header-mobile">
+                                    <a class="bp-dropdown-item has-text-secondary third-level-nav-header-mobile">
                                         <b><p>{{- collection-document.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></p></b>
                                     </a>
-                                    <div class="second-level-nav-div-mobile">
-                                        <a class="bp-dropdown-item second-level-nav-item-mobile" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">
+                                    <div class="third-level-nav-div-mobile">
+                                        <a class="bp-dropdown-item third-level-nav-item-mobile" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">
                                             <p>{{- collection-document.title -}}</p>
                                         </a>
                                     {%- assign is-in-second-level-div = true -%}
@@ -84,17 +84,17 @@ layout: default
                                     {%- if is-in-second-level-div == true -%}
                                         </div>
                                     {%- endif -%}
-                                    <a class="bp-dropdown-item second-level-nav-header-mobile">
+                                    <a class="bp-dropdown-item third-level-nav-header-mobile">
                                         <p>{{- collection-document.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-down is-pulled-right is-size-4" aria-hidden="true"></i></p>
                                     </a>
-                                    <div class="second-level-nav-div-mobile is-hidden">
-                                        <a class="bp-dropdown-item second-level-nav-item-mobile" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">
+                                    <div class="third-level-nav-div-mobile is-hidden">
+                                        <a class="bp-dropdown-item third-level-nav-item-mobile" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">
                                             <p>{{- collection-document.title -}}</p>
                                         </a>
                                     {%- assign is-in-second-level-div = true -%}
                                 {%- endif -%}
                             {%- else -%}
-                                <a class="bp-dropdown-item second-level-nav-item-mobile" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">
+                                <a class="bp-dropdown-item third-level-nav-item-mobile" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">
                                     <p>{{- collection-document.title -}}</p>
                                 </a>
                             {%- endunless -%}
@@ -134,11 +134,11 @@ layout: default
                                             {%- if is-in-second-level-div == true -%}
                                                 </div>
                                             {%- endif -%}
-                                            <li class="is-active second-level-nav-header"><a class="is-active second-level-nav-header">{{- collection-document.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></a></li>
-                                            <div class="second-level-nav-div">
+                                            <li class="is-active third-level-nav-header"><a class="is-active third-level-nav-header">{{- collection-document.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></a></li>
+                                            <div class="third-level-nav-div">
                                             {%- assign is-in-second-level-div = true -%}
                                         {%- endunless -%}
-                                        <li><a class="is-active second-level-nav-item padding--top--none" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">{{- collection-document.title -}}</a></li>
+                                        <li><a class="is-active third-level-nav-item padding--top--none" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">{{- collection-document.title -}}</a></li>
                                     {%- else -%}
                                         {%- if is-in-second-level-div == true -%}
                                             </div>
@@ -154,20 +154,20 @@ layout: default
                                                 {%- if is-in-second-level-div == true -%}
                                                     </div>
                                                 {%- endif -%}
-                                                <li class="is-active second-level-nav-header"><a class="is-active second-level-nav-header">{{- collection-document.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></a></li>
+                                                <li class="is-active third-level-nav-header"><a class="is-active third-level-nav-header">{{- collection-document.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-up is-pulled-right is-size-4" aria-hidden="true"></i></a></li>
                                                 {%- assign is-in-second-level-div = true -%}
-                                                <div class="second-level-nav-div">
+                                                <div class="third-level-nav-div">
 
                                             {%- else -%}
                                                 {%- if is-in-second-level-div == true -%}
                                                     </div>
                                                 {%- endif -%}
-                                                <li class="second-level-nav-header"><a class="second-level-nav-header">{{- collection-document.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-down is-pulled-right is-size-4" aria-hidden="true"></i></a></li>
+                                                <li class="third-level-nav-header"><a class="third-level-nav-header">{{- collection-document.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-down is-pulled-right is-size-4" aria-hidden="true"></i></a></li>
                                                 {%- assign is-in-second-level-div = true -%}
-                                                <div class="second-level-nav-div is-hidden">
+                                                <div class="third-level-nav-div is-hidden">
                                             {%- endif -%}
                                         {%- endunless -%}
-                                        <li><a class="second-level-nav-item padding--top--none" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">{{- collection-document.title -}}</a></li>
+                                        <li><a class="third-level-nav-item padding--top--none" href="{{- site.baseurl -}}{{- collection-document.permalink -}}">{{- collection-document.title -}}</a></li>
                                     {%- else -%}
                                         {%- if is-in-second-level-div == true -%}
                                             </div>
