@@ -1,54 +1,83 @@
 <nav class="bp-breadcrumb" aria-label="breadcrumbs">
     <ul>
-        <li><a href="{{- site.baseurl -}}/"><small>{{- "Home" | upcase -}}</small></a></li>
-        {%- capture page_url_without_index_html -%}{{- page.url | remove: "/index.html" -}}{%- endcapture -%}
-        {%- assign splitted_url_parts = page_url_without_index_html | split: '/' -%}
-        {%- capture forLoopMaxInt -%}{{- splitted_url_parts.size | minus:1 -}}{%- endcapture -%}
-        {%- comment -%} Special breadcrumb case for leftnav pages {%- endcomment -%}
-        {%- if page.layout == "leftnav-page-content" or page.layout == "our-journey" or page.layout == "leftnav-page" or page.layout == "our-team" or page.layout == "board-of-directors-leftnav" -%}
-            {%- for leftnav_header in site.data.navigation -%}
-                {%- capture urlized_leftnav_header -%}{{- leftnav_header.title | downcase | replace: " ", "-" -}}{%- endcapture -%}
-                {%- if splitted_url_parts[1] == urlized_leftnav_header -%}
-                    <li><a href="{{- leftnav_header.url -}}"><small>{{leftnav_header.title | upcase}}</small></a></li>
-                    {%- break -%}
-                {%- endif -%}
-            {%- endfor -%}
-            {%- if page.collection_name and page.third_nav_title -%}
-                {%- for collection_doc in site[page.collection_name] -%}
+        <li><a href="/"><small>{{- "HOME" -}}</small></a></li>
+        {%- if page.collection and page.collection != "posts" -%}
+            {%- comment -%} Special breadcrumb case for leftnav pages {%- endcomment -%}
+            
+            {%- comment -%} Print collection name {%- endcomment -%}
+            <li><a href="{{- site[page.collection].first.url -}}"><small>{{ page.collection | replace: "-", " " | replace: "_", " " | truncatewords: 7 | upcase }}</small></a></li>
+
+            {%- if page.third_nav_title -%}
+                {%- for collection_doc in site[page.collection] -%}
                     {%- if collection_doc.third_nav_title == page.third_nav_title -%}
-                        <li><a href="{{- collection_doc.permalink -}}"><small>{{page.third_nav_title | upcase}}</small></a></li>
+                        <li><a href="{{- collection_doc.url -}}"><small>{{ page.third_nav_title | upcase }}</small></a></li>
                         {%- break -%}
                     {%- endif -%}
                 {%- endfor -%}
             {%- endif -%}
+
+            {%- if page.breadcrumb -%}
+                <li><a href="{{- page.url -}}"><small>{{ page.breadcrumb | truncatewords: 7 | upcase }}</small></a></li>
+            {%- else -%}
+                <li><a href="{{- page.url -}}"><small>{{ page.title | truncatewords: 7 | upcase }}</small></a></li>
+            {%- endif -%}
         {%- else -%}
+            {%- assign splitted_url_parts = page.url | split: '/' -%}
+            {%- assign forLoopMaxInt = splitted_url_parts.size | minus:1 -%}
             {%- for i in (1..forLoopMaxInt) -%}
-                {%- capture current_breadcrumb_url -%}{{next_prepender}}/{{- splitted_url_parts[i] -}}/index.html{%- endcapture -%}
                 {%- capture current_breadcrumb_md_url -%}{{next_prepender}}/{{- splitted_url_parts[i] -}}/{%- endcapture -%}
                 {%- capture next_prepender -%}{{next_prepender}}/{{- splitted_url_parts[i] -}}{%- endcapture -%}
-                {%- for breadcrumb_page in site.pages -%}
-                    {%- if current_breadcrumb_url == breadcrumb_page.permalink or current_breadcrumb_md_url == breadcrumb_page.permalink -%}
-                        <li><a href="{{- site.baseurl -}}{{breadcrumb_page.permalink}}"><small>{{breadcrumb_page.breadcrumb | upcase}}</small></a></li>
-                        {%- break -%}
-                    {%- endif -%}
-                    {%- comment -%} Special case for the media index.html since the media page is paginated and cannot have a permalink {%- endcomment -%}
-                    {%- if current_breadcrumb_url == breadcrumb_page.file_url or current_breadcrumb_md_url == breadcrumb_page.file_url -%}
-                        {%- comment -%} prevent repetition of paginated pages {%- endcomment -%}
-                        {%- unless breadcrumb_page.url contains 'page' -%}
-                            <li><a href="{{- site.baseurl -}}{{breadcrumb_page.file_url}}"><small>{{breadcrumb_page.breadcrumb | upcase}}</small></a></li>
-                            {%- break -%}
-                        {%- endunless -%}
-                    {%- endif -%}
-                {%- endfor -%}
-                {%- comment -%} Repeat for collections {%- endcomment -%}
-                {%- for collection in site.collections -%}
-                    {%- for breadcrumb_page in collection.docs -%}
-                        {%- if current_breadcrumb_url == breadcrumb_page.permalink or current_breadcrumb_md_url == breadcrumb_page.permalink  -%}
-                            <li><a href="{{- site.baseurl -}}{{breadcrumb_page.permalink}}"><small>{{breadcrumb_page.breadcrumb | upcase}}</small></a></li>
+                {%- assign not_found = true -%}
+
+                {%- if not_found -%}
+                    {%- for breadcrumb_page in site.posts -%}
+                        {%- assign page_url_with_slash = breadcrumb_page.url | append: '/' -%}
+                        {%- if current_breadcrumb_md_url == breadcrumb_page.url or current_breadcrumb_md_url == page_url_with_slash -%}
+                            {%- if breadcrumb_page.breadcrumb -%}
+                                <li><a href="{{ breadcrumb_page.url }}"><small>{{ breadcrumb_page.breadcrumb | upcase }}</small></a></li>
+                            {%- else -%}
+                                <li><a href="{{ breadcrumb_page.url }}"><small>{{ breadcrumb_page.title | truncatewords: 7 | upcase }}</small></a></li>
+                            {%- endif -%}
+
+                            {%- assign not_found = false -%}
                             {%- break -%}
                         {%- endif -%}
                     {%- endfor -%}
-                {%- endfor -%}
+                {%- endif -%}
+
+                {%- if not_found -%}
+                    {%- for breadcrumb_page in site.pages -%}
+                        {%- assign page_url_with_slash = breadcrumb_page.url | append: '/' -%}
+                        {%- if current_breadcrumb_md_url == breadcrumb_page.url or current_breadcrumb_md_url == page_url_with_slash -%}
+                            {%- if breadcrumb_page.breadcrumb -%}
+                                <li><a href="{{ breadcrumb_page.url }}"><small>{{ breadcrumb_page.breadcrumb | upcase }}</small></a></li>
+                            {%- else -%}
+                                <li><a href="{{ breadcrumb_page.url }}"><small>{{ breadcrumb_page.title | truncatewords: 7 | upcase }}</small></a></li>
+                            {%- endif -%}
+
+                            {%- assign not_found = false -%}
+                            {%- break -%}
+                        {%- endif -%}
+                    {%- endfor -%}
+                {%- endif -%}
+
+                {%- if not_found -%}
+                    {%- for collection in site.collection -%}
+                        {%- for breadcrumb_page in collection.doc -%}
+                            {%- assign page_url_with_slash = breadcrumb_page.url | append: '/' -%}
+                            {%- if current_breadcrumb_md_url == breadcrumb_page.url or current_breadcrumb_md_url == page_url_with_slash -%}
+                                {%- if breadcrumb_page.breadcrumb -%}
+                                    <li><a href="{{ breadcrumb_page.url }}"><small>{{ breadcrumb_page.breadcrumb | upcase }}</small></a></li>
+                                {%- else -%}
+                                    <li><a href="{{ breadcrumb_page.url }}"><small>{{ breadcrumb_page.title | truncatewords: 7 | upcase }}</small></a></li>
+                                {%- endif -%}
+
+                                {%- assign not_found = false -%}
+                                {%- break -%}
+                            {%- endif -%}
+                        {%- endfor -%}
+                    {%- endfor -%}
+                {%- endif -%}
             {%- endfor -%}
         {%- endif -%}
     </ul>

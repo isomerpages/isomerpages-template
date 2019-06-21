@@ -1,9 +1,7 @@
 ---
-layout: leftnav-page-content
+layout: page
 permalink: /application-guidelines/lorem-ipsum-one/second-level-a/
 title: Lorem Ipsum One A
-breadcrumb: Application Guidelines (Lorem Ipsum One A) 
-last_updated: 01-04-2018 
 collection_name: application-guidelines
 third_nav_title: "Second Level A"
 ---

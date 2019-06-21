@@ -1,22 +1,22 @@
 ---
 layout: skeleton
 ---
-
-<<<<<<< HEAD
-{%- if page.collection -%}
-    {%- assign collection = site[page.collection] -%}
-    <section class="bp-section is-small bp-section-pagetitle">
-        <div class="bp-container ">
-            {%- include header-breadcrumb.html -%}
-        </div>
-        <div class="bp-container">
-            <div class="row">
-                <div class="col">
-                    <h1 class="has-text-white"><b>{{- page.title -}}</b></h1>
-                </div>
+<section class="bp-section is-small bp-section-pagetitle">
+    <div class="bp-container ">
+        {%- include header-breadcrumb.html -%}
+    </div>
+    <div class="bp-container">
+        <div class="row">
+            <div class="col">
+                <h1 class="has-text-white"><b>{{- page.title -}}</b></h1>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+{%- if page.collection -%}
+    {%- comment -%} Page is a leftnav page {%- endcomment -%}
+    {%- assign collection = site[page.collection] -%}
     <section class="bp-section padding--none is-hidden-desktop">
         <div class="bp-dropdown is-hoverable">
             <div class="bp-dropdown-trigger">
@@ -164,7 +164,14 @@ layout: skeleton
                 <div class="col is-8 is-offset-1-desktop is-12-touch print-content">
                     <div class="row">
                         <div class="col">
-                            {{- content -}}
+                            <div class="content">
+                                {{- content -}}
+                                {%- if site.recommender -%}
+                                    {%- unless page.recommender == false -%}
+                                        {%- include recommender.html -%}
+                                    {%- endunless -%}
+                                {%- endif -%}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -220,14 +227,21 @@ layout: skeleton
             {%- break -%}
         {%- endif -%}
     {%- endfor -%}
+{%- else -%}
+    {%- comment -%} Page is a simple page {%- endcomment -%}
+    <section class="bp-section">
+        <div class="bp-container content padding--top--lg padding--bottom--xl">
+            <div class="row">
+                <div class="col is-8 is-offset-2 print-content">
+                    {{- content -}}
+                {%- if site.recommender == true -%}
+                    {%- unless page.recommender == false -%}
+                    {%- include recommender.html -%}
+                    {%- endunless -%}
+                {%- endif -%}
+                </div>
+                {%- include print.html -%}
+            </div>
+        </div>
+    </section>
 {%- endif -%}
-=======
-<div class="content">
-  {{- content -}}
-  {%- if site.recommender == true -%}
-    {%- unless page.recommender == false -%}
-      {%- include recommender.html -%}
-    {%- endunless -%}
-  {%- endif -%}
-</div>
->>>>>>> master
