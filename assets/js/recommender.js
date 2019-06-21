@@ -25,9 +25,9 @@ request.then(function(response) {
   let relatedPostArray = response.recommended_posts
   let slicedArray = relatedPostArray.slice(0,NUM_RECOMMENDED_PAGES)
 
-  slicedArray.forEach(function(relatedPost) {
+  slicedArray.forEach(function(relatedPost, index) {
     const base64RelatedPost = window.btoa(unescape(relatedPost.url))
-    relatedPostsString += '<li><a href=\"' + relatedPost.url + '?utm_medium=recommender&utm_source=' + base64PageUrl + '&utm_content=' + base64RelatedPost + '\"">' + relatedPost.title + '</a></li>'
+    relatedPostsString += '<li><a href=\"' + relatedPost.url + '?utm_medium=recommender_' + index + '&utm_source=' + base64PageUrl + '&utm_content=' + base64RelatedPost + '\"">' + relatedPost.title + '</a></li>'
   })
 
   relatedPostsList.innerHTML = relatedPostsString
