@@ -75,6 +75,9 @@ faq_url_external: true
 custom_css_path: "/do-not-touch/theme-colors/custom.css"
 custom_print_css_path: "/assets/css/print.css"
 
+# Isomer recommender system - only works for simple-page, leftnav-page, and post
+recommender: true
+
 # ############################################################
 # # Site configuration for the Jekyll 3 Pagination Gem
 # # The values here represent the defaults if nothing is set

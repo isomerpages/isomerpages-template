@@ -2,6 +2,7 @@
 layout: skeleton
 ---
 
+<<<<<<< HEAD
 {%- if page.collection -%}
     {%- assign collection = site[page.collection] -%}
     <section class="bp-section is-small bp-section-pagetitle">
@@ -220,3 +221,13 @@ layout: skeleton
         {%- endif -%}
     {%- endfor -%}
 {%- endif -%}
+=======
+<div class="content">
+  {{- content -}}
+  {%- if site.recommender == true -%}
+    {%- unless page.recommender == false -%}
+      {%- include recommender.html -%}
+    {%- endunless -%}
+  {%- endif -%}
+</div>
+>>>>>>> master

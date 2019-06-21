@@ -20,6 +20,11 @@ layout: skeleton
         <div class="row">
             <div class="col is-8 is-offset-2 print-content">
             	{{- content -}}
+              {%- if site.recommender == true -%}
+                {%- unless page.recommender == false -%}
+                  {%- include recommender.html -%}
+                {%- endunless -%}
+              {%- endif -%}
             </div>
             {%- include print.html -%}
         </div>
