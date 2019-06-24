@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title:  "Compliance with Award"
 date:   2014-02-03
 excerpt: "Singapore Industrial & Services Employees Union v. First Defense Services Pte Ltd: The Court ruled that the Company complied with the Court's award."

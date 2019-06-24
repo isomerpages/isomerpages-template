@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: InnoLeap
 permalink: /products-and-services/innoleap/
 breadcrumb: InnoLeap

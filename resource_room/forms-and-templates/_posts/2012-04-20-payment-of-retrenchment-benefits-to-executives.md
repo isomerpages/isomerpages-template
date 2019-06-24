@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title:  "Payment of Retrenchment Benefits to Executives"
 date:   2012-04-20
 excerpt: "The Singapore Manual & Mercantile Workers' Union v. China Airlines Limited: The Court rhas been adjourned to a date to be fixed."

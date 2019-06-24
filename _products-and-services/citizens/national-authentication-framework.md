@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: National Authentication Framework (NAF)
 permalink: /products-and-services/national-authentication-framework/
 breadcrumb: National Authentication Framework (NAF)

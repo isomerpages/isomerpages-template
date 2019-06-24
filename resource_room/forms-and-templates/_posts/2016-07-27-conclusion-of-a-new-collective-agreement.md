@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title:  "Conclusion of a New Collective Agreement"
 date:   2016-07-27
 excerpt: "Singapore Industrial & Services Employees Union v. First Defense Services Pte Ltd: The Court has approved the Union's request to withdraw its application for hearing."

@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: CorpPass
 permalink: /products-and-services/corppass/
 breadcrumb: CorpPass

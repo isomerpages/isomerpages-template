@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: Singapore Government Tech Stack
 permalink: /products-and-services/singapore-government-tech-stack/
 breadcrumb: SGTS

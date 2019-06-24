@@ -1,5 +1,5 @@
 ---
-layout: leftnav-page-content
+layout: page
 permalink: /application-guidelines/lorem-ipsum-one/second-level-b/
 title: Lorem Ipsum One B
 breadcrumb: Application Guidelines (Lorem Ipsum One B) 

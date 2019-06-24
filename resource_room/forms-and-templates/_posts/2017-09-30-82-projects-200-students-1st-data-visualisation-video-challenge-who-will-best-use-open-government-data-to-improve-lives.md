@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title:  "82 Projects, 200 Students, 1st Data Visualisation Video Challenge: Who will best use open government data to improve lives?"
 date: 2017-09-30
 permalink: "/media/media-releases/1st-data-visualisation-video-challenge"

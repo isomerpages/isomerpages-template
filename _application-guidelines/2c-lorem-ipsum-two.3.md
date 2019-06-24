@@ -1,5 +1,5 @@
 ---
-layout: leftnav-page-content
+layout: page
 permalink: /application-guidelines/lorem-ipsum-two/part-E/
 breadcrumb: Application Guidelines (Lorem Ipsum Two B) 
 title: Lorem Ipsum Two B

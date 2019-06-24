@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title:  "Annual increments for 2012 - 2014"
 date:   2015-04-15
 excerpt: "Singapore Industrial & Services Employees Union v. First Defense Services Pte Ltd: The Court has approved the Union's request to withdraw its application for hearing."

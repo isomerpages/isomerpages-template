@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: SingPass
 permalink: /products-and-services/singpass/
 breadcrumb: SingPass

@@ -8,7 +8,7 @@ address: Test Street
 breadcrumb: Test Event 2
 title: Test Event 2
 ---
-The `layout` of this page is `simple-page`. Below is a set of accordions that is in the markdown itself.
+The `layout` of this page is `page`. Below is a set of accordions that is in the markdown itself.
 
 {% accordion Title title title %}
 This is some text.

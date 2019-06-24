@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: TradeXchange
 permalink: /products-and-services/tradexchange/
 breadcrumb: TradeXchange

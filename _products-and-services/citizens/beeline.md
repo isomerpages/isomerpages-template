@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: Beeline
 permalink: /products-and-services/beeline/
 breadcrumb: Beeline

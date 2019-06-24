@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: Data.gov.sg
 permalink: /products-and-services/data-gov-sg/
 breadcrumb: Data.gov.sg

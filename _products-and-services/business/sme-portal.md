@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: SME Portal
 permalink: /products-and-services/sme-portal/
 breadcrumb: SME Portal

@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: Tech Kaki Community
 permalink: /products-and-services/tech-kaki-community/
 breadcrumb: Tech Kaki Community

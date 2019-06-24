@@ -1,6 +1,6 @@
 <nav class="bp-breadcrumb" aria-label="breadcrumbs">
     <ul>
-        <li><a href="/"><small>{{- "HOME" -}}</small></a></li>
+        <li><a href="/"><small>HOME</small></a></li>
         {%- if page.collection and page.collection != "posts" -%}
             {%- comment -%} Special breadcrumb case for leftnav pages {%- endcomment -%}
             
@@ -10,14 +10,14 @@
             {%- if page.third_nav_title -%}
                 {%- for collection_doc in site[page.collection] -%}
                     {%- if collection_doc.third_nav_title == page.third_nav_title -%}
-                        <li><a href="{{- collection_doc.url -}}"><small>{{ page.third_nav_title | upcase }}</small></a></li>
+                        <li><a href="{{- collection_doc.url -}}"><small>{{ page.third_nav_title | truncatewords: 7 | upcase }}</small></a></li>
                         {%- break -%}
                     {%- endif -%}
                 {%- endfor -%}
             {%- endif -%}
 
             {%- if page.breadcrumb -%}
-                <li><a href="{{- page.url -}}"><small>{{ page.breadcrumb | truncatewords: 7 | upcase }}</small></a></li>
+                <li><a href="{{- page.url -}}"><small>{{ page.breadcrumb | upcase }}</small></a></li>
             {%- else -%}
                 <li><a href="{{- page.url -}}"><small>{{ page.title | truncatewords: 7 | upcase }}</small></a></li>
             {%- endif -%}
@@ -30,7 +30,7 @@
                 {%- assign not_found = true -%}
 
                 {%- if not_found -%}
-                    {%- for breadcrumb_page in site.posts -%}
+                    {%- for breadcrumb_page in site.pages -%}
                         {%- assign page_url_with_slash = breadcrumb_page.url | append: '/' -%}
                         {%- if current_breadcrumb_md_url == breadcrumb_page.url or current_breadcrumb_md_url == page_url_with_slash -%}
                             {%- if breadcrumb_page.breadcrumb -%}
@@ -46,7 +46,7 @@
                 {%- endif -%}
 
                 {%- if not_found -%}
-                    {%- for breadcrumb_page in site.pages -%}
+                    {%- for breadcrumb_page in site.posts -%}
                         {%- assign page_url_with_slash = breadcrumb_page.url | append: '/' -%}
                         {%- if current_breadcrumb_md_url == breadcrumb_page.url or current_breadcrumb_md_url == page_url_with_slash -%}
                             {%- if breadcrumb_page.breadcrumb -%}

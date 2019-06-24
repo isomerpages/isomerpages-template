@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: Ideas!
 permalink: /products-and-services/ecitizen-ideas/
 breadcrumb: Ideas!

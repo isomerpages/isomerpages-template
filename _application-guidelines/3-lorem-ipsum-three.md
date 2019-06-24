@@ -1,5 +1,5 @@
 ---
-layout: leftnav-page-content
+layout: page
 permalink: /application-guidelines/lorem-ipsum-three/
 breadcrumb: Application Guidelines (Lorem Ipsum Three)
 image: "/images/banner_GardenBay.png" 

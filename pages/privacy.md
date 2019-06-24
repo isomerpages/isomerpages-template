@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: Privacy Statement
 permalink: /privacy/
 breadcrumb: Privacy

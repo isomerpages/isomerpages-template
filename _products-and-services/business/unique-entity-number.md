@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: Unique Entity Number
 permalink: /products-and-services/unique-entity-number/
 breadcrumb: Unique Entity Number

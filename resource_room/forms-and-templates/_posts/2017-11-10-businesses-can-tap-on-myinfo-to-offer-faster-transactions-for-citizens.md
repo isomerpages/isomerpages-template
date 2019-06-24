@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title:  "Businesses can tap on MyInfo to offer faster transactions for citizens"
 date: 2017-11-10
 permalink: "/media/media-releases/businesses-can-tap-on-myinfo"

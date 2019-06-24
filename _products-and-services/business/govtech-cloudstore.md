@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: GovTech CloudStore
 permalink: /products-and-services/govtech-cloudstore/
 breadcrumb: GovTech CloudStore

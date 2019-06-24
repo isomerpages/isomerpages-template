@@ -4,7 +4,7 @@ permalink: /events/
 breadcrumb: Events
 title: Events
 ---
-The `layout` of this page is `simple-page`. Below is a set of accordions that is in the markdown itself.
+The `layout` of this page is `page`. Below is a set of accordions that is in the markdown itself.
 
 {% accordion Title title title %}
 This is some text.

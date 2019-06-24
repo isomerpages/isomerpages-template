@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title:  "Eligibility and Quantum of Retrenchment Benefits"
 date:   2012-09-18
 excerpt: "The Singapore Manual & Mercantile Workers' Union v. China Airlines Limited: The Court rhas been adjourned to a date to be fixed."

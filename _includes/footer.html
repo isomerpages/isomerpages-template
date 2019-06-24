@@ -3,7 +3,9 @@
     <div class="bp-container ">
         <div class="row">
             <div class="col header padding--top--lg padding--bottom--lg">
-                <h5 class="sub-header has-text-white"><b>{{site.title}}</b></h5>
+                <h5 class="sub-header has-text-white">
+                    <b>{{ site.title }}</b>
+                </h5>
             </div>
         </div>
         <div class="row is-top">
@@ -12,186 +14,444 @@
             {%- else -%}
                 {%- assign links = site.data.navigation -%}
             {%- endif -%}
-
             {%- assign social = site.data.social-media -%}
-            
             {%- comment -%} Set columns for nav links based on social media links {%- endcomment -%}
             {%- if social -%}
-              {%- assign navClass = "is-four-fifths" -%}
+                {%- assign navClass = "is-four-fifths" -%}
             {%- else -%}
-              {%- assign navClass = "" -%}
+                {%- assign navClass = "" -%}
             {%- endif -%}
-            
-            <div class="row col {{navClass}} is-multiline is-hidden-mobile">
-            {%- comment -%} Footer links for tablet/desktop {%- endcomment -%}
-            {%- for link in links -%}
-            {%- include links-baseurl.html -%}
-            {%- assign linkTitle = link.title | downcase -%}
-            {%- if linkTitle != "contact us" and linkTitle != "faq" -%}
-                <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
-                  {%- if base-url == "" and link.external == true -%}
-                    <p class="sub-header"><b><a class="has-text-white" href="{{- base-url -}}{{- link.url -}}" target="_blank" rel="noreferrer">{{link.title}}</a></b></p>
-                  {%- else -%}
-                    <p class="sub-header"><b><a class="has-text-white" href="{{- base-url -}}{{- link.url -}}">{{link.title}}</a></b></p>
-                  {%- endif -%}
-                  {%- for sublink in link.sub-links -%}
-                    {%- include sublinks-baseurl.html -%}
-                    {%- if sublink-base-url == "" and sublink.external == true -%}
-                      <p class="is-hidden-mobile"><a href="{{- sublink-base-url -}}{{- sublink.url -}}" target="_blank" rel="noreferrer">{{sublink.title}}</a></p>
-                    {%- else -%}
-                      <p class="is-hidden-mobile"><a href="{{- sublink-base-url -}}{{- sublink.url -}}">{{sublink.title}}</a></p>
+
+            <div class="row col is-multiline is-hidden-mobile {{ navClass }}">
+                {%- comment -%}
+                    Left nav pages (level 2) will all belong to their own collection
+                    navigation.yml will simply specify the order of level 1 and level 2 pages (1 level in navigation.yml only)
+                    This portion of the code will automatically generate the navbar subitems for level 2 pages based on the content in the level 2 collection
+                    For level 3 pages, the first page in the level 3 "collection" will appear in the navbar like other level 2 pages
+                    Level 3 pages will also reside in the same collection as other level 2 and 3 pages under the same heading
+                    But they will have an additional "third_nav_title" header in their front matter
+
+                    This is done so that new level 2 pages will automatically appear in the navbar without the need for extra configuration in navigation.yml
+
+                    Subitems can still be customized by including the sublinks array
+                {%- endcomment -%}
+                {%- for navitem in links -%}
+                    {%- assign title_downcased = navitem.title | downcase -%}
+                    {%- if title_downcased == "contact us" or title_downcased == "faq" -%}
+                        {%- continue -%}
                     {%- endif -%}
-                  {%- endfor -%}
-                </div>
-            {%- endif -%}
-            {%- endfor -%}
+
+                    {%- if navitem.collection -%}
+                        {%- comment -%} Leftnav page {%- endcomment -%}
+                        
+                        <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
+                            <p class="sub-header">
+                                <b><a class="has-text-white" href="{{site[navitem.collection].first.url}}">{{navitem.title}}</a></b>
+                            </p>
+                            {%- comment -%} You can't initalize an array in liquid so we have to do this {%- endcomment -%}
+                            {% assign third_nav_titles = "" | split: ", " %}
+                            {%- for leftnavpage in site[navitem.collection] -%}
+                                {%- comment -%} Only show second level pages and the first page in third level pages {%- endcomment -%}
+                                {%- if leftnavpage.third_nav_title -%}
+                                    {%- if third_nav_titles contains leftnavpage.third_nav_title -%}
+                                        {%- continue -%}
+                                        {%- comment -%} Contains do not support the not operator {%- endcomment -%}
+                                    {%- else -%}
+                                        {%- comment -%} This is the first page in this third level nav, display link {%- endcomment -%}
+                                        <p class="is-hidden-mobile">
+                                            <a href="{{leftnavpage.url}}">
+                                                {{- leftnavpage.third_nav_title -}}
+                                            </a>
+                                        </p>
+                                        {%- assign third_nav_titles = third_nav_titles | push: leftnavpage.third_nav_title -%}
+                                    {%- endif -%}
+                                {%- else -%}
+                                    <p class="is-hidden-mobile">
+                                        <a href="{{leftnavpage.url}}">
+                                            {{- leftnavpage.title -}}
+                                        </a>
+                                    </p>
+                                {%- endif -%}
+                            {%- endfor -%}
+                        </div>
+                    {%- elsif navitem.sublinks -%}
+                        {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
+                        <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
+                            {%- comment -%} Test if navitem.url starts with http:// or https:// (is external) {%- endcomment -%}
+                            {%- assign external = false -%}
+                            {%- assign checkArray = navitem.url | split: "https://" -%}
+                            {%- if checkArray.first.size == 0 -%}
+                                {%- comment -%} Starts with https:// {%- endcomment -%}
+                                {%- assign external = true -%}
+                            {%- else -%}
+                                {%- assign checkArray = navitem.url | split: "http://" -%}
+                                {%- if checkArray.first.size == 0 -%}
+                                    {%- comment -%} Starts with http:// {%- endcomment -%}
+                                    {%- assign external = true -%}
+                                {%- endif -%}
+                            {%- endif -%}
+                            
+                            {%- if external -%}
+                                <p class="sub-header">
+                                    <b><a class="has-text-white" href="{{navitem.url}}" target="_blank" rel="noreferrer">
+                                        {{- navitem.title -}}
+                                    </a></b>
+                                </p>
+                            {%- else -%}
+                                <p class="sub-header">
+                                    <a class="has-text-white" href="{{navitem.url}}">
+                                        {{- navitem.title -}}
+                                    </a>
+                                </p>
+                            {%- endif -%}
+                            
+                            {%- for sublink in navitem.sublinks -%}                 
+                                {%- comment -%} Test if sublink.url starts with http:// or https:// (is external) {%- endcomment -%}
+                                {%- assign external = false -%}
+                                {%- assign checkArray = sublink.url | split: "https://" -%}
+                                {%- if checkArray.first.size == 0 -%}
+                                    {%- comment -%} Starts with https:// {%- endcomment -%}
+                                    {%- assign external = true -%}
+                                {%- else -%}
+                                    {%- assign checkArray = sublink.url | split: "http://" -%}
+                                    {%- if checkArray.first.size == 0 -%}
+                                        {%- comment -%} Starts with http:// {%- endcomment -%}
+                                        {%- assign external = true -%}
+                                    {%- endif -%}
+                                {%- endif -%}
+                                
+                                {%- if external -%}
+                                    <p class="is-hidden-mobile">
+                                        <a href="{{sublink.url}}" target="_blank" rel="noreferrer">
+                                            {{- sublink.title -}}
+                                        </a>
+                                    </p>
+                                {%- else -%}
+                                    <p class="is-hidden-mobile">
+                                        <a href="{{sublink.url}}">
+                                            {{- sublink.title -}}
+                                        </a>
+                                    </p>
+                                {%- endif -%}
+                            {%- endfor -%}
+                        </div>
+                    {%- elsif navitem.resource_room -%}
+                        <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
+                            <p class="sub-header">
+                                <a class="has-text-white" href="/{{site.resources_name}}/">
+                                    {{- navitem.title -}}
+                                </a>
+                            </p>
+                            {%- unless site.categories.size < 3 -%}
+                                {%- comment -%} 
+                                    No point displaying the 'all' entry if there is only 1 category
+                                    The numbers are all incremented by 1 as the resource room folder itself is counted as 1 category
+                                {%- endcomment -%}
+                                <p class="is-hidden-mobile">
+                                    <a href="/{{site.resources_name}}/">
+                                        All
+                                    </a>
+                                </p>
+                            {%- endunless -%}
+                            {%- comment -%} Sort resource rooms category alphabetically by name {%- endcomment -%}
+                            {%- assign categories = "" | split: "," -%}
+                            {%- for category in site.categories -%}
+                                {%- if category[0] != site.resources_name -%}
+                                    {%- assign categories = categories | push: category[0] -%}
+                                {%- endif -%}
+                            {%- endfor -%}
+                            {%- assign categories = categories | sort_natural -%}
+                            {%- comment -%} Display navlink for each category {%- endcomment -%}
+                            {%- for category in categories -%}
+                                <p class="is-hidden-mobile">
+                                    <a href="/{{site.resources_name}}/{{category}}/">
+                                        {%- assign words = category | replace: "-", " " | replace: "_", " " | split: " " -%}
+                                        {%- comment -%} Right now words are all in lowercase, and we want to Title Case them {%- endcomment -%}
+                                        {%- for word in words -%}
+                                            {{- word | capitalize | append: " " -}}
+                                        {%- endfor -%}
+                                    </a>
+                                </p>
+                            {%- endfor -%}
+                        </div>
+                    {%- else -%}
+                        {%- comment -%} Single page {%- endcomment -%}
+                        
+                        <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
+                            {%- comment -%} Test if navitem.url starts with http:// or https:// (is external) {%- endcomment -%}
+                            {%- assign external = false -%}
+                            {%- assign checkArray = navitem.url | split: "https://" -%}
+                            {%- if checkArray.first.size == 0 -%}
+                                {%- comment -%} Starts with https:// {%- endcomment -%}
+                                {%- assign external = true -%}
+                            {%- else -%}
+                                {%- assign checkArray = navitem.url | split: "http://" -%}
+                                {%- if checkArray.first.size == 0 -%}
+                                    {%- comment -%} Starts with http:// {%- endcomment -%}
+                                    {%- assign external = true -%}
+                                {%- endif -%}
+                            {%- endif -%}
+                            
+                            {%- if external -%}
+                                <p class="sub-header">
+                                    <a href="{{navitem.url}}" class="has-text-white" target="_blank" rel="noreferrer">
+                                        {{- navitem.title -}}
+                                    </a>
+                                </p>
+                            {%- else -%}
+                                <p class="sub-header">
+                                    <a href="{{navitem.url}}" class="has-text-white">
+                                        {{- navitem.title -}}
+                                    </a>
+                                </p>
+                            {%- endif -%}
+                        </div>
+                    {%- endif -%}
+                {%- endfor -%}
             </div>
 
             {%- if social -%}
-              {%- comment -%} Social links for desktop {%- endcomment -%}
-              <div class="col is-one-fifth is-hidden-mobile is-hidden-tablet-only" id="social-link-desktop">
-                {%- if social.facebook -%}
-                  <a href="{{- social.facebook -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer"><span class="sgds-icon sgds-icon-facebook is-size-4" title="Facebook"></span></a>
-                {%- endif -%}
-                {%- if social.twitter -%}
-                  <a href="{{- social.twitter -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer"><span class="sgds-icon sgds-icon-twitter is-size-4" title="Twitter"></span></a>
-                {%- endif -%}
-                {%- if social.youtube -%}
-                  <a href="{{- social.youtube -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer"><span class="sgds-icon sgds-icon-youtube is-size-4" title="YouTube"></span></a>
-                {%- endif -%}
-                {%- if social.instagram -%}
-                  <a href="{{- social.instagram -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer"><span class="sgds-icon sgds-icon-instagram is-size-4" title="Instagram"></span></a>
-                {%- endif -%}
-                {%- if social.linkedin -%}
-                  <a href="{{- social.linkedin -}}" target="_blank" class="social-link padding--bottom is-inline-block" rel="noreferrer"><span class="sgds-icon sgds-icon-linkedin is-size-4" title="LinkedIn"></span></a>
-                {%- endif -%}
-              </div>
-              
-              {%- comment -%} Social links for tablet {%- endcomment -%}
-              <div class="col is-one-quarter is-hidden-mobile is-hidden-desktop" id="social-link-tablet">
-                {%- if social.facebook -%}
-                  <div class="row">
-                    <a href="{{- social.facebook -}}" target="_blank" class="social-link margin--bottom" title="Facebook" rel="noreferrer"><span class="sgds-icon sgds-icon-facebook is-size-4"></span></a>
-                  </div>
-                {%- endif -%}
-                {%- if social.twitter -%}
-                  <div class="row">
-                    <a href="{{- social.twitter -}}" target="_blank" class="social-link margin--bottom" title="Twitter" rel="noreferrer"><span class="sgds-icon sgds-icon-twitter is-size-4"></span></a>
-                  </div>
-                {%- endif -%}
-                {%- if social.youtube -%}
-                  <div class="row">
-                    <a href="{{- social.youtube -}}" target="_blank" class="social-link margin--bottom" title="YouTube" rel="noreferrer"><span class="sgds-icon sgds-icon-youtube is-size-4"></span></a>
-                  </div>
-                {%- endif -%}
-                {%- if social.instagram -%}
-                  <div class="row">
-                    <a href="{{- social.instagram -}}" target="_blank" class="social-link margin--bottom" title="Instagram" rel="noreferrer"><span class="sgds-icon sgds-icon-instagram is-size-4"></span></a>
-                  </div>
-                {%- endif -%}
-                {%- if social.linkedin -%}
-                  <div class="row">
-                    <a href="{{- social.linkedin -}}" target="_blank" class="social-link margin--bottom" title="LinkedIn" rel="noreferrer"><span class="sgds-icon sgds-icon-linkedin is-size-4"></span></a>
-                  </div>
-                {%- endif -%}
-              </div>
-            {%- endif -%}
+                {%- comment -%} Social links for desktop {%- endcomment -%}
+                <div class="col is-one-fifth is-hidden-mobile is-hidden-tablet-only" id="social-link-desktop">
+                    {%- if social.facebook -%}
+                        <a href="{{- social.facebook -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer">
+                            <span class="sgds-icon sgds-icon-facebook is-size-4" title="Facebook"></span>
+                        </a>
+                    {%- endif -%}
+                    {%- if social.twitter -%}
+                        <a href="{{- social.twitter -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer">
+                            <span class="sgds-icon sgds-icon-twitter is-size-4" title="Twitter"></span>
+                        </a>
+                    {%- endif -%}
+                    {%- if social.youtube -%}
+                        <a href="{{- social.youtube -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer">
+                            <span class="sgds-icon sgds-icon-youtube is-size-4" title="YouTube"></span>
+                        </a>
+                    {%- endif -%}
+                    {%- if social.instagram -%}
+                        <a href="{{- social.instagram -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer">
+                            <span class="sgds-icon sgds-icon-instagram is-size-4" title="Instagram"></span>
+                        </a>
+                    {%- endif -%}
+                    {%- if social.linkedin -%}
+                        <a href="{{- social.linkedin -}}" target="_blank" class="social-link padding--bottom is-inline-block" rel="noreferrer">
+                            <span class="sgds-icon sgds-icon-linkedin is-size-4" title="LinkedIn"></span>
+                        </a>
+                    {%- endif -%}
+                </div>
 
+                {%- comment -%} Social links for tablet {%- endcomment -%}
+                <div class="col is-one-quarter is-hidden-mobile is-hidden-desktop" id="social-link-tablet">
+                    {%- if social.facebook -%}
+                        <div class="row">
+                            <a href="{{- social.facebook -}}" target="_blank" class="social-link margin--bottom" title="Facebook" rel="noreferrer">
+                                <span class="sgds-icon sgds-icon-facebook is-size-4"></span>
+                            </a>
+                        </div>
+                    {%- endif -%}
+                    {%- if social.twitter -%}
+                        <div class="row">
+                            <a href="{{- social.twitter -}}" target="_blank" class="social-link margin--bottom" title="Twitter" rel="noreferrer">
+                                <span class="sgds-icon sgds-icon-twitter is-size-4"></span>
+                            </a>
+                        </div>
+                    {%- endif -%}
+                    {%- if social.youtube -%}
+                        <div class="row">
+                            <a href="{{- social.youtube -}}" target="_blank" class="social-link margin--bottom" title="YouTube" rel="noreferrer">
+                                <span class="sgds-icon sgds-icon-youtube is-size-4"></span>
+                            </a>
+                        </div>
+                    {%- endif -%}
+                    {%- if social.instagram -%}
+                        <div class="row">
+                            <a href="{{- social.instagram -}}" target="_blank" class="social-link margin--bottom" title="Instagram" rel="noreferrer">
+                                <span class="sgds-icon sgds-icon-instagram is-size-4"></span>
+                            </a>
+                        </div>
+                    {%- endif -%}
+                    {%- if social.linkedin -%}
+                        <div class="row">
+                            <a href="{{- social.linkedin -}}" target="_blank" class="social-link margin--bottom" title="LinkedIn" rel="noreferrer">
+                                <span class="sgds-icon sgds-icon-linkedin is-size-4"></span>
+                            </a>
+                        </div>
+                    {%- endif -%}
+                </div>
+            {%- endif -%}
+            
             {%- comment -%} Footer links for mobile {%- endcomment -%}
             <div class="col is-hidden-tablet is-hidden-desktop">
-              {%- for link in links -%}
-                {%- include links-baseurl.html -%}
-                {%- assign linkTitle = link.title | downcase -%}
-                {%- if linkTitle != "contact us" and linkTitle != "faq" -%}
-                  {%- if base-url == "" and link.external == true -%}
-                    <p><a href="{{- base-url -}}{{- link.url -}}" target="_blank" rel="noreferrer">{{link.title}}</a></p>
-                  {%- else -%}
-                    <p><a href="{{- base-url -}}{{- link.url -}}">{{link.title}}</a></p>
-                  {%- endif -%}
-                {%- endif -%}
-              {%- endfor -%}
-            </div>
+                {%- for navitem in links -%}
+                    {%- assign title_downcased = navitem.title | downcase -%}
+                    {%- if title_downcased == "contact us" or title_downcased == "faq" -%}
+                        {%- continue -%}
+                    {%- endif -%}
 
+                    {%- if navitem.collection -%}
+                        {%- comment -%} Leftnav page {%- endcomment -%}                        
+                            <p>
+                                <a href="{{site[navitem.collection].first.url}}">{{navitem.title}}</a>
+                            </p>
+                    {%- elsif navitem.sublinks -%}
+                        {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
+                            {%- comment -%} Test if navitem.url starts with http:// or https:// (is external) {%- endcomment -%}
+                            {%- assign external = false -%}
+                            {%- assign checkArray = navitem.url | split: "https://" -%}
+                            {%- if checkArray.first.size == 0 -%}
+                                {%- comment -%} Starts with https:// {%- endcomment -%}
+                                {%- assign external = true -%}
+                            {%- else -%}
+                                {%- assign checkArray = navitem.url | split: "http://" -%}
+                                {%- if checkArray.first.size == 0 -%}
+                                    {%- comment -%} Starts with http:// {%- endcomment -%}
+                                    {%- assign external = true -%}
+                                {%- endif -%}
+                            {%- endif -%}
+                            
+                            {%- if external -%}
+                                <p>
+                                    <a href="{{navitem.url}}" target="_blank" rel="noreferrer">
+                                        {{- navitem.title -}}
+                                    </a>
+                                </p>
+                            {%- else -%}
+                                <p>
+                                    <a href="{{navitem.url}}">
+                                        {{- navitem.title -}}
+                                    </a>
+                                </p>
+                            {%- endif -%}
+                    {%- elsif navitem.resource_room -%}
+                            <p>
+                                <a href="/{{site.resources_name}}/">
+                                    {{- navitem.title -}}
+                                </a>
+                            </p>
+                    {%- else -%}
+                        {%- comment -%} Single page {%- endcomment -%}
+                        {%- comment -%} Test if navitem.url starts with http:// or https:// (is external) {%- endcomment -%}
+                        {%- assign external = false -%}
+                        {%- assign checkArray = navitem.url | split: "https://" -%}
+                        {%- if checkArray.first.size == 0 -%}
+                            {%- comment -%} Starts with https:// {%- endcomment -%}
+                            {%- assign external = true -%}
+                        {%- else -%}
+                            {%- assign checkArray = navitem.url | split: "http://" -%}
+                            {%- if checkArray.first.size == 0 -%}
+                                {%- comment -%} Starts with http:// {%- endcomment -%}
+                                {%- assign external = true -%}
+                            {%- endif -%}
+                        {%- endif -%}
+                        
+                        {%- if external -%}
+                            <p>
+                                <a href="{{navitem.url}}" target="_blank" rel="noreferrer">
+                                    {{- navitem.title -}}
+                                </a>
+                            </p>
+                        {%- else -%}
+                            <p>
+                                <a href="{{navitem.url}}">
+                                    {{- navitem.title -}}
+                                </a>
+                            </p>
+                        {%- endif -%}
+                    {%- endif -%}
+                {%- endfor -%}
+            </div>
         </div>
         <div class="row">
-          <div class="col padding--top--sm padding--bottom--sm is-right-desktop-only">
-            <ul>
-               {%- unless site.no_contact -%}
-               <li class="is-inline-block-desktop-only">
-                   <p><a href="{{site.baseurl}}/contact-us/">Contact Us</a></p>
-               </li>
-               {%- endunless -%}
-               {%- if homepage.show-reach and homepage.show-reach == true -%}
-               <li class="is-inline-block-desktop-only">
-                 <p><a href="https://www.reach.gov.sg/" target="_blank" rel="noreferrer" title="Link to reach.gov.sg">REACH</a></p>
-               </li>
-               {%- endif -%}
-               {%- if site.feedback_form_url -%}
-               <li class="is-inline-block-desktop-only">
-                  <p><a href="{{site.feedback_form_url}}" target="_blank" rel="noreferrer">Feedback</a></p>
-               </li>
-               {%- endif -%}
-               {%- assign homepage = site.data.homepage -%}
-               {%- unless homepage.ask-jamie -%}
-               {%- if site.faq_url -%}
-               <li class="is-inline-block-desktop-only">
-                  {%- if site.faq_url_external -%}
-                    <p><a href="{{site.faq_url}}" target="_blank" rel="noreferrer">FAQ</a></p>
-                  {%- else -%}
-                    <p><a href="{{site.baseurl}}{{site.faq_url}}">FAQ</a></p>
-                  {%- endif -%}
-               </li>
-               {%- endif -%}
-               {%- endunless -%}
-           </ul>
-          </div>
-          <div class="col is-hidden-tablet is-hidden-desktop padding--top--lg padding--bottom--none">
-              {%- if social.facebook -%}
-                <a href="{{- social.facebook -}}" target="_blank" class="social-link padding--right" title="Facebook" rel="noreferrer"><span class="sgds-icon sgds-icon-facebook is-size-4"></span></a>
-              {%- endif -%}
-              {%- if social.twitter -%}
-                <a href="{{- social.twitter -}}" target="_blank" class="social-link padding--right" title="Twitter" rel="noreferrer"><span class="sgds-icon sgds-icon-twitter is-size-4"></span></a>
-              {%- endif -%}
-              {%- if social.youtube -%}
-                <a href="{{- social.youtube -}}" target="_blank" class="social-link padding--right" title="YouTube" rel="noreferrer"><span class="sgds-icon sgds-icon-youtube is-size-4"></span></a>
-              {%- endif -%}
-              {%- if social.instagram -%}
-                <a href="{{- social.instagram -}}" target="_blank" class="social-link padding--right" title="Instagram" rel="noreferrer"><span class="sgds-icon sgds-icon-instagram is-size-4"></span></a>
-              {%- endif -%}
-              {%- if social.linkedin -%}
-                <a href="{{- social.linkedin -}}" target="_blank" class="social-link padding--right" title="LinkedIn" rel="noreferrer"><span class="sgds-icon sgds-icon-linkedin is-size-4"></span></a>
-              {%- endif -%}
+            <div class="col padding--top--sm padding--bottom--sm is-right-desktop-only">
+                <ul>
+                    {%- unless site.no_contact -%}
+                        <li class="is-inline-block-desktop-only">
+                            <p><a href="{{ site.baseurl }}/contact-us/">Contact Us</a></p>
+                        </li>
+                    {%- endunless -%}
+                    {%- if homepage.show-reach and homepage.show-reach == true -%}
+                        <li class="is-inline-block-desktop-only">
+                            <p><a href="https://www.reach.gov.sg/" target="_blank" rel="noreferrer" title="Link to reach.gov.sg">REACH</a></p>
+                        </li>
+                    {%- endif -%}
+                    {%- if site.feedback_form_url -%}
+                        <li class="is-inline-block-desktop-only">
+                            <p><a href="{{ site.feedback_form_url }}" target="_blank" rel="noreferrer">Feedback</a></p>
+                        </li>
+                    {%- endif -%}
+                    {%- assign homepage = site.data.homepage -%}
+                    {%- unless homepage.ask-jamie -%}
+                        {%- if site.faq_url -%}
+                            <li class="is-inline-block-desktop-only">
+                                {%- if site.faq_url_external -%}
+                                    <p><a href="{{ site.faq_url }}" target="_blank" rel="noreferrer">FAQ</a></p>
+                                {%- else -%}
+                                    <p><a href="{{ site.baseurl }}{{ site.faq_url }}">FAQ</a></p>
+                                {%- endif -%}
+                            </li>
+                        {%- endif -%}
+                    {%- endunless -%}
+                </ul>
+            </div>
+            <div class="col is-hidden-tablet is-hidden-desktop padding--top--lg padding--bottom--none">
+                {%- if social.facebook -%}
+                    <a href="{{- social.facebook -}}" target="_blank" class="social-link padding--right" title="Facebook" rel="noreferrer">
+                        <span class="sgds-icon sgds-icon-facebook is-size-4"></span>
+                    </a>
+                {%- endif -%}
+                {%- if social.twitter -%}
+                    <a href="{{- social.twitter -}}" target="_blank" class="social-link padding--right" title="Twitter" rel="noreferrer">
+                        <span class="sgds-icon sgds-icon-twitter is-size-4"></span>
+                    </a>
+                {%- endif -%}
+                {%- if social.youtube -%}
+                    <a href="{{- social.youtube -}}" target="_blank" class="social-link padding--right" title="YouTube" rel="noreferrer">
+                        <span class="sgds-icon sgds-icon-youtube is-size-4"></span>
+                    </a>
+                {%- endif -%}
+                {%- if social.instagram -%}
+                    <a href="{{- social.instagram -}}" target="_blank" class="social-link padding--right" title="Instagram" rel="noreferrer">
+                        <span class="sgds-icon sgds-icon-instagram is-size-4"></span>
+                    </a>
+                {%- endif -%}
+                {%- if social.linkedin -%}
+                    <a href="{{- social.linkedin -}}" target="_blank" class="social-link padding--right" title="LinkedIn" rel="noreferrer">
+                        <span class="sgds-icon sgds-icon-linkedin is-size-4"></span>
+                    </a>
+                {%- endif -%}
             </div>
         </div>
     </div>
 </footer>
+
 {%- comment -%} onclick at body tag is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
 <footer class="bp-footer bottom-section" onclick>
     <div class="bp-container ">
         <div class="row is-vcentered">
-          <div class="col padding--top--none padding--bottom--none">
-            <div class="col divider padding--top--none padding--bottom--none"></div>
-          </div>
+            <div class="col padding--top--none padding--bottom--none">
+                <div class="col divider padding--top--none padding--bottom--none"></div>
+            </div>
         </div>
         <div class="row is-vcentered padding--top--sm">
             <div class="col is-two-thirds">
                 <ul>
-                    <li><a href="{{site.baseurl}}/privacy/">Privacy Statement</a></li>
-                    <li><a href="{{site.baseurl}}/terms-of-use/">Terms of Use</a></li>
+                    <li><a href="{{ site.baseurl }}/privacy/">Privacy Statement</a></li>
+                    <li><a href="{{ site.baseurl }}/terms-of-use/">Terms of Use</a></li>
                     <li><a href="https://www.isomer.gov.sg">Built with Isomer</a></li>
                     {%- comment -%} <li><a>Rate Service</a></li> {%- endcomment -%}
                 </ul>
             </div>
             <div class="col is-one-third has-text-right-desktop has-text-right-tablet has-text-left-mobile">
-                <p>&copy; {{ site.time | date: "%Y" -}}
-                {%- if site.copyright_agency %}
-                  {{ site.copyright_agency -}}
-                {%- else %}
-                  {{ site.title -}}
-                {%- endif -%}</p>
+                <p>
+                    &copy; {{ site.time | date: "%Y" -}}
+                    {%- if site.copyright_agency %}
+                        {{ site.copyright_agency -}}
+                    {%- else %}
+                        {{ site.title -}}
+                    {%- endif -%}
+                </p>
                 <p class="last-updated">Last Updated {{site.time | date_to_string -}}</p>
             </div>
-
         </div>
     </div>
 </footer>

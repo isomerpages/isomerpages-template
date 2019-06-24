@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: Networked Trade Platform
 permalink: /products-and-services/Networked-trade-platform/
 breadcrumb: Networked Trade Platform

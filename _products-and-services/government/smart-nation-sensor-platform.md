@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: Smart Nation Sensor Platform
 permalink: /products-and-services/smart-nation-sensor-platform/
 breadcrumb: Smart Nation Sensor Platform

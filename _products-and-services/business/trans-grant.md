@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: TRANS Grant
 permalink: /products-and-services/trans-grant/
 breadcrumb: TRANS Grant

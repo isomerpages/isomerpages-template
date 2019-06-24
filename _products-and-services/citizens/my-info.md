@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: MyInfo
 permalink: /products-and-services/my-info/
 breadcrumb: MyInfo

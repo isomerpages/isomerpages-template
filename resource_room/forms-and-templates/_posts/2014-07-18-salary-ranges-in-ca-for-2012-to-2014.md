@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title:  "Salary Ranges in CA for 2012-2014"
 date:   2014-07-18
 excerpt: "The Singapore Manual & Mercantile Workers' Union v. China Airlines Limited: The Court rhas been adjourned to a date to be fixed."

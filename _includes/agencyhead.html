@@ -149,7 +149,7 @@
                         </div>
                     {%- elsif navitem.resource_room -%}
                         {%- assign active = "" -%}
-                        {%- if page.layout == "resources" or page.layout == "resources-alt" or page.layout == "post" -%}
+                        {%- if page.collection == "posts" or page.layout == "resources" or page.layout == "resources-alt" -%}
                             {%- assign active = " active" -%}
                         {%- endif -%}
                         <div class="navbar-item has-dropdown is-hoverable">

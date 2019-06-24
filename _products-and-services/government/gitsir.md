@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: Government IT Security Incident Response (GITSIR) Team 
 permalink: /products-and-services/gitsir/
 breadcrumb: Government IT Security Incident Response (GITSIR) Team 

@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: Agile Maturity Model
 permalink: /products-and-services/agile-maturity-model/
 breadcrumb: Agile Maturity Model

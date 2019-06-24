@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title:  "Referee Appeal - Termination of Services and Reimbursement of Medical Expenses"
 date:   2013-01-29
 excerpt: "The Singapore Manual & Mercantile Workers' Union v. China Airlines Limited: The Court rhas been adjourned to a date to be fixed."

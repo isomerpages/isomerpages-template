@@ -1,5 +1,5 @@
 ---
-layout: simple-page
+layout: page
 title: "'Ask Jamie' Virtual Assistant"
 permalink: /products-and-services/ask-jamie/
 breadcrumb: Ask Jamie

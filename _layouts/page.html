@@ -3,7 +3,11 @@ layout: skeleton
 ---
 <section class="bp-section is-small bp-section-pagetitle">
     <div class="bp-container ">
-        {%- include header-breadcrumb.html -%}
+        <div class="row">
+            <div class="col">
+                {%- include header-breadcrumb.html -%}
+            </div>
+        </div>
     </div>
     <div class="bp-container">
         <div class="row">
@@ -12,9 +16,18 @@ layout: skeleton
             </div>
         </div>
     </div>
+    {%- if page.date -%}
+        <div class="bp-container">
+            <div class="row">
+                <div class="col is-11">
+                    <small class="has-text-white" style="padding-top: 2.25rem; padding-bottom: 0">{{- page.date | date_to_string | upcase -}}</small>
+                </div>
+            </div>
+        </div>
+    {%- endif -%}
 </section>
 
-{%- if page.collection -%}
+{%- if page.collection and page.collection != "posts" -%}
     {%- comment -%} Page is a leftnav page {%- endcomment -%}
     {%- assign collection = site[page.collection] -%}
     <section class="bp-section padding--none is-hidden-desktop">
