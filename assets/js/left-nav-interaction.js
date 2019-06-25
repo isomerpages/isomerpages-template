@@ -3,13 +3,11 @@ initSecondLevelNavInteraction();
 function initSecondLevelNavInteraction() {
 	var secondLevelNavHeaderArray = document.querySelectorAll("li.third-level-nav-header");
 	for (var index = 0; index < secondLevelNavHeaderArray.length; index++) {
-		
 		function secondLevelNavClosure() {
 			var closureIndex = index;
 			function toggleSecondLevelNavDiv() {
 				// Get the icon of the third-level-nav-header
-				var secondLevelNavIcon = secondLevelNavHeaderArray[closureIndex].getElementsByTagName("I")[0];
-				var secondLevelDiv = document.getElementsByClassName("third-level-nav-div")[closureIndex];
+				const secondLevelDiv = document.getElementsByClassName("third-level-nav-div")[closureIndex];
 
 				function show(idx) {
 					const secondLevelNavIcon = secondLevelNavHeaderArray[idx].getElementsByTagName("I")[0];
@@ -38,7 +36,6 @@ function initSecondLevelNavInteraction() {
 			}
 			return toggleSecondLevelNavDiv;
 		}
-
 		secondLevelNavHeaderArray[index].addEventListener("click", secondLevelNavClosure());
 	}
 
@@ -79,7 +76,6 @@ function initSecondLevelNavInteraction() {
 			}
 			return toggleSecondLevelNavMobileDiv;
 		}
-
 		secondLevelNavHeaderMobileArray[index].addEventListener("click", secondLevelNavMobileClosure());
 	}
 }
