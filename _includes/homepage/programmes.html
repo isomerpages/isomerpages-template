@@ -31,13 +31,12 @@
             <div class="col has-carousel">
                 <div class="owl-theme owl-carousel programme-carousel ">
                     {%- for programme in programmes -%}
-                    <div class="item {{programme.bg-color}}">
-                        <img src="{{programme.img}}" alt="">
-                        <p class="has-text-white is-hidden-desktop padding--left--sm has-text-centered-touch">{{programme.category}}</p>
-                        <h3 class="has-text-weight-bold has-text-white is-hidden-desktop padding--left--sm padding--bottom--sm has-text-centered-touch">{{programme.title}}</h3>
-                    </div>
+                        <div class="item {{programme.bg-color}}">
+                            <img src="{{programme.img}}" alt="">
+                            <p class="has-text-white is-hidden-desktop padding--left--sm has-text-centered-touch">{{programme.category}}</p>
+                            <h3 class="has-text-weight-bold has-text-white is-hidden-desktop padding--left--sm padding--bottom--sm has-text-centered-touch">{{programme.title}}</h3>
+                        </div>
                     {%- endfor -%}
-
                 </div>
             </div>
         </div>
@@ -45,21 +44,21 @@
             <div class="col is-8 is-offset-2 has-carousel">
                 <div class="programme-carousel owl-carousel">
                     {%- for programme in programmes -%}
-                    <div class="item bg-white">
-                        <div class="row padding">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col is-3 has-text-centered-touch">
-                                        <small class="has-text-grey">{{programme.category}}</small>
-                                        <h3 class="has-text-weight-bold has-text-grey-dark-">{{programme.title}}</h3>
-                                    </div>
-                                    <div class="col is-9 is-hidden-touch">
-                                        <p>{{programme.desc}}</p>
+                        <div class="item bg-white">
+                            <div class="row padding">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col is-3 has-text-centered-touch">
+                                            <small class="has-text-grey">{{programme.category}}</small>
+                                            <h3 class="has-text-weight-bold has-text-grey-dark-">{{programme.title}}</h3>
+                                        </div>
+                                        <div class="col is-9 is-hidden-touch">
+                                            <p>{{programme.desc}}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     {%- endfor -%}
                 </div>
             </div>

@@ -1,0 +1,25 @@
+<section class="bp-section">
+    <div class="bp-container">
+        <div class="row">
+            <div class="col is-8 is-offset-2 has-text-centered padding--top--xl">
+                <p class="padding--bottom eyebrow is-uppercase">
+                    {{- section.listing.title -}}
+                </p>
+            </div>
+        </div>
+        <div class="row has-text-centered margin--top padding--bottom is-hidden-touch">
+            <div class="col helper">
+                {%- for logo in section.listing.logos -%}
+                    <img class="isomer-agency-logo" src="{{ site.baseurl }}{{ logo }}" />
+                {%- endfor -%}
+            </div>
+        </div>
+        <div class="row has-text-centered margin--top padding--bottom is-hidden-desktop">
+            {%- for logo in section.listing.logos -%}
+                <div class="col is-one-fifth helper">
+                    <img class="isomer-agency-logo" src="{{ site.baseurl }}{{ logo }}" />
+                </div>
+            {%- endfor -%}
+        </div>
+    </div>
+</section>

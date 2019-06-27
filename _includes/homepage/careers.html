@@ -18,18 +18,18 @@
         </div>
     </div>
     {%- if homepage.careers-more-button-url -%}
-    <div class="row has-text-centered margin--top padding--bottom">
-        <div class="col is-offset-one-third is-one-third">
-            <a href="{{- homepage.careers-more-button-url -}}" class="bp-sec-button">
-                <div>
-                    {%- if homepage.careers-more-button -%}
-                    <span>{{- homepage.careers-more-button -}}</span>
-                    {%- endif -%}
-                    <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                </div>
-            </a>
+        <div class="row has-text-centered margin--top padding--bottom">
+            <div class="col is-offset-one-third is-one-third">
+                <a href="{{- homepage.careers-more-button-url -}}" class="bp-sec-button">
+                    <div>
+                        {%- if homepage.careers-more-button -%}
+                            <span>{{- homepage.careers-more-button -}}</span>
+                        {%- endif -%}
+                        <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
+                    </div>
+                </a>
+            </div>
         </div>
-    </div>
     {%- endif -%}
 </section>
 
@@ -39,22 +39,19 @@
         <div class="row is-gapless">
             <div class="col has-carousel is-position-relative bg-gradient">
                 <div class="career-carousel owl-theme owl-carousel">
-
                     {%- for story in careers-stories -%}
-                    <div class="item">
-                        <div class="career-item padding--xl">
+                        <div class="item">
+                            <div class="career-item padding--xl">
+                                <p class="eyebrow has-text-white is-uppercase padding--bottom--lg">{{story.title}}</p>
+                                <h3 class="has-text-white padding--bottom has-text-weight-normal">"{{story.story}}"</h3>
+                                <h5 class="has-text-weight-bold has-text-white is-hidden-desktop padding--bottom">- {{story.name}}, {{story.position}}</h5>
+                                <a href="{{- story.button-url -}}" class="bp-button is-white is-outlined is-medium margin--top--lg">
+                                    <span class="is-uppercase">{{- story.button-text -}}&nbsp;</span>
+                                </a>
 
-                            <p class="eyebrow has-text-white is-uppercase padding--bottom--lg">{{story.title}}</p>
-                            <h3 class="has-text-white padding--bottom has-text-weight-normal">"{{story.story}}"</h3>
-                            <h5 class="has-text-weight-bold has-text-white is-hidden-desktop padding--bottom">- {{story.name}}, {{story.position}}</h5>
-                            <a href="{{- story.button-url -}}" class="bp-button is-white is-outlined is-medium margin--top--lg">
-                                <span class="is-uppercase">{{- story.button-text -}}&nbsp;</span>
-                            </a>
-
+                            </div>
                         </div>
-                    </div>
                     {%- endfor -%}
-
                 </div>
                 <div class="carousel-nav-container career-nav is-hidden-touch">
                     <div class="carousel-nav left">
@@ -67,17 +64,16 @@
             </div>
             <div class="col has-carousel is-hidden-touch">
                 <div class="career-carousel owl-theme owl-carousel">
-
                     {%- for story in careers-stories -%}
-                    <div class="item">
-                        <div class="career-item">
-                            <img src="{{story.img}}" alt="">
-                            <div class="profile-content">
-                                <h5 class="has-text-weight-bold">{{story.name}}, {{story.position}}</h5>
-                                <p>{{story.dept}}</p>
+                        <div class="item">
+                            <div class="career-item">
+                                <img src="{{story.img}}" alt="">
+                                <div class="profile-content">
+                                    <h5 class="has-text-weight-bold">{{story.name}}, {{story.position}}</h5>
+                                    <p>{{story.dept}}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     {%- endfor -%}
                 </div>
             </div>

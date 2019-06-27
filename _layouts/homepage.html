@@ -25,32 +25,25 @@ layout: skeleton
 	{%- endif -%}
 {%- endif -%}
 
-{%- comment -%} Hero mandatory {%- endcomment -%}
-{%- include homepage/hero.html -%}
-
-{%- comment -%} Information sections {%- endcomment -%}
-{%- if site.data.homepage.info-sections -%}
-{%- for section in site.data.homepage.info-sections -%}
-	{%- assign oddEven = forloop.index0 | modulo: 2 -%}
-	{%- if oddEven == 0 -%}
-		{%- include homepage/homepage-info-left.html -%}
-	{%- else -%}
-		{%- include homepage/homepage-info-right.html -%}
+{%- for section in page.sections -%}
+	{%- if forloop.first -%}
+		{%- comment -%} Hero must be the first section {%- endcomment -%}
+		{%- if section.hero -%}
+			{%- include homepage/hero.html -%}
+		{%- else -%}
+			<section class="bp-section bg-newssection">
+				<div class="bp-container">
+					<div class="row">
+						<div class="col">
+							<h1>Hero must be the first section!</h1>
+						</div>
+					</div>
+				</div>
+			</section>
+		{%- endif -%}
+	{%- endif -%}
+	{%- if section.infobar -%}
+		{%- include homepage/infobar.html -%}
 	{%- endif -%}
 {%- endfor -%}
-{%- endif -%}
 
-{%- comment -%} Programmes homepage toggle {%- endcomment -%}
-{%- if site.homepage_programmes == true -%}
-	{%- include homepage/programmes.html -%}
-{%- endif -%}
-
-{%- comment -%} Resources homepage toggle {%- endcomment -%}
-{%- if site.homepage_resources == true -%}
-	{%- include homepage/resources-homepage.html -%}
-{%- endif -%}
-
-{%- comment -%} Careers homepage toggle {%- endcomment -%}
-{%- if site.homepage_careers == true -%}
-	{%- include homepage/careers.html -%}
-{%- endif -%}
