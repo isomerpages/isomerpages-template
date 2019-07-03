@@ -3,7 +3,7 @@
 let NUM_RECOMMENDED_PAGES = 5
 
 let pageUrl = document.getElementById('full-page-url').innerHTML
-let base64PageUrl = window.btoa(unescape(pageUrl))
+let base64PageUrl = window.btoa(unescape(encodeURIComponent(pageUrl)))
 
 let param = {
   url: base64PageUrl
