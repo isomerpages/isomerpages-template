@@ -1,66 +1,66 @@
-<section class="bp-section bg-newssection">
+<section class="bp-section {{ gray_container_class }}">
     <div class="bp-container">
         {%- comment -%} mobile edition {%- endcomment -%}
         <div class="row is-hidden-desktop is-hidden-tablet-only">
             <div class="col is-half padding--bottom">
                 <p class="padding--bottom eyebrow is-uppercase">
-                    {{- section.section-title -}}
+                    {{- section.infopic.title -}}
                 </p>
                 <h1 class="has-text-secondary padding--bottom">
-                    <b>{{- section.section-subtitle -}}</b>
+                    <b>{{- section.infopic.subtitle -}}</b>
                 </h1>
-                <p>{{- section.section-description -}}</p>
-                <a href="{{- site.baseurl -}}{{- section.section-more-button-url -}}" class="bp-sec-button margin--top padding--bottom">
+                <p>{{- section.infopic.description -}}</p>
+                <a href="{{- site.baseurl -}}{{- section.infopic.url -}}" class="bp-sec-button margin--top padding--bottom">
                     <div>
-                        <span>{{- section.section-more-button -}}</span>
+                        <span>{{- section.infopic.button -}}</span>
                         <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
                     </div>
                 </a>
             </div>
             <div class="col is-half">
-                <img src="{{- site.baseurl -}}{{- section.section-image-path -}}" />
+                <img src="{{- site.baseurl -}}{{- section.infopic.image -}}" />
             </div>
         </div>
         {%- comment -%} tablet edition {%- endcomment -%}
         <div class="row is-hidden-mobile is-hidden-desktop">
-            <div class="col is-half is-half padding--top--xl padding--bottom--xl">
-                <img src="{{- site.baseurl -}}{{- section.section-image-path -}}" />
-            </div>
             <div class="col is-half">
                 <p class="padding--bottom eyebrow is-uppercase">
-                    {{- section.section-title -}}
+                    {{- section.infopic.title -}}
                 </p>
                 <h1 class="has-text-secondary padding--bottom">
-                    <b>{{- section.section-subtitle -}}</b>
+                    <b>{{- section.infopic.subtitle -}}</b>
                 </h1>
-                <p>{{- section.section-description -}}</p>
-                <a href="{{- site.baseurl -}}{{- section.section-more-button-url -}}" class="bp-sec-button margin--top padding--bottom">
+                <p>{{- section.infopic.description -}}</p>
+                <a href="{{- site.baseurl -}}{{- section.infopic.url -}}" class="bp-sec-button margin--top padding--bottom">
                     <div>
-                        <span>{{- section.section-more-button -}}</span>
+                        <span>{{- section.infopic.button -}}</span>
                         <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
                     </div>
                 </a>
+            </div>
+            <div class="col is-half is-half padding--top--xl padding--bottom--xl">
+                <img src="{{- site.baseurl -}}{{- section.infopic.image -}}" />
             </div>
         </div>
         {%- comment -%} desktop edition {%- endcomment -%}
         <div class="row is-hidden-mobile is-hidden-tablet-only">
-            <div class="col is-half is-half padding--top--xl padding--bottom--xl">
-                <img src="{{- site.baseurl -}}{{- section.section-image-path -}}" />
-            </div>
             <div class="col is-half padding--top--xl padding--bottom--xl padding--left--xl padding--right--xl">
                 <p class="padding--bottom eyebrow is-uppercase">
-                    {{- section.section-title -}}
+                    {{- section.infopic.title -}}
                 </p>
                 <h1 class="has-text-secondary padding--bottom">
-                    <b>{{- section.section-subtitle -}}</b>
+                    <b>{{- section.infopic.subtitle -}}</b>
                 </h1>
-                <p>{{- section.section-description -}}</p>
-                <a href="{{- site.baseurl -}}{{- section.section-more-button-url -}}" class="bp-sec-button margin--top padding--bottom">
+                <p>{{- section.infopic.description -}}</p>
+                <a href="{{- site.baseurl -}}{{- section.infopic.url -}}" class="bp-sec-button margin--top padding--bottom">
                     <div>
-                        <span>{{- section.section-more-button -}}</span>
+                        <span>{{- section.infopic.button -}}</span>
                         <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
                     </div>
                 </a>
+            </div>
+            <div class="col is-half is-half padding--top--xl padding--bottom--xl">
+                <img src="{{- site.baseurl -}}{{- section.infopic.image -}}" />
             </div>
         </div>
     </div>

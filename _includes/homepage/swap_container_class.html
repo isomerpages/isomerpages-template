@@ -1,0 +1,34 @@
+{%- comment -%}
+
+    This file swaps alternates the gray_container_class variable between "" and "bg-newssection"
+    It was written as an include file so that it can be included after each section, since it is possible that users mis-enter the YAML (leaving out the dash) and end up entering 2 entries in the same array e.g.:
+
+    - hero:
+        title: Isomer Pages Template
+        subtitle: This website was built using the Isomer Design System and Jekyll
+        banner: /images/banner_GardenBay.png
+      infobar:
+        title: Use Isomer!
+        subtitle: "It's easy and cheap!"
+        link: Contact Us
+        url: /contact-us/
+
+    instead of:
+
+    - hero:
+        title: Isomer Pages Template
+        subtitle: This website was built using the Isomer Design System and Jekyll
+        banner: /images/banner_GardenBay.png
+    - infobar:
+        title: Use Isomer!
+        subtitle: "It's easy and cheap!"
+        link: Contact Us
+        url: /contact-us/
+
+{%- endcomment -%}
+
+{%- if gray_container_class -%}
+    {%- assign gray_container_class = nil -%}
+{% else -%}
+    {%- assign gray_container_class = "bg-newssection" -%}
+{%- endif -%}

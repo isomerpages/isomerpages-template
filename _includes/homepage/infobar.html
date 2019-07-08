@@ -1,18 +1,55 @@
-<section class="bp-section bg-newssection">
-    <div class="bp-container">
+<section class="bp-section {{ gray_container_class }}">
+    <div class="bp-container is-fluid">
         <div class="row">
-            <div class="col is-8 is-offset-2 has-text-centered padding--top--xl padding--bottom--xl">
-                <p class="padding--bottom eyebrow is-uppercase">
-                    {{- section.infobar.subtitle -}}
-                </p>
-                <h1 class="has-text-secondary padding--bottom--xl"><b>{{- section.infobar.title -}}</b></h1>
+            <div class="col is-half is-offset-one-quarter has-text-centered padding--top--xl">
+                {%- if section.infobar.subtitle -%}
+                    <p class="padding--bottom eyebrow is-uppercase">{{- section.infobar.subtitle -}}</p>
+                {%- endif -%}
 
-                <a href="{{- site.baseurl -}}{{- section.infobar.url -}}" class="bp-sec-button is-media-card" target="_blank">
+                {%- if section.infobar.title -%}
+                    <h1 class="has-text-secondary padding--bottom"><b>{{- section.infobar.title -}}</b></h1>
+                {%- endif -%}
+
+                {%- if section.infobar.description -%}
+                    <p>{{- section.infobar.description -}}</p>
+                {%- endif -%}
+            </div>
+        </div>
+    </div>
+
+    {%- if section.infobar.url and section.infobar.link -%}
+        <div class="row has-text-centered margin--top padding--bottom">
+            <div class="col is-offset-one-third is-one-third">
+                <a href="{{- site.baseurl -}}{{- section.infobar.url -}}" class="bp-sec-button">
                     <div>
                         <span>{{- section.infobar.link -}}</span>
+                        <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
                     </div>
                 </a>
             </div>
         </div>
+    {%- endif -%}
+</section>
+{%- comment -%}
+<section class="bp-section bg-hero-bottom">
+    <div class="bp-container">
+        <div class="row">
+            <div class="col is-8 is-offset-2 has-text-centered padding--top--xl padding--bottom--xl has-text-white">
+                {%- if section.infobar.title -%}
+                    <h1 class="padding--bottom"><b>{{- section.infobar.title -}}</b></h1>
+                {%- endif -%}
+                {%- if section.infobar.subtitle -%}
+                    <p class="padding--bottom--lg">{{- section.infobar.subtitle -}}</p>
+                {%- endif -%}
+                {%- if section.infobar.url and section.infobar.button -%}
+                    <a href="{{ site.baseurl }}{{- section.infobar.url -}}">
+                        <div class="bp-button is-white is-outlined is-uppercase search-button">
+                            {{- section.infobar.button -}}
+                        </div>
+                    </a>
+                {%- endif -%}
+            </div>
+        </div>
     </div>
 </section>
+{%- endcomment -%}

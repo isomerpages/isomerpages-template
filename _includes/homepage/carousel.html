@@ -1,6 +1,4 @@
-{%- assign homepage = site.data.homepage -%}
-{%- assign programmes = site.data.programmes -%}
-
+{%- comment -%}
 <section class="bp-section">
     <div class="bp-container is-fluid">
         <div class="row">
@@ -24,17 +22,28 @@
         </div>
     </div>
 </section>
-
-<section class="bp-section is-full programme-container bg-newssection is-paddingless">
+{%- endcomment -%}
+<section class="bp-section is-full programme-container is-paddingless {{ gray_container_class }}">
     <div class="bp-container is-fluid is-full is-marginless">
         <div class="row is-gapless bg-gradient offset-margin">
             <div class="col has-carousel">
                 <div class="owl-theme owl-carousel programme-carousel ">
-                    {%- for programme in programmes -%}
-                        <div class="item {{programme.bg-color}}">
-                            <img src="{{programme.img}}" alt="">
-                            <p class="has-text-white is-hidden-desktop padding--left--sm has-text-centered-touch">{{programme.category}}</p>
-                            <h3 class="has-text-weight-bold has-text-white is-hidden-desktop padding--left--sm padding--bottom--sm has-text-centered-touch">{{programme.title}}</h3>
+                    {%- for item in section.carousel.items -%}
+                        {%- assign bg_color_index = forloop.index0 | modulo: 3 -%}
+                        {%- if bg_color_index == 0 -%}
+                            {%- assign bg_color = "bg-beeline" -%}
+                        {%- elsif bg_color_index == 1 -%}
+                            {%- assign bg_color = "bg-parkingsg" -%}
+                        {%- else -%}
+                            {%- assign bg_color = "bg-singpass" -%}
+                        {%- endif -%}
+                    
+                        <div class="item {{bg_color}}">
+                            <img src="{{item.image}}" alt="{{item.title}}">
+                            {%- if item.subtitle -%}
+                                <p class="has-text-white is-hidden-desktop padding--left--sm has-text-centered-touch">{{ item.subtitle | upcase }}</p>
+                            {%- endif -%}
+                            <h3 class="has-text-weight-bold has-text-white is-hidden-desktop padding--left--sm padding--bottom--sm has-text-centered-touch">{{item.title}}</h3>
                         </div>
                     {%- endfor -%}
                 </div>
@@ -43,18 +52,22 @@
         <div class="row offset-top  is-hidden-touch">
             <div class="col is-8 is-offset-2 has-carousel">
                 <div class="programme-carousel owl-carousel">
-                    {%- for programme in programmes -%}
+                    {%- for item in section.carousel.items -%}
                         <div class="item bg-white">
                             <div class="row padding">
                                 <div class="col">
                                     <div class="row">
                                         <div class="col is-3 has-text-centered-touch">
-                                            <small class="has-text-grey">{{programme.category}}</small>
-                                            <h3 class="has-text-weight-bold has-text-grey-dark-">{{programme.title}}</h3>
+                                            {%- if item.subtitle -%}
+                                                <small class="has-text-grey">{{ item.subtitle | upcase }}</small>
+                                            {%- endif -%}
+                                            <h3 class="has-text-weight-bold has-text-grey-dark-">{{item.title}}</h3>
                                         </div>
-                                        <div class="col is-9 is-hidden-touch">
-                                            <p>{{programme.desc}}</p>
-                                        </div>
+                                        {%- if item.description -%}
+                                            <div class="col is-9 is-hidden-touch">
+                                                <p>{{item.description}}</p>
+                                            </div>
+                                        {%- endif -%}
                                     </div>
                                 </div>
                             </div>

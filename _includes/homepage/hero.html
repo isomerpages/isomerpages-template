@@ -1,8 +1,6 @@
-{%- assign homepage = site.data.homepage -%}
-
 <style>
     .bg-hero {
-        background: url("{{site.baseurl}}{{homepage.hero-banner}}") no-repeat top left;
+        background: url("{{site.baseurl}}{{section.hero.background}}") no-repeat top left;
         -webkit-background-size: cover;
         background-size: cover;
     }
@@ -17,24 +15,19 @@
                         <b class="is-hidden-touch">{{- section.hero.title -}}</b>
                         <b class="is-hidden-desktop">{{- section.hero.title -}}</b>
                     </h1>
-                    <p class="is-hidden-mobile padding--bottom--lg">
-                        {{- homepage.hero-subtitle -}}
-                    </p>
-                    {%- if site.homepage_hero_i_want_to == false -%}
-                        {%- for button in homepage.button -%}
-                            <a href="{{- site.baseurl -}}{{- section.hero.url -}}" class="bp-button is-secondary is-uppercase search-button">
-                                {{- section.hero.button -}}
-                            </a>
-                        {%- endfor -%}
+                    {%- if section.hero.subtitle -%}
+                        <p class="is-hidden-mobile padding--bottom--lg">
+                            {{- section.hero.subtitle -}}
+                        </p>
                     {%- endif -%}
-                    {%- if site.homepage_hero_i_want_to == true -%}
+                    {%- if section.hero.dropdown -%}
                         <div class="bp-dropdown margin--top--sm">
                             <div class="bp-dropdown-trigger">
                                 <a class="bp-button bp-dropdown-button hero-dropdown is-centered" aria-haspopup="true" aria-controls="hero-dropdown-menu">
-                                    {%- if homepage.hero-dropdown-text -%}
+                                    {%- if section.hero.dropdown.title -%}
                                         <span>
                                             <b>
-                                                <p>{{- homepage.hero-dropdown-text -}}</p>
+                                                <p>{{- section.hero.dropdown.title -}}</p>
                                             </b>
                                         </span>
                                     {%- else -%}
@@ -51,14 +44,22 @@
                             </div>
                             <div class="bp-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu">
                                 <div class="bp-dropdown-content is-centered">
-                                    {%- for element in homepage.i-want-to -%}
-                                        <a class="bp-dropdown-item" href="{{- site.baseurl -}}{{ element.url }}">
-                                            <h5>{{ element.title }}</h5>
-                                        </a>
+                                    {%- for option in section.hero.dropdown.options -%}
+                                        {%- if option.url and option.title -%}
+                                            <a class="bp-dropdown-item" href="{{- site.baseurl -}}{{ option.url }}">
+                                                <h5>{{ option.title }}</h5>
+                                            </a>
+                                        {%- endif -%}
                                     {%- endfor -%}
                                 </div>
                             </div>
                         </div>
+                    {%- else -%}
+                        {%- if section.hero.url and section.hero.button -%}
+                            <a href="{{- site.baseurl -}}{{- section.hero.url -}}" class="bp-button is-secondary is-uppercase search-button">
+                                {{- section.hero.button -}}
+                            </a>
+                        {%- endif -%}
                     {%- endif -%}
                 </div>
             </div>
@@ -66,26 +67,34 @@
     </div>
 </section>
 
-{%- if site.homepage_hero_i_want_to == false -%}
+{%- if section.hero.key_highlights -%}
     <section id="key-highlights" class="bp-section is-paddingless">
         <div class="bp-container">
             <div class="row is-gapless has-text-centered">
-                {%- for link in homepage.key-highlights limit:4 -%}
-                    <div class="col">
-                        {%- include links-baseurl.html -%}
-                        {%- if link.external and link.url -%}
-                            <a href="{{- base-url -}}{{- link.url -}}" target="_blank" class="is-highlight" rel="noreferrer">
-                        {%- elsif link.url -%}
-                            <a href="{{- link.url -}}" class="is-highlight">
-                        {%- endif -%}
-                        <div class="key-highlights-text">
-                            <p class="has-text-weight-semibold has-text-white key-highlight-title is-uppercase padding--top--xs">{{- link.title -}}</p>
-                            <p class="has-text-white-trans padding--bottom--sm">{{- link.description -}}</p>
+                {%- for highlight in section.hero.key_highlights limit:4 -%}
+                    {%- if highlight.url or highlight.title or highlight.description -%}
+                        <div class="col">
+                            {%- if highlight.url -%}
+                                <a href="{{- highlight.url -}}" class="is-highlight">
+                            {%- endif -%}
+
+                            {%- if highlight.title or highlight.description -%}
+                                <div class="key-highlights-text">
+                                    {%- if highlight.title -%}
+                                        <p class="has-text-weight-semibold has-text-white key-highlight-title is-uppercase padding--top--xs">{{- highlight.title -}}</p>
+                                    {%- endif -%}
+
+                                    {%- if highlight.description -%}
+                                        <p class="has-text-white-trans padding--bottom--sm">{{- highlight.description -}}</p>
+                                    {%- endif -%}
+                                </div>
+                            {%- endif -%}
+
+                            {%- if highlight.url -%}
+                                </a>
+                            {%- endif -%}
                         </div>
-                        {%- if link.url -%}
-                            </a>
-                        {%- endif -%}
-                    </div>
+                    {%- endif -%}
                 {%- endfor -%}
             </div>
         </div>

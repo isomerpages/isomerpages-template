@@ -1,3 +1,21 @@
+<!--<style>
+.isomer-agency-logo {
+  vertical-align: middle;
+  max-height: 60px;
+  @include mobile(){
+    max-width: 300px;
+  }
+}
+.helper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: middle;
+  .is-hidden-desktop &{
+    justify-content: center;
+  }
+}
+</style>-->
 <section class="bp-section">
     <div class="bp-container">
         <div class="row">
@@ -9,15 +27,27 @@
         </div>
         <div class="row has-text-centered margin--top padding--bottom is-hidden-touch">
             <div class="col helper">
-                {%- for logo in section.listing.logos -%}
-                    <img class="isomer-agency-logo" src="{{ site.baseurl }}{{ logo }}" />
+                {%- for entry in section.listing.entries -%}
+                    {%- if entry.url -%}
+                        <a href="{{- site.baseurl -}}{{- entry.url -}}">
+                    {%- endif -%}
+                    <img class="isomer-agency-logo" src="{{ site.baseurl }}{{ entry.image }}" />
+                    {%- if entry.url -%}
+                        </a>
+                    {%- endif -%}
                 {%- endfor -%}
             </div>
         </div>
         <div class="row has-text-centered margin--top padding--bottom is-hidden-desktop">
-            {%- for logo in section.listing.logos -%}
+            {%- for entry in section.listing.entries -%}
                 <div class="col is-one-fifth helper">
-                    <img class="isomer-agency-logo" src="{{ site.baseurl }}{{ logo }}" />
+                    {%- if entry.url -%}
+                        <a href="{{- site.baseurl -}}{{- entry.url -}}">
+                    {%- endif -%}
+                    <img class="isomer-agency-logo" src="{{ site.baseurl }}{{ entry.image }}" />
+                    {%- if entry.url -%}
+                        </a>
+                    {%- endif -%}
                 </div>
             {%- endfor -%}
         </div>

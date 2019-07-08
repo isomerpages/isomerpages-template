@@ -1,13 +1,15 @@
-{%- assign homepage = site.data.homepage -%}
-
-<section class="bp-section bg-newssection">
+<section class="bp-section {{ gray_container_class }}">
     <div class="bp-container">
         <div class="row">
             <div class="col is-half is-offset-one-quarter has-text-centered padding--top--lg">
-                <p class="padding--bottom eyebrow is-uppercase">
-                    {{- homepage.resources-title -}}
-                </p>
-                <h1 class="has-text-secondary padding--bottom"><b>{{- homepage.resources-subtitle -}}</b></h1>
+                {%- if section.resources.subtitle -%}
+                    <p class="padding--bottom eyebrow is-uppercase">
+                        {{- section.resources.subtitle -}}
+                    </p>
+                {%- endif -%}
+                {%- if section.resources.title -%}
+                    <h1 class="has-text-secondary padding--bottom"><b>{{- section.resources.title -}}</b></h1>
+                {%- endif -%}
             </div>
         </div>
         <div class="row padding--bottom">
@@ -75,9 +77,15 @@
         </div>
         <div class="row has-text-centered margin--top padding--bottom--lg">
             <div class="col is-offset-one-third is-one-third">
-                <a href="{{- homepage.resources-more-button-url -}}" class="bp-sec-button">
+                <a href="{{- site.baseurl -}}/{{- site.resources_name -}}/" class="bp-sec-button">
                     <div>
-                        <span>{{- homepage.resources-more-button -}}</span>
+                        <span>
+                            {%- if section.resources.button -%}
+                                {{- section.resources.button -}}
+                            {%- else -%}
+                                MORE
+                            {%- endif -%}
+                        </span>
                         <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
                     </div>
                 </a>
