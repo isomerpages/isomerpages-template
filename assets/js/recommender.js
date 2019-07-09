@@ -3,7 +3,7 @@
 let NUM_RECOMMENDED_PAGES = 5
 
 let pageUrl = document.getElementById('full-page-url').innerHTML
-let base64PageUrl = window.btoa(unescape(pageUrl))
+let base64PageUrl = window.btoa(unescape(encodeURIComponent(pageUrl)))
 
 let param = {
   url: base64PageUrl
@@ -25,8 +25,9 @@ request.then(function(response) {
   let relatedPostArray = response.recommended_posts
   let slicedArray = relatedPostArray.slice(0,NUM_RECOMMENDED_PAGES)
 
-  slicedArray.forEach(function(relatedPost) {
-    relatedPostsString += '<li><a href=\"' + relatedPost.url + '?utm_medium=recommender&utm_source=' + base64PageUrl + '\"">' + relatedPost.title + '</a></li>'
+  slicedArray.forEach(function(relatedPost, index) {
+    const base64RelatedPost = window.btoa(unescape(encodeURIComponent(relatedPost.url)))
+    relatedPostsString += '<li><a href=\"' + relatedPost.url + '?utm_medium=recommender_' + index + '&utm_source=' + base64PageUrl + '&utm_content=' + base64RelatedPost + '\"">' + relatedPost.title + '</a></li>'
   })
 
   relatedPostsList.innerHTML = relatedPostsString
