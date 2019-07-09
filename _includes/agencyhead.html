@@ -86,29 +86,11 @@
                         {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
                         {%- assign active = "" -%}
                         <div class="navbar-item has-dropdown is-hoverable">
-                            {%- comment -%} Test if navitem.url starts with http:// or https:// (is external) {%- endcomment -%}
-                            {%- assign external = false -%}
-                            {%- assign checkArray = navitem.url | split: "https://" -%}
-                            {%- if checkArray.first.size == 0 -%}
-                                {%- comment -%} Starts with https:// {%- endcomment -%}
-                                {%- assign external = true -%}
-                            {%- else -%}
-                                {%- assign checkArray = navitem.url | split: "http://" -%}
-                                {%- if checkArray.first.size == 0 -%}
-                                    {%- comment -%} Starts with http:// {%- endcomment -%}
-                                    {%- assign external = true -%}
-                                {%- endif -%}
-                            {%- endif -%}
-                            
-                            {%- if external -%}
-                                <a class="navbar-link is-uppercase" href="{{navitem.url}}" target="_blank" rel="noreferrer">
-                                    {{- navitem.title -}}
-                                </a>
-                            {%- else -%}
-                                <a class="navbar-link is-uppercase" href="{{navitem.url}}">
-                                    {{- navitem.title -}}
-                                </a>
-                            {%- endif -%}
+                            {%- assign url_input = navitem.url -%}
+                            {%- include functions/external_url.html -%}
+                            <a {{anchor}} class="navbar-link is-uppercase">
+                                {{- navitem.title -}}
+                            </a>
 
                             {%- if page.url == navitem.url -%}
                                 {%- assign active = " active" -%}
@@ -116,29 +98,11 @@
                             
                             <div class="navbar-dropdown">
                                 {%- for sublink in navitem.sublinks -%}                 
-                                    {%- comment -%} Test if sublink.url starts with http:// or https:// (is external) {%- endcomment -%}
-                                    {%- assign external = false -%}
-                                    {%- assign checkArray = sublink.url | split: "https://" -%}
-                                    {%- if checkArray.first.size == 0 -%}
-                                        {%- comment -%} Starts with https:// {%- endcomment -%}
-                                        {%- assign external = true -%}
-                                    {%- else -%}
-                                        {%- assign checkArray = sublink.url | split: "http://" -%}
-                                        {%- if checkArray.first.size == 0 -%}
-                                            {%- comment -%} Starts with http:// {%- endcomment -%}
-                                            {%- assign external = true -%}
-                                        {%- endif -%}
-                                    {%- endif -%}
-                                    
-                                    {%- if external -%}
-                                        <a class="navbar-item sub-link" href="{{sublink.url}}" target="_blank" rel="noreferrer">
-                                            {{- sublink.title -}}
-                                        </a>
-                                    {%- else -%}
-                                        <a class="navbar-item sub-link" href="{{sublink.url}}">
-                                            {{- sublink.title -}}
-                                        </a>
-                                    {%- endif -%}
+                                    {%- assign url_input = sublink.url -%}
+                                    {%- include functions/external_url.html -%}
+                                    <a {{anchor}} class="navbar-item sub-link">
+                                        {{- sublink.title -}}
+                                    </a>
 
                                     {%- if page.url == navitem.url -%}
                                         {%- assign active = " active" -%}
@@ -191,31 +155,13 @@
                         {%- comment -%} Single page {%- endcomment -%}
                         
                         {%- assign active = "" -%}
-
-                        {%- comment -%} Test if navitem.url starts with http:// or https:// (is external) {%- endcomment -%}
-                        {%- assign external = false -%}
-                        {%- assign checkArray = navitem.url | split: "https://" -%}
-                        {%- if checkArray.first.size == 0 -%}
-                            {%- comment -%} Starts with https:// {%- endcomment -%}
-                            {%- assign external = true -%}
-                        {%- else -%}
-                            {%- assign checkArray = navitem.url | split: "http://" -%}
-                            {%- if checkArray.first.size == 0 -%}
-                                {%- comment -%} Starts with http:// {%- endcomment -%}
-                                {%- assign external = true -%}
-                            {%- endif -%}
-                        {%- endif -%}
                         
                         <li class="navbar-item">
-                            {%- if external -%}
-                                <a class="navbar-item is-uppercase" href="{{navitem.url}}" target="_blank" rel="noreferrer">
-                                    {{- navitem.title -}}
-                                </a>
-                            {%- else -%}
-                                <a class="navbar-item is-uppercase" href="{{navitem.url}}">
-                                    {{- navitem.title -}}
-                                </a>
-                            {%- endif -%}
+                            {%- assign url_input = navitem.url -%}
+                            {%- include functions/external_url.html -%}
+                            <a {{anchor}} class="navbar-item is-uppercase">
+                                {{- navitem.title -}}
+                            </a>
                             
                             {%- if page.url == navitem.url -%}
                                 {%- assign active = " active" -%}

@@ -10,7 +10,7 @@ layout: skeleton
 		            <div class="col">
 		            	<div class="field has-addons bp-notification-flex">
 			                <div class="control has-text-centered has-text-white">
-			                    {{- page.notification | markdownify -}}
+			                    {{- page.notification | markdownify | strip -}}
 			                </div>
 			                <div class="control">
 			        			<a id="cancel-notification" class="button has-text-white">
@@ -48,40 +48,39 @@ layout: skeleton
 
 	{%- if section.infobar -%}
 		{%- include homepage/infobar.html -%}
-		{%- include homepage/swap_container_class.html -%}
+		{%- include functions/swap_container_class.html -%}
 	{%- endif -%}
 
 	{%- if section.infopic -%}
 		{%- if infopic_isLeft -%}
 			{%- include homepage/infopic_left.html -%}
-			{%- include homepage/swap_container_class.html -%}
+			{%- include functions/swap_container_class.html -%}
 			{%- assign infopic_isLeft = false -%}
 		{%- else -%}
 			{%- include homepage/infopic_right.html -%}
-			{%- include homepage/swap_container_class.html -%}
+			{%- include functions/swap_container_class.html -%}
 			{%- assign infopic_isLeft = true -%}
 		{%- endif -%}
 	{%- endif -%}
 
 	{%- if section.listing -%}
 		{%- include homepage/listing.html -%}
-		{%- include homepage/swap_container_class.html -%}
+		{%- include functions/swap_container_class.html -%}
 	{%- endif -%}
 
 	{%- if section.secondary_cta -%}
 		{%- include homepage/secondary_cta.html -%}
-		{%- include homepage/swap_container_class.html -%}
+		{%- include functions/swap_container_class.html -%}
 	{%- endif -%}
 
 	{%- if section.resources -%}
 		{%- include homepage/resources.html -%}
-		{%- include homepage/swap_container_class.html -%}
+		{%- include functions/swap_container_class.html -%}
 	{%- endif -%}
 
 	{%- if section.carousel -%}
 		{%- comment -%} Because carousel only has bg color at the bottom, we swap first so that there is a seamless connection with the next section {%- endcomment -%}
-		{%- include homepage/swap_container_class.html -%}
+		{%- include functions/swap_container_class.html -%}
 		{%- include homepage/carousel.html -%}
 	{%- endif -%}
 {%- endfor -%}
-

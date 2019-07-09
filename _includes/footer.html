@@ -77,62 +77,24 @@
                     {%- elsif navitem.sublinks -%}
                         {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
                         <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
-                            {%- comment -%} Test if navitem.url starts with http:// or https:// (is external) {%- endcomment -%}
-                            {%- assign external = false -%}
-                            {%- assign checkArray = navitem.url | split: "https://" -%}
-                            {%- if checkArray.first.size == 0 -%}
-                                {%- comment -%} Starts with https:// {%- endcomment -%}
-                                {%- assign external = true -%}
-                            {%- else -%}
-                                {%- assign checkArray = navitem.url | split: "http://" -%}
-                                {%- if checkArray.first.size == 0 -%}
-                                    {%- comment -%} Starts with http:// {%- endcomment -%}
-                                    {%- assign external = true -%}
-                                {%- endif -%}
-                            {%- endif -%}
+                            {%- assign url_input = navitem.url -%}
+                            {%- include functions/external_url.html -%}
                             
-                            {%- if external -%}
-                                <p class="sub-header">
-                                    <b><a class="has-text-white" href="{{navitem.url}}" target="_blank" rel="noreferrer">
-                                        {{- navitem.title -}}
-                                    </a></b>
-                                </p>
-                            {%- else -%}
-                                <p class="sub-header">
-                                    <a class="has-text-white" href="{{navitem.url}}">
-                                        {{- navitem.title -}}
-                                    </a>
-                                </p>
-                            {%- endif -%}
+                            <p class="sub-header">
+                                <b><a {{anchor}} class="has-text-white">
+                                    {{- navitem.title -}}
+                                </a></b>
+                            </p>
                             
                             {%- for sublink in navitem.sublinks -%}                 
-                                {%- comment -%} Test if sublink.url starts with http:// or https:// (is external) {%- endcomment -%}
-                                {%- assign external = false -%}
-                                {%- assign checkArray = sublink.url | split: "https://" -%}
-                                {%- if checkArray.first.size == 0 -%}
-                                    {%- comment -%} Starts with https:// {%- endcomment -%}
-                                    {%- assign external = true -%}
-                                {%- else -%}
-                                    {%- assign checkArray = sublink.url | split: "http://" -%}
-                                    {%- if checkArray.first.size == 0 -%}
-                                        {%- comment -%} Starts with http:// {%- endcomment -%}
-                                        {%- assign external = true -%}
-                                    {%- endif -%}
-                                {%- endif -%}
+                                {%- assign url_input = sublink.url -%}
+                                {%- include functions/external_url.html -%}
                                 
-                                {%- if external -%}
-                                    <p class="is-hidden-mobile">
-                                        <a href="{{sublink.url}}" target="_blank" rel="noreferrer">
-                                            {{- sublink.title -}}
-                                        </a>
-                                    </p>
-                                {%- else -%}
-                                    <p class="is-hidden-mobile">
-                                        <a href="{{sublink.url}}">
-                                            {{- sublink.title -}}
-                                        </a>
-                                    </p>
-                                {%- endif -%}
+                                <p class="is-hidden-mobile">
+                                    <a {{anchor}}>
+                                        {{- sublink.title -}}
+                                    </a>
+                                </p>
                             {%- endfor -%}
                         </div>
                     {%- elsif navitem.resource_room -%}
@@ -178,33 +140,14 @@
                         {%- comment -%} Single page {%- endcomment -%}
                         
                         <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
-                            {%- comment -%} Test if navitem.url starts with http:// or https:// (is external) {%- endcomment -%}
-                            {%- assign external = false -%}
-                            {%- assign checkArray = navitem.url | split: "https://" -%}
-                            {%- if checkArray.first.size == 0 -%}
-                                {%- comment -%} Starts with https:// {%- endcomment -%}
-                                {%- assign external = true -%}
-                            {%- else -%}
-                                {%- assign checkArray = navitem.url | split: "http://" -%}
-                                {%- if checkArray.first.size == 0 -%}
-                                    {%- comment -%} Starts with http:// {%- endcomment -%}
-                                    {%- assign external = true -%}
-                                {%- endif -%}
-                            {%- endif -%}
+                            {%- assign url_input = navitem.url -%}
+                            {%- include functions/external_url.html -%}
                             
-                            {%- if external -%}
-                                <p class="sub-header">
-                                    <a href="{{navitem.url}}" class="has-text-white" target="_blank" rel="noreferrer">
-                                        {{- navitem.title -}}
-                                    </a>
-                                </p>
-                            {%- else -%}
-                                <p class="sub-header">
-                                    <a href="{{navitem.url}}" class="has-text-white">
-                                        {{- navitem.title -}}
-                                    </a>
-                                </p>
-                            {%- endif -%}
+                            <p class="sub-header">
+                                <a {{anchor}} class="has-text-white">
+                                    {{- navitem.title -}}
+                                </a>
+                            </p>
                         </div>
                     {%- endif -%}
                 {%- endfor -%}
@@ -295,33 +238,13 @@
                             </p>
                     {%- elsif navitem.sublinks -%}
                         {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
-                            {%- comment -%} Test if navitem.url starts with http:// or https:// (is external) {%- endcomment -%}
-                            {%- assign external = false -%}
-                            {%- assign checkArray = navitem.url | split: "https://" -%}
-                            {%- if checkArray.first.size == 0 -%}
-                                {%- comment -%} Starts with https:// {%- endcomment -%}
-                                {%- assign external = true -%}
-                            {%- else -%}
-                                {%- assign checkArray = navitem.url | split: "http://" -%}
-                                {%- if checkArray.first.size == 0 -%}
-                                    {%- comment -%} Starts with http:// {%- endcomment -%}
-                                    {%- assign external = true -%}
-                                {%- endif -%}
-                            {%- endif -%}
-                            
-                            {%- if external -%}
-                                <p>
-                                    <a href="{{navitem.url}}" target="_blank" rel="noreferrer">
-                                        {{- navitem.title -}}
-                                    </a>
-                                </p>
-                            {%- else -%}
-                                <p>
-                                    <a href="{{navitem.url}}">
-                                        {{- navitem.title -}}
-                                    </a>
-                                </p>
-                            {%- endif -%}
+                        {%- assign url_input = navitem.url -%}
+                        {%- include functions/external_url.html -%}
+                        <p>
+                            <a {{anchor}}>
+                                {{- navitem.title -}}
+                            </a>
+                        </p>
                     {%- elsif navitem.resource_room -%}
                             <p>
                                 <a href="/{{site.resources_name}}/">
@@ -330,33 +253,13 @@
                             </p>
                     {%- else -%}
                         {%- comment -%} Single page {%- endcomment -%}
-                        {%- comment -%} Test if navitem.url starts with http:// or https:// (is external) {%- endcomment -%}
-                        {%- assign external = false -%}
-                        {%- assign checkArray = navitem.url | split: "https://" -%}
-                        {%- if checkArray.first.size == 0 -%}
-                            {%- comment -%} Starts with https:// {%- endcomment -%}
-                            {%- assign external = true -%}
-                        {%- else -%}
-                            {%- assign checkArray = navitem.url | split: "http://" -%}
-                            {%- if checkArray.first.size == 0 -%}
-                                {%- comment -%} Starts with http:// {%- endcomment -%}
-                                {%- assign external = true -%}
-                            {%- endif -%}
-                        {%- endif -%}
-                        
-                        {%- if external -%}
-                            <p>
-                                <a href="{{navitem.url}}" target="_blank" rel="noreferrer">
-                                    {{- navitem.title -}}
-                                </a>
-                            </p>
-                        {%- else -%}
-                            <p>
-                                <a href="{{navitem.url}}">
-                                    {{- navitem.title -}}
-                                </a>
-                            </p>
-                        {%- endif -%}
+                        {%- assign url_input = navitem.url -%}
+                        {%- include functions/external_url.html -%}
+                        <p>
+                            <a {{anchor}}>
+                                {{- navitem.title -}}
+                            </a>
+                        </p>
                     {%- endif -%}
                 {%- endfor -%}
             </div>
