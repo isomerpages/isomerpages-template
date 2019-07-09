@@ -6,26 +6,27 @@
 
 # This file contains the structure for the top navigation and bottom footer
 
-- title: Application Guidelines
-  collection: application-guidelines
-- title: Legislation
-  url: https://google.com
-  sublinks:
-  - title: External Link One
-    url: https://en.wikipedia.org/wiki/Year
-  - title: External Link Two
-    url: https://en.wikipedia.org/wiki/Spring_(season)
-- title: Resources
-  resource_room: true
-- title: 你好 மெய்யெழுத்து
-  url: https://www.gov.sg
-- title: Contact Us
-  url: /contact-us/
-- title: Data.gov Search
-  url: /data-gov-sg/
-# - title: Board of Directors
-#   url: /board-of-directors/
-# - title: FAQ
-#   url: /faq/
-# - title: Stuff
-#   url: /stuff/
+links:
+  - title: Application Guidelines
+    collection: application-guidelines
+  - title: Legislation
+    url: https://google.com
+    sublinks:
+    - title: External Link One
+      url: https://en.wikipedia.org/wiki/Year
+    - title: External Link Two
+      url: https://en.wikipedia.org/wiki/Spring_(season)
+  - title: Resources
+    resource_room: true
+  - title: 你好 மெய்யெழுத்து
+    url: https://www.gov.sg
+  - title: Contact Us
+    url: /contact-us/
+  - title: Data.gov Search
+    url: /data-gov-sg/
+  # - title: Board of Directors
+  #   url: /board-of-directors/
+  # - title: FAQ
+  #   url: /faq/
+  # - title: Stuff
+  #   url: /stuff/

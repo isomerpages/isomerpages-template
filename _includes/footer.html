@@ -9,10 +9,10 @@
             </div>
         </div>
         <div class="row is-top">
-            {%- if site.data.footer -%}
-                {%- assign links = site.data.footer -%}
+            {%- if site.data.footer.links -%}
+                {%- assign links = site.data.footer.links -%}
             {%- else -%}
-                {%- assign links = site.data.navigation -%}
+                {%- assign links = site.data.navigation.links -%}
             {%- endif -%}
             {%- assign social = site.data.social-media -%}
             {%- comment -%} Set columns for nav links based on social media links {%- endcomment -%}
@@ -46,28 +46,31 @@
                         
                         <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
                             <p class="sub-header">
-                                <b><a class="has-text-white" href="{{site[navitem.collection].first.url}}">{{navitem.title}}</a></b>
+                                {%- assign url_input = site[navitem.collection].first.url -%}
+                                {%- include functions/external_url.html -%}
+                                <b><a {{anchor}} class="has-text-white">{{navitem.title}}</a></b>
                             </p>
                             {%- comment -%} You can't initalize an array in liquid so we have to do this {%- endcomment -%}
                             {% assign third_nav_titles = "" | split: ", " %}
                             {%- for leftnavpage in site[navitem.collection] -%}
                                 {%- comment -%} Only show second level pages and the first page in third level pages {%- endcomment -%}
                                 {%- if leftnavpage.third_nav_title -%}
-                                    {%- if third_nav_titles contains leftnavpage.third_nav_title -%}
-                                        {%- continue -%}
-                                        {%- comment -%} Contains do not support the not operator {%- endcomment -%}
-                                    {%- else -%}
+                                    {%- unless third_nav_titles contains leftnavpage.third_nav_title -%}
                                         {%- comment -%} This is the first page in this third level nav, display link {%- endcomment -%}
                                         <p class="is-hidden-mobile">
-                                            <a href="{{leftnavpage.url}}">
+                                            {%- assign url_input = leftnavpage.url -%}
+                                            {%- include functions/external_url.html -%}
+                                            <a {{anchor}}>
                                                 {{- leftnavpage.third_nav_title -}}
                                             </a>
                                         </p>
                                         {%- assign third_nav_titles = third_nav_titles | push: leftnavpage.third_nav_title -%}
-                                    {%- endif -%}
+                                    {%- endunless -%}
                                 {%- else -%}
                                     <p class="is-hidden-mobile">
-                                        <a href="{{leftnavpage.url}}">
+                                        {%- assign url_input = leftnavpage.url -%}
+                                        {%- include functions/external_url.html -%}
+                                        <a {{anchor}}>
                                             {{- leftnavpage.title -}}
                                         </a>
                                     </p>
@@ -157,27 +160,37 @@
                 {%- comment -%} Social links for desktop {%- endcomment -%}
                 <div class="col is-one-fifth is-hidden-mobile is-hidden-tablet-only" id="social-link-desktop">
                     {%- if social.facebook -%}
-                        <a href="{{- social.facebook -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer">
+                        {%- assign url_input = social.facebook -%}
+                        {%- include functions/external_url.html -%}
+                        <a {{anchor}} class="social-link padding--right padding--bottom is-inline-block">
                             <span class="sgds-icon sgds-icon-facebook is-size-4" title="Facebook"></span>
                         </a>
                     {%- endif -%}
                     {%- if social.twitter -%}
-                        <a href="{{- social.twitter -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer">
+                        {%- assign url_input = social.twitter -%}
+                        {%- include functions/external_url.html -%}
+                        <a {{anchor}} class="social-link padding--right padding--bottom is-inline-block">
                             <span class="sgds-icon sgds-icon-twitter is-size-4" title="Twitter"></span>
                         </a>
                     {%- endif -%}
                     {%- if social.youtube -%}
-                        <a href="{{- social.youtube -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer">
+                        {%- assign url_input = social.youtube -%}
+                        {%- include functions/external_url.html -%}
+                        <a {{anchor}} class="social-link padding--right padding--bottom is-inline-block">
                             <span class="sgds-icon sgds-icon-youtube is-size-4" title="YouTube"></span>
                         </a>
                     {%- endif -%}
                     {%- if social.instagram -%}
-                        <a href="{{- social.instagram -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer">
+                        {%- assign url_input = social.instagram -%}
+                        {%- include functions/external_url.html -%}
+                        <a {{anchor}} class="social-link padding--right padding--bottom is-inline-block">
                             <span class="sgds-icon sgds-icon-instagram is-size-4" title="Instagram"></span>
                         </a>
                     {%- endif -%}
                     {%- if social.linkedin -%}
-                        <a href="{{- social.linkedin -}}" target="_blank" class="social-link padding--bottom is-inline-block" rel="noreferrer">
+                        {%- assign url_input = social.linkedin -%}
+                        {%- include functions/external_url.html -%}
+                        <a {{anchor}} class="social-link padding--right padding--bottom is-inline-block">
                             <span class="sgds-icon sgds-icon-linkedin is-size-4" title="LinkedIn"></span>
                         </a>
                     {%- endif -%}
@@ -187,35 +200,45 @@
                 <div class="col is-one-quarter is-hidden-mobile is-hidden-desktop" id="social-link-tablet">
                     {%- if social.facebook -%}
                         <div class="row">
-                            <a href="{{- social.facebook -}}" target="_blank" class="social-link margin--bottom" title="Facebook" rel="noreferrer">
+                            {%- assign url_input = social.facebook -%}
+                            {%- include functions/external_url.html -%}
+                            <a {{anchor}} class="social-link margin--bottom" title="Facebook">
                                 <span class="sgds-icon sgds-icon-facebook is-size-4"></span>
                             </a>
                         </div>
                     {%- endif -%}
                     {%- if social.twitter -%}
                         <div class="row">
-                            <a href="{{- social.twitter -}}" target="_blank" class="social-link margin--bottom" title="Twitter" rel="noreferrer">
+                            {%- assign url_input = social.twitter -%}
+                            {%- include functions/external_url.html -%}
+                            <a {{anchor}} class="social-link margin--bottom" title="Twitter">
                                 <span class="sgds-icon sgds-icon-twitter is-size-4"></span>
                             </a>
                         </div>
                     {%- endif -%}
                     {%- if social.youtube -%}
                         <div class="row">
-                            <a href="{{- social.youtube -}}" target="_blank" class="social-link margin--bottom" title="YouTube" rel="noreferrer">
+                            {%- assign url_input = social.facebook -%}
+                            {%- include functions/external_url.html -%}
+                            <a {{anchor}} class="social-link margin--bottom" title="YouTube">
                                 <span class="sgds-icon sgds-icon-youtube is-size-4"></span>
                             </a>
                         </div>
                     {%- endif -%}
                     {%- if social.instagram -%}
                         <div class="row">
-                            <a href="{{- social.instagram -}}" target="_blank" class="social-link margin--bottom" title="Instagram" rel="noreferrer">
+                           {%- assign url_input = social.facebook -%}
+                            {%- include functions/external_url.html -%}
+                            <a {{anchor}} class="social-link margin--bottom" title="Instagram">
                                 <span class="sgds-icon sgds-icon-instagram is-size-4"></span>
                             </a>
                         </div>
                     {%- endif -%}
                     {%- if social.linkedin -%}
                         <div class="row">
-                            <a href="{{- social.linkedin -}}" target="_blank" class="social-link margin--bottom" title="LinkedIn" rel="noreferrer">
+                            {%- assign url_input = social.facebook -%}
+                            {%- include functions/external_url.html -%}
+                            <a {{anchor}} class="social-link margin--bottom" title="LinkedIn">
                                 <span class="sgds-icon sgds-icon-linkedin is-size-4"></span>
                             </a>
                         </div>
@@ -234,7 +257,9 @@
                     {%- if navitem.collection -%}
                         {%- comment -%} Leftnav page {%- endcomment -%}                        
                             <p>
-                                <a href="{{site[navitem.collection].first.url}}">{{navitem.title}}</a>
+                                {%- assign url_input = site[navitem.collection].first.url -%}
+                                {%- include functions/external_url.html -%}
+                                <a {{anchor}}>{{navitem.title}}</a>
                             </p>
                     {%- elsif navitem.sublinks -%}
                         {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
@@ -267,58 +292,76 @@
         <div class="row">
             <div class="col padding--top--sm padding--bottom--sm is-right-desktop-only">
                 <ul>
-                    {%- unless site.no_contact -%}
+                    {%- if site.data.footer.contact_us -%}
+                        {%- assign url_input = site.data.footer.contact_us -%}
+                        {%- include functions/external_url.html -%}
                         <li class="is-inline-block-desktop-only">
-                            <p><a href="{{ site.baseurl }}/contact-us/">Contact Us</a></p>
-                        </li>
-                    {%- endunless -%}
-                    {%- if homepage.show-reach and homepage.show-reach == true -%}
-                        <li class="is-inline-block-desktop-only">
-                            <p><a href="https://www.reach.gov.sg/" target="_blank" rel="noreferrer" title="Link to reach.gov.sg">REACH</a></p>
+                            <p><a {{anchor}}>Contact Us</a></p>
                         </li>
                     {%- endif -%}
-                    {%- if site.feedback_form_url -%}
+
+                    {%- if site.data.footer.show_reach -%}
                         <li class="is-inline-block-desktop-only">
-                            <p><a href="{{ site.feedback_form_url }}" target="_blank" rel="noreferrer">Feedback</a></p>
+                            {%- assign url_input = "https://www.reach.gov.sg/" -%}
+                            {%- include functions/external_url.html -%}
+                            <p><a {{anchor}} title="Link to reach.gov.sg">REACH</a></p>
                         </li>
                     {%- endif -%}
-                    {%- assign homepage = site.data.homepage -%}
-                    {%- unless homepage.ask-jamie -%}
-                        {%- if site.faq_url -%}
-                            <li class="is-inline-block-desktop-only">
-                                {%- if site.faq_url_external -%}
-                                    <p><a href="{{ site.faq_url }}" target="_blank" rel="noreferrer">FAQ</a></p>
-                                {%- else -%}
-                                    <p><a href="{{ site.baseurl }}{{ site.faq_url }}">FAQ</a></p>
-                                {%- endif -%}
-                            </li>
-                        {%- endif -%}
-                    {%- endunless -%}
+
+                    {%- if site.data.footer.feedback -%}
+                        <li class="is-inline-block-desktop-only">
+                            {%- assign url_input = site.data.footer.feedback -%}
+                            {%- include functions/external_url.html -%}
+                            <p><a {{anchor}}>Feedback</a></p>
+                        </li>
+                    {%- endif -%}
+
+                    {%- if site.data.footer.faq -%}
+                        <li class="is-inline-block-desktop-only">
+                            {%- assign url_input = site.data.footer.faq -%}
+                            {%- include functions/external_url.html -%}
+                            <p><a {{anchor}}>FAQ</a></p>
+                        </li>
+                    {%- endif -%}
                 </ul>
             </div>
             <div class="col is-hidden-tablet is-hidden-desktop padding--top--lg padding--bottom--none">
                 {%- if social.facebook -%}
-                    <a href="{{- social.facebook -}}" target="_blank" class="social-link padding--right" title="Facebook" rel="noreferrer">
+                    {%- assign url_input = social.facebook -%}
+                    {%- include functions/external_url.html -%}
+                    <a {{anchor}} class="social-link padding--right" title="Facebook">
                         <span class="sgds-icon sgds-icon-facebook is-size-4"></span>
                     </a>
                 {%- endif -%}
+
                 {%- if social.twitter -%}
-                    <a href="{{- social.twitter -}}" target="_blank" class="social-link padding--right" title="Twitter" rel="noreferrer">
+                    {%- assign url_input = social.twitter -%}
+                    {%- include functions/external_url.html -%}
+                    <a {{anchor}} class="social-link padding--right" title="Twitter">
                         <span class="sgds-icon sgds-icon-twitter is-size-4"></span>
                     </a>
                 {%- endif -%}
+
                 {%- if social.youtube -%}
-                    <a href="{{- social.youtube -}}" target="_blank" class="social-link padding--right" title="YouTube" rel="noreferrer">
+                    {%- assign url_input = social.youtube -%}
+                    {%- include functions/external_url.html -%}
+                    <a {{anchor}} class="social-link padding--right" title="YouTube">
                         <span class="sgds-icon sgds-icon-youtube is-size-4"></span>
                     </a>
                 {%- endif -%}
+
                 {%- if social.instagram -%}
-                    <a href="{{- social.instagram -}}" target="_blank" class="social-link padding--right" title="Instagram" rel="noreferrer">
+                    {%- assign url_input = social.instagram -%}
+                    {%- include functions/external_url.html -%}
+                    <a {{anchor}} class="social-link padding--right" title="Instagram">
                         <span class="sgds-icon sgds-icon-instagram is-size-4"></span>
                     </a>
                 {%- endif -%}
+
                 {%- if social.linkedin -%}
-                    <a href="{{- social.linkedin -}}" target="_blank" class="social-link padding--right" title="LinkedIn" rel="noreferrer">
+                    {%- assign url_input = social.linkedin -%}
+                    {%- include functions/external_url.html -%}
+                    <a {{anchor}} class="social-link padding--right" title="LinkedIn">
                         <span class="sgds-icon sgds-icon-linkedin is-size-4"></span>
                     </a>
                 {%- endif -%}
@@ -338,17 +381,35 @@
         <div class="row is-vcentered padding--top--sm">
             <div class="col is-two-thirds">
                 <ul>
-                    <li><a href="{{ site.baseurl }}/privacy/">Privacy Statement</a></li>
-                    <li><a href="{{ site.baseurl }}/terms-of-use/">Terms of Use</a></li>
-                    <li><a href="https://www.isomer.gov.sg">Built with Isomer</a></li>
+                    {%- if site.data.footer.privacy_policy -%}
+                        {%- assign url_input = site.data.footer.privacy_policy -%}
+                        {%- include functions/external_url.html -%}
+                    {%- else -%}
+                        {%- assign url_input = "/privacy/" -%}
+                        {%- include functions/external_url.html -%}
+                    {%- endif -%}
+                    <li><a {{anchor}}>Privacy Statement</a></li>
+                    
+                    {%- if site.data.footer.terms_of_use -%}
+                        {%- assign url_input = site.data.footer.terms_of_use -%}
+                        {%- include functions/external_url.html -%}
+                    {%- else -%}
+                        {%- assign url_input = "/terms-of-use/" -%}
+                        {%- include functions/external_url.html -%}
+                    {%- endif -%}
+                    <li><a {{anchor}}>Terms of Use</a></li>
+
+                    {%- assign url_input = "https://www.isomer.gov.sg" -%}
+                    {%- include functions/external_url.html -%}
+                    <li><a {{anchor}}>Built with Isomer</a></li>
                     {%- comment -%} <li><a>Rate Service</a></li> {%- endcomment -%}
                 </ul>
             </div>
             <div class="col is-one-third has-text-right-desktop has-text-right-tablet has-text-left-mobile">
                 <p>
                     &copy; {{ site.time | date: "%Y" -}}
-                    {%- if site.copyright_agency %}
-                        {{ site.copyright_agency -}}
+                    {%- if site.data.footer.copyright_agency %}
+                        {{ site.data.footer.copyright_agency -}}
                     {%- else %}
                         {{ site.title -}}
                     {%- endif -%}
@@ -359,4 +420,4 @@
     </div>
 </footer>
 
-{%- include main-scripts.html -%}
+{%- include main_scripts.html -%}

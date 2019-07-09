@@ -79,8 +79,10 @@ layout: skeleton
 	{%- endif -%}
 
 	{%- if section.carousel -%}
-		{%- comment -%} Because carousel only has bg color at the bottom, we swap first so that there is a seamless connection with the next section {%- endcomment -%}
-		{%- include functions/swap_container_class.html -%}
+		{%- comment -%} Carousel only looks nice when itself and the next section both has a gray background {%- endcomment -%}
+		{%- assign gray_container_class = "bg-newssection" -%}
+		{%- comment -%} For inclusion of owl_carousel in main_scripts {%- endcomment -%}
+		{%- assign has_carousel = true -%}
 		{%- include homepage/carousel.html -%}
 	{%- endif -%}
 {%- endfor -%}

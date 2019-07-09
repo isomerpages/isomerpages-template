@@ -49,12 +49,6 @@ sections:
         url: /contact-us/
         image: /images/ndi-logo.jpg
         button: Click here
-    - infopic:
-        title: Hey there!
-        subtitle: "Lorem ipsum!"
-        url: /contact-us/
-        image: /images/ndi-logo.jpg
-        button: Click here
     #- listing:
     #    title: "Used by:"
     #    entries:
@@ -76,10 +70,6 @@ sections:
     #    subtitle: "Get on board now!"
     #    button: "Contact Us"
     #    url: "https://www.isomer.gov.sg"
-    - resources:
-        title: "Media"
-        subtitle: "Learn more"
-        button: "Contact Us"
     - carousel:
         items:
         - title: Beeline
@@ -98,4 +88,8 @@ sections:
           category: citizen
           description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores dicta distinctio enim harum labore libero magni non tempora ullam.
           image: images/programme/citizen/SingPass.png
+    - resources:
+        title: "Media"
+        subtitle: "Learn more"
+        button: "Contact Us"
 ---

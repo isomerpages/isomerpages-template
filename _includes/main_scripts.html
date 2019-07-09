@@ -1,20 +1,23 @@
 {%- comment -%} DYN {%- endcomment -%}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha256-0rguYS0qgS6L4qVzANq4kjxPLtvnp5nn2nB5G1lWRv4=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js" integrity="sha384-JUMjoW8OzDJw4oFpWIB2Bu/c6768ObEthBMVSiIx4ruBIEdyNSUQAjJNFqT5pnJ6" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
 {%- comment -%} Carousel {%- endcomment -%}
-{%- if page.layout == 'homepage' -%}
-  {%- if site.homepage_programmes == true or site.homepage_careers == true -%}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css" integrity="sha256-fDncdclXlALqR3HOO34OGHxek91q8ApmD3gGldM+Rng=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css" integrity="sha256-2DoaRRHfHWna6mpfGImxAx/cu0vFGpqEkcf/YXf+yk4=" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
-  {%- endif -%}
+{%- if page.sections -%}
+  {%- for section in page.sections -%}
+    {%- if section.carousel -%}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css" integrity="sha256-fDncdclXlALqR3HOO34OGHxek91q8ApmD3gGldM+Rng=" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css" integrity="sha256-2DoaRRHfHWna6mpfGImxAx/cu0vFGpqEkcf/YXf+yk4=" crossorigin="anonymous">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
 {%- endif -%}
 
 {%- comment -%} WOGAA {%- endcomment -%}
 {%- if jekyll.environment == "staging" -%}
-<script src="https://assets.dcube.cloud/scripts/wogaa.js" integrity="sha384-yXHmqW4xsETxfyRaKE8g9LVUmtUoZBZhqJdnbuxyDaiWiOSyRs8T1uSd8nmw8Xp0" crossorigin="anonymous"></script>
+<script src="https://assets.dcube.cloud/scripts/wogaa.js" crossorigin="anonymous"></script>
 {%- else -%}
-<script src="https://assets.wogaa.sg/scripts/wogaa.js" integrity="sha384-6xGkYxsLBlBc+G9L/SIzuM/9Q+ROwjVMztPMJ+mBIr1GM0xzmXxqPPUzxLWNCSZU" crossorigin="anonymous"></script>
+<script src="https://assets.wogaa.sg/scripts/wogaa.js" crossorigin="anonymous"></script>
 {%- endif -%}
 <script src="{{- "/assets/js/accordion.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/sideNav-offset.js" | relative_url -}}" crossorigin="anonymous"></script>
@@ -34,7 +37,7 @@
 
 {%- if page.layout == 'search' -%}
 <script src="https://unpkg.com/lunr@2.3.6/lunr.js" integrity="sha384-WYZhYwlpZbtVuVpKReDUDRhoKr0MubxAfgcS0k8y5lprnl0i482oHTKTBeWTbcaz" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.10/purify.min.js" integrity="sha384-rde2iD+4Po+9TlQo3k7zSYKn29zm1/22iCpWMA9QUzQqlB5+M4gpN5yQxqWvaMon" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.11/purify.min.js" integrity="sha384-ELH09WGRUcBpRT6iHTekFB2YBCT9kFMsKG4Y9LUAevHjihu8Otri8Sm01QgXOTht" crossorigin="anonymous"></script>
 <script src="{{- "/assets/posts.js" | relative_url -}}"></script>
 <script src="{{- "/assets/js/worker.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/pagination-util.js" | relative_url -}}" crossorigin="anonymous"></script>
@@ -43,7 +46,7 @@
 {%- endif -%}
 
 {%- if page.layout == 'datagovsg-search' -%}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.10/purify.min.js" integrity="sha384-rde2iD+4Po+9TlQo3k7zSYKn29zm1/22iCpWMA9QUzQqlB5+M4gpN5yQxqWvaMon" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.11/purify.min.js" integrity="sha384-ELH09WGRUcBpRT6iHTekFB2YBCT9kFMsKG4Y9LUAevHjihu8Otri8Sm01QgXOTht" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/pagination-util.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/search.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/datagovsg-search.js" | relative_url -}}" crossorigin="anonymous"></script>

@@ -43,7 +43,7 @@
 
                     Subitems can still be customized by including the sublinks array
                 {%- endcomment -%}
-                {%- assign navitems = site.data.navigation -%}
+                {%- assign navitems = site.data.navigation.links -%}
                 {%- for navitem in navitems -%}
                     {%- if navitem.collection -%}
                         {%- comment -%} Leftnav page {%- endcomment -%}
@@ -63,16 +63,13 @@
                                     {%- endif -%}
                                     {%- comment -%} Only show second level pages and the first page in third level pages {%- endcomment -%}
                                     {%- if leftnavpage.third_nav_title -%}
-                                        {%- if third_nav_titles contains leftnavpage.third_nav_title -%}
-                                            {%- continue -%}
-                                            {%- comment -%} Contains do not support the not operator {%- endcomment -%}
-                                        {%- else -%}
+                                        {%- unless third_nav_titles contains leftnavpage.third_nav_title -%}
                                             {%- comment -%} This is the first page in this third level nav, display link {%- endcomment -%}
                                             <a class="navbar-item sub-link" href="{{leftnavpage.url}}">
                                                 {{- leftnavpage.third_nav_title -}}
                                             </a>
                                             {%- assign third_nav_titles = third_nav_titles | push: leftnavpage.third_nav_title -%}
-                                        {%- endif -%}
+                                        {%- endunless -%}
                                     {%- else -%}
                                         <a class="navbar-item sub-link" href="{{leftnavpage.url}}">
                                             {{- leftnavpage.title -}}

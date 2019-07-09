@@ -5,6 +5,9 @@
 
     This works because the scope of a variable in Liquid is the whole page
 
+    {%- assign url_input = your_url_input -%}
+    {%- include functions/external_url.html -%}
+
     Takes in a variable named url_input, and "returns" a variable named anchor which comes in the format "href=\"{{url_input}}\" target=\"_blank\" rel=\"noreferrer\"" for external URLs and "href=\"{{site.baseurl}}{{url_input}}\"" for internal URLs
 
     This means that whatever the URL, you can just use the format <a {{anchor}} class="your classes here"> for proper URL support
