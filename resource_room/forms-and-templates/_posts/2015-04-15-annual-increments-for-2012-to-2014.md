@@ -1,12 +1,10 @@
 ---
-layout: page
 title:  "Annual increments for 2012 - 2014"
 date:   2015-04-15
 excerpt: "Singapore Industrial & Services Employees Union v. First Defense Services Pte Ltd: The Court has approved the Union's request to withdraw its application for hearing."
 image: "/images/pic02.jpeg"
 permalink: "/media/facts-and-figures/annual-increments-for-2012-2014"
 ---
-
 [CANCELLED] The scheduled hearing has been cancelled as both parties have reached an amicable settlement in the Registrar's Chambers.  The Court has approved the Union's request to withdraw its application for hearing in respect of IAC D7 of 2014 and D1 of 2015.
 
 (15.04.2015)

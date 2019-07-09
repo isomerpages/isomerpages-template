@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Agile Maturity Model
 permalink: /products-and-services/agile-maturity-model/
 breadcrumb: Agile Maturity Model
@@ -7,7 +6,6 @@ collection_name: products-and-services
 tag: business
 thumbnail_image: /images/programmes/products-and-services/test2.jpg
 ---
-
 Agile Development is a software development methodology that is characterised by iterative and incremental development, and demonstrating significant productivity benefits such as faster time-to-markets for development and cost-savings for customers. 
 
 In order to encourage adoption of agile development, GovTech has developed the Agile Maturity Model (AMM) to help companies assess their level of maturity in agile methodologies.  The Government will also be using the Agile Maturity Model (AMM) to gauge readiness and maturity of Agile service providers who work with them. 

@@ -5,7 +5,6 @@ permalink: /who-we-are/our-journey/
 breadcrumb: Our Journey
 collection_name: who-we-are
 ---
-
 Since the arrival of the first personal computer in the 1980s, Singapore has embraced technology 
 as a crucial engine of the economy and society. The early computerisation efforts of the government in the 1980s paved the way to becoming one of the world’s most connected countries today.
 

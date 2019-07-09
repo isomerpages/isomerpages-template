@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Singapore Government Tech Stack
 permalink: /products-and-services/singapore-government-tech-stack/
 breadcrumb: SGTS
@@ -7,7 +6,6 @@ collection_name: products-and-services
 tag: government
 thumbnail_image: /images/programmes/products-and-services/sgts-thumbnail-foto-jet.jpg
 ---
-
 ![SGTS](/images/programmes/products-and-services/singapore-government-tech-stack-part-1.jpg)
 
 ![SGTS](/images/programmes/products-and-services/singapore-government-tech-stack-part-2.jpg)

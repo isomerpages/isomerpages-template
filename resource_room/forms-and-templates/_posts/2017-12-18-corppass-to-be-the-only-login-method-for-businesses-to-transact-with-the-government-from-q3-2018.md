@@ -1,5 +1,4 @@
 ---
-layout: page
 title:  "CorpPass to be the only login method for businesses to transact with the Government from Q3 2018"
 permalink: /media/media-releases/corppass-to-be-the-only-login-method
 date: 2017-12-18

@@ -1,5 +1,4 @@
 ---
-layout: page
 title: "'Ask Jamie' Virtual Assistant"
 permalink: /products-and-services/ask-jamie/
 breadcrumb: Ask Jamie
@@ -7,7 +6,6 @@ collection_name: products-and-services
 tag: citizens
 thumbnail_image: /images/programmes/products-and-services/AskJamie_Thumbnail.jpg
 ---
-
 ‘Ask Jamie’ is a virtual assistant (VA) that can be implemented on agency websites and trained to be able to answer queries within specific domains. When activated on a website, a chat window will open to allow the public to ‘chat’ with Jamie, very much like how one would chat on instant messaging.
 
 ‘Ask Jamie’ leverages on its Natural Language Processing (NLP) engine to understand the questions typed by the public and respond with an appropriate answer. When an answer entails multiple permutations, ‘Ask Jamie’ can be trained to ask follow-on questions to narrow down the answer to one that is specifically relevant to the context of the end-user.

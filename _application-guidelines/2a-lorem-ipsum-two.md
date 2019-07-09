@@ -1,5 +1,4 @@
 ---
-layout: page
 permalink: /application-guidelines/lorem-ipsum-two/part-A/
 breadcrumb: Application Guidelines (Lorem Ipsum Two A) 
 title: Lorem Ipsum Two A
@@ -29,7 +28,6 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 * sometimes by accident, sometimes on purpose (injected humour and the like).
 
 ---
-
 A sample download file can be found [here]({{site.baseurl}}/files/guides/guide-new-application.pdf)
 
 For further clarification, please email [dummy_email@dummy.com](mailto:dummy_email@dummy.com).     

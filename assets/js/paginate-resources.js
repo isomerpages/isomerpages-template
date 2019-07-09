@@ -1,4 +1,5 @@
 ---
+layout: blank
 ---
 "use strict";
 

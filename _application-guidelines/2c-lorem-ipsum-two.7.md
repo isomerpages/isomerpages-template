@@ -1,5 +1,4 @@
 ---
-layout: page
 permalink: /application-guidelines/lorem-ipsum-two/part-I/
 breadcrumb: Application Guidelines (Lorem Ipsum Two B) 
 title: Lorem Ipsum Two B

@@ -1,5 +1,5 @@
 ---
-
+layout: blank
 ---
 {%- assign homepage = site.data.homepage -%}
 

@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Social Service Sector ICT Master Plan
 permalink: /products-and-services/social-service-sector-ict-master-plan/
 breadcrumb: Social Service Sector ICT Master Plan
@@ -7,7 +6,6 @@ collection_name: products-and-services
 tag: business
 thumbnail_image: /images/programmes/products-and-services/test1.jpg
 ---
-
 The Social Service Sector experiences dynamic changes in the review and deployment of programmes to better serve clients’ needs.
 
 The sector aspires to address challenges in greater demand for skilled manpower, the pressing need for more prevalent data in service planning, and greater demand from clients on better and more effective service delivery. The demand continues to grow due to a combination of socio-economic trends such as rapidly ageing population, smaller family sizes, widening income gap and increasing economic volatility.

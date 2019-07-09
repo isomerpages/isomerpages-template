@@ -1,5 +1,4 @@
 ---
-layout: page
 title: TradeXchange
 permalink: /products-and-services/tradexchange/
 breadcrumb: TradeXchange
@@ -7,7 +6,6 @@ collection_name: products-and-services
 tag: business
 thumbnail_image: /images/programmes/products-and-services/test2.jpg
 ---
-
 TradeXchange is a multi-agency initiative led by Singapore Customs (SC), EDB, SPRING and GovTech.
 
 TradeXchange provides a neutral and secure platform that enables seamless exchange of information within the supply chain and logistics community. This multi-party collaboration platform provides greater operational efficiencies and clearer visibility to businesses across the supply chain.

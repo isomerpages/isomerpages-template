@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Beeline
 permalink: /products-and-services/beeline/
 breadcrumb: Beeline
@@ -7,7 +6,6 @@ collection_name: products-and-services
 tag: citizens
 thumbnail_image: /images/programmes/products-and-services/beeline-thumbnail.png
 ---
-
 ![Beeline](/images/programmes/products-and-services/beelineSG.jpg)
 
 Beeline is an open, cloud-based smart mobility platform developed to provide data-driven shuttle bus services for commuters. Through Beeline, commuters are empowered to “crowd- start” and activate more direct, private express bus routes that cater to their travel needs, especially during peak periods. 

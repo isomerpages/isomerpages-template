@@ -1,11 +1,9 @@
 ---
-layout: page
 title: Our Awards
 permalink: /who-we-are/our-awards/
 breadcrumb: Our Awards
 collection_name: who-we-are
 ---
-
 This section here should contain a summary of this page. Lorem ipsum dolor sit amet consecte tur adipiscing elit nullam iaculis metus a mi faucibus mattis. Nullam lacinia consequat nunc vel imperdiet.
 
 ## **2016**
@@ -29,7 +27,6 @@ This study assesses the UN’s 192 member states on the relative ability of thei
 
 ---
 
-
 ## **2015**
 
 * World Economic Forum Global Information Technology Report - 1st Rank Globally
@@ -37,7 +34,6 @@ This study assesses the UN’s 192 member states on the relative ability of thei
 
 
 ---
-
 
 ## **2014**
 

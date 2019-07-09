@@ -1,5 +1,5 @@
 ---
-
+layout: blank
 ---
 document.getElementById('print-button').addEventListener('click', printContent);
 var url = [

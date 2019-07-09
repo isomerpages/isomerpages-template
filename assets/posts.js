@@ -1,5 +1,5 @@
 ---
-
+layout: blank
 ---
 posts_json=[
     {%- assign putComma = false -%}

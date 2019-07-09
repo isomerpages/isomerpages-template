@@ -1,5 +1,4 @@
 ---
-layout: page
 title: TRANS Grant
 permalink: /products-and-services/trans-grant/
 breadcrumb: TRANS Grant
@@ -7,7 +6,6 @@ collection_name: products-and-services
 tag: business
 thumbnail_image: /images/programmes/products-and-services/test.jpg
 ---
-
 ### **Introduction**
 The Translational Research and Development for Application to Smart Nation (TRANS) Grant funds translational R&D and technology or process innovations in areas that are aligned to the emerging and focused tech areas (Strategic National Projects (SNPs) and Centres of Excellence (CentEx)). 
 

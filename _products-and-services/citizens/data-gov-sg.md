@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Data.gov.sg
 permalink: /products-and-services/data-gov-sg/
 breadcrumb: Data.gov.sg
@@ -7,7 +6,6 @@ collection_name: products-and-services
 tag: citizens
 thumbnail_image: /images/programmes/products-and-services/test.jpg
 ---
-
 [Data.gov.sg](https://data.gov.sg/){:target="_blank"} was first launched in 2011 as the government's one-stop portal to its publicly available datasets from 70 public agencies. To date, more than 100 apps have been created using the government’s open data.
 
 The new data.gov.sg goes beyond being a data repository. It aims to make government data relevant and understandable to the public, through the active use of data visualisations and data-driven articles. The key features of the portal are high quality data presented via dashboards for quick reference, shareable charts and tables of datasets, and data blogs of social trends and government policies explained using data analysis and visualisations.

@@ -1,10 +1,8 @@
 ---
-layout: page
 title:  "82 Projects, 200 Students, 1st Data Visualisation Video Challenge: Who will best use open government data to improve lives?"
 date: 2017-09-30
 permalink: "/media/media-releases/1st-data-visualisation-video-challenge"
 ---
-
 Is ownership of public housing a sure win for financial gain? Will chances of returning to crime be reduced with greater social acceptance of ex-offenders? These were some ideas from participating teams at the finals of Government Technology Agency (GovTech)’s inaugural National Data Visualisation Video Challenge held today.
 
 The Challenge, themed “How Open Data makes a difference for you and me”, saw over 80 submissions by more than 200 students from Universities, Polytechnics and Institutes of Technical Education (ITE). Following eight months of preparation and selection, 12 teams made it to the finals to create a video with data visualisation to share how open data could improve lives. 

@@ -1,11 +1,9 @@
 ---
-layout: page
 permalink: /application-guidelines/lorem-ipsum-one/second-level-a/
 title: Lorem Ipsum One A
 collection_name: application-guidelines
 third_nav_title: "Second Level A"
 ---
-
 ### **What is Lorem Ipsum?**
 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book:
@@ -47,7 +45,6 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 New content - let's try this again...
 
 ---
-
 A sample download file can be found [here]({{site.baseurl}}/files/guides/guide-new-application.pdf)
 
 For further clarification, please email [dummy_email@dummy.com](mailto:dummy_email@dummy.com).      

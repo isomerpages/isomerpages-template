@@ -1,10 +1,8 @@
 ---
-layout: page
 title: Privacy Statement
 permalink: /privacy/
 breadcrumb: Privacy
 ---
-
 ### **Privacy Statement**
 
 1. In some cultures in the Northern Hemisphere (e.g. Germany), the astronomical vernal equinox (varying between 19 and 21 March) is taken to mark the first day of spring, and the summer solstice (around 21 June) is taken as the first day of summer.

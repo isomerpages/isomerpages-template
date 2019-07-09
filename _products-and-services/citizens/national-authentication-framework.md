@@ -1,5 +1,4 @@
 ---
-layout: page
 title: National Authentication Framework (NAF)
 permalink: /products-and-services/national-authentication-framework/
 breadcrumb: National Authentication Framework (NAF)
@@ -7,7 +6,6 @@ collection_name: products-and-services
 tag: citizens
 thumbnail_image: /images/programmes/products-and-services/test1.jpg
 ---
-
 The National Authentication Framework (NAF) seeks to realise the vision of the iN2015 masterplan for a secure and trusted enabling infocomm infrastructure that can facilitate the delivery of online services by the public and private sectors.
 
 With the increased availability of online services offered by key sectors such as banking & finance, Government and healthcare, NAF can safeguard against unauthorised access to sensitive information available online, such as bank account details, securities trading account details or electronic health records. The NAF will be a timely nationwide strong authentication infrastructure that can provide consumers greater assurance when performing online transactions.
