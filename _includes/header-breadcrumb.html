@@ -18,8 +18,10 @@
 
             {%- if page.breadcrumb -%}
                 <li><a href="{{- page.url -}}"><small>{{ page.breadcrumb | upcase }}</small></a></li>
-            {%- else -%}
+            {%- elsif page.title -%}
                 <li><a href="{{- page.url -}}"><small>{{ page.title | truncatewords: 7 | upcase }}</small></a></li>
+            {%- elsif page.layout == "contact_us" -%}
+                <li><a href="{{- page.url -}}"><small>CONTACT US</small></a></li>
             {%- endif -%}
         {%- else -%}
             {%- assign splitted_url_parts = page.url | split: '/' -%}
@@ -35,8 +37,10 @@
                         {%- if current_breadcrumb_md_url == breadcrumb_page.url or current_breadcrumb_md_url == page_url_with_slash -%}
                             {%- if breadcrumb_page.breadcrumb -%}
                                 <li><a href="{{ breadcrumb_page.url }}"><small>{{ breadcrumb_page.breadcrumb | upcase }}</small></a></li>
-                            {%- else -%}
+                            {%- elsif breadcrumb_page.title -%}
                                 <li><a href="{{ breadcrumb_page.url }}"><small>{{ breadcrumb_page.title | truncatewords: 7 | upcase }}</small></a></li>
+                            {%- elsif page.layout == "contact_us" -%}
+                                <li><a href="{{- page.url -}}"><small>CONTACT US</small></a></li>
                             {%- endif -%}
 
                             {%- assign not_found = false -%}
@@ -51,8 +55,10 @@
                         {%- if current_breadcrumb_md_url == breadcrumb_page.url or current_breadcrumb_md_url == page_url_with_slash -%}
                             {%- if breadcrumb_page.breadcrumb -%}
                                 <li><a href="{{ breadcrumb_page.url }}"><small>{{ breadcrumb_page.breadcrumb | upcase }}</small></a></li>
-                            {%- else -%}
+                            {%- elsif breadcrumb_page.title -%}
                                 <li><a href="{{ breadcrumb_page.url }}"><small>{{ breadcrumb_page.title | truncatewords: 7 | upcase }}</small></a></li>
+                            {%- elsif page.layout == "contact_us" -%}
+                                <li><a href="{{- page.url -}}"><small>CONTACT US</small></a></li>
                             {%- endif -%}
 
                             {%- assign not_found = false -%}
@@ -68,8 +74,10 @@
                             {%- if current_breadcrumb_md_url == breadcrumb_page.url or current_breadcrumb_md_url == page_url_with_slash -%}
                                 {%- if breadcrumb_page.breadcrumb -%}
                                     <li><a href="{{ breadcrumb_page.url }}"><small>{{ breadcrumb_page.breadcrumb | upcase }}</small></a></li>
-                                {%- else -%}
+                                {%- elsif breadcrumb_page.title -%}
                                     <li><a href="{{ breadcrumb_page.url }}"><small>{{ breadcrumb_page.title | truncatewords: 7 | upcase }}</small></a></li>
+                                {%- elsif page.layout == "contact_us" -%}
+                                    <li><a href="{{- page.url -}}"><small>CONTACT US</small></a></li>
                                 {%- endif -%}
 
                                 {%- assign not_found = false -%}

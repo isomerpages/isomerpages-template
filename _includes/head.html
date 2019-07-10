@@ -3,7 +3,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=yes, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta property="og:title" content="{{- page.title | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 25 -}}">
+    {%- if page.title -%}
+        <meta property="og:title" content="{{- page.title | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 25 -}}">
+    {%- elsif page.layout == "contact_us" -%}
+        <meta property="og:title" content="Contact Us">
+    {%- endif -%}
     {%- comment -%} If page contains a description in the YML header of the markdown file, use the page description. Otherwise, take an excerpt of its markdown content {%- endcomment -%}
     <meta property="og:description" content="
         {%- if page.description -%}
@@ -17,29 +21,33 @@
         {%- else -%}
             {{- page.content | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 20 -}}
         {%- endif -%}">
-    {%- assign homepage = site.data.homepage -%}
     <meta property="og:image" content="
     {%- if page.image -%}
         {{- page.image | absolute_url -}}
-    {%- elsif homepage.shareicon -%}
-        {{- homepage.shareicon | absolute_url -}}
+    {%- elsif site.shareicon -%}
+        {{- site.shareicon | absolute_url -}}
     {%- else -%}
-        {{- homepage.agency-logo | absolute_url -}}
+        {{- site.data.navigation.logo | absolute_url -}}
     {%- endif -%}">
-    <meta property="og:url" content="{{- page.permalink | absolute_url -}}">
+    <meta property="og:url" content="{{- page.url | absolute_url -}}">
     <link rel="canonical" href="{{- page.url | absolute_url -}}" />
     
-    {%- assign homepage = site.data.homepage -%}
-
-    {%- if homepage.favicon -%}
-        <link rel="shortcut icon" href="{{- site.baseurl- }}{{- homepage.favicon -}}" type="image/x-icon">
+    {%- if site.favicon -%}
+        <link rel="shortcut icon" href="{{- site.baseurl- }}{{- site.favicon -}}" type="image/x-icon">
     {%- else -%}
         <link rel="shortcut icon" href="{{- site.baseurl -}}/assets/img/favicon.ico" type="image/x-icon">
     {%- endif -%}
+    
     <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/blueprint.css">
     <link rel="stylesheet" href="{{- site.baseurl -}}{{- site.custom_css_path -}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,600" crossorigin="anonymous">
     {%- feed_meta -%}
 
-    <title>{{- page.title | strip_html -}}</title>
+    <title>
+        {%- if page.title -%}
+            {{- page.title | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 25 }}
+        {%- elsif page.layout == "contact_us" -%}
+            Contact Us
+        {%- endif -%}
+    </title>
 </head>

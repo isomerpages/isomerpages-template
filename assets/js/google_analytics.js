@@ -11,7 +11,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'UA-139339739-1', 'auto');
 ga('send', 'pageview');
 
-{%- if homepage.google-analytics -%}
-ga('create', '{{homepage.google-analytics}}', { 'name': 'b' });
+{%- if site.google_analytics -%}
+ga('create', '{{site.google_analytics}}', { 'name': 'b' });
 ga('b.send', 'pageview');
 {%- endif -%}

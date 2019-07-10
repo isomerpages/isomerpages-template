@@ -1,0 +1,17 @@
+{%- comment -%} 
+    Generates a Google Maps link based on an array named address
+
+    Each entry in the address array represents a line of address
+    
+   "Returns" a variable named anchor which comes in the format "href=\"{{url_input}}\" target=\"_blank\" rel=\"noreferrer\"" which is ready for use as follows: <a {{anchor}} class="your classes here"> for proper URL support
+
+    If you need the only the generated Google Maps URL, use the url_input variable (provided it has not been reassigned)
+
+    For more background information on these "pseudofunctions", see external_url.html
+{%- endcomment -%}
+
+{%- capture url_input -%}
+    https://maps.google.com/maps?q={{ address | join: "+" | strip_html | normalize_whitespace | escape_once | replace: " ", "+" }}
+{%- endcapture -%}
+
+{%- include functions/external_url.html -%}

@@ -1,0 +1,169 @@
+---
+layout: skeleton
+---
+{%- if page.image -%}
+    <style>
+    .bg-contact{
+        background: url('{{site.baseurl}}{{page.image}}') no-repeat left 50%;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    </style>
+{%- endif -%}
+
+<section class="bp-section">
+    <div class="bp-container">
+        <div class="row is-inverted">
+            <div class="col is-8 is-offset-2">
+                {%- include header-breadcrumb.html -%}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col is-8 is-offset-2">
+                <h1 class="display has-text-weight-semibold">Get in touch with<br><span class="has-text-secondary">
+                {%- if page.agency_name -%}
+                    {{- page.agency_name -}}
+                {%- else -%}
+                    {{- site.title -}}
+                {%- endif -%}
+                </span></h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bp-section is-small padding--bottom--lg">
+    <div class="bp-container">
+        <div class="row">
+            <div class="col is-8 is-offset-2">
+                {%- for location in page.locations -%}
+                    <div class="row is-multiline margin--bottom">
+                        {%- if location.address -%}
+                            {%- if location.title -%}
+                                <div class="col is-6 padding--bottom--none">
+                                    {%- comment -%}<p></p>{%- endcomment -%}
+                                    <h5 class="has-text-secondary"><b>{{- location.title -}}</b></h5>
+                                </div>
+                            {%- endif -%}
+
+                            
+                            <div class="col is-6 padding--bottom--none is-hidden-mobile">
+                                {%- if location.operating_hours -%}
+                                    <h5 class="has-text-secondary"><b>Operating Hours</b></h5>
+                                {%- endif -%}
+                            </div>
+                            
+                            {%- comment -%}
+                                <div class="col is-6 padding--bottom--none">
+                                    <p></p>
+                                    <h5 class="has-text-secondary"><b>Other Offices</b></h5>
+                                </div>
+                                <div class="col is-6 padding--bottom--none">
+                                    {%- if location.operating-hours -%}
+                                    <h5 class="has-text-secondary"><b>Operating Hours</b></h5>
+                                    {%- endif -%}
+                            </div>
+                            {%- endcomment -%}
+                            <div class="col is-6">
+                                <div>
+                                    {%- comment -%}<p class="margin--top--none margin--bottom--none"><b>{{location.title}}</b></p>{%- endcomment -%}
+                                    <p class="content margin--top--none margin--bottom--none">
+                                        {{- location.address | join: "</p><p class='content margin--top--none margin--bottom--none'>" -}}
+                                    </p>
+
+                                    {%- if location.maps_link -%}
+                                        {%- assign url_input = location.maps_link -%}
+                                        {%- include functions/external_url.html -%}
+                                    {%- else -%}
+                                        {%- assign address = location.address -%}
+                                        {%- include functions/generate_google_maps.html -%}
+                                    {%- endif -%}
+
+                                    <a {{anchor}} class="bp-sec-button has-text-secondary margin--top">
+                                        <div>
+                                            <span>VIEW MAP</span>
+                                            <i class="sgds-icon sgds-icon-arrow-right" aria-hidden="true"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            {%- if location.operating_hours -%}
+                                <div class="col is-6">
+                                    {%- assign operating_hours = location.operating_hours -%}
+                                    <div>
+                                        {%- for operation in operating_hours -%}
+                                            <p class="margin--top--none">
+                                                <b>{{operation.days}}</b>:&nbsp;{{operation.time}}<br>
+                                                {{- operation.description -}}
+                                            </p>
+                                        {%- endfor -%}
+                                    </div>
+                                </div>
+                            {%- endif -%}
+                        {%- endif -%}
+                    </div>
+                {%- endfor -%}
+
+                {%- if page.contacts -%}
+                    <div class="row is-multiline margin--bottom--xl">
+                        <div class="col is-12 padding--bottom--none">
+                            <h5 class="has-text-secondary"><b>Contact Us</b></h5>
+                        </div>
+                        {%- for contact in page.contacts -%}
+                            {%- if contact.content -%}
+                                <div class="col is-6">
+                                    <div>
+                                        {%- if contact.title -%}
+                                            <p class="has-text-weight-semibold margin--top--none margin--bottom--none">{{contact.title}}</p>
+                                        {%- endif -%}
+
+                                        {%- for content in contact.content -%}
+                                            <p class="margin--top--none margin--bottom--none">
+                                                {%- if content.email -%}
+                                                    <a href="mailto:{{content.email | strip -}}">
+                                                        <u>{{- content.email | strip -}}</u>
+                                                    </a>
+                                                {%- endif -%}
+
+                                                {%- if content.phone -%}
+                                                    <a href="tel:{{content.phone | normalize_whitespace | replace: " ", "" -}}">
+                                                        <u>{{- content.phone | strip -}}</u>
+                                                    </a>
+                                                {%- endif -%}
+
+                                                {%- if content.other -%}
+                                                    {{- content.other -}}
+                                                {%- endif -%}
+                                            </p>
+                                        {%- endfor -%}
+                                    </div>
+                                </div>
+                            {%- endif -%}
+                        {%- endfor -%}
+                    </div>
+                {%- endif -%}
+
+                {%- if site.data.footer.feedback -%}
+                    <div class="row is-multiline margin--bottom--lg">
+                        <div class="col is-12 padding--bottom--none">
+                            <h5 class="has-text-secondary has-text-weight-semibold">Send us your feedback</h5>
+                        </div>
+                        <div class="col is-8">
+                            {%- assign url_input = site.data.footer.feedback -%}
+                            {%- include functions/external_url.html -%}
+                            <p>
+                                If you have a query, feedback or wish to report a problem related to this website,
+                                please fill in the <a {{anchor}}><u>online form</u></a>.
+                            </p>
+                        </div>
+                    </div>
+                {%- endif -%}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{%- if page.image -%}
+    <section class="bp-section is-vh-60 bg-contact"></section>
+{%- endif -%}

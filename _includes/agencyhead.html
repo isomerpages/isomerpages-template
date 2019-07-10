@@ -4,11 +4,9 @@
     <nav class="navbar is-transparent">
         <div class="bp-container">
 
-        {%- assign homepage = site.data.homepage -%}
-
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
-                <img src="{{- homepage.agency-logo -}}" alt="Homepage" style="max-height:75px;max-width:200px;height:auto;width:auto;">
+                <img src="{{- site.data.navigation.logo -}}" alt="Homepage" style="max-height:75px;max-width:200px;height:auto;width:auto;">
             </a>
             <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
                 <span></span>
