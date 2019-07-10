@@ -14,7 +14,7 @@
             {%- else -%}
                 {%- assign links = site.data.navigation.links -%}
             {%- endif -%}
-            {%- assign social = site.data.social-media -%}
+            {%- assign social = site.data.footer.social_media -%}
             {%- comment -%} Set columns for nav links based on social media links {%- endcomment -%}
             {%- if social -%}
                 {%- assign navClass = "is-four-fifths" -%}
