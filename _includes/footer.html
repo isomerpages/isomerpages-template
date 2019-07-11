@@ -103,9 +103,9 @@
                     {%- elsif navitem.resource_room -%}
                         <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
                             <p class="sub-header">
-                                <a class="has-text-white" href="/{{site.resources_name}}/">
+                                <b><a class="has-text-white" href="/{{site.resources_name}}/">
                                     {{- navitem.title -}}
-                                </a>
+                                </a></b>
                             </p>
                             {%- unless site.categories.size < 3 -%}
                                 {%- comment -%} 
@@ -147,9 +147,9 @@
                             {%- include functions/external_url.html -%}
                             
                             <p class="sub-header">
-                                <a {{anchor}} class="has-text-white">
+                                <b><a {{anchor}} class="has-text-white">
                                     {{- navitem.title -}}
-                                </a>
+                                </a></b>
                             </p>
                         </div>
                     {%- endif -%}
