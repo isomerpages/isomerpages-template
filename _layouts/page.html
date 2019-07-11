@@ -16,7 +16,7 @@ layout: skeleton
             </div>
         </div>
     </div>
-    {%- if page.date -%}
+    {%- if page.collection == "posts" -%}
         <div class="bp-container">
             <div class="row">
                 <div class="col is-11">
@@ -249,7 +249,7 @@ layout: skeleton
                     {{- content -}}
                 {%- if site.recommender == true -%}
                     {%- unless page.recommender == false -%}
-                    {%- include recommender.html -%}
+                        {%- include recommender.html -%}
                     {%- endunless -%}
                 {%- endif -%}
                 </div>
