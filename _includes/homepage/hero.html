@@ -75,7 +75,9 @@
                     {%- if highlight.url or highlight.title or highlight.description -%}
                         <div class="col">
                             {%- if highlight.url -%}
-                                <a href="{{- highlight.url -}}" class="is-highlight">
+                                {%- assign url_input = highlight.url -%}
+                                {%- include functions/external_url.html -%}
+                                <a {{anchor}} class="is-highlight">
                             {%- endif -%}
 
                             {%- if highlight.title or highlight.description -%}
