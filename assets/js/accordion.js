@@ -18,4 +18,3 @@ for (const accordion of accordionArray) {
 
 	accordion.getElementsByClassName("bp-accordion-header")[0].addEventListener("click", toggleAccordionBody);
 }
-

@@ -2681,7 +2681,7 @@ a.has-text-danger:focus {
     justify-content: flex-end;
 }
 
-.media-category-button {
+.content .media-category-button, .media-category-button {
     text-decoration: none !important;
     color: #323232;
     margin-right: 2.5rem;
