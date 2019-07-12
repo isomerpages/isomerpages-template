@@ -1,19 +1,9 @@
-##################################
-#                                #
-# Edit this file carefully.      #
-#                                #
-##################################
-
 # Board of Directors
 board-of-directors:
   - name: Mr NG Chee Khern
     title: Chairman
     organisation: Permanent Secretary (Smart Nation and Digital Government)
     image-url: /images/our-team/ng-chee-khern.jpg
-  - name: Mr TAN Kok Yam
-    title: Deputy Secretary
-    organisation: Smart Nation and Digital Government
-    image-url: /images/our-team/tan-kok-yam.jpg
   - name: Mr KOK Ping Soon
     title: Chief Executive
     organisation: Government Technology Agency of Singapore
@@ -26,10 +16,10 @@ board-of-directors:
     title: Chief Executive
     organisation: Info-communications Media Development Authority of Singapore
     image-url: /images/our-team/tan-kiat-how.jpg
-  - name: Prof Freddy BOEY
-    title: Deputy President and Provost
-    organisation: Nanyang Technological University
-    image-url: /images/our-team/freddy-boey.jpg
+  - name: Ms Lesly GOH
+    title: Senior Technology Advisor
+    organisation: World Bank
+    image-url: /images/our-team/lesly-goh.jpg
   - name: Mr Peter HO
     title: Chief Executive Officer
     organisation: HOPE Technik Pte Ltd
@@ -39,9 +29,13 @@ board-of-directors:
     organisation: The Boston Consulting Group
     image-url: /images/our-team/mariam-jaafar.jpg
   - name: Mr Alexander KLEINBERG
-    title: Managing Director
-    organisation: MoPub, Asia-Pacific/Japan, Twitter Inc
+    title: Advisor to COO
+    organisation: Grab Holdings Inc.
     image-url: /images/our-team/alexander-kleinberg.jpg
+  - name: Ms Melissa KHOO
+    title: Deputy Secretary (Policy)
+    organisation: Ministry of Education
+    image-url: /images/our-team/melissa-khoo.jpg
   - name: Prof Annie KOH
     title: Vice President
     organisation: Office of Business Development, Professor of Finance (Practice) Singapore Management University
@@ -50,10 +44,18 @@ board-of-directors:
     title: Executive Director
     organisation: Global Indices INSEAD
     image-url: /images/our-team/bruno-lanvin.jpg
+  - name: Mr Bruce LIANG
+    title: Chief Executive Officer
+    organisation: Integrated Health Information Systems Pte Ltd
+    image-url: /images/our-team/bruce-liang.jpg
   - name: Mr Matt QUINLAN
     title: Director
     organisation: Ontrack Advisory
     image-url: /images/our-team/matt-quinlan.jpg
+  - name: Mr Bojan BLECIC
+    title: Senior Vice President / Head of Experience Design
+    organisation: OCBC Bank
+    image-url: /images/our-team/bojan-blecic.jpg
   - name: Mr Muthukrishnan RAMASWAMI
     title: President
     organisation: Singapore Exchange Ltd
@@ -70,21 +72,29 @@ senior-leadership:
     organisation: Government Technology Agency of Singapore
     image-url: /images/our-team/kok-ping-soon.png
   - name: Mr CHAN Cheow Hoe
-    title: Deputy Chief Executive
+    title: Deputy Chief Executive / Government Chief Digital Technology Officer
     organisation: Products
     image-url: /images/our-team/chan-cheow-hoe.jpg
   - name: Mr FOONG Sew Bun
     title: Deputy Chief Executive
-    organisation: Services, Governance & Cybersecurity
+    organisation: Services, Governance and Cybersecurity
     image-url: /images/our-team/foong-sew-bun.jpg
   - name: Ms LIM Bee Kwan
     title: Assistant Chief Executive
-    organisation: Governance & Cybersecurity
+    organisation: Governance and Cybersecurity
     image-url: /images/our-team/lim-bee-kwan.jpg
   - name: Mr TAN Eng Pheng
     title: Assistant Chief Executive
     organisation: Services
     image-url: /images/our-team/tan-eng-pheng.jpg
+  - name: Ms ANG Mui Kim
+    title: Senior Director
+    organisation: Manpower Cluster and SVC Workforce Transformation
+    image-url: /images/our-team/Ang-Mui-Kim-GovTech-Smart-Nation-Senior-Leader.jpg
+  - name: Mr Jason BAY
+    title: Senior Director
+    organisation: Government Digital Services
+    image-url: /images/our-team/Jason-Bay-GovTech-Smart-Nation-Senior-Leader.jpg
   - name: Mr CHAI Chin Loon
     title: Senior Director
     organisation: Cyber Security Group
@@ -93,25 +103,37 @@ senior-leadership:
     title: Senior Director
     organisation: National Digital Identity
     image-url: /images/our-team/kwok-quek-sin.png
-  - name: Ms ONG Seok Leng
+  - name: Mr LIM Chinn Hwa
     title: Senior Director
-    organisation: Governance Group
-    image-url: /images/our-team/ong-seok-leng.jpg
+    organisation: Smart Nation Platform Solutions
+    image-url: /images/our-team/lim-chinn-hwa.jpg
   - name: Ms Jacqueline LIM
-    title: Acting Senior Director
+    title: Senior Director
     organisation: Government Infrastructure Group
     image-url: /images/our-team/jacqueline-lim.png
-  - name: Mr Parimal ASWANI
+  - name: Mr TAN Bee Teck
+    title: Senior Director
+    organisation: Education Cluster and Application Portfolio Remake
+    image-url: /images/our-team/Bee-Teck-GovTech-Smart-Nation-Senior-Leader.jpg    
+  - name: Mr Dominic CHAN
     title: Director
-    organisation: Government Digital Services
-    image-url: /images/our-team/parimal-aswani.jpg
-  - name: Mr LIU Feng Yuan
+    organisation: Moments of Life
+    image-url: /images/our-team/dominic-chan.jpg
+  - name: Mr LEONG Der Yao
     title: Director
     organisation: Data Science and Artificial Intelligence
-    image-url: /images/our-team/liu-feng-yuan.jpg
+    image-url: /images/our-team/leong-der-yao.jpg
+  - name: Mr QUEK Yang Boon
+    title: Director
+    organisation: Sensors & IoT
+    image-url: /images/our-team/quek-yang-boon.jpg
+  - name: Ms Hefen WONG
+    title: Director
+    organisation: Technology Management Office & Development and Organisation Transformation
+    image-url: /images/our-team/hefen-wong-govtech-senior-leader.jpg
   - name: Ms Evangeline CHUA
     title: Chief People Officer
-    organisation: People & Organisation Group
+    organisation: People and Organisation Group
     image-url: /images/our-team/evangeline-chua.jpg
   - name: Mr Vincent KOR
     title: General Counsel
@@ -119,7 +141,7 @@ senior-leadership:
     image-url: /images/our-team/vincent-kor.jpg
   - name: Ms LEE Kai Nee
     title: Chief Financial Officer
-    organisation: Finance, Investment & Procurement
+    organisation: Finance, Investment and Procurement Group
     image-url: /images/our-team/lee-kai-nee.jpg
   - name: Mr LIM Keng Soon
     title: Chief Communications Officer
@@ -127,5 +149,107 @@ senior-leadership:
     image-url: /images/our-team/lim-keng-soon.jpg
   - name: Ms Jennifer TAN
     title: Director
-    organisation: Strategic Planning and International
+    organisation: Strategy and Plans
     image-url: /images/our-team/jennifer-tan.jpg
+
+# Organisational Structure
+organisational-structure:
+  - title: CE Office
+    teams:
+      - name: Internal Audit
+  - title: Corporate Services
+    teams:
+      - name: Communications and Marketing Group (CMG)
+        link:
+      - name: Development & Organisation Transformation (DOT)
+        link:
+      - name: Finance, Investment and Procurement Group (FIPG)
+        link:
+      - name: Group IT Division (GITD)
+        link:       
+      - name: Legal
+        link:  
+      - name: People and Organisation Group (POG)
+        link:  
+      - name: Strategy and Plans Division (SPD)
+        link:
+      - name: Special Projects
+        link:
+  - title: Cybersecurity Group
+    teams:
+      - name: Advanced Cybersecurity Capabilities
+        link:
+      - name: Government Cyber Defence
+        link:
+      - name: Government Cybersecurity Consulting Services
+        link:
+      - name: Government Cybersecurity Policy & Planning
+        link:
+      - name: Ministry CISO
+        link:
+  - title: Governance Group
+    teams:
+      - name: Audit and Compliance 
+        link:
+      - name: Performance and Portfolio
+        link:
+      - name: Policies and Standards
+        link:
+      - name: Procurement
+        link:
+  - title: Product Development
+    teams:
+      - name: Government Infrastructure Group (GIG)
+        link:
+      - name: Government Digital Services (GDS)
+        link:
+      - name: Data Science and Artificial Intelligence Division (DSAID)
+        link:
+      - name: Sensors and Internet of Things (SIoT)
+        link:
+  - title: Product Management
+    teams:
+      - name: Business Management Division (BMD)
+      - name: Moments of Life (MOL)
+      - name: National Digital Identity (NDI)
+      - name: Smart Nation Sensor Programme Office (SNSPO)
+  - title: Services Pillar
+    teams:
+      - name: Central Technical Services (CTS)
+        link: 
+      - name: Cluster and Technology Management Office (CTMO)
+        link: 
+      - name: Culture, Community and Youth Cluster
+        link: 
+      - name: Education Cluster and Application Portfolio Remake
+        link: 
+      - name: Environment and Water Resources Cluster
+        link: 
+      - name: Finance Cluster
+        link: 
+      - name: Health Cluster
+        link: 
+      - name: Home Affair Cluster
+        link:    
+      - name: Justice, Law and Foreign Affairs Cluster
+        link: 
+      - name: Manpower Cluster and SVC Workforce Transformation
+        link: 
+      - name: Ministry of Communication and Information Cluster
+        link: 
+      - name: National Devt and Transport Cluster
+        link: 
+      - name: Planning and Quality Assurance (PQA)
+        link: 
+      - name: Premium Customer Care Services (PCCS)
+        link:        
+      - name: Prime Minister Office's Office
+        link:    
+      - name: Social and Family Development
+        link:  
+      - name: Solution Architecture Office (SAO)
+        link: 
+      - name: Standard Products (SP)
+        link: 
+      - name: Trade and Industry Cluster
+        link:

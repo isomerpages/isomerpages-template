@@ -7,6 +7,7 @@ layout: page
 {%- assign our-journey = site.data.our-journey -%}
 {%- for our-journey-section in our-journey -%}
 	{%- comment -%} Accordion header {%- endcomment -%}
+	<div class="accordion">
 	<div class="col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless">
 		<div class="col is-expanded is-fullwidth is-paddingless">
 			<h5 class="has-text-grey-dark is-marginless"><b> {{- our-journey-section.title -}}
@@ -40,5 +41,5 @@ layout: page
 			{%- if forloop.last == false -%}<hr style="margin-top: 28px">{%- endif -%}
 		{%- endfor -%}
 		<br />
-	</div>
+	</div></div>
 {%- endfor -%}
