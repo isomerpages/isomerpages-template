@@ -38,6 +38,7 @@ google_analytics: UA-test
 
 collections:
   application-guidelines:
+    permalink: /:collection/:path/:title
     output: true
   who-we-are:
     output: true
@@ -65,3 +66,5 @@ defaults:
       path: ""
     values:
       layout: "page"
+
+permalink: none

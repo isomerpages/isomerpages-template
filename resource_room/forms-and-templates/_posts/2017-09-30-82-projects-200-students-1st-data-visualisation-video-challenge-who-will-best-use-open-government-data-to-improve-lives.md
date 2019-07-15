@@ -17,7 +17,7 @@ The 12 teams used a myriad of open government datasets, including the number of 
 
 From the datasets, the teams unearthed new insights such as the towns in Singapore that would require more eldercare facilities, the pressing need for water conservation in Singapore, and the importance of social acceptance to prevent ex-offenders from re-offending. 
 
-The Challenge, supported by six industry partners namely Amazon Web Services, Carousell, Cloudera, Microsoft, Google and The Straits Times, also displayed ability of students to cross-analyse data and come up with tools such as automating the income growth and key expenses of users until their selected retirement age. Please see [Annex 1]({{- site.url -}}/files/2017-09-30/Annex 1.pdf) for more details on the projects.
+The Challenge, supported by six industry partners namely Amazon Web Services, Carousell, Cloudera, Microsoft, Google and The Straits Times, also displayed ability of students to cross-analyse data and come up with tools such as automating the income growth and key expenses of users until their selected retirement age. Please see [Annex 1](/files/2017-09-30/Annex 1.pdf) for more details on the projects.
 
 > “It was a chance for us to showcase our creativity through data analysis and we learnt a lot from the Challenge.”  
 `TEAM N.I.C.E.`
