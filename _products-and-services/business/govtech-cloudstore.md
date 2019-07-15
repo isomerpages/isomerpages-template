@@ -2,7 +2,6 @@
 title: GovTech CloudStore
 permalink: /products-and-services/govtech-cloudstore/
 breadcrumb: GovTech CloudStore
-collection_name: products-and-services
 tag: business
 thumbnail_image: /images/programmes/products-and-services/test.jpg
 ---

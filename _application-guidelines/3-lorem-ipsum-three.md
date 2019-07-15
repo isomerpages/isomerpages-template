@@ -3,7 +3,6 @@ permalink: /application-guidelines/lorem-ipsum-three/
 breadcrumb: Application Guidelines (Lorem Ipsum Three)
 image: "/images/banner_GardenBay.png" 
 title: Lorem Ipsum Three
-collection_name: application-guidelines
 ---
 ### **What is Lorem Ipsum?**
 

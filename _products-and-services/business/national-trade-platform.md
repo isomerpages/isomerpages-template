@@ -2,7 +2,6 @@
 title: Networked Trade Platform
 permalink: /products-and-services/Networked-trade-platform/
 breadcrumb: Networked Trade Platform
-collection_name: products-and-services
 tag: business
 thumbnail_image: /images/programmes/products-and-services/test1.jpg
 ---

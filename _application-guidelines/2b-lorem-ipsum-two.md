@@ -2,7 +2,6 @@
 permalink: /application-guidelines/lorem-ipsum-two/part-B/
 breadcrumb: Application Guidelines (Lorem Ipsum Two B) 
 title: Lorem Ipsum Two B
-collection_name: application-guidelines
 third_nav_title: "Second Level B"
 ---
 ### **What is Lorem Ipsum?**

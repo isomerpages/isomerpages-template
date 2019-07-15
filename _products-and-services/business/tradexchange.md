@@ -2,7 +2,6 @@
 title: TradeXchange
 permalink: /products-and-services/tradexchange/
 breadcrumb: TradeXchange
-collection_name: products-and-services
 tag: business
 thumbnail_image: /images/programmes/products-and-services/test2.jpg
 ---

@@ -2,7 +2,6 @@
 title: National Authentication Framework (NAF)
 permalink: /products-and-services/national-authentication-framework/
 breadcrumb: National Authentication Framework (NAF)
-collection_name: products-and-services
 tag: citizens
 thumbnail_image: /images/programmes/products-and-services/test1.jpg
 ---

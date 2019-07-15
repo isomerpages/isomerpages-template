@@ -2,7 +2,6 @@
 title: Social Service Sector ICT Master Plan
 permalink: /products-and-services/social-service-sector-ict-master-plan/
 breadcrumb: Social Service Sector ICT Master Plan
-collection_name: products-and-services
 tag: business
 thumbnail_image: /images/programmes/products-and-services/test1.jpg
 ---

@@ -2,7 +2,6 @@
 title: SME Portal
 permalink: /products-and-services/sme-portal/
 breadcrumb: SME Portal
-collection_name: products-and-services
 tag: business
 thumbnail_image: /images/programmes/products-and-services/test.jpg
 ---

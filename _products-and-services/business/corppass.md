@@ -2,7 +2,6 @@
 title: CorpPass
 permalink: /products-and-services/corppass/
 breadcrumb: CorpPass
-collection_name: products-and-services
 tag: business
 thumbnail_image: /images/programmes/products-and-services/CorpPass_ThumbNail.jpg	
 

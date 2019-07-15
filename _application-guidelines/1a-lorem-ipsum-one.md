@@ -1,7 +1,6 @@
 ---
 permalink: /application-guidelines/lorem-ipsum-one/second-level-a/
 title: Lorem Ipsum One A
-collection_name: application-guidelines
 third_nav_title: "Second Level A"
 ---
 ### **What is Lorem Ipsum?**

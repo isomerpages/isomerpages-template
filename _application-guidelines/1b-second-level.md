@@ -3,7 +3,6 @@ permalink: /application-guidelines/lorem-ipsum-one/second-level-b/
 title: Lorem Ipsum One B
 breadcrumb: Application Guidelines (Lorem Ipsum One B) 
 image: "/images/banner_Merlion.png" 
-collection_name: application-guidelines
 third_nav_title: "Second Level A"
 ---
 ### **What is Lorem Ipsum?**

@@ -2,7 +2,6 @@
 title: Smart Nation Sensor Platform
 permalink: /products-and-services/smart-nation-sensor-platform/
 breadcrumb: Smart Nation Sensor Platform
-collection_name: products-and-services
 tag: government
 thumbnail_image: /images/programmes/products-and-services/test.jpg
 ---

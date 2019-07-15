@@ -27,6 +27,8 @@ layout: skeleton
 
 {%- assign infopic_isLeft = true -%}
 {%- assign gray_container_class = nil -%}
+{%- assign has_carousel = false -%}
+{%- assign has_resources = false -%}
 
 {%- for section in page.sections -%}
 	{%- if forloop.first -%}
@@ -74,15 +76,40 @@ layout: skeleton
 	{%- endif -%}
 
 	{%- if section.resources -%}
-		{%- include homepage/resources.html -%}
-		{%- include functions/swap_container_class.html -%}
+		{%- if has_resources -%}
+			<section class="bp-section bg-newssection">
+				<div class="bp-container">
+					<div class="row">
+						<div class="col">
+							<h1>Each page should only have one resource room</h1>
+						</div>
+					</div>
+				</div>
+			</section>
+		{%- else -%}
+			{%- include homepage/resources.html -%}
+			{%- include functions/swap_container_class.html -%}
+			{%- assign has_resources = true -%}
+		{%- endif -%}
 	{%- endif -%}
 
 	{%- if section.carousel -%}
-		{%- comment -%} Carousel only looks nice when itself and the next section both has a gray background {%- endcomment -%}
-		{%- assign gray_container_class = "bg-newssection" -%}
-		{%- comment -%} For inclusion of owl_carousel in main_scripts {%- endcomment -%}
-		{%- assign has_carousel = true -%}
-		{%- include homepage/carousel.html -%}
+		{%- if has_carousel -%}
+			<section class="bp-section bg-newssection">
+				<div class="bp-container">
+					<div class="row">
+						<div class="col">
+							<h1>Only 1 carousel is allowed per page.</h1>
+						</div>
+					</div>
+				</div>
+			</section>
+		{%- else -%}
+			{%- comment -%} Carousel only looks nice when itself and the next section both has a gray background {%- endcomment -%}
+			{%- assign gray_container_class = "bg-newssection" -%}
+			{%- comment -%} For inclusion of owl_carousel in main_scripts {%- endcomment -%}
+			{%- assign has_carousel = true -%}
+			{%- include homepage/carousel.html -%}
+		{%- endif -%}
 	{%- endif -%}
 {%- endfor -%}
