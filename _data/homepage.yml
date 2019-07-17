@@ -71,6 +71,7 @@ info-sections:
     section-more-button: API References
     section-more-button-url: /citizens/
     section-image-path: /images/digital-transformation/govtech-hive.jpg
+    section-image-alt: Photo of The Hive @ GovTech
   - section-title: Developers
     section-subtitle: Develop seamlessly
     section-description: With the NDI platform, app developers only need one client ID to gain access to multiple government services.
