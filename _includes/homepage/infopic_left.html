@@ -18,7 +18,11 @@
                 </a>
             </div>
             <div class="col is-half">
-                <img src="{{- site.baseurl -}}{{- section.infopic.image -}}" />
+                {%- if section.infopic.image and section.infopic.alt -%}
+                    <img src="{{- site.baseurl -}}{{- section.infopic.image -}}" alt="{{- section.infopic.alt -}}" />
+                {%- else -%}
+                    <h2>Both the image and alt text are required. Please refer to the documentation for more details.</h2>
+                {%- endif -%}
             </div>
         </div>
         {%- comment -%} tablet edition {%- endcomment -%}
@@ -39,7 +43,11 @@
                 </a>
             </div>
             <div class="col is-half is-half padding--top--xl padding--bottom--xl">
-                <img src="{{- site.baseurl -}}{{- section.infopic.image -}}" />
+                {%- if section.infopic.image and section.infopic.alt -%}
+                    <img src="{{- site.baseurl -}}{{- section.infopic.image -}}" alt="{{- section.infopic.alt -}}" />
+                {%- else -%}
+                    <h2>Both the image and alt text are required. Please refer to the documentation for more details.</h2>
+                {%- endif -%}
             </div>
         </div>
         {%- comment -%} desktop edition {%- endcomment -%}
@@ -60,7 +68,11 @@
                 </a>
             </div>
             <div class="col is-half is-half padding--top--xl padding--bottom--xl">
-                <img src="{{- site.baseurl -}}{{- section.infopic.image -}}" />
+                {%- if section.infopic.image and section.infopic.alt -%}
+                    <img src="{{- site.baseurl -}}{{- section.infopic.image -}}" alt="{{- section.infopic.alt -}}" />
+                {%- else -%}
+                    <h2>Both the image and alt text are required. Please refer to the documentation for more details.</h2>
+                {%- endif -%}
             </div>
         </div>
     </div>

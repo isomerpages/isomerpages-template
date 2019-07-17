@@ -18,13 +18,21 @@
                 </a>
             </div>
             <div class="col is-half">
-                <img src="{{- site.baseurl -}}{{- section.infopic.image -}}" />
+                {%- if section.infopic.image and section.infopic.alt -%}
+                    <img src="{{- site.baseurl -}}{{- section.infopic.image -}}" alt="{{- section.infopic.alt -}}" />
+                {%- else -%}
+                    <h2>Both the image and alt text are required. Please refer to the documentation for more details.</h2>
+                {%- endif -%}
             </div>
         </div>
         {%- comment -%} tablet edition {%- endcomment -%}
         <div class="row is-hidden-mobile is-hidden-desktop">
             <div class="col is-half is-half padding--top--xl padding--bottom--xl">
-                <img src="{{- site.baseurl -}}{{- section.infopic.image -}}" />
+                {%- if section.infopic.image and section.infopic.alt -%}
+                    <img src="{{- site.baseurl -}}{{- section.infopic.image -}}" alt="{{- section.infopic.alt -}}" />
+                {%- else -%}
+                    <h2>Both the image and alt text are required. Please refer to the documentation for more details.</h2>
+                {%- endif -%}
             </div>
             <div class="col is-half">
                 <p class="padding--bottom eyebrow is-uppercase">
@@ -45,7 +53,11 @@
         {%- comment -%} desktop edition {%- endcomment -%}
         <div class="row is-hidden-mobile is-hidden-tablet-only">
             <div class="col is-half is-half padding--top--xl padding--bottom--xl">
-                <img src="{{- site.baseurl -}}{{- section.infopic.image -}}" />
+                {%- if section.infopic.image and section.infopic.alt -%}
+                    <img src="{{- site.baseurl -}}{{- section.infopic.image -}}" alt="{{- section.infopic.alt -}}" />
+                {%- else -%}
+                    <h2>Both the image and alt text are required. Please refer to the documentation for more details.</h2>
+                {%- endif -%}
             </div>
             <div class="col is-half padding--top--xl padding--bottom--xl padding--left--xl padding--right--xl">
                 <p class="padding--bottom eyebrow is-uppercase">

@@ -42,12 +42,14 @@ sections:
         subtitle: "Lorem ipsum!"
         url: /contact-us/
         image: /images/ndi-logo.jpg
+        alt: Alt text here
         button: Click here
     - infopic:
         title: Hey there!
         subtitle: "Lorem ipsum!"
         url: /contact-us/
         image: /images/ndi-logo.jpg
+        alt: Alt text here
         button: Click here
     #- listing:
     #    title: "Used by:"
