@@ -401,6 +401,7 @@ code {
     font-size: 0.875em;
     font-weight: normal;
     padding: 0.25em 0.5em 0.25em;
+    white-space: pre-wrap;
 }
 
 hr {
