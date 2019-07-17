@@ -10,7 +10,9 @@ layout: skeleton
 		            <div class="col">
 		            	<div class="field has-addons bp-notification-flex">
 			                <div class="control has-text-centered has-text-white">
-			                    {{- page.notification | markdownify | strip -}}
+			                    <h6>
+									{{- page.notification | strip -}}
+								</h6>
 			                </div>
 			                <div class="control">
 			        			<a id="cancel-notification" class="button has-text-white">

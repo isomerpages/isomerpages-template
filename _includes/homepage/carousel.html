@@ -28,7 +28,7 @@
         <div class="row is-gapless bg-gradient offset-margin">
             <div class="col has-carousel">
                 <div class="owl-theme owl-carousel programme-carousel ">
-                    {%- for item in section.carousel.items -%}
+                    {%- for item in section.carousel -%}
                         {%- assign bg_color_index = forloop.index0 | modulo: 3 -%}
                         {%- if bg_color_index == 0 -%}
                             {%- assign bg_color = "bg-beeline" -%}
@@ -39,7 +39,13 @@
                         {%- endif -%}
                     
                         <div class="item {{bg_color}}">
-                            <img src="{{item.image}}" alt="{{item.title}}">
+                            <img src="{{site.baseurl}}{{item.image}}" alt="
+                                {%- if item.alt -%}
+                                    {{- item.alt -}}
+                                {%- else -%}
+                                    {{- item.title -}}
+                                {%- endif -%}
+                            " />
                             {%- if item.subtitle -%}
                                 <p class="has-text-white is-hidden-desktop padding--left--sm has-text-centered-touch">{{ item.subtitle | upcase }}</p>
                             {%- endif -%}
@@ -52,12 +58,16 @@
         <div class="row offset-top  is-hidden-touch">
             <div class="col is-8 is-offset-2 has-carousel">
                 <div class="programme-carousel owl-carousel">
-                    {%- for item in section.carousel.items -%}
+                    {%- for item in section.carousel -%}
                         <div class="item bg-white">
                             <div class="row padding">
                                 <div class="col">
                                     <div class="row">
-                                        <div class="col is-3 has-text-centered-touch">
+                                        {%- if item.description -%}
+                                            <div class="col is-3 has-text-centered-touch">
+                                        {%- else -%}
+                                            <div class="col is-12 has-text-centered">
+                                        {%- endif -%}
                                             {%- if item.subtitle -%}
                                                 <small class="has-text-grey">{{ item.subtitle | upcase }}</small>
                                             {%- endif -%}

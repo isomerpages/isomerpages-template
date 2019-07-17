@@ -3,7 +3,7 @@ layout: homepage
 title: Isomer Pages Templates
 description: test **test**
 permalink: /
-notification: "###### This website is in beta - your valuable feedback will help us in improving it."
+notification: "This website is in beta - your valuable <a href=\"https://www.google.com\">feedback</a> will help us in improving it."
 sections:
     - hero:
         title: Isomer Pages Template
@@ -75,23 +75,23 @@ sections:
     #    button: "Contact Us"
     #    url: "https://www.isomer.gov.sg"
     - carousel:
-        items:
-        - title: Beeline
-          subtitle: citizen
-          description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores dicta distinctio enim harum labore libero magni non tempora ullam.
-          image: images/programme/citizen/BeeLine.png
-        - title: ParkingSG
-          subtitle: citizen
-          description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores dicta distinctio enim harum labore libero magni non tempora ullam.
-          image: images/programme/citizen/ParkingSG.png
-        - title: SingPass
-          category: citizen
-          description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores dicta distinctio enim harum labore libero magni non tempora ullam.
-          image: images/programme/citizen/SingPass.png
-        - title: SingPass2
-          category: citizen
-          description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores dicta distinctio enim harum labore libero magni non tempora ullam.
-          image: images/programme/citizen/SingPass.png
+      - title: Beeline
+        subtitle: citizen
+        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores dicta distinctio enim harum labore libero magni non tempora ullam.
+        image: images/programme/citizen/BeeLine.png
+      - title: ParkingSG
+        subtitle: citizen
+        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores dicta distinctio enim harum labore libero magni non tempora ullam.
+        image: images/programme/citizen/ParkingSG.png
+      - title: SingPass
+        subtitle: citizen
+        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores dicta distinctio enim harum labore libero magni non tempora ullam.
+        image: images/programme/citizen/SingPass.png
+      - title: SingPass2
+        subtitle: citizen
+        #description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores dicta distinctio enim harum labore libero magni non tempora ullam.
+        image: images/programme/citizen/SingPass.png
+        alt: Photo of SingPass
     - resources:
         title: "Media"
         subtitle: "Learn more"
