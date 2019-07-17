@@ -40,6 +40,7 @@ sections:
     - infopic:
         title: Hey there!
         subtitle: "Lorem ipsum!"
+        description: Lorem ipsum sit amet dolores
         url: /contact-us/
         image: /images/ndi-logo.jpg
         alt: Alt text here
@@ -47,6 +48,7 @@ sections:
     - infopic:
         title: Hey there!
         subtitle: "Lorem ipsum!"
+        description: Lorem ipsum sit amet dolores
         url: /contact-us/
         image: /images/ndi-logo.jpg
         alt: Alt text here

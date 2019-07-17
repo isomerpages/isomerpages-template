@@ -3,19 +3,32 @@
         {%- comment -%} mobile edition {%- endcomment -%}
         <div class="row is-hidden-desktop is-hidden-tablet-only">
             <div class="col is-half padding--bottom">
-                <p class="padding--bottom eyebrow is-uppercase">
-                    {{- section.infopic.title -}}
-                </p>
+                {%- if section.infopic.subtitle -%}
+                    <p class="padding--bottom eyebrow is-uppercase">
+                        {{- section.infopic.subtitle -}}
+                    </p>
+                {%- endif -%}
+
                 <h1 class="has-text-secondary padding--bottom">
-                    <b>{{- section.infopic.subtitle -}}</b>
+                    <b>{{- section.infopic.title -}}</b>
                 </h1>
-                <p>{{- section.infopic.description -}}</p>
-                <a href="{{- site.baseurl -}}{{- section.infopic.url -}}" class="bp-sec-button margin--top padding--bottom">
-                    <div>
-                        <span>{{- section.infopic.button -}}</span>
-                        <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                    </div>
-                </a>
+
+                {%- if section.infopic.description -%}
+                    <p>
+                        {{- section.infopic.description -}}
+                    </p>
+                {%- endif -%}
+
+                {%- if section.infopic.url and section.infopic.button -%}
+                    {%- assign url_input = section.infopic.url -%}
+                    {%- include functions/external_url.html -%}
+                    <a {{anchor}} class="bp-sec-button margin--top padding--bottom">
+                        <div>
+                            <span>{{- section.infopic.button -}}</span>
+                            <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                {%- endif -%}
             </div>
             <div class="col is-half">
                 {%- if section.infopic.image and section.infopic.alt -%}
@@ -35,19 +48,32 @@
                 {%- endif -%}
             </div>
             <div class="col is-half">
-                <p class="padding--bottom eyebrow is-uppercase">
-                    {{- section.infopic.title -}}
-                </p>
+                {%- if section.infopic.subtitle -%}
+                    <p class="padding--bottom eyebrow is-uppercase">
+                        {{- section.infopic.subtitle -}}
+                    </p>
+                {%- endif -%}
+
                 <h1 class="has-text-secondary padding--bottom">
                     <b>{{- section.infopic.subtitle -}}</b>
                 </h1>
-                <p>{{- section.infopic.description -}}</p>
-                <a href="{{- site.baseurl -}}{{- section.infopic.url -}}" class="bp-sec-button margin--top padding--bottom">
-                    <div>
-                        <span>{{- section.infopic.button -}}</span>
-                        <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                    </div>
-                </a>
+
+                {%- if section.infopic.description -%}
+                    <p>
+                        {{- section.infopic.description -}}
+                    </p>
+                {%- endif -%}
+
+                {%- if section.infopic.url and section.infopic.button -%}
+                    {%- assign url_input = section.infopic.url -%}
+                    {%- include functions/external_url.html -%}
+                    <a {{anchor}} class="bp-sec-button margin--top padding--bottom">
+                        <div>
+                            <span>{{- section.infopic.button -}}</span>
+                            <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                {%- endif -%}
             </div>
         </div>
         {%- comment -%} desktop edition {%- endcomment -%}
@@ -60,19 +86,32 @@
                 {%- endif -%}
             </div>
             <div class="col is-half padding--top--xl padding--bottom--xl padding--left--xl padding--right--xl">
-                <p class="padding--bottom eyebrow is-uppercase">
-                    {{- section.infopic.title -}}
-                </p>
+                {%- if section.infopic.subtitle -%}
+                    <p class="padding--bottom eyebrow is-uppercase">
+                        {{- section.infopic.subtitle -}}
+                    </p>
+                {%- endif -%}
+
                 <h1 class="has-text-secondary padding--bottom">
-                    <b>{{- section.infopic.subtitle -}}</b>
+                    <b>{{- section.infopic.title -}}</b>
                 </h1>
-                <p>{{- section.infopic.description -}}</p>
-                <a href="{{- site.baseurl -}}{{- section.infopic.url -}}" class="bp-sec-button margin--top padding--bottom">
-                    <div>
-                        <span>{{- section.infopic.button -}}</span>
-                        <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                    </div>
-                </a>
+
+                {%- if section.infopic.description -%}
+                    <p>
+                        {{- section.infopic.description -}}
+                    </p>
+                {%- endif -%}
+
+                {%- if section.infopic.url and section.infopic.button -%}
+                    {%- assign url_input = section.infopic.url -%}
+                    {%- include functions/external_url.html -%}
+                    <a {{anchor}} class="bp-sec-button margin--top padding--bottom">
+                        <div>
+                            <span>{{- section.infopic.button -}}</span>
+                            <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                {%- endif -%}
             </div>
         </div>
     </div>
