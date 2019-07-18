@@ -9075,7 +9075,7 @@ a.navbar-link.is-active {
     /* padding: 1rem; */
 }
 
-.li .highlight {
+li .highlight {
     font-size: 0.8em;
     line-height: 1.5;
 }
