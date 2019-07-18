@@ -9072,7 +9072,12 @@ a.navbar-link.is-active {
 
 .highlight {
     background: #f5f5f5;
-    padding: 1rem;
+    /* padding: 1rem; */
+}
+
+.li .highlight {
+    font-size: 0.8em;
+    line-height: 1.5;
 }
 
 .highlight .c {
