@@ -5,7 +5,7 @@ image: /images/contact-us.png
 locations:
   # HQ Address [REQUIRED]
   - title: Avenue Q
-    address: 
+    address:
         - Sesame Street
         - Singapore 123456
   # Operating Hours [OPTIONAL]

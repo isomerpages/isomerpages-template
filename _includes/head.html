@@ -45,7 +45,7 @@
 
     <title>
         {%- if page.title -%}
-            {{- page.title | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 25 }}
+            {{- page.title | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 25 -}}
         {%- elsif page.layout == "contact_us" -%}
             Contact Us
         {%- endif -%}
