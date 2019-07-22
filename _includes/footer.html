@@ -9,10 +9,10 @@
             </div>
         </div>
         <div class="row is-top">
-            {%- if site.data.footer.links -%}
-                {%- assign links = site.data.footer.links -%}
+            {%- if site.data.footer.navlinks -%}
+                {%- assign navlinks = site.data.footer.navlinks -%}
             {%- else -%}
-                {%- assign links = site.data.navigation.links -%}
+                {%- assign navlinks = site.data.navigation.links -%}
             {%- endif -%}
             {%- assign social = site.data.footer.social_media -%}
             {%- comment -%} Set columns for nav links based on social media links {%- endcomment -%}
@@ -35,24 +35,24 @@
 
                     Subitems can still be customized by including the sublinks array
                 {%- endcomment -%}
-                {%- for navitem in links -%}
-                    {%- assign title_downcased = navitem.title | downcase -%}
+                {%- for navlink in navlinks -%}
+                    {%- assign title_downcased = navlink.title | downcase -%}
                     {%- if title_downcased == "contact us" or title_downcased == "faq" -%}
                         {%- continue -%}
                     {%- endif -%}
 
-                    {%- if navitem.collection -%}
+                    {%- if navlink.collection -%}
                         {%- comment -%} Leftnav page {%- endcomment -%}
                         
                         <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
                             <p class="sub-header">
-                                {%- assign url_input = site[navitem.collection].first.url -%}
+                                {%- assign url_input = site[navlink.collection].first.url -%}
                                 {%- include functions/external_url.html -%}
-                                <b><a {{anchor}} class="has-text-white">{{navitem.title}}</a></b>
+                                <b><a {{anchor}} class="has-text-white">{{navlink.title}}</a></b>
                             </p>
                             {%- comment -%} You can't initalize an array in liquid so we have to do this {%- endcomment -%}
                             {% assign third_nav_titles = "" | split: ", " %}
-                            {%- for leftnavpage in site[navitem.collection] -%}
+                            {%- for leftnavpage in site[navlink.collection] -%}
                                 {%- comment -%} Only show second level pages and the first page in third level pages {%- endcomment -%}
                                 {%- if leftnavpage.third_nav_title -%}
                                     {%- unless third_nav_titles contains leftnavpage.third_nav_title -%}
@@ -77,19 +77,19 @@
                                 {%- endif -%}
                             {%- endfor -%}
                         </div>
-                    {%- elsif navitem.sublinks -%}
+                    {%- elsif navlink.sublinks -%}
                         {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
                         <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
-                            {%- assign url_input = navitem.url -%}
+                            {%- assign url_input = navlink.url -%}
                             {%- include functions/external_url.html -%}
                             
                             <p class="sub-header">
                                 <b><a {{anchor}} class="has-text-white">
-                                    {{- navitem.title -}}
+                                    {{- navlink.title -}}
                                 </a></b>
                             </p>
                             
-                            {%- for sublink in navitem.sublinks -%}                 
+                            {%- for sublink in navlink.sublinks -%}                 
                                 {%- assign url_input = sublink.url -%}
                                 {%- include functions/external_url.html -%}
                                 
@@ -100,11 +100,11 @@
                                 </p>
                             {%- endfor -%}
                         </div>
-                    {%- elsif navitem.resource_room -%}
+                    {%- elsif navlink.resource_room -%}
                         <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
                             <p class="sub-header">
                                 <b><a class="has-text-white" href="/{{site.resources_name}}/">
-                                    {{- navitem.title -}}
+                                    {{- navlink.title -}}
                                 </a></b>
                             </p>
                             {%- unless site.categories.size < 3 -%}
@@ -143,12 +143,12 @@
                         {%- comment -%} Single page {%- endcomment -%}
                         
                         <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
-                            {%- assign url_input = navitem.url -%}
+                            {%- assign url_input = navlink.url -%}
                             {%- include functions/external_url.html -%}
                             
                             <p class="sub-header">
                                 <b><a {{anchor}} class="has-text-white">
-                                    {{- navitem.title -}}
+                                    {{- navlink.title -}}
                                 </a></b>
                             </p>
                         </div>
@@ -248,41 +248,41 @@
             
             {%- comment -%} Footer links for mobile {%- endcomment -%}
             <div class="col is-hidden-tablet is-hidden-desktop">
-                {%- for navitem in links -%}
-                    {%- assign title_downcased = navitem.title | downcase -%}
+                {%- for navlink in navlinks -%}
+                    {%- assign title_downcased = navlink.title | downcase -%}
                     {%- if title_downcased == "contact us" or title_downcased == "faq" -%}
                         {%- continue -%}
                     {%- endif -%}
 
-                    {%- if navitem.collection -%}
+                    {%- if navlink.collection -%}
                         {%- comment -%} Leftnav page {%- endcomment -%}                        
                             <p>
-                                {%- assign url_input = site[navitem.collection].first.url -%}
+                                {%- assign url_input = site[navlink.collection].first.url -%}
                                 {%- include functions/external_url.html -%}
-                                <a {{anchor}}>{{navitem.title}}</a>
+                                <a {{anchor}}>{{navlink.title}}</a>
                             </p>
-                    {%- elsif navitem.sublinks -%}
+                    {%- elsif navlink.sublinks -%}
                         {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
-                        {%- assign url_input = navitem.url -%}
+                        {%- assign url_input = navlink.url -%}
                         {%- include functions/external_url.html -%}
                         <p>
                             <a {{anchor}}>
-                                {{- navitem.title -}}
+                                {{- navlink.title -}}
                             </a>
                         </p>
-                    {%- elsif navitem.resource_room -%}
+                    {%- elsif navlink.resource_room -%}
                             <p>
                                 <a href="/{{site.resources_name}}/">
-                                    {{- navitem.title -}}
+                                    {{- navlink.title -}}
                                 </a>
                             </p>
                     {%- else -%}
                         {%- comment -%} Single page {%- endcomment -%}
-                        {%- assign url_input = navitem.url -%}
+                        {%- assign url_input = navlink.url -%}
                         {%- include functions/external_url.html -%}
                         <p>
                             <a {{anchor}}>
-                                {{- navitem.title -}}
+                                {{- navlink.title -}}
                             </a>
                         </p>
                     {%- endif -%}
@@ -292,12 +292,16 @@
         <div class="row">
             <div class="col padding--top--sm padding--bottom--sm is-right-desktop-only">
                 <ul>
-                    {%- if site.data.footer.contact_us -%}
-                        {%- assign url_input = site.data.footer.contact_us -%}
-                        {%- include functions/external_url.html -%}
-                        <li class="is-inline-block-desktop-only">
-                            <p><a {{anchor}}>Contact Us</a></p>
-                        </li>
+                    {%- if site.data.footer.links -%}
+                        {%- for link in site.data.footer.links limit:2 -%}
+                            {%- if link.url and link.title -%}
+                                <li class="is-inline-block-desktop-only">
+                                    {%- assign url_input = link.url -%}
+                                    {%- include functions/external_url.html -%}
+                                    <p><a {{anchor}}>{{- link.title -}}</a></p>
+                                </li>
+                            {%- endif -%}
+                        {%- endfor -%}
                     {%- endif -%}
 
                     {%- if site.data.footer.show_reach -%}
@@ -305,6 +309,14 @@
                             {%- assign url_input = "https://www.reach.gov.sg/" -%}
                             {%- include functions/external_url.html -%}
                             <p><a {{anchor}} title="Link to reach.gov.sg">REACH</a></p>
+                        </li>
+                    {%- endif -%}
+
+                    {%- if site.data.footer.faq -%}
+                        <li class="is-inline-block-desktop-only">
+                            {%- assign url_input = site.data.footer.faq -%}
+                            {%- include functions/external_url.html -%}
+                            <p><a {{anchor}}>FAQ</a></p>
                         </li>
                     {%- endif -%}
 
@@ -316,11 +328,11 @@
                         </li>
                     {%- endif -%}
 
-                    {%- if site.data.footer.faq -%}
+                    {%- if site.data.footer.contact_us -%}
                         <li class="is-inline-block-desktop-only">
-                            {%- assign url_input = site.data.footer.faq -%}
+                            {%- assign url_input = site.data.footer.contact_us -%}
                             {%- include functions/external_url.html -%}
-                            <p><a {{anchor}}>FAQ</a></p>
+                            <p><a {{anchor}}>Contact Us</a></p>
                         </li>
                     {%- endif -%}
                 </ul>
