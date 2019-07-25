@@ -10,13 +10,6 @@
   {%- endif -%}
 {%- endif -%}
 
-{%- comment -%} WOGAA {%- endcomment -%}
-{%- if jekyll.environment == "staging" -%}
-<script src="https://assets.dcube.cloud/scripts/wogaa.js" crossorigin="anonymous"></script>
-{%- else -%}
-<script src="https://assets.wogaa.sg/scripts/wogaa.js" crossorigin="anonymous"></script>
-{%- endif -%}
-
 <script src="{{- "/assets/js/sideNav-offset.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/jquery.resize-sensor.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/jquery.sticky-sidebar.js" | relative_url -}}" crossorigin="anonymous"></script>
