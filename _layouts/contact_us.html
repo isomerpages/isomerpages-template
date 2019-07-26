@@ -11,8 +11,8 @@ layout: skeleton
     </style>
 {%- endif -%}
 
-<section class="bp-section">
-    <div class="bp-container">
+<section class="sgds-section">
+    <div class="sgds-container">
         <div class="row is-inverted">
             <div class="col is-8 is-offset-2">
                 {%- include header-breadcrumb.html -%}
@@ -32,8 +32,8 @@ layout: skeleton
     </div>
 </section>
 
-<section class="bp-section is-small padding--bottom--lg">
-    <div class="bp-container">
+<section class="sgds-section is-small padding--bottom--lg">
+    <div class="sgds-container">
         <div class="row">
             <div class="col is-8 is-offset-2">
                 {%- for location in page.locations -%}
@@ -79,7 +79,7 @@ layout: skeleton
                                         {%- include functions/generate_google_maps.html -%}
                                     {%- endif -%}
 
-                                    <a {{anchor}} class="bp-sec-button has-text-secondary margin--top">
+                                    <a {{anchor}} class="sgds-sec-button has-text-secondary margin--top">
                                         <div>
                                             <span>VIEW MAP</span>
                                             <i class="sgds-icon sgds-icon-arrow-right" aria-hidden="true"></i>
@@ -165,5 +165,5 @@ layout: skeleton
 
 
 {%- if page.image -%}
-    <section class="bp-section is-vh-60 bg-contact"></section>
+    <section class="sgds-section is-vh-60 bg-contact"></section>
 {%- endif -%}

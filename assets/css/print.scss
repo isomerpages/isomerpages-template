@@ -2,18 +2,18 @@
 ---
 @charset "utf-8";
 @import "../../do-not-touch/theme-colors/custom.css";
-.bp-section .bp-container .has-side-nav,
-.bp-section .bp-container .has-float-btns,
-.bp-section.bottom-navigation {
+.sgds-section .sgds-container .has-side-nav,
+.sgds-section .sgds-container .has-float-btns,
+.sgds-section.bottom-navigation {
  display: none;
 }
-.bp-section .bp-container .print-content {
+.sgds-section .sgds-container .print-content {
  margin-left: 0px;
  width: 100%;
 }
 
 @media print {
-  section.bp-section.is-small.bp-section-pagetitle {
+  section.sgds-section.is-small.sgds-section-pagetitle {
     background: none !important;
     
     a small, .has-text-white {
@@ -21,7 +21,7 @@
     }
   }
 
-  section.bp-section.bg-secondary {
+  section.sgds-section.bg-secondary {
   	background: none !important;
 
   	a small, .has-text-white {

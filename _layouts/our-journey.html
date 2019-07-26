@@ -8,18 +8,18 @@ layout: page
 {%- for our-journey-section in our-journey -%}
 	{%- comment -%} Accordion header {%- endcomment -%}
 	<div class="accordion">
-	<div class="col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless">
+	<div class="col is-large sgds-accordion-header padding has-icons-right field has-addons is-marginless">
 		<div class="col is-expanded is-fullwidth is-paddingless">
 			<h5 class="has-text-grey-dark is-marginless"><b> {{- our-journey-section.title -}}
 			</b></h5>
 		</div>
-		<span class="sgds-icon sgds-icon-plus is-size-4 bp-accordion-button"></span>
+		<span class="sgds-icon sgds-icon-plus is-size-4 sgds-accordion-button"></span>
 	</div>
 	{%- comment -%} Accordion body {%- endcomment -%}
-	<div id="accordion-body-{{forloop.index0}}" class="col padding bp-accordion-body">
+	<div id="accordion-body-{{forloop.index0}}" class="col padding sgds-accordion-body">
 		{%- for year in our-journey-section.years -%}
 			{%- if year.img -%}
-				<div class="bp-container is-full padding--top--lg padding--bottom" style="width: 100%">
+				<div class="sgds-container is-full padding--top--lg padding--bottom" style="width: 100%">
 					<div class="row">
 						<div class="col is-8">
 							<h3 class="margin--top--none"><b>{{- year.subtitle -}}</b></h3>
@@ -28,7 +28,7 @@ layout: page
 							{%- endfor -%}
 						</div>
 						<div class="col is-4">
-							<img class="bp-image-milestone" src="{{site.baseurl}}{{year.img}}">
+							<img class="sgds-image-milestone" src="{{site.baseurl}}{{year.img}}">
 						</div>
 					</div>
 				</div>

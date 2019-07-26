@@ -20,7 +20,7 @@ For a list of digital services with the MyInfo feature please see the MyInfo [FA
 
 **Your Personal Data Platform**
 
-<div class="bp-youtube">
+<div class="sgds-youtube">
   <iframe width="560" height="315" src="https://www.youtube.com/watch?v=0pYtU2kG368&t=3s" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 

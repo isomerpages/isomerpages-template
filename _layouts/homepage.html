@@ -4,11 +4,11 @@ layout: skeleton
 {%- if page.url == "/" and page.notification -%}
 	{%- assign notification_content = page.notification | markdownify | strip_html | strip -%}
 	{%- if notification_content != "" -%}
-		<div id="notification-bar" class="bp-notification bg-secondary is-marginless">
-		    <div class="bp-container">
+		<div id="notification-bar" class="sgds-notification bg-secondary is-marginless">
+		    <div class="sgds-container">
 		        <div class="row">
 		            <div class="col">
-		            	<div class="field has-addons bp-notification-flex">
+		            	<div class="field has-addons sgds-notification-flex">
 			                <div class="control has-text-centered has-text-white">
 			                    <h6>
 									{{- page.notification | strip -}}
@@ -38,8 +38,8 @@ layout: skeleton
 		{%- if section.hero -%}
 			{%- include homepage/hero.html -%}
 		{%- else -%}
-			<section class="bp-section bg-newssection">
-				<div class="bp-container">
+			<section class="sgds-section bg-newssection">
+				<div class="sgds-container">
 					<div class="row">
 						<div class="col">
 							<h1>Hero must be the first section!</h1>
@@ -79,8 +79,8 @@ layout: skeleton
 
 	{%- if section.resources -%}
 		{%- if has_resources -%}
-			<section class="bp-section bg-newssection">
-				<div class="bp-container">
+			<section class="sgds-section bg-newssection">
+				<div class="sgds-container">
 					<div class="row">
 						<div class="col">
 							<h1>Each page should only have one resource room</h1>
@@ -97,8 +97,8 @@ layout: skeleton
 
 	{%- if section.carousel -%}
 		{%- if has_carousel -%}
-			<section class="bp-section bg-newssection">
-				<div class="bp-container">
+			<section class="sgds-section bg-newssection">
+				<div class="sgds-container">
 					<div class="row">
 						<div class="col">
 							<h1>Only 1 carousel is allowed per page.</h1>

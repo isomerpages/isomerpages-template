@@ -171,7 +171,7 @@ if (!BLUEPRINT.isReady) {
         for (i = 0, len = menuElems.length; i < len; i++) {
             menu = menuElems[i];
             options = BLUEPRINT.parseOptions(menu);
-            lists = menu.querySelectorAll('.bp-menu-list');
+            lists = menu.querySelectorAll('.sgds-menu-list');
             for (j = 0, len1 = lists.length; j < len1; j++) {
                 list = lists[j];
                 subMenu = list.querySelector('ul');
@@ -195,8 +195,8 @@ BLUEPRINT.toggleModal = function (el, options) {
         e.preventDefault();
         e.stopPropagation();
         modal = document.getElementById(options.target);
-        backdrop = modal.querySelector('.bp-modal-background');
-        closeBtn = modal.querySelector('.bp-modal-close');
+        backdrop = modal.querySelector('.sgds-modal-background');
+        closeBtn = modal.querySelector('.sgds-modal-close');
         _closeModal = function closeModal() {
             if (BLUEPRINT.hasClass(modal, 'is-active')) {
                 BLUEPRINT.removeClass(modal, 'is-active');
@@ -214,7 +214,7 @@ BLUEPRINT.toggleModal = function (el, options) {
 };
 
 if (!BLUEPRINT.isReady) {
-    modals = BLUEPRINT.getElements('bp-modal');
+    modals = BLUEPRINT.getElements('sgds-modal');
     if (modals && modals.length > 0) {
         for (i = 0, len = modals.length; i < len; i++) {
             modal = modals[i];
@@ -335,7 +335,7 @@ if ($navbarBurgers.length > 0) {
 // });
 
 // Dropdowns
-var $dropdowns = getAll('.bp-dropdown:not(.is-hoverable)');
+var $dropdowns = getAll('.sgds-dropdown:not(.is-hoverable)');
 
 if ($dropdowns.length > 0) {
     $dropdowns.forEach(function ($el) {
@@ -365,12 +365,12 @@ document.addEventListener('keydown', function (event) {
 });
 
 // Custom dropdown code for mobile browsers
-var dropdowns = getAll('.bp-dropdown.is-hoverable');
+var dropdowns = getAll('.sgds-dropdown.is-hoverable');
 if (dropdowns.length > 0) {
     dropdowns.forEach(function (dropdown) {
         var dropdownMenu = document.getElementById("dropdown-menu");
 
-        var _dropdown$getElements = dropdown.getElementsByClassName("bp-dropdown-button"),
+        var _dropdown$getElements = dropdown.getElementsByClassName("sgds-dropdown-button"),
             _dropdown$getElements2 = _slicedToArray(_dropdown$getElements, 1),
             dropdownTrigger = _dropdown$getElements2[0];
 

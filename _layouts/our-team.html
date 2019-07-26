@@ -2,7 +2,7 @@
 layout: page
 ---
 <div class="col padding--bottom--xl">
-	<span class="bp-sec-button has-text-centered">
+	<span class="sgds-sec-button has-text-centered">
 		<a class="is-uppercase media-category-button selected" id="board-of-directors-button"><b>Board of Directors</b></a>
 		<a class="is-uppercase media-category-button" id="senior-leadership-button"><b>Senior Leadership</b></a>
 		<a class="is-uppercase media-category-button" id="organisational-structure-button"><b>Organisational Structure</b></a>
@@ -56,16 +56,16 @@ layout: page
 		{%- for division in our-team.organisational-structure -%}
 			{%- comment -%} Accordion header {%- endcomment -%}
 			<div class="accordion">
-			<div class="col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless">
+			<div class="col is-large sgds-accordion-header padding has-icons-right field has-addons is-marginless">
 				<div class="col is-expanded is-fullwidth is-paddingless">
 					<h5 class="has-text-grey-dark is-marginless"><b> {{- division.title -}}
 					</b></h5>
 				</div>
-				<span class="sgds-icon sgds-icon-plus is-size-4 bp-accordion-button"></span>
+				<span class="sgds-icon sgds-icon-plus is-size-4 sgds-accordion-button"></span>
 			</div>
 			{%- comment -%} Accordion body {%- endcomment -%}
-			<div id="accordion-body-{{forloop.index0}}" class="col padding bp-accordion-body">
-				<div class="bp-container is-full padding--top--lg padding--bottom" style="width: 100%">
+			<div id="accordion-body-{{forloop.index0}}" class="col padding sgds-accordion-body">
+				<div class="sgds-container is-full padding--top--lg padding--bottom" style="width: 100%">
         			<div class="row is-multiline">
 						{%- for team in division.teams -%}
 						    <div class="col is-4 padding--right--xl padding--bottom">

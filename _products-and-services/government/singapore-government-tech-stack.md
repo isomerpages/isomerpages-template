@@ -19,7 +19,7 @@ This enables easy exchange of data across the government, aggregating data colle
 Agencies can focus on designing solutions that best meet the needs of those they serve, without worrying about the underlying infrastructure. Citizens can expect a more secure, seamless, consistent and connected user experience across the spectrum of government digital services.
 
 
-<div class="bp-youtube">
+<div class="sgds-youtube">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/6NthS4UqLsk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 

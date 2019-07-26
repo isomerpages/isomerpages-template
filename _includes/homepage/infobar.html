@@ -1,5 +1,5 @@
-<section class="bp-section {{ gray_container_class }}">
-    <div class="bp-container is-fluid">
+<section class="sgds-section {{ gray_container_class }}">
+    <div class="sgds-container is-fluid">
         <div class="row">
             <div class="col is-half is-offset-one-quarter has-text-centered padding--top--xl">
                 {%- if section.infobar.subtitle -%}
@@ -22,7 +22,7 @@
             <div class="col is-offset-one-third is-one-third">
                 {%- assign url_input = section.infobar.url -%}
                 {%- include functions/external_url.html -%}
-                <a {{anchor}} class="bp-sec-button">
+                <a {{anchor}} class="sgds-sec-button">
                     <div>
                         <span>{{- section.infobar.button -}}</span>
                         <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
@@ -33,8 +33,8 @@
     {%- endif -%}
 </section>
 {%- comment -%}
-<section class="bp-section bg-hero-bottom">
-    <div class="bp-container">
+<section class="sgds-section bg-hero-bottom">
+    <div class="sgds-container">
         <div class="row">
             <div class="col is-8 is-offset-2 has-text-centered padding--top--xl padding--bottom--xl has-text-white">
                 {%- if section.infobar.title -%}
@@ -47,7 +47,7 @@
                     {%- assign url_input = section.infobar.url -%}
                     {%- include functions/external_url.html -%}
                     <a {{anchor}}>
-                        <div class="bp-button is-white is-outlined is-uppercase search-button">
+                        <div class="sgds-button is-white is-outlined is-uppercase search-button">
                             {{- section.infobar.button -}}
                         </div>
                     </a>

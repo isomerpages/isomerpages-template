@@ -159,21 +159,21 @@ $widescreen: 1152px + (4 * $gap) !default;
 }
 
 // Menu/Left-nav
-.bp-menu-list a.is-active {
+.sgds-menu-list a.is-active {
   color: $secondary !important;
   border-bottom: 2px solid $secondary !important;
   &:hover {
     border-bottom: 2px solid $secondary !important;
   }
 }
-.bp-menu-list a:hover {
+.sgds-menu-list a:hover {
   color: $secondary !important;
   border-bottom: 1px solid $secondary !important;
 }
 
 //Accordion
 
-.bp-accordion-button {
+.sgds-accordion-button {
   &.sgds-icon-minus {
     color: $secondary;
   }
@@ -181,17 +181,17 @@ $widescreen: 1152px + (4 * $gap) !default;
 
 // Button
 
-.bp-button.is-text span {
+.sgds-button.is-text span {
   &:hover, &:focus {
     color: $secondary;
   }
 }
-.bp-button:hover {
+.sgds-button:hover {
   color: $secondary;
 }
 
 // Secondary button
-.bp-sec-button {
+.sgds-sec-button {
   color: $secondary;
   & span {
     border-bottom: 2px solid $secondary !important;
@@ -217,7 +217,7 @@ $widescreen: 1152px + (4 * $gap) !default;
   }
 }
 
-.bp-section.bp-section-pagetitle {
+.sgds-section.sgds-section-pagetitle {
   background-color: $primary !important;
 }
 
@@ -361,7 +361,7 @@ table.table-h {
   }
 }
 
-.bp-image-milestone {
+.sgds-image-milestone {
   border-bottom: solid 4px $secondary;
 }
 

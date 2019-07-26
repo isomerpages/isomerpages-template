@@ -1,16 +1,16 @@
-<section class="bp-section is-small padding--bottom--none">
-    <div class="bp-container padding--top">
+<section class="sgds-section is-small padding--bottom--none">
+    <div class="sgds-container padding--top">
         <div class="row">
-            <div class="col is-three-quarters-desktop is-fullwidth bp-overflow-buttons padding--left--none padding--right--none">
-                <div class="bp-buttons">
+            <div class="col is-three-quarters-desktop is-fullwidth sgds-overflow-buttons padding--left--none padding--right--none">
+                <div class="sgds-buttons">
                     {%- if page.layout == "resources" -%}
-                        <span class="bp-sec-button">
+                        <span class="sgds-sec-button">
                             <a href="/{{site.resources_name}}/" class="is-uppercase media-category-button selected">
                                 <b>ALL</b>
                             </a>
                         </span>
                     {%- else -%}
-                        <span class="bp-sec-button">
+                        <span class="sgds-sec-button">
                             <a href="/{{site.resources_name}}/" class="is-uppercase media-category-button">
                                 <b>ALL</b>
                             </a>
@@ -34,13 +34,13 @@
                         {%- capture category_url -%}/{{site.resources_name}}/{{category}}/{%- endcapture -%}
 
                         {%- if page.url == category_url -%}
-                            <span class="bp-sec-button">
+                            <span class="sgds-sec-button">
                                 <a href="{{category_url}}" class="is-uppercase media-category-button selected">
                                     <b>{{- category | replace: "-", " " | replace: "_", " " -}}</b>
                                 </a>
                             </span>
                         {%- else -%}
-                            <span class="bp-sec-button">
+                            <span class="sgds-sec-button">
                                 <a href="{{category_url}}" class="is-uppercase media-category-button">
                                     <b>{{- category | replace: "-", " " | replace: "_", " " -}}</b>
                                 </a>
@@ -51,16 +51,16 @@
             </div>
             {%- comment -%} Display filter for desktop {%- endcomment -%}
             <div class="col is-one-quarter padding--top padding--left padding--right--sm is-hidden-touch">
-                <div class="filter-selector-div bp-dropdown">
-                    <a class="bp-dropdown-button hero-dropdown is-centered padding--none" aria-haspopup="true" aria-controls="hero-dropdown-menu">
-                    <div class="bp-dropdown-trigger">
+                <div class="filter-selector-div sgds-dropdown">
+                    <a class="sgds-dropdown-button hero-dropdown is-centered padding--none" aria-haspopup="true" aria-controls="hero-dropdown-menu">
+                    <div class="sgds-dropdown-trigger">
                         <span class="sgds-icon sgds-icon-chevron-down is-size-4 has-text-black" id="filter-arrow"></span>
                         <div class="sgds-selector has-text-black" id="sgds-selector-text-desktop">Recent</div>
                     </div>
                     </a>
-                    <div class="bp-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
-                      <div id="year-filter-desktop" class="bp-dropdown-content is-centered">
-                        <a class="bp-dropdown-item padding--top--sm padding--bottom--none" id="apply-filter-recent">
+                    <div class="sgds-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
+                      <div id="year-filter-desktop" class="sgds-dropdown-content is-centered">
+                        <a class="sgds-dropdown-item padding--top--sm padding--bottom--none" id="apply-filter-recent">
                             <p>Recent</p>
                         </a>
                       </div>

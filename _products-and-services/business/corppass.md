@@ -17,6 +17,6 @@ Developed in consultation with industry partners and pilot users, CorpPass has b
 
 For more information, please visit the [CorpPass website](http://www.corppass.gov.sg/){:target="_blank"}.
 
-<div class="bp-youtube">
+<div class="sgds-youtube">
   <iframe src="https://www.youtube.com/embed/ifwp4kfYXCk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>  </iframe>
 </div>

@@ -7,9 +7,9 @@
     }
 </style>
 
-<section class="bp-hero bg-hero">
-    <div class="bp-hero-body">
-        <div class="bp-container margin--top--lg">
+<section class="sgds-hero bg-hero">
+    <div class="sgds-hero-body">
+        <div class="sgds-container margin--top--lg">
             <div class="row is-vcentered is-centered ma">
                 <div class="col is-9 has-text-centered has-text-white">
                     <h1 class="display padding--bottom--lg margin--none">
@@ -22,9 +22,9 @@
                         </p>
                     {%- endif -%}
                     {%- if section.hero.dropdown -%}
-                        <div class="bp-dropdown margin--top--sm">
-                            <div class="bp-dropdown-trigger">
-                                <a class="bp-button bp-dropdown-button hero-dropdown is-centered" aria-haspopup="true" aria-controls="hero-dropdown-menu">
+                        <div class="sgds-dropdown margin--top--sm">
+                            <div class="sgds-dropdown-trigger">
+                                <a class="sgds-button sgds-dropdown-button hero-dropdown is-centered" aria-haspopup="true" aria-controls="hero-dropdown-menu">
                                     {%- if section.hero.dropdown.title -%}
                                         <span>
                                             <b>
@@ -43,11 +43,11 @@
                                     </span>
                                 </a>
                             </div>
-                            <div class="bp-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu">
-                                <div class="bp-dropdown-content is-centered">
+                            <div class="sgds-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu">
+                                <div class="sgds-dropdown-content is-centered">
                                     {%- for option in section.hero.dropdown.options -%}
                                         {%- if option.url and option.title -%}
-                                            <a class="bp-dropdown-item" href="{{- site.baseurl -}}{{ option.url }}">
+                                            <a class="sgds-dropdown-item" href="{{- site.baseurl -}}{{ option.url }}">
                                                 <h5>{{ option.title }}</h5>
                                             </a>
                                         {%- endif -%}
@@ -57,7 +57,7 @@
                         </div>
                     {%- else -%}
                         {%- if section.hero.url and section.hero.button -%}
-                            <a href="{{- site.baseurl -}}{{- section.hero.url -}}" class="bp-button is-secondary is-uppercase search-button">
+                            <a href="{{- site.baseurl -}}{{- section.hero.url -}}" class="sgds-button is-secondary is-uppercase search-button">
                                 {{- section.hero.button -}}
                             </a>
                         {%- endif -%}
@@ -69,8 +69,8 @@
 </section>
 
 {%- if section.hero.key_highlights -%}
-    <section id="key-highlights" class="bp-section is-paddingless">
-        <div class="bp-container">
+    <section id="key-highlights" class="sgds-section is-paddingless">
+        <div class="sgds-container">
             <div class="row is-gapless has-text-centered">
                 {%- for highlight in section.hero.key_highlights limit:4 -%}
                     {%- if highlight.url or highlight.title or highlight.description -%}

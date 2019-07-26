@@ -6,11 +6,11 @@ var accordionArray = document.getElementsByClassName("accordion");
 
 var _loop = function _loop(accordion) {
 	var toggleAccordionBody = function toggleAccordionBody() {
-		var _accordion$getElement = accordion.getElementsByClassName("bp-accordion-body"),
+		var _accordion$getElement = accordion.getElementsByClassName("sgds-accordion-body"),
 		    _accordion$getElement2 = _slicedToArray(_accordion$getElement, 1),
 		    accordionBody = _accordion$getElement2[0];
 
-		var _accordion$getElement3 = accordion.getElementsByClassName("bp-accordion-button"),
+		var _accordion$getElement3 = accordion.getElementsByClassName("sgds-accordion-button"),
 		    _accordion$getElement4 = _slicedToArray(_accordion$getElement3, 1),
 		    accordionButton = _accordion$getElement4[0];
 
@@ -25,7 +25,7 @@ var _loop = function _loop(accordion) {
 		}
 	};
 
-	accordion.getElementsByClassName("bp-accordion-header")[0].addEventListener("click", toggleAccordionBody);
+	accordion.getElementsByClassName("sgds-accordion-header")[0].addEventListener("click", toggleAccordionBody);
 };
 
 var _iteratorNormalCompletion = true;

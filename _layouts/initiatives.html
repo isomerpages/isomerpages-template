@@ -1,11 +1,11 @@
 ---
 layout: skeleton
 ---
-<section class="bp-section is-small bp-section-pagetitle">
-    <div class="bp-container ">
+<section class="sgds-section is-small sgds-section-pagetitle">
+    <div class="sgds-container ">
         {%- include header-breadcrumb.html -%}
     </div>
-    <div class="bp-container ">
+    <div class="sgds-container ">
         <div class="row">
             <div class="col">
                 <h1 class="has-text-white"><b>{{page.title}}</b></h1>
@@ -14,8 +14,8 @@ layout: skeleton
     </div>
 </section>
 
-<section class="bp-section">
-	<div class="bp-container padding--top--lg">
+<section class="sgds-section">
+	<div class="sgds-container padding--top--lg">
 	    <div class="row">
 	      <div class="col content is-8 is-offset-2">
 	    		{{- content -}}
@@ -23,7 +23,7 @@ layout: skeleton
 	    </div>
 		<div class="row">
 			<div class="col">
-				<span class="bp-sec-button has-text-centered">
+				<span class="sgds-sec-button has-text-centered">
 					<a class="is-uppercase media-category-button selected" id="citizens-button"><b>For Citizens</b></a>
 					<a class="is-uppercase media-category-button" id="business-button"><b>For Businesses</b></a>
 					<a class="is-uppercase media-category-button" id="government-button"><b>For Government</b></a>
@@ -33,8 +33,8 @@ layout: skeleton
 	</div>
 </section>
 
-<section class="bp-section bg-table-grey" id="citizens">
-	<div class="bp-container">
+<section class="sgds-section bg-table-grey" id="citizens">
+	<div class="sgds-container">
 		<div class="row is-multiline">
 			{%- for document in site.products-and-services -%}
 				{%- if document.tag == "citizens" -%}
@@ -55,8 +55,8 @@ layout: skeleton
 	</div>
 </section>
 
-<section class="bp-section bg-table-grey" id="business">
-	<div class="bp-container">
+<section class="sgds-section bg-table-grey" id="business">
+	<div class="sgds-container">
 		<div class="row is-multiline">
 			{%- for document in site.products-and-services -%}
 				{%- if document.tag == "business" -%}
@@ -77,8 +77,8 @@ layout: skeleton
 	</div>
 </section>
 
-<section class="bp-section bg-table-grey" id="government">
-	<div class="bp-container">
+<section class="sgds-section bg-table-grey" id="government">
+	<div class="sgds-container">
 		<div class="row is-multiline">
 			{%- for document in site.products-and-services -%}
 				{%- if document.tag == "government" -%}
