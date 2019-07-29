@@ -5413,6 +5413,8 @@ a[href$=".pdf"][target="_blank"]:after {
     display: block;
     padding: 0.75rem 0;
     border-bottom: 1px solid #767676;
+    justify-content: space-between;
+    display: flex;
 }
 .bp-menu-list a:hover {
     color: #6b4370;
