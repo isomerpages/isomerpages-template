@@ -30,13 +30,13 @@ sections:
         title: Use Isomer!
         subtitle: "It's easy and cheap!"
         description: Isomer helps your agency launch great websites fast and easily.
-        link: Contact Us
+        button: Contact Us
         url: /contact-us/
     - infobar:
         title: Use OpenDoc!
         subtitle: "It's beautiful and fast!"
-        link: Contact Us
-        url: /contact-us/
+        button: Contact Us
+        url: https://www.opendoc.sg/
     - infopic:
         title: Hey there!
         subtitle: "Lorem ipsum!"

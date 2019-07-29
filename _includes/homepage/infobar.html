@@ -44,7 +44,9 @@
                     <p class="padding--bottom--lg">{{- section.infobar.subtitle -}}</p>
                 {%- endif -%}
                 {%- if section.infobar.url and section.infobar.button -%}
-                    <a href="{{ site.baseurl }}{{- section.infobar.url -}}">
+                    {%- assign url_input = section.infobar.url -%}
+                    {%- include functions/external_url.html -%}
+                    <a {{anchor}}>
                         <div class="bp-button is-white is-outlined is-uppercase search-button">
                             {{- section.infobar.button -}}
                         </div>
