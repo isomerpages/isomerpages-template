@@ -6,7 +6,7 @@
 
 # This file contains the structure for the top navigation and bottom footer
 
-logo: /do-not-touch/logo_blueprint.png
+logo: /images/isomer-logo.svg
 
 links:
   - title: Application Guidelines
