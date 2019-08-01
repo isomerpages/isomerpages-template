@@ -2937,9 +2937,10 @@ a.has-text-danger:focus {
     margin-bottom: 1em;
 }
 .content code {
-    color: #767676;
-    font-size: 0.8rem;
+    color: #666666;
+    font-size: 1rem;
     margin-top: 0.5rem;
+    font-weight: bold;
 }
 .content h1,
 .content h2,
