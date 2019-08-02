@@ -9,7 +9,8 @@ ga('t1.require', 'pageVisibilityTracker', {
     sendInitialPageview: true,
 });
 ga('t1.require', 'outboundLinkTracker', {
-    shouldTrackOutboundLink: () => true
+    shouldTrackOutboundLink: () => true,
+    events: ['click', 'auxclick', 'contextmenu']
 });
 
 {%- if site.google_analytics -%}
@@ -20,6 +21,7 @@ ga('t1.require', 'outboundLinkTracker', {
     });
 
     ga('t2.require', 'outboundLinkTracker', {
-        shouldTrackOutboundLink: () => true
+        shouldTrackOutboundLink: () => true,
+        events: ['click', 'auxclick', 'contextmenu']
     });
 {%- endif -%}
