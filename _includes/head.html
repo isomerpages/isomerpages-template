@@ -43,6 +43,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,600" crossorigin="anonymous">
     {%- feed_meta -%}
 
+    {%- include wogaa_scripts.html -%}
+
     <title>
         {%- if page.title -%}
             {{- page.title | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 25 -}}
