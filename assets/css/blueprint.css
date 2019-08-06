@@ -10035,7 +10035,7 @@ html.has-navbar-fixed-top-widescreen {
     margin: 0 0.75rem;
 }
 .navbar .navbar-link {
-    padding-right: 35px;
+    padding-right: 25px;
 }
 .navbar .navbar-link::after {
     border: 1px solid #484848;
@@ -10046,7 +10046,7 @@ html.has-navbar-fixed-top-widescreen {
     height: 0.5em;
     pointer-events: none;
     position: absolute;
-    transform: rotate(-45deg);
+    transform: translateX(7px) rotate(-45deg);
     transform-origin: center;
     width: 0.5em;
     margin-top: -0.375em;
@@ -10062,7 +10062,7 @@ html.has-navbar-fixed-top-widescreen {
     height: 0.5em;
     pointer-events: none;
     position: absolute;
-    transform: rotate(-45deg);
+    transform: translateX(7px) rotate(-45deg);
     transform-origin: center;
     width: 0.5em;
     margin-top: -0.375em;
@@ -10092,6 +10092,8 @@ html.has-navbar-fixed-top-widescreen {
 }
 .navbar .navbar-item a {
     color: #0a0a0a;
+    height: 100%;
+    margin: 0;
 }
 .navbar .navbar-item span {
     color: #0a0a0a;

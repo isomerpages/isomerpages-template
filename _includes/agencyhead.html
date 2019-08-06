@@ -148,16 +148,14 @@
                         </div>
                     {%- else -%}
                         {%- comment -%} Single page {%- endcomment -%}
-                        
-                        {%- assign active = "" -%}
-                        
                         <li class="navbar-item">
                             {%- assign url_input = navitem.url -%}
                             {%- include functions/external_url.html -%}
-                            <a {{anchor}} class="navbar-item is-uppercase">
+                            <a {{anchor}} class="navbar-item is-uppercase" style="height:100%;width:100%;">
                                 {{- navitem.title -}}
                             </a>
                             
+                            {%- assign active = "" -%}
                             {%- if page.url == navitem.url -%}
                                 {%- assign active = " active" -%}
                             {%- endif -%}
