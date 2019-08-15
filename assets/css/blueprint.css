@@ -253,6 +253,21 @@
     background: #869791;
 }
 
+.bg-light {
+    background-color: #f0f0f0;
+}
+.bg-white {
+    background-color: white;
+}
+.bg-newssection {
+    background-color: #f0f4f6;
+}
+.bg-prev-next {
+    background-color: #6b4370;
+}
+.bg-table-grey {
+    background-color: #f0f4f6;
+}
 /*! minireset.css v0.0.2 | MIT License | github.com/jgthms/minireset.css */
 html,
 body,
