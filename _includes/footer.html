@@ -1,436 +1,435 @@
 {%- comment -%} onclick at body tag is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
 <footer class="sgds-footer top-section" onclick>
-    <div class="sgds-container ">
-        <div class="row">
-            <div class="col header padding--top--lg padding--bottom--lg">
-                <h5 class="sub-header has-text-white">
-                    <b>{{ site.title }}</b>
-                </h5>
+    <div class="top-section">
+        <div class="sgds-container ">
+            <div class="row">
+                <div class="col header padding--top--lg padding--bottom--lg">
+                    <h5 class="sub-header has-text-white">
+                        <b>{{ site.title }}</b>
+                    </h5>
+                </div>
             </div>
-        </div>
-        <div class="row is-top">
-            {%- if site.data.footer.navlinks -%}
-                {%- assign navlinks = site.data.footer.navlinks -%}
-            {%- else -%}
-                {%- assign navlinks = site.data.navigation.links -%}
-            {%- endif -%}
-            {%- assign social = site.data.footer.social_media -%}
-            {%- comment -%} Set columns for nav links based on social media links {%- endcomment -%}
-            {%- if social -%}
-                {%- assign navClass = "is-four-fifths" -%}
-            {%- else -%}
-                {%- assign navClass = "" -%}
-            {%- endif -%}
+            <div class="row is-top">
+                {%- if site.data.footer.navlinks -%}
+                    {%- assign navlinks = site.data.footer.navlinks -%}
+                {%- else -%}
+                    {%- assign navlinks = site.data.navigation.links -%}
+                {%- endif -%}
+                {%- assign social = site.data.footer.social_media -%}
+                {%- comment -%} Set columns for nav links based on social media links {%- endcomment -%}
+                {%- if social -%}
+                    {%- assign navClass = "is-four-fifths" -%}
+                {%- else -%}
+                    {%- assign navClass = "" -%}
+                {%- endif -%}
 
-            <div class="row col is-multiline is-hidden-mobile {{ navClass }}">
-                {%- comment -%}
-                    Left nav pages (level 2) will all belong to their own collection
-                    navigation.yml will simply specify the order of level 1 and level 2 pages (1 level in navigation.yml only)
-                    This portion of the code will automatically generate the navbar subitems for level 2 pages based on the content in the level 2 collection
-                    For level 3 pages, the first page in the level 3 "collection" will appear in the navbar like other level 2 pages
-                    Level 3 pages will also reside in the same collection as other level 2 and 3 pages under the same heading
-                    But they will have an additional "third_nav_title" header in their front matter
+                <div class="row col is-multiline is-hidden-mobile {{ navClass }}">
+                    {%- comment -%}
+                        Left nav pages (level 2) will all belong to their own collection
+                        navigation.yml will simply specify the order of level 1 and level 2 pages (1 level in navigation.yml only)
+                        This portion of the code will automatically generate the navbar subitems for level 2 pages based on the content in the level 2 collection
+                        For level 3 pages, the first page in the level 3 "collection" will appear in the navbar like other level 2 pages
+                        Level 3 pages will also reside in the same collection as other level 2 and 3 pages under the same heading
+                        But they will have an additional "third_nav_title" header in their front matter
 
-                    This is done so that new level 2 pages will automatically appear in the navbar without the need for extra configuration in navigation.yml
+                        This is done so that new level 2 pages will automatically appear in the navbar without the need for extra configuration in navigation.yml
 
-                    Subitems can still be customized by including the sublinks array
-                {%- endcomment -%}
-                {%- for navlink in navlinks -%}
-                    {%- assign title_downcased = navlink.title | downcase -%}
-                    {%- if title_downcased == "contact us" or title_downcased == "faq" -%}
-                        {%- continue -%}
-                    {%- endif -%}
+                        Subitems can still be customized by including the sublinks array
+                    {%- endcomment -%}
+                    {%- for navlink in navlinks -%}
+                        {%- assign title_downcased = navlink.title | downcase -%}
+                        {%- if title_downcased == "contact us" or title_downcased == "faq" -%}
+                            {%- continue -%}
+                        {%- endif -%}
 
-                    {%- if navlink.collection -%}
-                        {%- comment -%} Leftnav page {%- endcomment -%}
-                        
-                        <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
-                            <p class="sub-header">
-                                {%- assign url_input = site[navlink.collection].first.url -%}
-                                {%- include functions/external_url.html -%}
-                                <b><a {{anchor}} class="has-text-white">{{navlink.title}}</a></b>
-                            </p>
-                            {%- comment -%} You can't initalize an array in liquid so we have to do this {%- endcomment -%}
-                            {% assign third_nav_titles = "" | split: ", " %}
-                            {%- for leftnavpage in site[navlink.collection] -%}
-                                {%- comment -%} Only show second level pages and the first page in third level pages {%- endcomment -%}
-                                {%- if leftnavpage.third_nav_title -%}
-                                    {%- unless third_nav_titles contains leftnavpage.third_nav_title -%}
-                                        {%- comment -%} This is the first page in this third level nav, display link {%- endcomment -%}
+                        {%- if navlink.collection -%}
+                            {%- comment -%} Leftnav page {%- endcomment -%}
+                            
+                            <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
+                                <p class="sub-header">
+                                    {%- assign url_input = site[navlink.collection].first.url -%}
+                                    {%- include functions/external_url.html -%}
+                                    <b><a {{anchor}} class="has-text-white">{{navlink.title}}</a></b>
+                                </p>
+                                {%- comment -%} You can't initalize an array in liquid so we have to do this {%- endcomment -%}
+                                {% assign third_nav_titles = "" | split: ", " %}
+                                {%- for leftnavpage in site[navlink.collection] -%}
+                                    {%- comment -%} Only show second level pages and the first page in third level pages {%- endcomment -%}
+                                    {%- if leftnavpage.third_nav_title -%}
+                                        {%- unless third_nav_titles contains leftnavpage.third_nav_title -%}
+                                            {%- comment -%} This is the first page in this third level nav, display link {%- endcomment -%}
+                                            <p class="is-hidden-mobile">
+                                                {%- assign url_input = leftnavpage.url -%}
+                                                {%- include functions/external_url.html -%}
+                                                <a {{anchor}}>
+                                                    {{- leftnavpage.third_nav_title -}}
+                                                </a>
+                                            </p>
+                                            {%- assign third_nav_titles = third_nav_titles | push: leftnavpage.third_nav_title -%}
+                                        {%- endunless -%}
+                                    {%- else -%}
                                         <p class="is-hidden-mobile">
                                             {%- assign url_input = leftnavpage.url -%}
                                             {%- include functions/external_url.html -%}
                                             <a {{anchor}}>
-                                                {{- leftnavpage.third_nav_title -}}
+                                                {{- leftnavpage.title -}}
                                             </a>
                                         </p>
-                                        {%- assign third_nav_titles = third_nav_titles | push: leftnavpage.third_nav_title -%}
-                                    {%- endunless -%}
-                                {%- else -%}
-                                    <p class="is-hidden-mobile">
-                                        {%- assign url_input = leftnavpage.url -%}
-                                        {%- include functions/external_url.html -%}
-                                        <a {{anchor}}>
-                                            {{- leftnavpage.title -}}
-                                        </a>
-                                    </p>
-                                {%- endif -%}
-                            {%- endfor -%}
-                        </div>
-                    {%- elsif navlink.sublinks -%}
-                        {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
-                        <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
-                            {%- assign url_input = navlink.url -%}
-                            {%- include functions/external_url.html -%}
-                            
-                            <p class="sub-header">
-                                <b><a {{anchor}} class="has-text-white">
-                                    {{- navlink.title -}}
-                                </a></b>
-                            </p>
-                            
-                            {%- for sublink in navlink.sublinks -%}                 
-                                {%- assign url_input = sublink.url -%}
+                                    {%- endif -%}
+                                {%- endfor -%}
+                            </div>
+                        {%- elsif navlink.sublinks -%}
+                            {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
+                            <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
+                                {%- assign url_input = navlink.url -%}
                                 {%- include functions/external_url.html -%}
                                 
-                                <p class="is-hidden-mobile">
-                                    <a {{anchor}}>
-                                        {{- sublink.title -}}
-                                    </a>
+                                <p class="sub-header">
+                                    <b><a {{anchor}} class="has-text-white">
+                                        {{- navlink.title -}}
+                                    </a></b>
                                 </p>
-                            {%- endfor -%}
-                        </div>
-                    {%- elsif navlink.resource_room -%}
-                        <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
-                            <p class="sub-header">
-                                <b><a class="has-text-white" href="/{{site.resources_name}}/">
-                                    {{- navlink.title -}}
-                                </a></b>
-                            </p>
-                            {%- unless site.categories.size < 3 -%}
-                                {%- comment -%} 
-                                    No point displaying the 'all' entry if there is only 1 category
-                                    The numbers are all incremented by 1 as the resource room folder itself is counted as 1 category
-                                {%- endcomment -%}
-                                <p class="is-hidden-mobile">
-                                    <a href="/{{site.resources_name}}/">
-                                        All
-                                    </a>
+                                
+                                {%- for sublink in navlink.sublinks -%}                 
+                                    {%- assign url_input = sublink.url -%}
+                                    {%- include functions/external_url.html -%}
+                                    
+                                    <p class="is-hidden-mobile">
+                                        <a {{anchor}}>
+                                            {{- sublink.title -}}
+                                        </a>
+                                    </p>
+                                {%- endfor -%}
+                            </div>
+                        {%- elsif navlink.resource_room -%}
+                            <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
+                                <p class="sub-header">
+                                    <b><a class="has-text-white" href="/{{site.resources_name}}/">
+                                        {{- navlink.title -}}
+                                    </a></b>
                                 </p>
-                            {%- endunless -%}
-                            {%- comment -%} Sort resource rooms category alphabetically by name {%- endcomment -%}
-                            {%- assign categories = "" | split: "," -%}
-                            {%- for category in site.categories -%}
-                                {%- if category[0] != site.resources_name -%}
-                                    {%- assign categories = categories | push: category[0] -%}
-                                {%- endif -%}
-                            {%- endfor -%}
-                            {%- assign categories = categories | sort_natural -%}
-                            {%- comment -%} Display navlink for each category {%- endcomment -%}
-                            {%- for category in categories -%}
-                                <p class="is-hidden-mobile">
-                                    <a href="/{{site.resources_name}}/{{category}}/">
-                                        {%- assign words = category | replace: "-", " " | replace: "_", " " | split: " " -%}
-                                        {%- comment -%} Right now words are all in lowercase, and we want to Title Case them {%- endcomment -%}
-                                        {%- for word in words -%}
-                                            {{- word | capitalize | append: " " -}}
-                                        {%- endfor -%}
-                                    </a>
-                                </p>
-                            {%- endfor -%}
-                        </div>
-                    {%- else -%}
-                        {%- comment -%} Single page {%- endcomment -%}
-                        
-                        <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
-                            {%- assign url_input = navlink.url -%}
-                            {%- include functions/external_url.html -%}
+                                {%- unless site.categories.size < 3 -%}
+                                    {%- comment -%} 
+                                        No point displaying the 'all' entry if there is only 1 category
+                                        The numbers are all incremented by 1 as the resource room folder itself is counted as 1 category
+                                    {%- endcomment -%}
+                                    <p class="is-hidden-mobile">
+                                        <a href="/{{site.resources_name}}/">
+                                            All
+                                        </a>
+                                    </p>
+                                {%- endunless -%}
+                                {%- comment -%} Sort resource rooms category alphabetically by name {%- endcomment -%}
+                                {%- assign categories = "" | split: "," -%}
+                                {%- for category in site.categories -%}
+                                    {%- if category[0] != site.resources_name -%}
+                                        {%- assign categories = categories | push: category[0] -%}
+                                    {%- endif -%}
+                                {%- endfor -%}
+                                {%- assign categories = categories | sort_natural -%}
+                                {%- comment -%} Display navlink for each category {%- endcomment -%}
+                                {%- for category in categories -%}
+                                    <p class="is-hidden-mobile">
+                                        <a href="/{{site.resources_name}}/{{category}}/">
+                                            {%- assign words = category | replace: "-", " " | replace: "_", " " | split: " " -%}
+                                            {%- comment -%} Right now words are all in lowercase, and we want to Title Case them {%- endcomment -%}
+                                            {%- for word in words -%}
+                                                {{- word | capitalize | append: " " -}}
+                                            {%- endfor -%}
+                                        </a>
+                                    </p>
+                                {%- endfor -%}
+                            </div>
+                        {%- else -%}
+                            {%- comment -%} Single page {%- endcomment -%}
                             
-                            <p class="sub-header">
-                                <b><a {{anchor}} class="has-text-white">
-                                    {{- navlink.title -}}
-                                </a></b>
-                            </p>
-                        </div>
-                    {%- endif -%}
-                {%- endfor -%}
-            </div>
-
-            {%- if social -%}
-                {%- comment -%} Social links for desktop {%- endcomment -%}
-                <div class="col is-one-fifth is-hidden-mobile is-hidden-tablet-only" id="social-link-desktop">
-                    {%- if social.facebook -%}
-                        {%- assign url_input = social.facebook -%}
-                        {%- include functions/external_url.html -%}
-                        <a {{anchor}} class="social-link padding--right padding--bottom is-inline-block">
-                            <span class="sgds-icon sgds-icon-facebook is-size-4" title="Facebook"></span>
-                        </a>
-                    {%- endif -%}
-                    {%- if social.twitter -%}
-                        {%- assign url_input = social.twitter -%}
-                        {%- include functions/external_url.html -%}
-                        <a {{anchor}} class="social-link padding--right padding--bottom is-inline-block">
-                            <span class="sgds-icon sgds-icon-twitter is-size-4" title="Twitter"></span>
-                        </a>
-                    {%- endif -%}
-                    {%- if social.youtube -%}
-                        {%- assign url_input = social.youtube -%}
-                        {%- include functions/external_url.html -%}
-                        <a {{anchor}} class="social-link padding--right padding--bottom is-inline-block">
-                            <span class="sgds-icon sgds-icon-youtube is-size-4" title="YouTube"></span>
-                        </a>
-                    {%- endif -%}
-                    {%- if social.instagram -%}
-                        {%- assign url_input = social.instagram -%}
-                        {%- include functions/external_url.html -%}
-                        <a {{anchor}} class="social-link padding--right padding--bottom is-inline-block">
-                            <span class="sgds-icon sgds-icon-instagram is-size-4" title="Instagram"></span>
-                        </a>
-                    {%- endif -%}
-                    {%- if social.linkedin -%}
-                        {%- assign url_input = social.linkedin -%}
-                        {%- include functions/external_url.html -%}
-                        <a {{anchor}} class="social-link padding--right padding--bottom is-inline-block">
-                            <span class="sgds-icon sgds-icon-linkedin is-size-4" title="LinkedIn"></span>
-                        </a>
-                    {%- endif -%}
+                            <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
+                                {%- assign url_input = navlink.url -%}
+                                {%- include functions/external_url.html -%}
+                                
+                                <p class="sub-header">
+                                    <b><a {{anchor}} class="has-text-white">
+                                        {{- navlink.title -}}
+                                    </a></b>
+                                </p>
+                            </div>
+                        {%- endif -%}
+                    {%- endfor -%}
                 </div>
 
-                {%- comment -%} Social links for tablet {%- endcomment -%}
-                <div class="col is-one-quarter is-hidden-mobile is-hidden-desktop" id="social-link-tablet">
-                    {%- if social.facebook -%}
-                        <div class="row">
+                {%- if social -%}
+                    {%- comment -%} Social links for desktop {%- endcomment -%}
+                    <div class="col is-one-fifth is-hidden-mobile is-hidden-tablet-only" id="social-link-desktop">
+                        {%- if social.facebook -%}
                             {%- assign url_input = social.facebook -%}
                             {%- include functions/external_url.html -%}
-                            <a {{anchor}} class="social-link margin--bottom" title="Facebook">
-                                <span class="sgds-icon sgds-icon-facebook is-size-4"></span>
+                            <a {{anchor}} class="social-link padding--right padding--bottom is-inline-block">
+                                <span class="sgds-icon sgds-icon-facebook is-size-4" title="Facebook"></span>
                             </a>
-                        </div>
-                    {%- endif -%}
-                    {%- if social.twitter -%}
-                        <div class="row">
+                        {%- endif -%}
+                        {%- if social.twitter -%}
                             {%- assign url_input = social.twitter -%}
                             {%- include functions/external_url.html -%}
-                            <a {{anchor}} class="social-link margin--bottom" title="Twitter">
-                                <span class="sgds-icon sgds-icon-twitter is-size-4"></span>
+                            <a {{anchor}} class="social-link padding--right padding--bottom is-inline-block">
+                                <span class="sgds-icon sgds-icon-twitter is-size-4" title="Twitter"></span>
                             </a>
-                        </div>
-                    {%- endif -%}
-                    {%- if social.youtube -%}
-                        <div class="row">
-                            {%- assign url_input = social.facebook -%}
+                        {%- endif -%}
+                        {%- if social.youtube -%}
+                            {%- assign url_input = social.youtube -%}
                             {%- include functions/external_url.html -%}
-                            <a {{anchor}} class="social-link margin--bottom" title="YouTube">
-                                <span class="sgds-icon sgds-icon-youtube is-size-4"></span>
+                            <a {{anchor}} class="social-link padding--right padding--bottom is-inline-block">
+                                <span class="sgds-icon sgds-icon-youtube is-size-4" title="YouTube"></span>
                             </a>
-                        </div>
-                    {%- endif -%}
-                    {%- if social.instagram -%}
-                        <div class="row">
-                           {%- assign url_input = social.facebook -%}
+                        {%- endif -%}
+                        {%- if social.instagram -%}
+                            {%- assign url_input = social.instagram -%}
                             {%- include functions/external_url.html -%}
-                            <a {{anchor}} class="social-link margin--bottom" title="Instagram">
-                                <span class="sgds-icon sgds-icon-instagram is-size-4"></span>
+                            <a {{anchor}} class="social-link padding--right padding--bottom is-inline-block">
+                                <span class="sgds-icon sgds-icon-instagram is-size-4" title="Instagram"></span>
                             </a>
-                        </div>
-                    {%- endif -%}
-                    {%- if social.linkedin -%}
-                        <div class="row">
-                            {%- assign url_input = social.facebook -%}
+                        {%- endif -%}
+                        {%- if social.linkedin -%}
+                            {%- assign url_input = social.linkedin -%}
                             {%- include functions/external_url.html -%}
-                            <a {{anchor}} class="social-link margin--bottom" title="LinkedIn">
-                                <span class="sgds-icon sgds-icon-linkedin is-size-4"></span>
+                            <a {{anchor}} class="social-link padding--right padding--bottom is-inline-block">
+                                <span class="sgds-icon sgds-icon-linkedin is-size-4" title="LinkedIn"></span>
                             </a>
-                        </div>
-                    {%- endif -%}
-                </div>
-            {%- endif -%}
-            
-            {%- comment -%} Footer links for mobile {%- endcomment -%}
-            <div class="col is-hidden-tablet is-hidden-desktop">
-                {%- for navlink in navlinks -%}
-                    {%- assign title_downcased = navlink.title | downcase -%}
-                    {%- if title_downcased == "contact us" or title_downcased == "faq" -%}
-                        {%- continue -%}
-                    {%- endif -%}
+                        {%- endif -%}
+                    </div>
 
-                    {%- if navlink.collection -%}
-                        {%- comment -%} Leftnav page {%- endcomment -%}                        
-                            <p>
-                                {%- assign url_input = site[navlink.collection].first.url -%}
+                    {%- comment -%} Social links for tablet {%- endcomment -%}
+                    <div class="col is-one-quarter is-hidden-mobile is-hidden-desktop" id="social-link-tablet">
+                        {%- if social.facebook -%}
+                            <div class="row">
+                                {%- assign url_input = social.facebook -%}
                                 {%- include functions/external_url.html -%}
-                                <a {{anchor}}>{{navlink.title}}</a>
-                            </p>
-                    {%- elsif navlink.sublinks -%}
-                        {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
-                        {%- assign url_input = navlink.url -%}
-                        {%- include functions/external_url.html -%}
-                        <p>
-                            <a {{anchor}}>
-                                {{- navlink.title -}}
-                            </a>
-                        </p>
-                    {%- elsif navlink.resource_room -%}
+                                <a {{anchor}} class="social-link margin--bottom" title="Facebook">
+                                    <span class="sgds-icon sgds-icon-facebook is-size-4"></span>
+                                </a>
+                            </div>
+                        {%- endif -%}
+                        {%- if social.twitter -%}
+                            <div class="row">
+                                {%- assign url_input = social.twitter -%}
+                                {%- include functions/external_url.html -%}
+                                <a {{anchor}} class="social-link margin--bottom" title="Twitter">
+                                    <span class="sgds-icon sgds-icon-twitter is-size-4"></span>
+                                </a>
+                            </div>
+                        {%- endif -%}
+                        {%- if social.youtube -%}
+                            <div class="row">
+                                {%- assign url_input = social.facebook -%}
+                                {%- include functions/external_url.html -%}
+                                <a {{anchor}} class="social-link margin--bottom" title="YouTube">
+                                    <span class="sgds-icon sgds-icon-youtube is-size-4"></span>
+                                </a>
+                            </div>
+                        {%- endif -%}
+                        {%- if social.instagram -%}
+                            <div class="row">
+                            {%- assign url_input = social.facebook -%}
+                                {%- include functions/external_url.html -%}
+                                <a {{anchor}} class="social-link margin--bottom" title="Instagram">
+                                    <span class="sgds-icon sgds-icon-instagram is-size-4"></span>
+                                </a>
+                            </div>
+                        {%- endif -%}
+                        {%- if social.linkedin -%}
+                            <div class="row">
+                                {%- assign url_input = social.facebook -%}
+                                {%- include functions/external_url.html -%}
+                                <a {{anchor}} class="social-link margin--bottom" title="LinkedIn">
+                                    <span class="sgds-icon sgds-icon-linkedin is-size-4"></span>
+                                </a>
+                            </div>
+                        {%- endif -%}
+                    </div>
+                {%- endif -%}
+                
+                {%- comment -%} Footer links for mobile {%- endcomment -%}
+                <div class="col is-hidden-tablet is-hidden-desktop">
+                    {%- for navlink in navlinks -%}
+                        {%- assign title_downcased = navlink.title | downcase -%}
+                        {%- if title_downcased == "contact us" or title_downcased == "faq" -%}
+                            {%- continue -%}
+                        {%- endif -%}
+
+                        {%- if navlink.collection -%}
+                            {%- comment -%} Leftnav page {%- endcomment -%}                        
+                                <p>
+                                    {%- assign url_input = site[navlink.collection].first.url -%}
+                                    {%- include functions/external_url.html -%}
+                                    <a {{anchor}}>{{navlink.title}}</a>
+                                </p>
+                        {%- elsif navlink.sublinks -%}
+                            {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
+                            {%- assign url_input = navlink.url -%}
+                            {%- include functions/external_url.html -%}
                             <p>
-                                <a href="/{{site.resources_name}}/">
+                                <a {{anchor}}>
                                     {{- navlink.title -}}
                                 </a>
                             </p>
-                    {%- else -%}
-                        {%- comment -%} Single page {%- endcomment -%}
-                        {%- assign url_input = navlink.url -%}
+                        {%- elsif navlink.resource_room -%}
+                                <p>
+                                    <a href="/{{site.resources_name}}/">
+                                        {{- navlink.title -}}
+                                    </a>
+                                </p>
+                        {%- else -%}
+                            {%- comment -%} Single page {%- endcomment -%}
+                            {%- assign url_input = navlink.url -%}
+                            {%- include functions/external_url.html -%}
+                            <p>
+                                <a {{anchor}}>
+                                    {{- navlink.title -}}
+                                </a>
+                            </p>
+                        {%- endif -%}
+                    {%- endfor -%}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col padding--top--sm padding--bottom--sm is-right-desktop-only">
+                    <ul>
+                        {%- if site.data.footer.links -%}
+                            {%- for link in site.data.footer.links limit:2 -%}
+                                {%- if link.url and link.title -%}
+                                    <li class="is-inline-block-desktop-only">
+                                        {%- assign url_input = link.url -%}
+                                        {%- include functions/external_url.html -%}
+                                        <p><a {{anchor}}>{{- link.title -}}</a></p>
+                                    </li>
+                                {%- endif -%}
+                            {%- endfor -%}
+                        {%- endif -%}
+
+                        {%- if site.data.footer.show_reach -%}
+                            <li class="is-inline-block-desktop-only">
+                                {%- assign url_input = "https://www.reach.gov.sg/" -%}
+                                {%- include functions/external_url.html -%}
+                                <p><a {{anchor}} title="Link to reach.gov.sg">REACH</a></p>
+                            </li>
+                        {%- endif -%}
+
+                        {%- if site.data.footer.faq -%}
+                            <li class="is-inline-block-desktop-only">
+                                {%- assign url_input = site.data.footer.faq -%}
+                                {%- include functions/external_url.html -%}
+                                <p><a {{anchor}}>FAQ</a></p>
+                            </li>
+                        {%- endif -%}
+
+                        {%- if site.data.footer.feedback -%}
+                            <li class="is-inline-block-desktop-only">
+                                {%- assign url_input = site.data.footer.feedback -%}
+                                {%- include functions/external_url.html -%}
+                                <p><a {{anchor}}>Feedback</a></p>
+                            </li>
+                        {%- endif -%}
+
+                        {%- if site.data.footer.contact_us -%}
+                            <li class="is-inline-block-desktop-only">
+                                {%- assign url_input = site.data.footer.contact_us -%}
+                                {%- include functions/external_url.html -%}
+                                <p><a {{anchor}}>Contact Us</a></p>
+                            </li>
+                        {%- endif -%}
+                    </ul>
+                </div>
+                <div class="col is-hidden-tablet is-hidden-desktop padding--top--lg padding--bottom--none">
+                    {%- if social.facebook -%}
+                        {%- assign url_input = social.facebook -%}
                         {%- include functions/external_url.html -%}
-                        <p>
-                            <a {{anchor}}>
-                                {{- navlink.title -}}
-                            </a>
-                        </p>
+                        <a {{anchor}} class="social-link padding--right" title="Facebook">
+                            <span class="sgds-icon sgds-icon-facebook is-size-4"></span>
+                        </a>
                     {%- endif -%}
-                {%- endfor -%}
+
+                    {%- if social.twitter -%}
+                        {%- assign url_input = social.twitter -%}
+                        {%- include functions/external_url.html -%}
+                        <a {{anchor}} class="social-link padding--right" title="Twitter">
+                            <span class="sgds-icon sgds-icon-twitter is-size-4"></span>
+                        </a>
+                    {%- endif -%}
+
+                    {%- if social.youtube -%}
+                        {%- assign url_input = social.youtube -%}
+                        {%- include functions/external_url.html -%}
+                        <a {{anchor}} class="social-link padding--right" title="YouTube">
+                            <span class="sgds-icon sgds-icon-youtube is-size-4"></span>
+                        </a>
+                    {%- endif -%}
+
+                    {%- if social.instagram -%}
+                        {%- assign url_input = social.instagram -%}
+                        {%- include functions/external_url.html -%}
+                        <a {{anchor}} class="social-link padding--right" title="Instagram">
+                            <span class="sgds-icon sgds-icon-instagram is-size-4"></span>
+                        </a>
+                    {%- endif -%}
+
+                    {%- if social.linkedin -%}
+                        {%- assign url_input = social.linkedin -%}
+                        {%- include functions/external_url.html -%}
+                        <a {{anchor}} class="social-link padding--right" title="LinkedIn">
+                            <span class="sgds-icon sgds-icon-linkedin is-size-4"></span>
+                        </a>
+                    {%- endif -%}
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col padding--top--sm padding--bottom--sm is-right-desktop-only">
-                <ul>
-                    {%- if site.data.footer.links -%}
-                        {%- for link in site.data.footer.links limit:2 -%}
-                            {%- if link.url and link.title -%}
-                                <li class="is-inline-block-desktop-only">
-                                    {%- assign url_input = link.url -%}
-                                    {%- include functions/external_url.html -%}
-                                    <p><a {{anchor}}>{{- link.title -}}</a></p>
-                                </li>
-                            {%- endif -%}
-                        {%- endfor -%}
-                    {%- endif -%}
-
-                    {%- if site.data.footer.show_reach -%}
-                        <li class="is-inline-block-desktop-only">
-                            {%- assign url_input = "https://www.reach.gov.sg/" -%}
-                            {%- include functions/external_url.html -%}
-                            <p><a {{anchor}} title="Link to reach.gov.sg">REACH</a></p>
-                        </li>
-                    {%- endif -%}
-
-                    {%- if site.data.footer.faq -%}
-                        <li class="is-inline-block-desktop-only">
-                            {%- assign url_input = site.data.footer.faq -%}
-                            {%- include functions/external_url.html -%}
-                            <p><a {{anchor}}>FAQ</a></p>
-                        </li>
-                    {%- endif -%}
-
-                    {%- if site.data.footer.feedback -%}
-                        <li class="is-inline-block-desktop-only">
-                            {%- assign url_input = site.data.footer.feedback -%}
-                            {%- include functions/external_url.html -%}
-                            <p><a {{anchor}}>Feedback</a></p>
-                        </li>
-                    {%- endif -%}
-
-                    {%- if site.data.footer.contact_us -%}
-                        <li class="is-inline-block-desktop-only">
-                            {%- assign url_input = site.data.footer.contact_us -%}
-                            {%- include functions/external_url.html -%}
-                            <p><a {{anchor}}>Contact Us</a></p>
-                        </li>
-                    {%- endif -%}
-                </ul>
+    </div>
+    <div class="bottom-section">
+        <div class="sgds-container">
+            <div class="row is-vcentered">
+                <div class="col padding--top--none padding--bottom--none">
+                    <div class="col divider padding--top--none padding--bottom--none"></div>
+                </div>
             </div>
-            <div class="col is-hidden-tablet is-hidden-desktop padding--top--lg padding--bottom--none">
-                {%- if social.facebook -%}
-                    {%- assign url_input = social.facebook -%}
-                    {%- include functions/external_url.html -%}
-                    <a {{anchor}} class="social-link padding--right" title="Facebook">
-                        <span class="sgds-icon sgds-icon-facebook is-size-4"></span>
-                    </a>
-                {%- endif -%}
-
-                {%- if social.twitter -%}
-                    {%- assign url_input = social.twitter -%}
-                    {%- include functions/external_url.html -%}
-                    <a {{anchor}} class="social-link padding--right" title="Twitter">
-                        <span class="sgds-icon sgds-icon-twitter is-size-4"></span>
-                    </a>
-                {%- endif -%}
-
-                {%- if social.youtube -%}
-                    {%- assign url_input = social.youtube -%}
-                    {%- include functions/external_url.html -%}
-                    <a {{anchor}} class="social-link padding--right" title="YouTube">
-                        <span class="sgds-icon sgds-icon-youtube is-size-4"></span>
-                    </a>
-                {%- endif -%}
-
-                {%- if social.instagram -%}
-                    {%- assign url_input = social.instagram -%}
-                    {%- include functions/external_url.html -%}
-                    <a {{anchor}} class="social-link padding--right" title="Instagram">
-                        <span class="sgds-icon sgds-icon-instagram is-size-4"></span>
-                    </a>
-                {%- endif -%}
-
-                {%- if social.linkedin -%}
-                    {%- assign url_input = social.linkedin -%}
-                    {%- include functions/external_url.html -%}
-                    <a {{anchor}} class="social-link padding--right" title="LinkedIn">
-                        <span class="sgds-icon sgds-icon-linkedin is-size-4"></span>
-                    </a>
-                {%- endif -%}
+            <div class="row is-vcentered padding--top--sm">
+                <div class="col is-two-thirds">
+                    <ul>
+                        {%- if site.data.footer.privacy_policy -%}
+                            {%- assign url_input = site.data.footer.privacy_policy -%}
+                            {%- include functions/external_url.html -%}
+                        {%- else -%}
+                            {%- assign url_input = "/privacy/" -%}
+                            {%- include functions/external_url.html -%}
+                        {%- endif -%}
+                        <li><a {{anchor}}>Privacy Statement</a></li>
+                        
+                        {%- if site.data.footer.terms_of_use -%}
+                            {%- assign url_input = site.data.footer.terms_of_use -%}
+                            {%- include functions/external_url.html -%}
+                        {%- else -%}
+                            {%- assign url_input = "/terms-of-use/" -%}
+                            {%- include functions/external_url.html -%}
+                        {%- endif -%}
+                        <li><a {{anchor}}>Terms of Use</a></li>
+    
+                        {%- assign url_input = "https://www.isomer.gov.sg" -%}
+                        {%- include functions/external_url.html -%}
+                        <li><a {{anchor}}>Built with Isomer</a></li>
+                        {%- comment -%} <li><a>Rate Service</a></li> {%- endcomment -%}
+                    </ul>
+                </div>
+                <div class="col is-one-third has-text-right-desktop has-text-right-tablet has-text-left-mobile">
+                    <p>
+                        &copy; {{ site.time | date: "%Y" -}}
+                        {%- if site.data.footer.copyright_agency %}
+                            {{ site.data.footer.copyright_agency -}}
+                        {%- else %}
+                            {{ site.title -}}
+                        {%- endif -%}
+                    </p>
+                    <p class="last-updated">Last Updated {{site.time | date_to_string -}}</p>
+                </div>
             </div>
         </div>
     </div>
 </footer>
-
 {%- comment -%} onclick at body tag is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
-<footer class="sgds-footer bottom-section" onclick>
-    <div class="sgds-container ">
-        <div class="row is-vcentered">
-            <div class="col padding--top--none padding--bottom--none">
-                <div class="col divider padding--top--none padding--bottom--none"></div>
-            </div>
-        </div>
-        <div class="row is-vcentered padding--top--sm">
-            <div class="col is-two-thirds">
-                <ul>
-                    <li><a href="https://www.tech.gov.sg/report_vulnerability/">Report Vulnerability</a></li>
-                    {%- if site.data.footer.privacy_policy -%}
-                        {%- assign url_input = site.data.footer.privacy_policy -%}
-                        {%- include functions/external_url.html -%}
-                    {%- else -%}
-                        {%- assign url_input = "/privacy/" -%}
-                        {%- include functions/external_url.html -%}
-                    {%- endif -%}
-                    <li><a {{anchor}}>Privacy Statement</a></li>
-                    
-                    {%- if site.data.footer.terms_of_use -%}
-                        {%- assign url_input = site.data.footer.terms_of_use -%}
-                        {%- include functions/external_url.html -%}
-                    {%- else -%}
-                        {%- assign url_input = "/terms-of-use/" -%}
-                        {%- include functions/external_url.html -%}
-                    {%- endif -%}
-                    <li><a {{anchor}}>Terms of Use</a></li>
-
-                    {%- assign url_input = "https://www.isomer.gov.sg" -%}
-                    {%- include functions/external_url.html -%}
-                    <li><a {{anchor}}>Built with Isomer</a></li>
-                    {%- comment -%} <li><a>Rate Service</a></li> {%- endcomment -%}
-                </ul>
-            </div>
-            <div class="col is-one-third has-text-right-desktop has-text-right-tablet has-text-left-mobile">
-                <p>
-                    &copy; {{ site.time | date: "%Y" -}}
-                    {%- if site.data.footer.copyright_agency %}
-                        {{ site.data.footer.copyright_agency -}}
-                    {%- else %}
-                        {{ site.title -}}
-                    {%- endif -%}
-                </p>
-                <p class="last-updated">Last Updated {{site.time | date_to_string -}}</p>
-            </div>
-        </div>
-    </div>
-</footer>
-
 {%- include main_scripts.html -%}
