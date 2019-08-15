@@ -253,6 +253,77 @@
     background: #869791;
 }
 
+a[target="_blank"]:after {
+    display: inline-block;
+    font-family: "sgds-icons";
+    content: "";
+    padding-left: 0.25rem;
+    font-weight: 400;
+}
+a[target="_blank"].sgds-sec-button:after {
+    content: "";
+}
+a[target="_blank"].is-highlight:after {
+    content: "";
+    display: none;
+}
+a[target="_blank"].is-highlight p.key-highlight-title:after {
+    display: inline-block;
+    font-family: "sgds-icons";
+    content: "";
+    padding-left: 0.25rem;
+    font-weight: 400;
+}
+a[target="_blank"].social-link:after {
+    content: "";
+    display: none;
+}
+a[target="_blank"].is-download-button,
+a[target="_blank"].is-media-card {
+    margin-left: 0;
+}
+a[target="_blank"].is-download-button:after,
+a[target="_blank"].is-media-card:after {
+    content: "";
+}
+
+a[href$=".pdf"] {
+    position: relative;
+    margin-left: 2.25rem;
+}
+a[href$=".pdf"]:before {
+    vertical-align: middle;
+    color: #767676;
+    font-size: 1.75rem;
+    font-family: "sgds-icons";
+    content: "";
+    position: absolute;
+    left: -2rem;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+a[href$=".pdf"]:before:hover {
+    text-decoration: none;
+}
+a[href$=".pdf"].is-download-button,
+a[href$=".pdf"].is-media-card {
+    margin-left: 0;
+}
+a[href$=".pdf"].is-download-button:before,
+a[href$=".pdf"].is-media-card:before {
+    content: "";
+}
+
+a[href$=".pdf"][target="_blank"]:after {
+    content: "";
+    display: none;
+}
+
+.sgds-masthead a:after {
+    content: "";
+}
+
 .bg-light {
     background-color: #f0f0f0;
 }
