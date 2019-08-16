@@ -253,6 +253,131 @@
     background: #869791;
 }
 
+.owl-dot.active span {
+    background: white;
+}
+
+.owl-dot span {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.owl-dots {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+}
+
+.news-carousel .owl-dots {
+    position: relative;
+    bottom: 0;
+}
+
+.career-container .career-carousel .profile-content {
+    position: absolute;
+    width: 70%;
+    right: 0;
+    bottom: 0;
+    background-color: #f5a623;
+    padding: 1rem;
+    color: white;
+}
+.career-container .bg-gradient {
+    background: #b41e8e;
+    background: -moz-linear-gradient(45deg, #b41e8e 0%, #5c3f9e 50%, #0061af 100%);
+    background: -webkit-linear-gradient(45deg, #b41e8e 0%, #5c3f9e 50%, #0061af 100%);
+    background: linear-gradient(45deg, #b41e8e 0%, #5c3f9e 50%, #0061af 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b41e8e', endColorstr='#0061af',GradientType=1 );
+}
+@media screen and (max-width: 768px) {
+    .career-container .career-item {
+        padding: 3rem 2rem !important;
+    }
+}
+
+.programme-container .offset-top {
+    margin-right: 0;
+    margin-top: -104px;
+}
+@media screen and (max-width: 1023px) {
+    .programme-container .offset-top {
+        margin-top: -37px;
+    }
+}
+@media screen and (max-width: 1023px) {
+    .programme-container .row.offset-margin {
+        margin-bottom: 0;
+    }
+}
+@media screen and (max-width: 1023px) {
+    .programme-container .item {
+        padding-bottom: 2rem !important;
+    }
+}
+
+.carousel-nav-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+}
+.carousel-nav-container .carousel-nav {
+    width: 68px;
+    text-align: center;
+    float: left;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.carousel-nav-container .carousel-nav:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.carousel-nav-container .carousel-nav.right {
+    margin-left: -1px;
+}
+.carousel-nav-container.programme-nav {
+    margin-left: -23px;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+.content a {
+    line-height: 1.25;
+    color: #4372d6;
+    margin-bottom: 2rem;
+}
+.content a:hover {
+    color: #3a79ff;
+    text-decoration: underline;
+}
+
+/* 
+      ___           ___           ___           ___     
+     /\  \         /\  \         /\  \         /\  \    
+    /::\  \       /::\  \       /::\  \       /::\  \   
+   /:/\ \  \     /:/\:\  \     /:/\:\  \     /:/\ \  \  
+  _\:\~\ \  \   /:/  \:\  \   /:/  \:\__\   _\:\~\ \  \ 
+ /\ \:\ \ \__\ /:/__/_\:\__\ /:/__/ \:|__| /\ \:\ \ \__\
+ \:\ \:\ \/__/ \:\  /\ \/__/ \:\  \ /:/  / \:\ \:\ \/__/
+  \:\ \:\__\    \:\ \:\__\    \:\  /:/  /   \:\ \:\__\  
+   \:\/:/  /     \:\/:/  /     \:\/:/  /     \:\/:/  /  
+    \::/  /       \::/  /       \::/__/       \::/  /   
+     \/__/         \/__/         ~~            \/__/    
+
+                    OVERRIDES BELOW
+*/
+
+.col {
+    word-wrap: break-word;
+}
+
+a:hover {
+    color: #3a79ff;
+}
+
 a[target="_blank"]:after {
     display: inline-block;
     font-family: "sgds-icons";
@@ -320,10 +445,16 @@ a[href$=".pdf"][target="_blank"]:after {
     display: none;
 }
 
+.has-text-white-trans {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Remove external link icon for masthead */
 .sgds-masthead a:after {
     content: "";
 }
 
+/* custom background colors */
 .bg-light {
     background-color: #f0f0f0;
 }
