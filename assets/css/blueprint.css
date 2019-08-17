@@ -106,12 +106,10 @@
 .owl-carousel.owl-rtl .owl-item {
     float: right;
 }
-
 /* No Js */
 .no-js .owl-carousel {
     display: block;
 }
-
 /*
  *  Owl Carousel - Animate Plugin
  */
@@ -143,7 +141,6 @@
 .owl-height {
     transition: height 500ms ease-in-out;
 }
-
 /*
  * 	Owl Carousel - Lazy Load Plugin
  */
@@ -154,7 +151,6 @@
 .owl-carousel .owl-item img.owl-lazy {
     transform-style: preserve-3d;
 }
-
 /*
  * 	Owl Carousel - Video Plugin
  */

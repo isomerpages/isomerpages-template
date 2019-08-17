@@ -1,7 +1,8 @@
 {%- comment -%} onclick at body tag is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
 <div class="masthead-container" id="navbar" onclick>
 {%- include masthead.html -%}
-    <nav class="navbar is-transparent has-text-weight-semibold">
+    <!-- remove is-transparent from navbar -->
+    <nav class="navbar has-text-weight-semibold">
         <div class="sgds-container">
 
         <div class="navbar-brand">
@@ -14,7 +15,7 @@
                 <span></span>
             </div>
         </div>
-        <div id="navbarExampleTransparentExample" class="sgds-container is-fluid margin--none navbar-menu">
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
             <div class="navbar-start">
                 <div class="navbar-item is-hidden-widescreen is-search-bar">
                     <form action="/search/" method="get">
@@ -166,14 +167,15 @@
                 {%- endfor -%}
             </div>
 
-            <div class="navbar-end is-hidden-touch is-hidden-desktop-only">
+            <div class="navbar-end is-hidden-touch ">
                 <div class="navbar-item">
                     {%- if page.layout != 'search' -%}
-                        <a class="sgds-button is-text is-large" style="text-decoration: none" id="search-activate">
-                            <span class="sgds-icon sgds-icon-search is-size-4"></span>
-                        </a>
+                        <button class="sgds-button is-white is-large search-toggle" data-target="searchbar" style="text-decoration: none" id="search-activate">
+                            <span class="sgds-icon sgds-icon-search"></span>
+                        </button>
                     {%- else -%}
-                        <a class="sgds-button is-text is-large" style="text-decoration: none; pointer-events: none;" id="search-activate" disabled></a>
+                    <button class="sgds-button is-white is-large search-toggle" data-target="searchbar" style="text-decoration: none" id="search-activate" disabled >
+                    </button>
                     {%- endif -%}
                 </div>
             </div>
@@ -181,7 +183,7 @@
         </div>
     </nav>
 
-    <div class="sgds-container hide is-hidden-touch is-hidden-desktop-only search-bar" id="search-bar">
+    <!-- <div class="sgds-container hide is-hidden-touch is-hidden-desktop-only search-bar" id="search-bar">
         <div class="row margin--top--sm margin--bottom--sm is-gapless">
 
             <div class="col">
@@ -200,6 +202,43 @@
                   </div>
                 </form>
             </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="sgds-container is-fluid is-hidden-touch is-marginless hide" id="searchbar">
+    <div class="row">
+        <div class="col">
+            <hr class="margin--bottom--sm" />
+            <form>
+                <div class="field has-addons padding--sm">
+                    <div
+                        class="control has-icons-left is-expanded padding--bottom--sm"
+                    >
+                        <input
+                            class="input is-fullwidth is-borderless is-shadowless"
+                            id="nav-4-search"
+                            type="text"
+                            placeholder="What are you looking for?"
+                            name="nav-4-search"
+                            autocomplete="off"
+                        />
+                        <span class="icon is-left">
+                            <i
+                                class="search-bar-icon sgds-icon sgds-icon-search is-size-7"
+                            ></i>
+                        </span>
+                    </div>
+                    <div class="control">
+                        <button
+                            type="submit"
+                            class="sgds-button is-primary has-text-white padding--left padding--right"
+                        >
+                            SEARCH
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
