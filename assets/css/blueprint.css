@@ -702,6 +702,18 @@ table th {
     top: 0;
 }
 
+.navbar-dropdown a {
+    font-weight: normal;
+}
+
+.sgds-button.search-button {
+    padding: 7px 24px !important;
+    font-size: 15px !important;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+    height: 100%;
+}
+
 .is-size-1 {
     font-size: 3rem !important;
 }
@@ -817,7 +829,11 @@ table th {
         font-size: 0.75rem !important;
     }
 }
+
 @media screen and (min-width: 1024px) {
+    .navbar { 
+        min-height: 6.25rem;
+    }
     .is-size-1-desktop {
         font-size: 3rem !important;
     }
@@ -6631,6 +6647,20 @@ a.navbar-link.is-active {
         -webkit-overflow-scrolling: touch;
         max-height: calc(100vh - 6.25rem);
         overflow: auto;
+    }
+
+    .navbar .field input{
+        border:none;
+    }
+
+    .navbar .field {
+        border-top: none;
+        border-bottom: none;
+    }
+
+   .navbar-item.is-search-bar {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     html.has-navbar-fixed-top-touch {

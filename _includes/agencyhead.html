@@ -1,7 +1,6 @@
 {%- comment -%} onclick at body tag is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
-<div class="masthead-container" id="navbar" onclick>
-{%- include masthead.html -%}
     <!-- remove is-transparent from navbar -->
+    {%- include masthead.html -%}
     <nav class="navbar has-text-weight-semibold">
         <div class="sgds-container">
 
@@ -17,15 +16,14 @@
         </div>
         <div id="navbarExampleTransparentExample" class="navbar-menu">
             <div class="navbar-start">
-                <div class="navbar-item is-hidden-widescreen is-search-bar">
+                <div class="navbar-item is-hidden-desktop is-search-bar">
                     <form action="/search/" method="get">
                         <div class="field has-addons">
                             <div class="control has-icons-left is-expanded">
                                 <input class="input is-fullwidth" id="search-box-mobile" type="text" placeholder="What are you looking for?" name="query">
-                                <span class="is-large is-left">
-                                  <i class="sgds-icon sgds-icon-search search-bar"></i>
+                                <span class="is-large icon is-left">
+                                    <i class="sgds-icon sgds-icon-search search-bar"></i>
                                 </span>
-
                             </div>
                         </div>
                     </form>
@@ -149,11 +147,11 @@
                         </div>
                     {%- else -%}
                         {%- comment -%} Single page {%- endcomment -%}
-                        <li class="navbar-item">
                             {%- assign url_input = navitem.url -%}
                             {%- include functions/external_url.html -%}
-                            <a {{anchor}} class="navbar-item is-uppercase" style="height:100%;width:100%;">
+                            <a {{anchor}} class="navbar-item is-uppercase is-tab">
                                 {{- navitem.title -}}
+                                <div class="selector is-hidden-touch is-hidden-desktop-only{{active}}"></div>
                             </a>
                             
                             {%- assign active = "" -%}
@@ -161,8 +159,6 @@
                                 {%- assign active = " active" -%}
                             {%- endif -%}
 
-                            <div class="selector is-hidden-touch is-hidden-desktop-only{{active}}"></div>
-                        </li>
                     {%- endif -%}
                 {%- endfor -%}
             </div>
@@ -182,7 +178,6 @@
         </div>
         </div>
     </nav>
-
     <!-- <div class="sgds-container hide is-hidden-touch is-hidden-desktop-only search-bar" id="search-bar">
         <div class="row margin--top--sm margin--bottom--sm is-gapless">
 
@@ -209,7 +204,6 @@
 <div class="sgds-container is-fluid is-hidden-touch is-marginless hide" id="searchbar">
     <div class="row">
         <div class="col">
-            <hr class="margin--bottom--sm" />
             <form>
                 <div class="field has-addons padding--sm">
                     <div
@@ -223,16 +217,12 @@
                             name="nav-4-search"
                             autocomplete="off"
                         />
-                        <span class="icon is-left">
-                            <i
-                                class="search-bar-icon sgds-icon sgds-icon-search is-size-7"
-                            ></i>
-                        </span>
+
                     </div>
                     <div class="control">
                         <button
                             type="submit"
-                            class="sgds-button is-primary has-text-white padding--left padding--right"
+                            class="sgds-button is-secondary has-text-white padding--left padding--right search-button"
                         >
                             SEARCH
                         </button>
