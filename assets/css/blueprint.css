@@ -4860,6 +4860,11 @@ a.has-text-danger:focus {
     background-color: transparent;
     color: white;
     border: 0;
+
+    max-height: 1.8rem;
+    max-width: 1.8rem;
+    min-height: 1.8rem;
+    min-width: 1.8rem;
 }
 .bp-notification .title,
 .bp-notification .subtitle,
@@ -6649,7 +6654,7 @@ a.navbar-link.is-active {
         overflow: auto;
     }
 
-    .navbar .field input{
+    .navbar .field input {
         border:none;
     }
 
