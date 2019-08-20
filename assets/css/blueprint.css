@@ -5493,7 +5493,12 @@ a[href$=".pdf"][target="_blank"]:after {
 }
 
 .filter-selector-div {
+    position:relative;
+    display:flex;
+    justify-content: flex-end;
     border: 1px solid #d6d6d6;
+    height: 3rem;
+    align-items: center;
 }
 
 .sgds-selector {

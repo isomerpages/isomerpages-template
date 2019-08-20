@@ -52,12 +52,15 @@
             {%- comment -%} Display filter for desktop {%- endcomment -%}
             <div class="col is-one-quarter padding--top padding--left padding--right--sm is-hidden-touch">
                 <div class="filter-selector-div sgds-dropdown">
-                    <a class="sgds-dropdown-button hero-dropdown is-centered padding--none" aria-haspopup="true" aria-controls="hero-dropdown-menu">
+                    <!-- <a class="sgds-dropdown-button hero-dropdown is-centered padding--none" aria-haspopup="true" aria-controls="hero-dropdown-menu"> -->
                     <div class="sgds-dropdown-trigger">
-                        <span class="sgds-icon sgds-icon-chevron-down is-size-4 has-text-black" id="filter-arrow"></span>
-                        <div class="sgds-selector has-text-black" id="sgds-selector-text-desktop">Recent</div>
+                        <button class="sgds-button" aria-haspopup="true" aria-controls="sgds-dropdown-menu">
+                                <span class="sgds-selector has-text-black" id="sgds-selector-text-desktop">Recent</span>
+                                <span class="icon">
+                                    <span class="sgds-icon sgds-icon-chevron-down is-size-4 has-text-black" id="filter-arrow"></span>
+                                </span>
+                        </button>
                     </div>
-                    </a>
                     <div class="sgds-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
                       <div id="year-filter-desktop" class="sgds-dropdown-content is-centered">
                         <a class="sgds-dropdown-item padding--top--sm padding--bottom--none" id="apply-filter-recent">
@@ -69,13 +72,13 @@
             </div>
         </div>
         <div class="row">
-            {%- comment -%} Display filter for mobile and tablet {%- endcomment -%}
+            {%- comment -%} Display filter for mobile and tablet {%- endcomment -%}     
             <div class="col is-fullwidth padding--top--lg is-hidden-desktop">
                 <div class="filter-selector-div is-hidden-desktop">
-                    <span class="sgds-icon sgds-icon-chevron-down is-size-4" id="filter-arrow"></span>
-                    <select id="year-filter-mobile" class="sgds-selector">
+                    <select id="year-filter-mobile" class="isomer-selector">
                         <option value="Recent">Recent</option>
                     </select>
+                    <span class="sgds-icon sgds-icon-chevron-down is-size-4" id="filter-arrow"></span>
                 </div>
             </div>
         </div>
