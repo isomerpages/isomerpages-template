@@ -133,12 +133,12 @@ layout: skeleton
                                                 {%- assign hidden = "" -%}
                                             {%- endif -%}
 
-                                            <li class="third-level-nav-header">
-                                                <a class="third-level-nav-header {{ anchor_colour }}">
+                                            <li class="second-level-nav-header">
+                                                <a class="second-level-nav-header {{ anchor_colour }}">
                                                     {{- collection_doc.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-{{ chevron_direction }} is-pulled-right is-size-4" aria-hidden="true"></i>
                                                 </a>
                                             </li>
-                                            <div class="third-level-nav-div {{ hidden }}">
+                                            <div class="second-level-nav-div {{ hidden }}">
                                             {%- assign prev_third_nav_title = collection_doc.third_nav_title -%}
                                             {%- assign in_third_nav = true -%}
                                         {%- endif -%}
@@ -148,7 +148,7 @@ layout: skeleton
                                             {%- assign anchor_colour = "has-text-secondary has-text-weight-bold" -%}
                                         {%- endif -%}
 
-                                        <li><a class="third-level-nav-item padding--top--none {{ anchor_colour }}" href="{{- collection_doc.url -}}">{{- collection_doc.title -}}</a></li>
+                                        <li><a class="second-level-nav-item padding--top--none {{ anchor_colour }}" href="{{- collection_doc.url -}}">{{- collection_doc.title -}}</a></li>
                                     {%- else -%}
                                         {%- comment -%} If this is note a third level nav page {%- endcomment -%}
                                         {%- if in_third_nav -%}
