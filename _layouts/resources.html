@@ -60,19 +60,20 @@ layout: skeleton
                         {%- else -%}
                             <a href="{{- post.file_url | relative_url -}}" class="is-media-card" target="_blank">
                         {%- endif -%}
-                        <div class="media-card-plain bg-media-color-{{category_index}} padding--lg">
-                            <div>
-                                <small class="has-text-white padding--bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</small>
-                                <h5 class="has-text-white padding--bottom--lg"><b>{{- post.title | truncatewords: 15 -}}</b></h5>
+                        <div class="sgds-card bg-media-color-{{category_index}}">
+                            <div class="sgds-card-content">
+                                <header>
+                                    <div class="has-text-white padding--bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</div>
+                                    <h5 class="has-text-white padding--bottom--lg has-text-weight-bold">{{- post.title | truncatewords: 15 -}}</h5>
+                                </header>
+                                <footer class="is-fluid padding--top--md description">
+                                    <span class="has-text-white">{{- post.date | date_to_string | upcase -}}</span>
+                                    {%- if post.file_url -%}
+                                        <span class="sgds-icon sgds-icon-download align-right is-size-4 has-text-white"></span>
+                                    {%- endif -%}
+                                </footer>
                             </div>
-                            <div class="is-fluid padding--top--md description">
-                                <small class="has-text-white">{{- post.date | date_to_string | upcase -}}</small>
-                                {%- if post.file_url -%}
-                                    <small class="has-text-white">
-                                        <span class="sgds-icon sgds-icon-download align-right is-size-4"></span>
-                                    </small>
-                                {%- endif -%}
-                            </div>
+
                         </div>
                         </a>
                     </div>
