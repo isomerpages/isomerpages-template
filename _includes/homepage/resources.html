@@ -36,16 +36,21 @@
                     <div class="image-card">
                         <a href="{{- post.url | relative_url | append: '.html'}}" class="has-text-grey-dark is-media-card">
                             <img src="{{site.baseurl}}{{post.image}}" alt="">
-                            <div class="news-content bg-media-color-{{category_index}} media-card-plain padding--lg">
-                                <div>
-                                    <small class="tag padding--bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</small>
-                                    <h5>
-                                        <b>{{- post.title | truncatewords: 10 -}}</b>
-                                    </h5>
+                            <div class="news-content bg-media-color-{{category_index}} sgds-card ">
+                                <div class="sgds-card-content">
+                                    <header>
+                                        <div class="tag padding--bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</div>
+                                        <h5 class="has-text-weight-bold">
+                                            <b>{{- post.title | truncatewords: 10 -}}</b>
+                                        </h5>
+                                    </header>
+                                    <footer>
+                                        <span class="date is-uppercase padding--top--lg">
+                                            {{- post.date | date_to_string -}}
+                                        </span>
+                                    </footer>
                                 </div>
-                                <small class="date is-uppercase padding--top--lg">
-                                    {{- post.date | date_to_string -}}
-                                </small>
+
                             </div>
                         </a>
                     </div>
@@ -56,18 +61,18 @@
                             <a href="{{- post.file_url | relative_url -}}" class="is-media-card" target="_blank" rel="noreferrer">
                         {%- endif -%}
 
-                        <div class="media-card-plain bg-media-color-{{category_index}} padding--lg">
-                            <div>
-                                <small class="has-text-white padding--bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</small>
-                                <h4 class="has-text-white padding--bottom--lg" style="line-height: 2.25rem"><b>{{- post.title | truncatewords: 15 -}}</b></h4>
-                            </div>
-                            <div class="is-fluid padding--top--md description">
-                                <small class="has-text-white">{{- post.date | date_to_string | upcase -}}</small>
-                                {%- if post.file_url -%}
-                                    <small class="has-text-white">
-                                        <span class="sgds-icon sgds-icon-download align-right is-size-4"></span>
-                                    </small>
-                                {%- endif -%}
+                        <div class="sgds-card bg-media-color-{{category_index}} ">
+                            <div class="sgds-card-content">
+                                <header>
+                                    <div class="has-text-white padding--bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</div>
+                                    <h4 class="has-text-white padding--bottom--lg has-text-weight-bold" style="line-height: 2.25rem">{{- post.title | truncatewords: 15 -}}</h4>
+                                </header>
+                                <footer class="is-fluid padding--top--md description">
+                                        <span class="has-text-white">{{- post.date | date_to_string | upcase -}}</span>
+                                        {%- if post.file_url -%}
+                                            <span class="sgds-icon sgds-icon-download align-right is-size-4 has-text-white"></span>
+                                        {%- endif -%}
+                                </footer>
                             </div>
                         </div>
                         </a>

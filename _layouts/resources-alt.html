@@ -74,18 +74,18 @@ layout: skeleton
                     {%- else -%}
                         <a href="{{- post.file_url | relative_url -}}" class="is-media-card" target="_blank">
                     {%- endif -%}
-                    <div class="media-card-plain bg-media-color-{{category_index}} padding--lg">
-                        <div>
-                            <small class="has-text-white padding--bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</small>
-                            <h5 class="has-text-white"><b>{{- post.title | truncatewords: 15 -}}</b></h5>
-                        </div>
-                        <div class="is-fluid padding--top-md description">
-                            <small class="has-text-white is-inline">{{- post.date | date_to_string | upcase -}}</small>
-                            {%- if post.file_url -%}
-                                <small class="has-text-white">  
-                                    <span class="sgds-icon sgds-icon-download align-right is-size-4"></span>
-                                </small>
-                            {%- endif -%}
+                    <div class="sgds-card bg-media-color-{{category_index}} padding--lg">
+                        <div class="sgds-card-content">
+                            <header>
+                                <small class="has-text-white padding--bottom">{{- post_category | upcase | replace: '-', ' ' | replace: '_', ' ' -}}</small>
+                                <h5 class="has-text-white"><b>{{- post.title | truncatewords: 15 -}}</b></h5>
+                            </header>
+                            <footer class="is-fluid padding--top-md description">
+                                <span class="has-text-white is-inline">{{- post.date | date_to_string | upcase -}}</span>
+                                {%- if post.file_url -%}
+                                    <span class="sgds-icon sgds-icon-download align-right is-size-4 has-text-white"></span>
+                                {%- endif -%}
+                            </footer>
                         </div>
                     </div>
                     </a>
