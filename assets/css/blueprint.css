@@ -544,10 +544,22 @@ table {
     border-spacing: 0;
 }
 
+<<<<<<< HEAD
 td,
 th {
     padding: 0;
     text-align: left;
+=======
+.float-buttons .sgds-button{
+    border-color: transparent;
+    box-shadow: none;
+    padding-right: 0;
+}
+
+.sgds-accordion-button {
+    margin-top: 3px;
+    color: #767676;
+>>>>>>> remove border for social buttons
 }
 
 html {
