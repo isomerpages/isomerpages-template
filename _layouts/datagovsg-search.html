@@ -53,11 +53,11 @@ layout: skeleton
 </section>
 
 
-<div class="search pagination padding--bottom--xl">
-    <span class="sgds-icon sgds-icon-arrow-left is-size-4"></span>
+<nav class="search sgds-pagination is-small padding--bottom--xl">
+    <a class="sgds-pagination-previous"><span class="sgds-icon sgds-icon-arrow-left is-size-5"></span></a>
     {%- comment -%} To insert page selectors {%- endcomment -%}
-    <div id="paginator-pages"></div>
-    <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span>
-</div>
+    <ul id="paginator-pages" class="sgds-pagination-list"></ul>
+    <a class="sgds-pagination-next"><span class="sgds-icon sgds-icon-arrow-right is-size-5"></span></a>
+</nav>
 
 <span style="display: none;" id="resourceId">{{- page.datagovsg-id -}}</span>

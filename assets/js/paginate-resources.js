@@ -101,7 +101,7 @@ function hideAllPostsAndPagination() {
     paginationElement.removeChild(paginationElement.firstElementChild);
   }
 
-  document.querySelector(".pagination").style.display = "none";
+  document.querySelector(".sgds-pagination").style.display = "none";
 }
 
 function findEarliestYear() {
@@ -149,7 +149,7 @@ function unhideChunk(hidePageIndex, unhidePageIndex) {
 }
 
 function changePage(curr, index) {
-  var prev = document.querySelector("#paginator-pages .selected-page");
+  var prev = document.querySelector("#paginator-pages .is-current");
   changePageUtil(curr, index);
 
   // Use the number in the paginated button to figure out current page index and next page index

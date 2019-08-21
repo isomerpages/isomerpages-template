@@ -2,13 +2,13 @@
 
 // Populate the pagination elements
 function displayPagination() {
-  document.querySelector(".pagination").style.display = "flex";
+  document.querySelector(".sgds-pagination").style.display = "flex";
   var pagination = document.getElementById('paginator-pages');
 
   var _loop = function _loop(i) {
-    var ele = document.createElement("span");
+    var ele = document.createElement("li");
     var text = document.createTextNode(i + 1);
-
+    ele.classList.add("sgds-pagination-link")
     ele.appendChild(text);
     ele.onclick = function (e) {
       changePage(e.target, i);
@@ -28,24 +28,24 @@ function displayPagination() {
 
 // Set click handlers for nav arrows
 function setNavArrowHandlers() {
-  var left = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-left");
-  var right = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-right");
-  var sel = document.querySelector("#paginator-pages .selected-page");
+  var left = document.querySelector(".sgds-pagination-previous");
+  var right = document.querySelector(".sgds-pagination-next");
+  var sel = document.querySelector("#paginator-pages .is-current");
 
   left.onclick = function (e) {
-    var sel = document.querySelector("#paginator-pages .selected-page");
+    var sel = document.querySelector("#paginator-pages .is-current");
     changePage(sel.previousElementSibling, currentPageIndex - 1);
   };
 
   right.onclick = function (e) {
-    var sel = document.querySelector("#paginator-pages .selected-page");
+    var sel = document.querySelector("#paginator-pages .is-current");
     changePage(sel.nextElementSibling, currentPageIndex + 1);
   };
 }
 
 function changePageUtil(curr, index) {
-  var prev = document.querySelector("#paginator-pages .selected-page");
-  prev.className = "";
+  var prev = document.querySelector("#paginator-pages .is-current");
+  prev.className = "sgds-pagination-link";
   prev.style.pointerEvents = "auto";
   currentPageIndex = index;
   setCurrentPage(curr);
@@ -54,18 +54,19 @@ function changePageUtil(curr, index) {
 }
 
 function displayNavArrows(i) {
-  var left = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-left");
-  var right = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-right");
+  var left = document.querySelector(".sgds-pagination-previous");
+  var right = document.querySelector(".sgds-pagination-next");
 
   if (i === 0) {
-    left.classList.add("sgds-icon-disabled");
+    left.setAttribute("disabled",true);
   } else {
-    left.classList.remove("sgds-icon-disabled");
+    left.removeAttribute("disabled");
   }
+  console.log(i === pageResults.length - 1)
   if (i === pageResults.length - 1) {
-    right.classList.add("sgds-icon-disabled");
+    right.setAttribute("disabled",true);
   } else {
-    right.classList.remove("sgds-icon-disabled");
+    right.removeAttribute("disabled");
   }
 }
 
@@ -93,7 +94,7 @@ function setCurrentPage(ele) {
   var pages = document.getElementById('paginator-pages').children;
   resetDisplayPages(pages);
 
-  ele.className = "selected-page";
+  ele.className = "sgds-pagination-link is-current";
   ele.style.display = "inline-block";
   ele.style.pointerEvents = "none";
 
