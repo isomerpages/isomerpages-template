@@ -10890,6 +10890,12 @@ h6 center {
     cursor: pointer;
 }
 
+.sgds-pagination-link.is-current {
+    background-color: #6b4370;
+    border-color: #6b4370;
+}
+
+
 #key-highlights {
     background-color: #0487bf;
     color: white;
