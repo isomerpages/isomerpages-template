@@ -544,22 +544,10 @@ table {
     border-spacing: 0;
 }
 
-<<<<<<< HEAD
 td,
 th {
     padding: 0;
     text-align: left;
-=======
-.float-buttons .sgds-button{
-    border-color: transparent;
-    box-shadow: none;
-    padding-right: 0;
-}
-
-.sgds-accordion-button {
-    margin-top: 3px;
-    color: #767676;
->>>>>>> remove border for social buttons
 }
 
 html {
@@ -712,6 +700,21 @@ table th {
     position: absolute;
     right: 0;
     top: 0;
+}
+
+.navbar .navbar-dropdown a.navbar-item.sub-link {
+    color: #484848;
+}
+
+.navbar .navbar-item a.navbar-item.sub-link:hover {
+    font-weight: normal;
+    color: #0a0a0a;
+}
+
+.navbar-dropdown {
+    border-top: 1px solid #6b4370;
+    display: none;
+    font-size: 0.875rem;
 }
 
 .navbar-dropdown a {
@@ -951,10 +954,30 @@ table th {
         text-align: center !important;
     }
 }
+<<<<<<< HEAD
 @media screen and (max-width: 1023px) {
     .has-text-centered-touch {
         text-align: center !important;
     }
+=======
+.sgds-breadcrumb a:hover {
+    color: #d6d6d6;
+}
+.is-inverted .sgds-breadcrumb a {
+    color: #767676;
+}
+.is-inverted .sgds-breadcrumb a:hover {
+    color: #484848;
+}
+.is-inverted .sgds-breadcrumb li + li::before {
+    color: #767676;
+}
+
+/* sgds-dropdown */
+.sgds-dropdown .sgds-dropdown-trigger{
+    width: 100%;
+    border: none;
+>>>>>>> Fixed styles for navbar sublinks and breadcrumbs
 }
 @media screen and (min-width: 1024px) {
     .has-text-centered-desktop {
