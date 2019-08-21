@@ -5490,6 +5490,13 @@ a[href$=".pdf"][target="_blank"]:after {
 }
 .bp-dropdown-trigger {
     width: 100%;
+    border: none;
+}
+.bp-dropdown-trigger button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: none;
 }
 
 .filter-selector-div {
