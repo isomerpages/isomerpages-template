@@ -508,6 +508,7 @@ ul {
     list-style: none;
 }
 
+<<<<<<< HEAD
 button,
 input,
 select,
@@ -517,6 +518,12 @@ textarea {
 
 html {
     box-sizing: border-box;
+=======
+.sgds-dropdown .third-level-nav-div-mobile {
+    padding-left: 1rem !important;
+    display: block;
+    visibility: visible;
+>>>>>>> Formatting only.
 }
 
 * {
@@ -667,10 +674,19 @@ pre code {
     padding: 0;
 }
 
+<<<<<<< HEAD
 table td,
 table th {
     text-align: left;
     vertical-align: top;
+=======
+.navbar-item .selector {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+>>>>>>> Formatting only.
 }
 table th {
     color: #323232;
@@ -728,6 +744,7 @@ table th {
     font-weight: 600;
     height: 100%;
 }
+<<<<<<< HEAD
 
 .is-size-1 {
     font-size: 3rem !important;
@@ -793,6 +810,16 @@ table th {
 
     .is-size-2-tablet {
         font-size: 2.5rem !important;
+=======
+@media screen and (min-width: 1024px) {
+    .navbar {
+        min-height: 6.25rem;
+    }
+}
+@media screen and (max-width: 1023px) {
+    .navbar .field input {
+        border: none;
+>>>>>>> Formatting only.
     }
 
     .is-size-3-tablet {
@@ -810,9 +837,15 @@ table th {
     .is-size-6-tablet {
         font-size: 1rem !important;
     }
+<<<<<<< HEAD
 
     .is-size-7-tablet {
         font-size: 0.75rem !important;
+=======
+    .navbar-item.is-search-bar {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+>>>>>>> Formatting only.
     }
 }
 @media screen and (max-width: 1023px) {
@@ -824,6 +857,7 @@ table th {
         font-size: 2.5rem !important;
     }
 
+<<<<<<< HEAD
     .is-size-3-touch {
         font-size: 2rem !important;
     }
@@ -876,12 +910,28 @@ table th {
     .is-size-7-desktop {
         font-size: 0.75rem !important;
     }
+=======
+h6,
+h6 center {
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
+
+/* Changing the delete button styling */
+.delete {
+    background-color: transparent;
+    max-height: 1.8rem;
+    max-width: 1.8rem;
+    min-height: 1.8rem;
+    min-width: 1.8rem;
+>>>>>>> Formatting only.
 }
 @media screen and (min-width: 1280px) {
     .is-size-1-widescreen {
         font-size: 3rem !important;
     }
 
+<<<<<<< HEAD
     .is-size-2-widescreen {
         font-size: 2.5rem !important;
     }
@@ -905,12 +955,18 @@ table th {
     .is-size-7-widescreen {
         font-size: 0.75rem !important;
     }
+=======
+/* Actionbar styling */
+.actionbar__inner a[target="_blank"]:after {
+    content: "";
+>>>>>>> Formatting only.
 }
 @media screen and (min-width: 1408px) {
     .is-size-1-fullhd {
         font-size: 3rem !important;
     }
 
+<<<<<<< HEAD
     .is-size-2-fullhd {
         font-size: 2.5rem !important;
     }
@@ -953,6 +1009,28 @@ table th {
     .has-text-centered-tablet-only {
         text-align: center !important;
     }
+=======
+/* Bottom-navigation */
+.sgds-bottom-navigation a {
+    background-color: #6b4370;
+}
+.sgds-bottom-navigation a:hover {
+    background-color: #4d3050;
+    color: #fff;
+}
+
+/* Pagetitle  */
+.sgds-section.is-small.sgds-section-pagetitle {
+    padding-bottom: 2.25rem;
+}
+/* breadcrumbs */
+.sgds-breadcrumb {
+    margin-bottom: 0.625rem;
+}
+.sgds-breadcrumb a {
+    padding: 0.5em 0.75em;
+    color: white;
+>>>>>>> Formatting only.
 }
 <<<<<<< HEAD
 @media screen and (max-width: 1023px) {
@@ -974,11 +1052,12 @@ table th {
 }
 
 /* sgds-dropdown */
-.sgds-dropdown .sgds-dropdown-trigger{
+.sgds-dropdown .sgds-dropdown-trigger {
     width: 100%;
     border: none;
 >>>>>>> Fixed styles for navbar sublinks and breadcrumbs
 }
+<<<<<<< HEAD
 @media screen and (min-width: 1024px) {
     .has-text-centered-desktop {
         text-align: center !important;
@@ -998,12 +1077,48 @@ table th {
     .has-text-centered-widescreen-only {
         text-align: center !important;
     }
+=======
+.sgds-dropdown .sgds-dropdown-trigger button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+}
+
+.filter-selector-div {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    border: 1px solid #d6d6d6;
+    height: 3rem;
+    align-items: center;
+}
+.isomer-selector {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 1.125rem;
+    border: none;
+    background-color: transparent;
+    padding: 0.625rem 0.75rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+#filter-arrow {
+    pointer-events: none;
+    padding: 5px;
+>>>>>>> Formatting only.
 }
 @media screen and (min-width: 1408px) {
     .has-text-centered-fullhd {
         text-align: center !important;
     }
 }
+<<<<<<< HEAD
 .has-text-justified {
     text-align: justify !important;
 }
@@ -1017,6 +1132,23 @@ table th {
     .has-text-justified-tablet {
         text-align: justify !important;
     }
+=======
+
+/* Secondary Buttons */
+.media-category-button {
+    text-decoration: none !important;
+    color: #323232;
+    margin-right: 2.5rem;
+    letter-spacing: 0.5px;
+    line-height: 34px;
+    font-size: 1.125rem;
+}
+
+.media-category-button:hover,
+.media-category-button.selected {
+    color: #6b4370;
+    border-bottom: 2px solid #6b4370;
+>>>>>>> Formatting only.
 }
 @media screen and (min-width: 769px) and (max-width: 1023px) {
     .has-text-justified-tablet-only {
