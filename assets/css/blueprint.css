@@ -417,6 +417,11 @@ a[href$=".pdf"][target="_blank"]:after {
     display: none;
 }
 
+.mobile-nav-dropdown {
+    position: relative;
+    vertical-align: top;
+}
+
 /* 
       ___           ___           ___           ___     
      /\  \         /\  \         /\  \         /\  \    
@@ -508,7 +513,6 @@ ul {
     list-style: none;
 }
 
-<<<<<<< HEAD
 button,
 input,
 select,
@@ -518,12 +522,6 @@ textarea {
 
 html {
     box-sizing: border-box;
-=======
-.sgds-dropdown .third-level-nav-div-mobile {
-    padding-left: 1rem !important;
-    display: block;
-    visibility: visible;
->>>>>>> Formatting only.
 }
 
 * {
@@ -674,19 +672,10 @@ pre code {
     padding: 0;
 }
 
-<<<<<<< HEAD
 table td,
 table th {
     text-align: left;
     vertical-align: top;
-=======
-.navbar-item .selector {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    height: 5px;
->>>>>>> Formatting only.
 }
 table th {
     color: #323232;

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 'use strict';
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
@@ -124,17 +125,45 @@ BLUEPRINT.toggleMenu = function (el, options) {
     BLUEPRINT.collapseMenu(el, 'hide');
     BLUEPRINT.click(el, function (e) {
         var active, actives, i, len;
+=======
+$(document).ready(function() {
+    var masthead_container = $(".masthead-container");
+    var searchToggle = $("#search-activate");
+    var searchIcon = $("#search-activate span");
+    var searchBar = $(".search-bar");
+    var searchBar_input = $(".search-bar input");
+    searchToggle.on("click", function(e) {
+>>>>>>> Added custom js for controlling mobile nav.
         e.preventDefault();
-        e.stopPropagation();
-        if (options.single) {
-            actives = menu.querySelectorAll('.is-active');
-            for (i = 0, len = actives.length; i < len; i++) {
-                active = actives[i];
-                if (active !== e.target) {
-                    BLUEPRINT.removeClass(active, 'is-active');
-                    if (active.nextElementSibling.nodeName === 'UL') {
-                        BLUEPRINT.hide(active.nextElementSibling);
+        searchIcon.toggleClass("sgds-icon-search").toggleClass("sgds-icon-cross");
+        searchBar.toggleClass("hide");
+        searchBar_input.focus().val("");
+        masthead_container.toggleClass("is-opened");
+    });
+    // Custom dropdown code for mobile browsers
+    const dropdowns = document.querySelectorAll(".mobile-nav-dropdown");
+    if (dropdowns.length > 0) {
+        dropdowns.forEach(dropdown => {
+            const [dropdownMenu] = dropdown.getElementsByClassName("sgds-dropdown-menu");
+            const [dropdownTrigger] = dropdown.getElementsByClassName("sgds-dropdown-button");
+            if (dropdownMenu && dropdownTrigger) {
+                dropdownTrigger.onclick = () => {
+                    let dropdownIcon = dropdownTrigger.querySelector(".sgds-icon");
+                    if (
+                        dropdownMenu.style.display === "" ||
+                        dropdownMenu.style.display === "none"
+                    ) {
+                        dropdownMenu.style.display = "block";
+
+                        dropdownIcon.classList.remove("sgds-icon-chevron-down");
+                        dropdownIcon.classList.add("sgds-icon-chevron-up");
+                    } else {
+                        dropdownMenu.style.display = "";
+
+                        dropdownIcon.classList.remove("sgds-icon-chevron-up");
+                        dropdownIcon.classList.add("sgds-icon-chevron-down");
                     }
+<<<<<<< HEAD
                 }
             }
         }
@@ -342,26 +371,20 @@ if ($dropdowns.length > 0) {
         $el.addEventListener('click', function (event) {
             event.stopPropagation();
             $el.classList.toggle('is-active');
+=======
+                };
+                document.addEventListener("click", evt => {
+                    let targetElement = evt.target; // clicked element
+                    if (dropdown.contains(targetElement)) {
+                        return;
+                    }
+                    dropdownMenu.style.display = "";
+                });
+            }
+>>>>>>> Added custom js for controlling mobile nav.
         });
-    });
-
-    document.addEventListener('click', function (event) {
-        closeDropdowns();
-    });
-}
-
-function closeDropdowns() {
-    $dropdowns.forEach(function ($el) {
-        $el.classList.remove('is-active');
-    });
-}
-
-// Close dropdowns if ESC pressed
-document.addEventListener('keydown', function (event) {
-    var e = event || window.event;
-    if (e.keyCode === 27) {
-        closeDropdowns();
     }
+<<<<<<< HEAD
 });
 
 // Custom dropdown code for mobile browsers
@@ -414,7 +437,10 @@ $(document).ready(function () {
         searchBar_input.focus().val('');
         masthead_container.toggleClass('is-opened');
     });
+=======
+>>>>>>> Added custom js for controlling mobile nav.
 
-    // Wrap all tables in a <div> with the horizontal-scroll class so that the table will not be cut off on mobile
-    $('table').wrap('<div class="horizontal-scroll"></div>');
+    // Wrap all tables in a <div> with the horizontal-scroll class so that the
+    // table will not be cut off on mobile
+    $("table").wrap('<div class="horizontal-scroll"></div>');
 });

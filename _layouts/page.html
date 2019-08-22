@@ -31,7 +31,7 @@ layout: skeleton
     {%- comment -%} Page is a leftnav page {%- endcomment -%}
     {%- assign collection = site[page.collection] -%}
     <section class="sgds-section padding--none is-hidden-desktop">
-        <div class="sgds-dropdown is-hoverable">
+        <div class="mobile-nav-dropdown">
             <div class="sgds-dropdown-trigger">
                 <button class="sgds-button sgds-dropdown-button is-fullwidth" aria-haspopup="true" aria-controls="dropdown-menu">
                     <span><b><p>{{- page.title -}}</p></b></span>
@@ -40,7 +40,7 @@ layout: skeleton
                     </span>
                 </button>
             </div>
-            <div class="sgds-dropdown-menu has-text-left hide" id="dropdown-menu" role="menu">
+            <div class="sgds-dropdown-menu has-text-left" id="dropdown-menu" role="menu">
                 <div class="sgds-dropdown-content">
                     {%- assign prev_third_nav_title = "" -%}
                     {%- assign in_third_nav = false -%}
