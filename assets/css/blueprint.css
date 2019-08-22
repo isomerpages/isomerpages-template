@@ -5920,6 +5920,10 @@ a[href$=".pdf"][target="_blank"]:after {
 .navbar.is-white .navbar-brand .navbar-link::after {
     border-color: #0a0a0a;
 }
+.navbar-link:not(.is-arrowless):after {
+    color: #6b4370;
+}
+
 @media screen and (min-width: 1280px) {
     .navbar.is-white .navbar-start > .navbar-item,
     .navbar.is-white .navbar-start .navbar-link,
@@ -6586,6 +6590,7 @@ a.navbar-link.is-active {
 .navbar-item.is-tab:hover {
     background-color: transparent;
     border-bottom-color: #6b4370;
+    color: #6b4370;
 }
 .navbar-item.is-tab.is-active {
     background-color: transparent;
@@ -6594,6 +6599,9 @@ a.navbar-link.is-active {
     border-bottom-width: 3px;
     color: #6b4370;
     padding-bottom: calc(0.5rem - 3px);
+}
+.navbar .navbar-item .selector.active {
+    background-color: #6b4370;
 }
 
 .navbar-content {

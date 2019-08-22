@@ -45,14 +45,7 @@ $widescreen: 1152px + (4 * $gap) !default;
   }
 }
 
-// Background
-.bg{
-  &-primary{
-    background-color: $primary !important;
-  }
-  &-secondary {
-    background-color: $secondary !important;
-  }
+@mixin themeColor {
   &-media-color {
     &-1 {
       background-color: $media-color-one;
@@ -85,45 +78,56 @@ $widescreen: 1152px + (4 * $gap) !default;
     }
     }
   }
-  &-1{
+}
+
+// Background
+.bg {
+  &-primary {
+    background-color: $primary !important;
+  }
+  &-secondary {
+    background-color: $secondary !important;
+  }
+  @include themeColor;
+  &-1 {
     //background-color: $primary;
     background: url('https://c.stocksy.com/a/YY3500/z0/1205314.jpg') no-repeat left 50%;
     -webkit-background-size: cover;
     background-size: cover;
   }
-  &-2{
+  &-2 {
     //background-color: $info;
     background: url('https://c.stocksy.com/a/FY3500/z0/1205295.jpg') no-repeat left 50%;
     -webkit-background-size: cover;
     background-size: cover;
   }
-  &-3{
+  &-3 {
     //background-color: $warning;
     background: url('https://c.stocksy.com/a/L1o500/z0/1383923.jpg') no-repeat left 50%;
     -webkit-background-size: cover;
     background-size: cover;
   }
-  &-4{
+  &-4 {
     //background-color: $danger;
     background: url('https://c.stocksy.com/a/Z22000/z0/7847.jpg') no-repeat left 50%;
     -webkit-background-size: cover;
     background-size: cover;
   }
-  &-gradient{
+  &-gradient {
     background: #b41e8e;
     background: -moz-linear-gradient(45deg, #b41e8e 0%, #5c3f9e 50%, #0061af 100%);
     background: -webkit-linear-gradient(45deg, #b41e8e 0%,#5c3f9e 50%,#0061af 100%);
     background: linear-gradient(45deg, #b41e8e 0%,#5c3f9e 50%,#0061af 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b41e8e', endColorstr='#0061af',GradientType=1 );
   }
-  &-singpass{
+  &-singpass {
     background: #be2e7d; /* Old browsers */
     background: -moz-linear-gradient(45deg, #be2e7d 0%, #d64e54 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(45deg, #be2e7d 0%,#d64e54 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(45deg, #be2e7d 0%,#d64e54 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#be2e7d', endColorstr='#d64e54',GradientType=1 ); /*IE6-9 fallback on horizontal gradient*/
   }
-  &-beeline{
+  &-beeline {
     background: #009d62; /* Old browsers */
     background: -moz-linear-gradient(45deg, #009d62 0%, #0094d3 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(45deg, #009d62 0%,#0094d3 100%); /* Chrome10-25,Safari5.1-6 */
@@ -131,7 +135,7 @@ $widescreen: 1152px + (4 * $gap) !default;
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009d62', endColorstr='#0094d3',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
   }
-  &-parkingsg{
+  &-parkingsg {
     background: #0164b6; /* Old browsers */
     background: -moz-linear-gradient(45deg, #0164b6 0%, #04a4e3 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(45deg, #0164b6 0%,#04a4e3 100%); /* Chrome10-25,Safari5.1-6 */
@@ -211,7 +215,7 @@ $widescreen: 1152px + (4 * $gap) !default;
 .bottom-navigation {
   a {
     background-color: $secondary;
-      &:hover{
+      &:hover {
         background-color: darken($secondary,10%) !important;
       }
   }
@@ -240,25 +244,25 @@ $widescreen: 1152px + (4 * $gap) !default;
 }
 
 // Homepage
-#key-highlights{
+#key-highlights {
   background-color: $primary;
   .col {
     border-left:1px solid darken($primary,10%);
     @include touch(){
       border-top:1px solid darken($primary,10%);
     }
-    &:hover{
+    &:hover {
       background-color: darken($primary,10%);
     }
   }
 }
 
 // Navbar
-.navbar{
-  &-start{
-    .navbar-item{
-      a{
-        &.active{
+.navbar {
+  &-start {
+    .navbar-item {
+      a {
+        &.active {
           @include touch(){
             border-bottom:2px solid $secondary;
           }
@@ -266,22 +270,18 @@ $widescreen: 1152px + (4 * $gap) !default;
       }
     }
   }
-  .navbar-link:hover:after {
-    border-bottom: 1px solid $secondary;
-    border-left: 1px solid $secondary;
-  }
 
-  .navbar-item{
-    .sub-link.is-active{
+  .navbar-item {
+    .sub-link.is-active {
       color:$secondary;
     }
 
-    .selector{
-      &.active{
+    .selector {
+      &.active {
         background-color:$secondary;
       }
     }
-    &.active{
+    &.active {
       @include widescreen(){
         border-bottom:1px solid $secondary;
       }
@@ -391,7 +391,7 @@ table.table-h {
   }
 }
 
-.isomer-example{
+.isomer-example {
   transition: .5s ease;
   &:hover {
     opacity: 0.3;
@@ -417,7 +417,7 @@ table.table-h {
   background: rgba(0, 0, 0, 0);
   transition: background 0.5s ease;
 
-  &:hover{
+  &:hover {
     background: #6031b6;
     opacity: 0.9;
   }
@@ -427,8 +427,13 @@ table.table-h {
   position: relative;
   transition: .5s ease;
   &:hover {
-    .image-hover-button{
+    .image-hover-button {
       opacity: 1;
     }
   }
+}
+
+// Added to fix media-card
+.sgds-card.bg {
+  @include themeColor;
 }
