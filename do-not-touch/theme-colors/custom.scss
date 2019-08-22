@@ -225,6 +225,25 @@ $widescreen: 1152px + (4 * $gap) !default;
   background-color: $primary !important;
 }
 
+
+.sgds-card{
+  &.bg-media-color-1:hover{
+    background-color: darken($media-color-one, 10%)
+  }
+  &.bg-media-color-2:hover{
+    background-color: darken($media-color-two, 10%)
+  }
+  &.bg-media-color-3:hover{
+    background-color: darken($media-color-three, 10%)
+  }
+  &.bg-media-color-4:hover{
+    background-color: darken($media-color-four, 10%)
+  }
+  &.bg-media-color-5:hover{
+    background-color: darken($media-color-five, 10%)
+  }
+}
+
 // Pagination
 .pagination {
   span {
