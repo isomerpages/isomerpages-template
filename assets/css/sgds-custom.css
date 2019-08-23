@@ -257,6 +257,9 @@ h6 center {
     width: 100%;
     border: none;
 }
+.sgds-hero .sgds-dropdown-trigger {
+    display: inline;
+}
 .sgds-dropdown .sgds-dropdown-trigger button {
     width: 100%;
     display: flex;
