@@ -1,0 +1,270 @@
+/* 
+      ___           ___           ___           ___     
+     /\  \         /\  \         /\  \         /\  \    
+    /::\  \       /::\  \       /::\  \       /::\  \   
+   /:/\ \  \     /:/\:\  \     /:/\:\  \     /:/\ \  \  
+  _\:\~\ \  \   /:/  \:\  \   /:/  \:\__\   _\:\~\ \  \ 
+ /\ \:\ \ \__\ /:/__/_\:\__\ /:/__/ \:|__| /\ \:\ \ \__\
+ \:\ \:\ \/__/ \:\  /\ \/__/ \:\  \ /:/  / \:\ \:\ \/__/
+  \:\ \:\__\    \:\ \:\__\    \:\  /:/  /   \:\ \:\__\  
+   \:\/:/  /     \:\/:/  /     \:\/:/  /     \:\/:/  /  
+    \::/  /       \::/  /       \::/__/       \::/  /   
+     \/__/         \/__/         ~~            \/__/    
+
+                    OVERRIDES BELOW
+*/
+
+.col {
+    word-wrap: break-word;
+}
+
+a:hover {
+    color: #3a79ff;
+}
+
+.has-text-white-trans {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Remove external link icon for masthead */
+.sgds-masthead a:after {
+    content: "";
+}
+
+/* custom background colors */
+.bg-light {
+    background-color: #f0f0f0;
+}
+.bg-white {
+    background-color: white;
+}
+.bg-newssection {
+    background-color: #f0f4f6;
+}
+.bg-prev-next {
+    background-color: #6b4370;
+}
+.bg-table-grey {
+    background-color: #f0f4f6;
+}
+
+.sgds-dropdown {
+    display: block;
+}
+
+.sgds-dropdown-menu {
+    width: 100%;
+}
+
+.sgds-dropdown .third-level-nav-div-mobile {
+    padding-left: 1rem !important;
+    display: block;
+    visibility: visible;
+}
+
+.sgds-dropdown-content {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.sgds-dropdown-button {
+    padding: 2.25rem 1.5rem;
+    box-sizing: border-box;
+    justify-content: space-between;
+    border: 0;
+    border-bottom: solid 1px #d6d6d6;
+}
+
+.sgds-button .icon,
+.sgds-button .icon.is-small,
+.sgds-button .icon.is-medium,
+.sgds-button .icon.is-large {
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.float-buttons .sgds-button {
+    border-color: transparent;
+    box-shadow: none;
+    padding-right: 0;
+}
+
+.sgds-accordion-button {
+    margin-top: 3px;
+    color: #767676;
+}
+.sgds-accordion-button.sgds-icon-minus {
+    color: #767676;
+}
+
+.key-highlights-text {
+    display: block;
+    padding: 1.2rem 2rem !important;
+}
+
+#key-highlights .col {
+    padding: 0 !important;
+}
+
+#key-highlights .col p {
+    font-size: 16px !important;
+    line-height: 22px !important;
+}
+#key-highlights .col p:nth-child(1) {
+    margin-bottom: 5px;
+}
+#key-highlights .key-highlight-title {
+    letter-spacing: 0.2px !important;
+}
+
+.eyebrow {
+    font-size: 16px !important;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+/* Isomer Navbar custom theme */
+
+.navbar-item .selector {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+}
+
+.navbar-item.is-tab:hover {
+    border-bottom: none;
+    padding-bottom: 5px;
+    color: #6b4370;
+}
+.navbar-item.is-tab {
+    border-bottom: none;
+    padding-bottom: 5px;
+}
+
+.navbar .navbar-item .selector.active {
+    background-color: #6b4370;
+}
+
+.navbar .navbar-dropdown a.navbar-item.sub-link {
+    color: #484848;
+}
+
+.navbar .navbar-item a.navbar-item.sub-link:hover {
+    font-weight: normal;
+    color: #0a0a0a;
+}
+
+.navbar-dropdown {
+    border-top: 1px solid #6b4370;
+    display: none;
+    font-size: 0.875rem;
+}
+
+.navbar-dropdown a {
+    font-weight: normal;
+}
+
+.sgds-button.search-button {
+    padding: 7px 24px !important;
+    font-size: 15px !important;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+    height: 100%;
+}
+@media screen and (min-width: 1024px) {
+    .navbar {
+        min-height: 6.25rem;
+    }
+}
+@media screen and (max-width: 1023px) {
+    .navbar .field input {
+        border: none;
+    }
+    .navbar .field {
+        border-top: none;
+        border-bottom: none;
+    }
+    .navbar-item.is-search-bar {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
+.navbar-link:not(.is-arrowless):after {
+    color: #6b4370;
+}
+/* Styles for the notification bar for Isomer */
+/* Changing font sizing to Isomer settings */
+
+h6,
+h6 center {
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
+
+/* Changing the delete button styling */
+.delete {
+    background-color: transparent;
+    max-height: 1.8rem;
+    max-width: 1.8rem;
+    min-height: 1.8rem;
+    min-width: 1.8rem;
+}
+
+/* Actionbar styling */
+.actionbar__inner a[target="_blank"]:after {
+    content: "";
+}
+
+/* Bottom-navigation */
+.sgds-bottom-navigation a {
+    background-color: #6b4370;
+}
+.sgds-bottom-navigation a:hover {
+    background-color: #4d3050;
+    color: #fff;
+}
+
+/* Pagetitle  */
+.sgds-section.is-small.sgds-section-pagetitle {
+    padding-bottom: 2.25rem;
+}
+/* breadcrumbs */
+.sgds-breadcrumb {
+    margin-bottom: 0.625rem;
+}
+.sgds-breadcrumb a {
+    padding: 0.5em 0.75em;
+    color: white;
+}
+.sgds-breadcrumb a:hover {
+    color: #d6d6d6;
+}
+.is-inverted .sgds-breadcrumb a {
+    color: #767676;
+}
+.is-inverted .sgds-breadcrumb a:hover {
+    color: #484848;
+}
+.is-inverted .sgds-breadcrumb li + li::before {
+    color: #767676;
+}
+
+/* sgds-dropdown */
+.sgds-dropdown .sgds-dropdown-trigger {
+    width: 100%;
+    border: none;
+}
+.sgds-dropdown .sgds-dropdown-trigger button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+}
+
+.sgds-pagination-link.is-current {
+    background-color: #6b4370;
+    border-color: #6b4370;
+}
