@@ -1,58 +1,93 @@
 ---
 layout: skeleton
 ---
-<section class="sgds-section is-small search-section sgds-section-pagetitle">
-	<div class="sgds-container">
-		<div class="row">
-			<div class="col is-8 is-offset-2">
-				<p class="has-text-white">{%- include header-breadcrumb.html -%}</p>
-			</div>
-		</div>
-	</div>
-	<div class="sgds-container">
-		<div class="row">
-			<div id="search-title" class="col is-8 is-offset-2">
-		      	<h1 class="has-text-white"><b>{{- page.title -}}</b></h1>
-			</div>
-		</div>
-	</div>
-	<div class="sgds-container">
-		<form action="{{- site.baseurl -}}/search/" method="get">
-			<div class="row">
-				<div id="search-container" class="col is-8 right-padding-zero is-offset-2">
-          <div class="field has-addons">
-              <div class="control has-icons-left is-expanded">
-                  <input class="input is-fullwidth is-large" id="search-box-search" type="text" placeholder="What are you looking for?" name="query" autocomplete="off">
-                  <span class="is-large is-left">
-                    <i class="sgds-icon sgds-icon-search is-size-4 search-bar"></i>
-                  </span>
 
-              </div>
-              <div class="control">
-                  <button type="submit" class="sgds-button is-secondary is-medium has-text-white search-button">SEARCH</button>
-              </div>
-          </div>
-				</div>
-			</div>
-		</form>
-	</div>
+<section class="sgds-section is-small search-section sgds-section-pagetitle">
+    <div class="sgds-container">
+        <div class="row">
+            <div class="col is-8 is-offset-2">
+                <p class="has-text-white">
+                    {%- include header-breadcrumb.html -%}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="sgds-container">
+        <div class="row">
+            <div id="search-title" class="col is-8 is-offset-2">
+                <h1 class="has-text-white">
+                    <b>{{- page.title -}}</b>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="sgds-container">
+        <form action="{{- site.baseurl -}}/search/" method="get">
+            <div class="row">
+                <div
+                    id="search-container"
+                    class="col is-8 right-padding-zero is-offset-2"
+                >
+                    <div class="field has-addons">
+                        <div class="control has-icons-left is-expanded">
+                            <input
+                                class="input is-fullwidth is-large"
+                                id="search-box-search"
+                                type="text"
+                                placeholder="What are you looking for?"
+                                name="query"
+                                autocomplete="off"
+                            />
+                            <span class="icon is-large is-left">
+                                <i
+                                    class="sgds-icon sgds-icon-search is-size-4 search-bar"
+                                ></i>
+                            </span>
+                        </div>
+                        <div class="control">
+                            <button
+                                type="submit"
+                                class="sgds-button is-secondary is-medium has-text-white search-button"
+                            >
+                                SEARCH
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </section>
 <section class="sgds-section">
     <div class="sgds-container search-content">
-    <div class="row">
-			<div id="loading-spinner" class="col is-full">
-				<div class="lds-default">
-					<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-				</div>
-			</div>
-      <div class="col is-8 is-offset-2 search-results-display">
-        <div>
-					<div class="search-summary">
-						<h4 class="search-results-count" id="search-results-count"></h4>
-						<small id="search-page-indicator"></small>
-					</div>
-					<br/>
-					<h5 class="search-results" id="search-results"></h5>
+        <div class="row">
+            <div id="loading-spinner" class="col is-full">
+                <div class="lds-default">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="col is-8 is-offset-2 search-results-display">
+                <div>
+                    <div class="search-summary">
+                        <h4
+                            class="search-results-count"
+                            id="search-results-count"
+                        ></h4>
+                        <small id="search-page-indicator"></small>
+                    </div>
+                    <br />
+                    <h5 class="search-results" id="search-results"></h5>
                 </div>
             </div>
         </div>
@@ -60,8 +95,12 @@ layout: skeleton
 </section>
 
 <nav class="search sgds-pagination is-small padding--bottom--xl">
-    <a class="sgds-pagination-previous"><span class="sgds-icon sgds-icon-arrow-left is-size-5"></span></a>
+    <a class="sgds-pagination-previous"
+        ><span class="sgds-icon sgds-icon-arrow-left is-size-5"></span
+    ></a>
     {%- comment -%} To insert page selectors {%- endcomment -%}
     <ul id="paginator-pages" class="sgds-pagination-list"></ul>
-    <a class="sgds-pagination-next"><span class="sgds-icon sgds-icon-arrow-right is-size-5"></span></a>
+    <a class="sgds-pagination-next"
+        ><span class="sgds-icon sgds-icon-arrow-right is-size-5"></span
+    ></a>
 </nav>

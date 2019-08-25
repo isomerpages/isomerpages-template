@@ -20,9 +20,14 @@
                     <form action="/search/" method="get">
                         <div class="field has-addons">
                             <div class="control has-icons-left is-expanded">
-                                <input class="input is-fullwidth" id="search-box-mobile" type="text" placeholder="What are you looking for?" name="query">
+                                <input 
+                                    class="input is-fullwidth" 
+                                    id="search-box-mobile" 
+                                    type="text" 
+                                    placeholder="What are you looking for?" 
+                                    name="query">
                                 <span class="is-large icon is-left">
-                                    <i class="sgds-icon sgds-icon-search search-bar"></i>
+                                    <i class="sgds-icon sgds-icon-search"></i>
                                 </span>
                             </div>
                         </div>
@@ -166,12 +171,13 @@
             <div class="navbar-end is-hidden-touch ">
                 <div class="navbar-item">
                     {%- if page.layout != 'search' -%}
-                        <button class="sgds-button is-white is-large search-toggle" data-target="searchbar" style="text-decoration: none" id="search-activate">
+                        <button
+                            class="sgds-button is-white is-large search-toggle"
+                            data-target="searchbar"
+                            style="text-decoration: none"
+                            id="search-activate">
                             <span class="sgds-icon sgds-icon-search"></span>
                         </button>
-                    {%- else -%}
-                    <button class="sgds-button is-white is-large search-toggle" data-target="searchbar" style="text-decoration: none" id="search-activate" disabled >
-                    </button>
                     {%- endif -%}
                 </div>
             </div>
@@ -207,7 +213,7 @@
             <form>
                 <div class="field has-addons padding--sm">
                     <div
-                        class="control has-icons-left is-expanded padding--bottom--sm"
+                        class="control has-icons-left is-expanded"
                     >
                         <input
                             class="input is-fullwidth is-borderless is-shadowless"
@@ -217,7 +223,6 @@
                             name="nav-4-search"
                             autocomplete="off"
                         />
-
                     </div>
                     <div class="control">
                         <button
