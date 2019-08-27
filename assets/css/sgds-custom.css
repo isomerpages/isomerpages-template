@@ -126,6 +126,10 @@ a:hover {
 
 /* Isomer Navbar custom theme */
 
+.navbar {
+    border-bottom: 1px solid #f0f0f0;
+}
+
 .navbar-item .selector {
     position: absolute;
     width: 100%;
@@ -338,4 +342,14 @@ h6 center {
 
 .sgds-menu-list li:not(:first-child) a {
     border-top: 1px solid #767676
+}
+
+/* sgds-bottom-navigation */
+.sgds-bottom-navigation a p{
+    display: flex;
+    align-items: center;
+}
+
+.sgds-bottom-navigation a.is-right p{
+    justify-content: flex-end;
 }
