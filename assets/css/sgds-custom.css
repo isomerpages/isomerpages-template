@@ -353,3 +353,28 @@ h6 center {
 .sgds-bottom-navigation a.is-right p{
     justify-content: flex-end;
 }
+
+/* sgds-overflow-button */
+.sgds-overflow-buttons .sgds-buttons {
+    flex-wrap: wrap;
+    white-space: nowrap;
+    overflow-y: visible;
+    height: 100%;
+}
+
+@media screen and (max-width: 1023px){
+    .sgds-overflow-buttons .sgds-buttons {
+        flex-wrap: nowrap;
+    }
+
+    .sgds-overflow-buttons {
+        overflow-x: auto;
+        overflow-y: visible;
+        margin-right: .75rem;
+    }
+}
+
+
+.sgds-overflow-buttons .sgds-buttons .sgds-sec-button {
+    display: inline-block;
+}
