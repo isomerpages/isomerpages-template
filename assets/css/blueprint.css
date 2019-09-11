@@ -5409,9 +5409,10 @@ a[href$=".pdf"][target="_blank"]:after {
 .bp-menu-list a {
     font-size: 1.0625rem;
     color: #323232;
-    display: block;
+    display: flex;
     padding: 0.75rem 0;
     border-bottom: 1px solid #767676;
+    justify-content: space-between;
 }
 .bp-menu-list a:hover {
     color: #6b4370;
