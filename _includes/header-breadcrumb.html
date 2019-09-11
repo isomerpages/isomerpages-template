@@ -21,6 +21,7 @@
                     {%- endif -%}
                 {%- endfor -%}
             {%- endif -%}
+            <li><a href="{{- page.permalink -}}"><small>{{page.title | upcase}}</small></a></li>
         {%- else -%}
             {%- for i in (1..forLoopMaxInt) -%}
                 {%- capture current_breadcrumb_url -%}{{next_prepender}}/{{- splitted_url_parts[i] -}}/index.html{%- endcapture -%}
