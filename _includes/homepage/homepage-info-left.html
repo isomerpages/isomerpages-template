@@ -11,10 +11,12 @@
                 </h1>
                 <p>{{- section.section-description -}}</p>
                 <a href="{{- site.baseurl -}}{{- section.section-more-button-url -}}" class="bp-sec-button margin--top padding--bottom">
-                    <div>
-                        <span>{{- section.section-more-button -}}</span>
-                        <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                    </div>
+                    {%- if section.section-more-button -%}                 
+                        <div>
+                            <span>{{- section.section-more-button -}}</span>
+                            <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
+                        </div>
+                    {%- endif -%}
                 </a>
             </div>
             <div class="col is-half">
@@ -40,10 +42,12 @@
                 </h1>
                 <p>{{- section.section-description -}}</p>
                 <a href="{{- site.baseurl -}}{{- section.section-more-button-url -}}" class="bp-sec-button margin--top padding--bottom">
-                    <div>
-                        <span>{{- section.section-more-button -}}</span>
-                        <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                    </div>
+                    {%- if section.section-more-button -%}                 
+                        <div>
+                            <span>{{- section.section-more-button -}}</span>
+                            <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
+                        </div>
+                    {%- endif -%}
                 </a>
             </div>
             <div class="col is-half is-half padding--top--xl padding--bottom--xl">
@@ -69,10 +73,12 @@
                 </h1>
                 <p>{{- section.section-description -}}</p>
                 <a href="{{- site.baseurl -}}{{- section.section-more-button-url -}}" class="bp-sec-button margin--top padding--bottom">
-                    <div>
-                        <span>{{- section.section-more-button -}}</span>
-                        <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                    </div>
+                    {%- if section.section-more-button -%}                 
+                        <div>
+                            <span>{{- section.section-more-button -}}</span>
+                            <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
+                        </div>
+                    {%- endif -%}
                 </a>
             </div>
             <div class="col is-half is-half padding--top--xl padding--bottom--xl">
