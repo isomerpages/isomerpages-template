@@ -2,7 +2,7 @@
 .bundle
 .sass-cache
 _site
-Gemfile.lock
+# Gemfile.lock
 *.DS_Store
 .DS_Store
 node_modules
