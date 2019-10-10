@@ -1,0 +1,93 @@
+I" <p>The <code class="highlighter-rouge">layout</code> of this page is <code class="highlighter-rouge">page</code>. Below is a set of accordions that is in the markdown itself.</p>
+
+<div class="accordion">
+	<div class="col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless pointer">
+<div class="col is-expanded is-fullwidth is-paddingless">
+	<h5 class="has-text-grey-dark is-marginless"><b>Title title title </b></h5>
+</div>
+<span class="sgds-icon sgds-icon-plus is-size-4 bp-accordion-button"></span>
+	</div>
+	<div class="col padding bp-accordion-body">
+		
+<p>This is some text.</p>
+
+	</div>
+</div>
+
+<div class="accordion">
+	<div class="col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless pointer">
+<div class="col is-expanded is-fullwidth is-paddingless">
+	<h5 class="has-text-grey-dark is-marginless"><b>Title! 1's </b></h5>
+</div>
+<span class="sgds-icon sgds-icon-plus is-size-4 bp-accordion-button"></span>
+	</div>
+	<div class="col padding bp-accordion-body">
+		
+<p>More text. Lorem ipsum.</p>
+
+	</div>
+</div>
+
+<p>As you can see, I can put accordions anywhere. Here’s an accordion again.</p>
+
+<div class="accordion">
+	<div class="col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless pointer">
+<div class="col is-expanded is-fullwidth is-paddingless">
+	<h5 class="has-text-grey-dark is-marginless"><b>JSKH:djlkfsaf"!3w452 dsafdsf423 </b></h5>
+</div>
+<span class="sgds-icon sgds-icon-plus is-size-4 bp-accordion-button"></span>
+	</div>
+	<div class="col padding bp-accordion-body">
+		
+<p>Hi! I’m a new accordion! You can’t make me exist using the old method. <em>is this markdown?</em></p>
+<div class="accordion">
+	<div class="col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless pointer">
+<div class="col is-expanded is-fullwidth is-paddingless">
+	<h5 class="has-text-grey-dark is-marginless"><b>Accordion in accordion!!!1!111! </b></h5>
+</div>
+<span class="sgds-icon sgds-icon-plus is-size-4 bp-accordion-button"></span>
+	</div>
+	<div class="col padding bp-accordion-body">
+		
+<p>Lorem ipsum sit amet. <a href="https://www.google.com">Google</a></p>
+
+	</div>
+</div>
+
+
+	</div>
+</div>
+
+<p>The syntax to make an accordion is:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% accordion Title of Accordion %}
+Hi! I'm a new accordion! You can't make me exist using the old method. 
+
+**You can write everything in here using Markdown as usual!**
+
+You can even put an accordion in an accordion!
+{% endaccordion %}
+</code></pre></div></div>
+
+<p>The above yields:</p>
+
+<div class="accordion">
+	<div class="col is-large bp-accordion-header padding has-icons-right field has-addons is-marginless pointer">
+<div class="col is-expanded is-fullwidth is-paddingless">
+	<h5 class="has-text-grey-dark is-marginless"><b>Title of Accordion </b></h5>
+</div>
+<span class="sgds-icon sgds-icon-plus is-size-4 bp-accordion-button"></span>
+	</div>
+	<div class="col padding bp-accordion-body">
+		
+<p>Hi! I’m a new accordion! You can’t make me exist using the old method.</p>
+
+<p><strong>You can write everything in here using Markdown as usual!</strong></p>
+
+<p>You can even put an accordion in an accordion!</p>
+
+	</div>
+</div>
+
+<p><img src="/assets/img/facebook.png" alt="test image" /></p>
+:ET

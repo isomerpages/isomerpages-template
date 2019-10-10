@@ -1,0 +1,43 @@
+I"�<p>The <code class="highlighter-rouge">layout</code> of this page is <code class="highlighter-rouge">page</code>. Below is a set of accordions that is in the markdown itself.</p>
+
+<p>{% accordion Title title title %}
+This is some text.
+{% endaccordion %}</p>
+
+<p>{% accordion Title! 1’s %}
+More text. Lorem ipsum.
+{% endaccordion %}</p>
+
+<p>As you can see, I can put accordions anywhere. Here’s an accordion again.</p>
+
+<p>{% accordion JSKH:djlkfsaf”!3w452 dsafdsf423 %}
+Hi! I’m a new accordion! You can’t make me exist using the old method. <em>is this markdown?</em>
+{% accordion Accordion in accordion!!!1!111! %}
+Lorem ipsum sit amet. <a href="https://www.google.com">Google</a>
+{% endaccordion %}
+{% endaccordion %}</p>
+
+<p>The syntax to make an accordion is:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{%- raw %}
+{% accordion Title of Accordion %}
+Hi! I'm a new accordion! You can't make me exist using the old method. 
+
+**You can write everything in here using Markdown as usual!**
+
+You can even put an accordion in an accordion!
+{% endaccordion %}{% endraw -%}
+</code></pre></div></div>
+
+<p>The above yields:</p>
+
+<p>{% accordion Title of Accordion %}
+Hi! I’m a new accordion! You can’t make me exist using the old method.</p>
+
+<p><strong>You can write everything in here using Markdown as usual!</strong></p>
+
+<p>You can even put an accordion in an accordion!
+{% endaccordion %}</p>
+
+<p><img src="/assets/img/facebook.png" alt="test image" /></p>
+:ET

@@ -1,0 +1,97 @@
+I"<h3 id="introduction"><strong>Introduction</strong></h3>
+<p>The Translational Research and Development for Application to Smart Nation (TRANS) Grant funds translational R&amp;D and technology or process innovations in areas that are aligned to the emerging and focused tech areas (Strategic National Projects (SNPs) and Centres of Excellence (CentEx)).</p>
+
+<p>This funding initiative is jointly run by the Government Technology Agency of Singapore (GovTech), National Research Foundation (NRF) and Smart Nation and Digital Government Office (SNDGO). This initiative taps on research institutes’ capabilities to solve public sector challenges, demonstrates feasibility of new ideas and encourages agencies to experiment and deploy innovative solutions.</p>
+
+<h3 id="about-trans-grant-funding"><strong>About TRANS Grant Funding</strong></h3>
+<p>A total of $25 million of TRANS Grant funding has been awarded to three TRANS Labs. The approved grant duration is three years, with effect from 1 Sep 2016. The Labs are:</p>
+
+<ul>
+  <li>Smart Platform Infrastructure Research on Integrative Technology (SPIRIT) from Nanyang Technological University (NTU)</li>
+  <li>Smart Nation Applied R&amp;D Lab (SNAL) from Agency for Science, Technology and Research (A*STAR)</li>
+  <li>Centre for Applied Socio-Physical Analytics (CASA) from Singapore Management University (SMU)</li>
+</ul>
+
+<p>These TRANS Labs have significant capabilities in the fields of wireless communication, data science, artificial intelligence, cyber security and social analytics.</p>
+
+<p>Problem statements are polled from the agencies and evaluated for eligibility of the grant before they are selected to proceed with the proof-of-concepts. The grant will help to offset costs arising from the projects undertaken under each approved proposal. This includes costs associated with manpower, training, equipment investment, professional services and overheads. In addition, TRANS Grant will also provide support for operational activities and developments arising from the administration of this funding initiative. Only Singapore-based activities will be supported.</p>
+
+<p>Commercial entities will be invited to co-create solutions with the TRANS Labs and relevant government agencies for deployment and commercialisation of the solutions.</p>
+
+<h6 id="1-the-emerging-and-focus-tech-areas-include">1 The emerging and focus tech areas include:</h6>
+<ul>
+  <li>
+    <h6 id="snps-national-digital-id-e-payments-smart-nation-sensor-platform-social-data-microservices-architecture-and-social-mobility">SNPs: National Digital ID, e-Payments, Smart Nation Sensor Platform, Social Data Microservices Architecture and Social Mobility;</h6>
+  </li>
+  <li>
+    <h6 id="centex-cybersecurity-csa-govtech-data-science-govtech-sensors--iot-govtech-geospatial-sla-govtech-infrastructure-govtech-and-apps-development-govtech">CentEx: Cybersecurity (CSA-GovTech), Data Science (GovTech), Sensors &amp; IoT (GovTech), Geospatial (SLA-GovTech), Infrastructure (GovTech) and Apps Development (GovTech).</h6>
+  </li>
+</ul>
+
+<h3 id="supported-projects"><strong>Supported Projects</strong></h3>
+<p>Since the inception of the TRANS Grant funding initiative, these projects have been selected for proof-of-concepts.</p>
+
+<table class="table-h">
+  <tr>
+    <th>TRANS Lab</th>
+    <th>Agency</th>
+    <th>Proposal Title</th>
+    <th>Use Case</th>
+  </tr>
+  <tr>
+    <td rowspan="3">A*STAR SNAL</td>
+    <td>MCI</td>
+    <td>Customised Government Machine Translation Engine</td>
+    <td>Use of Machine Translation Technology to produce a more accurate and contextualised translation engine using past translations as inputs.</td>
+  </tr>
+  <tr>
+    <td>MAS</td>
+    <td>Privacy Preserved DataCollector (PDC) &amp; PrivacyPreserved Data Analyser(PDA)</td>
+    <td>Collect and integrate anonymised individual data from different sources with 100% accuracy while still maintaining privacy of the individuals without a pre-shared key.</td>
+  </tr>
+  <tr>
+    <td>HDB</td>
+    <td>Integrated Real-time Structural Health Monitoring (SHM) Platform for Residential Building</td>
+    <td>An integrated real time system to monitor structural health of high rise HDB buildings and to identify any early distress sign.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>IPOS</td>
+    <td>Trademark Examination for Class Recommendation and Distinctiveness</td>
+    <td>An AI-based system with machine learning and statistical learning and models to automatically recommend relevant classifications of goods and services for trade mark applications, and measure the distinctiveness of a given word mark.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AGD</td>
+    <td>Transforming Public Sector Payment Internal Audit through Predictive Analytics</td>
+    <td>Develop an advanced analytics system powered by AI and Machine Learning to facilitate the audit and review of payments.</td>
+  </tr>
+  <tr>
+    <td>SMU CASA</td>
+    <td>MND</td>
+    <td>Mobile Crowd-sourcing via OneService</td>
+    <td>Crowdtask mini-tasks to citizens in the vicinity to participate in municipal services to encourage Active Citizenry.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>HPB</td>
+    <td>Automated Food Image Recognition and Crowdsourcing for New Foods in Singapore</td>
+    <td>Solution to seamlessly and interactively capture food intake by matching against a database of local food images and accompanied by an intervention programmes to tackle obesity and diabetes through diet.</td>
+  </tr>
+  <tr>
+    <td>NTU SPIRIT</td>
+    <td>Supreme Court and State Courts</td>
+    <td>Intelligent Case Retrieval System for Singapore Judiciary</td>
+    <td>Utilise AI tools that understand the case details and do research by trawling through the case repositories and identifying points of law, relevant precedents and possible outcomes to guide judges. Tool should also provide possible outcomes to potentiallitigants prior to filing their case.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>SCDF</td>
+    <td>Use of Sensor Analytics to develop and improve Home Fire Alarm Devices (HFAD)</td>
+    <td>Solution to identify and filter false triggers for HFAD, hence reducing the incidences of users/SCDF responding to unnecessary alarms.</td>
+  </tr>
+</table>
+
+<p><strong>Contact Details</strong><br />
+For more information and all other queries, please contact <a href="mailto:innovate@tech.gov.sg">innovate@tech.gov.sg</a>.</p>
+:ET
