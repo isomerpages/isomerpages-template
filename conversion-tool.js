@@ -1,13 +1,12 @@
 // import dependencies required to import files
 const yaml = require('js-yaml')
-// const YAML = require('yamljs')
+const YAML = require('yamljs') // this converts an object back to yaml
 const fs = require('fs')
 const path = require('path')
 
 // takes a file path and returns the yaml file as an object
 function yamlParser (file) {
-  const inputfile = file
-  const obj = yaml.safeLoad(fs.readFileSync(inputfile, {encoding: 'utf-8'}), JSON = true)
+  const obj = yaml.safeLoad(fs.readFileSync(file, {encoding: 'utf-8'}), JSON = true)
   return obj
 }
 
@@ -37,11 +36,7 @@ Conversion tools
 */
 
 // modify the _config.yml file to fit V2 standards
-function configYmlModifier (file, homepage) {
-  // obtain the _config.yml file as an object
-  const confObj = yamlParser(file)
-  const homepageObj = yamlParser(homepage)
-  // console.log(homepageObj)
+function configYmlModifier (confObj, homepageObj) {
 
   // separate the homepage fields
   const homepageFields = {
@@ -73,13 +68,20 @@ function configYmlModifier (file, homepage) {
 
   // fields to add
     // - title
-    // - favicon
-    // - google analytics
     // - events under collections?
+  Object.assign(confObj, {
+    favicon: homepageObj.favicon,
+    'google-analytics': homepageObj['google-analytics']
+  })
 
   // defaults object
   const defaultsObj = {
-    defaults: [{'scope': { path: '' }, 'values': { layout: 'page' } }]
+    defaults: [
+      {
+        'scope': { path: '' }, 
+        'values': { layout: 'page' }, 
+      }
+    ]
   }
 
   // add keys
@@ -111,17 +113,6 @@ function homepageModifier(homepageObj, homepageFields) {
   var sections = [ { hero: {} } ] 
   var resources = {}
   var notification = `notification: "This website is in beta - your valuable <a href=\"https://www.google.com\">feedback</a> will help us in improving it."`
-  
-  // attributes to be added to _config.yml
-  const config = {
-    favicon: homepageObj.favicon,
-    'google-analytics': homepageObj['google-analytics']
-  }
-
-  // attributes to be added to navigation.yml
-  const navigation = {
-    'agency-logo': homepageObj['agency-logo'],
-  }
 
   /*
   
@@ -235,8 +226,36 @@ function homepageModifier(homepageObj, homepageFields) {
 
 // generates the new footer.yml file found in V2
 function footerGenerator(config, privacy, terms, contactUs, socialMedia) {
+  var footer = {
+    'show_reach': true,
+    'copyright_agency': 'Open Government Products',
+  }
+
+  if (contactUs) {
+    footer['contact_us'] = contactUs.permalink
+  }
 
 
+  if (config) {
+    footer['faq'] = config['faq_url']
+    footer['feedback'] = config['feedback_form_url']
+  }
+
+  if (privacy) {
+    footer['privacy'] = privacy.permalink
+  }
+
+  if (terms) {
+    footer['terms_of_use'] = terms.permalink
+  }
+
+  if (socialMedia) {
+    footer['social_media'] = socialMedia
+  }
+
+  // last of all, we need to add 'links' but i'm not sure what they mean yet
+
+  return footer
 }
 
 // modifies the navigation.yml file
@@ -251,10 +270,74 @@ function navigationModifier(homepageObj, navigationObj) {
   }
 }
 
+// modifies the contact-us.md page so that it includes the new front matter
+function contactUsModifier(contactUsConfigFile, contactUsFile) {
+  const contactUsObj = frontMatterParser(contactUsFile)
+  const contactUsConfig = yamlParser(contactUsConfigFile)
+
+  // change attribute from column to contacts
+  contactUsConfig['contacts'] = contactUsConfig['column']
+
+  // remove column
+  delete contactUsConfig['column']
+
+  // update the front matter
+  const res = frontMatterInsert(contactUsObj, contactUsConfig)
+
+  // write the contact us markdown file
+  fs.writeFileSync('index1111.md', res, {encoding: 'utf-8'})
+  return
+}
+
+function indexModifier(confFile, homepageFile, indexFile) {
+  const confObj = yamlParser(confFile)
+  const homepageObj = yamlParser(homepageFile)
+
+  // get the config object to update the indexFile
+  const newData = configYmlModifier(confObj, homepageObj)
+
+  // update the front matter
+  const res = frontMatterInsert(frontMatterParser(indexFile), newData.confObj)
+
+  // write the contact us markdown file
+  fs.writeFileSync('index1111.md', res, {encoding: 'utf-8'})
+  return
+}
 
 
-function frontMatterInsert() {
 
+
+// takes in a markdown file and a javascript object and updates the front
+// matter in the markdown file with the javascript object
+function frontMatterInsert({configObj, content}, newData) {
+
+  // if layout is leftnav-page, leftnav-page-content, or simple-page, we can
+    // remove the layout
+  if (configObj['layout'] === 'leftnav-page' || configObj['layout'] === 'leftnav-page-content' || configObj['layout'] === 'simple-page') {
+    delete configObj['layout']
+  }
+    // remove last-updated, collection_name if present
+  if (configObj['last-updated']) {
+    delete configObj['last-updated']
+  }
+  if (configObj['collection_name']) {
+    delete configObj['collection_name']
+  }
+    // change second_nav_title to third_nav_title if present
+  if (configObj['second_nav_title']) {
+    configObj['third_nav_title'] = configObj['second_nav_title']
+    delete configObj['second_nav_title']
+  }
+  
+  // add the new data to the config object
+  Object.assign(configObj, newData)
+
+  // join the components and write the file
+  const data = ['---\n', `${YAML.stringify(configObj, {schema: 'json'})}`, '---\n', content].join('')
+
+  // note that right now, stringify is not doing a good job of stringifying arrays
+  fs.writeFileSync('index1111.md', data, {encoding: 'utf-8'})
+  return data
 }
 
 
@@ -264,9 +347,7 @@ function frontMatterInsert() {
 Testing
 */
 
-// const res = markdownParser('_who-we-are/1-our-role.md')
-const res = configYmlModifier('_config.yml', '_data/homepage.yml')
-const yamlRes = YAML.stringify(res.confObj, 4)
+const res = configYmlModifier(yamlParser('_config.yml'), yamlParser('_data/homepage.yml'))
 const homepageres = homepageModifier(yamlParser('_data/homepage.yml'), 
 {
   'i_want_to': true,
@@ -275,4 +356,18 @@ const homepageres = homepageModifier(yamlParser('_data/homepage.yml'),
   'careers': true,
 })
 const navigationres = navigationModifier(yamlParser('_data/homepage.yml'), yamlParser('_data/navigation.yml'))
-console.log(navigationres)
+const footerres = footerGenerator(
+  yamlParser('_config.yml'), 
+  frontMatterParser('./pages/privacy.md').configObj,
+  frontMatterParser('./pages/terms-of-use.md').configObj,
+  frontMatterParser('./pages/contact-us.md').configObj,
+  yamlParser('_data/social-media.yml')
+)
+// frontMatterInsert(frontMatterParser('./index.md'), {
+//   'abc': 12345
+// })
+// contactUsModifier('./_data/contact-us.yml', './pages/contact-us.md')
+// indexModifier('_config.yml', './_data/homepage.yml', './index.md')
+// fs.writeFileSync('index1111.md', YAML.stringify(res.confObj, {schema: 'core'}).replace(/(\s+\-)\s*\n\s+/g, '$1 '), {encoding: 'utf-8'})
+// console.log(yaml.safeLoad(YAML.stringify(res.confObj, {schema: 'json'})))
+
