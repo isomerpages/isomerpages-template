@@ -29,7 +29,6 @@ layout: skeleton
 
 {%- if page.collection and page.collection != "posts" -%}
     {%- comment -%} Page is a leftnav page {%- endcomment -%}
-    {%- assign collection = site[page.collection] -%}
     <section class="bp-section padding--none is-hidden-desktop">
         <div class="bp-dropdown is-hoverable">
             <div class="bp-dropdown-trigger">
@@ -44,60 +43,69 @@ layout: skeleton
                 <div class="bp-dropdown-content">
                     {%- assign prev_third_nav_title = "" -%}
                     {%- assign in_third_nav = false -%}
+                    {%- assign collectionList = site.data.collections.collections -%}
+                    {%- for collection in collectionList -%}
+                    {%- comment -%} Loop through the collections.yml file {%- endcomment -%}
+                        {%- if collection.collection == page.collection -%}
+                        {%- comment -%} Access the correct collection {%- endcomment -%}
+                            {%- for section in collection.collectionPages -%}
+                            {%- comment -%} Loop through all sections in the collection {%- endcomment -%}
+                                {%- if section.thirdnav -%}
+                                {%- comment -%} If this is a third level nav page {%- endcomment -%}
+                                    {%- if prev_third_nav_title != section.thirdnav -%}
+                                    {%- comment -%} Since we are in a thirdnav, check if we are at the start of a new thirdnav or same as previous thirdnav {%- endcomment -%}
+                                        {%- if in_third_nav -%}
+                                            {%- comment -%} Different third nav, end previous third nav block and start new block {%- endcomment -%}
+                                            </div>
+                                        {%- endif -%}
 
-                    {%- for collection_doc in collection -%}
-                        {%- if collection_doc.third_nav_title -%}
-                            {%- comment -%} If this is a third level nav page {%- endcomment -%}
-                            {%- if prev_third_nav_title != collection_doc.third_nav_title -%}
-                                {%- if in_third_nav -%}
-                                    {%- comment -%} Different third nav, end previous third nav block and start new block {%- endcomment -%}
+                                        {%- assign anchor_colour = "" -%}
+                                        {%- assign chevron_direction = "down" -%}
+                                        {%- assign hidden = "is-hidden" -%}
+
+                                        {%- if page.third_nav_title == section.thirdnav -%}
+                                            {%- assign anchor_colour = "is-active" -%}
+                                            {%- assign chevron_direction = "up" -%}
+                                            {%- assign hidden = "" -%}
+                                        {%- endif -%}
+
+                                        <a class="bp-dropdown-item third-level-nav-header-mobile {{ anchor_colour }}">
+                                            <p>{{- section.thirdnav -}}<i class="sgds-icon sgds-icon-chevron-{{ chevron_direction }} is-pulled-right is-size-4" aria-hidden="true"></i></p>
+                                        </a>
+                                        <div class="third-level-nav-div-mobile {{ hidden }}">
+                                        {%- assign prev_third_nav_title = section.thirdnav -%}
+                                        {%- assign in_third_nav = true -%}
+                                    {%- endif -%}
+
+                                    {%- assign anchor_colour = "" -%}
+                                    {%- if page.url == section.url -%}
+                                        {%- assign anchor_colour = "has-text-secondary has-text-weight-bold" -%}
+                                    {%- endif -%}
+
+                                    <a class="bp-dropdown-item third-level-nav-item-mobile {{ anchor_colour }}" href="{{- section.url -}}">
+                                        <p>{{- section.title -}}</p>
+                                    </a>
+                                {%- else -%}
+                                {%- comment -%} If this is NOT a third level nav page {%- endcomment -%}
+                                    {%- if in_third_nav -%}
+                                        {%- comment -%} End previous third nav block {%- endcomment -%}
+                                        </div>
+                                        {%- assign in_third_nav = false -%}
+                                    {%- endif -%}
+
+                                    {%- assign anchor_colour = "" -%}
+                                    {%- if page.url == section.url -%}
+                                        {%- assign anchor_colour = "is-active" -%}
+                                    {%- endif -%}
+
+                                    <a class="bp-dropdown-item third-level-nav-item-mobile {{ anchor_colour }}" href="{{- section.url -}}">
+                                        <p>{{- section.title -}}</p>
+                                    </a>
+                                {%- endif -%}
+                                {%- if forloop.last and in_third_nav -%}
                                     </div>
                                 {%- endif -%}
-
-                                {%- assign anchor_colour = "" -%}
-                                {%- assign chevron_direction = "down" -%}
-                                {%- assign hidden = "is-hidden" -%}
-                                {%- if page.third_nav_title == collection_doc.third_nav_title -%}
-                                    {%- assign anchor_colour = "has-text-secondary has-text-weight-bold" -%}
-                                    {%- assign chevron_direction = "up" -%}
-                                    {%- assign hidden = "" -%}
-                                {%- endif -%}
-
-                                <a class="bp-dropdown-item third-level-nav-header-mobile {{ anchor_colour }}">
-                                    <p>{{- collection_doc.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-{{ chevron_direction }} is-pulled-right is-size-4" aria-hidden="true"></i></p>
-                                </a>
-                                <div class="third-level-nav-div-mobile {{ hidden }}">
-                                {%- assign prev_third_nav_title = collection_doc.third_nav_title -%}
-                                {%- assign in_third_nav = true -%}
-                            {%- endif -%}
-
-                            {%- assign anchor_colour = "" -%}
-                            {%- if page.url == collection_doc.url -%}
-                                {%- assign anchor_colour = "has-text-secondary has-text-weight-bold" -%}
-                            {%- endif -%}
-
-                            <a class="bp-dropdown-item third-level-nav-item-mobile {{ anchor_colour }}" href="{{- collection_doc.url -}}">
-                                <p>{{- collection_doc.title -}}</p>
-                            </a>
-                        {%- else -%}
-                            {%- comment -%} If this is not a third level nav page {%- endcomment -%}
-                            {%- if in_third_nav -%}
-                                {%- comment -%} End previous third nav block {%- endcomment -%}
-                                </div>
-                                {%- assign in_third_nav = false -%}
-                            {%- endif -%}
-
-                            {%- assign anchor_colour = "" -%}
-                            {%- if page.url == collection_doc.url -%}
-                                {%- assign anchor_colour = "has-text-secondary has-text-weight-bold" -%}
-                            {%- endif -%}
-
-                            <a class="bp-dropdown-item third-level-nav-item-mobile {{ anchor_colour }}" href="{{- collection_doc.url -}}">
-                                <p>{{- collection_doc.title -}}</p>
-                            </a>
-                        {%- endif -%}
-                        {%- if forloop.last and in_third_nav -%}
-                            </div>
+                            {%- endfor -%}
                         {%- endif -%}
                     {%- endfor -%}
                 </div>
@@ -114,60 +122,68 @@ layout: skeleton
                             <ul class="bp-menu-list">
                                 {%- assign prev_third_nav_title = "" -%}
                                 {%- assign in_third_nav = false -%}
+                                {%- assign collectionList = site.data.collections.collections -%}
+                                {%- for collection in collectionList -%}
+                                {%- comment -%} Loop through the collections.yml file {%- endcomment -%}    
+                                    {%- if collection.collection == page.collection -%}
+                                    {%- comment -%} Access the correct collection {%- endcomment -%}   
+                                        {%- for section in collection.collectionPages -%}
+                                        {%- comment -%} Loop through all sections in the collection {%- endcomment -%}
+                                            {%- if section.thirdnav -%}
+                                            {%- comment -%} If this is a third level nav page {%- endcomment -%}
+                                                {%- if prev_third_nav_title != section.thirdnav -%}
+                                                {%- comment -%} Since we are in a thirdnav, check if we are at the start of a new thirdnav or same as previous thirdnav {%- endcomment -%}
+                                                    {%- if in_third_nav -%}
+                                                        {%- comment -%} Different third nav, end previous third nav block and start new block {%- endcomment -%}
+                                                        </div>
+                                                    {%- endif -%}
+            
+                                                    {%- assign anchor_colour = "" -%}
+                                                    {%- assign chevron_direction = "down" -%}
+                                                    {%- assign hidden = "is-hidden" -%}
 
-                                {%- for collection_doc in site[page.collection] -%}
-                                    {%- if collection_doc.third_nav_title -%}
-                                        {%- comment -%} If this is a third level nav page {%- endcomment -%}
-                                        {%- if prev_third_nav_title != collection_doc.third_nav_title -%}
-                                            {%- if in_third_nav -%}
-                                                {%- comment -%} Different third nav, end previous third nav block and start new block {%- endcomment -%}
+                                                    {%- if page.third_nav_title == section.thirdnav -%}
+                                                        {%- assign anchor_colour = "is-active" -%}
+                                                        {%- assign chevron_direction = "up" -%}
+                                                        {%- assign hidden = "" -%}
+                                                    {%- endif -%}
+
+                                                    <li class="third-level-nav-header">
+                                                        <a class="third-level-nav-header {{ anchor_colour }}">
+                                                            {{- section.thirdnav -}}<i class="sgds-icon sgds-icon-chevron-{{ chevron_direction }} is-pulled-right is-size-4" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                    <div class="third-level-nav-div {{ hidden }}">
+                                                    {%- assign prev_third_nav_title = section.thirdnav -%}
+                                                    {%- assign in_third_nav = true -%}
+                                                {%- endif -%}
+
+                                                {%- assign anchor_colour = "" -%}
+                                                {%- if page.url == section.url -%}
+                                                    {%- assign anchor_colour = "has-text-secondary has-text-weight-bold" -%}
+                                                {%- endif -%}
+
+                                                <li><a class="third-level-nav-item padding--top--none {{ anchor_colour }}" href="{{- section.url -}}">{{- section.title -}}</a></li>
+                                            {%- else -%}
+                                                {%- comment -%} If this is NOT a third level nav page {%- endcomment -%}
+                                                {%- if in_third_nav -%}
+                                                    {%- comment -%} End previous third nav block {%- endcomment -%}
+                                                    </div>
+                                                    {%- assign in_third_nav = false -%}
+                                                {%- endif -%}
+
+                                                {%- assign anchor_colour = "" -%}
+                                                {%- if page.url == section.url -%}
+                                                    {%- assign anchor_colour = "is-active" -%}
+                                                {%- endif -%}
+                                                <li>
+                                                    <a class="{{ anchor_colour }}" href="{{- section.url -}}">{{- section.title -}}</a>
+                                                </li>
+                                            {%- endif -%}
+                                            {%- if forloop.last and in_third_nav -%}
                                                 </div>
                                             {%- endif -%}
-
-                                            {%- assign anchor_colour = "" -%}
-                                            {%- assign chevron_direction = "down" -%}
-                                            {%- assign hidden = "is-hidden" -%}
-                                            {%- if page.third_nav_title == collection_doc.third_nav_title -%}
-                                                {%- assign anchor_colour = "is-active" -%}
-                                                {%- assign chevron_direction = "up" -%}
-                                                {%- assign hidden = "" -%}
-                                            {%- endif -%}
-
-                                            <li class="third-level-nav-header">
-                                                <a class="third-level-nav-header {{ anchor_colour }}">
-                                                    {{- collection_doc.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-{{ chevron_direction }} is-pulled-right is-size-4" aria-hidden="true"></i>
-                                                </a>
-                                            </li>
-                                            <div class="third-level-nav-div {{ hidden }}">
-                                            {%- assign prev_third_nav_title = collection_doc.third_nav_title -%}
-                                            {%- assign in_third_nav = true -%}
-                                        {%- endif -%}
-
-                                        {%- assign anchor_colour = "" -%}
-                                        {%- if page.url == collection_doc.url -%}
-                                            {%- assign anchor_colour = "has-text-secondary has-text-weight-bold" -%}
-                                        {%- endif -%}
-
-                                        <li><a class="third-level-nav-item padding--top--none {{ anchor_colour }}" href="{{- collection_doc.url -}}">{{- collection_doc.title -}}</a></li>
-                                    {%- else -%}
-                                        {%- comment -%} If this is note a third level nav page {%- endcomment -%}
-                                        {%- if in_third_nav -%}
-                                            {%- comment -%} End previous third nav block {%- endcomment -%}
-                                            </div>
-                                            {%- assign in_third_nav = false -%}
-                                        {%- endif -%}
-
-                                        {%- assign anchor_colour = "" -%}
-                                        {%- if page.url == collection_doc.url -%}
-                                            {%- assign anchor_colour = "is-active" -%}
-                                        {%- endif -%}
-
-                                        <li>
-                                            <a class="{{ anchor_colour }}" href="{{- collection_doc.url -}}">{{- collection_doc.title -}}</a>
-                                        </li>
-                                    {%- endif -%}
-                                    {%- if forloop.last and in_third_nav -%}
-                                        </div>
+                                        {%- endfor -%}
                                     {%- endif -%}
                                 {%- endfor -%}
                             </ul>
@@ -193,53 +209,63 @@ layout: skeleton
         </div>
     </section>
 
-    {%- for collection_doc in collection -%}
-        {%- if page.url == collection_doc.url -%}
-            {%- comment -%} If the page is the first in the list {%- endcomment -%}
-            {%- if forloop.first and collection[1] -%}
-                <section class="bp-section bottom-navigation">
-                    <div>
-                        <a href="{{- collection[1].url -}}" class="is-full is-right">
-                            <p class="has-text-weight-semibold">NEXT <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span></p>
-                            <p class="is-hidden-mobile">{{- collection[1].title -}}</p>
-                        </a>
-                    </div>
-                </section>
 
-            {%- comment -%} If the page is last in the list {%- endcomment -%}
-            {%- elsif forloop.last -%}
-                {%- assign prevIndex = forloop.index0 | minus: 1 -%}
-                {%- if prevIndex > 0 -%}
-                    <section class="bp-section bottom-navigation">
-                        <div>
-                            <a href="{{- collection[prevIndex].url -}}" class="is-full">
-                                <p class="has-text-weight-semibold"><span class="sgds-icon sgds-icon-arrow-left is-size-4"></span> PREVIOUS </p>
-                                <p class="is-hidden-mobile">{{- collection[prevIndex].title -}}</p>
-                            </a>
-                        </div>
-                    </section>
+
+    {%- for collection in collectionList -%}
+    {%- comment -%} Loop through the collections.yml file {%- endcomment -%}
+        {%- if collection.collection == page.collection -%}
+        {%- comment -%} Access the correct collection {%- endcomment -%}
+            {%- for section in collection.collectionPages -%}
+            {%- comment -%} Loop through all sections in the collection {%- endcomment -%}
+                {%- if page.url == section.url -%}
+                {%- comment -%} check that we have the right page, since we want to determine the pages that come before and after it in the bottom nav {%- endcomment -%}
+                    {%- if forloop.first and collection.collectionPages[1] -%}
+                    {%- comment -%} checks that we are at the first page in the collection, and that there is at least a second page {%- endcomment -%}
+                        <section class="bp-section bottom-navigation">
+                            <div>
+                                <a href="{{- collection.collectionPages[1].url -}}" class="is-full is-right">
+                                    <p class="has-text-weight-semibold">NEXT <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span></p>
+                                    <p class="is-hidden-mobile">{{- collection.collectionPages[1].title -}}</p>
+                                </a>
+                            </div>
+                        </section>
+
+                    {%- elsif forloop.last -%}
+                    {%- comment -%} checks that we are at the last page in the collection, and that there is at least a second page {%- endcomment -%}
+                        {%- assign prevIndex = collection.collectionPages.size | minus: 2 -%}
+                        {%- if prevIndex > 0 -%}
+                            <section class="bp-section bottom-navigation">
+                                <div>
+                                    <a href="{{- collection.collectionPages[prevIndex].url -}}" class="is-full">
+                                        <p class="has-text-weight-semibold"><span class="sgds-icon sgds-icon-arrow-left is-size-4"></span> PREVIOUS </p>
+                                        <p class="is-hidden-mobile">{{- collection.collectionPages[prevIndex].title -}}</p>
+                                    </a>
+                                </div>
+                            </section>
+                        {%- endif -%}
+                    {%- else -%}
+                    {%- comment -%} for all the intermediate pages {%- endcomment -%}
+                        {%- assign prevIndex = forloop.index0 | minus: 1 -%}
+                        {%- assign nextIndex = forloop.index0 | plus: 1 -%}
+
+                        <section class="bp-section bottom-navigation">
+                            <div>
+                                <a href="{{- collection.collectionPages[prevIndex].url -}}" class="is-half is-left">
+                                    <p class="has-text-weight-semibold"><span class="sgds-icon sgds-icon-arrow-left is-size-4"></span> PREVIOUS </p>
+                                    <p class="is-hidden-mobile">{{- collection.collectionPages[prevIndex].title -}}</p>
+                                </a>
+                                <a href="{{- collection.collectionPages[nextIndex].url -}}" class="is-half is-right">
+                                    <p class="has-text-weight-semibold">NEXT <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span></p>
+                                    <p class="is-hidden-mobile">{{- collection.collectionPages[nextIndex].title -}}</p>
+                                </a>
+                            </div>
+                        </section>
+                    {%- endif -%}
                 {%- endif -%}
-            {%- comment -%} For all other intermediate pages in the list {%- endcomment -%}
-            {%- else -%}
-                {%- assign prevIndex = forloop.index0 | minus: 1 -%}
-                {%- assign nextIndex = forloop.index0 | plus: 1 -%}
-
-                <section class="bp-section bottom-navigation">
-                    <div>
-                        <a href="{{- collection[prevIndex].url -}}" class="is-half is-left">
-                            <p class="has-text-weight-semibold"><span class="sgds-icon sgds-icon-arrow-left is-size-4"></span> PREVIOUS </p>
-                            <p class="is-hidden-mobile">{{- collection[prevIndex].title -}}</p>
-                        </a>
-                        <a href="{{- collection[nextIndex].url -}}" class="is-half is-right">
-                            <p class="has-text-weight-semibold">NEXT <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span></p>
-                            <p class="is-hidden-mobile">{{- collection[nextIndex].title -}}</p>
-                        </a>
-                    </div>
-                </section>
-            {%- endif -%}
-            {%- break -%}
+            {%- endfor -%}
         {%- endif -%}
     {%- endfor -%}
+
 {%- else -%}
     {%- comment -%} Page is a simple page {%- endcomment -%}
     <section class="bp-section">
