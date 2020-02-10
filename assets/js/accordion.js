@@ -1,6 +1,7 @@
 const accordionArray = document.getElementsByClassName("accordion");
 
-for (const accordion of accordionArray) {
+for (var i = 0,j = accordionArray;i < j.length;i++){
+	var accordion = j[i]
 	const toggleAccordionBody = () => {
 		const [accordionBody] = accordion.getElementsByClassName("bp-accordion-body");
 		const [accordionButton] = accordion.getElementsByClassName("bp-accordion-button");
