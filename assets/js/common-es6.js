@@ -1,12 +1,6 @@
-'use strict';
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 var BLUEPRINT;
 
-if ((typeof BLUEPRINT === 'undefined' ? 'undefined' : _typeof(BLUEPRINT)) !== "object") {
+if (typeof BLUEPRINT !== "object") {
     BLUEPRINT = {};
 }
 
@@ -108,17 +102,20 @@ if ((typeof BLUEPRINT === 'undefined' ? 'undefined' : _typeof(BLUEPRINT)) !== "o
             }
         });
     }
-    return hashCode = function hashCode(str) {
+    return hashCode = function (str) {
         var hash, i, j, len, s;
         hash = 0;
         for (i = j = 0, len = str.length; j < len; i = ++j) {
             s = str[i];
-            hash = ~~((hash << 5) - hash + str.charCodeAt(i));
+            hash = ~~(((hash << 5) - hash) + str.charCodeAt(i));
         }
         return hash;
     };
+
+
+
 })();
-;var i, j, len, len1, list, lists, menu, menuElems, options, subMenu;
+; var i, j, len, len1, list, lists, menu, menuElems, options, subMenu;
 
 BLUEPRINT.toggleMenu = function (el, options) {
     BLUEPRINT.collapseMenu(el, 'hide');
@@ -183,7 +180,7 @@ if (!BLUEPRINT.isReady) {
     }
 }
 
-;var i, len, modal, modals, options;
+; var i, len, modal, modals, options;
 
 BLUEPRINT.toggleModal = function (el, options) {
     if (!options.target) {
@@ -191,23 +188,23 @@ BLUEPRINT.toggleModal = function (el, options) {
     }
     el.addEventListener('click', function (e) {
 
-        var backdrop, closeBtn, _closeModal, modal;
+        var backdrop, closeBtn, closeModal, modal;
         e.preventDefault();
         e.stopPropagation();
         modal = document.getElementById(options.target);
         backdrop = modal.querySelector('.bp-modal-background');
         closeBtn = modal.querySelector('.bp-modal-close');
-        _closeModal = function closeModal() {
+        closeModal = function () {
             if (BLUEPRINT.hasClass(modal, 'is-active')) {
                 BLUEPRINT.removeClass(modal, 'is-active');
-                return BLUEPRINT.unclick(this, _closeModal);
+                return BLUEPRINT.unclick(this, closeModal);
             }
         };
         if (options.closeByBackdrop === void 0 || options.closeByBackdrop) {
-            BLUEPRINT.click(backdrop, _closeModal);
+            BLUEPRINT.click(backdrop, closeModal);
         }
         if (options.closeByButton === void 0 || options.closeByButton) {
-            BLUEPRINT.click(closeBtn, _closeModal);
+            BLUEPRINT.click(closeBtn, closeModal);
         }
         BLUEPRINT.addClass(modal, 'is-active');
     });
@@ -223,13 +220,13 @@ if (!BLUEPRINT.isReady) {
         }
     }
 }
-;var i, len, notification, notifications, options;
+; var i, len, notification, notifications, options;
 
 BLUEPRINT.notification = function (el, status, options) {
     var deleteBtn, deleteNotification;
     if (options.deletable === void 0 || options.deletable !== false) {
         deleteBtn = el.querySelector('.delete');
-        deleteNotification = function deleteNotification(e) {
+        deleteNotification = function (e) {
             e.preventDefault();
             e.stopPropagation();
             el.parentNode.removeChild(el);
@@ -260,7 +257,7 @@ if (!BLUEPRINT.isReady) {
         }
     }
 }
-;var i, j, len, len1, tab, tabs, target, targets;
+; var i, j, len, len1, tab, tabs, target, targets;
 
 BLUEPRINT.toggleTab = function (el) {
     var i, l, len, links;
@@ -310,6 +307,7 @@ if ($navbarBurgers.length > 0) {
             // Toggle the class on both the "navbar-burger" and the "navbar-menu"
             $el.classList.toggle('is-active');
             $target.classList.toggle('is-active');
+
         });
     });
 }
@@ -365,21 +363,17 @@ document.addEventListener('keydown', function (event) {
 });
 
 // Custom dropdown code for mobile browsers
-var dropdowns = getAll('.bp-dropdown.is-hoverable');
+const dropdowns = getAll('.bp-dropdown.is-hoverable');
 if (dropdowns.length > 0) {
-    dropdowns.forEach(function (dropdown) {
-        var dropdownMenu = document.getElementById("dropdown-menu");
-
-        var _dropdown$getElements = dropdown.getElementsByClassName("bp-dropdown-button"),
-            _dropdown$getElements2 = _slicedToArray(_dropdown$getElements, 1),
-            dropdownTrigger = _dropdown$getElements2[0];
-
+    dropdowns.forEach((dropdown) => {
+        const dropdownMenu = document.getElementById("dropdown-menu");
+        const [dropdownTrigger] = dropdown.getElementsByClassName("bp-dropdown-button");
         if (dropdownMenu && dropdownTrigger) {
-            dropdownTrigger.onclick = function () {
+            dropdownTrigger.onclick = () => {
                 dropdownMenu.classList.toggle("hide");
             };
-            document.addEventListener("click", function (evt) {
-                var targetElement = evt.target; // clicked element
+            document.addEventListener("click", (evt) => {
+                let targetElement = evt.target; // clicked element
 
                 do {
                     if (targetElement == dropdownMenu || targetElement == dropdownTrigger) {
