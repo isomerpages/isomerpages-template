@@ -19,7 +19,7 @@ document.getElementById('year-filter-mobile').addEventListener('change', (event)
 // Main function to paginate resource page
 function paginateResources() {
   resourceCardArray = Array.prototype.slice.call(document.getElementsByClassName("resource-card-element")); // Convert NodeList into Array
-
+  console.log(resourceCardArray)
   // 1. Display the years that are available
   var earliestYear = findEarliestYear();
   var currYear = new Date().getFullYear();
