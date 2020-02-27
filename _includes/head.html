@@ -47,7 +47,7 @@
     {%- if site.facebook-pixel -%}
     <script src="{{- "assets/js/facebook-pixel.js" | relative_url -}}" crossorigin="anonymous"></script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{- site.facebook-pixel -}}&ev=PageView&noscript=1"/></noscript>
-
+    {%- endif -%}
 
     <title>
         {%- if page.title -%}
