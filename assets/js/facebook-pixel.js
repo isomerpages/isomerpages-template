@@ -19,5 +19,5 @@ layout: blank
     s.parentNode.insertBefore(t, s)
 }(window, document, 'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', {{ site.facebook-pixel }});
+fbq('init', {{- site.facebook-pixel -}});
 fbq('track', 'PageView');
