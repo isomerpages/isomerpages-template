@@ -122,6 +122,7 @@ layout: skeleton
                                             {%- if in_third_nav -%}
                                                 {%- comment -%} Different third nav, end previous third nav block and start new block {%- endcomment -%}
                                                 </div>
+                                                </li>
                                             {%- endif -%}
 
                                             {%- assign anchor_colour = "" -%}
@@ -138,7 +139,7 @@ layout: skeleton
                                                     {{- collection_doc.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-{{ chevron_direction }} is-pulled-right is-size-4" aria-hidden="true"></i>
                                                 </a>
                                             </li>
-                                            <div class="third-level-nav-div {{ hidden }}">
+                                            <div class="third-level-nav-div {{ hidden }}"><li>
                                             {%- assign prev_third_nav_title = collection_doc.third_nav_title -%}
                                             {%- assign in_third_nav = true -%}
                                         {%- endif -%}
