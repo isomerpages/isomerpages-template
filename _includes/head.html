@@ -48,7 +48,9 @@
         <script src="{{- "assets/js/facebook-pixel.js" | relative_url -}}" crossorigin="anonymous"></script>
         <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{- site.facebook-pixel -}}&ev=PageView&noscript=1"/></noscript>
     {%- endif -%}
-
+    {%- if site.google-tag-manager -%}
+        <script src="{{- "assets/js/google-tag-manager.js" | relative_url -}}" crossorigin="anonymous"></script>
+    {%- endif -%}
     <title>
         {%- if page.title -%}
             {{- page.title | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 25 -}}
