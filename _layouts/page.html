@@ -132,12 +132,13 @@ layout: skeleton
                                                 {%- assign chevron_direction = "up" -%}
                                                 {%- assign hidden = "" -%}
                                             {%- endif -%}
-
-                                            <li class="third-level-nav-header">
-                                                <a class="third-level-nav-header {{ anchor_colour }}">
-                                                    {{- collection_doc.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-{{ chevron_direction }} is-pulled-right is-size-4" aria-hidden="true"></i>
-                                                </a>
-                                            </li>
+                                            <ul class="bp-menu-list">
+                                                <li class="third-level-nav-header">
+                                                    <a class="third-level-nav-header {{ anchor_colour }}">
+                                                        {{- collection_doc.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-{{ chevron_direction }} is-pulled-right is-size-4" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
                                             <li>
                                                 <div class="third-level-nav-div {{ hidden }}">
                                             {%- assign prev_third_nav_title = collection_doc.third_nav_title -%}
