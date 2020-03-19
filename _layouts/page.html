@@ -121,7 +121,7 @@ layout: skeleton
                                         {%- if prev_third_nav_title != collection_doc.third_nav_title -%}
                                             {%- if in_third_nav -%}
                                                 {%- comment -%} Different third nav, end previous third nav block and start new block {%- endcomment -%}
-                                                </div></li>
+                                                </div><ul class="bp-menu-list">
                                             {%- endif -%}
 
                                             {%- assign anchor_colour = "" -%}
@@ -132,15 +132,13 @@ layout: skeleton
                                                 {%- assign chevron_direction = "up" -%}
                                                 {%- assign hidden = "" -%}
                                             {%- endif -%}
-                                            <ul class="bp-menu-list">
-                                                <li class="third-level-nav-header">
-                                                    <a class="third-level-nav-header {{ anchor_colour }}">
-                                                        {{- collection_doc.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-{{ chevron_direction }} is-pulled-right is-size-4" aria-hidden="true"></i>
-                                                    </a>
-                                                </li>
+                                            <li class="third-level-nav-header">
+                                                <a class="third-level-nav-header {{ anchor_colour }}">
+                                                    {{- collection_doc.third_nav_title -}}<i class="sgds-icon sgds-icon-chevron-{{ chevron_direction }} is-pulled-right is-size-4" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
                                             </ul>
-                                            <li>
-                                                <div class="third-level-nav-div {{ hidden }}">
+                                            <div class="third-level-nav-div {{ hidden }}">
                                             {%- assign prev_third_nav_title = collection_doc.third_nav_title -%}
                                             {%- assign in_third_nav = true -%}
                                         {%- endif -%}
