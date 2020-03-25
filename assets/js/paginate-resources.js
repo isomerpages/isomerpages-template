@@ -10,8 +10,12 @@ var currentPageIndex = 0;
 var resourceCardArray = void 0;
 var filteredArray = void 0;
 paginateResources();
-document.getElementById('apply-filter-recent').addEventListener('click', () => applyFilter('Recent'));
-document.getElementById('year-filter-mobile').addEventListener('change', event => applyFilter(event.target.value)); // Main function to paginate resource page
+document.getElementById('apply-filter-recent').addEventListener('click', function () {
+  return applyFilter('Recent');
+});
+document.getElementById('year-filter-mobile').addEventListener('change', function (event) {
+  return applyFilter(event.target.value);
+}); // Main function to paginate resource page
 
 function paginateResources() {
   resourceCardArray = Array.prototype.slice.call(document.getElementsByClassName("resource-card-element")); // Convert NodeList into Array
