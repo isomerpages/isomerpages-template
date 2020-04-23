@@ -70,7 +70,7 @@ function displayFilterDropdown(earliestYear, currYear) {
     // Creating the a tags for desktop view
     var a_element = document.createElement("a");
     a_element.id = year;
-    a_element.classList.add("bp-dropdown-item", "padding--top--sm", "padding--bottom--none");
+    a_element.classList.add("sgds-dropdown-item", "padding--top--sm", "padding--bottom--none");
     a_element.onclick = function () {
       var closureYear = year.toString();
       return function () {

@@ -2,8 +2,8 @@ const accordionArray = document.getElementsByClassName("accordion");
 
 for (const accordion of accordionArray) {
 	const toggleAccordionBody = () => {
-		const [accordionBody] = accordion.getElementsByClassName("bp-accordion-body");
-		const [accordionButton] = accordion.getElementsByClassName("bp-accordion-button");
+		const [accordionBody] = accordion.getElementsByClassName("sgds-accordion-body");
+		const [accordionButton] = accordion.getElementsByClassName("sgds-accordion-button");
 
 		if (accordionBody.style.display === "" || accordionBody.style.display === "none") {
 			accordionBody.style.display = "block";
@@ -16,5 +16,5 @@ for (const accordion of accordionArray) {
 		}
 	}
 
-	accordion.getElementsByClassName("bp-accordion-header")[0].addEventListener("click", toggleAccordionBody);
+	accordion.getElementsByClassName("sgds-accordion-header")[0].addEventListener("click", toggleAccordionBody);
 }
