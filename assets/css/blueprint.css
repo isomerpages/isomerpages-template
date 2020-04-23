@@ -6888,6 +6888,7 @@ a.navbar-link.is-active {
     flex-grow: 1;
     flex-shrink: 1;
     padding: 0.75rem;
+    max-width: 100%;
 }
 .col.has-carousel {
     min-width: 0;
