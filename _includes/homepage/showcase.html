@@ -1,45 +1,41 @@
-<section class="bp-section" style="background-color:#6031b6" id="showcase">
+<section class="bp-section {{ gray_container_class }}">
     <div class="bp-container padding--bottom--lg">
         <div class="row">
             <div class="col is-8 is-offset-2 has-text-centered padding--top--xl">
-                <p class="padding--bottom eyebrow is-uppercase has-text-white">
-                    SHOWCASE
+                <p class="padding--bottom eyebrow is-uppercase">
+                    {{ section.showcase.subtitle }}
                 </p>
-                <h1 class="padding--bottom has-text-white"><b>Websites generated using Isomer</b></h1>
-                <p class="has-text-white">Our websites are compliant-by-design, so that you can focus on your content</p>
+                <h1 class="has-text-secondary padding--bottom"><b>{{ section.showcase.title }}</b></h1>
+                <p>{{ section.showcase.description }}</p>
             </div>
         </div>
-        <div class="row has-text-centered margin--top padding--bottom">
-            <div class="col is-one-third">
-                <a href="https://www.hlb.gov.sg" target="_blank" class="is-media-card">
-                    <div class="image-hoverable">
-                        <img class="isomer-example" src="{{ site.baseurl }}/images/hlb-example.png" />
-                        <div class="image-hover-overlay"></div>
-                        <div class="bp-button is-white is-outlined is-uppercase image-hover-button search-button">Visit Site</div>
+        <div class="row has-text-centered margin--top padding--bottom showcase showcase-{{ section.showcase.colcount }}">
+            {%- for entry in section.showcase.entries -%}
+            <div class="col">
+                {%- if entry.url -%}
+                {%- assign url_input = entry.url -%}
+                {%- include functions/external_url.html -%}
+                <a {{anchor}} class="is-media-card" target="_blank">
+                {%- endif -%}
+                <div class="image-hoverable">
+                    <img src="{{ site.baseurl }}{{ entry.image }}" />
+                    <div class="image-hover-overlay">
+                        <div class="image-hover-overlay-container">
+                            {%- if entry.description -%}
+                            <div>{{ entry.description }}</div>
+                            {%- endif -%}
+                            {%- if entry.button -%}
+                            <div class="bp-button is-outlined is-uppercase search-button">{{ entry.button }}</div>
+                            {%- endif -%}
+                        </div>
                     </div>
+                </div>
+                {%- if entry.url -%}
                 </a>
-                <h5 class="padding--top--sm has-text-white"><b>Hotels Licensing Board</b></h5>
+                {%- endif -%}
+                <h5 class="padding--top--sm"><b>{{ entry.title }}</b></h5>
             </div>
-            <div class="col is-one-third">
-                <a href="https://www.strategygroup.gov.sg/" target="_blank" class="is-media-card">
-                    <div class="image-hoverable">
-                        <img class="isomer-example" src="{{ site.baseurl }}/images/stratgroup-example.png" />
-                        <div class="image-hover-overlay"></div>
-                        <div class="bp-button is-white is-outlined is-uppercase image-hover-button search-button">Visit Site</div>
-                    </div>
-                </a>
-                <h5 class="padding--top--sm has-text-white"><b>Strategy Group</b></h5>
-            </div>
-            <div class="col is-one-third">
-                <a href="https://www.boa.gov.sg" target="_blank" class="is-media-card">
-                    <div class="image-hoverable">
-                        <img class="isomer-example" src="{{ site.baseurl }}/images/boa-example.png" />
-                        <div class="image-hover-overlay"></div>
-                        <div class="bp-button is-white is-outlined is-uppercase image-hover-button search-button">Visit Site</div>
-                    </div>
-                </a>
-                <h5 class="padding--top--sm has-text-white"><b>Board of Architects</b></h5>
-            </div>
+            {%- endfor -%}
         </div>
     </div>
 </section>

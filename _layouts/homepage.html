@@ -72,6 +72,11 @@ layout: skeleton
 		{%- include functions/swap_container_class.html -%}
 	{%- endif -%}
 
+	{%- if section.showcase -%}
+		{%- include homepage/showcase.html -%}
+		{%- include functions/swap_container_class.html -%}
+	{%- endif -%}
+
 	{%- if section.secondary_cta -%}
 		{%- include homepage/secondary_cta.html -%}
 		{%- include functions/swap_container_class.html -%}

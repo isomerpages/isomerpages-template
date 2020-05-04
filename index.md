@@ -37,6 +37,37 @@ sections:
         subtitle: "It's beautiful and fast!"
         button: Contact Us
         url: https://www.opendoc.sg/
+    - showcase:
+        title: Title Text
+        subtitle: Category
+        description: A long description of what this section is about
+        colcount: 3
+        entries:
+           - url: https://www.google.com
+             image: /images/ndi-logo.jpg
+             description: Some Role
+             button: Learn More
+             title: Entry Title
+           - url: https://www.google.com
+             image: /images/ndi-logo.jpg
+             description: Some Role
+             button: Learn More
+             title: Entry Title
+           - url: https://www.google.com
+             image: /images/ndi-logo.jpg
+             description: Some Role
+             button: Learn More
+             title: Entry Title
+           - url: https://www.google.com
+             image: /images/ndi-logo.jpg
+             description: Some Role
+             button: Learn More
+             title: Entry Title
+           - url: https://www.google.com
+             image: /images/ndi-logo.jpg
+             description: Some Role
+             button: Learn More
+             title: Entry Title
     - infopic:
         title: Hey there!
         subtitle: "Lorem ipsum!"
