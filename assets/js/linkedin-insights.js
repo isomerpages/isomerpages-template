@@ -1,7 +1,7 @@
 ---
 layout: blank
 ---
-_linkedin_partner_id = "{{- site.linkedin-insights -}})";
+_linkedin_partner_id = "{{- site.linkedin-insights -}}";
 window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
 window._linkedin_data_partner_ids.push(_linkedin_partner_id);
 
