@@ -5,7 +5,7 @@
     <body>
         {%- include agencyhead.html -%}
         {%- comment -%} onclick is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
-        <div id="main-content" onclick>
+        <div id="main-content" role="main" onclick>
         	{{- content -}}
     	</div>
         {%- include footer.html -%}
