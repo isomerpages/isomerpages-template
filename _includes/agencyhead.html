@@ -148,7 +148,7 @@
                         </div>
                     {%- else -%}
                         {%- comment -%} Single page {%- endcomment -%}
-                        <div class="navbar-item">
+                        <li class="navbar-item">
                             {%- assign url_input = navitem.url -%}
                             {%- include functions/external_url.html -%}
                             <a {{anchor}} class="navbar-item is-uppercase" style="height:100%;width:100%;">
@@ -161,7 +161,7 @@
                             {%- endif -%}
 
                             <div class="selector is-hidden-touch is-hidden-desktop-only{{active}}"></div>
-                        </div>
+                        </li>
                     {%- endif -%}
                 {%- endfor -%}
             </div>
