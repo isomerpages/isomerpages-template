@@ -152,6 +152,7 @@
                         </div>
                     {%- else -%}
                         {%- comment -%} Single page {%- endcomment -%}
+                        <div class="navbar-item">
                             {%- assign url_input = navitem.url -%}
                             {%- include functions/external_url.html -%}
                             <a {{anchor}} class="navbar-item is-uppercase is-tab">
@@ -163,7 +164,8 @@
                             {%- if page.url == navitem.url -%}
                                 {%- assign active = " active" -%}
                             {%- endif -%}
-
+                            <div class="selector is-hidden-touch is-hidden-desktop-only{{active}}"></div>
+                        </div>
                     {%- endif -%}
                 {%- endfor -%}
             </div>
