@@ -53,7 +53,7 @@
                         {%- assign active = "" -%}
 
                         <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link is-uppercase" href="{{site[navitem.collection].first.url}}">
+                            <a class="navbar-link is-uppercase is-tab" href="{{site[navitem.collection].first.url}}">
                                 {{- navitem.title -}}
                             </a>
                             <div class="navbar-dropdown">
@@ -87,7 +87,7 @@
                         <div class="navbar-item has-dropdown is-hoverable">
                             {%- assign url_input = navitem.url -%}
                             {%- include functions/external_url.html -%}
-                            <a {{anchor}} class="navbar-link is-uppercase">
+                            <a {{anchor}} class="navbar-link is-uppercase is-tab">
                                 {{- navitem.title -}}
                             </a>
 
@@ -116,7 +116,7 @@
                             {%- assign active = " active" -%}
                         {%- endif -%}
                         <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link is-uppercase" href="/{{site.resources_name}}/">
+                            <a class="navbar-link is-uppercase is-tab" href="/{{site.resources_name}}/">
                                 {{- navitem.title -}}
                             </a>
                             <div class="navbar-dropdown">
