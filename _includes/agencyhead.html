@@ -52,8 +52,8 @@
                         
                         {%- assign active = "" -%}
 
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link is-uppercase is-tab" href="{{site[navitem.collection].first.url}}">
+                        <div class="navbar-item has-dropdown is-hoverable is-tab">
+                            <a class="navbar-link is-uppercase" href="{{site[navitem.collection].first.url}}">
                                 {{- navitem.title -}}
                             </a>
                             <div class="navbar-dropdown">
@@ -84,10 +84,10 @@
                     {%- elsif navitem.sublinks -%}
                         {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
                         {%- assign active = "" -%}
-                        <div class="navbar-item has-dropdown is-hoverable">
+                        <div class="navbar-item has-dropdown is-hoverable is-tab">
                             {%- assign url_input = navitem.url -%}
                             {%- include functions/external_url.html -%}
-                            <a {{anchor}} class="navbar-link is-uppercase is-tab">
+                            <a {{anchor}} class="navbar-link is-uppercase">
                                 {{- navitem.title -}}
                             </a>
 
@@ -115,8 +115,8 @@
                         {%- if page.collection == "posts" or page.layout == "resources" or page.layout == "resources-alt" -%}
                             {%- assign active = " active" -%}
                         {%- endif -%}
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link is-uppercase is-tab" href="/{{site.resources_name}}/">
+                        <div class="navbar-item has-dropdown is-hoverable is-tab">
+                            <a class="navbar-link is-uppercase" href="/{{site.resources_name}}/">
                                 {{- navitem.title -}}
                             </a>
                             <div class="navbar-dropdown">
