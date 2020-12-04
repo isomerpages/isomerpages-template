@@ -1,6 +1,6 @@
 {%- comment -%} onclick at body tag is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
-    <!-- remove is-transparent from navbar -->
-    {%- include masthead.html -%}
+<div class="masthead-container" id="navbar" onclick>
+{%- include masthead.html -%}
     <nav class="navbar has-text-weight-semibold">
         <div class="sgds-container">
 
@@ -186,7 +186,7 @@
         </div>
         </div>
     </nav>
-    <!-- <div class="sgds-container hide is-hidden-touch is-hidden-desktop-only search-bar" id="search-bar">
+    <div class="sgds-container hide is-hidden-touch is-hidden-desktop-only search-bar" id="search-bar">
         <div class="row margin--top--sm margin--bottom--sm is-gapless">
 
             <div class="col">
@@ -205,37 +205,6 @@
                   </div>
                 </form>
             </div>
-        </div>
-    </div>
-</div> -->
-
-<div class="sgds-container is-hidden-touch hide" id="searchbar">
-    <div class="row">
-        <div class="col">
-            <form>
-                <div class="field has-addons padding--sm">
-                    <div
-                        class="control has-icons-left is-expanded"
-                    >
-                        <input
-                            class="input is-fullwidth is-borderless is-shadowless"
-                            id="nav-4-search"
-                            type="text"
-                            placeholder="What are you looking for?"
-                            name="nav-4-search"
-                            autocomplete="off"
-                        />
-                    </div>
-                    <div class="control">
-                        <button
-                            type="submit"
-                            class="sgds-button is-secondary has-text-white padding--left padding--right search-button"
-                        >
-                            SEARCH
-                        </button>
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
 </div>
