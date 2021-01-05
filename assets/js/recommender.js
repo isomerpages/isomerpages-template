@@ -20,17 +20,21 @@ request.then(function(response) {
   let relatedPostsDiv = document.getElementById('related-content')
   let relatedPostsList = document.getElementById('related-content-list')
 
-  relatedPostsDiv.classList.remove('hide')
-
   let relatedPostArray = response.recommended_posts
   let slicedArray = relatedPostArray.slice(0,NUM_RECOMMENDED_PAGES)
 
-  slicedArray.forEach(function(relatedPost, index) {
-    const base64RelatedPost = window.btoa(unescape(encodeURIComponent(relatedPost.url)))
-    relatedPostsString += '<li><a href=\"' + relatedPost.url + '?utm_medium=recommender_' + index + '&utm_source=' + base64PageUrl + '&utm_content=' + base64RelatedPost + '\"">' + relatedPost.title + '</a></li>'
-  })
+  if (slicedArray.length > 0) {
+    // Display 'Related Content' header
+    relatedPostsDiv.classList.remove('hide')
 
-  relatedPostsList.innerHTML = relatedPostsString
+    // Display related links
+    slicedArray.forEach(function(relatedPost, index) {
+      const base64RelatedPost = window.btoa(unescape(encodeURIComponent(relatedPost.url)))
+      relatedPostsString += '<li><a href=\"' + relatedPost.url + '?utm_medium=recommender_' + index + '&utm_source=' + base64PageUrl + '&utm_content=' + base64RelatedPost + '\"">' + relatedPost.title + '</a></li>'
+    })
+  
+    relatedPostsList.innerHTML = relatedPostsString
+  }
 
 }).catch(function(error) {
   console.log(error)
