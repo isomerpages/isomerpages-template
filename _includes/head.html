@@ -42,6 +42,12 @@
     <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/blueprint.css">
     <link rel="stylesheet" href="{{- site.baseurl -}}{{- site.custom_css_path -}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,600" crossorigin="anonymous">
+    {%- if site.vica -%}
+        <link
+            href="https://webchat.vica.gov.sg/static/css/chat.css"
+            rel="stylesheet"
+        />
+    {%- endif -%}
     {%- feed_meta -%}
 
     {%- include wogaa_scripts.html -%}
