@@ -25,6 +25,9 @@ plugins:
   # - jekyll-paginate-v2
   # - sanitize
 safe: true
+whitelist:
+  - jekyll-feed
+  - jekyll-assets
 exclude: [travis-script.js, .travis.yml, README.md, package.json, package-lock.json, test_suite, node_modules]
 
 favicon: /assets/img/favicon.ico
