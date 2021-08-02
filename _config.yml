@@ -24,7 +24,7 @@ plugins:
   - jekyll-sitemap
   # - jekyll-paginate-v2
   # - sanitize
-safe: true
+safe: false
 whitelist:
   - jekyll-feed
   - jekyll-assets
