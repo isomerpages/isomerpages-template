@@ -10538,6 +10538,10 @@ h6 center {
     }
 }
 
+.avoidwrap {
+    display:inline-block;
+}
+
 .bp-agencyhead {
     padding-top: 20px;
     padding-bottom: 20px;
