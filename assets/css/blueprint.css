@@ -10515,7 +10515,14 @@ h6 center {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 364px) {
+    .bp-masthead .masthead-layout {
+        font-size: 11px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 340px) {
     .bp-masthead .masthead-layout {
         font-size: 10px;
         cursor: pointer;
