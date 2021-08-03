@@ -10347,6 +10347,17 @@ h6 center {
     background-color: white;
 }
 
+.masthead-layout-container {
+    display: flex;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.masthead-layout-container > div {
+    padding-right:12px;
+    padding-left:12px;
+}
+
 .bp-masthead {
     padding: 0 0 0 0;
     background-color: #f0f0f0;
@@ -10371,7 +10382,6 @@ h6 center {
 @media screen and (max-width: 1023px) {
     .bp-masthead .masthead-layout {
         text-align: left;
-        padding-left: 12px;
     }
 }
 
@@ -10471,8 +10481,6 @@ h6 center {
 
 @media screen and (max-width: 1023px) {
     .bp-masthead .banner-content-layout {
-        margin-left: 12px;
-        margin-right: 12px;
         padding-bottom: 32px;
         padding-top: 4px;
     }
@@ -10496,6 +10504,7 @@ h6 center {
     }
 
     .bp-masthead .banner-icon {
+        margin-left:3px;
         margin-right: 1rem;
         margin-top: 8px;
         height: 14px;
