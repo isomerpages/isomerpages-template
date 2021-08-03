@@ -10505,9 +10505,13 @@ h6 center {
 
     .bp-masthead .banner-icon {
         margin-left:3px;
-        margin-right: 1rem;
+        margin-right: 3px;
         margin-top: 8px;
         height: 14px;
+    }
+    
+    .bp-masthead .banner-content-text-container {
+        padding-left:4px;
     }
 
     .bp-masthead .inline-banner-icon {
