@@ -26,7 +26,9 @@
             </a>
         </div>
         <div class="actionbar__inner padding--top--sm">
-            <a href="http://www.facebook.com/sharer.php?u={{page.url|absolute_url|escape}}" target="_blank" id="fb-anchor" aria-label="Share in Facebook">
+            {%- assign url_input = "http://www.facebook.com/sharer.php?u={{page.url|absolute_url|escape}}"" -%}
+            {%- include functions/external_url.html -%}
+            <a {{anchor}} id="fb-anchor" aria-label="Share in Facebook">
             <button class="bp-button">
               <i 
               class="sgds-icon sgds-icon-facebook-alt is-size-4">
@@ -35,7 +37,9 @@
             </a>
         </div>
         <div class="actionbar__inner padding--top--sm">
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{page.url|absolute_url|escape}}&title={{page.title}}" target="_blank" id="li-anchor" aria-label="Share in LinkedIn">
+            {%- assign url_input = "https://www.linkedin.com/sharing/share-offsite/?url={{page.url|absolute_url|escape}}&title={{page.title}}"" -%}
+            {%- include functions/external_url.html -%}
+            <a {{anchor}} id="li-anchor" aria-label="Share in LinkedIn">
             <button class="bp-button">
               <i 
               class="sgds-icon sgds-icon-linkedin-alt is-size-4">
