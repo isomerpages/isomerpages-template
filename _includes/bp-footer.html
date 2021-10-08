@@ -47,56 +47,6 @@
             {%- endfor -%}
             </div>
 
-            {%- if social -%}
-              {%- comment -%} Social links for desktop {%- endcomment -%}
-              <div class="col is-one-fifth is-hidden-mobile is-hidden-tablet-only" id="social-link-desktop">
-                {%- if social.facebook -%}
-                  <a href="{{- social.facebook -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer"><span class="sgds-icon sgds-icon-facebook is-size-4" title="Facebook"></span></a>
-                {%- endif -%}
-                {%- if social.twitter -%}
-                  <a href="{{- social.twitter -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer"><span class="sgds-icon sgds-icon-twitter is-size-4" title="Twitter"></span></a>
-                {%- endif -%}
-                {%- if social.youtube -%}
-                  <a href="{{- social.youtube -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer"><span class="sgds-icon sgds-icon-youtube is-size-4" title="YouTube"></span></a>
-                {%- endif -%}
-                {%- if social.instagram -%}
-                  <a href="{{- social.instagram -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer"><span class="sgds-icon sgds-icon-instagram is-size-4" title="Instagram"></span></a>
-                {%- endif -%}
-                {%- if social.linkedin -%}
-                  <a href="{{- social.linkedin -}}" target="_blank" class="social-link padding--bottom is-inline-block" rel="noreferrer"><span class="sgds-icon sgds-icon-linkedin is-size-4" title="LinkedIn"></span></a>
-                {%- endif -%}
-              </div>
-              
-              {%- comment -%} Social links for tablet {%- endcomment -%}
-              <div class="col is-one-quarter is-hidden-mobile is-hidden-desktop" id="social-link-tablet">
-                {%- if social.facebook -%}
-                  <div class="row">
-                    <a href="{{- social.facebook -}}" target="_blank" class="social-link margin--bottom" title="Facebook" rel="noreferrer"><span class="sgds-icon sgds-icon-facebook is-size-4"></span></a>
-                  </div>
-                {%- endif -%}
-                {%- if social.twitter -%}
-                  <div class="row">
-                    <a href="{{- social.twitter -}}" target="_blank" class="social-link margin--bottom" title="Twitter" rel="noreferrer"><span class="sgds-icon sgds-icon-twitter is-size-4"></span></a>
-                  </div>
-                {%- endif -%}
-                {%- if social.youtube -%}
-                  <div class="row">
-                    <a href="{{- social.youtube -}}" target="_blank" class="social-link margin--bottom" title="YouTube" rel="noreferrer"><span class="sgds-icon sgds-icon-youtube is-size-4"></span></a>
-                  </div>
-                {%- endif -%}
-                {%- if social.instagram -%}
-                  <div class="row">
-                    <a href="{{- social.instagram -}}" target="_blank" class="social-link margin--bottom" title="Instagram" rel="noreferrer"><span class="sgds-icon sgds-icon-instagram is-size-4"></span></a>
-                  </div>
-                {%- endif -%}
-                {%- if social.linkedin -%}
-                  <div class="row">
-                    <a href="{{- social.linkedin -}}" target="_blank" class="social-link margin--bottom" title="LinkedIn" rel="noreferrer"><span class="sgds-icon sgds-icon-linkedin is-size-4"></span></a>
-                  </div>
-                {%- endif -%}
-              </div>
-            {%- endif -%}
-
             {%- comment -%} Footer links for mobile {%- endcomment -%}
             <div class="col is-hidden-tablet is-hidden-desktop">
               {%- for link in links -%}
@@ -111,7 +61,35 @@
                 {%- endif -%}
               {%- endfor -%}
             </div>
+        </div>
 
+        {%- comment -%} Social links for desktop {%- endcomment -%}
+        <div class="row is-right-desktop-only is-hidden-mobile" id="social-link-desktop-tablet">
+          {%- if social -%}
+            <div class="col padding--top--sm padding--bottom--sm is-hidden-mobile">
+              {%- if social.facebook -%}
+                <a href="{{- social.facebook -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer"><span class="sgds-icon sgds-icon-facebook is-size-4" title="Facebook"></span></a>
+              {%- endif -%}
+              {%- if social.twitter -%}
+                <a href="{{- social.twitter -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer"><span class="sgds-icon sgds-icon-twitter is-size-4" title="Twitter"></span></a>
+              {%- endif -%}
+              {%- if social.youtube -%}
+                <a href="{{- social.youtube -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer"><span class="sgds-icon sgds-icon-youtube is-size-4" title="YouTube"></span></a>
+              {%- endif -%}
+              {%- if social.instagram -%}
+                <a href="{{- social.instagram -}}" target="_blank" class="social-link padding--right padding--bottom is-inline-block" rel="noreferrer"><span class="sgds-icon sgds-icon-instagram is-size-4" title="Instagram"></span></a>
+              {%- endif -%}
+              {%- if social.linkedin -%}
+                <a href="{{- social.linkedin -}}" target="_blank" class="social-link padding--bottom is-inline-block" rel="noreferrer"><span class="sgds-icon sgds-icon-linkedin is-size-4" title="LinkedIn"></span></a>
+              {%- endif -%}
+              {%- if social.telegram -%}
+                <a href="{{- social.telegram -}}" target="_blank" class="social-link padding--bottom is-inline-block" rel="noreferrer"><span class='bx bxl-telegram' style="font-size:24px" title="Telegram"></span></a>
+              {%- endif -%}
+              {%- if social.tiktok -%}
+                <a href="{{- social.tiktok -}}" target="_blank" class="social-link padding--bottom is-inline-block" rel="noreferrer"><span class='bx bxl-tiktok' style="font-size:24px" title="TikTok"></span></a>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
         </div>
         <div class="row">
           <div class="col padding--top--sm padding--bottom--sm is-right-desktop-only">
@@ -145,6 +123,7 @@
                {%- endunless -%}
            </ul>
           </div>
+          {%- comment -%} Social links for mobile {%- endcomment -%}
           <div class="col is-hidden-tablet is-hidden-desktop padding--top--lg padding--bottom--none">
               {%- if social.facebook -%}
                 <a href="{{- social.facebook -}}" target="_blank" class="social-link padding--right" title="Facebook" rel="noreferrer"><span class="sgds-icon sgds-icon-facebook is-size-4"></span></a>
@@ -160,6 +139,12 @@
               {%- endif -%}
               {%- if social.linkedin -%}
                 <a href="{{- social.linkedin -}}" target="_blank" class="social-link padding--right" title="LinkedIn" rel="noreferrer"><span class="sgds-icon sgds-icon-linkedin is-size-4"></span></a>
+              {%- endif -%}
+              {%- if social.telegram -%}
+                <a href="{{- social.telegram -}}" target="_blank" class="social-link padding--right" title="Telegram" rel="noreferrer"><span class='bx bxl-telegram' style="font-size:24px"></span></a>
+              {%- endif -%}
+              {%- if social.tiktok -%}
+                <a href="{{- social.tiktok -}}" target="_blank" class="social-link padding--right" title="TikTok" rel="noreferrer"><span class='bx bxl-tiktok' style="font-size:24px"></span></a>
               {%- endif -%}
             </div>
         </div>
