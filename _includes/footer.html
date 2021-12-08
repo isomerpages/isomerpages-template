@@ -16,13 +16,9 @@
             {%- endif -%}
             {%- assign social = site.data.footer.social_media -%}
             {%- comment -%} Set columns for nav links based on social media links {%- endcomment -%}
-            {%- if social -%}
-                {%- assign navClass = "is-four-fifths" -%}
-            {%- else -%}
-                {%- assign navClass = "" -%}
-            {%- endif -%}
+            {%- assign navClass = "" -%}
 
-            <div class="row col is-multiline is-hidden-mobile {{ navClass }}">
+            <div class="row col is-multiline is-hidden-tablet-only is-hidden-mobile {{ navClass }}">
                 {%- comment -%}
                     Left nav pages (level 2) will all belong to their own collection
                     navigation.yml will simply specify the order of level 1 and level 2 pages (1 level in navigation.yml only)
@@ -44,7 +40,7 @@
                     {%- if navlink.collection -%}
                         {%- comment -%} Leftnav page {%- endcomment -%}
                         
-                        <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
+                        <div class="col footer-page-links is-one-fifth is-hidden-tablet-only is-hidden-mobile padding--bottom--lg is-left">
                             <p class="sub-header">
                                 {%- assign url_input = site[navlink.collection].first.url -%}
                                 {%- include functions/external_url.html -%}
@@ -57,7 +53,7 @@
                                 {%- if leftnavpage.third_nav_title -%}
                                     {%- unless third_nav_titles contains leftnavpage.third_nav_title -%}
                                         {%- comment -%} This is the first page in this third level nav, display link {%- endcomment -%}
-                                        <p class="is-hidden-mobile">
+                                        <p class="is-hidden-tablet-only is-hidden-mobile">
                                             {%- assign url_input = leftnavpage.url -%}
                                             {%- include functions/external_url.html -%}
                                             <a {{anchor}}>
@@ -67,7 +63,7 @@
                                         {%- assign third_nav_titles = third_nav_titles | push: leftnavpage.third_nav_title -%}
                                     {%- endunless -%}
                                 {%- else -%}
-                                    <p class="is-hidden-mobile">
+                                    <p class="is-hidden-tablet-only is-hidden-mobile">
                                         {%- assign url_input = leftnavpage.url -%}
                                         {%- include functions/external_url.html -%}
                                         <a {{anchor}}>
@@ -79,7 +75,7 @@
                         </div>
                     {%- elsif navlink.sublinks -%}
                         {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
-                        <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
+                        <div class="col is-one-fifth is-hidden-tablet-only is-hidden-mobile padding--bottom--lg is-left">
                             {%- assign url_input = navlink.url -%}
                             {%- include functions/external_url.html -%}
                             
@@ -93,7 +89,7 @@
                                 {%- assign url_input = sublink.url -%}
                                 {%- include functions/external_url.html -%}
                                 
-                                <p class="is-hidden-mobile">
+                                <p class="is-hidden-tablet-only is-hidden-mobile">
                                     <a {{anchor}}>
                                         {{- sublink.title -}}
                                     </a>
@@ -101,7 +97,7 @@
                             {%- endfor -%}
                         </div>
                     {%- elsif navlink.resource_room -%}
-                        <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
+                        <div class="col is-one-fifth is-hidden-tablet-only is-hidden-mobile padding--bottom--lg is-left">
                             <p class="sub-header">
                                 <b><a class="has-text-white" href="/{{site.resources_name}}/">
                                     {{- navlink.title -}}
@@ -112,7 +108,7 @@
                                     No point displaying the 'all' entry if there is only 1 category
                                     The numbers are all incremented by 1 as the resource room folder itself is counted as 1 category
                                 {%- endcomment -%}
-                                <p class="is-hidden-mobile">
+                                <p class="is-hidden-tablet-only is-hidden-mobile">
                                     <a href="/{{site.resources_name}}/">
                                         All
                                     </a>
@@ -128,7 +124,7 @@
                             {%- assign categories = categories | sort_natural -%}
                             {%- comment -%} Display navlink for each category {%- endcomment -%}
                             {%- for category in categories -%}
-                                <p class="is-hidden-mobile">
+                                <p class="is-hidden-tablet-only is-hidden-mobile">
                                     <a href="/{{site.resources_name}}/{{category}}/">
                                         {%- assign words = category | replace: "-", " " | replace: "_", " " | split: " " -%}
                                         {%- comment -%} Right now words are all in lowercase, and we want to Title Case them {%- endcomment -%}
@@ -142,7 +138,7 @@
                     {%- else -%}
                         {%- comment -%} Single page {%- endcomment -%}
                         
-                        <div class="col is-one-quarter is-hidden-mobile padding--bottom--lg is-left">
+                        <div class="col is-one-fifth is-hidden-tablet-only is-hidden-mobile padding--bottom--lg is-left">
                             {%- assign url_input = navlink.url -%}
                             {%- include functions/external_url.html -%}
                             
@@ -155,53 +151,72 @@
                     {%- endif -%}
                 {%- endfor -%}
             </div>
-            {%- comment -%} Footer links for mobile {%- endcomment -%}
-            <div class="col is-hidden-tablet is-hidden-desktop">
-                {%- for navlink in navlinks -%}
-                    {%- assign title_downcased = navlink.title | downcase -%}
-                    {%- if title_downcased == "contact us" or title_downcased == "faq" -%}
-                        {%- continue -%}
-                    {%- endif -%}
-
-                    {%- if navlink.collection -%}
-                        {%- comment -%} Leftnav page {%- endcomment -%}                        
-                            <p>
-                                {%- assign url_input = site[navlink.collection].first.url -%}
-                                {%- include functions/external_url.html -%}
-                                <a {{anchor}}>{{navlink.title}}</a>
-                            </p>
-                    {%- elsif navlink.sublinks -%}
-                        {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
-                        {%- assign url_input = navlink.url -%}
-                        {%- include functions/external_url.html -%}
-                        <p>
-                            <a {{anchor}}>
-                                {{- navlink.title -}}
-                            </a>
-                        </p>
-                    {%- elsif navlink.resource_room -%}
-                            <p>
-                                <a href="/{{site.resources_name}}/">
-                                    {{- navlink.title -}}
-                                </a>
-                            </p>
-                    {%- else -%}
-                        {%- comment -%} Single page {%- endcomment -%}
-                        {%- assign url_input = navlink.url -%}
-                        {%- include functions/external_url.html -%}
-                        <p>
-                            <a {{anchor}}>
-                                {{- navlink.title -}}
-                            </a>
-                        </p>
-                    {%- endif -%}
-                {%- endfor -%}
-            </div>
         </div>
-        {%- comment -%} Social links for desktop and tablet {%- endcomment -%}
-        <div class="row is-right-desktop-only is-hidden-mobile"  id="social-link-desktop-tablet">
+        {%- comment -%} Social links for desktop {%- endcomment -%}
+        <div class="row padding--top--lg is-left-desktop-only is-hidden-tablet-only is-hidden-mobile"  id="social-link-desktop-tablet">
+            <div class="col is-flex is-two-thirds padding--top--sm padding--bottom--sm">
+                <ul class='footer-link-container'>
+                    {%- if site.data.footer.links -%}
+                        {%- for link in site.data.footer.links limit:2 -%}
+                            {%- if link.url and link.title -%}
+                                <li>
+                                    {%- assign url_input = link.url -%}
+                                    {%- include functions/external_url.html -%}
+                                    <p><a {{anchor}}>{{- link.title -}}</a></p>
+                                </li>
+                            {%- endif -%}
+                        {%- endfor -%}
+                    {%- endif -%}
+                    {%- if site.data.footer.faq -%}
+                        <li>
+                            {%- assign url_input = site.data.footer.faq -%}
+                            {%- include functions/external_url.html -%}
+                            <p><a {{anchor}}>FAQ</a></p>
+                        </li>
+                    {%- endif -%}
+                    {%- if site.data.footer.contact_us -%}
+                        <li>
+                            {%- assign url_input = site.data.footer.contact_us -%}
+                            {%- include functions/external_url.html -%}
+                            <p><a {{anchor}}>Contact Us</a></p>
+                        </li>
+                    {%- endif -%}
+                    {%- if site.data.footer.feedback -%}
+                        <li>
+                            {%- assign url_input = site.data.footer.feedback -%}
+                            {%- include functions/external_url.html -%}
+                            <p><a {{anchor}}>Feedback</a></p>
+                        </li>
+                    {%- endif -%}
+                    {%- if site.data.footer.show_reach -%}
+                        <li>
+                            {%- assign url_input = "https://www.reach.gov.sg/" -%}
+                            {%- include functions/external_url.html -%}
+                            <p><a {{anchor}} title="Link to reach.gov.sg">REACH</a></p>
+                        </li>
+                    {%- endif -%}
+                    <li><p><a href="https://www.tech.gov.sg/report_vulnerability/">Report Vulnerability</a></p></li>
+                    {%- if site.data.footer.privacy_policy -%}
+                        {%- assign url_input = site.data.footer.privacy_policy -%}
+                        {%- include functions/external_url.html -%}
+                    {%- else -%}
+                        {%- assign url_input = "/privacy/" -%}
+                        {%- include functions/external_url.html -%}
+                    {%- endif -%}
+                    <li><p><a {{anchor}}>Privacy Statement</a></p></li>
+                    
+                    {%- if site.data.footer.terms_of_use -%}
+                        {%- assign url_input = site.data.footer.terms_of_use -%}
+                        {%- include functions/external_url.html -%}
+                    {%- else -%}
+                        {%- assign url_input = "/terms-of-use/" -%}
+                        {%- include functions/external_url.html -%}
+                    {%- endif -%}
+                    <li><p><a {{anchor}}>Terms of Use</a></p></li>
+                </ul>
+            </div>
             {%- if social -%}
-                <div class="col padding--top--sm padding--bottom--sm is-hidden-mobile">
+                <div class="col social-link-container has-text-right-desktop padding--top--sm padding--bottom--sm is-hidden-tablet-only is-hidden-mobile">
                     {%- if social.facebook -%}
                         {%- assign url_input = social.facebook -%}
                         {%- include functions/external_url.html -%}
@@ -254,55 +269,109 @@
                 </div>
             {%- endif -%}
         </div> 
+
+        {%- comment -%} Footer links for mobile and tablet {%- endcomment -%}
         <div class="row">
-            <div class="col padding--top--sm padding--bottom--sm is-right-desktop-only">
-                <ul>
+            <div class="col footer-page-links is-hidden-desktop">
+                {%- for navlink in navlinks -%}
+                    {%- assign title_downcased = navlink.title | downcase -%}
+                    {%- if title_downcased == "contact us" or title_downcased == "faq" -%}
+                        {%- continue -%}
+                    {%- endif -%}
+
+                    {%- if navlink.collection -%}
+                        {%- comment -%} Leftnav page {%- endcomment -%}                        
+                            <p>
+                                {%- assign url_input = site[navlink.collection].first.url -%}
+                                {%- include functions/external_url.html -%}
+                                <a {{anchor}}>{{navlink.title}}</a>
+                            </p>
+                    {%- elsif navlink.sublinks -%}
+                        {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
+                        {%- assign url_input = navlink.url -%}
+                        {%- include functions/external_url.html -%}
+                        <p>
+                            <a {{anchor}}>
+                                {{- navlink.title -}}
+                            </a>
+                        </p>
+                    {%- elsif navlink.resource_room -%}
+                            <p>
+                                <a href="/{{site.resources_name}}/">
+                                    {{- navlink.title -}}
+                                </a>
+                            </p>
+                    {%- else -%}
+                        {%- comment -%} Single page {%- endcomment -%}
+                        {%- assign url_input = navlink.url -%}
+                        {%- include functions/external_url.html -%}
+                        <p>
+                            <a {{anchor}}>
+                                {{- navlink.title -}}
+                            </a>
+                        </p>
+                    {%- endif -%}
+                {%- endfor -%}
+            </div>
+        </div>
+        <div class="row is-hidden-desktop is-vcentered">
+            <div class="col padding--top--md padding--bottom--md">
+                <div class="col divider padding--top--none padding--bottom--none"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col is-hidden-desktop is-two-thirds padding--top--sm padding--bottom--sm">
                     {%- if site.data.footer.links -%}
                         {%- for link in site.data.footer.links limit:2 -%}
                             {%- if link.url and link.title -%}
-                                <li class="is-inline-block-desktop-only">
                                     {%- assign url_input = link.url -%}
                                     {%- include functions/external_url.html -%}
                                     <p><a {{anchor}}>{{- link.title -}}</a></p>
-                                </li>
                             {%- endif -%}
                         {%- endfor -%}
                     {%- endif -%}
-
-                    {%- if site.data.footer.show_reach -%}
-                        <li class="is-inline-block-desktop-only">
-                            {%- assign url_input = "https://www.reach.gov.sg/" -%}
-                            {%- include functions/external_url.html -%}
-                            <p><a {{anchor}} title="Link to reach.gov.sg">REACH</a></p>
-                        </li>
-                    {%- endif -%}
-
                     {%- if site.data.footer.faq -%}
-                        <li class="is-inline-block-desktop-only">
                             {%- assign url_input = site.data.footer.faq -%}
                             {%- include functions/external_url.html -%}
                             <p><a {{anchor}}>FAQ</a></p>
-                        </li>
                     {%- endif -%}
-
-                    {%- if site.data.footer.feedback -%}
-                        <li class="is-inline-block-desktop-only">
-                            {%- assign url_input = site.data.footer.feedback -%}
-                            {%- include functions/external_url.html -%}
-                            <p><a {{anchor}}>Feedback</a></p>
-                        </li>
-                    {%- endif -%}
-
                     {%- if site.data.footer.contact_us -%}
-                        <li class="is-inline-block-desktop-only">
                             {%- assign url_input = site.data.footer.contact_us -%}
                             {%- include functions/external_url.html -%}
                             <p><a {{anchor}}>Contact Us</a></p>
-                        </li>
                     {%- endif -%}
-                </ul>
+                    {%- if site.data.footer.feedback -%}
+                            {%- assign url_input = site.data.footer.feedback -%}
+                            {%- include functions/external_url.html -%}
+                            <p><a {{anchor}}>Feedback</a></p>
+                    {%- endif -%}
+                    {%- if site.data.footer.show_reach -%}
+                            {%- assign url_input = "https://www.reach.gov.sg/" -%}
+                            {%- include functions/external_url.html -%}
+                            <p><a {{anchor}} title="Link to reach.gov.sg">REACH</a></p>
+                    {%- endif -%}
+                    <p><a href="https://www.tech.gov.sg/report_vulnerability/">Report Vulnerability</a></p>
+                    {%- if site.data.footer.privacy_policy -%}
+                        {%- assign url_input = site.data.footer.privacy_policy -%}
+                        {%- include functions/external_url.html -%}
+                    {%- else -%}
+                        {%- assign url_input = "/privacy/" -%}
+                        {%- include functions/external_url.html -%}
+                    {%- endif -%}
+                    <p><a {{anchor}}>Privacy Statement</a></p>
+                    
+                    {%- if site.data.footer.terms_of_use -%}
+                        {%- assign url_input = site.data.footer.terms_of_use -%}
+                        {%- include functions/external_url.html -%}
+                    {%- else -%}
+                        {%- assign url_input = "/terms-of-use/" -%}
+                        {%- include functions/external_url.html -%}
+                    {%- endif -%}
+                    <p><a {{anchor}}>Terms of Use</a></p>
             </div>
-            <div class="col is-hidden-tablet is-hidden-desktop padding--top--lg padding--bottom--none">
+        </div>
+        <div class="row">
+            <div class="col social-link-container is-hidden-desktop padding--top--lg padding--bottom--none">
                 {%- if social.facebook -%}
                     {%- assign url_input = social.facebook -%}
                     {%- include functions/external_url.html -%}
@@ -365,50 +434,46 @@
 
 {%- comment -%} onclick at body tag is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
 <footer class="bp-footer bottom-section" onclick>
-    <div class="bp-container ">
+    <div class="bp-container">
         <div class="row is-vcentered">
-            <div class="col padding--top--none padding--bottom--none">
+            <div class="col padding--top--md padding--bottom--md">
                 <div class="col divider padding--top--none padding--bottom--none"></div>
             </div>
         </div>
-        <div class="row is-vcentered padding--top--sm">
-            <div class="col is-two-thirds">
+        <div class="row is-vcentered">
+            <div class="col has-text-left-desktop has-text-left-tablet has-text-left-mobile">
                 <ul>
-                    <li><a href="https://www.tech.gov.sg/report_vulnerability/">Report Vulnerability</a></li>
-                    {%- if site.data.footer.privacy_policy -%}
-                        {%- assign url_input = site.data.footer.privacy_policy -%}
-                        {%- include functions/external_url.html -%}
-                    {%- else -%}
-                        {%- assign url_input = "/privacy/" -%}
-                        {%- include functions/external_url.html -%}
-                    {%- endif -%}
-                    <li><a {{anchor}}>Privacy Statement</a></li>
-                    
-                    {%- if site.data.footer.terms_of_use -%}
-                        {%- assign url_input = site.data.footer.terms_of_use -%}
-                        {%- include functions/external_url.html -%}
-                    {%- else -%}
-                        {%- assign url_input = "/terms-of-use/" -%}
-                        {%- include functions/external_url.html -%}
-                    {%- endif -%}
-                    <li><a {{anchor}}>Terms of Use</a></li>
-
-                    {%- assign url_input = "https://www.isomer.gov.sg" -%}
-                    {%- include functions/external_url.html -%}
-                    <li><a {{anchor}}>Built with Isomer</a></li>
-                    {%- comment -%} <li><a>Rate Service</a></li> {%- endcomment -%}
+                    <li>
+                        <p class="footer-credits">Built with <img src="/assets/img/isomer_logo.svg" alt="Isomer Logo"></p>
+                    </li>
+                    <li>
+                        <p class="footer-credits">A product of <img src="/assets/img/ogp_logo.svg" alt="Open Government Products Logo"></p>
+                    </li>
                 </ul>
             </div>
-            <div class="col is-one-third has-text-right-desktop has-text-right-tablet has-text-left-mobile">
-                <p>
+            <div class="col has-text-right-desktop is-hidden-mobile is-hidden-tablet-only">
+                <p class="footer-credits">
                     &copy; {{ site.time | date: "%Y" -}}
                     {%- if site.data.footer.copyright_agency %}
                         {{ site.data.footer.copyright_agency -}}
                     {%- else %}
                         {{ site.title -}}
                     {%- endif -%}
+                    , Last Updated {{site.time | date_to_string -}}
                 </p>
-                <p class="last-updated">Last Updated {{site.time | date_to_string -}}</p>
+            </div>
+        </div>
+        <div class="row is-vcentered padding--top--sm">
+            <div class="col is-hidden-desktop">
+                <p class="footer-credits">
+                    &copy; {{ site.time | date: "%Y" -}}
+                    {%- if site.data.footer.copyright_agency %}
+                        {{ site.data.footer.copyright_agency -}}
+                    {%- else %}
+                        {{ site.title -}}
+                    {%- endif -%}
+                    , <br class="tablet-no-break">Last Updated {{site.time | date_to_string -}}
+                </p>
             </div>
         </div>
     </div>
