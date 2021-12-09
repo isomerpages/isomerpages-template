@@ -166,35 +166,50 @@
     </div>
 </footer>
 {%- comment -%} onclick at body tag is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
-<footer class="bp-footer bottom-section" onclick>
-    <div class="bp-container ">
-        <div class="row is-vcentered">
-          <div class="col padding--top--none padding--bottom--none">
-            <div class="col divider padding--top--none padding--bottom--none"></div>
+  <footer class="bp-footer bottom-section" onclick>
+      <div class="bp-container">
+          <div class="row is-vcentered">
+              <div class="col padding--top--md padding--bottom--md">
+                  <div class="col divider padding--top--none padding--bottom--none"></div>
+              </div>
           </div>
-        </div>
-        <div class="row is-vcentered padding--top--sm">
-            <div class="col is-two-thirds">
-                <ul>
-                    <li><a href="https://www.tech.gov.sg/report_vulnerability/">Report Vulnerability</a></li>
-                    <li><a href="{{site.baseurl}}/privacy/">Privacy Statement</a></li>
-                    <li><a href="{{site.baseurl}}/terms-of-use/">Terms of Use</a></li>
-                    <li><a href="https://www.isomer.gov.sg">Built with Isomer</a></li>
-                    {%- comment -%} <li><a>Rate Service</a></li> {%- endcomment -%}
-                </ul>
-            </div>
-            <div class="col is-one-third has-text-right-desktop has-text-right-tablet has-text-left-mobile">
-                <p>&copy; {{ site.time | date: "%Y" -}}
-                {%- if site.copyright_agency %}
-                  {{ site.copyright_agency -}}
-                {%- else %}
-                  {{ site.title -}}
-                {%- endif -%}</p>
-                <p class="last-updated">Last Updated {{site.time | date_to_string -}}</p>
-            </div>
-
-        </div>
-    </div>
-</footer>
+          <div class="row is-vcentered">
+              <div class="col has-text-left-desktop has-text-left-tablet has-text-left-mobile">
+                  <ul>
+                      <li>
+                          <p class="footer-credits">Built with <img src="/assets/img/isomer_logo.svg" alt="Isomer Logo"></p>
+                      </li>
+                      <li>
+                          <p class="footer-credits">A product of <img src="/assets/img/ogp_logo.svg" alt="Open Government Products Logo"></p>
+                      </li>
+                  </ul>
+              </div>
+              <div class="col has-text-right-desktop is-hidden-mobile is-hidden-tablet-only">
+                  <p class="footer-credits">
+                      &copy; {{ site.time | date: "%Y" -}}
+                      {%- if site.data.footer.copyright_agency %}
+                          {{ site.data.footer.copyright_agency -}}
+                      {%- else %}
+                          {{ site.title -}}
+                      {%- endif -%}
+                      , Last Updated {{site.time | date_to_string -}}
+                  </p>
+              </div>
+          </div>
+          <div class="row is-vcentered padding--top--sm">
+              <div class="col is-hidden-desktop">
+                  <p class="footer-credits">
+                      &copy; {{ site.time | date: "%Y" -}}
+                      {%- if site.data.footer.copyright_agency %}
+                          {{ site.data.footer.copyright_agency -}}
+                      {%- else %}
+                          {{ site.title -}}
+                      {%- endif -%}
+                      , <br class="tablet-no-break">Last Updated {{site.time | date_to_string -}}
+                  </p>
+              </div>
+          </div>
+      </div>
+  </footer>
 
 {%- include main-scripts.html -%}
