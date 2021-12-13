@@ -6892,6 +6892,9 @@ a.navbar-link.is-active {
 .col.has-carousel {
     min-width: 0;
 }
+.col.is-multiline {
+    flex-wrap: wrap;
+}
 .row.is-mobile > .col.is-narrow {
     flex: none;
 }
@@ -10572,15 +10575,12 @@ h6 center {
 }
 .bp-footer a {
     color: #b7b7b7;
-    font-size: 17px;
+    font-size: 16px;
     padding-right: 12px;
     line-height: 20px !important;
 }
 .bp-footer a:hover {
     color: white;
-}
-.bp-footer a:last-child {
-    padding-right: 0px;
 }
 .bp-footer p {
     color: #b7b7b7;
@@ -10597,17 +10597,11 @@ h6 center {
         display: block;
     }
 }
-.bp-footer ul li.icons {
-    margin-right: 10px;
-}
 .bp-footer ul li a {
     color: #b7b7b7;
 }
 .bp-footer ul li a:hover {
     color: white;
-}
-.bp-footer ul li + li:not(.icons) {
-    margin-left: 15px;
 }
 @media screen and (max-width: 768px) {
     .bp-footer ul li + li:not(.icons) {
@@ -10637,28 +10631,48 @@ h6 center {
 }
 .bp-footer.bottom-section a,
 .bp-footer.bottom-section p {
-    font-size: 16px !important;
+    font-size: 16px;
 }
 
 .last-updated {
     margin-top: 0px !important;
 }
 
-.social-link {
-    padding-right: 2rem;
+.footer-page-links a {
+    font-size:18px;
 }
 
-#social-link-desktop {
+.footer-link-container {
     display: flex;
-    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap:12px;
 }
 
-#social-link-tablet {
-    margin-top: 0.75rem;
+.social-link-container {
     display: flex;
-    flex-direction: column;
-    padding-right: 48px;
-    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+@media screen and (min-width: 1024px) {
+    .social-link-container {
+        justify-content: flex-end;
+    }
+}
+
+.bp-footer.bottom-section p.footer-credits {
+    font-size: 12px;
+}
+
+.bp-footer.bottom-section p.footer-credits img {
+    padding-left: 16px;
+    padding-right: 32px;
+    vertical-align: middle;
+}
+
+@media screen and (min-width: 769px) {
+    .tablet-no-break {
+        display: none
+    }
 }
 
 .bg-light {
@@ -11122,6 +11136,9 @@ h6 center {
 .padding--top--sm {
     padding-top: 0.5rem !important;
 }
+.padding--top--md {
+    padding-top: 1rem !important;
+}
 .padding--top--lg {
     padding-top: 2rem !important;
 }
@@ -11157,6 +11174,9 @@ h6 center {
 }
 .padding--bottom--sm {
     padding-bottom: 0.5rem !important;
+}
+.padding--bottom--md {
+    padding-bottom: 1rem !important;
 }
 .padding--bottom--lg {
     padding-bottom: 2rem !important;
