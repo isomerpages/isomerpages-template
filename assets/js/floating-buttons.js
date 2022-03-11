@@ -17,7 +17,7 @@ const fullUrl = window.location.href;
 const fullUrlEncoded = encodeURIComponent(window.location.href);
 const titleEncoded = encodeURIComponent(document.getElementsByTagName("title")[0].innerHTML);
 
-document.getElementById("mail-anchor").setAttribute("href", "mailto:?Subject=" + titleEncoded + "&amp;Body=" + fullUrlEncoded);
+document.getElementById("mail-anchor").setAttribute("href", "mailto:?Subject=" + titleEncoded + "&Body=" + fullUrlEncoded);
 document.getElementById("fb-anchor").setAttribute("href", "http://www.facebook.com/sharer.php?u=" + fullUrlEncoded);
 document.getElementById("li-anchor").setAttribute("href", "https://www.linkedin.com/sharing/share-offsite/?url=" + fullUrlEncoded + "&title=" + titleEncoded);
 document.getElementById("page-url").setAttribute("value", fullUrl);
