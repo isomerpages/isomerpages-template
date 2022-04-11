@@ -10659,8 +10659,16 @@ h6 center {
     }
 }
 
-.bp-footer.bottom-section p.footer-credits {
+.bp-footer.bottom-section p.footer-credits a {
     font-size: 12px;
+}
+
+.bp-footer.bottom-section p.footer-credits a:hover {
+    color: inherit;
+}
+
+.bp-footer.bottom-section p.footer-credits a:after {
+    content: none;
 }
 
 .bp-footer.bottom-section p.footer-credits img {
