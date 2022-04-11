@@ -10659,6 +10659,10 @@ h6 center {
     }
 }
 
+.bp-footer.bottom-section p.footer-credits {
+    font-size: 12px;
+}
+
 .bp-footer.bottom-section p.footer-credits a {
     font-size: 12px;
 }
