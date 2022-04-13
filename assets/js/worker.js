@@ -1,5 +1,5 @@
 onmessage = function(event) {
-	self.importScripts('https://unpkg.com/lunr/lunr.js');
+	self.importScripts('https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.js');
 	
 	var documents = event.data;
 
