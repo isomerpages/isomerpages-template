@@ -53,15 +53,15 @@
     {%- feed_meta -%}
 
     {%- include wogaa_scripts.html -%}
-    {%- if site.facebook-pixel -%}
+    {%- if site.facebook-pixel and site.facebook-pixel != "" -%}
         <script src="{{- "assets/js/facebook-pixel.js" | relative_url -}}" crossorigin="anonymous"></script>
         <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{- site.facebook-pixel -}}&ev=PageView&noscript=1"/></noscript>
     {%- endif -%}
-    {%- if site.linkedin-insights -%}
+    {%- if site.linkedin-insights and site.linkedin-insights != "" -%}
         <script src="{{- "assets/js/linkedin-insights.js" | relative_url -}}" crossorigin="anonymous"></script>
         <noscript><img height="1" width="1" style="display:none" src="https://px.ads.linkedin.com/collect/?pid={{- site.linkedin-insights -}}&fmt=gif" /></noscript>
     {%- endif -%}
-    {%- if site.google-tag-manager -%}
+    {%- if site.google-tag-manager and site.google-tag-manager != "" -%}
         <script src="{{- "assets/js/google-tag-manager.js" | relative_url -}}" crossorigin="anonymous"></script>
     {%- endif -%}
     <title>
