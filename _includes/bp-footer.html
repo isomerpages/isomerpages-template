@@ -116,34 +116,37 @@
         <div class="row">
           <div class="col padding--top--sm padding--bottom--sm is-right-desktop-only">
             <ul>
-               {%- unless site.no_contact -%}
-               <li class="is-inline-block-desktop-only">
-                   <p><a href="{{site.baseurl}}/contact-us/">Contact Us</a></p>
-               </li>
-               {%- endunless -%}
-               {%- if homepage.show-reach and homepage.show-reach == true -%}
-               <li class="is-inline-block-desktop-only">
-                 <p><a href="https://www.reach.gov.sg/" target="_blank" rel="noreferrer" title="Link to reach.gov.sg">REACH</a></p>
-               </li>
-               {%- endif -%}
-               {%- if site.feedback_form_url -%}
-               <li class="is-inline-block-desktop-only">
+              <li><a href="https://www.tech.gov.sg/report_vulnerability/">Report Vulnerability</a></li>
+              <li><a href="{{site.baseurl}}/privacy/">Privacy Statement</a></li>
+              <li><a href="{{site.baseurl}}/terms-of-use/">Terms of Use</a></li>
+              {%- unless site.no_contact -%}
+              <li class="is-inline-block-desktop-only">
+                  <p><a href="{{site.baseurl}}/contact-us/">Contact Us</a></p>
+              </li>
+              {%- endunless -%}
+              {%- if homepage.show-reach and homepage.show-reach == true -%}
+              <li class="is-inline-block-desktop-only">
+                <p><a href="https://www.reach.gov.sg/" target="_blank" rel="noreferrer" title="Link to reach.gov.sg">REACH</a></p>
+              </li>
+              {%- endif -%}
+              {%- if site.feedback_form_url -%}
+              <li class="is-inline-block-desktop-only">
                   <p><a href="{{site.feedback_form_url}}" target="_blank" rel="noreferrer">Feedback</a></p>
-               </li>
-               {%- endif -%}
-               {%- assign homepage = site.data.homepage -%}
-               {%- unless homepage.ask-jamie -%}
-               {%- if site.faq_url -%}
-               <li class="is-inline-block-desktop-only">
+              </li>
+              {%- endif -%}
+              {%- assign homepage = site.data.homepage -%}
+              {%- unless homepage.ask-jamie -%}
+              {%- if site.faq_url -%}
+              <li class="is-inline-block-desktop-only">
                   {%- if site.faq_url_external -%}
                     <p><a href="{{site.faq_url}}" target="_blank" rel="noreferrer">FAQ</a></p>
                   {%- else -%}
                     <p><a href="{{site.baseurl}}{{site.faq_url}}">FAQ</a></p>
                   {%- endif -%}
-               </li>
-               {%- endif -%}
-               {%- endunless -%}
-           </ul>
+              </li>
+              {%- endif -%}
+              {%- endunless -%}
+          </ul>
           </div>
           <div class="col is-hidden-tablet is-hidden-desktop padding--top--lg padding--bottom--none">
               {%- if social.facebook -%}
