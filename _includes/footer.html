@@ -75,7 +75,7 @@
                         </div>
                     {%- elsif navlink.sublinks -%}
                         {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
-                        <div class="col is-one-fifth is-hidden-tablet-only is-hidden-mobile padding--bottom--lg is-left">
+                        <div class="col footer-page-links is-one-fifth is-hidden-tablet-only is-hidden-mobile padding--bottom--lg is-left">
                             {%- assign url_input = navlink.url -%}
                             {%- include functions/external_url.html -%}
                             
@@ -97,7 +97,7 @@
                             {%- endfor -%}
                         </div>
                     {%- elsif navlink.resource_room -%}
-                        <div class="col is-one-fifth is-hidden-tablet-only is-hidden-mobile padding--bottom--lg is-left">
+                        <div class="col footer-page-links is-one-fifth is-hidden-tablet-only is-hidden-mobile padding--bottom--lg is-left">
                             <p class="sub-header">
                                 <b><a class="has-text-white" href="/{{site.resources_name}}/">
                                     {{- navlink.title -}}
@@ -138,7 +138,7 @@
                     {%- else -%}
                         {%- comment -%} Single page {%- endcomment -%}
                         
-                        <div class="col is-one-fifth is-hidden-tablet-only is-hidden-mobile padding--bottom--lg is-left">
+                        <div class="col footer-page-links is-one-fifth is-hidden-tablet-only is-hidden-mobile padding--bottom--lg is-left">
                             {%- assign url_input = navlink.url -%}
                             {%- include functions/external_url.html -%}
                             
