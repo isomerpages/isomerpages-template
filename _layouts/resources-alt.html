@@ -85,6 +85,10 @@ layout: skeleton
                                 <small class="has-text-white">  
                                     <span class="sgds-icon sgds-icon-download align-right is-size-4"></span>
                                 </small>
+                            {%- elsif post.layout == 'link' -%}
+                                <small class="has-text-white">
+                                    <span class="bx bx-link-external align-right is-size-4"></span>
+                                </small>
                             {%- endif -%}
                         </div>
                     </div>
