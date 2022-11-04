@@ -102,7 +102,7 @@ function displayTable(chunk, fields) {
   }
   resultString += '</table></div>';
 
-  document.getElementsByClassName("content")[0].innerHTML = resultString;
+  document.getElementsByClassName("content")[0].innerHTML = DOMPurify.sanitize(resultString);
   document.getElementsByClassName("content")[0].style.display = 'block';
 }
 
