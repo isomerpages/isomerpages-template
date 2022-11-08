@@ -51,7 +51,7 @@
                     </div>
                     {%- else -%}
                         {%- if post.permalink -%}
-                            <a href="{{- post.url -}}" class="is-media-card">
+                            <a href="{{- post.permalink -}}" class="is-media-card">
                         {%- else -%}
                             <a href="{{- post.file_url | relative_url -}}" class="is-media-card" target="_blank" rel="noreferrer">
                         {%- endif -%}
