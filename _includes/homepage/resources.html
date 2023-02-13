@@ -50,7 +50,9 @@
                         </a>
                     </div>
                     {%- else -%}
-                        {%- if post.permalink -%}
+                        {%- if post.external -%}
+                            <a href="{{- post.external | relative_url -}}" class="is-media-card" target="_blank">
+                        {%- elsif post.permalink -%}
                             <a href="{{- post.permalink -}}" class="is-media-card">
                         {%- else -%}
                             <a href="{{- post.file_url | relative_url -}}" class="is-media-card" target="_blank" rel="noreferrer">
@@ -66,6 +68,10 @@
                                 {%- if post.file_url -%}
                                     <small class="has-text-white">
                                         <span class="sgds-icon sgds-icon-download align-right is-size-4"></span>
+                                    </small>
+                                {%- elsif post.layout == 'link' -%}
+                                    <small class="has-text-white">
+                                        <span class="bx bx-link-external align-right is-size-4"></span>
                                     </small>
                                 {%- endif -%}
                             </div>
