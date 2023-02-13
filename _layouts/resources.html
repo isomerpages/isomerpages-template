@@ -56,9 +56,9 @@ layout: skeleton
 
                     <div class="col is-one-quarter-widescreen is-one-third-desktop is-half-tablet resource-card-element hide" id="{{- post.date | date: "%Y"}}">
                         {%- if post.external -%}
-                            <a href="{{- post.external | relative_url -}}" class="is-media-card" target="_blank">
+                            <a href="{{- post.external -}}" class="is-media-card" target="_blank">
                         {%- elsif post.file_url -%}
-                            <a href="{{- post.file_url | relative_url -}}" class="is-media-card" target="_blank">
+                            <a href="{{- post.file_url -}}" class="is-media-card" target="_blank">
                         {%- else -%}
                             <a href="{{- post.permalink | relative_url -}}" class="is-media-card">
                         {%- endif -%}
