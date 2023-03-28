@@ -2,6 +2,8 @@
 layout: blank
 ---
 
+// We use layout:blank to make use of jekyll config params
+// Imported script so it isn't blocked by our CSP
 window.dataLayer = window.dataLayer || [];
 function gtag(){window.dataLayer.push(arguments);}
 gtag('js', new Date());
