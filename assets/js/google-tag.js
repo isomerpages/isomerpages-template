@@ -7,11 +7,6 @@ layout: blank
 const perfObserver = new PerformanceObserver((observedEntries) => {
   const entry =
     observedEntries.getEntriesByType('navigation')[0]
-  console.log('pageload time: ', entry.duration)
-  // window.dataLayer.push({ pageLoadTime: 5 })
-  // if (entry.duration === 0) return
-  const parsedLoadTime = Math.round(entry.duration / 100) / 10;
-  console.log(parsedLoadTime)
   window.dataLayer.push({ 
     event: 'performance',
     entryType: entry.entryType,
