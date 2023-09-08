@@ -1,0 +1,9 @@
+{% if section.hero.size == 'half' %}
+<div class="bg-white p16 is-hidden-mobile" style="width: 50%"">
+  {% include homepage/hero/components/hero-infobox.html %}
+  </div>
+{% else %}
+<div class="bg-white p16 is-hidden-mobile" style="width: 33%"">
+  {% include homepage/hero/components/hero-infobox.html %}
+</div>
+{% endif %}

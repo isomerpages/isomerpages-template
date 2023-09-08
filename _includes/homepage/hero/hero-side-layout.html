@@ -1,0 +1,42 @@
+<div class="bp-hero-body">
+  <!-- 768 and above -->
+
+  {%- if section.hero.alignment == 'left' -%} {% include
+  homepage/hero/components/hero-infobox-desktop.html %} {% else %}
+
+  <div class="is-flex flex-end">
+    {% include homepage/hero/components/hero-infobox-desktop.html %}
+  </div>
+
+  {% endif %}
+
+  <!-- below 768 -->
+  <div
+    class="row is-vcentered is-centered is-hidden-tablet"
+    style="
+      padding-top: 106px;
+      padding-bottom: 106px;
+      padding-left: 84px;
+      padding-right: 84px;
+    "
+  >
+    <div
+      class="bg-white p8 row is-vcentered is-centered is-flex"
+      style="flex-direction: column"
+    >
+      <div class="mb8">
+        <h1 class="hero-title mb4">
+          <b class="is-hidden-desktop">{{- section.hero.title -}}</b>
+        </h1>
+      </div>
+      {%- if section.hero.url and section.hero.button -%}
+      <a
+        href="{{- site.baseurl -}}{{- section.hero.url -}}"
+        class="bp-button is-secondary is-uppercase search-button"
+      >
+        {{- section.hero.button -}}
+      </a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
