@@ -1,6 +1,6 @@
-@import '../variables';
+@use '../variables';
 
 .textcards-test {
-  background-color: $primary-color;
-  font-size: $font-size
+  background-color: variables.$primary-color;
+  font-size: variables.$font-size
 }
