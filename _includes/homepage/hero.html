@@ -9,7 +9,8 @@
 </style>
 
 <section class="bp-hero bg-hero">
-  <div class="bp-hero-body">
+  {%- if section.hero.variant != 'image' -%}
+  <div class="bp-hero-body gray-overlay">
     <div class="bp-container margin--top--lg">
       <div class="row is-vcentered is-centered ma">
         {%- if section.hero.variant != 'image' -%}
@@ -78,12 +79,19 @@
           </a>
           {%- endif -%} {%- endif -%}
         </div>
-        {%- endif -%} {%- if section.hero.variant == 'image' -%}
-        <div class="min-height-mobile" />
         {%- endif -%}
       </div>
     </div>
   </div>
+  {%- endif -%} {%- if section.hero.variant == 'image' -%}
+  <div class="bp-hero-body">
+    <div class="bp-container margin--top--lg">
+      <div class="row is-vcentered is-centered ma">
+        <div class="min-height-mobile" />
+      </div>
+    </div>
+  </div>
+  {%- endif -%}
 </section>
 
 {%- if section.hero.key_highlights -%}
