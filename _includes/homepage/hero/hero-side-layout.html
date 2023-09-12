@@ -21,8 +21,8 @@
     "
   >
     <div
-      class="bg-white p8 row is-vcentered is-centered is-flex"
-      style="flex-direction: column"
+      class="p8 row is-vcentered is-centered is-flex"
+      style="flex-direction: column; background-color: {% if section.hero.backgroundColor == 'white' %} white {% else %} black {% endif %}; opacity: {% if section.hero.backgroundColor == 'gray' %} 50% {% else %} 100% {% endif %};"
     >
       <div class="mb8">
         <h1 class="hero-title mb4">
