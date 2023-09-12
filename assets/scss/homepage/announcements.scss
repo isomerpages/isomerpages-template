@@ -1,0 +1,39 @@
+@import "../variables.scss";
+
+.announcements-divider {
+  height: 1px;
+  color: #f9f9f9;
+}
+
+.announcements-announcement-title {
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 2rem;
+}
+
+.announcements-announcement-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375rem;
+}
+
+.announcements-announcement-link {
+  text-transform: unset !important;
+  letter-spacing: 0.27px !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .announcements-announcement-row-px-desktop {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .announcements-announcement-col-px-desktop {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .announcements-announcement-title-mr-desktop {
+    margin-right: 1.5rem;
+  }
+}
