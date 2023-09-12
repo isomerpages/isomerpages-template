@@ -32,6 +32,26 @@ sections:
         description: Isomer helps your agency launch great websites fast and easily.
         button: Contact Us
         url: /contact-us/
+    - announcements:
+        title: Announcements
+        subtitle: Table subtitle
+        announcement_items:
+          - title: 2022 Term 4 Letter
+            date: 4 September 2022
+            announcement: Dear Parents/Guardians and Students, The 2022 Term 3 letter is posted and available for your viewing in the school website.
+            link_text: View 2022 Term 3 letter
+            link_url: https://www.isomer.gov.sg
+          - title: Gifted Education Programme (GEP) Screening Exercise 2022
+            date: 4 September 2022
+            announcement: Please read the attachments on the GEP Screening Exercise 2022 and indicate if you would like your child/ward to participate in the exercise on Wednesday, 17 August 2022.
+          - title: Closure of Front Office on 1 Sept 2022
+            date: 31 August 2022
+            announcement: Please be informed that the ACS(I) Front Office will be closed for a school function on Thursday, 1 September 2022, from 10.30 am onwards. The Front Office will resume operations on Friday, 2 September, 7.00 am. Thank you.
+            link_text: Contact us
+            link_url: /contact-us/
+          - title: Collection of MOE School Graduation Certificate 2021
+            date: 28 August 2022
+            announcement: Dear 2021 Year 4 Express students, We are pleased to inform you that your School Graduation Certificate is ready for collection. You may collect this from the Front Office on weekdays (8.30 am to 4.00 pm). Please provide a written letter of authorisation if a proxy is collecting this on your behalf.
     - infobar:
         title: Use OpenDoc!
         subtitle: "It's beautiful and fast!"
