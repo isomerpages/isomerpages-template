@@ -1,0 +1,88 @@
+/*
+  These are margin and padding helpers with values that follow the ones
+  used by Tailwind CSS. This will generate several classes, such as:
+  - .mr-8 which gives margin-right 2rem
+  - .mx-16 which gives margin-left and margin-right 4rem
+  - .py-4 which gives padding-top and padding-bottom 1rem
+  - .p-20 which gives padding 5rem
+*/
+
+$spaceamounts: (
+  0,
+  0.5,
+  1,
+  1.5,
+  2,
+  2.5,
+  3,
+  3.5,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  14,
+  16,
+  20,
+  24,
+  28,
+  32,
+  36,
+  40,
+  44,
+  48,
+  52,
+  56,
+  60,
+  64,
+  72,
+  80,
+  96
+);
+$sides: (top, bottom, left, right);
+
+@each $space in $spaceamounts {
+  $remSpace: calc(#{$space}rem / 4);
+
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: $remSpace;
+    }
+
+    .p#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: $remSpace;
+    }
+  }
+
+  .mx-#{$space} {
+    margin-left: $remSpace;
+    margin-right: $remSpace;
+  }
+
+  .px-#{$space} {
+    padding-left: $remSpace;
+    padding-right: $remSpace;
+  }
+
+  .my-#{$space} {
+    margin-top: $remSpace;
+    margin-bottom: $remSpace;
+  }
+
+  .py-#{$space} {
+    padding-top: $remSpace;
+    padding-bottom: $remSpace;
+  }
+
+  .m-#{$space} {
+    margin: $remSpace;
+  }
+
+  .p-#{$space} {
+    padding: $remSpace;
+  }
+}
