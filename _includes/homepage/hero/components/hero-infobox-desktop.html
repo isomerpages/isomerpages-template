@@ -1,9 +1,24 @@
-{% if section.hero.size == 'half' %}
-<div class="bg-white p16 is-hidden-mobile" style="width: 50%"">
-  {% include homepage/hero/components/hero-infobox.html %}
+<div
+  class="p16 is-hidden-mobile"
+  style="width: {{- section.hero.size -}}; background-color: {{- section.hero.backgroundColor -}};"
+>
+  <div class="py16">
+    <div class="mb8">
+      <h1 class="hero-title mb4">
+        <b class="is-hidden-touch">{{- section.hero.title -}}</b>
+        <b class="is-hidden-desktop">{{- section.hero.title -}}</b>
+      </h1>
+      {%- if section.hero.subtitle -%}
+      <p class="is-hidden-touch hero-subtitle">{{- section.hero.subtitle -}}</p>
+      {%- endif -%}
+    </div>
+    {%- if section.hero.url and section.hero.button -%}
+    <a
+      href="{{- site.baseurl -}}{{- section.hero.url -}}"
+      class="bp-button is-secondary is-uppercase search-button"
+    >
+      {{- section.hero.button -}}
+    </a>
+    {%- endif -%}
   </div>
-{% else %}
-<div class="bg-white p16 is-hidden-mobile" style="width: 33%"">
-  {% include homepage/hero/components/hero-infobox.html %}
 </div>
-{% endif %}
