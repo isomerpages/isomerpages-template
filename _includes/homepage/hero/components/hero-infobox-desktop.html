@@ -1,6 +1,6 @@
 <div
   class="p16 is-hidden-mobile"
-  style="width: {{- section.hero.size -}}; background-color: {% if section.hero.backgroundColor == 'white' %} white {% else %} black {% endif %}; opacity: {% if section.hero.backgroundColor == 'gray' %} 50% {% else %} 100% {% endif %}"
+  style="width: {{- section.hero.size -}}; background: {% if section.hero.backgroundColor == 'gray' %} #00000080 {% else %} {{- section.hero.backgroundColor -}} {% endif %};"
 >
   <div class="py16">
     <div class="mb8">
