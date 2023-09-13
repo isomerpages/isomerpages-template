@@ -78,7 +78,5 @@ defaults:
 
 permalink: none
 
-# Custom SCSS file path
 sass:
-  sass_dir: assets/scss
   style: compressed

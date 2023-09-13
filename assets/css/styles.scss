@@ -1,0 +1,10 @@
+---
+---
+
+// Declare variables that you need from _config.yml here
+// Agency brand colors
+$primary-color: {{- site.colors.primary-color -}};
+$secondary-color: {{- site.colors.secondary-color -}};
+$secondary-color-hover: lighten($secondary-color, 10%);
+
+@import "helpers";
