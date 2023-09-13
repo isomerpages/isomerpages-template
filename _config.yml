@@ -77,3 +77,6 @@ defaults:
       layout: "page"
 
 permalink: none
+
+sass:
+  style: compressed
