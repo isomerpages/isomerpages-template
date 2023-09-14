@@ -16,7 +16,8 @@
     <div class="bp-container margin--top--lg">
       <div class="row is-vcentered is-centered ma">
         <div class="min-height-mobile is-flex row is-vcentered is-centered">
-          {% include homepage/hero/components/hero-dropdown.html %}
+          {%- if section.hero.dropdown -%} {% include
+          homepage/hero/components/hero-dropdown.html %} {%- endif -%}
         </div>
       </div>
     </div>
