@@ -5,6 +5,6 @@ $primary: {{- site.colors.primary-color -}};
 $secondary: {{- site.colors.secondary-color -}};
 $secondary-hover: lighten($secondary, 10%);
 
-.has-text-secondary-hover {
+.has-text-secondary-hover:hover {
 	color: $secondary-hover;
 }
