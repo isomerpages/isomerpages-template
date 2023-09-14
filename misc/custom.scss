@@ -1,48 +1,33 @@
 ---
+
 ---
+
 @charset "utf-8";
 
-// HLB brand colors
-$primary: #363a65;
-$secondary: #6b4370;
-$secondary-hover: #1fbbac;
-$table-grey: #F0F4F6;
+// Agency brand colors
+$primary: {{- site.colors.primary-color -}};
+$secondary: {{- site.colors.secondary-color -}};
+$secondary-hover: lighten($secondary, 10%);
 
-$media-color-one: #49759a;
-$media-color-two: #744d9f;
-$media-color-three: #00838f;
-$media-color-four: #00838f;
-$media-color-five: #00838f;
+{%- for media-color in site.colors.media-colors -%}
+  ${{- media-color.title -}}: {{- media-color.color -}};
+{%- endfor -%}
 
 $gap: 32px !default;
-$tablet: 769px !default;
 $desktop: 960px + (2 * $gap) !default;
-$widescreen: 1152px + (4 * $gap) !default;
 
 // Mixins
 
 @mixin touch() {
-  @media screen and (max-width: $desktop - 1px){
-      @content
-  }
-}
-
-@mixin mobile() {
-  @media screen and (max-width: $tablet - 1px){
-    @content
-  }
+	@media screen and (max-width: $desktop - 1px){
+    	@content
+	}
 }
 
 @mixin desktop() {
-  @media screen and (min-width: $desktop){
-      @content
-  }
-}
-
-@mixin widescreen() {
-  @media screen and (min-width: $widescreen){
-      @content
-  }
+	@media screen and (min-width: $desktop){
+    	@content
+	}
 }
 
 // Background
@@ -54,36 +39,14 @@ $widescreen: 1152px + (4 * $gap) !default;
     background-color: $secondary !important;
   }
   &-media-color {
-    &-1 {
-      background-color: $media-color-one;
-      &:hover {
-        background-color: darken($media-color-one, 10%);
-    }
-    }
-    &-2 {
-      background-color: $media-color-two;
-      &:hover {
-        background-color: darken($media-color-two, 10%);
-    }
-    }
-    &-3 {
-      background-color: $media-color-three;
-      &:hover {
-        background-color: darken($media-color-three, 10%);
-    }
-    }
-    &-4 {
-      background-color: $media-color-four;
-      &:hover {
-        background-color: darken($media-color-four, 10%);
-    }
-    }
-    &-5 {
-      background-color: $media-color-five;
-      &:hover {
-        background-color: darken($media-color-five, 10%);
-    }
-    }
+    {%- for media-color in site.colors.media-colors -%}
+      &-{{- forloop.index -}} {
+        background-color: ${{- media-color.title -}};
+        &:hover {
+          background-color: darken(${{- media-color.title -}}, 10%);
+        }
+      }
+    {%- endfor -%}
   }
   &-1{
     //background-color: $primary;
@@ -142,41 +105,33 @@ $widescreen: 1152px + (4 * $gap) !default;
 
 // Color definitions
 .is {
-  &-primary {
-    background-color: $primary !important;
-  }
-  &-secondary {
-    background-color: $secondary !important;
-  }
+	&-primary {
+		background-color: $primary !important;
+	}
+	&-secondary {
+		background-color: $secondary !important;
+	}
 }
 
 // Text color
 .has-text-primary {
-  color: $primary !important;
+	color: $primary !important;
 }
 .has-text-secondary {
-  color: $secondary !important;
+	color: $secondary !important;
 }
 
 // Menu/Left-nav
 .bp-menu-list a.is-active {
-  color: $secondary !important;
-  border-bottom: 2px solid $secondary !important;
-  &:hover {
-    border-bottom: 2px solid $secondary !important;
-  }
+	color: $secondary !important;
+	border-bottom: 2px solid $secondary !important;
+	&:hover {
+		border-bottom: 2px solid $secondary !important;
+	}
 }
 .bp-menu-list a:hover {
-  color: $secondary !important;
-  border-bottom: 1px solid $secondary !important;
-}
-
-//Accordion
-
-.bp-accordion-button {
-  &.sgds-icon-minus {
-    color: $secondary;
-  }
+	color: $secondary !important;
+	border-bottom: 1px solid $secondary !important;
 }
 
 // Button
@@ -192,29 +147,29 @@ $widescreen: 1152px + (4 * $gap) !default;
 
 // Secondary button
 .bp-sec-button {
-  color: $secondary;
-  & span {
-    border-bottom: 2px solid $secondary !important;
-  }
-  &:hover {
-    & span {
-        border-bottom: 2px solid $secondary-hover !important;
-        color: $secondary-hover !important;
-      }
-      & i {
-        color: $secondary-hover !important;
-      }
-  }
+	color: $secondary;
+	& span {
+		border-bottom: 2px solid $secondary !important;
+	}
+	&:hover {
+		& span {
+	    	border-bottom: 2px solid $secondary-hover !important;
+	    	color: $secondary-hover !important;
+	  	}
+	  	& i {
+	    	color: $secondary-hover !important;
+	  	}
+	}
 }
 
 // Bottom navigation bar
 .bottom-navigation {
-  a {
-    background-color: $secondary;
-      &:hover{
-        background-color: darken($secondary,10%) !important;
-      }
-  }
+	a {
+		background-color: $secondary;
+	    &:hover{
+	      background-color: darken($secondary,10%) !important;
+	    }
+	}
 }
 
 .bp-section.bp-section-pagetitle {
@@ -223,34 +178,35 @@ $widescreen: 1152px + (4 * $gap) !default;
 
 // Pagination
 .pagination {
-  span {
-    &:hover {
+	span {
+		&:hover {
             border-color: $secondary;
             color: $secondary;
-    }
+		}
         &.selected-page:hover {
             background-color: $secondary;
             border-color: $secondary;
         }
-  }
+	}
     .selected-page {
         background-color: $secondary;
         border-color: $secondary;
     }
 }
 
+
 // Homepage
 #key-highlights{
-  background-color: $primary;
-  .col {
-    border-left:1px solid darken($primary,10%);
-    @include touch(){
-      border-top:1px solid darken($primary,10%);
-    }
-    &:hover{
-      background-color: darken($primary,10%);
-    }
-  }
+	background-color: $primary;
+	.col {
+		border-left:1px solid darken($primary,10%);
+		@include touch(){
+			border-top:1px solid darken($primary,10%);
+		}
+		&:hover{
+			background-color: darken($primary,10%);
+		}
+	}
 }
 
 // Navbar
@@ -282,66 +238,55 @@ $widescreen: 1152px + (4 * $gap) !default;
       }
     }
     &.active{
-      @include widescreen(){
+      @include desktop(){
         border-bottom:1px solid $secondary;
       }
     }
   }
-  .navbar-item:hover {
-    a {
-      color:$secondary;
-    }
-    .selector {
-      @include widescreen(){
-        background-color:$secondary;
-      }
+.navbar-item:hover {
+  a {
+    color:$secondary;
+  }
+  .selector {
+      background-color:$secondary;
     }
   }
-}
-
-.datagovsg-table, .search-results-display {
-  display: none;
 }
 
 // Post-content
 .content {
-  h1, h2, h3, h4, h5 {
-    color: $secondary;
-    strong {
-      color: $secondary;
-    }
-  }
-  blockquote {
-    border-left-color: $secondary;
-  }
-  blockquote > p {
-    color: $secondary;
-  }
-  blockquote > ul {
-    color: $secondary;
-  }
+	h1, h2, h3, h4, h5 {
+		color: $secondary;
+		strong {
+			color: $secondary;
+		}
+	}
+	blockquote {
+		border-left-color: $secondary;
+	}
+	blockquote > p {
+		color: $secondary;
+	}
+	blockquote > ul {
+		color: $secondary;
+	}
 }
 
-// Tables
-table.table-h {
-  th {
-    background-color: $secondary;
-    color: white;
-  }
-  tbody {
-    tr {
-      &:last-child {
-        td,
-        th {
-          border-bottom: solid 4px $secondary;
-        }
-      }
-    }
-  }
+// Media category buttons - not used now but will be used in the future
+
+.media-category-button {
+  text-decoration: none !important;
+  color: #323232;
+  margin-right: 2.5rem;
+  letter-spacing: 0.5px;
 }
 
-// CSS to be refactored into the Blueprint template
+.media-category-button:hover, .media-category-button.selected {
+  color: $secondary;
+  border-bottom: 2px solid $secondary;
+}
 
+// CSS to be refactored
 .content img.digital-transformation-icon {
   height: 80px;
   width: 80px;
@@ -353,16 +298,8 @@ table.table-h {
   margin-left: 1rem;
   margin-right: 1rem;
   padding: 2rem;
-  margin-top: -7.5rem;
+  margin-top: -5rem;
   background-color: white;
-  color: #767676;
-  &:hover {
-    color: white;
-  }
-}
-
-.bp-image-milestone {
-  border-bottom: solid 4px $secondary;
 }
 
 .tag {
@@ -376,59 +313,25 @@ table.table-h {
   display: none;
 }
 
-.helper {
+.image-card:hover {
+  .news-content {
+    background-color: darken(#ffffff, 10%);
+  }
+}
+
+.hero-dropdown {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  vertical-align: middle;
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
 }
 
-.isomer-agency-logo {
-  vertical-align: middle;
-  max-height: 60px;
-  @include mobile(){
-    max-width: 300px;
-  }
+.is-centered {
+  margin: auto;
 }
 
-.isomer-example{
-  transition: .5s ease;
-  &:hover {
-    opacity: 0.3;
-  }
-}
-
-.image-hover-button {
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  opacity: 0;
-}
-
-.image-hover-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0);
-  transition: background 0.5s ease;
-
-  &:hover{
-    background: #6031b6;
-    opacity: 0.9;
-  }
-}
-
-.image-hoverable {
-  position: relative;
-  transition: .5s ease;
-  &:hover {
-    .image-hover-button{
-      opacity: 1;
-    }
+.is-three-fifths-mobile {
+  width: 50%;
+  @include touch() {
+    width: 100%;
   }
 }
