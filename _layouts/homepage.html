@@ -138,4 +138,15 @@ layout: skeleton
 			{%- assign has_announcements = true -%}
 		{%- endif -%}
 	{%- endif -%}
+	
+	{%- if section.textcards -%}
+		{%- 
+			include homepage/text-cards.html
+			title = section.textcards.title
+			subtitle = section.textcards.subtitle
+			description = section.textcards.description
+			cards = section.textcards.cards
+		-%}
+		{%- include functions/swap_container_class.html -%}
+	{%- endif -%}
 {%- endfor -%}
