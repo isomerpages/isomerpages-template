@@ -1,0 +1,35 @@
+{%- comment -%}
+  include: 
+    subtitle
+    title
+    description
+    cards[]:
+      title
+      description
+      linktext
+      url
+{%- endcomment -%}
+<section class="textcards-section is-flex px-24 py-16">
+  <p class="textcards-subtitle pb-2">
+    {{ include.subtitle }}
+  </p>
+  <h1 class="textcards-title has-text-secondary pb-4">
+    {{ include.title }}
+  </h1>
+  <p class="textcards-description pb-12">
+    {{ include.description }}
+  </p>
+  <div class="textcards-card-section is-flex">
+    {%- for card in include.cards limit:4 -%}
+    <a class="textcards-card-body is-flex p-6" href="{{ card.url }}">
+      <h3 class="textcards-card-title">
+        {{ card.title }}
+      </h3>
+      <p class="textcards-card-description">
+        {{ card.description }}
+      </p>
+      <p class="has-text-secondary has-text-secondary-hover textcards-card-url">{{ card.linktext }}</p>
+    </a>
+    {%- endfor -%}
+  </div>
+</section>
