@@ -22,6 +22,10 @@
       </div>
     </div>
   </div>
+  {%- endif -%} {%- if section.hero.variant == 'floating' -%}
+  <div style="padding: 3rem">
+    {% include homepage/hero/hero-side-layout.html %}
+  </div>
   {%- endif -%} {%- if section.hero.variant == 'center' -%}
   <div class="bp-hero-body gray-overlay hero-body-padding">
     <div class="bp-container margin--top--lg">
