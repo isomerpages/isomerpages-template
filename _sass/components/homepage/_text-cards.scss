@@ -61,6 +61,9 @@
     &:hover {
       background-color: #D0D5DD;
       cursor: pointer;
+      > .textcards-card-url {
+        color: $secondary-color-hover; // TODO
+      }
     }
 
     .textcards-card-title {
@@ -75,6 +78,7 @@
     .textcards-card-url {
       font-size: 1.125rem;
       text-decoration: underline;
+      color: $secondary-color
     }
   }
 }
