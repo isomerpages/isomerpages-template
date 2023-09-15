@@ -16,7 +16,7 @@
             {{- page.description | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 20 -}}
         {%- else -%}
             {{- page.content | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 20 -}}
-        {%- endif -%}"> 
+        {%- endif -%}">
     <meta name="Description" CONTENT="
         {%- if page.description -%}
             {{- page.description | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 20 -}}
@@ -33,14 +33,14 @@
     {%- endif -%}">
     <meta property="og:url" content="{{- page.url | absolute_url -}}">
     <link rel="canonical" href="{{- page.url | absolute_url -}}" />
-    
+
     {%- if site.favicon -%}
         <link rel="shortcut icon" href="{{- site.baseurl- }}{{- site.favicon -}}" type="image/x-icon">
     {%- else -%}
         <link rel="shortcut icon" href="{{- site.baseurl -}}/assets/img/favicon.ico" type="image/x-icon">
     {%- endif -%}
-    
-    <link rel="stylesheet" href="{{- site.baseurl -}}/assets/scss/styles.css">
+
+    <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/styles.css">
     <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/blueprint.css">
     <link rel="stylesheet" href="{{- site.baseurl -}}{{- site.custom_css_path -}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,600" crossorigin="anonymous">
