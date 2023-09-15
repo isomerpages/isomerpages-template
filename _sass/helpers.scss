@@ -46,39 +46,39 @@ $sides: (top, bottom, left, right);
 
   @each $side in $sides {
     .m#{str-slice($side, 0, 1)}-#{$space} {
-      margin-#{$side}: $remSpace;
+      margin-#{$side}: $remSpace !important;
     }
 
     .p#{str-slice($side, 0, 1)}-#{$space} {
-      padding-#{$side}: $remSpace;
+      padding-#{$side}: $remSpace !important;
     }
   }
 
   .mx-#{$space} {
-    margin-left: $remSpace;
-    margin-right: $remSpace;
+    margin-left: $remSpace !important;
+    margin-right: $remSpace !important;
   }
 
   .px-#{$space} {
-    padding-left: $remSpace;
-    padding-right: $remSpace;
+    padding-left: $remSpace !important;
+    padding-right: $remSpace !important;
   }
 
   .my-#{$space} {
-    margin-top: $remSpace;
-    margin-bottom: $remSpace;
+    margin-top: $remSpace !important;
+    margin-bottom: $remSpace !important;
   }
 
   .py-#{$space} {
-    padding-top: $remSpace;
-    padding-bottom: $remSpace;
+    padding-top: $remSpace !important;
+    padding-bottom: $remSpace !important;
   }
 
   .m-#{$space} {
-    margin: $remSpace;
+    margin: $remSpace !important;
   }
 
   .p-#{$space} {
-    padding: $remSpace;
+    padding: $remSpace !important;
   }
 }
