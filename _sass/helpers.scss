@@ -8,6 +8,7 @@
 */
 
 $spaceamounts: (
+  "auto",
   0,
   1,
   2,
@@ -39,46 +40,71 @@ $spaceamounts: (
   80,
   96
 );
-$sides: (top, bottom, left, right);
+// $sides: (top, bottom, left, right);
+$sides: (
+  "t": "top",
+  "b": "bottom",
+  "l": "left",
+  "r": "right",
+  "x": (
+    "left",
+    "right",
+  ),
+  "y": (
+    "top",
+    "bottom",
+  ),
+  "": (
+    "top",
+    "bottom",
+    "left",
+    "right",
+  ),
+);
 
-@each $space in $spaceamounts {
-  $remSpace: calc(#{$space}rem / 4);
+@each $breakpoint, $minwidth in $breakpoints {
+  @if $minwidth != 0px {
+    @media (min-width: $minwidth) {
+      @each $space in $spaceamounts {
+        $remSpace: if($space == "auto", auto, calc(#{$space}rem / 4));
 
-  @each $side in $sides {
-    .m#{str-slice($side, 0, 1)}-#{$space} {
-      margin-#{$side}: $remSpace !important;
+        @each $prefix, $positions in $sides {
+          $suffix: #{$prefix};
+          @if $minwidth != 0px {
+            $suffix: #{$prefix}-#{$breakpoint};
+          }
+
+          .m#{$suffix}-#{$space} {
+            @each $position in $positions {
+              margin-#{$position}: $remSpace !important;
+            }
+          }
+
+          .p#{$suffix}-#{$space} {
+            @each $position in $positions {
+              padding-#{$position}: $remSpace !important;
+            }
+          }
+        }
+      }
     }
+  } @else {
+    @each $space in $spaceamounts {
+      $remSpace: if($space == "auto", auto, calc(#{$space}rem / 4));
 
-    .p#{str-slice($side, 0, 1)}-#{$space} {
-      padding-#{$side}: $remSpace !important;
+      @each $prefix, $positions in $sides {
+        .m#{$prefix}-#{$space} {
+          @each $position in $positions {
+            margin-#{$position}: $remSpace !important;
+          }
+        }
+
+        .p#{$prefix}-#{$space} {
+          @each $position in $positions {
+            padding-#{$position}: $remSpace !important;
+          }
+        }
+      }
     }
-  }
-
-  .mx-#{$space} {
-    margin-left: $remSpace !important;
-    margin-right: $remSpace !important;
-  }
-
-  .px-#{$space} {
-    padding-left: $remSpace !important;
-    padding-right: $remSpace !important;
-  }
-
-  .my-#{$space} {
-    margin-top: $remSpace !important;
-    margin-bottom: $remSpace !important;
-  }
-
-  .py-#{$space} {
-    padding-top: $remSpace !important;
-    padding-bottom: $remSpace !important;
-  }
-
-  .m-#{$space} {
-    margin: $remSpace !important;
-  }
-
-  .p-#{$space} {
-    padding: $remSpace !important;
   }
 }
