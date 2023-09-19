@@ -16,22 +16,20 @@
 }
 
 .announcements-announcement-link {
-  text-transform: unset !important;
-  letter-spacing: 0.27px !important;
+  color: $secondary-color;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  letter-spacing: 0.27px;
+  text-decoration-line: underline;
+  text-transform: capitalize;
+  text-underline-offset: 0.25rem;
 }
 
-@media screen and (min-width: 1024px) {
-  .announcements-announcement-row-px-desktop {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-  }
+.announcements-announcement-link:hover {
+  color: $secondary-color-hover;
+}
 
-  .announcements-announcement-col-px-desktop {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
-  .announcements-announcement-title-mr-desktop {
-    margin-right: 1.5rem;
-  }
+a[target="_blank"].announcements-announcement-link::after {
+  content: unset;
 }

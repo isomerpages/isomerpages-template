@@ -15,10 +15,8 @@
         <hr class="my-8 announcements-divider" />
 
         {%- for announcement in section.announcements.announcement_items -%}
-        <div class="row is-desktop announcements-announcement-row-px-desktop">
-          <div
-            class="col is-4-desktop announcements-announcement-col-px-desktop announcements-announcement-title-mr-desktop"
-          >
+        <div class="row is-desktop">
+          <div class="col is-4-desktop px-lg-6 mr-lg-6">
             <h3 class="announcements-announcement-title mb-4">
               <b>{{- announcement.title -}}</b>
             </h3>
@@ -26,16 +24,13 @@
               {{- announcement.date -}}
             </p>
           </div>
-          <div class="col announcements-announcement-col-px-desktop">
+          <div class="col px-lg-6">
             <p>{{- announcement.announcement -}}</p>
             {%- if announcement.link_text and announcement.link_url -%}
             <div class="mt-4">
               {%- assign url_input = announcement.link_url -%} {%- include
               functions/external_url.html -%}
-              <a
-                {{anchor}}
-                class="announcements-announcement-link bp-sec-button"
-              >
+              <a {{anchor}} class="announcements-announcement-link">
                 <span>{{- announcement.link_text -}}</span>
               </a>
             </div>
