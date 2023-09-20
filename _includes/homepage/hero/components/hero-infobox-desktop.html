@@ -11,7 +11,11 @@
       <p class="is-hidden-touch body-2">{{- section.hero.subtitle -}}</p>
       {%- endif -%}
     </div>
-    {%- if section.hero.url and section.hero.button -%}
+    {%- if section.hero.dropdown -%}
+    <div class="is-flex" style="justify-content: center; align-content: center">
+      {% include homepage/hero/components/hero-dropdown.html %}
+    </div>
+    {% elsif section.hero.url and section.hero.button -%}
     <a
       href="{{- site.baseurl -}}{{- section.hero.url -}}"
       class="bp-button is-secondary is-uppercase search-button"

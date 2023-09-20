@@ -29,7 +29,9 @@
           <b class="is-hidden-desktop">{{- section.hero.title -}}</b>
         </h1>
       </div>
-      {%- if section.hero.url and section.hero.button -%}
+      {%- if section.hero.dropdown -%} {% include
+      homepage/hero/components/hero-dropdown.html %} {% elsif section.hero.url
+      and section.hero.button -%}
       <a
         href="{{- site.baseurl -}}{{- section.hero.url -}}"
         class="bp-button is-secondary is-uppercase search-button"
