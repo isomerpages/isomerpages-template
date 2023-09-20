@@ -31,6 +31,7 @@ layout: skeleton
 {%- assign gray_container_class = nil -%}
 {%- assign has_carousel = false -%}
 {%- assign has_resources = false -%}
+{%- assign has_announcements = false -%}
 
 {%- for section in page.sections -%}
 	{%- if forloop.first -%}
@@ -112,6 +113,29 @@ layout: skeleton
 			{%- comment -%} For inclusion of owl_carousel in main_scripts {%- endcomment -%}
 			{%- assign has_carousel = true -%}
 			{%- include homepage/carousel.html -%}
+		{%- endif -%}
+	{%- endif -%}
+
+	{%- if section.announcements -%}
+		{%- if has_announcements -%}
+			<section class="bp-section bg-newssection">
+				<div class="bp-container">
+					<div class="row">
+						<div class="col">
+							<h1>Each page should only have one announcements section</h1>
+						</div>
+					</div>
+				</div>
+			</section>
+		{%- else -%}
+			{%-
+				include homepage/announcements.html
+				title = section.announcements.title
+				subtitle = section.announcements.subtitle
+				announcement_items = section.announcements.announcement_items
+			-%}
+			{%- include functions/swap_container_class.html -%}
+			{%- assign has_announcements = true -%}
 		{%- endif -%}
 	{%- endif -%}
 {%- endfor -%}

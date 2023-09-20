@@ -1,0 +1,60 @@
+{%- comment -%}
+  include:
+    subtitle
+    title
+    announcement_items[]:
+      title
+      date
+      announcement
+      link_text
+      link_url
+{%- endcomment -%}
+<section class="bp-section {{ gray_container_class }} px-14 px-md-24 py-24">
+  <div class="bp-container is-fluid m-0">
+    <div class="row">
+      <div class="col is-full">
+        {%- if include.subtitle -%}
+        <p class="eyebrow is-uppercase pb-4 has-text-centered">
+          {{- include.subtitle -}}
+        </p>
+        {%- endif -%}
+        {%- if include.title -%}
+        <h1 class="has-text-secondary pb-4 has-text-centered">
+          <b>{{- include.title -}}</b>
+        </h1>
+        {%- endif -%}
+
+        <hr class="my-8 announcements-divider" />
+
+        {%- for announcement in include.announcement_items limit:5 -%}
+        <div class="row is-desktop px-lg-3">
+          <div class="col is-4-desktop px-lg-6 mr-lg-6">
+            <h3 class="announcements-announcement-title mb-4">
+              <b>{{- announcement.title -}}</b>
+            </h3>
+            <p class="announcements-announcement-subtitle">
+              {{- announcement.date -}}
+            </p>
+          </div>
+          <div class="col px-lg-6">
+            <p>{{- announcement.announcement -}}</p>
+            {%- if announcement.link_text and announcement.link_url -%}
+            <div class="mt-4">
+              {%- assign url_input = announcement.link_url -%} {%- include
+              functions/external_url.html -%}
+              <a {{anchor}} class="announcements-announcement-link">
+                <span>{{- announcement.link_text -}}</span>
+              </a>
+            </div>
+            {%- endif -%}
+          </div>
+        </div>
+        {%- if forloop.last -%}
+        <hr class="mt-8 mb-0 announcements-divider" />
+        {%- else -%}
+        <hr class="my-8 announcements-divider" />
+        {%- endif -%} {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
