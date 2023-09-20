@@ -10,8 +10,8 @@
 
 <section class="bp-hero bg-hero">
   {%- if section.hero.variant == 'side' -%} {% include
-  homepage/hero/hero-side-layout.html %} {%- endif -%} {%- if
-  section.hero.variant == 'image' -%}
+  homepage/hero/hero-side-layout.html %} {%- elsif section.hero.variant ==
+  'image' -%}
   <div class="bp-hero-body hero-body-padding">
     <div class="bp-container margin--top--lg">
       <div class="row is-vcentered is-centered ma">
@@ -22,11 +22,13 @@
       </div>
     </div>
   </div>
-  {%- endif -%} {%- if section.hero.variant == 'floating' -%}
+  {%- elsif section.hero.variant == 'floating' -%}
   <div class="hero-floating">
     {% include homepage/hero/hero-side-layout.html %}
   </div>
-  {%- endif -%} {%- if section.hero.variant == 'center' -%}
+  <!-- NOTE: Either the variant is `center` or it is `undefined` which means that they are  using
+  the center layout implicitly (the default layout prior to adding variants is center) -->
+  {%- else -%}
   <div class="bp-hero-body gray-overlay hero-body-padding">
     <div class="bp-container margin--top--lg">
       <div class="row is-vcentered is-centered ma">
