@@ -1,21 +1,33 @@
+{%- comment -%}
+  include:
+    subtitle
+    title
+    announcement_items[]:
+      title
+      date
+      announcement
+      link_text
+      link_url
+{%- endcomment -%}
 <section class="bp-section {{ gray_container_class }} px-14 px-md-24 py-24">
   <div class="bp-container is-fluid m-0">
     <div class="row">
       <div class="col is-full">
-        {%- if section.announcements.subtitle -%}
+        {%- if include.subtitle -%}
         <p class="eyebrow is-uppercase pb-4 has-text-centered">
-          {{- section.announcements.subtitle -}}
+          {{- include.subtitle -}}
         </p>
-        {%- endif -%} {%- if section.announcements.title -%}
+        {%- endif -%}
+        {%- if include.title -%}
         <h1 class="has-text-secondary pb-4 has-text-centered">
-          <b>{{- section.announcements.title -}}</b>
+          <b>{{- include.title -}}</b>
         </h1>
         {%- endif -%}
 
         <hr class="my-8 announcements-divider" />
 
-        {%- for announcement in section.announcements.announcement_items -%}
-        <div class="row is-desktop">
+        {%- for announcement in include.announcement_items limit:5 -%}
+        <div class="row is-desktop px-lg-3">
           <div class="col is-4-desktop px-lg-6 mr-lg-6">
             <h3 class="announcements-announcement-title mb-4">
               <b>{{- announcement.title -}}</b>

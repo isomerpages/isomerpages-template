@@ -128,7 +128,12 @@ layout: skeleton
 				</div>
 			</section>
 		{%- else -%}
-			{%- include homepage/announcements.html -%}
+			{%-
+				include homepage/announcements.html
+				title = section.announcements.title
+				subtitle = section.announcements.subtitle
+				announcement_items = section.announcements.announcement_items
+			-%}
 			{%- include functions/swap_container_class.html -%}
 			{%- assign has_announcements = true -%}
 		{%- endif -%}
