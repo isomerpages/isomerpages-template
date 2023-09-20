@@ -1,8 +1,11 @@
 <div class="bp-hero-body">
   <!-- 768 and above -->
 
-  {%- if section.hero.alignment == 'left' -%} {% include
-  homepage/hero/components/hero-infobox-desktop.html %} {% else %}
+  {%- if section.hero.alignment == 'left' -%}
+  <div class="is-flex flex-start">
+    {% include homepage/hero/components/hero-infobox-desktop.html %}
+  </div>
+  {% else %}
 
   <div class="is-flex flex-end">
     {% include homepage/hero/components/hero-infobox-desktop.html %}
