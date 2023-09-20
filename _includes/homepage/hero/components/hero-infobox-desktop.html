@@ -15,13 +15,13 @@
     <div class="is-flex" style="justify-content: center; align-content: center">
       {% include homepage/hero/components/hero-dropdown.html %}
     </div>
-    {% else %} {%- if section.hero.url and section.hero.button -%}
+    {% elsif section.hero.url and section.hero.button -%}
     <a
       href="{{- site.baseurl -}}{{- section.hero.url -}}"
       class="bp-button is-secondary is-uppercase search-button"
     >
       {{- section.hero.button -}}
     </a>
-    {%- endif -%} {%- endif -%}
+    {%- endif -%}
   </div>
 </div>

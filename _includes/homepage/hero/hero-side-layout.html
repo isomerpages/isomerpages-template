@@ -30,15 +30,15 @@
         </h1>
       </div>
       {%- if section.hero.dropdown -%} {% include
-      homepage/hero/components/hero-dropdown.html %} {% else %} {%- if
-      section.hero.url and section.hero.button -%}
+      homepage/hero/components/hero-dropdown.html %} {% elsif section.hero.url
+      and section.hero.button -%}
       <a
         href="{{- site.baseurl -}}{{- section.hero.url -}}"
         class="bp-button is-secondary is-uppercase search-button"
       >
         {{- section.hero.button -}}
       </a>
-      {%- endif -%} {%- endif -%}
+      {%- endif -%}
     </div>
   </div>
 </div>
