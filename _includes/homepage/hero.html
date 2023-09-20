@@ -9,8 +9,18 @@
 </style>
 
 <section class="bp-hero bg-hero">
-  {%- if section.hero.variant != 'image' -%}
-  <div class="bp-hero-body gray-overlay">
+  {%- if section.hero.variant == 'side' -%} {% include
+  homepage/hero/hero-side-layout.html %} {%- endif -%} {%- if
+  section.hero.variant == 'image' -%}
+  <div class="bp-hero-body hero-body-padding">
+    <div class="bp-container margin--top--lg">
+      <div class="row is-vcentered is-centered ma">
+        <div class="min-height-mobile" />
+      </div>
+    </div>
+  </div>
+  {%- endif -%} {%- if section.hero.variant == 'center' -%}
+  <div class="bp-hero-body gray-overlay hero-body-padding">
     <div class="bp-container margin--top--lg">
       <div class="row is-vcentered is-centered ma">
         <div class="col is-9 has-text-centered has-text-white">
@@ -78,14 +88,6 @@
           </a>
           {%- endif -%} {%- endif -%}
         </div>
-      </div>
-    </div>
-  </div>
-  {%- endif -%} {%- if section.hero.variant == 'image' -%}
-  <div class="bp-hero-body">
-    <div class="bp-container margin--top--lg">
-      <div class="row is-vcentered is-centered ma">
-        <div class="min-height-mobile" />
       </div>
     </div>
   </div>
