@@ -45,9 +45,11 @@ jobs:
       - name: Push change to staging branch
         run: git push --force origin HEAD:${{ env.ISOMER_STAGING_BRANCH_NAME }}
 
+      # API response format: https://docs.aws.amazon.com/amplify/latest/APIReference/API_GetBranch.html
       - name: Get the latest job ID of the template-test AWS Amplify app
         run: echo ISOMER_AMPLIFY_JOB_ID=$(aws amplify get-branch --app-id ${{ secrets.AWS_AMPLIFY_APP_ID }} --branch-name ${{ env.ISOMER_AMPLIFY_BRANCH_NAME }} | jq -r '.branch.activeJobId') >> $GITHUB_ENV
 
+      # API response format: https://docs.aws.amazon.com/amplify/latest/APIReference/API_StartJob.html
       - name: Trigger a redeploy of the latest version of template-test on AWS Amplify and record job ID
         run: echo ISOMER_AMPLIFY_NEW_JOB_ID=$(aws amplify start-job --app-id ${{ secrets.AWS_AMPLIFY_APP_ID }} --branch-name ${{ env.ISOMER_AMPLIFY_BRANCH_NAME }} --job-type RETRY --job-id ${{ env.ISOMER_AMPLIFY_JOB_ID }} | jq -r '.jobSummary.jobId') >> $GITHUB_ENV
 
@@ -57,6 +59,7 @@ jobs:
       - name: Trigger a redeploy of the latest version of template-regression-test on AWS Amplify and record job ID
         run: echo ISOMER_AMPLIFY_REGRESSION_NEW_JOB_ID=$(aws amplify start-job --app-id ${{ secrets.AWS_AMPLIFY_APP_REGRESSION_ID }} --branch-name ${{ env.ISOMER_AMPLIFY_BRANCH_NAME }} --job-type RETRY --job-id ${{ env.ISOMER_AMPLIFY_REGRESSION_JOB_ID }} | jq -r '.jobSummary.jobId') >> $GITHUB_ENV
 
+      # API response format: https://docs.aws.amazon.com/amplify/latest/APIReference/API_GetJob.html
       - name: Poll for build status of the template-test AWS Amplify app
         shell: bash
         run: |
