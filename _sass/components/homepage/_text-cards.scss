@@ -3,6 +3,11 @@
 .textcards-section {
   flex-direction: column;
   align-items: center;
+
+  @media screen and (min-width: map.get($breakpoints, "xxl")) {
+    max-width: 1440px;
+    margin: auto;
+  }
 }
 
 .textcards-card-section {
@@ -35,6 +40,10 @@
       max-width: 50%;
     }
 
+    @media screen and (min-width: map.get($breakpoints, "lg")) {
+      max-width: 40%;
+    }
+
     @media screen and (min-width: map.get($breakpoints, "md")) and (max-width: (map.get($breakpoints, "lg") - 1)) {
       flex: 0 0 calc(50% - 24px);
     }
@@ -42,7 +51,7 @@
     &:hover {
       background-color: $interaction-hover-color;
       cursor: pointer;
-      > .textcards-card-url {
+      > .link-styles {
         color: $secondary-color-hover;
       }
     }
