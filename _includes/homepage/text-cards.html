@@ -9,27 +9,29 @@
       linktext
       url
 {%- endcomment -%}
-<section class="textcards-section is-flex px-24 py-10 py-md-16 {{ gray_container_class }}">
-  <p class="subtitle-2-styles pb-2">
-    {{ include.subtitle }}
-  </p>
-  <h1 class="h1-styles has-text-secondary has-text-centered pb-4">
-    {{ include.title }}
-  </h1>
-  <p class="body-1-styles has-text-centered pb-12">
-    {{ include.description }}
-  </p>
-  <div class="textcards-card-section has-text-left is-flex">
-    {%- for card in include.cards limit:4 -%}
-    <a class="textcards-card-body is-flex p-6" href="{{ card.url }}">
-      <h3 class="h3-styles">
-        {{ card.title }}
-      </h3>
-      <p class="body-1-styles textcards-card-description">
-        {{ card.description }}
-      </p>
-      <p class="link-styles">{{ card.linktext }}</p>
-    </a>
-    {%- endfor -%}
+<section class="px-24 py-10 py-md-16 {{ gray_container_class }}">
+  <div class="textcards-section is-flex">
+    <p class="subtitle-2-styles pb-2">
+      {{ include.subtitle }}
+    </p>
+    <h1 class="h1-styles has-text-secondary has-text-centered pb-4">
+      {{ include.title }}
+    </h1>
+    <p class="body-1-styles has-text-centered pb-12">
+      {{ include.description }}
+    </p>
+    <div class="textcards-card-section has-text-left is-flex">
+      {%- for card in include.cards limit:4 -%}
+      <a class="textcards-card-body is-flex p-6" href="{{ card.url }}">
+        <h3 class="h3-styles">
+          {{ card.title }}
+        </h3>
+        <p class="body-1-styles textcards-card-description">
+          {{ card.description }}
+        </p>
+        <p class="link-styles">{{ card.linktext }}</p>
+      </a>
+      {%- endfor -%}
+    </div>
   </div>
 </section>
