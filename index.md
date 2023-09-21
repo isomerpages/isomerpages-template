@@ -75,24 +75,24 @@ sections:
   #    button: "Contact Us"
   #    url: "https://www.isomer.gov.sg"
   - textcards:
-    title: Hey there!
-    subtitle: "Lorem ipsum!"
-    description: Lorem ipsum sit amet dolores
-    cards:
-      - title: Card 1
-        description: The quick brown fox jumps over the lazy dog
-        linktext: Learn more
-        url: /contact-us/
-      - title: Card 2 which has a longer title than the other cards
-        linktext: Learn more
-        url: https://www.google.com
-      - title: Card 3
-        description: Very very long description of some sort, it's so long that this might cause the text box to overflow. What happens if the text box overflows? This card is being used to check what happens if the text box is very very long
-        linktext: Learn even more
-        url: /resource_room/
-      - title: Card 4 has no description
-        linktext: Learn more and more and more and more and more
-        url: /contact-us/
+      title: Hey there!
+      subtitle: "Lorem ipsum!"
+      description: Lorem ipsum sit amet dolores
+      cards:
+        - title: Card 1
+          description: The quick brown fox jumps over the lazy dog
+          linktext: Learn more
+          url: /contact-us/
+        - title: Card 2 which has a longer title than the other cards
+          linktext: Learn more
+          url: https://www.google.com
+        - title: Card 3
+          description: Very very long description of some sort, it's so long that this might cause the text box to overflow. What happens if the text box overflows? This card is being used to check what happens if the text box is very very long
+          linktext: Learn even more
+          url: /resource_room/
+        - title: Card 4 has no description
+          linktext: Learn more and more and more and more and more
+          url: /contact-us/
   - announcements:
       title: Announcements
       subtitle: Table subtitle
@@ -113,16 +113,6 @@ sections:
         - title: Collection of MOE School Graduation Certificate 2021
           date: 28 August 2022
           announcement: Dear 2021 Year 4 Express students, We are pleased to inform you that your School Graduation Certificate is ready for collection. You may collect this from the Front Office on weekdays (8.30 am to 4.00 pm). Please provide a written letter of authorisation if a proxy is collecting this on your behalf.
-    - infobar:
-        title: Use OpenDoc!
-        subtitle: "It's beautiful and fast!"
-        button: Contact Us
-        url: https://www.opendoc.sg/
-    - infopic:
-        title: Hey there!
-        subtitle: "Lorem ipsum!"
-        description: Lorem ipsum sit amet dolores
-        url: /contact-us/
   - carousel:
       - title: Beeline
         subtitle: citizen
