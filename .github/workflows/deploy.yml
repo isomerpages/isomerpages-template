@@ -1,0 +1,91 @@
+name: Deploy template to AWS Amplify
+
+on:
+  pull_request:
+    branches:
+      - "next-gen"
+  push:
+    branches:
+      - "next-gen-develop"
+
+env:
+  # The slug for the Isomer core team
+  ISOMER_CORE_TEAM_SLUG: core
+  # The staging branch name on this repository
+  ISOMER_STAGING_BRANCH_NAME: next-gen-staging
+  # The branch name to redeploy on AWS Amplify
+  ISOMER_AMPLIFY_BRANCH_NAME: staging
+
+jobs:
+  deploy:
+    name: Deployment
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      # Determine if the PR created is from a trusted member
+      - name: Check if user is part of Isomer core team
+        uses: tspascoal/get-user-teams-membership@v1
+        id: checkUserMember
+        with:
+          username: ${{ github.actor }}
+          team: ${{ env.ISOMER_CORE_TEAM_SLUG }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }} # requires read:org
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ap-southeast-1
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          mask-aws-account-id: true
+
+      - name: Push change to staging branch
+        run: git push --force origin HEAD:${{ env.ISOMER_STAGING_BRANCH_NAME }}
+
+      - name: Get the latest job ID of the template-test AWS Amplify app
+        run: echo ISOMER_AMPLIFY_JOB_ID=$(aws amplify get-branch --app-id ${{ secrets.AWS_AMPLIFY_APP_ID }} --branch-name ${{ env.ISOMER_AMPLIFY_BRANCH_NAME }} | jq -r '.branch.activeJobId') >> $GITHUB_ENV
+
+      - name: Trigger a redeploy of the latest version of template-test on AWS Amplify and record job ID
+        run: echo ISOMER_AMPLIFY_NEW_JOB_ID=$(aws amplify start-job --app-id ${{ secrets.AWS_AMPLIFY_APP_ID }} --branch-name ${{ env.ISOMER_AMPLIFY_BRANCH_NAME }} --job-type RETRY --job-id ${{ env.ISOMER_AMPLIFY_JOB_ID }} | jq -r '.jobSummary.jobId') >> $GITHUB_ENV
+
+      - name: Get the latest job ID of the template-regression-test AWS Amplify app
+        run: echo ISOMER_AMPLIFY_REGRESSION_JOB_ID=$(aws amplify get-branch --app-id ${{ secrets.AWS_AMPLIFY_APP_REGRESSION_ID }} --branch-name ${{ env.ISOMER_AMPLIFY_BRANCH_NAME }} | jq -r '.branch.activeJobId') >> $GITHUB_ENV
+
+      - name: Trigger a redeploy of the latest version of template-regression-test on AWS Amplify and record job ID
+        run: echo ISOMER_AMPLIFY_REGRESSION_NEW_JOB_ID=$(aws amplify start-job --app-id ${{ secrets.AWS_AMPLIFY_APP_REGRESSION_ID }} --branch-name ${{ env.ISOMER_AMPLIFY_BRANCH_NAME }} --job-type RETRY --job-id ${{ env.ISOMER_AMPLIFY_REGRESSION_JOB_ID }} | jq -r '.jobSummary.jobId') >> $GITHUB_ENV
+
+      - name: Poll for build status of the template-test AWS Amplify app
+        shell: bash
+        run: |
+          job_status="PENDING"
+          while [[ $job_status == "PENDING" || $job_status == "PROVISIONING" || $job_status == "RUNNING" ]]
+          do
+            sleep 10
+            job_status=$(aws amplify get-job --app-id ${{ secrets.AWS_AMPLIFY_APP_ID }} --branch-name ${{ env.ISOMER_AMPLIFY_BRANCH_NAME }} --job-id ${{ env.ISOMER_AMPLIFY_NEW_JOB_ID }} | jq -r '.job.summary.status')
+            echo "Latest job status is $job_status"
+          done
+          echo "ISOMER_JOB_STATUS=$job_status" >> $GITHUB_ENV
+
+      - name: Poll for build status of the template-regression-test AWS Amplify app
+        if: ${{ env.ISOMER_JOB_STATUS == 'SUCCEED' }}
+        shell: bash
+        run: |
+          job_status="PENDING"
+          while [[ $job_status == "PENDING" || $job_status == "PROVISIONING" || $job_status == "RUNNING" ]]
+          do
+            sleep 10
+            job_status=$(aws amplify get-job --app-id ${{ secrets.AWS_AMPLIFY_APP_REGRESSION_ID }} --branch-name ${{ env.ISOMER_AMPLIFY_BRANCH_NAME }} --job-id ${{ env.ISOMER_AMPLIFY_REGRESSION_JOB_ID }} | jq -r '.job.summary.status')
+            echo "Latest job status is $job_status"
+          done
+          echo "ISOMER_JOB_STATUS=$job_status" >> $GITHUB_ENV
+
+      - name: Report successful deployment
+        if: ${{ env.ISOMER_JOB_STATUS == 'SUCCEED' }}
+        run: exit 0
+
+      - name: Report unsuccessful deployment
+        if: ${{ env.ISOMER_JOB_STATUS != 'SUCCEED' }}
+        run: exit 1
