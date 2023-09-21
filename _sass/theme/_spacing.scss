@@ -108,3 +108,101 @@ $sides: (
     }
   }
 }
+
+.h1-styles {
+  font-family: Lato;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 56px; /* 116.667% */
+  letter-spacing: -1.056px;
+}
+
+.h2-styles {
+  font-family: Lato;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px; /* 125% */
+  letter-spacing: -0.704px;
+}
+
+.h3-styles {
+  font-family: Lato;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 123.077% */
+}
+
+.subtitle-1-styles {
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 155.556% */
+  letter-spacing: -0.396px;
+}
+
+.subtitle-2-styles {
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 155.556% */
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.body-1-styles {
+  font-family: Lato;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 160% */
+  letter-spacing: -0.44px;
+}
+
+.body-2-styles {
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 155.556% */
+}
+
+.linkbutton-styles {
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 177.778% */
+  text-decoration-line: underline;
+  text-transform: uppercase;
+  color: $secondary-color;
+}
+
+.buttontext-styles {
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 200% */
+  text-transform: uppercase;
+  color: $secondary-color;
+}
+
+.link-styles {
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: 0.27px;
+  text-decoration-line: underline;
+  color: $secondary-color;
+
+  &:hover {
+    color: $secondary-color-hover;
+  }
+}
