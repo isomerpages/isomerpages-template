@@ -1,0 +1,47 @@
+<div class="bp-hero-body">
+  <!-- 768 and above -->
+
+  {%- if section.hero.alignment == 'left' -%}
+  <div class="is-flex flex-start">
+    {% include homepage/hero/components/hero-infobox-desktop.html %}
+  </div>
+  {% else %}
+
+  <div class="is-flex flex-end">
+    {% include homepage/hero/components/hero-infobox-desktop.html %}
+  </div>
+
+  {% endif %}
+
+  <!-- below 768 -->
+  <div
+    class="row is-vcentered is-centered is-hidden-tablet"
+    style="
+      padding-top: 106px;
+      padding-bottom: 106px;
+      padding-left: 84px;
+      padding-right: 84px;
+    "
+  >
+    <div
+      class="p8 row is-vcentered is-centered is-flex"
+      style="flex-direction: column; background: {% if section.hero.backgroundColor == 'gray' %} #00000080 {% else %} {{- section.hero.backgroundColor -}} {% endif %};"
+    >
+      <div class="mb8">
+        <h1 class="h1 mb4">
+          <b class="is-hidden-desktop">{{- section.hero.title -}}</b>
+        </h1>
+      </div>
+      {%- if section.hero.dropdown -%} {% include
+      homepage/hero/components/hero-dropdown.html %} {% elsif section.hero.url
+      and section.hero.button -%}
+      <a
+        href="{{- site.baseurl -}}{{- section.hero.url -}}"
+        class="bp-button is-secondary is-uppercase search-button"
+      >
+        {{- section.hero.button -}}
+      </a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>

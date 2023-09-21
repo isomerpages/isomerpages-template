@@ -9,10 +9,29 @@
 </style>
 
 <section class="bp-hero bg-hero">
-  <div class="bp-hero-body">
+  {%- if section.hero.variant == 'side' -%} {% include
+  homepage/hero/hero-side-layout.html %} {%- elsif section.hero.variant ==
+  'image' -%}
+  <div class="bp-hero-body hero-body-padding">
     <div class="bp-container margin--top--lg">
       <div class="row is-vcentered is-centered ma">
-        {%- if section.hero.variant != 'image' -%}
+        <div class="min-height-mobile is-flex row is-vcentered is-centered">
+          {%- if section.hero.dropdown -%} {% include
+          homepage/hero/components/hero-dropdown.html %} {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+  {%- elsif section.hero.variant == 'floating' -%}
+  <div class="hero-floating">
+    {% include homepage/hero/hero-side-layout.html %}
+  </div>
+  <!-- NOTE: Either the variant is `center` or it is `undefined` which means that they are  using
+  the center layout implicitly (the default layout prior to adding variants is center) -->
+  {%- else -%}
+  <div class="bp-hero-body gray-overlay hero-body-padding">
+    <div class="bp-container margin--top--lg">
+      <div class="row is-vcentered is-centered ma">
         <div class="col is-9 has-text-centered has-text-white">
           <h1 class="display padding--bottom--lg margin--none">
             <b class="is-hidden-touch">{{- section.hero.title -}}</b>
@@ -22,54 +41,9 @@
           <p class="is-hidden-mobile padding--bottom--lg">
             {{- section.hero.subtitle -}}
           </p>
-          {%- endif -%} {%- if section.hero.dropdown -%}
-          <div class="bp-dropdown margin--top--sm">
-            <div class="bp-dropdown-trigger">
-              <a
-                class="bp-button bp-dropdown-button hero-dropdown is-centered"
-                aria-haspopup="true"
-                aria-controls="hero-dropdown-menu"
-              >
-                {%- if section.hero.dropdown.title -%}
-                <span>
-                  <b>
-                    <p>{{- section.hero.dropdown.title -}}</p>
-                  </b>
-                </span>
-                {%- else -%}
-                <span>
-                  <b>
-                    <p>I want to...</p>
-                  </b>
-                </span>
-                {%- endif -%}
-                <span class="icon is-small">
-                  <i
-                    class="sgds-icon sgds-icon-chevron-down is-size-4"
-                    aria-hidden="true"
-                  ></i>
-                </span>
-              </a>
-            </div>
-            <div
-              class="bp-dropdown-menu has-text-left"
-              id="hero-dropdown-menu"
-              role="menu"
-            >
-              <div class="bp-dropdown-content is-centered">
-                {%- for option in section.hero.dropdown.options -%} {%- if
-                option.url and option.title -%}
-                <a
-                  class="bp-dropdown-item"
-                  href="{{- site.baseurl -}}{{ option.url }}"
-                >
-                  <h5>{{ option.title }}</h5>
-                </a>
-                {%- endif -%} {%- endfor -%}
-              </div>
-            </div>
-          </div>
-          {%- else -%} {%- if section.hero.url and section.hero.button -%}
+          {%- endif -%} {%- if section.hero.dropdown -%} {% include
+          homepage/hero/components/hero-dropdown.html %} {%- else -%} {%- if
+          section.hero.url and section.hero.button -%}
           <a
             href="{{- site.baseurl -}}{{- section.hero.url -}}"
             class="bp-button is-secondary is-uppercase search-button"
@@ -78,12 +52,10 @@
           </a>
           {%- endif -%} {%- endif -%}
         </div>
-        {%- endif -%} {%- if section.hero.variant == 'image' -%}
-        <div class="min-height-mobile" />
-        {%- endif -%}
       </div>
     </div>
   </div>
+  {%- endif -%}
 </section>
 
 {%- if section.hero.key_highlights -%}

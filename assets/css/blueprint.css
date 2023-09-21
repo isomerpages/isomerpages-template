@@ -1,6 +1,12 @@
 @charset "UTF-8";
 
 @import "components/hero.css";
+@import "theme/padding.css";
+@import "theme/text-styles.css";
+@import "theme/margin.css";
+@import "theme/layout.css";
+@import "theme/background.css";
+
 /*
  *  Owl Carousel - Core
  */
@@ -9160,10 +9166,8 @@ a.navbar-link.is-active {
   flex-shrink: 0;
 }
 .bp-hero-body {
-  background: rgba(0, 0, 0, 0.25);
   flex-grow: 1;
   flex-shrink: 0;
-  padding: 3rem 1.5rem;
 }
 @media screen and (min-width: 1024px) {
   .bp-hero-body .row {
