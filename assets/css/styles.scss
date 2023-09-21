@@ -8,5 +8,5 @@ $secondary-color: {{- site.colors.secondary-color -}};
 $secondary-color-hover: lighten($secondary-color, 10%);
 
 
-@import "theme/index";
-@import "homepage/announcements";
+@import "theme";
+@import "components";
