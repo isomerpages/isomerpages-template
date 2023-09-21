@@ -1,10 +1,8 @@
+@use "sass:map";
+
 .textcards-section {
   flex-direction: column;
   align-items: center;
-
-  @media screen and (max-width: 768px) {
-    padding: 6rem 2.5rem 6rem 2.5rem;
-  }
 }
 
 .textcards-subtitle {
@@ -27,13 +25,11 @@
   align-items: flex-start;
   gap: 2rem;
   width: 100%;
+  flex-wrap: wrap;
+  flex-direction: column;
   
-  @media screen and (max-width: 1023px) {
-    flex-wrap: wrap;
-  }
-
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
+  @media screen and (min-width: map.get($breakpoints, "md")) {
+    flex-direction: row;
   }
 
   .textcards-card-body {
@@ -50,11 +46,11 @@
     background: var(--white, #FFF);
     box-shadow: 0px 0px 10px 0px rgba(191, 191, 191, 0.50);
 
-    @media screen and (min-width: 769px) {
+    @media screen and (min-width: map.get($breakpoints, "md")) {
       max-width: 50%;
     }
 
-    @media screen and (min-width: 769px) and (max-width: 1023px) {
+    @media screen and (min-width: map.get($breakpoints, "md")) and (max-width: (map.get($breakpoints, "lg") - 1)) {
       flex: 0 0 calc(50% - 24px);
     }
 
