@@ -10,36 +10,36 @@
       link_url
 {%- endcomment -%}
 <section class="bp-section {{ gray_container_class }} px-14 px-md-24 py-24">
-  <div class="announcements-max-width mx-auto">
+  <div class="announcements-section mx-auto is-flex">
     <div class="row">
       <div class="col is-full">
         {%- if include.subtitle -%}
-        <p class="eyebrow is-uppercase pb-4 has-text-centered">
+        <p class="eyebrow is-uppercase mb-2 has-text-centered">
           {{- include.subtitle -}}
         </p>
         {%- endif -%}
         {%- if include.title -%}
-        <h1 class="has-text-secondary pb-4 has-text-centered">
+        <h1 class="has-text-secondary mb-12 has-text-centered">
           <b>{{- include.title -}}</b>
         </h1>
         {%- endif -%}
 
-        <hr class="my-8 announcements-divider" />
+        <hr class="mb-2 mt-0 announcements-divider" />
 
         {%- for announcement in include.announcement_items limit:5 -%}
-        <div class="row is-desktop px-lg-3">
-          <div class="col is-4-desktop px-lg-6 mr-lg-6">
-            <h3 class="announcements-announcement-title mb-4">
+        <div class="row is-desktop px-0 py-6 py-lg-0 m-0">
+          <div class="col is-4-desktop p-0 p-lg-6 mb-6 mb-lg-0 mr-lg-6">
+            <h3 class="announcements-announcement-title mb-2 mb-lg-4">
               <b>{{- announcement.title -}}</b>
             </h3>
             <p class="announcements-announcement-subtitle">
               {{- announcement.date -}}
             </p>
           </div>
-          <div class="col px-lg-6">
+          <div class="col p-0 p-lg-6">
             <p>{{- announcement.announcement -}}</p>
             {%- if announcement.link_text and announcement.link_url -%}
-            <div class="mt-4">
+            <div class="mt-6 mt-lg-4">
               {%- assign url_input = announcement.link_url -%} {%- include
               functions/external_url.html -%}
               <a {{anchor}} class="announcements-announcement-link">
@@ -50,9 +50,9 @@
           </div>
         </div>
         {%- if forloop.last -%}
-        <hr class="mt-8 mb-0 announcements-divider" />
+        <hr class="mt-2 mb-0 announcements-divider" />
         {%- else -%}
-        <hr class="my-8 announcements-divider" />
+        <hr class="my-2 announcements-divider" />
         {%- endif -%} {%- endfor -%}
       </div>
     </div>
