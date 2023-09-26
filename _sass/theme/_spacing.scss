@@ -109,74 +109,95 @@ $sides: (
   }
 }
 
-.h1-styles {
+.display-styles {
   font-family: Lato;
-  font-size: 48px;
+  font-size: 4rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 56px; /* 116.667% */
+  line-height: 5rem; /* 125% */
+  letter-spacing: -1.408px;
+}
+
+.h1-styles {
+  font-family: Lato;
+  font-size: 2.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 3.5rem; /* 116.667% */
+  letter-spacing: -1.056px;
+  @media screen and (min-width: 1024px) {
+    font-size: 3rem;
+  }
+}
+
+.h1-small-styles {
+  font-family: Lato;
+  font-size: 2.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 3.5rem; /* 116.667% */
   letter-spacing: -1.056px;
 }
 
 .h2-styles {
   font-family: Lato;
-  font-size: 32px;
+  font-size: 2rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 40px; /* 125% */
+  line-height: 2.5rem; /* 125% */
   letter-spacing: -0.704px;
 }
 
 .h3-styles {
   font-family: Lato;
-  font-size: 26px;
+  font-size: 1.625rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 32px; /* 123.077% */
+  line-height: 2rem; /* 123.077% */
 }
 
 .subtitle-1-styles {
   font-family: Lato;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 28px; /* 155.556% */
+  line-height: 1.75rem; /* 155.556% */
   letter-spacing: -0.396px;
 }
 
 .subtitle-2-styles {
   font-family: Lato;
-  font-size: 18px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 28px; /* 155.556% */
+  line-height: 1.375rem; /* 155.556% */
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
 .body-1-styles {
   font-family: Lato;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 32px; /* 160% */
+  line-height: 2rem; /* 160% */
   letter-spacing: -0.44px;
 }
 
 .body-2-styles {
   font-family: Lato;
-  font-size: 18px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 28px; /* 155.556% */
+  line-height: 1.75rem; /* 155.556% */
 }
 
 .linkbutton-styles {
   font-family: Lato;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 32px; /* 177.778% */
+  line-height: 2rem; /* 177.778% */
   text-decoration-line: underline;
   text-transform: uppercase;
   color: $secondary-color;
@@ -184,20 +205,20 @@ $sides: (
 
 .buttontext-styles {
   font-family: Lato;
-  font-size: 16px;
+  font-size: 1.125rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 32px; /* 200% */
+  line-height: 2rem; /* 200% */
   text-transform: uppercase;
   color: $secondary-color;
 }
 
 .link-styles {
   font-family: Lato;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 24px; /* 133.333% */
+  line-height: 1.5rem; /* 133.333% */
   letter-spacing: 0.27px;
   text-decoration-line: underline;
   color: $secondary-color;
