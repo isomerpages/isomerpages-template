@@ -44,6 +44,20 @@ google_analytics: UA-test
 #  root:
 #    hide: false  # show breadcrumbs on root/home page
 #    image: false # Show image or title text
+colors:
+  primary-color: "#f5a623"
+  secondary-color: "#50e3c2"
+  media-colors:
+    - title: media-color-one
+      color: "#2180cb"
+    - title: media-color-two
+      color: "#9013fe"
+    - title: media-color-three
+      color: "#9b9b9b"
+    - title: media-color-four
+      color: "#00838f"
+    - title: media-color-five
+      color: "#000000"
 
 collections:
   application-guidelines:
@@ -64,7 +78,7 @@ paginate: 12
 ##################################
 
 # Custom CSS file path
-custom_css_path: "/do-not-touch/theme-colors/custom.css"
+custom_css_path: "/misc/custom.css"
 custom_print_css_path: "/assets/css/print.css"
 
 # Isomer recommender system - only works for simple-page, leftnav-page, and post
