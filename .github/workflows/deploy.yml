@@ -80,7 +80,7 @@ jobs:
           while [[ $job_status == "PENDING" || $job_status == "PROVISIONING" || $job_status == "RUNNING" ]]
           do
             sleep 10
-            job_status=$(aws amplify get-job --app-id ${{ secrets.AWS_AMPLIFY_APP_REGRESSION_ID }} --branch-name ${{ env.ISOMER_AMPLIFY_BRANCH_NAME }} --job-id ${{ env.ISOMER_AMPLIFY_REGRESSION_JOB_ID }} | jq -r '.job.summary.status')
+            job_status=$(aws amplify get-job --app-id ${{ secrets.AWS_AMPLIFY_APP_REGRESSION_ID }} --branch-name ${{ env.ISOMER_AMPLIFY_BRANCH_NAME }} --job-id ${{ env.ISOMER_AMPLIFY_REGRESSION_NEW_JOB_ID }} | jq -r '.job.summary.status')
             echo "Latest job status is $job_status"
           done
           echo "ISOMER_JOB_STATUS=$job_status" >> $GITHUB_ENV
