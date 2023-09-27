@@ -11,25 +11,25 @@
 {%- endcomment -%}
 <section class="px-8 px-sm-16 px-md-24 py-24 {{ gray_container_class }}">
   <div class="textcards-section is-flex">
-    <p class="subtitle-2-styles pb-4">
+    <p class="subtitle-2 pb-4">
       {{ include.subtitle }}
     </p>
-    <h1 class="h1-styles has-text-secondary has-text-centered pb-4">
+    <h1 class="h1 has-text-secondary has-text-centered pb-4">
       {{ include.title }}
     </h1>
-    <p class="body-1-styles has-text-centered pb-12">
+    <p class="body-1 has-text-centered pb-12">
       {{ include.description }}
     </p>
     <div class="textcards-card-section has-text-left is-flex">
       {%- for card in include.cards limit:4 -%}
       <a class="textcards-card-body is-flex p-6" href="{{ card.url }}">
-        <h3 class="h3-styles">
+        <h3 class="h3">
           {{ card.title }}
         </h3>
-        <p class="body-1-styles textcards-card-description">
+        <p class="body-1 textcards-card-description">
           {{ card.description }}
         </p>
-        <p class="link-styles">{{ card.linktext }}</p>
+        <p class="link">{{ card.linktext }}</p>
       </a>
       {%- endfor -%}
     </div>

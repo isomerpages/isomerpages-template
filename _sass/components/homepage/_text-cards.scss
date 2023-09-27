@@ -52,7 +52,7 @@
     &:hover {
       background-color: $interaction-hover;
       cursor: pointer;
-      > .link-styles {
+      > .link {
         color: $secondary-color-hover;
       }
     }
