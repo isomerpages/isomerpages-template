@@ -33,7 +33,7 @@
     color: #484848;
 
     border-radius: 4px;
-    border: 1px solid $stroke-default-color;
+    border: 1px solid $stroke-default;
     background: var(--white, #FFF);
     box-shadow: 0px 0px 10px 0px rgba(191, 191, 191, 0.50);
 
@@ -50,7 +50,7 @@
     }
 
     &:hover {
-      background-color: $interaction-hover-color;
+      background-color: $interaction-hover;
       cursor: pointer;
       > .link-styles {
         color: $secondary-color-hover;
