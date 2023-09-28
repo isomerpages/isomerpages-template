@@ -1,13 +1,13 @@
 <div class="bp-hero-body">
   <!-- 768 and above -->
 
-  {%- if section.hero.alignment == 'left' -%}
-  <div class="is-flex flex-start">
+  {%- if section.hero.alignment == 'right' -%}
+  <div class="is-flex flex-end">
     {% include homepage/hero/components/hero-infobox-desktop.html %}
   </div>
   {% else %}
 
-  <div class="is-flex flex-end">
+  <div class="is-flex flex-start">
     {% include homepage/hero/components/hero-infobox-desktop.html %}
   </div>
 
