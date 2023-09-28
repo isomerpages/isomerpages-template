@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .display-1 {
   color: $content-base;
 
@@ -9,26 +11,32 @@
   letter-spacing: -1.408px;
 }
 
-.h1 {
-  color: $content-base;
+// 1024 and above
+@media screen and (min-width: map.get($breakpoints, "lg")) {
+  .h1 {
+    color: $content-base;
 
-  font-family: Lato;
-  font-size: 3rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 3.5rem; /* 116.667% */
-  letter-spacing: -1.056px;
+    font-family: Lato;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3.5rem; /* 116.667% */
+    letter-spacing: -0.066rem;
+  }
 }
 
-.h1-small {
-  color: $content-base;
+// 1023 and below
+@media screen and (max-width: map.get($breakpoints, "lg") - 1) {
+  .h1 {
+    color: $content-base;
 
-  font-family: Lato;
-  font-size: 2.75rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 3.5rem; /* 116.667% */
-  letter-spacing: -1.056px;
+    font-family: Lato;
+    font-size: 2.75rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3.5rem; /* 116.667% */
+    letter-spacing: -0.0605rem;
+  }
 }
 
 .h2 {
