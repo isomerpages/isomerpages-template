@@ -3,15 +3,17 @@
     class="is-flex {% if section.hero.alignment == 'right' %} flex-end {% else %} flex-start {% endif %}"
   >
     <div
-      class="p-16"
-      style="width: {{- section.hero.size -}}; background: {% if section.hero.backgroundColor == 'gray' %} #00000080 {% else %} {{- section.hero.backgroundColor -}} {% endif %};"
+      class="p-16 hero-background-{{- section.hero.backgroundColor }}"
+      style="width: {{- section.hero.size -}};"
     >
       <div class="mb-8">
-        <h1 class="h1 mb-4">
+        <h1 class="h1 mb-4 hero-text-color">
           <b>{{- section.hero.title -}}</b>
         </h1>
         {%- if section.hero.subtitle -%}
-        <p class="is-hidden-touch body-2">{{- section.hero.subtitle -}}</p>
+        <p class="is-hidden-touch body-2 hero-text-color">
+          {{- section.hero.subtitle -}}
+        </p>
         {%- endif -%}
       </div>
       {%- if section.hero.dropdown -%}

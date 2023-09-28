@@ -6,16 +6,13 @@
 
   <!-- (1024, 769) -->
   <div class="mb-0 is-visible-tablet-only">
-    <div
-      class="p-8"
-      style="background: {% if section.hero.backgroundColor == 'gray' %} #00000080 {% else %} {{- section.hero.backgroundColor -}} {% endif %};"
-    >
+    <div class="p-8 hero-background-{{- section.hero.backgroundColor }}">
       <div
         class="is-flex {% if section.hero.alignment == 'right' %} flex-end {% else %} flex-start {% endif %}"
       >
         <div style="display: flex; flex-direction: column">
           <div class="mb-8">
-            <h1 class="h1">
+            <h1 class="h1 hero-text-color">
               <b>{{- section.hero.title -}}</b>
             </h1>
           </div>

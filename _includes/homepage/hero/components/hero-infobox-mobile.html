@@ -13,11 +13,12 @@
   "
 >
   <div
-    class="py-8 px-12 row is-vcentered is-centered is-flex"
-    style="flex-direction: column; background: {% if section.hero.backgroundColor == 'gray' %} #00000080 {% else %} {{- section.hero.backgroundColor -}} {% endif %};"
+    class="py-8 px-12 row is-vcentered is-centered is-flex hero-background-{{-
+      section.hero.backgroundColor -}}"
+    style="flex-direction: column"
   >
     <div class="mb-8 has-text-centered">
-      <h1 class="h1">
+      <h1 class="h1 hero-text-color">
         <b class="is-hidden-desktop">{{- section.hero.title -}}</b>
       </h1>
     </div>
