@@ -22,10 +22,8 @@
       </div>
     </div>
   </div>
-  {%- elsif section.hero.variant == 'floating' -%}
-  <div class="hero-floating">
-    {% include homepage/hero/hero-side-layout.html %}
-  </div>
+  {%- elsif section.hero.variant == 'floating' -%} {% include
+  homepage/hero/hero-floating-layout.html %}
   <!-- NOTE: Either the variant is `center` or it is `undefined` which means that they are  using
   the center layout implicitly (the default layout prior to adding variants is center) -->
   {%- else -%}
