@@ -1,0 +1,50 @@
+<div class="hero-floating bp-hero-body">
+  <!-- 768 and above -->
+  <div class="is-hidden-touch">
+    {% include homepage/hero/components/hero-infobox-desktop.html %}
+  </div>
+
+  <!-- (1024, 769) -->
+  <div class="mb-0 is-visible-tablet-only">
+    <div
+      class="p-8"
+      style="background: {% if section.hero.backgroundColor == 'gray' %} #00000080 {% else %} {{- section.hero.backgroundColor -}} {% endif %};"
+    >
+      <div
+        class="is-flex {% if section.hero.alignment == 'right' %} flex-end {% else %} flex-start {% endif %}"
+      >
+        <div style="display: flex; flex-direction: column">
+          <div class="mb-8">
+            <h1 class="h1">
+              <b>{{- section.hero.title -}}</b>
+            </h1>
+          </div>
+          <div
+            class="is-flex {% if section.hero.alignment == 'right' %} flex-end {% else %} flex-start {% endif %}"
+            style="display: flex; align-content: center"
+          >
+            {%- if section.hero.dropdown -%} {% include
+            homepage/hero/components/hero-dropdown.html %} {% elsif
+            section.hero.url and section.hero.button -%}
+            <a
+              href="{{- site.baseurl -}}{{- section.hero.url -}}"
+              class="bp-button is-secondary is-uppercase search-button"
+            >
+              {{- section.hero.button -}}
+            </a>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- below 768 -->
+  <!-- NOTE: We set `mb-0` on the div because we have legacy css
+      dictating negative margin on row:last-child, which causes
+      the bottom padding to be smaller than the top.
+    -->
+  <div class="is-hidden-tablet">
+    {% include homepage/hero/components/hero-infobox-mobile.html %}
+  </div>
+</div>
