@@ -26,3 +26,24 @@
   max-width: $container-max-width;
   margin: 0 auto;
 }
+
+.hero-background-white {
+  .hero-text-color {
+    color: $content-base;
+  }
+  background-color: $canvas-base;
+}
+
+.hero-background-black {
+  .hero-text-color {
+    color: $content-inverse;
+  }
+  background-color: $canvas-inverse;
+}
+
+.hero-background-gray {
+  .hero-text-color {
+    color: $content-inverse;
+  }
+  background-color: $canvas-translucent-grey;
+}
