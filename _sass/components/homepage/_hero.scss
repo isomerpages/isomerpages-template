@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .min-height-mobile {
   min-height: 398px;
 }
@@ -10,7 +12,7 @@
   padding: 3rem 1.5rem;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: map.get($breakpoints, "md")) {
   .hero-floating {
     padding: 3rem;
   }
