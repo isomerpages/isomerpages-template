@@ -1,0 +1,17 @@
+.min-height-mobile {
+  min-height: 398px;
+}
+
+.gray-overlay {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.hero-body-padding {
+  padding: 3rem 1.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .hero-floating {
+    padding: 3rem;
+  }
+}
