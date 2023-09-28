@@ -1,25 +1,29 @@
 <div
-  class="p-16 is-hidden-mobile"
-  style="width: {{- section.hero.size -}}; background: {% if section.hero.backgroundColor == 'gray' %} #00000080 {% else %} {{- section.hero.backgroundColor -}} {% endif %};"
+  class="is-flex {% if section.hero.alignment == 'right' %} flex-end {% else %} flex-start {% endif %}"
 >
-  <div class="mb-8">
-    <h1 class="h1 mb-4">
-      <b>{{- section.hero.title -}}</b>
-    </h1>
-    {%- if section.hero.subtitle -%}
-    <p class="is-hidden-touch body-2">{{- section.hero.subtitle -}}</p>
+  <div
+    class="p-16"
+    style="width: {{- section.hero.size -}}; background: {% if section.hero.backgroundColor == 'gray' %} #00000080 {% else %} {{- section.hero.backgroundColor -}} {% endif %};"
+  >
+    <div class="mb-8">
+      <h1 class="h1 mb-4">
+        <b>{{- section.hero.title -}}</b>
+      </h1>
+      {%- if section.hero.subtitle -%}
+      <p class="is-hidden-touch body-2">{{- section.hero.subtitle -}}</p>
+      {%- endif -%}
+    </div>
+    {%- if section.hero.dropdown -%}
+    <div class="is-flex" style="justify-content: center; align-content: center">
+      {% include homepage/hero/components/hero-dropdown.html %}
+    </div>
+    {% elsif section.hero.url and section.hero.button -%}
+    <a
+      href="{{- site.baseurl -}}{{- section.hero.url -}}"
+      class="bp-button is-secondary is-uppercase search-button"
+    >
+      {{- section.hero.button -}}
+    </a>
     {%- endif -%}
   </div>
-  {%- if section.hero.dropdown -%}
-  <div class="is-flex" style="justify-content: center; align-content: center">
-    {% include homepage/hero/components/hero-dropdown.html %}
-  </div>
-  {% elsif section.hero.url and section.hero.button -%}
-  <a
-    href="{{- site.baseurl -}}{{- section.hero.url -}}"
-    class="bp-button is-secondary is-uppercase search-button"
-  >
-    {{- section.hero.button -}}
-  </a>
-  {%- endif -%}
 </div>
