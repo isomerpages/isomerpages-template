@@ -1,36 +1,36 @@
-<div class="infobox-container">
+<div
+  class="is-flex {% if section.hero.alignment == 'right' %} flex-end {% else %} flex-start {% endif %}"
+>
   <div
-    class="is-flex {% if section.hero.alignment == 'right' %} flex-end {% else %} flex-start {% endif %}"
+    class="p-16 hero-background-{{- section.hero.backgroundColor }} is-flex hero-{{ section.hero.variant }}-{{- section.hero.size | default: 'md' -}}"
+    style="flex-direction: column"
   >
     <div
-      class="p-16 hero-background-{{- section.hero.backgroundColor }}"
-      style="width: {{- section.hero.size -}};"
+      class="mb-8 is-flex {% if section.hero.variant == 'side' %} side-section-infobox-container side-section-container-{{ section.hero.alignment | default: 'left' }} {% endif %}"
+      style="flex-direction: column"
     >
-      <div class="mb-8">
-        <h1 class="h1 mb-4 hero-text-color">
-          <b>{{- section.hero.title -}}</b>
-        </h1>
-        {%- if section.hero.subtitle -%}
-        <p class="is-hidden-touch body-2 hero-text-color">
-          {{- section.hero.subtitle -}}
-        </p>
-        {%- endif -%}
-      </div>
-      {%- if section.hero.dropdown -%}
-      <div
-        class="is-flex"
-        style="justify-content: center; align-content: center"
-      >
-        {% include homepage/hero/components/hero-dropdown.html %}
-      </div>
-      {% elsif section.hero.url and section.hero.button -%}
+      <h1 class="h1 mb-4 hero-text-color">
+        <b>{{- section.hero.title -}}</b>
+      </h1>
+      {%- if section.hero.subtitle -%}
+      <p class="is-hidden-touch body-2 hero-text-color">
+        {{- section.hero.subtitle -}}
+      </p>
+      {%- endif -%}
+    </div>
+    {%- if section.hero.dropdown -%}
+    <div class="is-flex" style="justify-content: center; align-content: center">
+      {% include homepage/hero/components/hero-dropdown.html %}
+    </div>
+    {% elsif section.hero.url and section.hero.button -%}
+    <div class="hero-alignment-{{ section.hero.alignment | default: 'left' }}">
       <a
         href="{{- site.baseurl -}}{{- section.hero.url -}}"
         class="bp-button is-secondary is-uppercase search-button"
       >
         {{- section.hero.button -}}
       </a>
-      {%- endif -%}
     </div>
+    {%- endif -%}
   </div>
 </div>
