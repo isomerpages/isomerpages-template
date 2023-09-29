@@ -14,7 +14,7 @@
 >
   <div
     class="py-8 px-12 row is-vcentered is-centered is-flex hero-background-{{-
-      section.hero.backgroundColor -}}"
+      section.hero.backgroundColor | default: 'white' -}}"
     style="flex-direction: column"
   >
     <div class="mb-8 has-text-centered">
