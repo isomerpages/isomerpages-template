@@ -23,7 +23,9 @@
       {% include homepage/hero/components/hero-dropdown.html %}
     </div>
     {% elsif section.hero.url and section.hero.button -%}
-    <div class="hero-alignment-{{ section.hero.alignment | default: 'left' }}">
+    <div
+      class="{% if section.hero.variant == 'side' %} hero-alignment-{{ section.hero.alignment | default: 'left' }}  {% endif %}"
+    >
       <a
         href="{{- site.baseurl -}}{{- section.hero.url -}}"
         class="bp-button is-secondary is-uppercase search-button"
