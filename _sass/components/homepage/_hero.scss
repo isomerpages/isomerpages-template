@@ -1,5 +1,9 @@
 @use "sass:map";
 
+.border-solid-gray {
+  border: 1px solid $border-light;
+}
+
 .min-height-mobile {
   min-height: 398px;
 }
