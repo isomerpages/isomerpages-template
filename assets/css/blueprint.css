@@ -10725,6 +10725,12 @@ h6 center {
     margin-top: 15px;
   }
 }
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .bp-footer ul li + :not(ul.footer-link-container li) {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+}
 .bp-footer.bp-footer-links li + li {
   margin-left: 10px;
 }
