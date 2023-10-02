@@ -60,14 +60,6 @@
   width: 50%;
 }
 
-.hero-alignment-left {
-  align-self: flex-end;
-}
-
-.hero-alignment-right {
-  align-self: flex-start;
-}
-
 @media screen and (min-width: map.get($breakpoints, "xl")) {
   .hero-side-sm {
     width: 50%;
