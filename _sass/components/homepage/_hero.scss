@@ -16,7 +16,7 @@
   padding: 3rem 1.5rem;
 }
 
-@media screen and (min-width: map.get($breakpoints, "md")) {
+@media screen and (min-width: map-get($breakpoints, "md")) {
   .hero-floating {
     padding: 3rem;
   }
@@ -60,7 +60,7 @@
   width: 50%;
 }
 
-@media screen and (min-width: map.get($breakpoints, "xl")) {
+@media screen and (min-width: map-get($breakpoints, "xl")) {
   .hero-side-sm {
     width: 50%;
   }
@@ -80,7 +80,7 @@
   }
 }
 
-@media screen and (max-width: (map.get($breakpoints, "xl") - 1)) {
+@media screen and (max-width: (map-get($breakpoints, "xl") - 1)) {
   .hero-side-sm {
     width: 33%;
   }

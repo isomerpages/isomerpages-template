@@ -11,4 +11,4 @@ $breakpoints: (
 );
 
 // Maximum width of site contents
-$container-max-width: map.get($breakpoints, "xl");
+$container-max-width: map-get($breakpoints, "xl");
