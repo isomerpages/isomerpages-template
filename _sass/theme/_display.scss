@@ -1,7 +1,7 @@
 @use "sass:map";
 
 @media screen and (min-width: map.get($breakpoints, "lg")),
-  screen and (max-width: map.get($breakpoints, "md") - 1) {
+  screen and (max-width: (map.get($breakpoints, "md") - 1)) {
   .is-visible-tablet-only {
     display: none !important;
   }

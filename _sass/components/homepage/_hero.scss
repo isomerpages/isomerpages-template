@@ -84,7 +84,7 @@
   }
 }
 
-@media screen and (max-width: map.get($breakpoints, "xl") - 1) {
+@media screen and (max-width: (map.get($breakpoints, "xl") - 1)) {
   .hero-side-sm {
     width: 33%;
   }
