@@ -10722,7 +10722,13 @@ h6 center {
 @media screen and (max-width: 768px) {
   .bp-footer ul li + li:not(.icons) {
     margin-left: 0;
-    margin-top: 15px;
+    margin-top: 16px;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .bp-footer ul li + :not(ul.footer-link-container li) {
+    margin-left: 0;
+    margin-top: 16px;
   }
 }
 .bp-footer.bp-footer-links li + li {
