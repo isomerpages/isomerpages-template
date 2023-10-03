@@ -1,0 +1,58 @@
+name: Visual regression testing using Percy
+
+on:
+  pull_request:
+    branches:
+      - "next-gen"
+  push:
+    branches:
+      - "next-gen-develop"
+
+env:
+  # The slug for the Isomer core team
+  ISOMER_CORE_TEAM_SLUG: core
+  # The location of the template regression test repository
+  ISOMER_TEMPLATE_REGRESSION_TEST: isomerpages/template-regression-test
+
+jobs:
+  snapshot:
+    name: Take snapshot
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      # Determine if the PR created is from a trusted member
+      - name: Check if user is part of Isomer core team
+        uses: tspascoal/get-user-teams-membership@v2
+        id: checkUserMember
+        with:
+          username: ${{ github.actor }}
+          team: ${{ env.ISOMER_CORE_TEAM_SLUG }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }} # requires read:org
+
+      - name: Checkout template regression testing repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.ISOMER_TEMPLATE_REGRESSION_TEST }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "2.6"
+
+      - name: Build the template regression testing site
+        run: |
+          bundle install
+          curl https://raw.githubusercontent.com/opengovsg/isomer-build/amplify-next-gen-staging/build.sh | bash
+
+      - name: Install percy CLI
+        run: npm install @percy/cli
+
+      - name: Take snapshots of built site
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+        run: npx percy snapshot _site/
