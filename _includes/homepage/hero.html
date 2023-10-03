@@ -14,18 +14,17 @@
   'image' -%}
   <div class="bp-hero-body hero-body-padding">
     <div class="bp-container margin--top--lg">
-      <div class="row is-vcentered is-centered ma">
-        <div class="min-height-mobile is-flex row is-vcentered is-centered">
-          {%- if section.hero.dropdown -%} {% include
-          homepage/hero/components/hero-dropdown.html %} {%- endif -%}
+      <div class="min-height-mobile is-flex is-full-width is-vh-centered">
+        {%- if section.hero.dropdown -%}
+        <div class="col is-9">
+          {% include homepage/hero/components/hero-dropdown.html %}
         </div>
+        {%- endif -%}
       </div>
     </div>
   </div>
-  {%- elsif section.hero.variant == 'floating' -%}
-  <div class="hero-floating">
-    {% include homepage/hero/hero-side-layout.html %}
-  </div>
+  {%- elsif section.hero.variant == 'floating' -%} {% include
+  homepage/hero/hero-floating-layout.html %}
   <!-- NOTE: Either the variant is `center` or it is `undefined` which means that they are  using
   the center layout implicitly (the default layout prior to adding variants is center) -->
   {%- else -%}

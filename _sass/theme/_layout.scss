@@ -1,3 +1,20 @@
 .flex-end {
   justify-content: flex-end;
 }
+
+.flex-start {
+  justify-content: flex-start;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.is-full-width {
+  width: 100%;
+}
+
+.is-vh-centered {
+  align-items: center;
+  justify-content: center;
+}
