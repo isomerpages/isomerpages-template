@@ -65,10 +65,6 @@
     width: 50%;
   }
 
-  .side-section-infobox-container {
-    max-width: 576px;
-  }
-
   .side-section-container-left {
     text-align: right;
     align-self: flex-end;
@@ -77,6 +73,18 @@
   .side-section-container-right {
     text-align: left;
     align-self: flex-start;
+  }
+}
+
+@media screen and (min-width: map-get($breakpoints, "xxl")) {
+  .side-section-infobox-container {
+    width: 576px;
+  }
+}
+
+@media screen and (max-width: (map-get($breakpoints, "xxl") - 1)) {
+  .side-section-infobox-container {
+    width: 100%;
   }
 }
 

@@ -2,7 +2,7 @@
   class="is-flex {% if section.hero.alignment == 'right' %} flex-end {% else %} flex-start {% endif %}"
 >
   <div
-    class="p-16 hero-background-{{- section.hero.backgroundColor }} is-flex hero-{{ section.hero.variant }}-{{- section.hero.size | default: 'md' -}}"
+    class="p-16 hero-background-{{- section.hero.backgroundColor | default: 'white' }} is-flex hero-{{ section.hero.variant }}-{{- section.hero.size | default: 'md' -}}"
     style="flex-direction: column"
   >
     <div
