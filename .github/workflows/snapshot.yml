@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - "next-gen-develop"
+  workflow_dispatch:
 
 env:
   # The slug for the Isomer core team
@@ -42,7 +43,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "2.6"
+          ruby-version: "2.7.2"
 
       - name: Build the template regression testing site
         run: |
