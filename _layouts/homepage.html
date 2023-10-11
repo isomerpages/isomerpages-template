@@ -149,4 +149,16 @@ layout: skeleton
 		-%}
 		{%- include functions/swap_container_class.html -%}
 	{%- endif -%}
+
+	{%- if section.infocols -%}
+		{%- 
+			include homepage/infocols.html
+			title = section.infocols.title
+			subtitle = section.infocols.subtitle
+			url = section.infocols.url
+			linktext = section.infocols.linktext
+			infoboxes = section.infocols.infoboxes
+		-%}
+		{%- include functions/swap_container_class.html -%}
+	{%- endif -%}
 {%- endfor -%}

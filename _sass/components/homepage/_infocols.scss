@@ -1,0 +1,33 @@
+.infocols-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3rem;
+
+  // @media screen and (min-width: 1408px) {
+  //     max-width: 1440px;
+  //     margin: auto;
+  // }
+
+  .infocols-linktext {
+    text-transform: uppercase;
+  }
+}
+
+.infocols-infobox-section {
+
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  
+  @media screen and (min-width: 770px) {
+    flex-direction: row;
+  }
+
+  .infocols-infobox-body {}
+}
+
