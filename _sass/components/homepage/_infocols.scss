@@ -1,8 +1,14 @@
+.infocols-container {
+  max-width: 1280px;
+  margin: auto;
+}
+
 .infocols-section {
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 3rem;
+  flex-wrap: wrap;
 
   .infocols-footer {
     flex-direction: row;
@@ -12,35 +18,50 @@
       font-size: 1.125rem;
       text-transform: uppercase;
       margin: 0;
-      transform: translateY(-0.09rem); // making it centered with the arrow-right icon
+      transform: translateY(
+        -0.09rem
+      ); // making it centered with the arrow-right icon
     }
   }
 }
 
 .infocols-infobox-section {
-  justify-content: center;
   align-items: flex-start;
+  justify-content: center;
+  text-align: left;
   gap: 2rem;
   width: 100%;
   flex-wrap: wrap;
   flex-direction: column;
-  
-  @media screen and (min-width: 770px) {
+
+  // @media screen and (min-width: 1024px) {
+  //   text-align: center;
+  // }
+
+  // Make it into row for tablet onwards
+  @media screen and (min-width: 769px) {
     flex-direction: row;
   }
 
   .infocols-infobox-body {
     flex-direction: column;
+    flex: 1 0 0;
     align-items: flex-start;
-    width: 40%;
     gap: 1rem;
 
-    @media screen and (min-width: 770px) {
+    // Fill 40% if width >= 1280
+    @media screen and (min-width: 1280px) {
+      max-width: 40%;
+    }
+
+    // Fill 50% if width 1280 > x >= 769
+    @media screen and (min-width: 769px) {
       max-width: 50%;
     }
 
-    @media screen and (min-width: 1280px) {
-      max-width: 40%;
+    // For screen width x < 769, infobox fills up entire width
+    @media screen and (max-width: 768px) {
+      max-width: 100%;
     }
 
     .infocols-infobox-description {
@@ -48,4 +69,3 @@
     }
   }
 }
-
