@@ -34,10 +34,6 @@
   flex-wrap: wrap;
   flex-direction: column;
 
-  // @media screen and (min-width: 1024px) {
-  //   text-align: center;
-  // }
-
   // Make it into row for tablet onwards
   @media screen and (min-width: 769px) {
     flex-direction: row;
@@ -46,7 +42,8 @@
   .infocols-infobox-body {
     flex-direction: column;
     flex: 1 0 0;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     gap: 1rem;
 
     // Fill 40% if width >= 1280
@@ -56,12 +53,14 @@
 
     // Fill 50% if width 1280 > x >= 769
     @media screen and (min-width: 769px) {
+      align-items: flex-start;
+      text-align: left;
       max-width: 50%;
     }
 
     // For screen width x < 769, infobox fills up entire width
     @media screen and (max-width: 768px) {
-      max-width: 100%;
+      width: 100%;
     }
 
     .infocols-infobox-description {
