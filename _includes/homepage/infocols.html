@@ -11,24 +11,29 @@
 {%- endcomment -%}
 <section class="px-8 px-sm-16 px-md-24 py-24 {{ gray_container_class }}">
     <div class="infocols-section is-flex">
+      <div>
         <p class="subtitle-2 pb-4">
             {{ include.subtitle }}
         </p>
         <h1 class="h1 has-text-secondary has-text-centered pb-4">
           {{ include.title }}
         </h1>
-        <div class="infocols-infobox-section has-text-left is-flex">
-          {%- for infobox in include.infoboxes limit:4 -%}
-            <div class="infocols-infobox-body is-flex p-6">
-              <h3 class="h3">
-                {{ infobox.title }}
-              </h3>
-              <p class="body-1 textcards-card-description">
-                {{ infobox.description }}
-              </p>
-            </div>
-          {%- endfor -%}
-        </div>
-        <a class="link" href="{{ include.url }}">{{ include.linktext }}</a>
+      </div>
+      <div class="infocols-infobox-section has-text-left is-flex">
+        {%- for infobox in include.infoboxes limit:4 -%}
+          <div class="infocols-infobox-body is-flex p-6">
+            <h3 class="h3">
+              {{ infobox.title }}
+            </h3>
+            <p class="body-1 infocols-infobox-description">
+              {{ infobox.description }}
+            </p>
+          </div>
+        {%- endfor -%}
+      </div>
+      <a href="{{ include.url }}" class="bp-sec-button infocols-footer is-flex">
+        <span class="infocols-linktext">{{ include.linktext }}</span>
+        <i class="sgds-icon sgds-icon-arrow-right is-size-4 infocols-link-icon" aria-hidden="true"></i>
+      </a>
     </div>
 </section>

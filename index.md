@@ -74,6 +74,20 @@ sections:
   #    subtitle: "Get on board now!"
   #    button: "Contact Us"
   #    url: "https://www.isomer.gov.sg"
+  - infocols:
+      subtitle: Info-Column SUBTitle
+      title: Very very long info-col title because the user feels like adding a very long title and they are very verbose humans
+      url: https://www.google.com
+      linktext: Our Approach
+      infoboxes:
+        - title: Hollistic Education
+          description: We believe in more than just academics. Providing a holistic education, covering both academic and non-academic areas.
+        - title: Hollistic Education
+          description: We believe in more than just academics. Providing a holistic education, covering both academic and non-academic areas.
+        - title: Hollistic Education
+          description: Providing a holistic education, covering both academic and non-academic areas.
+        - title: Hollistic Education
+          description: We believe in more than just academics.
   - textcards:
       title: Hey there!
       subtitle: "Lorem ipsum!"
