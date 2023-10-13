@@ -111,7 +111,7 @@
 }
 
 .link-button {
-  color: $utility-theme-color;
+  color: $secondary-color;
   text-align: center;
   font-feature-settings: "clig" off, "liga" off;
 
@@ -123,6 +123,9 @@
   line-height: 2rem; /* 177.778% */
   text-decoration-line: underline;
   text-transform: uppercase;
+  &:hover {
+    color: $secondary-color-hover;
+  }
 }
 
 .button-text {
