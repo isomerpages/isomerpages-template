@@ -1,5 +1,5 @@
 .infocols-container {
-  max-width: 1280px;
+  max-width: $container-max-width;
   margin: auto;
 }
 
@@ -9,6 +9,11 @@
   text-align: center;
   gap: 3rem;
   flex-wrap: wrap;
+
+  .infocols-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
 
   .infocols-footer {
     flex-direction: row;
@@ -40,7 +45,7 @@
   flex-wrap: wrap;
   flex-direction: column;
 
-  // Make it into row for tablet onwards
+  // md: Make it into row for tablet onwards
   @media screen and (min-width: 769px) {
     flex-direction: row;
   }
@@ -52,19 +57,19 @@
     text-align: center;
     gap: 1rem;
 
-    // Fill 40% if width >= 1280
+    // xl/xxl: Fill 40% if width >= 1280
     @media screen and (min-width: 1280px) {
       max-width: 40%;
     }
 
-    // Fill 50% if width 1280 > x >= 769
+    // md: Fill 50% if width 1280 > x >= 769
     @media screen and (min-width: 769px) {
       align-items: flex-start;
       text-align: left;
       max-width: 50%;
     }
 
-    // For screen width x < 769, infobox fills up entire width
+    // sm: For screen width x < 769, infobox fills up entire width
     @media screen and (max-width: 768px) {
       width: 100%;
     }
