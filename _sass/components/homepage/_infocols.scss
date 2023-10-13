@@ -35,6 +35,10 @@
   gap: 1rem;
 }
 
+.infocols-infobox-section.space-between {
+  justify-content: space-between;
+}
+
 .infocols-infobox-section {
   align-items: flex-start;
   justify-content: center;
@@ -42,15 +46,11 @@
   gap: 1rem;
   flex-wrap: wrap;
   flex-direction: column;
+  width: 100%;
 
   // md: Make it into row for tablet onwards
   @media screen and (min-width: 769px) {
     flex-direction: row;
-    justify-content: space-between;
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: 100%;
   }
 
   .infocols-infobox-body {

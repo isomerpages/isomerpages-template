@@ -24,8 +24,14 @@
       </div>
 
       <div class="infocols-infobox-section-grid is-flex">
-        <div class="infocols-infobox-section has-text-left is-flex">
-          {%- assign infoboxCount = include.infoboxes | size -%}
+        {%- assign infoboxCount = include.infoboxes | size -%}
+        {%- if infoboxCount > 2 -%}
+        <!-- This specifically helps to make 3 infocols wrap nicely to 2 rows for md-xl screens -->
+          <div class="infocols-infobox-section has-text-left is-flex space-between">
+        {%- else -%}
+          <div class="infocols-infobox-section has-text-left is-flex">
+        {%- endif -%}
+          
           {%- if infoboxCount == 4 -%}
             {%- for infobox in include.infoboxes limit:4 -%}
               <div class="infocols-infobox-body is-flex p-6">
