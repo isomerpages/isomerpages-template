@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .infocols-container {
   max-width: $container-max-width;
   margin: auto;
@@ -49,7 +51,7 @@
   width: 100%;
 
   // md: Make it into row for tablet onwards
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: map-get($breakpoints, "md")) {
     flex-direction: row;
   }
 
@@ -61,13 +63,13 @@
     gap: 1rem;
 
     // xl/xxl: Fill 40% if width >= 1280
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: map-get($breakpoints, "xl")) {
       max-width: 40%;
       min-width: none;
     }
 
     // md: Fill 50% if width 1280 > x >= 769
-    @media screen and (min-width: 769px) {
+    @media screen and (min-width: map-get($breakpoints, "md")) {
       align-items: flex-start;
       text-align: left;
 
@@ -75,13 +77,13 @@
     }
 
     // Ensure 2 row layout for 3 columns if between md and xl
-    @media screen and (max-width: 1280px) and (min-width: 769px) {
+    @media screen and (max-width: map-get($breakpoints, "xl")) and (min-width: map-get($breakpoints, "md")) {
       width: 50%;
       min-width: 40%;
     }
 
     // sm: For screen width x < 769, infobox fills up entire width
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: (map-get($breakpoints, "md")-1)) {
       width: 100%;
     }
 
