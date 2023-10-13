@@ -20,35 +20,37 @@
           {{ include.title }}
         </h1>
       </div>
-      <div class="infocols-infobox-section has-text-left is-flex">
-        {%- assign infoboxCount = include.infoboxes | size -%}
-        {%- if infoboxCount == 4 -%}
-          {%- for infobox in include.infoboxes -%}
-            <div class="infocols-infobox-body is-flex p-6">
-              <h3 class="h3">
-                {{ infobox.title }}
-              </h3>
-              <p class="body-1 infocols-infobox-description">
-                {{ infobox.description }}
-              </p>
-            </div>
-            {%- if forloop.index == 2 -%}
+      <div class="infocols-infobox-section-grid is-flex">
+        <div class="infocols-infobox-section has-text-left is-flex">
+          {%- assign infoboxCount = include.infoboxes | size -%}
+          {%- if infoboxCount == 4 -%}
+            {%- for infobox in include.infoboxes -%}
+              <div class="infocols-infobox-body is-flex p-6">
+                <h3 class="h3">
+                  {{ infobox.title }}
+                </h3>
+                <p class="body-1 infocols-infobox-description">
+                  {{ infobox.description }}
+                </p>
               </div>
-              <div class="infocols-infobox-section has-text-left is-flex">
-            {%- endif -%}
-          {%- endfor -%}
-        {%- else -%}
-          {%- for infobox in include.infoboxes -%}
-            <div class="infocols-infobox-body is-flex p-6">
-              <h3 class="h3">
-                {{ infobox.title }}
-              </h3>
-              <p class="body-1 infocols-infobox-description">
-                {{ infobox.description }}
-              </p>
-            </div>
-          {%- endfor -%}
-        {%- endif -%}
+              {%- if forloop.index == 2 -%}
+                </div>
+                <div class="infocols-infobox-section has-text-left is-flex">
+              {%- endif -%}
+            {%- endfor -%}
+          {%- else -%}
+            {%- for infobox in include.infoboxes -%}
+              <div class="infocols-infobox-body is-flex p-6">
+                <h3 class="h3">
+                  {{ infobox.title }}
+                </h3>
+                <p class="body-1 infocols-infobox-description">
+                  {{ infobox.description }}
+                </p>
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
       </div>
       <a href="{{ include.url }}" class="bp-sec-button infocols-footer is-flex">
         <span class="infocols-linktext">{{ include.linktext }}</span>

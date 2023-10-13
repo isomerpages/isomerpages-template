@@ -25,11 +25,17 @@
   }
 }
 
+.infocols-infobox-section-grid {
+  flex-direction: column;
+  flex: 1;
+  gap: 1rem;
+}
+
 .infocols-infobox-section {
   align-items: flex-start;
   justify-content: center;
   text-align: left;
-  gap: 2rem;
+  gap: 1rem;
   width: 100%;
   flex-wrap: wrap;
   flex-direction: column;
