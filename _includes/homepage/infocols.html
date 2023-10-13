@@ -1,25 +1,28 @@
 {%- comment -%}
   include: 
-    subtitle
+    subtitle // optional
     title
-    url
-    linktext
+    url // optional
+    linktext // optional
     infoboxes[]:
       title
-      description
-      url
+      description // optional
 {%- endcomment -%}
 <section class="px-8 px-sm-16 px-md-24 py-24 {{ gray_container_class }}">
   <div class="infocols-container">
     <div class="infocols-section is-flex">
       <div class="infocols-header is-flex">
-        <p class="subtitle-2">
-            {{ include.subtitle }}
-        </p>
+        {%- if include.subtitle -%}
+          <p class="subtitle-2">
+              {{ include.subtitle }}
+          </p>
+        {%- endif -%}
+
         <h1 class="h1 has-text-secondary has-text-centered">
           {{ include.title }}
         </h1>
       </div>
+
       <div class="infocols-infobox-section-grid is-flex">
         <div class="infocols-infobox-section has-text-left is-flex">
           {%- assign infoboxCount = include.infoboxes | size -%}
@@ -29,9 +32,11 @@
                 <h3 class="h3">
                   {{ infobox.title }}
                 </h3>
-                <p class="body-1 infocols-infobox-description">
-                  {{ infobox.description }}
-                </p>
+                {%- if infobox.description -%}
+                  <p class="body-1 infocols-infobox-description">
+                    {{ infobox.description }}
+                  </p>
+                {%- endif -%}
               </div>
               {%- if forloop.index == 2 -%}
                 </div>
@@ -44,21 +49,25 @@
                 <h3 class="h3">
                   {{ infobox.title }}
                 </h3>
-                <p class="body-1 infocols-infobox-description">
-                  {{ infobox.description }}
-                </p>
+                {%- if infobox.description -%}
+                  <p class="body-1 infocols-infobox-description">
+                    {{ infobox.description }}
+                  </p>
+                {%- endif -%}
               </div>
             {%- endfor -%}
           {%- endif -%}
         </div>
       </div>
 
-      {%- assign url_input = include.url -%}
-      {%- include functions/external_url.html -%}
-      <a {{anchor}} class="bp-sec-button infocols-footer is-flex">
-        <span class="infocols-linktext mr-3">{{ include.linktext }}</span>
-        <i class="sgds-icon sgds-icon-arrow-right is-size-4 infocols-link-icon" aria-hidden="true"></i>
-      </a>
+      {%- if include.linktext and include.url -%}
+        {%- assign url_input = include.url -%}
+        {%- include functions/external_url.html -%}
+        <a {{anchor}} class="bp-sec-button infocols-footer is-flex">
+          <span class="infocols-linktext mr-3">{{ include.linktext }}</span>
+          <i class="sgds-icon sgds-icon-arrow-right is-size-4 infocols-link-icon" aria-hidden="true"></i>
+        </a>
+      {%- endif -%}
     </div>
   </div>
 </section>
