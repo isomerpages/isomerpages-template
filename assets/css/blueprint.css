@@ -4875,7 +4875,7 @@ table.table-h tbody tr:last-child th {
 }
 
 .bottom-navigation {
-  height: 95px;
+  height: max-content;
 }
 @media screen and (max-width: 768px) {
   .bottom-navigation {
