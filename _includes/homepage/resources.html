@@ -8,7 +8,7 @@
                     </p>
                 {%- endif -%}
                 {%- if section.resources.title -%}
-                    <h1 class="has-text-secondary padding--bottom"><b>{{- section.resources.title -}}</b></h1>
+                    <h1 class="has-text-secondary padding--bottom h1">{{- section.resources.title -}}</h1>
                 {%- endif -%}
             </div>
         </div>
@@ -83,17 +83,15 @@
         </div>
         <div class="row has-text-centered margin--top padding--bottom--lg">
             <div class="col is-offset-one-third is-one-third">
-                <a href="{{- site.baseurl -}}/{{- site.resources_name -}}/" class="bp-sec-button">
-                    <div>
-                        <span>
-                            {%- if section.resources.button -%}
-                                {{- section.resources.button -}}
-                            {%- else -%}
-                                MORE
-                            {%- endif -%}
-                        </span>
-                        <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                    </div>
+                <a href="{{- site.baseurl -}}/{{- site.resources_name -}}/" class="py-4 link-button remove-after is-flex flex-center is-vh-centered">
+                    <span class="link-button-text">
+                        {%- if section.resources.button -%}
+                            {{- section.resources.button -}}
+                        {%- else -%}
+                            MORE
+                        {%- endif -%}
+                    </span>
+                    <i class="sgds-icon sgds-icon-arrow-right is-size-4 ml-3" aria-hidden="true"></i>
                 </a>
             </div>
         </div>

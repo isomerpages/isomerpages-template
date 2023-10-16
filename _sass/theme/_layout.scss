@@ -6,6 +6,10 @@
   justify-content: flex-start;
 }
 
+.flex-center {
+  justify-content: center;
+}
+
 .w-100 {
   width: 100%;
 }
@@ -16,5 +20,4 @@
 
 .is-vh-centered {
   align-items: center;
-  justify-content: center;
 }

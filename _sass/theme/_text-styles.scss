@@ -121,10 +121,13 @@
   font-style: normal;
   font-weight: 600;
   line-height: 2rem; /* 177.778% */
-  text-decoration-line: underline;
   text-transform: uppercase;
   &:hover {
     color: $secondary-color-hover;
+  }
+
+  .link-button-text {
+    text-decoration-line: underline;
   }
 }
 

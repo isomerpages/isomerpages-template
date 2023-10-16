@@ -9,12 +9,12 @@
                     </p>
                 {%- endif -%}
 
-                <h1 class="has-text-secondary padding--bottom">
-                    <b>{{- section.infopic.title -}}</b>
+                <h1 class="has-text-secondary padding--bottom h1">
+                    {{- section.infopic.title -}}
                 </h1>
 
                 {%- if section.infopic.description -%}
-                    <p>
+                    <p class="body-1">
                         {{- section.infopic.description -}}
                     </p>
                 {%- endif -%}
@@ -22,11 +22,9 @@
                 {%- if section.infopic.url and section.infopic.button -%}
                     {%- assign url_input = section.infopic.url -%}
                     {%- include functions/external_url.html -%}
-                    <a {{anchor}} class="bp-sec-button margin--top padding--bottom">
-                        <div>
-                            <span>{{- section.infopic.button -}}</span>
-                            <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                        </div>
+                    <a {{anchor}} class="py-4 link-button remove-after is-flex flex-start is-vh-centered">
+                        <span class="link-button-text">{{- section.infopic.button -}}</span>
+                        <i class="sgds-icon sgds-icon-arrow-right is-size-4 ml-3" aria-hidden="true"></i>
                     </a>
                 {%- endif -%}
             </div>
@@ -47,12 +45,12 @@
                     </p>
                 {%- endif -%}
 
-                <h1 class="has-text-secondary padding--bottom">
-                    <b>{{- section.infopic.title -}}</b>
+                <h1 class="has-text-secondary padding--bottom h1">
+                    {{- section.infopic.title -}}
                 </h1>
 
                 {%- if section.infopic.description -%}
-                    <p>
+                    <p class="body-1">
                         {{- section.infopic.description -}}
                     </p>
                 {%- endif -%}
@@ -60,11 +58,9 @@
                 {%- if section.infopic.url and section.infopic.button -%}
                     {%- assign url_input = section.infopic.url -%}
                     {%- include functions/external_url.html -%}
-                    <a {{anchor}} class="bp-sec-button margin--top padding--bottom">
-                        <div>
-                            <span>{{- section.infopic.button -}}</span>
-                            <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                        </div>
+                    <a {{anchor}} class="py-4 link-button remove-after is-flex flex-start is-vh-centered">
+                        <span class="link-button-text">{{- section.infopic.button -}}</span>
+                        <i class="sgds-icon sgds-icon-arrow-right is-size-4 ml-3" aria-hidden="true"></i>
                     </a>
                 {%- endif -%}
             </div>
@@ -85,8 +81,8 @@
                     </p>
                 {%- endif -%}
 
-                <h1 class="has-text-secondary padding--bottom">
-                    <b>{{- section.infopic.title -}}</b>
+                <h1 class="has-text-secondary padding--bottom h1">
+                    {{- section.infopic.title -}}
                 </h1>
 
                 {%- if section.infopic.description -%}
@@ -98,11 +94,9 @@
                 {%- if section.infopic.url and section.infopic.button -%}
                     {%- assign url_input = section.infopic.url -%}
                     {%- include functions/external_url.html -%}
-                    <a {{anchor}} class="bp-sec-button margin--top padding--bottom">
-                        <div>
-                            <span>{{- section.infopic.button -}}</span>
-                            <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                        </div>
+                    <a {{anchor}} class="py-4 link-button remove-after is-flex flex-start is-vh-centered">
+                        <span class="link-button-text">{{- section.infopic.button -}}</span>
+                        <i class="sgds-icon sgds-icon-arrow-right is-size-4 ml-3" aria-hidden="true"></i>
                     </a>
                 {%- endif -%}
             </div>
