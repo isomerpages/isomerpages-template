@@ -77,7 +77,6 @@ sections:
   - infocols:
       subtitle: Info-Column SUBTitle
       title: Very very long info-col title because the user feels like adding a very long title and they are very verbose humans
-      # title: Info-column Title
       url: https://www.google.com
       linktext: Our Approach
       infoboxes:
