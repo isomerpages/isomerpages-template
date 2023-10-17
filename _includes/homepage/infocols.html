@@ -34,16 +34,7 @@
           
           {%- if infoboxCount == 4 -%}
             {%- for infobox in include.infoboxes limit:4 -%}
-              <div class="infocols-infobox-body is-flex p-6">
-                <h3 class="h3">
-                  {{ infobox.title }}
-                </h3>
-                {%- if infobox.description -%}
-                  <p class="body-1 infocols-infobox-description">
-                    {{ infobox.description }}
-                  </p>
-                {%- endif -%}
-              </div>
+              {%- include homepage/infobox.html infobox=infobox -%}
               {%- if forloop.index == 2 -%}
                 </div>
                 <div class="infocols-infobox-section has-text-left is-flex">
@@ -51,16 +42,7 @@
             {%- endfor -%}
           {%- else -%}
             {%- for infobox in include.infoboxes limit:4 -%}
-              <div class="infocols-infobox-body is-flex p-6">
-                <h3 class="h3">
-                  {{ infobox.title }}
-                </h3>
-                {%- if infobox.description -%}
-                  <p class="body-1 infocols-infobox-description">
-                    {{ infobox.description }}
-                  </p>
-                {%- endif -%}
-              </div>
+              {%- include homepage/infobox.html infobox=infobox -%}
             {%- endfor -%}
           {%- endif -%}
         </div>
