@@ -1,0 +1,61 @@
+{%- comment -%}
+  include: 
+    subtitle // optional
+    title
+    url // optional
+    linktext // optional
+    infoboxes[]:
+      title
+      description // optional
+{%- endcomment -%}
+<section class="px-8 px-sm-16 px-md-24 py-24 {{ gray_container_class }}">
+  <div class="infocols-container">
+    <div class="infocols-section is-flex">
+      <div class="infocols-header is-flex">
+        {%- if include.subtitle -%}
+          <p class="subtitle-2">
+              {{ include.subtitle }}
+          </p>
+        {%- endif -%}
+
+        <h1 class="h1 has-text-secondary has-text-centered">
+          {{ include.title }}
+        </h1>
+      </div>
+
+      <div class="infocols-infobox-section-grid is-flex">
+        {%- assign infoboxCount = include.infoboxes | size -%}
+        {%- if infoboxCount > 2 -%}
+        <!-- This specifically helps to make 3 infocols wrap nicely to 2 rows for md-xl screens -->
+          <div class="infocols-infobox-section has-text-left is-flex space-between">
+        {%- else -%}
+          <div class="infocols-infobox-section has-text-left is-flex">
+        {%- endif -%}
+          
+          {%- if infoboxCount == 4 -%}
+            {%- for infobox in include.infoboxes limit:4 -%}
+              {%- include homepage/infobox.html infobox=infobox -%}
+              {%- if forloop.index == 2 -%}
+                </div>
+                <div class="infocols-infobox-section has-text-left is-flex">
+              {%- endif -%}
+            {%- endfor -%}
+          {%- else -%}
+            {%- for infobox in include.infoboxes limit:4 -%}
+              {%- include homepage/infobox.html infobox=infobox -%}
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- if include.linktext and include.url -%}
+        {%- assign url_input = include.url -%}
+        {%- include functions/external_url.html -%}
+        <a {{anchor}} class="bp-sec-button infocols-footer is-flex">
+          <span class="infocols-linktext mr-3">{{ include.linktext }}</span>
+          <i class="sgds-icon sgds-icon-arrow-right is-size-4 infocols-link-icon" aria-hidden="true"></i>
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
