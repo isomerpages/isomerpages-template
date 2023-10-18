@@ -22,7 +22,9 @@
     </p>
     <div class="textcards-card-section has-text-left is-flex">
       {%- for card in include.cards limit:4 -%}
-      <a class="textcards-card-body is-flex p-6" href="{{ card.url }}">
+      {%- assign url_input = card.url -%}
+      {%- include functions/external_url.html -%}
+      <a class="textcards-card-body is-flex p-6 remove-after" {{anchor}}>
         <h3 class="h3">
           {{ card.title }}
         </h3>
