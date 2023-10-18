@@ -11575,5 +11575,8 @@ h6 center {
 .zoom-out {
   cursor: zoom-out;
 }
+.remove-after:after {
+  content: "" !important
+}
 
 /*# sourceMappingURL=blueprint.css.map */

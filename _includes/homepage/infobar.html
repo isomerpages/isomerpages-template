@@ -3,15 +3,15 @@
         <div class="row">
             <div class="col is-half is-offset-one-quarter has-text-centered padding--top--xl">
                 {%- if section.infobar.subtitle -%}
-                    <p class="padding--bottom eyebrow is-uppercase">{{- section.infobar.subtitle -}}</p>
+                    <p class="padding--bottom subtitle-2">{{- section.infobar.subtitle -}}</p>
                 {%- endif -%}
 
                 {%- if section.infobar.title -%}
-                    <h1 class="has-text-secondary padding--bottom"><b>{{- section.infobar.title -}}</b></h1>
+                    <h1 class="has-text-secondary padding--bottom h1">{{- section.infobar.title -}}</h1>
                 {%- endif -%}
 
                 {%- if section.infobar.description -%}
-                    <p>{{- section.infobar.description -}}</p>
+                    <p class="body-1">{{- section.infobar.description -}}</p>
                 {%- endif -%}
             </div>
         </div>
@@ -22,11 +22,9 @@
             <div class="col is-offset-one-third is-one-third">
                 {%- assign url_input = section.infobar.url -%}
                 {%- include functions/external_url.html -%}
-                <a {{anchor}} class="bp-sec-button">
-                    <div>
-                        <span>{{- section.infobar.button -}}</span>
-                        <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                    </div>
+                <a {{anchor}} class="link-button remove-after is-flex is-vh-centered flex-center">
+                    <span class="link-button-text">{{- section.infobar.button -}}</span>
+                    <i class="sgds-icon sgds-icon-arrow-right is-size-4 ml-3" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
