@@ -1,0 +1,38 @@
+<!-- Search bar display -->
+<div class="pb-12">
+  <form action="{{site.baseurl}}{{page.url}}" method="get">
+      <div class="row">
+          <div id="database-search-container" class="col">
+          <div class="field has-addons">
+              <div class="control has-icons-left is-expanded">
+                  <input class="input is-fullwidth is-large has-border-grey-light" id="search-box-datagovsg" type="text" placeholder="What are you looking for?" name="query" autocomplete="off">
+                  <span class="is-large is-left">
+                      <i class="sgds-icon sgds-icon-search is-size-4 search-bar"></i>
+                  </span>
+
+              </div>
+              <div class="control">
+                  <button type="submit" class="bp-button is-secondary is-medium has-text-white search-button">SEARCH</button>
+              </div>
+          </div>
+          </div>
+      </div>
+  </form>
+</div>
+<div id="loading-spinner" class="col is-full">
+  <div class="lds-default">
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+  </div>
+</div>
+<div class="col is-full content horizontal-scroll datagovsg-table">
+  {{- content -}}
+</div> 
+<div class="search pagination padding--bottom--xl">
+  <span class="sgds-icon sgds-icon-arrow-left is-size-4"></span>
+  {%- comment -%} To insert page selectors {%- endcomment -%}
+  <div id="paginator-pages"></div>
+  <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span>
+</div>
+
+
+<span style="display: none;" id="resourceId">{{- page.datagovsg-id -}}</span>
