@@ -4,10 +4,6 @@ on:
   pull_request:
     branches:
       - "next-gen"
-  push:
-    branches:
-      - "next-gen-develop"
-  workflow_dispatch:
 
 env:
   # The slug for the Isomer core team
