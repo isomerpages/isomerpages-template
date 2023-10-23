@@ -50,6 +50,7 @@
 
 {%- if page.layout == 'datagovsg-v2-search' -%}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.11/purify.min.js" integrity="sha384-ELH09WGRUcBpRT6iHTekFB2YBCT9kFMsKG4Y9LUAevHjihu8Otri8Sm01QgXOTht" crossorigin="anonymous"></script>
+<script>var defaultField = "{{ page.default_field }}";</script>
 <script src="{{- "/assets/js/pagination-util.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/search.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/datagovsg-search.js" | relative_url -}}" crossorigin="anonymous"></script>

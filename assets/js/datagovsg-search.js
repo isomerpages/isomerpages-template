@@ -20,13 +20,20 @@ var datagovsgTotal = void 0; // The total number of rows of data in the datagovs
 var currentPageIndex = 0;
 
 var searchTerm = getQueryVariable('query');
+var searchField = getQueryVariable('field');
+var hasPopulatedFields = false
 if (!searchTerm || searchTerm === ' ') {
   searchTerm = '';
 }
 else {
   document.getElementById("search-box-datagovsg").value = searchTerm;
 }
-databaseSearch(searchTerm, startIndex);
+if (!searchField) {
+  searchField = ''
+} else {
+  document.getElementById("field-selector-desktop").value = searchField;
+}
+databaseSearch(searchTerm, startIndex, searchField);
 
 function getQueryVariable(variable) {
   var query = window.location.search.substring(1);
@@ -42,7 +49,7 @@ function getQueryVariable(variable) {
   }
 }
 
-function databaseSearch(searchTerm, index) {
+function databaseSearch(searchTerm, index, searchField) {
   const resourceId = document.getElementById("resourceId").innerHTML;
   var data = {
     resource_id: resourceId, // the resource id
@@ -50,7 +57,8 @@ function databaseSearch(searchTerm, index) {
   };
 
   if (searchTerm !== '') {
-    data.q = searchTerm;
+    if (!!searchField) data.q = JSON.stringify({[searchField]: searchTerm})
+    else data.q = searchTerm;
   }
 
   var request = $.ajax({
@@ -64,12 +72,16 @@ function databaseSearch(searchTerm, index) {
     hideAllPostsAndPagination();
 
     // The fieldArray is the array containing the field names in the data.gov.sg table
-    fieldArray = remove(data.result.fields, ["_id", "_full_count", "rank"]);
+    fieldArray = remove(data.result.fields, ["_id", "_full_count", "rank", `rank ${searchField}`]);
     pageResults = pageResults.concat(splitPages(data.result.records, RESULTS_PER_PAGE));
     datagovsgTotal = data.result.total;
     displayTable(pageResults[currentPageIndex], fieldArray);
     if (!pageResults || pageResults.length <= 1) return;
     displayPagination(index);
+    if (!hasPopulatedFields) {
+      displaySearchFilterDropdown(fieldArray.map(item => item.id), defaultField);
+      hasPopulatedFields = true
+    }
   })
     .fail(function () { // Displays no results if the AJAX call fails
       document.getElementById("loading-spinner").style.display = 'none';
@@ -122,6 +134,34 @@ function remove(array, elements) {
   });
 }
 
+function displaySearchFilterDropdown(fields, defaultField) {
+  var fieldFilterDesktop = document.getElementById('field-filter-desktop');
+
+  for (let field of fields) {
+    const startingField = searchField || defaultField
+
+    // Creating the a tags for desktop view
+    var a_element = document.createElement("a");
+    a_element.id = field;
+    a_element.classList.add("bp-dropdown-item", "padding--top--sm", "padding--bottom--none");
+    a_element.onclick = function () {
+      return function () {
+        var filterDropdownDesktop = document.getElementById('field-selector-desktop');
+        filterDropdownDesktop.value = field;
+      };
+    }();
+    if (field === startingField) {
+      var filterDropdownDesktop = document.getElementById('field-selector-desktop');
+      filterDropdownDesktop.value = field;
+    }
+
+    fieldFilterDesktop.appendChild(a_element);
+    var p_element = document.createElement("p");
+    p_element.innerHTML = field;
+    a_element.appendChild(p_element);
+  }
+}
+
 // Populate the pagination elements
 function displayPagination(index) {
   document.querySelector(".pagination").style.display = "flex";
@@ -149,7 +189,7 @@ function displayPagination(index) {
 function changePage(curr, index) {
   if (shouldCallAPI(index)) {
     datagovsgOffset += 100;
-    databaseSearch(searchTerm, index);
+    databaseSearch(searchTerm, index, searchField);
   }
 
   changePageUtil(curr, index);
