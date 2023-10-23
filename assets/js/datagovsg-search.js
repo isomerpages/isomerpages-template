@@ -137,6 +137,7 @@ function remove(array, elements) {
 function displaySearchFilterDropdown(fields, startingField) {
   var fieldFilterDesktop = document.getElementById('field-filter-desktop');
   var fieldFilterMobile = document.getElementById('field-filter-mobile');
+  if (!fieldFilterDesktop || !fieldFilterMobile) return
 
   for (let field of fields) {
     // Creating the select element for mobile view
