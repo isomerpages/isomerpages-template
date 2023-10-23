@@ -11,7 +11,7 @@
                   </span>
 
               </div>
-              <span class="px-4" style="align-self:center;">
+              <span class="px-4 is-hidden-touch" style="align-self:center;">
                 in
               </span>
               <div class="col is-one-quarter p-0 mr-3 is-hidden-touch">
@@ -28,9 +28,24 @@
                     </div>
                 </div>
               </div>
-              <div class="control">
+              <div class="control is-hidden-touch">
                   <button type="submit" class="bp-button is-secondary is-medium has-text-white search-button">SEARCH</button>
               </div>
+          </div>
+          <div class="is-hidden-desktop is-flex" style="flex-direction: column;">
+            <span style="align-self:center;">
+              in
+            </span>
+            <div class="col is-fullwidth padding--top--lg is-hidden-desktop">
+              <div class="filter-selector-div is-hidden-desktop">
+                  <span class="sgds-icon sgds-icon-chevron-down is-size-4" id="filter-arrow"></span>
+                  <select id="field-filter-mobile" class="sgds-selector">
+                  </select>
+              </div>
+            </div>
+            <div class="p-3 is-full-width">
+              <button type="submit" class="bp-button is-secondary is-medium has-text-white search-button is-full-width" style="padding-left: 0 !important; padding-right: 0 !important;">SEARCH</button>
+            </div>
           </div>
           </div>
       </div>

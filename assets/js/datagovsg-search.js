@@ -75,13 +75,13 @@ function databaseSearch(searchTerm, index, searchField) {
     fieldArray = remove(data.result.fields, ["_id", "_full_count", "rank", `rank ${searchField}`]);
     pageResults = pageResults.concat(splitPages(data.result.records, RESULTS_PER_PAGE));
     datagovsgTotal = data.result.total;
+    if (!hasPopulatedFields) {
+      displaySearchFilterDropdown(fieldArray.map(item => item.id), searchField || defaultField);
+      hasPopulatedFields = true
+    }
     displayTable(pageResults[currentPageIndex], fieldArray);
     if (!pageResults || pageResults.length <= 1) return;
     displayPagination(index);
-    if (!hasPopulatedFields) {
-      displaySearchFilterDropdown(fieldArray.map(item => item.id), defaultField);
-      hasPopulatedFields = true
-    }
   })
     .fail(function () { // Displays no results if the AJAX call fails
       document.getElementById("loading-spinner").style.display = 'none';
@@ -134,11 +134,17 @@ function remove(array, elements) {
   });
 }
 
-function displaySearchFilterDropdown(fields, defaultField) {
+function displaySearchFilterDropdown(fields, startingField) {
   var fieldFilterDesktop = document.getElementById('field-filter-desktop');
+  var fieldFilterMobile = document.getElementById('field-filter-mobile');
 
   for (let field of fields) {
-    const startingField = searchField || defaultField
+    // Creating the select element for mobile view
+    var option = document.createElement("option");
+    option.value = field;
+    option.text = field;
+    if (field === startingField) option.selected = true
+    fieldFilterMobile.appendChild(option);
 
     // Creating the a tags for desktop view
     var a_element = document.createElement("a");
