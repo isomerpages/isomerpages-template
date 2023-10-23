@@ -11578,5 +11578,8 @@ h6 center {
 .remove-after:after {
   content: "" !important
 }
+.dropdown-input:focus {
+  outline: none;
+}
 
 /*# sourceMappingURL=blueprint.css.map */
