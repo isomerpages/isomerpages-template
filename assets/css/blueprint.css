@@ -11581,5 +11581,14 @@ h6 center {
 .dropdown-input:focus {
   outline: none;
 }
+.datagov-search-border {
+  border-bottom: 1px solid #D6D6D6;
+}
+.remove-border {
+  border: none;
+}
+.datagov-focus-border:focus {
+  border: 2px solid #000AFF;
+}
 
 /*# sourceMappingURL=blueprint.css.map */
