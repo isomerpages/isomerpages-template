@@ -9,6 +9,8 @@ var MAX_ADJACENT_MOBILE_PAGE_BTNS = 1;
 var pageResults = [];
 var fieldArray = void 0;
 var startIndex = 0;
+const defaultFieldElement = document.getElementById('default-field');
+const defaultField = defaultFieldElement ? defaultFieldElement.getAttribute('data-title') : "";
 
 var datagovsgOffset = 0;
 // The datagovsg API only retrieves 100 rows at a go.
@@ -75,8 +77,9 @@ function databaseSearch(searchTerm, index, searchField) {
     fieldArray = remove(data.result.fields, ["_id", "_full_count", "rank", `rank ${searchField}`]);
     pageResults = pageResults.concat(splitPages(data.result.records, RESULTS_PER_PAGE));
     datagovsgTotal = data.result.total;
-    if (!hasPopulatedFields) {
-      displaySearchFilterDropdown(fieldArray.map(item => item.id), searchField || defaultField);
+    const possibleSearchField = searchField || defaultField
+    if (!hasPopulatedFields && possibleSearchField) {
+      displaySearchFilterDropdown(fieldArray.map(item => item.id), possibleSearchField);
       hasPopulatedFields = true
     }
     displayTable(pageResults[currentPageIndex], fieldArray);
