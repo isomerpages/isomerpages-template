@@ -4,8 +4,8 @@
       <div class="row">
           <div id="database-search-container" class="col">
           <div class="field has-addons">
-              <div class="control has-icons-left is-expanded datagov-search-border">
-                  <input class="input is-fullwidth is-large has-border-grey-light" id="search-box-datagovsg" type="text" placeholder="What are you looking for?" name="query" autocomplete="off">
+              <div class="control has-icons-left is-expanded datagov-search-border is-flex is-vh-centered">
+                  <input class="input is-fullwidth is-large has-border-grey-light is-size-6 pl-12" id="search-box-datagovsg" type="text" placeholder="What are you looking for?" name="query" autocomplete="off">
                   <span class="is-large is-left">
                       <i class="sgds-icon sgds-icon-search is-size-4 search-bar"></i>
                   </span>
@@ -19,11 +19,11 @@
                     <a class="bp-dropdown-button hero-dropdown is-centered padding--none is-full-height" aria-haspopup="true" aria-controls="hero-dropdown-menu">
                     <div class="bp-dropdown-trigger remove-border">
                         <span class="sgds-icon sgds-icon-chevron-down is-size-4 has-text-black" id="filter-arrow"></span>
-                        <input class="sgds-selector has-text-black pointer dropdown-input is-full-height" id="field-selector-desktop" name="field" readonly ></input>
+                        <input class="sgds-selector has-text-black pointer dropdown-input is-full-height is-size-6" id="field-selector-desktop" name="field" readonly ></input>
                     </div>
                     </a>
                     <div class="bp-dropdown-menu has-text-left" id="hero-dropdown-menu" role="menu" >
-                      <div id="field-filter-desktop" class="bp-dropdown-content is-centered">
+                      <div id="field-filter-desktop" class="bp-dropdown-content is-centered is-flex" style="flex-direction: column; gap: 0.5rem;">
                       </div>
                     </div>
                 </div>

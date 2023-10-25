@@ -152,7 +152,7 @@ function displaySearchFilterDropdown(fields, startingField) {
     // Creating the a tags for desktop view
     var a_element = document.createElement("a");
     a_element.id = field;
-    a_element.classList.add("bp-dropdown-item", "padding--top--sm", "padding--bottom--none");
+    a_element.classList.add("bp-dropdown-item", "py-0");
     a_element.onclick = function () {
       return function () {
         var filterDropdownDesktop = document.getElementById('field-selector-desktop');
@@ -166,7 +166,8 @@ function displaySearchFilterDropdown(fields, startingField) {
 
     fieldFilterDesktop.appendChild(a_element);
     var p_element = document.createElement("p");
-    p_element.innerHTML = field;
+    p_element.innerHTML = field.replace("_", " ");
+    p_element.classList.add("is-size-6")
     a_element.appendChild(p_element);
   }
 }
