@@ -15,7 +15,7 @@ layout: skeleton
       </div>
     </div>
   </div>
-  <div class="bp-container">
+  <!-- <div class="bp-container">
 		<form action="{{- site.baseurl -}}{{- page.search_url -}}" method="get">
 			<div class="row">
 				<div id="search-container" class="col is-8 right-padding-zero is-offset-2">
@@ -34,7 +34,7 @@ layout: skeleton
 				</div>
 			</div>
 		</form>
-	</div>
+	</div> -->
 </section>
 <!-- <section class="bp-section">
     <div class="bp-container search-content">
@@ -75,7 +75,7 @@ layout: skeleton
             {% for post in paginator.posts %}
             <tr>
               <td>
-                <a href="{{ post.url | relative_url }}">
+                <a href="{{ post.file_url }}">
                   {{ post.title | escape }}
                   </a>
               </td>
