@@ -6,5 +6,5 @@ group :jekyll_plugins do
 	gem "jekyll-feed"
 	gem "jekyll-assets"
 	gem "jekyll-sitemap"
-	gem "jekyll-paginate"
+	gem "jekyll-paginate-v2"
 end

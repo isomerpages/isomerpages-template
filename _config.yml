@@ -22,7 +22,7 @@ plugins:
   - jekyll-assets
   # - jekyll-paginate
   - jekyll-sitemap
-  # - jekyll-paginate-v2
+  - jekyll-paginate-v2
   # - sanitize
 safe: false
 exclude:
@@ -72,7 +72,17 @@ collections:
 
 # Resource Room and Pagination
 resources_name: "resource_room"
-paginate: 12
+pagination:
+  enabled: true
+  per_page: 50
+  permalink: "/page-:num/"
+  title: ":title (page :num)"
+  limit: 0
+  sort_field: "date"
+  sort_reverse: true
+  trail:
+    before: 2 # The number of links before the current page
+    after: 2 # The number of links after the current page
 
 # Site configuration for Isomer Pages
 ##################################
