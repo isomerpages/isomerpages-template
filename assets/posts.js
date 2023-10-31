@@ -3,11 +3,13 @@ layout: blank
 ---
 posts_json=[
     {%- assign putComma = false -%}
+    {%- assign counter = 0 -%}
     {%- for collection in site.collections -%}
         {%- for post in collection.docs -%}
             {%- if post.permalink or post.file_url -%}
                 {%- if putComma -%},{%- endif -%}
                 {%- include post.json -%}
+                {%- assign counter = counter | plus: 1 %}
                 {%- assign putComma = true -%}
             {%- endif -%}
         {%- endfor -%}
@@ -17,6 +19,7 @@ posts_json=[
         {%- if post.permalink or post.file_url -%}
             {%- if putComma -%},{%- endif -%}
             {%- include post.json -%}
+            {%- assign counter = counter | plus: 1 %}
             {%- assign putComma = true -%}
         {%- endif -%}
     {%- endfor -%}
@@ -25,12 +28,13 @@ posts_json=[
     {%- if putComma -%},{%- endif -%}
     {
         "title": "{{ record.title | escape }}",
-        "id": "{{ record.title }}",
-        "content": "{{ record.main_category | escape }} - {{ record.sub_category | escape }} - {{ record.notification_no | escape }} - {{ record.title }} - {{ record.file_url }}",
+        "id": "{{ counter }}",
+        "content": "{{ record.date | escape }} - {{ record.main_category | escape }} - {{ record.sub_category | escape }} - {{ record.notification_no | escape }} - {{ record.title }} - {{ record.file_url }}",
         "url": "{{ record.file_url | escape }}",
     }
+    {%- assign counter = counter | plus: 1 %}
     {%- assign putComma = true -%}
     {%- endfor -%}
 ]
 
-console.log(`index built`, posts_json)
+console.log(`index built`,posts_json)

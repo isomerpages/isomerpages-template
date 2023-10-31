@@ -146,6 +146,7 @@ function returnResultsList(results) {
   // Iterate over the results
   for (var i = 0; i < results.length; i++) {
     var key = parseInt(results[i]["ref"]);
+    console.log(`Looking for key`, key);
     var resultObject = post_data[key];
     var matchMetadata = results[i]["matchData"]["metadata"];
 
