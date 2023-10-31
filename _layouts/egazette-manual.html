@@ -1,0 +1,149 @@
+---
+layout: skeleton
+---
+
+<section class="bp-section is-small bp-section-pagetitle">
+  <div class="bp-container">
+    <div class="row">
+      <div class="col">{%- include header-breadcrumb.html -%}</div>
+    </div>
+  </div>
+  <div class="bp-container">
+    <div class="row">
+      <div class="col">
+        <h1 class="has-text-white"><b>{{- page.title -}}</b></h1>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="bp-container">
+		<form action="{{- site.baseurl -}}{{- page.search_url -}}" method="get">
+			<div class="row">
+				<div id="search-container" class="col is-8 right-padding-zero is-offset-2">
+          <div class="field has-addons">
+              <div class="control has-icons-left is-expanded">
+                  <input class="input is-fullwidth is-large" id="search-box-search" type="text" placeholder="What are you looking for?" name="query" autocomplete="off">
+                  <span class="is-large is-left">
+                    <i class="sgds-icon sgds-icon-search is-size-4 search-bar"></i>
+                  </span>
+
+              </div>
+              <div class="control">
+                  <button type="submit" class="bp-button is-secondary is-medium has-text-white search-button">SEARCH</button>
+              </div>
+          </div>
+				</div>
+			</div>
+		</form>
+	</div> -->
+</section>
+<!-- <section class="bp-section">
+    <div class="bp-container search-content">
+    <div class="row">
+			<div id="loading-spinner" class="col is-full">
+				<div class="lds-default">
+					<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+				</div>
+			</div>
+      <div class="col is-8 is-offset-2 search-results-display">
+        <div>
+					<div class="search-summary">
+						<h4 class="search-results-count" id="search-results-count"></h4>
+						<small id="search-page-indicator"></small>
+					</div>
+					<br/>
+					<h5 class="search-results" id="search-results"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="bp-section">
+  <div class="bp-container content padding--top--lg padding--bottom--xl">
+    <div class="row">
+      <div class="col is-8 is-offset-2 print-content">
+        {{- content -}}
+
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Category</th>
+              <th>Sub-category</th>
+              <th>Notification No.</th>
+              <th>Subject</th>
+              <th>Publication Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for record in page.records %}
+            <tr>
+              <td>{{ record.date | date: "%Y" }}</td>
+              <td>{{ record.main_category | escape }}</td>
+              <td>{{ record.sub_category | escape }}</td>
+              <td>{{ record.notification_no | escape }}</td>
+              <td>
+                <a href="{{ record.file_url }}">
+                  {{ record.title | escape }}
+                  </a>
+              </td>
+              <td>{{ record.date | date: "%-d %B %Y" }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        {% if page.total_pages > 1 %}
+        <div
+          class="search pagination padding--bottom--xl"
+          style="display: flex"
+        >
+          {% if page.previous_number %}
+          <a
+            href="{{ page.url_prefix | prepend: site.baseurl | append: page.previous_number | append: '/' | relative_url }}"
+          >
+            <span class="sgds-icon sgds-icon-arrow-left is-size-4"> </span>
+          </a>
+          {% else %}
+          <span
+            class="sgds-icon sgds-icon-arrow-left is-size-4 sgds-icon-disabled"
+          ></span>
+          {% endif %}
+
+          <div id="paginator-pages">
+            {% assign trail_lower = page.num - 2 %}
+            {% assign trail_upper = page.num + 2 %}
+            {% assign trail_range = (trail_lower..trail_upper) %}
+            {% for trail in trail_range %}
+            <a
+              style="text-decoration: unset"
+              href="{{ page.url_prefix | prepend: site.baseurl | append: trail | append: '/' | relative_url }}"
+            >
+              <span
+                {% if page.num == trail %}class="selected-page"{% endif %}
+                style="display: inline-block; pointer-events: auto"
+              >
+                {{ trail }}
+              </span>
+            </a>
+            {% endfor %}
+          </div>
+
+          {% if page.next_number %}
+          <a
+            href="{{ page.url_prefix | prepend: site.baseurl | append: page.next_number | append: '/' | relative_url }}"
+          >
+            <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span>
+          </a>
+          {% else %}
+          <span
+            class="sgds-icon sgds-icon-arrow-right is-size-4 sgds-icon-disabled"
+          ></span>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+      {%- include print.html -%}
+    </div>
+  </div>
+</section>
