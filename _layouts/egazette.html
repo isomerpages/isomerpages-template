@@ -1,0 +1,138 @@
+---
+layout: skeleton
+---
+
+<section class="bp-section is-small bp-section-pagetitle">
+  <div class="bp-container">
+    <div class="row">
+      <div class="col">{%- include header-breadcrumb.html -%}</div>
+    </div>
+  </div>
+  <div class="bp-container">
+    <div class="row">
+      <div class="col">
+        <h1 class="has-text-white"><b>{{- page.title -}}</b></h1>
+      </div>
+    </div>
+  </div>
+  <div class="bp-container">
+		<form action="{{- site.baseurl -}}{{- page.search_url -}}" method="get">
+			<div class="row">
+				<div id="search-container" class="col is-8 right-padding-zero is-offset-2">
+          <div class="field has-addons">
+              <div class="control has-icons-left is-expanded">
+                  <input class="input is-fullwidth is-large" id="search-box-search" type="text" placeholder="What are you looking for?" name="query" autocomplete="off">
+                  <span class="is-large is-left">
+                    <i class="sgds-icon sgds-icon-search is-size-4 search-bar"></i>
+                  </span>
+
+              </div>
+              <div class="control">
+                  <button type="submit" class="bp-button is-secondary is-medium has-text-white search-button">SEARCH</button>
+              </div>
+          </div>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>
+<!-- <section class="bp-section">
+    <div class="bp-container search-content">
+    <div class="row">
+			<div id="loading-spinner" class="col is-full">
+				<div class="lds-default">
+					<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+				</div>
+			</div>
+      <div class="col is-8 is-offset-2 search-results-display">
+        <div>
+					<div class="search-summary">
+						<h4 class="search-results-count" id="search-results-count"></h4>
+						<small id="search-page-indicator"></small>
+					</div>
+					<br/>
+					<h5 class="search-results" id="search-results"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="bp-section">
+  <div class="bp-container content padding--top--lg padding--bottom--xl">
+    <div class="row">
+      <div class="col is-8 is-offset-2 print-content">
+        {{- content -}}
+
+        <table>
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Publication Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for post in paginator.posts %}
+            <tr>
+              <td>
+                <a href="{{ post.url | relative_url }}">
+                  {{ post.title | escape }}
+                  </a>
+              </td>
+              <td>{{ post.date | date: "%-d %B %Y" }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        {% if paginator.total_pages > 1 %}
+        <div
+          class="search pagination padding--bottom--xl"
+          style="display: flex"
+        >
+          {% if paginator.previous_page %}
+          <a
+            href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"
+          >
+            <span class="sgds-icon sgds-icon-arrow-left is-size-4"> </span>
+          </a>
+          {% else %}
+          <span
+            class="sgds-icon sgds-icon-arrow-left is-size-4 sgds-icon-disabled"
+          ></span>
+          {% endif %}
+
+          <div id="paginator-pages">
+            {% for trail in paginator.page_trail %}
+            <a
+              style="text-decoration: unset"
+              href="{{ trail.path | prepend: site.baseurl | replace: '/index.html', '/' }}" title="{{trail.title}}"
+            >
+              <span
+                {% if page.url == trail.path %}class="selected-page"{% endif %}
+                style="display: inline-block; pointer-events: auto"
+              >
+                {{ trail.num }}
+              </span>
+            </a>
+            {% endfor %}
+          </div>
+
+          {% if paginator.next_page %}
+          <a
+            href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"
+          >
+            <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span>
+          </a>
+          {% else %}
+          <span
+            class="sgds-icon sgds-icon-arrow-right is-size-4 sgds-icon-disabled"
+          ></span>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+      {%- include print.html -%}
+    </div>
+  </div>
+</section>
