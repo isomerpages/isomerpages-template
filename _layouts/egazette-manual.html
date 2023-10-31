@@ -111,8 +111,8 @@ layout: skeleton
           {% endif %}
 
           <div id="paginator-pages">
-            {% assign trail_lower = page.num - 2 %}
-            {% assign trail_upper = page.num + 2 %}
+            {% assign trail_lower = page.num | minus: 2 %}
+            {% assign trail_upper = page.num | plus: 2 %}
             {% assign trail_range = (trail_lower..trail_upper) %}
             {% for trail in trail_range %}
             <a
