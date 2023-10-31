@@ -67,6 +67,10 @@ layout: skeleton
         <table>
           <thead>
             <tr>
+              <th>Year</th>
+              <th>Category</th>
+              <th>Sub-category</th>
+              <th>Notification No.</th>
               <th>Subject</th>
               <th>Publication Date</th>
             </tr>
@@ -74,6 +78,10 @@ layout: skeleton
           <tbody>
             {% for post in paginator.posts %}
             <tr>
+              <td>{{ post.date | date: "%Y" }}</td>
+              <td>{{ post.main_category | escape }}</td>
+              <td>{{ post.sub_category | escape }}</td>
+              <td>{{ post.notification_no | escape }}</td>
               <td>
                 <a href="{{ post.file_url }}">
                   {{ post.title | escape }}
