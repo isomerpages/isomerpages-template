@@ -20,4 +20,17 @@ posts_json=[
             {%- assign putComma = true -%}
         {%- endif -%}
     {%- endfor -%}
+
+    {%- for record in site.data.all.records -%}
+    {%- if putComma -%},{%- endif -%}
+    {
+        "title": "{{ record.title | escape }}",
+        "id": "{{ record.title }}",
+        "content": "{{ record.main_category | escape }} - {{ record.sub_category | escape }} - {{ record.notification_no | escape }} - {{ record.title }} - {{ record.file_url }}",
+        "url": "{{ record.file_url | escape }}",
+    }
+    {%- assign putComma = true -%}
+    {%- endfor -%}
 ]
+
+console.log(`index built`, posts_json)
