@@ -115,17 +115,20 @@ layout: skeleton
             {% assign trail_upper = page.num | plus: 2 %}
             {% assign trail_range = (trail_lower..trail_upper) %}
             {% for trail in trail_range %}
-            <a
-              style="text-decoration: unset"
-              href="{{ page.url_prefix | prepend: site.baseurl | append: trail | append: '/' | relative_url }}"
-            >
-              <span
-                {% if page.num == trail %}class="selected-page"{% endif %}
-                style="display: inline-block; pointer-events: auto"
+              {% if trail < 1 or trail > page.total_pages %}
+                {% continue %}
+              {% endif %}
+              <a
+                style="text-decoration: unset"
+                href="{{ page.url_prefix | prepend: site.baseurl | append: 'page-' | append: trail | append: '/' | relative_url }}"
               >
-                {{ trail }}
-              </span>
-            </a>
+                <span
+                  {% if page.num == trail %}class="selected-page"{% endif %}
+                  style="display: inline-block; pointer-events: auto"
+                >
+                  {{ trail }}
+                </span>
+              </a>
             {% endfor %}
           </div>
 
