@@ -1,0 +1,22 @@
+.ais-SearchBox {
+  width: 100%;
+
+  .ais-SearchBox-input {
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+    box-shadow: none;
+  }
+}
+.search-hits-options {
+  display: flex;
+}
+
+/* General styling for the pagination container */
+.ais-Pagination-list {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+  justify-content: center;
+}
