@@ -16,26 +16,26 @@ search.addWidgets([
   instantsearch.widgets.searchBox({
     container: "#searchbox",
     autofocus: true,
-    templates: {
-      loadingIndicator({ cssClasses }, { html }) {
-        return html`<div id="loading-spinner" class="col is-full">
-          <div class="lds-default">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>`;
-      },
-    },
+    // templates: {
+    //   loadingIndicator({ cssClasses }, { html }) {
+    //     return html`<div id="loading-spinner" class="col is-full">
+    //       <div class="lds-default">
+    //         <div></div>
+    //         <div></div>
+    //         <div></div>
+    //         <div></div>
+    //         <div></div>
+    //         <div></div>
+    //         <div></div>
+    //         <div></div>
+    //         <div></div>
+    //         <div></div>
+    //         <div></div>
+    //         <div></div>
+    //       </div>
+    //     </div>`;
+    //   },
+    // },
   }),
   instantsearch.widgets.hits({
     container: "#hits",
@@ -51,13 +51,13 @@ search.addWidgets([
           hit,
         })}</a>
             <p class="search-content permalink">${hit.fileUrl}</p>
-              <p class="search-content permalink">Category: ${instantsearch.highlight(
-                {
-                  attribute: "category",
-                  highlightedTagName: "mark",
-                  hit,
-                }
-              )}${
+            <p class="search-content permalink">Category: ${instantsearch.highlight(
+              {
+                attribute: "category",
+                highlightedTagName: "mark",
+                hit,
+              }
+            )}${
           hit.subCategory
             ? `, Sub-Category: ${instantsearch.highlight({
                 attribute: "subCategory",
@@ -66,7 +66,21 @@ search.addWidgets([
               })}`
             : ""
         }</p>
-             
+            <p class="search-content permalink">Notification number: ${instantsearch.highlight(
+              {
+                attribute: "notificationNum",
+                highlightedTagName: "mark",
+                hit,
+              }
+            )}</p>
+            <p class="search-content permalink">Publish date: ${instantsearch.highlight(
+              {
+                attribute: "publishDate",
+                highlightedTagName: "mark",
+                hit,
+              }
+            )}</p>
+            <p>
              </h5>
           `;
       },
@@ -88,6 +102,24 @@ search.addWidgets([
     showLast: true,
   }),
 ]);
+
+// TODO: Loading spinner
+// search.on("render", () => {
+//   const container = document.getElementById("#loading-spinner");
+//   const searchDisplay = document.getElementsByClassName(
+//     "search-results-display"
+//   )[0];
+//   if (search.status === "loading" || search.status === "stalled") {
+//     container.innerHTML = `<div class="lds-default">
+//       <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+//   </div>`;
+//     container.style.display = "inline";
+//     searchDisplay.style.display = "none";
+//   } else {
+//     container.style.display = "none";
+//     searchDisplay.style.display = "inline";
+//   }
+// });
 
 search.start();
 
