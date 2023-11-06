@@ -1,11 +1,11 @@
-const searchClient = algoliasearch("", "");
+const searchClient = algoliasearch(
+  "1V7DZGZJKK",
+  "0ba2c5f100ff5fd004415e4abbcf9b9c"
+);
 
 const search = instantsearch({
   indexName: "ogp-egazettes",
   searchClient,
-  searchParameters: {
-    hitsPerPage: 1, // Only return 1 hit (result) per page
-  },
 });
 
 // search.index.setSettings({
