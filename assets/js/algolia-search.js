@@ -73,13 +73,9 @@ search.addWidgets([
                 hit,
               }
             )}</p>
-            <p class="search-content permalink">Publish date: ${instantsearch.highlight(
-              {
-                attribute: "publishDate",
-                highlightedTagName: "mark",
-                hit,
-              }
-            )}</p>
+            <p class="search-content permalink">Publish date: ${new Date(
+              hit.publishTimestamp
+            ).toLocaleDateString("en-GB")}</p>
             <p>
              </h5>
           `;
