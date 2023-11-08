@@ -20,3 +20,7 @@
   margin: 20px 0;
   justify-content: center;
 }
+
+.ais-SearchBox-form:before {
+  display: none; /* hide the search icon */
+}
