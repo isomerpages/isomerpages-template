@@ -8,34 +8,10 @@ const search = instantsearch({
   searchClient,
 });
 
-// search.index.setSettings({
-//   paginationLimitedTo: 1,
-// });
-
 search.addWidgets([
   instantsearch.widgets.searchBox({
     container: "#searchbox",
     autofocus: true,
-    // templates: {
-    //   loadingIndicator({ cssClasses }, { html }) {
-    //     return html`<div id="loading-spinner" class="col is-full">
-    //       <div class="lds-default">
-    //         <div></div>
-    //         <div></div>
-    //         <div></div>
-    //         <div></div>
-    //         <div></div>
-    //         <div></div>
-    //         <div></div>
-    //         <div></div>
-    //         <div></div>
-    //         <div></div>
-    //         <div></div>
-    //         <div></div>
-    //       </div>
-    //     </div>`;
-    //   },
-    // },
   }),
   instantsearch.widgets.hits({
     container: "#hits",
