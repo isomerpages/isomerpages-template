@@ -111,7 +111,7 @@ function displayTable(chunk, fields) {
     resultString += '<tr>';
     for (var fieldIndex in fields) {
       var _fieldId = fields[fieldIndex].id;
-      resultString += '<td><h6 class=\"margin--none\">' + chunk[chunkIndex][_fieldId] + '</h6></td>';
+      resultString += '<td><h6 class=\"margin--none datagov-search-element\">' + chunk[chunkIndex][_fieldId] + '</h6></td>';
     }
     resultString += '</tr>';
   }
