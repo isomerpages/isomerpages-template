@@ -8,6 +8,7 @@ const search = instantsearch({
   searchClient,
 });
 
+// Note: Publish date is formatted as YYYY-MM-DD
 search.addWidgets([
   instantsearch.widgets.searchBox({
     container: "#searchbox",
