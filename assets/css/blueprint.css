@@ -11590,5 +11590,14 @@ h6 center {
 .datagov-focus-border:focus {
   border: 2px solid #000AFF;
 }
-
+.datagov-search-element a {
+  /* Specific to pdfs in the datagov table view */
+  display: inline-block;
+  /* Overwrite existing margin-bottom that all a elements have */
+  margin-bottom: 0;
+}
+.datagov-search-element a[href$=".pdf"]:before {
+  /* Specific to pdfs to center icon in the datagov table view */
+  display: flex;
+}
 /*# sourceMappingURL=blueprint.css.map */
