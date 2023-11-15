@@ -51,7 +51,7 @@ search.addWidgets([
             )}</p>
             <p class="search-content permalink">Publish date: ${new Date(
               hit.publishTimestamp
-            ).toLocaleDateString("en-GB")}</p>
+            ).toLocaleDateString("fr-CA")}</p>
             <p>
              </h5>
           `;
