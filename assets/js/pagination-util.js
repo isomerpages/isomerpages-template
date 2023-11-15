@@ -28,15 +28,24 @@ function displayPagination() {
 
 // Set click handlers for nav arrows
 function setNavArrowHandlers() {
+  var farLeft = document.querySelector(".pagination .bx.bx-chevrons-left");
   var left = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-left");
+  var farRight = document.querySelector(".pagination .bx.bx-chevrons-right");
   var right = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-right");
   var sel = document.querySelector("#paginator-pages .selected-page");
+  var pagination = document.getElementById('paginator-pages');
 
+  if (farLeft) farLeft.onclick = function (e) {
+    changePage(pagination.firstElementChild, 0);
+  };
   left.onclick = function (e) {
     var sel = document.querySelector("#paginator-pages .selected-page");
     changePage(sel.previousElementSibling, currentPageIndex - 1);
   };
 
+  if (farRight) farRight.onclick = function (e) {
+    changePage(pagination.lastElementChild, Math.ceil(datagovsgTotal / RESULTS_PER_PAGE) - 1);
+  };
   right.onclick = function (e) {
     var sel = document.querySelector("#paginator-pages .selected-page");
     changePage(sel.nextElementSibling, currentPageIndex + 1);
@@ -54,17 +63,23 @@ function changePageUtil(curr, index) {
 }
 
 function displayNavArrows(i) {
+  var farLeft = document.querySelector(".pagination .bx.bx-chevrons-left");
   var left = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-left");
+  var farRight = document.querySelector(".pagination .bx.bx-chevrons-right");
   var right = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-right");
 
   if (i === 0) {
+    if (farLeft) farLeft.classList.add("sgds-icon-disabled");
     left.classList.add("sgds-icon-disabled");
   } else {
+    if (farLeft) farLeft.classList.remove("sgds-icon-disabled");
     left.classList.remove("sgds-icon-disabled");
   }
   if (i === pageResults.length - 1) {
+    if (farRight) farRight.classList.add("sgds-icon-disabled");
     right.classList.add("sgds-icon-disabled");
   } else {
+    if (farRight) farRight.classList.remove("sgds-icon-disabled");
     right.classList.remove("sgds-icon-disabled");
   }
 }
