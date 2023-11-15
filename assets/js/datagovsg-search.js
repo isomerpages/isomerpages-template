@@ -210,6 +210,7 @@ function displaySearchFilterDropdown(fields, startingField) {
 function displayPagination(index) {
   document.querySelector(".pagination").style.display = "flex";
   var pagination = document.getElementById('paginator-pages');
+  const paginationMobile = document.getElementById('paginator-pages-mobile')
   const totalPages = Math.ceil(datagovsgTotal / PAGINATION_DISPLAY_RESULTS_PER_PAGE)
 
   for (var i = 0; i < totalPages; i++) {
@@ -225,6 +226,16 @@ function displayPagination(index) {
     pagination.appendChild(ele);
   }
 
+  // Create page display for mobile
+  if (paginationMobile) {
+    const ele = document.createElement("span")
+    const text = document.createTextNode(`Page ${index}`)
+    ele.classList.add("is-full-height", "is-full-width", "remove-border")
+    ele.style.width = "100%"
+    ele.appendChild(text)
+    paginationMobile.appendChild(ele)
+  }
+  
   // Initialise selected page and nav arrows
   setCurrentPage(pagination.childNodes[index]);
   displayNavArrows(currentPageIndex);
@@ -256,18 +267,4 @@ function shouldCallAPI(index) {
   if (index < 0) return false
   if (index > datagovsgTotal / PAGINATION_DISPLAY_RESULTS_PER_PAGE) return false
   return true
-
-  // Checks to make sure that the last digit of the page number is greater than 5.
-  // i.e. we should call the API for the next 100 rows if the user is currently at 
-  // page number 26.
-  // Note: the index starts from 0, so a page index of 14 corresponds to a page number of 15.
-  if (index % 10 < 4) return false;
-
-  // Makes sure that there is more data to be retrieved from the API.
-  if (datagovsgOffset + 100 > datagovsgTotal) return false;
-
-  // Makes sure that we haven't already called the API for the next 100 rows.
-  if (index * PAGINATION_DISPLAY_RESULTS_PER_PAGE < datagovsgOffset) return false;
-
-  return true;
 }

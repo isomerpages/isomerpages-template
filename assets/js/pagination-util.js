@@ -20,6 +20,17 @@ function displayPagination() {
     _loop(i);
   }
 
+  // Create page display for mobile
+  const paginationMobile = document.getElementById('paginator-pages-mobile')
+  if (paginationMobile) {
+    const ele = document.createElement("span")
+    const text = document.createTextNode(`Page`)
+    ele.classList.add("is-full-height", "is-full-width", "remove-border")
+    ele.style.width = "100%"
+    ele.appendChild(text)
+    paginationMobile.appendChild(ele)
+  }
+
   // Initialise selected page and nav arrows
   setCurrentPage(pagination.firstElementChild);
   displayNavArrows(currentPageIndex);
@@ -44,7 +55,8 @@ function setNavArrowHandlers() {
   };
 
   if (farRight) farRight.onclick = function (e) {
-    changePage(pagination.lastElementChild, Math.ceil(datagovsgTotal / RESULTS_PER_PAGE) - 1);
+    const totalPages = pagination.children[pagination.children.length - 1].textContent
+    changePage(pagination.lastElementChild, totalPages - 1);
   };
   right.onclick = function (e) {
     var sel = document.querySelector("#paginator-pages .selected-page");
@@ -127,6 +139,10 @@ function setCurrentPage(ele) {
     if (pages[currentPageIndex - _i]) {
       pages[currentPageIndex - _i].classList.remove("is-hidden-mobile");
     }
+  }
+  const mobilePage = document.getElementById("paginator-pages-mobile")
+  if (mobilePage) {
+    mobilePage.children[0].textContent = `Page ${currentPageIndex + 1}`
   }
 }
 
