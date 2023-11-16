@@ -95,4 +95,5 @@ permalink: none
 sass:
   style: compressed
 
-hide_search_on_nav: false
+# E-Gazette related configs
+hide_search_on_nav: false # hides the search icon on the nav
