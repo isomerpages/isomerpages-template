@@ -1,8 +1,8 @@
 <!-- Search bar display -->
 <div class="pb-12">
   {%- if page.infotext and page.collection and page.collection != "posts" -%}
-    <div class="subtitle-1" style="color: #939393">You are browsing</div>
-    <div class="pb-8 subtitle-1 has-text-weight-semibold">
+    <div class="subtitle-1 pb-1" style="color: #666C7A">You are browsing</div>
+    <div class="pb-8 subtitle-1">
       
       {{ page.collection | replace: "-", " " | replace: "_", " " | upcase}}
       {%- if page.third_nav_title -%}
@@ -48,13 +48,13 @@
               </div>
           </div>
           <div class="is-hidden-desktop is-flex" style="flex-direction: column;">
-            <div class="col is-fullwidth is-hidden-desktop is-flex">
+            <div class="col is-fullwidth is-hidden-desktop is-flex px-0">
               <div class="is-hidden-desktop is-full-width is-full-height datagov-search-border">
                   <span class="sgds-icon sgds-icon-chevron-down is-size-4" id="filter-arrow"></span>
                   <select id="field-filter-mobile" class="sgds-selector dropdown-input">
                   </select>
               </div>
-              <div class="px-3">
+              <div class="pl-3">
                 <button type="submit" class="bp-button is-secondary is-medium has-text-white search-button">SEARCH</button>
               </div>
             </div>
