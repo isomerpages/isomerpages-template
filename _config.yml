@@ -94,3 +94,5 @@ permalink: none
 
 sass:
   style: compressed
+
+hide_search_on_nav: false
