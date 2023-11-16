@@ -1,15 +1,16 @@
 <!-- Search bar display -->
 <div class="pb-12">
   {%- if page.infotext and page.collection and page.collection != "posts" -%}
-    <div class="pb-8 subtitle-1">
-      You are searching for
+    <div class="subtitle-1" style="color: #939393">You are browsing</div>
+    <div class="pb-8 subtitle-1 has-text-weight-semibold">
+      
       {{ page.collection | replace: "-", " " | replace: "_", " " | upcase}}
       {%- if page.third_nav_title -%}
-        <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
+        <i class="sgds-icon sgds-icon-chevron-right is-size-5 px-1" aria-hidden="true"></i>
         {{- page.third_nav_title -}}
       {%- endif -%}
       {%- if page.title -%}
-        <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
+        <i class="sgds-icon sgds-icon-chevron-right is-size-5 px-1" aria-hidden="true"></i>
         {{- page.title -}}
       {%- endif -%}
     </div>
