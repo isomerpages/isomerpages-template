@@ -24,3 +24,11 @@
 .ais-SearchBox-form:before {
   display: none; /* hide the search icon */
 }
+
+/* For the poweredby logo */
+.ais-PoweredBy {
+  display: flex;
+  font-size: 0.7rem;
+  justify-content: end;
+  text-align: right;
+}

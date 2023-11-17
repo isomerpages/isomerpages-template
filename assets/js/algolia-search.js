@@ -14,6 +14,9 @@ search.addWidgets([
     container: "#searchbox",
     autofocus: true,
   }),
+  instantsearch.widgets.poweredBy({
+    container: "#poweredby",
+  }),
   instantsearch.widgets.hits({
     container: "#hits",
     templates: {
