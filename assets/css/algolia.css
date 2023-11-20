@@ -32,3 +32,8 @@
   justify-content: end;
   text-align: right;
 }
+
+.ais-PoweredBy a {
+  display: flex;
+  align-items: center;
+}
