@@ -13,6 +13,7 @@ search.addWidgets([
   instantsearch.widgets.searchBox({
     container: "#searchbox",
     autofocus: true,
+    placeholder: "Start typing to search"
   }),
   instantsearch.widgets.poweredBy({
     container: "#poweredby",
