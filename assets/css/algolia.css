@@ -12,6 +12,10 @@
   display: flex;
 }
 
+.ais-HitsPerPage {
+  width: 10rem;
+}
+
 /* General styling for the pagination container */
 .ais-Pagination-list {
   display: flex;

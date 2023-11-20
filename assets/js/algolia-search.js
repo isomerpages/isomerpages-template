@@ -30,7 +30,6 @@ search.addWidgets([
           highlightedTagName: "mark",
           hit,
         })}</a>
-            <p class="search-content description">${hit.fileUrl}</p>
             <p class="search-content description">Category: ${instantsearch.highlight(
               {
                 attribute: "category",

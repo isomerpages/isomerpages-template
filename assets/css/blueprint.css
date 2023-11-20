@@ -11600,6 +11600,14 @@ h6 center {
   /* Specific to pdfs to center icon in the datagov table view */
   display: flex;
 }
+.search-results a {
+  /* Specific to pdfs in the datagov table view */
+  display: inline-block;
+}
+.search-results a[href$=".pdf"]:before {
+  /* Specific to pdfs to center icon in the datagov table view */
+  display: flex;
+}
 /*# sourceMappingURL=blueprint.css.map */
 .datagov-v2-browsing {
   color: #666C7A;
