@@ -1,10 +1,10 @@
 <!-- Search bar display -->
 <div class="pb-12">
   {%- if page.infotext and page.collection and page.collection != "posts" -%}
-    <div class="subtitle-1 pb-1" style="color: #666C7A">You are browsing</div>
+    <div class="subtitle-1 pb-1 datagov-v2-browsing">You are browsing</div>
     <div class="pb-8 subtitle-1">
       
-      {{ page.collection | replace: "-", " " | replace: "_", " " | upcase}}
+      {{ page.collection | replace: "-", " " | replace: "_", " " | capitalize}}
       {%- if page.third_nav_title -%}
         <i class="sgds-icon sgds-icon-chevron-right is-size-5 px-1" aria-hidden="true"></i>
         {{- page.third_nav_title -}}
