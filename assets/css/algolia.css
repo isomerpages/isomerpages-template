@@ -1,0 +1,43 @@
+.ais-SearchBox {
+  width: 100%;
+
+  .ais-SearchBox-input {
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+    box-shadow: none;
+  }
+}
+.search-hits-options {
+  display: flex;
+}
+
+.ais-HitsPerPage {
+  width: 10rem;
+}
+
+/* General styling for the pagination container */
+.ais-Pagination-list {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+  justify-content: center;
+}
+
+.ais-SearchBox-form:before {
+  display: none; /* hide the search icon */
+}
+
+/* For the poweredby logo */
+.ais-PoweredBy {
+  display: flex;
+  font-size: 0.7rem;
+  justify-content: end;
+  text-align: right;
+}
+
+.ais-PoweredBy a {
+  display: flex;
+  align-items: center;
+}

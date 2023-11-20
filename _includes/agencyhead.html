@@ -1,4 +1,6 @@
 {%- comment -%} onclick at body tag is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
+
+{% assign hide_search = site.hide_search_on_nav | default: false %}
 <div class="masthead-container" id="navbar" onclick>
 {%- include masthead.html -%}
     <nav class="navbar is-transparent">
@@ -165,18 +167,20 @@
                     {%- endif -%}
                 {%- endfor -%}
             </div>
-
-            <div class="navbar-end is-hidden-touch is-hidden-desktop-only">
-                <div class="navbar-item">
-                    {%- if page.layout != 'search' -%}
-                        <a class="bp-button is-text is-large" style="text-decoration: none" id="search-activate">
-                            <span class="sgds-icon sgds-icon-search is-size-4"></span>
-                        </a>
-                    {%- else -%}
-                        <a class="bp-button is-text is-large" style="text-decoration: none; pointer-events: none;" id="search-activate" disabled></a>
-                    {%- endif -%}
+            
+            {%- if hide_search != true -%}
+                <div class="navbar-end is-hidden-touch is-hidden-desktop-only">
+                    <div class="navbar-item">
+                        {%- if page.layout != 'search' -%}
+                            <a class="bp-button is-text is-large" style="text-decoration: none" id="search-activate">
+                                <span class="sgds-icon sgds-icon-search is-size-4"></span>
+                            </a>
+                        {%- else -%}
+                            <a class="bp-button is-text is-large" style="text-decoration: none; pointer-events: none;" id="search-activate" disabled></a>
+                        {%- endif -%}
+                    </div>
                 </div>
-            </div>
+            {%- endif -%}
         </div>
         </div>
     </nav>

@@ -10831,7 +10831,7 @@ h6 center {
 .search-content a {
   text-decoration: underline;
 }
-.search-content .permalink {
+.search-content .description {
   color: #767676;
 }
 .search-content p:last-child {
@@ -11600,7 +11600,17 @@ h6 center {
   /* Specific to pdfs to center icon in the datagov table view */
   display: flex;
 }
+.search-results a {
+  /* Specific to pdfs in the datagov table view */
+  display: inline-block;
+}
 /*# sourceMappingURL=blueprint.css.map */
+.search-content .search-label-options {
+  justify-content: space-between;
+  @media screen and (min-width: 769px) {
+    margin-right:16.66667%;
+  }
+}
 .datagov-v2-browsing {
   color: #666C7A;
 }
