@@ -11605,6 +11605,12 @@ h6 center {
   display: inline-block;
 }
 /*# sourceMappingURL=blueprint.css.map */
+.search-content .search-label-options {
+  justify-content: space-between;
+  @media screen and (min-width: 769px) {
+    margin-right:16.66667%;
+  }
+}
 .datagov-v2-browsing {
   color: #666C7A;
 }
