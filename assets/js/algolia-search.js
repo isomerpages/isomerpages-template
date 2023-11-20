@@ -23,14 +23,14 @@ search.addWidgets([
       item(hit) {
         return `
             <h5 class="search-results">
-            <a class="search-content" href=${
+            <a class="search-content mb-4" href=${
               hit.fileUrl
             } type="application/pdf">${instantsearch.highlight({
           attribute: "title",
           highlightedTagName: "mark",
           hit,
         })}</a>
-            <p class="search-content description">Category: ${instantsearch.highlight(
+            <p class="search-content description ml-9">Category: ${instantsearch.highlight(
               {
                 attribute: "category",
                 highlightedTagName: "mark",
@@ -45,14 +45,14 @@ search.addWidgets([
               })}`
             : ""
         }</p>
-            <p class="search-content description">Notification number: ${instantsearch.highlight(
+            <p class="search-content description ml-9">Notification number: ${instantsearch.highlight(
               {
                 attribute: "notificationNum",
                 highlightedTagName: "mark",
                 hit,
               }
             )}</p>
-            <p class="search-content description">Publish date: ${new Date(
+            <p class="search-content description ml-9">Publish date: ${new Date(
               hit.publishTimestamp
             ).toLocaleDateString("fr-CA")}</p>
             <p>
