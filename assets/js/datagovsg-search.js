@@ -89,7 +89,6 @@ function databaseSearch(searchTerm, index, callback) {
       // Delay loading spinner disappearing for first render
       document.getElementById("loading-spinner").style.display = 'none';
     }
-    // hideAllPostsAndPagination();
 
     // The fieldArray is the array containing the field names in the data.gov.sg table
     const removableFields = ["_id", "_full_count", "rank", `rank ${searchField}`]
