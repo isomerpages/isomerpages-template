@@ -1,6 +1,6 @@
 ---
 layout: egazette-search
-title: E-Gazette Search
+title: Search e-Gazettes
 permalink: /egazette-search/
-breadcrumb: E-Gazette Search
+breadcrumb: Search e-Gazettes
 ---

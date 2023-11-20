@@ -30,8 +30,8 @@ search.addWidgets([
           highlightedTagName: "mark",
           hit,
         })}</a>
-            <p class="search-content permalink">${hit.fileUrl}</p>
-            <p class="search-content permalink">Category: ${instantsearch.highlight(
+            <p class="search-content description">${hit.fileUrl}</p>
+            <p class="search-content description">Category: ${instantsearch.highlight(
               {
                 attribute: "category",
                 highlightedTagName: "mark",
@@ -46,14 +46,14 @@ search.addWidgets([
               })}`
             : ""
         }</p>
-            <p class="search-content permalink">Notification number: ${instantsearch.highlight(
+            <p class="search-content description">Notification number: ${instantsearch.highlight(
               {
                 attribute: "notificationNum",
                 highlightedTagName: "mark",
                 hit,
               }
             )}</p>
-            <p class="search-content permalink">Publish date: ${new Date(
+            <p class="search-content description">Publish date: ${new Date(
               hit.publishTimestamp
             ).toLocaleDateString("fr-CA")}</p>
             <p>
