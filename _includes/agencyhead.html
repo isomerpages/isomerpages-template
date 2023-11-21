@@ -23,10 +23,11 @@
                         <div class="field has-addons">
                             <div class="control has-icons-left is-expanded">
                                 <input class="input is-fullwidth" id="search-box-mobile" type="text" placeholder="What are you looking for?" name="query">
-                                <span class="is-large is-left">
-                                  <i class="sgds-icon sgds-icon-search search-bar"></i>
-                                </span>
-
+                                {%- if hide_search != true -%}
+                                    <span class="is-large is-left">
+                                    <i class="sgds-icon sgds-icon-search search-bar"></i>
+                                    </span>
+                                {%- endif -%}
                             </div>
                         </div>
                     </form>
