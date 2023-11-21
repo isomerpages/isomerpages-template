@@ -18,20 +18,20 @@
         </div>
         <div id="navbarExampleTransparentExample" class="bp-container is-fluid margin--none navbar-menu">
             <div class="navbar-start">
+                {%- if hide_search != true -%}
                 <div class="navbar-item is-hidden-widescreen is-search-bar">
                     <form action="/search/" method="get">
                         <div class="field has-addons">
                             <div class="control has-icons-left is-expanded">
                                 <input class="input is-fullwidth" id="search-box-mobile" type="text" placeholder="What are you looking for?" name="query">
-                                {%- if hide_search != true -%}
                                     <span class="is-large is-left">
                                     <i class="sgds-icon sgds-icon-search search-bar"></i>
                                     </span>
-                                {%- endif -%}
                             </div>
                         </div>
                     </form>
                 </div>
+                {%- endif -%}
                 {%- comment -%}
                     Left nav pages (level 2) will all belong to their own collection
                     navigation.yml will simply specify the order of level 1 and level 2 pages (1 level in navigation.yml only)
