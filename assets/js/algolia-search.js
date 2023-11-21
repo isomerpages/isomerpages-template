@@ -17,6 +17,7 @@ search.addWidgets([
   }),
   instantsearch.widgets.poweredBy({
     container: "#poweredby",
+    theme: 'dark',
   }),
   instantsearch.widgets.hits({
     container: "#hits",
