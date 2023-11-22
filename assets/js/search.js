@@ -139,7 +139,7 @@ function returnResultsList(results) {
     // Process the preview to embolden keywords
     var processedPreview = highlightKeywords(resultObject['content'], previewStartPosition, matchMetadata);
     // var postDate = new Date(resultObject['datestring']).toDateString().substring(4);
-    searchPara += '<p class="search-content permalink">' + resultObject['url'] + '</p><br>';
+    searchPara += '<p class="search-content description">' + resultObject['url'] + '</p><br>';
     // searchPara += '<p class="search-content" > '+ postDate + ' ...' + processedPreview + '...</p><br>';
 
     if (processedPreview) {

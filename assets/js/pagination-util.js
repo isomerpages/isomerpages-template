@@ -20,6 +20,17 @@ function displayPagination() {
     _loop(i);
   }
 
+  // Create page display for mobile
+  const paginationMobile = document.getElementById('paginator-pages-mobile')
+  if (paginationMobile) {
+    const ele = document.createElement("span")
+    const text = document.createTextNode(`Page`)
+    ele.classList.add("is-full-height", "is-full-width", "remove-border")
+    ele.style.width = "100%"
+    ele.appendChild(text)
+    paginationMobile.appendChild(ele)
+  }
+
   // Initialise selected page and nav arrows
   setCurrentPage(pagination.firstElementChild);
   displayNavArrows(currentPageIndex);
@@ -28,15 +39,25 @@ function displayPagination() {
 
 // Set click handlers for nav arrows
 function setNavArrowHandlers() {
+  var farLeft = document.querySelector(".pagination .bx.bx-chevrons-left");
   var left = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-left");
+  var farRight = document.querySelector(".pagination .bx.bx-chevrons-right");
   var right = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-right");
   var sel = document.querySelector("#paginator-pages .selected-page");
+  var pagination = document.getElementById('paginator-pages');
 
+  if (farLeft) farLeft.onclick = function (e) {
+    changePage(pagination.firstElementChild, 0);
+  };
   left.onclick = function (e) {
     var sel = document.querySelector("#paginator-pages .selected-page");
     changePage(sel.previousElementSibling, currentPageIndex - 1);
   };
 
+  if (farRight) farRight.onclick = function (e) {
+    const totalPages = pagination.children[pagination.children.length - 1].textContent
+    changePage(pagination.lastElementChild, totalPages - 1);
+  };
   right.onclick = function (e) {
     var sel = document.querySelector("#paginator-pages .selected-page");
     changePage(sel.nextElementSibling, currentPageIndex + 1);
@@ -54,17 +75,23 @@ function changePageUtil(curr, index) {
 }
 
 function displayNavArrows(i) {
+  var farLeft = document.querySelector(".pagination .bx.bx-chevrons-left");
   var left = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-left");
+  var farRight = document.querySelector(".pagination .bx.bx-chevrons-right");
   var right = document.querySelector(".pagination .sgds-icon.sgds-icon-arrow-right");
 
   if (i === 0) {
+    if (farLeft) farLeft.classList.add("sgds-icon-disabled");
     left.classList.add("sgds-icon-disabled");
   } else {
+    if (farLeft) farLeft.classList.remove("sgds-icon-disabled");
     left.classList.remove("sgds-icon-disabled");
   }
   if (i === pageResults.length - 1) {
+    if (farRight) farRight.classList.add("sgds-icon-disabled");
     right.classList.add("sgds-icon-disabled");
   } else {
+    if (farRight) farRight.classList.remove("sgds-icon-disabled");
     right.classList.remove("sgds-icon-disabled");
   }
 }
@@ -112,6 +139,10 @@ function setCurrentPage(ele) {
     if (pages[currentPageIndex - _i]) {
       pages[currentPageIndex - _i].classList.remove("is-hidden-mobile");
     }
+  }
+  const mobilePage = document.getElementById("paginator-pages-mobile")
+  if (mobilePage) {
+    mobilePage.children[0].textContent = `Page ${currentPageIndex + 1}`
   }
 }
 

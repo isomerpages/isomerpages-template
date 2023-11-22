@@ -10831,7 +10831,7 @@ h6 center {
 .search-content a {
   text-decoration: underline;
 }
-.search-content .permalink {
+.search-content .description {
   color: #767676;
 }
 .search-content p:last-child {
@@ -10891,6 +10891,7 @@ h6 center {
   text-decoration: none;
 }
 .pagination span {
+  flex: 0 0 3rem;
   width: 3rem;
   line-height: 3rem;
   border: 1px solid #d6d6d6;
@@ -10915,7 +10916,6 @@ h6 center {
   border: 1px solid #d6d6d6;
 }
 .pagination span.sgds-icon {
-  padding: 0 3rem 0 2rem;
   margin: 0 0.75rem;
 }
 .pagination .selected-page {
@@ -11585,10 +11585,32 @@ h6 center {
   border-bottom: 1px solid #D6D6D6;
 }
 .remove-border {
-  border: none;
+  border: none !important;
 }
 .datagov-focus-border:focus {
   border: 2px solid #000AFF;
 }
-
+.datagov-search-element a {
+  /* Specific to pdfs in the datagov table view */
+  display: inline-block;
+  /* Overwrite existing margin-bottom that all a elements have */
+  margin-bottom: 0;
+}
+.datagov-search-element a[href$=".pdf"]:before {
+  /* Specific to pdfs to center icon in the datagov table view */
+  display: flex;
+}
+.search-results a {
+  /* Specific to pdfs in the datagov table view */
+  display: inline-block;
+}
 /*# sourceMappingURL=blueprint.css.map */
+.search-content .search-label-options {
+  justify-content: space-between;
+  @media screen and (min-width: 769px) {
+    margin-right:16.66667%;
+  }
+}
+.datagov-v2-browsing {
+  color: #666C7A;
+}
