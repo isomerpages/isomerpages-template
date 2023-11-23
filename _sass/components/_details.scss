@@ -1,0 +1,46 @@
+.isomer-details {
+  display: flex;
+  width: 56.625rem;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+  border: solid 1px #d4d4d4;
+  border-bottom: solid 0px #d4d4d4;
+}
+
+.isomer-details:last-child {
+  border-bottom: solid 1px #d4d4d4;
+}
+
+.isomer-summary {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  gap: 0.75rem;
+  align-self: stretch;
+  justify-content: space-between;
+}
+
+.isomer-details-content {
+  display: flex;
+  padding: 0rem 1.5rem 0rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  align-self: stretch;
+  min-height: 2.5rem;
+  color: #838894;
+}
+
+.isomer-details-content > p {
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+details[open] .sgds-icon-chevron-down {
+  display: none;
+}
+
+details:not([open]) .sgds-icon-chevron-up {
+  display: none;
+}
