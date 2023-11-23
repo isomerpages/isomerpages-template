@@ -6,14 +6,27 @@
   flex-wrap: wrap;
   gap: 1.5rem;
 
+  &:not(:first-child) {
+    margin-top: 1.5rem;
+  }
+
   .isomer-card {
     float: left;
     flex-basis: calc((100% - 3rem) / 3);
     flex-shrink: 0;
     border-width: 1px;
     border-style: solid;
-    border-color: #d2d2d2;
-    position: relative;
+    border-color: $border-light;
+    text-decoration: none;
+    margin-bottom: 0;
+
+    &:hover {
+      text-decoration: none;
+
+      .isomer-card-body .isomer-card-link {
+        color: $interaction-link-hover;
+      }
+    }
 
     // Stretch cards if there are only 2 cards
     &:nth-child(1):nth-last-child(2),
@@ -60,7 +73,7 @@
       }
 
       .isomer-card-description {
-        color: $content-base;
+        color: $content-body;
         font-size: 1rem;
         line-height: 1.5rem;
       }
@@ -68,10 +81,8 @@
       .isomer-card-link {
         font-size: 1rem;
         line-height: 1.5rem;
-
-        a {
-          text-decoration: none;
-        }
+        text-decoration: underline;
+        color: $interaction-link-default;
       }
 
       .isomer-card-title:has(+ .isomer-card-description) {
@@ -82,16 +93,6 @@
       .isomer-card-description:has(+ .isomer-card-link) {
         margin-bottom: 1.5rem;
       }
-    }
-
-    .isomer-card-cardlink {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      text-decoration: none;
-      z-index: 1;
     }
   }
 }
