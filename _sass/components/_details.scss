@@ -1,31 +1,32 @@
-.isomer-details summary {
+details summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem;
 }
 
-.isomer-details summary::marker {
+details summary::marker {
   display: none;
 }
 
-.isomer-details summary::after {
+details summary::after {
   content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M16.293%209.29297L12%2013.586L7.70697%209.29297L6.29297%2010.707L12%2016.414L17.707%2010.707L16.293%209.29297Z%22%20fill%3D%22%23484848%22%2F%3E%3C%2Fsvg%3E");
   transition: 0.25s transform ease;
 }
 
-.isomer-details[open] summary::after {
+details[open] summary::after {
   transform: rotate(180deg);
 }
 
-@keyframes details {
+@keyframes details-show {
   from {
     opacity: 0;
     transform: var(--details-translate, translateY(-0.5em));
   }
 }
 
-.isomer-details[open] > *:not(summary) {
-  animation: details 150ms ease-in-out;
+details[open] > *:not(summary) {
+  animation: details-show 150ms ease-in-out;
 }
 
 .is-empty::before {
@@ -36,37 +37,44 @@
   height: 0;
 }
 
-.isomer-details {
+details.isomer-details {
   display: flex;
   border-top: 1px solid #d4d4d4;
-  border-bottom: 1px solid #d4d4d4;
-  padding: 0.5rem;
 
   > div {
     flex: 1 1 auto;
   }
 
-  * summary {
-    list-style: none;
-  }
-
-  :last-child {
-    margin-bottom: 0;
-  }
-
-  p {
-    color: $secondary-color;
+  div.isomer-details-content > p {
+    color: var(--site-secondary-color);
+    margin-left: 1rem;
+    margin-right: 1.25rem;
+    margin-bottom: 1rem;
   }
 }
 
-.isomer-details ~ .isomer-details {
+details ~ details {
   margin-top: 0;
   margin-bottom: 0;
   border-top: 0;
 }
 
-.isomer-accordion:last-child {
+.isomer-details:last-of-type {
   margin-bottom: 0;
-  margin-top: 1em;
-  border-top: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.isomer-accordion-white > details.isomer-details > summary {
+  background-color: #fff;
+  color: #4372d6;
+}
+
+.isomer-accordion-gray > details.isomer-details > summary {
+  background-color: #f4f4f4;
+  color: #4372d6;
+}
+
+.isomer-accordion-gray > details.isomer-details > summary:hover {
+  color: #fff;
+  background-color: #4372d6;
 }
