@@ -1,31 +1,31 @@
-details summary {
+.isomer-details summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-details summary::marker {
+.isomer-details summary::marker {
   display: none;
 }
 
-details summary::after {
+.isomer-details summary::after {
   content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M16.293%209.29297L12%2013.586L7.70697%209.29297L6.29297%2010.707L12%2016.414L17.707%2010.707L16.293%209.29297Z%22%20fill%3D%22%23484848%22%2F%3E%3C%2Fsvg%3E");
   transition: 0.25s transform ease;
 }
 
-details[open] summary::after {
+.isomer-details[open] summary::after {
   transform: rotate(180deg);
 }
 
-@keyframes details-show {
+@keyframes details {
   from {
     opacity: 0;
     transform: var(--details-translate, translateY(-0.5em));
   }
 }
 
-details[open] > *:not(summary) {
-  animation: details-show 150ms ease-in-out;
+.isomer-details[open] > *:not(summary) {
+  animation: details 150ms ease-in-out;
 }
 
 .is-empty::before {
@@ -36,7 +36,7 @@ details[open] > *:not(summary) {
   height: 0;
 }
 
-details {
+.isomer-details {
   display: flex;
   border-top: 1px solid #d4d4d4;
   border-bottom: 1px solid #d4d4d4;
@@ -59,13 +59,13 @@ details {
   }
 }
 
-details ~ details {
+.isomer-details ~ .isomer-details {
   margin-top: 0;
   margin-bottom: 0;
   border-top: 0;
 }
 
-.detailGroup:last-child {
+.isomer-accordion:last-child {
   margin-bottom: 0;
   margin-top: 1em;
   border-top: 1px solid #d4d4d4;
