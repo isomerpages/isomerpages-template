@@ -11614,3 +11614,11 @@ h6 center {
 .datagov-v2-browsing {
   color: #666C7A;
 }
+.social-logo {
+  margin-top: 2px;
+  max-height: 20px;
+  filter: brightness(0.8);
+}
+.social-logo:hover {
+  filter: brightness(1);
+}
