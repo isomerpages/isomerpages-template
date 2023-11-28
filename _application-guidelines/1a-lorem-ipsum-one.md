@@ -52,80 +52,68 @@ A sample download file can be found [here]({{site.baseurl}}/files/guides/guide-n
 
 For further clarification, please email [dummy_email@dummy.com](mailto:dummy_email@dummy.com).
 
-<div class="isomer-accordion">
-<details class="isomer-details">
-	<summary class="isomer-summary">
-	<div>
-		This is a summary
-	</div>
-    <i class="sgds-icon sgds-icon-chevron-down"></i>
-    <i class="sgds-icon sgds-icon-chevron-up"></i>
-	</summary>
-	<div data-type="detailsContent" class="isomer-details-content">
-		<p>Surprise!</p>
-	</div>
-</details>
-<details class="isomer-details">
-	<summary class="isomer-summary">
-	<div>
-		This is a summary 2
-	</div>
-	    <i class="sgds-icon sgds-icon-chevron-down"></i>
-    <i class="sgds-icon sgds-icon-chevron-up"></i>
-	</summary>
-	<div data-type="detailsContent" class="isomer-details-content">
-		<p>Surprise 2!</p>
-	</div>
-</details>
-<details class="isomer-details">
-	<summary class="isomer-summary">
-	<div>
-		This is a summary 3
-	</div>
-	    <i class="sgds-icon sgds-icon-chevron-down"></i>
-    <i class="sgds-icon sgds-icon-chevron-up"></i>
-	</summary>
-	<div data-type="detailsContent" class="isomer-details-content">
-		<p>Surprise 3!</p>
-	</div>
-</details>
-</div>
-<br/>
-<details class="isomer-details" open>
-	<summary class="isomer-summary">
-	<div>
-		This is a summary
-	</div>
-	    <i class="sgds-icon sgds-icon-chevron-down"></i>
-    <i class="sgds-icon sgds-icon-chevron-up"></i>
-	</summary>
-	<div data-type="detailsContent" class="isomer-details-content">
-		<p>Surprise!</p>
-	</div>
-</details>
-<details class="isomer-details" open>
-	<summary class="isomer-summary">
-	<div>
-		This is a summary 2
-	</div>
-	    <i class="sgds-icon sgds-icon-chevron-down"></i>
-    <i class="sgds-icon sgds-icon-chevron-up"></i>
-	</summary>
-	<div data-type="detailsContent" class="isomer-details-content">
-		<p>Surprise 2!</p>
-	</div>
-</details>
-<div class="isomer-accordion">
-<details class="isomer-details" open>
-	<summary class="isomer-summary">
-	<div>
-		This is a summary 3
-	</div>
-	<i class="sgds-icon sgds-icon-chevron-down"></i>
-    <i class="sgds-icon sgds-icon-chevron-up"></i>
-	</summary>
-	<div data-type="detailsContent" class="isomer-details-content">
-		<p>Surprise 3!</p>
-	</div>
-</details>
+<div class="content">
+  <div data-type="detailGroup" class="isomer-accordion">
+    <details open="">
+      <summary>1</summary>
+      <div data-type="detailsContent"><p>1-1</p></div>
+    </details>
+    <details open="">
+      <summary>2</summary>
+      <div data-type="detailsContent"><p>2-1</p></div>
+    </details>
+    <details open="">
+      <summary>3</summary>
+      <div data-type="detailsContent"><p>3-1</p></div>
+    </details>
+    <details open="">
+      <summary>hi</summary>
+      <div data-type="detailsContent"><p>one</p></div>
+    </details>
+    <details>
+      <summary>hello</summary>
+      <div data-type="detailsContent"><p>my name is kishore</p></div>
+    </details>
+  </div>
+  <p>There are some texts in between.</p>
+  <div data-type="detailGroup" class="isomer-accordion">
+    <details>
+      <summary>4-1</summary>
+      <div data-type="detailsContent"><p>4-2</p></div>
+    </details>
+    <details>
+      <summary>4-3</summary>
+      <div data-type="detailsContent"><p>4-4</p></div>
+    </details>
+  </div>
+  <p>There are some texts here.</p>
+  <p>Below are two accordions that are one on top of the other.</p>
+  <div data-type="detailGroup" class="isomer-accordion">
+    <details>
+      <summary>acc1</summary>
+      <div data-type="detailsContent"><p>sum1</p></div>
+    </details>
+    <details>
+      <summary>acc2</summary>
+      <div data-type="detailsContent"><p>sum2</p></div>
+    </details>
+    <details>
+      <summary>acc3</summary>
+      <div data-type="detailsContent"><p>sum3</p></div>
+    </details>
+  </div>
+  <div data-type="detailGroup" class="isomer-accordion-group isomer-accordion">
+    <details>
+      <summary>acc4</summary>
+      <div data-type="detailsContent"><p>sum4</p></div>
+    </details>
+  </div>
+  <p>This is an example of a single accordion.</p>
+  <div data-type="detailGroup" class="isomer-accordion-group isomer-accordion">
+    <details>
+      <summary>sum</summary>
+      <div data-type="detailsContent"><p>text</p></div>
+    </details>
+  </div>
+  <h3>Let's say there was some content here.</h3>
 </div>

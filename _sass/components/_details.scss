@@ -1,46 +1,72 @@
-.isomer-details {
+details summary {
   display: flex;
-  width: 56.625rem;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.5rem;
-  border: solid 1px #d4d4d4;
-  border-bottom: solid 0px #d4d4d4;
-}
-
-.isomer-details:last-child {
-  border-bottom: solid 1px #d4d4d4;
-}
-
-.isomer-summary {
-  display: flex;
-  padding: 1rem;
-  align-items: center;
-  gap: 0.75rem;
-  align-self: stretch;
   justify-content: space-between;
-}
-
-.isomer-details-content {
-  display: flex;
-  padding: 0rem 1.5rem 0rem 1rem;
-  justify-content: center;
   align-items: center;
-  gap: 0.625rem;
-  align-self: stretch;
-  min-height: 2.5rem;
-  color: #838894;
 }
 
-.isomer-details-content > p {
-  flex: 1 0 0;
-  align-self: stretch;
-}
-
-details[open] .sgds-icon-chevron-down {
+details summary::marker {
   display: none;
 }
 
-details:not([open]) .sgds-icon-chevron-up {
-  display: none;
+details summary::after {
+  content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M16.293%209.29297L12%2013.586L7.70697%209.29297L6.29297%2010.707L12%2016.414L17.707%2010.707L16.293%209.29297Z%22%20fill%3D%22%23484848%22%2F%3E%3C%2Fsvg%3E");
+  transition: 0.25s transform ease;
+}
+
+details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+@keyframes details-show {
+  from {
+    opacity: 0;
+    transform: var(--details-translate, translateY(-0.5em));
+  }
+}
+
+details[open] > *:not(summary) {
+  animation: details-show 150ms ease-in-out;
+}
+
+.is-empty::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #adb5bd;
+  pointer-events: none;
+  height: 0;
+}
+
+details {
+  display: flex;
+  border-top: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
+  padding: 0.5rem;
+
+  > div {
+    flex: 1 1 auto;
+  }
+
+  * summary {
+    list-style: none;
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
+
+  p {
+    color: $secondary-color;
+  }
+}
+
+details ~ details {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-top: 0;
+}
+
+.detailGroup:last-child {
+  margin-bottom: 0;
+  margin-top: 1em;
+  border-top: 1px solid #d4d4d4;
 }
