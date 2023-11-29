@@ -53,6 +53,19 @@ details.isomer-details ~ details.isomer-details {
   border-top: 0;
 }
 
+.isomer-accordion-group {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.isomer-accordion-group:first-child {
+  margin-top: 0;
+}
+
+.isomer-accordion-group:last-child {
+  margin-bottom: 0;
+}
+
 .isomer-details:last-of-type {
   margin-bottom: 0;
   border-bottom: 1px solid #d4d4d4;
