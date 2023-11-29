@@ -10,6 +10,11 @@
     margin-top: 1.5rem;
   }
 
+  // Add bottom margin unless the card grid is the last item on the page
+  &:not(:has(+ #related-content)) {
+    margin-bottom: 1.5rem;
+  }
+
   .isomer-card {
     float: left;
     flex-basis: calc((100% - 3rem) / 3);
