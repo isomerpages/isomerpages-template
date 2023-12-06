@@ -3,6 +3,9 @@ details.isomer-details summary {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  &:empty {
+    justify-content: flex-end;
+  }
 }
 
 details.isomer-details summary::marker {
