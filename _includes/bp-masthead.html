@@ -1,61 +1,85 @@
 {%- if site.is_government == false -%}
 <section class="bp-section bp-masthead is-invisible">
-{%- else -%}
-<section class="bp-section bp-masthead">
-{%- endif -%}
+  {%- else -%}
+  <section class="bp-section bp-masthead">
+    {%- endif -%}
     <div class="bp-container">
-        <div class="row is-multiline is-vcentered masthead-layout-container">
-            <div class="col is-9-desktop is-12-touch has-text-centered-touch">
-                <div class="masthead-layout" id="bp-masthead">
-                    <span class="sgds-icon sgds-icon-sg-crest is-size-5" style="color:red"></span>
-                    <span style="display: table-cell; vertical-align: middle">
-                        <span class="banner-text-layout">
-                            <span class="is-text">
-                                A Singapore Government Agency Website
-                                {%- if jekyll.environment == "staging" -%}
-                                    <b> [NOTE: THIS IS A STAGING WEBSITE] </b>
-                                {%- endif -%}&ensp;
-                            </span>
-                            <span class="bp-masthead-button" id="masthead-dropdown-button">
-                                <span class="is-text bp-masthead-button-text">
-                                    How to identify
-                                </span>
-                                <span class="sgds-icon sgds-icon-chevron-down is-size-7"
-                                      id="masthead-chevron"></span>
-                            </span>
-                        </span>
-                    </span>
-                </div>
-                <div class="masthead-divider is-hidden" id="masthead-divider" style="padding-left: -12px; padding-right:-12px;"></div>
-            </div>
-            <div class="col banner-content-layout is-hidden" id="banner-content">
-                <div class="banner-content">
-                    <img src="../assets/img/government_building.svg" class="banner-icon">
-                    <div class="banner-content-text-container">
-                        <strong class="banner-content-title">Official website links end with .gov.sg</strong>
-                        <p>
-                            Government agencies communicate via
-                            <strong> .gov.sg </strong>
-                            websites <span class="avoidwrap">(e.g. go.gov.sg/open)</span>.
-                            <a href="https://go.gov.sg/trusted-sites" class="banner-content-text bp-masthead-button-link bp-masthead-button-text"
-                               target="_blank" rel="noreferrer">
-                                Trusted website<Text style="letter-spacing: -3px">s</Text>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-                <div class="banner-content">
-                    <img src="../assets/img/lock.svg" class="banner-icon">
-                    <div class="banner-content-text-container">
-                        <strong class="banner-content-title">Secure websites use HTTPS</strong>
-                        <p>
-                            Look for a
-                            <strong> lock </strong>(<img src="../assets/img/lock.svg" class="inline-banner-icon">)
-                            or https:// as an added precaution. Share sensitive information only on official, secure websites.
-                        </p>
-                    </div>
-                </div>
-            </div>
+      <div class="row is-multiline is-vcentered masthead-layout-container">
+        <div class="col is-9-desktop is-12-touch has-text-centered-touch">
+          <div class="masthead-layout" id="bp-masthead">
+            <span
+              class="sgds-icon sgds-icon-sg-crest is-size-5"
+              style="color: red"
+            ></span>
+            <span style="display: table-cell; vertical-align: middle">
+              <span class="banner-text-layout">
+                <span class="is-text">
+                  A Singapore Government Agency Website {%- if
+                  jekyll.environment == "staging" -%}
+                  <b> [NOTE: THIS IS A STAGING WEBSITE] </b>
+                  {%- endif -%}&ensp;
+                </span>
+                <span class="bp-masthead-button" id="masthead-dropdown-button">
+                  <span class="is-text bp-masthead-button-text">
+                    How to identify
+                  </span>
+                  <span
+                    class="sgds-icon sgds-icon-chevron-down is-size-7"
+                    id="masthead-chevron"
+                  ></span>
+                </span>
+              </span>
+            </span>
+          </div>
+          <div
+            class="masthead-divider is-hidden"
+            id="masthead-divider"
+            style="padding-left: -12px; padding-right: -12px"
+          ></div>
         </div>
+        <div class="col banner-content-layout is-hidden" id="banner-content">
+          <div class="banner-content">
+            <img
+              src="/assets/img/government_building.svg"
+              class="banner-icon"
+            />
+            <div class="banner-content-text-container">
+              <strong class="banner-content-title"
+                >Official website end with .gov.sg</strong
+              >
+              <p>
+                Government agencies communicate via
+                <strong> .gov.sg </strong>
+                websites <span class="avoidwrap">(e.g. go.gov.sg/open)</span>.
+                <a
+                  href="https://go.gov.sg/trusted-sites"
+                  class="banner-content-text bp-masthead-button-link bp-masthead-button-text"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Trusted website<Text style="letter-spacing: -3px">s</Text>
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="banner-content">
+            <img src="../assets/img/lock.svg" class="banner-icon" />
+            <div class="banner-content-text-container">
+              <strong class="banner-content-title"
+                >Secure websites use HTTPS</strong
+              >
+              <p>
+                Look for a
+                <strong> lock </strong>(<img
+                  src="../assets/img/lock.svg"
+                  class="inline-banner-icon"
+                />) or https:// as an added precaution. Share sensitive
+                information only on official, secure websites.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 </section>
