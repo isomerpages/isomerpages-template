@@ -32,6 +32,10 @@
         {{- site.data.navigation.logo | absolute_url -}}
     {%- endif -%}">
     <meta property="og:url" content="{{- page.url | absolute_url -}}">
+    {%- comment -%} Prevent our staging sites from appearing in Google search results {%- endcomment -%}
+    {%- if jekyll.environment == "staging" -%}
+        <meta name="robots" content="noindex">
+    {%- endif -%}
     <link rel="canonical" href="{{- page.url | absolute_url -}}" />
 
     {%- if site.favicon -%}
