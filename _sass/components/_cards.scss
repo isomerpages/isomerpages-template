@@ -18,6 +18,7 @@
   .isomer-card {
     float: left;
     flex-basis: calc((100% - 3rem) / 3);
+    max-width: calc((100% - 3rem) / 3);
     flex-shrink: 0;
     border-width: 1px;
     border-style: solid;
@@ -37,25 +38,30 @@
     &:nth-child(1):nth-last-child(2),
     &:nth-child(2):nth-last-child(1) {
       flex-basis: calc((100% - 1.5rem) / 2);
+      max-width: calc((100% - 1.5rem) / 2);
     }
 
     // Stretch the card if there is only 1 card
     &:only-child {
       flex-basis: 100%;
+      max-width: 100%;
     }
 
     // Collapse to 2 columns between md and xl
     @media screen and (max-width: map-get($breakpoints, "xl")) {
       flex-basis: calc((100% - 1.5rem) / 2);
+      max-width: calc((100% - 1.5rem) / 2);
     }
 
     // Collapse to 1 column below md
     @media screen and (max-width: map-get($breakpoints, "md")) {
       flex-basis: 100%;
+      max-width: 100%;
 
       &:nth-child(1):nth-last-child(2),
       &:nth-child(2):nth-last-child(1) {
         flex-basis: 100%;
+        max-width: 100%;
       }
     }
 
