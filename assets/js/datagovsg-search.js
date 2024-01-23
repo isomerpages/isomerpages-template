@@ -69,8 +69,11 @@ function databaseSearch(searchTerm, index, callback) {
     offset
   };
 
+  const formattedSearchField = searchField ? searchField.replace(" ", "_") : ""
   if (searchTerm !== '') {
-    if (!!searchField) data.q = JSON.stringify({[searchField]: searchTerm})
+    if (!!searchField) {
+      data.q = JSON.stringify({[formattedSearchField]: searchTerm})
+    }
     else data.q = searchTerm;
   }
 
@@ -91,11 +94,11 @@ function databaseSearch(searchTerm, index, callback) {
     }
 
     // The fieldArray is the array containing the field names in the data.gov.sg table
-    const removableFields = ["_id", "_full_count", "rank", `rank ${searchField}`]
+    const removableFields = ["_id", "_full_count", "rank", `rank ${formattedSearchField}`]
     fieldArray = remove(data.result.fields, removableFields);
     const pageResultArray = splitPages(data.result.records, PAGINATION_DISPLAY_RESULTS_PER_PAGE)
     const startingPage = offset / PAGINATION_DISPLAY_RESULTS_PER_PAGE
-    const possibleSearchField = searchField || defaultField
+    const possibleSearchField = formattedSearchField || defaultField
     if (!hasPopulatedFields && possibleSearchField) {
       displaySearchFilterDropdown(fieldArray.map(item => item.id), possibleSearchField);
       hasPopulatedFields = true
@@ -174,7 +177,8 @@ function displaySearchFilterDropdown(fields, startingField) {
   var fieldFilterDesktop = document.getElementById('field-filter-desktop');
   var fieldFilterMobile = document.getElementById('field-filter-mobile');
 
-  for (let field of fields) {
+  for (let raw_field of fields) {
+    const field = raw_field.replace("_", " ")
     // Creating the select element for mobile view
     var option = document.createElement("option");
     option.value = field;
