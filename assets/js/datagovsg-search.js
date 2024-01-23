@@ -60,6 +60,10 @@ function getOffset(pageIndex) {
   return offsetRequired
 }
 
+function deslugify(str) {
+  return str.split(/_| /).map((word) => word[0].toUpperCase() + word.slice(1)).join(" ")
+}
+
 function databaseSearch(searchTerm, index, callback) {
   const isFirstRender = pageResults.length === 0
   const resourceId = document.getElementById("resourceId").innerHTML;
@@ -69,20 +73,36 @@ function databaseSearch(searchTerm, index, callback) {
     offset
   };
 
-  const formattedSearchField = searchField ? searchField.replace(" ", "_") : ""
-  if (searchTerm !== '') {
-    if (!!searchField) {
+  let request
+  let formattedSearchField = searchField ? searchField.replace(" ", "_") : ""
+  if (!!searchField) {
+    // Datagov-v2 search
+    request = $.ajax({
+      url: `https://api-production.data.gov.sg/v2/public/api/datasets/${resourceId}/metadata`,
+      dataType: 'json'
+    }).then((resp) => {
+      const columnNames = Object.values(resp.data.columnMetadata.map)
+      const filteredSearchColumn = columnNames.filter((colName) => colName.toLowerCase() === formattedSearchField.toLowerCase())
+      formattedSearchField = filteredSearchColumn[0]
       data.q = JSON.stringify({[formattedSearchField]: searchTerm})
-    }
-    else data.q = searchTerm;
+      return $.ajax({
+        url: 'https://data.gov.sg/api/action/datastore_search',
+        data: data,
+        dataType: 'json',
+        success: callback
+      })
+    })
+    
+  } else {
+    data.q = searchTerm
+    request = $.ajax({
+      url: 'https://data.gov.sg/api/action/datastore_search',
+      data: data,
+      dataType: 'json',
+      success: callback
+    });
   }
-
-  var request = $.ajax({
-    url: 'https://data.gov.sg/api/action/datastore_search',
-    data: data,
-    dataType: 'json',
-    success: callback
-  });
+  
 
   request.done(function (data) {
     datagovsgTotal = data.result.total;
@@ -178,12 +198,13 @@ function displaySearchFilterDropdown(fields, startingField) {
   var fieldFilterMobile = document.getElementById('field-filter-mobile');
 
   for (let raw_field of fields) {
-    const field = raw_field.replace("_", " ")
+    const field = deslugify(raw_field)
+    const deslugifiedStartingField = deslugify(startingField)
     // Creating the select element for mobile view
     var option = document.createElement("option");
     option.value = field;
     option.text = field;
-    if (field === startingField) option.selected = true
+    if (field === deslugifiedStartingField) option.selected = true
     fieldFilterMobile.appendChild(option);
 
     // Creating the a tags for desktop view
@@ -196,7 +217,7 @@ function displaySearchFilterDropdown(fields, startingField) {
         filterDropdownDesktop.value = field;
       };
     }();
-    if (field === startingField) {
+    if (field === deslugifiedStartingField) {
       var filterDropdownDesktop = document.getElementById('field-selector-desktop');
       filterDropdownDesktop.value = field;
     }
