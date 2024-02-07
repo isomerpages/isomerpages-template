@@ -1,210 +1,266 @@
-{%- comment -%} onclick at body tag is needed for iOS Safari to treat stuff other than <a> tags etc (e.g. div) as clickable {%- endcomment -%}
-
-{% assign hide_search = site.hide_search_on_nav | default: false %}
-<div class="masthead-container" id="navbar" onclick>
-{%- include masthead.html -%}
+{%- comment -%} onclick at body tag is needed for iOS Safari to treat stuff
+other than
+<a>
+  tags etc (e.g. div) as clickable {%- endcomment -%} {% assign hide_search =
+  site.hide_search_on_nav | default: false %}
+  <div class="masthead-container" id="navbar" onclick>
+    {%- include masthead.html -%}
     <nav class="navbar is-transparent">
-        <div class="bp-container">
-
+      <div class="bp-container">
         <div class="navbar-brand">
-            <a class="navbar-item" href="/">
-                <img src="{{- site.data.navigation.logo -}}" alt="Homepage" style="max-height:75px;max-width:200px;height:auto;width:auto;">
-            </a>
-            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+          <a class="navbar-item" href="/">
+            <img
+              src="{{- site.data.navigation.logo -}}"
+              alt="Homepage"
+              style="
+                max-height: 75px;
+                max-width: 200px;
+                height: auto;
+                width: auto;
+              "
+            />
+          </a>
+          <div
+            class="navbar-burger burger"
+            data-target="navbarExampleTransparentExample"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
-        <div id="navbarExampleTransparentExample" class="bp-container is-fluid margin--none navbar-menu">
-            <div class="navbar-start">
-                {%- if hide_search != true -%}
-                <div class="navbar-item is-hidden-widescreen is-search-bar">
-                    <form action="/search/" method="get">
-                        <div class="field has-addons">
-                            <div class="control has-icons-left is-expanded">
-                                <input class="input is-fullwidth" id="search-box-mobile" type="text" placeholder="What are you looking for?" name="query">
-                                    <span class="is-large is-left">
-                                    <i class="sgds-icon sgds-icon-search search-bar"></i>
-                                    </span>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                {%- endif -%}
-                {%- comment -%}
-                    Left nav pages (level 2) will all belong to their own collection
-                    navigation.yml will simply specify the order of level 1 and level 2 pages (1 level in navigation.yml only)
-                    This portion of the code will automatically generate the navbar subitems for level 2 pages based on the content in the level 2 collection
-                    For level 3 pages, the first page in the level 3 "collection" will appear in the navbar like other level 2 pages
-                    Level 3 pages will also reside in the same collection as other level 2 and 3 pages under the same heading
-                    But they will have an additional "third_nav_title" header in their front matter
-
-                    This is done so that new level 2 pages will automatically appear in the navbar without the need for extra configuration in navigation.yml
-
-                    Subitems can still be customized by including the sublinks array
-                {%- endcomment -%}
-                {%- assign navitems = site.data.navigation.links -%}
-                {%- for navitem in navitems -%}
-                    {%- if navitem.collection -%}
-                        {%- comment -%} Leftnav page {%- endcomment -%}
-                        
-                        {%- assign active = "" -%}
-
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link is-uppercase" href="{{site[navitem.collection].first.url}}">
-                                {{- navitem.title -}}
-                            </a>
-                            <div class="navbar-dropdown">
-                                {%- comment -%} You can't initalize an array in liquid so we have to do this {%- endcomment -%}
-                                {% assign third_nav_titles = "" | split: ", " %}
-                                {%- for leftnavpage in site[navitem.collection] -%}
-                                    {%- if page.url == leftnavpage.url -%}
-                                        {%- assign active = " active" -%}
-                                    {%- endif -%}
-                                    {%- comment -%} Only show second level pages and the first page in third level pages {%- endcomment -%}
-                                    {%- if leftnavpage.third_nav_title -%}
-                                        {%- unless third_nav_titles contains leftnavpage.third_nav_title -%}
-                                            {%- comment -%} This is the first page in this third level nav, display link {%- endcomment -%}
-                                            <a class="navbar-item sub-link" href="{{leftnavpage.url}}">
-                                                {{- leftnavpage.third_nav_title -}}
-                                            </a>
-                                            {%- assign third_nav_titles = third_nav_titles | push: leftnavpage.third_nav_title -%}
-                                        {%- endunless -%}
-                                    {%- else -%}
-                                        <a class="navbar-item sub-link" href="{{leftnavpage.url}}">
-                                            {{- leftnavpage.title -}}
-                                        </a>
-                                    {%- endif -%}
-                                {%- endfor -%}
-                            </div>
-                            <div class="selector is-hidden-touch is-hidden-desktop-only{{active}}"></div>
-                        </div>
-                    {%- elsif navitem.sublinks -%}
-                        {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
-                        {%- assign active = "" -%}
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            {%- assign url_input = navitem.url -%}
-                            {%- include functions/external_url.html -%}
-                            <a {{anchor}} class="navbar-link is-uppercase">
-                                {{- navitem.title -}}
-                            </a>
-
-                            {%- if page.url == navitem.url -%}
-                                {%- assign active = " active" -%}
-                            {%- endif -%}
-                            
-                            <div class="navbar-dropdown">
-                                {%- for sublink in navitem.sublinks -%}                 
-                                    {%- assign url_input = sublink.url -%}
-                                    {%- include functions/external_url.html -%}
-                                    <a {{anchor}} class="navbar-item sub-link">
-                                        {{- sublink.title -}}
-                                    </a>
-
-                                    {%- if page.url == navitem.url -%}
-                                        {%- assign active = " active" -%}
-                                    {%- endif -%}
-                                {%- endfor -%}
-                            </div>
-                            <div class="selector is-hidden-touch is-hidden-desktop-only{{active}}"></div>
-                        </div>
-                    {%- elsif navitem.resource_room -%}
-                        {%- assign active = "" -%}
-                        {%- if page.collection == "posts" or page.layout == "resources" or page.layout == "resources-alt" -%}
-                            {%- assign active = " active" -%}
-                        {%- endif -%}
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link is-uppercase" href="/{{site.resources_name}}/">
-                                {{- navitem.title -}}
-                            </a>
-                            <div class="navbar-dropdown">
-                                {%- unless site.categories.size < 3 -%}
-                                    {%- comment -%} 
-                                        No point displaying the 'all' entry if there is only 1 category
-                                        The numbers are all incremented by 1 as the resource room folder itself is counted as 1 category
-                                    {%- endcomment -%}
-                                    <a class="navbar-item sub-link" href="/{{site.resources_name}}/">
-                                        All
-                                    </a>
-                                {%- endunless -%}
-                                {%- comment -%} Sort resource rooms category alphabetically by name {%- endcomment -%}
-                                {%- assign categories = "" | split: "," -%}
-                                {%- for category in site.categories -%}
-                                    {%- if category[0] != site.resources_name -%}
-                                        {%- assign categories = categories | push: category[0] -%}
-                                    {%- endif -%}
-                                {%- endfor -%}
-                                {%- assign categories = categories | sort_natural -%}
-                                {%- comment -%} Display navlink for each category {%- endcomment -%}
-                                {%- for category in categories -%}
-                                    <a class="navbar-item sub-link" href="/{{site.resources_name}}/{{category}}/">
-                                        {%- assign words = category | replace: "-", " " | replace: "_", " " | split: " " -%}
-                                        {%- comment -%} Right now words are all in lowercase, and we want to Title Case them {%- endcomment -%}
-                                        {%- for word in words -%}
-                                            {{- word | capitalize | append: " " -}}
-                                        {%- endfor -%}
-                                    </a>
-                                {%- endfor -%}
-                            </div>
-                            <div class="selector is-hidden-touch is-hidden-desktop-only{{active}}"></div>
-                        </div>
-                    {%- else -%}
-                        {%- comment -%} Single page {%- endcomment -%}
-                        <div class="navbar-item">
-                            {%- assign url_input = navitem.url -%}
-                            {%- include functions/external_url.html -%}
-                            <a {{anchor}} class="navbar-item is-uppercase" style="height:100%;width:100%;">
-                                {{- navitem.title -}}
-                            </a>
-                            
-                            {%- assign active = "" -%}
-                            {%- if page.url == navitem.url -%}
-                                {%- assign active = " active" -%}
-                            {%- endif -%}
-
-                            <div class="selector is-hidden-touch is-hidden-desktop-only{{active}}"></div>
-                        </div>
-                    {%- endif -%}
-                {%- endfor -%}
-            </div>
-            
+        <div
+          id="navbarExampleTransparentExample"
+          class="bp-container is-fluid margin--none navbar-menu"
+        >
+          <div class="navbar-start">
             {%- if hide_search != true -%}
-                <div class="navbar-end is-hidden-touch is-hidden-desktop-only">
-                    <div class="navbar-item">
-                        {%- if page.layout != 'search' -%}
-                            <a class="bp-button is-text is-large" style="text-decoration: none" id="search-activate">
-                                <span class="sgds-icon sgds-icon-search is-size-4"></span>
-                            </a>
-                        {%- else -%}
-                            <a class="bp-button is-text is-large" style="text-decoration: none; pointer-events: none;" id="search-activate" disabled></a>
-                        {%- endif -%}
-                    </div>
+            <div class="navbar-item is-hidden-widescreen is-search-bar">
+              <form action="/search/" method="get">
+                <div class="field has-addons">
+                  <div class="control has-icons-left is-expanded">
+                    <input
+                      class="input is-fullwidth"
+                      id="search-box-mobile"
+                      type="text"
+                      placeholder="What are you looking for?"
+                      name="query"
+                    />
+                    <span class="is-large is-left">
+                      <i class="sgds-icon sgds-icon-search search-bar"></i>
+                    </span>
+                  </div>
                 </div>
+              </form>
+            </div>
+            {%- endif -%} {%- comment -%} Left nav pages (level 2) will all
+            belong to their own collection navigation.yml will simply specify
+            the order of level 1 and level 2 pages (1 level in navigation.yml
+            only) This portion of the code will automatically generate the
+            navbar subitems for level 2 pages based on the content in the level
+            2 collection For level 3 pages, the first page in the level 3
+            "collection" will appear in the navbar like other level 2 pages
+            Level 3 pages will also reside in the same collection as other level
+            2 and 3 pages under the same heading But they will have an
+            additional "third_nav_title" header in their front matter This is
+            done so that new level 2 pages will automatically appear in the
+            navbar without the need for extra configuration in navigation.yml
+            Subitems can still be customized by including the sublinks array {%-
+            endcomment -%} {%- assign navitems = site.data.navigation.links -%}
+            {%- for navitem in navitems -%} {%- if navitem.collection -%} {%-
+            comment -%} Leftnav page {%- endcomment -%} {%- assign active = ""
+            -%}
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a
+                class="navbar-link is-uppercase"
+                href="{{site[navitem.collection].first.url}}"
+              >
+                {{- navitem.title -}}
+              </a>
+              <div class="navbar-dropdown">
+                {%- comment -%} You can't initalize an array in liquid so we
+                have to do this {%- endcomment -%} {% assign third_nav_titles =
+                "" | split: ", " %} {%- for leftnavpage in
+                site[navitem.collection] -%} {%- if page.url == leftnavpage.url
+                -%} {%- assign active = " active" -%} {%- endif -%} {%- comment
+                -%} Only show second level pages and the first page in third
+                level pages {%- endcomment -%} {%- if
+                leftnavpage.third_nav_title -%} {%- unless third_nav_titles
+                contains leftnavpage.third_nav_title -%} {%- comment -%} This is
+                the first page in this third level nav, display link {%-
+                endcomment -%}
+                <a class="navbar-item sub-link" href="{{leftnavpage.url}}">
+                  {{- leftnavpage.third_nav_title -}}
+                </a>
+                {%- assign third_nav_titles = third_nav_titles | push:
+                leftnavpage.third_nav_title -%} {%- endunless -%} {%- else -%}
+                <a class="navbar-item sub-link" href="{{leftnavpage.url}}">
+                  {{- leftnavpage.title -}}
+                </a>
+                {%- endif -%} {%- endfor -%}
+              </div>
+              <div
+                class="selector is-hidden-touch is-hidden-desktop-only{{active}}"
+              ></div>
+            </div>
+            {%- elsif navitem.sublinks -%} {%- comment -%} Leftnav page with
+            custom sublinks {%- endcomment -%} {%- assign active = "" -%}
+            <div class="navbar-item has-dropdown is-hoverable">
+              {%- assign url_input = navitem.url -%} {%- include
+              functions/external_url.html -%}
+              <a {{anchor}} class="navbar-link is-uppercase">
+                {{- navitem.title -}}
+              </a>
+
+              {%- if page.url == navitem.url -%} {%- assign active = " active"
+              -%} {%- endif -%}
+
+              <div class="navbar-dropdown">
+                {%- for sublink in navitem.sublinks -%} {%- assign url_input =
+                sublink.url -%} {%- include functions/external_url.html -%}
+                <a {{anchor}} class="navbar-item sub-link">
+                  {{- sublink.title -}}
+                </a>
+
+                {%- if page.url == navitem.url -%} {%- assign active = " active"
+                -%} {%- endif -%} {%- endfor -%}
+              </div>
+              <div
+                class="selector is-hidden-touch is-hidden-desktop-only{{active}}"
+              ></div>
+            </div>
+            {%- elsif navitem.resource_room -%} {%- assign active = "" -%} {%-
+            if page.collection == "posts" or page.layout == "resources" or
+            page.layout == "resources-alt" -%} {%- assign active = " active" -%}
             {%- endif -%}
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a
+                class="navbar-link is-uppercase"
+                href="/{{site.resources_name}}/"
+              >
+                {{- navitem.title -}}
+              </a>
+              <div class="navbar-dropdown">
+                {%- unless site.categories.size < 3 -%} {%- comment -%} No point
+                displaying the 'all' entry if there is only 1 category The
+                numbers are all incremented by 1 as the resource room folder
+                itself is counted as 1 category {%- endcomment -%}
+                <a
+                  class="navbar-item sub-link"
+                  href="/{{site.resources_name}}/"
+                >
+                  All
+                </a>
+                {%- endunless -%} {%- comment -%} Sort resource rooms category
+                alphabetically by name {%- endcomment -%} {%- assign categories
+                = "" | split: "," -%} {%- for category in site.categories -%}
+                {%- if category[0] != site.resources_name -%} {%- assign
+                categories = categories | push: category[0] -%} {%- endif -%}
+                {%- endfor -%} {%- assign categories = categories | sort_natural
+                -%} {%- comment -%} Display navlink for each category {%-
+                endcomment -%} {%- for category in categories -%}
+                <a
+                  class="navbar-item sub-link"
+                  href="/{{site.resources_name}}/{{category}}/"
+                >
+                  {%- assign words = category | replace: "-", " " | replace:
+                  "_", " " | split: " " -%} {%- comment -%} Right now words are
+                  all in lowercase, and we want to Title Case them {%-
+                  endcomment -%} {%- for word in words -%} {{- word | capitalize
+                  | append: " " -}} {%- endfor -%}
+                </a>
+                {%- endfor -%}
+              </div>
+              <div
+                class="selector is-hidden-touch is-hidden-desktop-only{{active}}"
+              ></div>
+            </div>
+            {%- else -%} {%- comment -%} Single page {%- endcomment -%}
+            <div class="navbar-item">
+              {%- assign url_input = navitem.url -%} {%- include
+              functions/external_url.html -%}
+              <a
+                {{anchor}}
+                class="navbar-item is-uppercase"
+                style="height: 100%; width: 100%"
+              >
+                {{- navitem.title -}}
+              </a>
+
+              {%- assign active = "" -%} {%- if page.url == navitem.url -%} {%-
+              assign active = " active" -%} {%- endif -%}
+
+              <div
+                class="selector is-hidden-touch is-hidden-desktop-only{{active}}"
+              ></div>
+            </div>
+            {%- endif -%} {%- endfor -%}
+          </div>
+
+          {%- if hide_search != true -%}
+          <div class="navbar-end is-hidden-touch is-hidden-desktop-only">
+            <div class="navbar-item">
+              {%- if page.layout != 'search' -%}
+              <a
+                data-proofer-ignore
+                class="bp-button is-text is-large"
+                style="text-decoration: none"
+                id="search-activate"
+              >
+                <span class="sgds-icon sgds-icon-search is-size-4"></span>
+              </a>
+              {%- else -%}
+              <a
+                data-proofer-ignore
+                class="bp-button is-text is-large"
+                style="text-decoration: none; pointer-events: none"
+                id="search-activate"
+                disabled
+              ></a>
+              {%- endif -%}
+            </div>
+          </div>
+          {%- endif -%}
         </div>
-        </div>
+      </div>
     </nav>
 
-    <div class="bp-container hide is-hidden-touch is-hidden-desktop-only search-bar" id="search-bar">
-        <div class="row margin--top--sm margin--bottom--sm is-gapless">
-
-            <div class="col">
-                <form action="/search/" method="get">
-                  <div class="field has-addons">
-                      <div class="control has-icons-left is-expanded">
-                          <input class="input is-fullwidth is-large" id="search-box" type="text" placeholder="What are you looking for?" name="query" autocomplete="off">
-                          <span class="is-large is-left">
-                            <i class="sgds-icon sgds-icon-search is-size-4 search-bar"></i>
-                          </span>
-
-                      </div>
-                      <div class="control">
-                          <button type="submit" class="bp-button is-secondary is-medium has-text-white search-button">SEARCH</button>
-                      </div>
-                  </div>
-                </form>
+    <div
+      class="bp-container hide is-hidden-touch is-hidden-desktop-only search-bar"
+      id="search-bar"
+    >
+      <div class="row margin--top--sm margin--bottom--sm is-gapless">
+        <div class="col">
+          <form action="/search/" method="get">
+            <div class="field has-addons">
+              <div class="control has-icons-left is-expanded">
+                <input
+                  class="input is-fullwidth is-large"
+                  id="search-box"
+                  type="text"
+                  placeholder="What are you looking for?"
+                  name="query"
+                  autocomplete="off"
+                />
+                <span class="is-large is-left">
+                  <i
+                    class="sgds-icon sgds-icon-search is-size-4 search-bar"
+                  ></i>
+                </span>
+              </div>
+              <div class="control">
+                <button
+                  type="submit"
+                  class="bp-button is-secondary is-medium has-text-white search-button"
+                >
+                  SEARCH
+                </button>
+              </div>
             </div>
+          </form>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+</a>
