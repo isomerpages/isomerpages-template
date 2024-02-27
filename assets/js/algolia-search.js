@@ -4,7 +4,7 @@ const searchClient = algoliasearch(
 );
 
 const search = instantsearch({
-  indexName: "ogp_egazettes_index",
+  indexName: "staging_ogp_egazettes_index",
   searchClient,
 });
 
