@@ -1,6 +1,7 @@
 let scriptLoaded = false;
 
 onmessage = async function(event) {
+	if( 'function' !== typeof importScripts) return
 	const scriptUrl = 'https://unpkg.com/lunr/lunr.js';
   const integrityHash = 'sha256-lDFybwXA6uKm5U3Bl3CUIoafJcrUTyQw0vt92ugMxxc=';
 	if (scriptLoaded) return
