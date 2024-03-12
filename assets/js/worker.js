@@ -1,26 +1,27 @@
-let scriptLoaded = false;
+
+let loaded = false;
+
+async function loadcontext() {
+	if (loaded) return;
+	if( 'function' !== typeof importScripts) throw new Error("Unable to load context")
+	const scriptUrl = 'https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js';
+	const integrityHash = 'sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg=='; // retrieved from cdnjs
+
+	await fetch(scriptUrl, { integrity: integrityHash });
+	// We use fetch only to verify integrity - we still use importScripts to avoid inline script
+	importScripts(scriptUrl);
+
+	loaded = true;
+}
 
 onmessage = async function(event) {
-	const scriptUrl = 'https://unpkg.com/lunr/lunr.js';
-  const integrityHash = 'sha256-lDFybwXA6uKm5U3Bl3CUIoafJcrUTyQw0vt92ugMxxc=';
-	if (scriptLoaded) return
-
-	let response
-	if (!scriptLoaded) {
-		try {
-			response = await fetch(scriptUrl, { integrity: integrityHash });
-		} catch (err) {
-			console.log(err)
-			return
-		}
+	try {
+		await loadcontext();
+	} catch (err) {
+		console.log(err)
+		return
 	}
-	const scriptText = await response.text();
 
-	// Create a script element and append the loaded script
-	const scriptElement = new Function(scriptText);
-	scriptElement();
-
-	scriptLoaded = true
 	var documents = event.data;
 
 	var index = lunr(function () {
