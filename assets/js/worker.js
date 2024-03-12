@@ -9,6 +9,7 @@ onmessage = async function(event) {
 		console.log(err)
 		return
 	}
+	// We use fetch only to verify integrity - we still use importScripts to avoid inline script
 	importScripts(scriptUrl);
 
 	var documents = event.data;
