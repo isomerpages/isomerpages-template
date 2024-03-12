@@ -3,8 +3,7 @@ let loaded = false;
 
 async function loadcontext() {
 	if (loaded) return;
-
-	if( 'function' !== typeof importScripts) return
+	if( 'function' !== typeof importScripts) throw new Error("Unable to load context")
 	const scriptUrl = 'https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js';
 	const integrityHash = 'sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg=='; // retrieved from cdnjs
 
