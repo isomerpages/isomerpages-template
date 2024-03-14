@@ -1,0 +1,36 @@
+<!-- below 768 -->
+<!-- NOTE: We set `mb-0` on the div because we have legacy css
+    dictating negative margin on row:last-child, which causes
+    the bottom padding to be smaller than the top.
+  -->
+<div
+  class="mb-0 row is-vcentered is-centered is-hidden-tablet"
+  style="
+    padding-top: 106px;
+    padding-bottom: 106px;
+    padding-left: 48px;
+    padding-right: 48px;
+  "
+>
+  <div
+    class="py-8 px-12 row is-vcentered is-centered is-flex col is-9 hero-background-{{-
+      section.hero.backgroundColor | default: 'white' -}}"
+    style="flex-direction: column"
+  >
+    <div class="mb-8 has-text-centered">
+      <h1 class="h1 hero-text-color">
+        <b class="is-hidden-desktop">{{- section.hero.title -}}</b>
+      </h1>
+    </div>
+    {%- if section.hero.dropdown -%} {% include
+    homepage/hero/components/hero-dropdown.html %} {% elsif section.hero.url and
+    section.hero.button -%}
+    <a
+      href="{{- site.baseurl -}}{{- section.hero.url -}}"
+      class="bp-button is-secondary is-uppercase search-button"
+    >
+      {{- section.hero.button -}}
+    </a>
+    {%- endif -%}
+  </div>
+</div>

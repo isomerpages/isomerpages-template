@@ -1,4 +1,5 @@
 <head>
+    {%- include google-tag-manager.html -%}
     <meta charset="utf8">
     <meta name="viewport"
           content="width=device-width, user-scalable=yes, initial-scale=1.0">
@@ -15,7 +16,7 @@
             {{- page.description | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 20 -}}
         {%- else -%}
             {{- page.content | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 20 -}}
-        {%- endif -%}"> 
+        {%- endif -%}">
     <meta name="Description" CONTENT="
         {%- if page.description -%}
             {{- page.description | markdownify | normalize_whitespace | strip_html | strip_newlines | normalize_whitespace | truncatewords: 20 -}}
@@ -31,14 +32,19 @@
         {{- site.data.navigation.logo | absolute_url -}}
     {%- endif -%}">
     <meta property="og:url" content="{{- page.url | absolute_url -}}">
+    {%- comment -%} Prevent our staging sites from appearing in Google search results {%- endcomment -%}
+    {%- if jekyll.environment == "staging" -%}
+        <meta name="robots" content="noindex">
+    {%- endif -%}
     <link rel="canonical" href="{{- page.url | absolute_url -}}" />
-    
+
     {%- if site.favicon -%}
         <link rel="shortcut icon" href="{{- site.baseurl- }}{{- site.favicon -}}" type="image/x-icon">
     {%- else -%}
         <link rel="shortcut icon" href="{{- site.baseurl -}}/assets/img/favicon.ico" type="image/x-icon">
     {%- endif -%}
-    
+
+    <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/styles.css">
     <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/blueprint.css">
     <link rel="stylesheet" href="{{- site.baseurl -}}{{- site.custom_css_path -}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,600" crossorigin="anonymous">
@@ -53,15 +59,15 @@
     {%- feed_meta -%}
 
     {%- include wogaa_scripts.html -%}
-    {%- if site.facebook-pixel -%}
+    {%- if site.facebook-pixel and site.facebook-pixel != "" -%}
         <script src="{{- "assets/js/facebook-pixel.js" | relative_url -}}" crossorigin="anonymous"></script>
         <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{- site.facebook-pixel -}}&ev=PageView&noscript=1"/></noscript>
     {%- endif -%}
-    {%- if site.linkedin-insights -%}
+    {%- if site.linkedin-insights and site.linkedin-insights != "" -%}
         <script src="{{- "assets/js/linkedin-insights.js" | relative_url -}}" crossorigin="anonymous"></script>
         <noscript><img height="1" width="1" style="display:none" src="https://px.ads.linkedin.com/collect/?pid={{- site.linkedin-insights -}}&fmt=gif" /></noscript>
     {%- endif -%}
-    {%- if site.google-tag-manager -%}
+    {%- if site.google-tag-manager and site.google-tag-manager != "" -%}
         <script src="{{- "assets/js/google-tag-manager.js" | relative_url -}}" crossorigin="anonymous"></script>
     {%- endif -%}
     <title>

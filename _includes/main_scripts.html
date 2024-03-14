@@ -1,5 +1,5 @@
 {%- comment -%} DYN {%- endcomment -%}
-<script src=https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.8.3/polyfill.min.js></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.8.3/polyfill.min.js" integrity="sha384-N9GWJ6gGT4pUnJPVgFMCKy3eTg1Xg5NbjqHSoUSazWLr85eR1/JT1BM7Dv2qtFum" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha256-0rguYS0qgS6L4qVzANq4kjxPLtvnp5nn2nB5G1lWRv4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha384-LVoNJ6yst/aLxKvxwp6s2GAabqPczfWh6xzm38S/YtjUyZ+3aTKOnD/OJVGYLZDl" crossorigin="anonymous"></script>
 {%- comment -%} Carousel {%- endcomment -%}
@@ -33,7 +33,7 @@
 
 {%- if page.layout == 'search' -%}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.js" integrity="sha384-WYZhYwlpZbtVuVpKReDUDRhoKr0MubxAfgcS0k8y5lprnl0i482oHTKTBeWTbcaz" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.11/purify.min.js" integrity="sha384-ELH09WGRUcBpRT6iHTekFB2YBCT9kFMsKG4Y9LUAevHjihu8Otri8Sm01QgXOTht" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.9/purify.min.js" integrity="sha384-3HPB1XT51W3gGRxAmZ+qbZwRpRlFQL632y8x+adAqCr4Wp3TaWwCLSTAJJKbyWEK" crossorigin="anonymous"></script>
 <script src="{{- "/assets/posts.js" | relative_url -}}"></script>
 <script src="{{- "/assets/js/worker.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/pagination-util.js" | relative_url -}}" crossorigin="anonymous"></script>
@@ -42,10 +42,20 @@
 {%- endif -%}
 
 {%- if page.layout == 'datagovsg-search' -%}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.11/purify.min.js" integrity="sha384-ELH09WGRUcBpRT6iHTekFB2YBCT9kFMsKG4Y9LUAevHjihu8Otri8Sm01QgXOTht" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.9/purify.min.js" integrity="sha384-3HPB1XT51W3gGRxAmZ+qbZwRpRlFQL632y8x+adAqCr4Wp3TaWwCLSTAJJKbyWEK" crossorigin="anonymous"></script>
+<div id="default-field" data-title=""></div>
 <script src="{{- "/assets/js/pagination-util.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/search.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/datagovsg-search.js" | relative_url -}}" crossorigin="anonymous"></script>
+{%- endif -%}
+
+{%- if page.layout == 'datagovsg-v2-search' -%}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.9/purify.min.js" integrity="sha384-3HPB1XT51W3gGRxAmZ+qbZwRpRlFQL632y8x+adAqCr4Wp3TaWwCLSTAJJKbyWEK" crossorigin="anonymous"></script>
+<div id="default-field" data-title="{{ page.default_field }}"></div>
+<script src="{{- "/assets/js/pagination-util.js" | relative_url -}}" crossorigin="anonymous"></script>
+<script src="{{- "/assets/js/search.js" | relative_url -}}" crossorigin="anonymous"></script>
+<script src="{{- "/assets/js/datagovsg-search.js" | relative_url -}}" crossorigin="anonymous"></script>
+<script src="{{- "/assets/js/left-nav-interaction.js" | relative_url -}}" crossorigin="anonymous"></script>
 {%- endif -%}
 
 {%- if page.layout == 'resources-alt' or page.layout == 'resources' -%}
@@ -54,17 +64,37 @@
 {%- endif -%}
 
 {%- if page.layout == 'page' or page.layout == 'our-team' or page.layout == 'our-journey' or page.layout == 'post' -%}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.js" integrity="sha512-16cHhHqb1CbkfAWbdF/jgyb/FDZ3SdQacXG8vaOauQrHhpklfptATwMFAc35Cd62CQVN40KDTYo9TIsQhDtMFg==" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/floating-buttons.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/left-nav-interaction.js" | relative_url -}}" crossorigin="anonymous"></script>
+<script src="https://www.instagram.com/static/bundles/es6/EmbedSDK.js/ab12745d93c5.js" integrity="sha384-uCmurhfuSbKidtlFxpgv2j4yIWVfYbrJaFrj62TR3NpFp+msiMilcvgz0gsDY2Yj" crossorigin="anonymous"></script>
   {%- if site.recommender == true -%}
   <script src="{{- "/assets/js/recommender.js" | relative_url -}}" crossorigin="anonymous"></script>
   {%- endif -%}
 {%- endif -%}
 
+{%- if page.layout == 'egazette-search' -%}
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/satellite-min.css"
+  />
+  <link rel="stylesheet" href="{{- site.baseurl -}}/assets/css/algolia.css">
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.60.0/dist/instantsearch.production.min.js" integrity="sha256-9242vN47QUX50UG5Gf5XDO1YREWCEJRyXHofh5fsl24=" crossorigin="anonymous"></script>
+  <script src="{{- "/assets/js/algolia-search.js" | relative_url -}}" crossorigin="anonymous"></script>
+{%- endif -%}
+
 {%- include chatbot-scripts.html -%}
 
-{%- comment -%} Google Analytics {%- endcomment -%}
+{%- comment -%} Google Analytics (UA) {%- endcomment -%}
 <script src="{{- site.baseurl -}}/assets/js/google_analytics.js"></script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
 <script async src="{{- site.baseurl -}}/assets/js/autotrack.js"></script>
+
+{%- comment -%} Isomer's Google Tag (GA4) {%- endcomment -%}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3RT85MXN6L"></script>
+<script src="{{- site.baseurl -}}/assets/js/google-tag.js"></script>
+
+{%- comment -%} Isomer's Google Tag Manager {%- endcomment -%}
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQ8G2P9"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

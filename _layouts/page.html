@@ -224,13 +224,13 @@ layout: skeleton
                 {%- assign prevIndex = forloop.index0 | minus: 1 -%}
                 {%- assign nextIndex = forloop.index0 | plus: 1 -%}
 
-                <section class="bp-section bottom-navigation">
-                    <div>
-                        <a href="{{- collection[prevIndex].url -}}" class="is-half is-left">
+                <section class="bp-section bottom-navigation is-flex">
+                    <div class="is-full-width">
+                        <a href="{{- collection[prevIndex].url -}}" class="is-half is-left is-full-height">
                             <p class="has-text-weight-semibold"><span class="sgds-icon sgds-icon-arrow-left is-size-4"></span> PREVIOUS </p>
                             <p class="is-hidden-mobile">{{- collection[prevIndex].title -}}</p>
                         </a>
-                        <a href="{{- collection[nextIndex].url -}}" class="is-half is-right">
+                        <a href="{{- collection[nextIndex].url -}}" class="is-half is-right is-full-height">
                             <p class="has-text-weight-semibold">NEXT <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span></p>
                             <p class="is-hidden-mobile">{{- collection[nextIndex].title -}}</p>
                         </a>

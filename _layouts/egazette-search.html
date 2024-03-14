@@ -1,0 +1,75 @@
+---
+layout: skeleton
+---
+
+<section class="bp-section is-small search-section bp-section-pagetitle">
+  <div class="bp-container">
+    <div class="row">
+      <div class="col is-8 is-offset-2">
+        <p class="has-text-white">{%- include header-breadcrumb.html -%}</p>
+      </div>
+    </div>
+  </div>
+  <div class="bp-container">
+    <div class="row">
+      <div id="search-title" class="col is-8 is-offset-2">
+        <h1 class="has-text-white"><b>{{- page.title -}}</b></h1>
+      </div>
+    </div>
+  </div>
+  <div class="bp-container">
+    <div>
+      <div class="row">
+        <div
+          id="search-container"
+          class="col is-8 right-padding-zero is-offset-2"
+        >
+          <div
+            class="field has-addons control has-icons-left is-expanded input is-fullwidth is-large"
+            id="searchbox"
+          >
+            <span class="is-large is-left">
+                <i class="sgds-icon sgds-icon-search is-size-4 search-bar"></i>
+            </span>
+          </div>
+          <div id="poweredby"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bp-section">
+  <div class="bp-container search-content">
+    <div class="is-flex col is-offset-2 search-label-options">
+      <h5>Search results</h5>
+      <div class="row search-hits-options">
+        <div id="hits-per-page" class="sgds-selector p-0"></div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- TODO -->
+      <div id="loading-spinner">
+			</div>
+      <div class="col is-8 is-offset-2 search-results-display">
+        <div>
+          <div class="search-summary">
+            <!-- Not including total search results - we can only retrieve up to 1000 so the number might be inaccurate -->
+            <h4 class="search-results-count" id="search-results-count"></h4>
+            <small id="search-page-indicator"></small>
+          </div>
+          <br />
+          <h5 class="search-results" id="hits"></h5>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="paginator-pages">
+  <div id="pagination"></div>
+</div>
+<div class="search pagination padding--bottom--xl">
+  
+</div>

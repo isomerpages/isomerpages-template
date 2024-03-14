@@ -38,8 +38,8 @@ layout: skeleton
             <div class="col is-8 is-offset-2">
                 {%- for location in page.locations -%}
                     <div class="row is-multiline margin--bottom">
-                        {%- if location.address -%}
-                            {%- if location.title -%}
+                        {%- if location.address and location.address != "" -%}
+                            {%- if location.title and location.title != "" -%}
                                 <div class="col is-6 padding--bottom--none">
                                     {%- comment -%}<p></p>{%- endcomment -%}
                                     <h5 class="has-text-secondary"><b>{{- location.title -}}</b></h5>
@@ -48,7 +48,7 @@ layout: skeleton
 
                             
                             <div class="col is-6 padding--bottom--none is-hidden-mobile">
-                                {%- if location.operating_hours -%}
+                                {%- if location.operating_hours and location.operating_hours.size != 0 -%}
                                     <h5 class="has-text-secondary"><b>Operating Hours</b></h5>
                                 {%- endif -%}
                             </div>
@@ -59,7 +59,7 @@ layout: skeleton
                                     <h5 class="has-text-secondary"><b>Other Offices</b></h5>
                                 </div>
                                 <div class="col is-6 padding--bottom--none">
-                                    {%- if location.operating-hours -%}
+                                    {%- if location.operating-hours and location.operating_hours.size != 0 -%}
                                     <h5 class="has-text-secondary"><b>Operating Hours</b></h5>
                                     {%- endif -%}
                             </div>
@@ -71,7 +71,7 @@ layout: skeleton
                                         {{- location.address | join: "</p><p class='content margin--top--none margin--bottom--none'>" -}}
                                     </p>
 
-                                    {%- if location.maps_link -%}
+                                    {%- if location.maps_link and location.maps_link != "" -%}
                                         {%- assign url_input = location.maps_link -%}
                                         {%- include functions/external_url.html -%}
                                     {%- else -%}
@@ -87,7 +87,7 @@ layout: skeleton
                                     </a>
                                 </div>
                             </div>
-                            {%- if location.operating_hours -%}
+                            {%- if location.operating_hours and location.operating_hours != "" -%}
                                 <div class="col is-6">
                                     {%- assign operating_hours = location.operating_hours -%}
                                     <div>
@@ -104,28 +104,28 @@ layout: skeleton
                     </div>
                 {%- endfor -%}
 
-                {%- if page.contacts -%}
+                {%- if page.contacts and page.contacts != "" -%}
                     <div class="row is-multiline margin--bottom--xl">
                         <div class="col is-12 padding--bottom--none">
                             <h5 class="has-text-secondary"><b>Contact Us</b></h5>
                         </div>
                         {%- for contact in page.contacts -%}
-                            {%- if contact.content -%}
+                            {%- if contact.content and contact.content != "" -%}
                                 <div class="col is-6">
                                     <div>
-                                        {%- if contact.title -%}
+                                        {%- if contact.title and contact.title != "" -%}
                                             <p class="has-text-weight-semibold margin--top--none margin--bottom--none">{{contact.title}}</p>
                                         {%- endif -%}
 
                                         {%- for content in contact.content -%}
                                             <p class="margin--top--none margin--bottom--none">
-                                                {%- if content.email -%}
+                                                {%- if content.email and content.email != "" -%}
                                                     <a href="mailto:{{content.email | strip -}}">
                                                         <u>{{- content.email | strip -}}</u>
                                                     </a>
                                                 {%- endif -%}
 
-                                                {%- if content.phone -%}
+                                                {%- if content.phone and content.phone != "" -%}
                                                     <a href="tel:{{content.phone | normalize_whitespace | replace: " ", "" -}}">
                                                         <u>{{- content.phone | strip -}}</u>
                                                     </a>
@@ -143,7 +143,7 @@ layout: skeleton
                     </div>
                 {%- endif -%}
 
-                {%- if site.data.footer.feedback -%}
+                {%- if site.data.footer.feedback and site.data.footer.feedback != "" -%}
                     <div class="row is-multiline margin--bottom--lg">
                         <div class="col is-12 padding--bottom--none">
                             <h5 class="has-text-secondary has-text-weight-semibold">Send us your feedback</h5>

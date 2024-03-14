@@ -1,0 +1,43 @@
+<div class="bp-dropdown border-solid-grey is-full-width">
+  <div class="bp-dropdown-trigger">
+    <a
+      class="bp-button bp-dropdown-button hero-dropdown is-centered"
+      aria-haspopup="true"
+      aria-controls="hero-dropdown-menu"
+    >
+      {%- if section.hero.dropdown.title -%}
+      <span>
+        <b>
+          <p>{{- section.hero.dropdown.title -}}</p>
+        </b>
+      </span>
+      {%- else -%}
+      <span>
+        <b>
+          <p>I want to...</p>
+        </b>
+      </span>
+      {%- endif -%}
+      <span class="icon is-small">
+        <i
+          class="sgds-icon sgds-icon-chevron-down is-size-4"
+          aria-hidden="true"
+        ></i>
+      </span>
+    </a>
+  </div>
+  <div
+    class="bp-dropdown-menu has-text-left"
+    id="hero-dropdown-menu"
+    role="menu"
+  >
+    <div class="bp-dropdown-content is-centered">
+      {%- for option in section.hero.dropdown.options -%} {%- if option.url and
+      option.title -%}
+      <a class="bp-dropdown-item" href="{{- site.baseurl -}}{{ option.url }}">
+        <h5>{{ option.title }}</h5>
+      </a>
+      {%- endif -%} {%- endfor -%}
+    </div>
+  </div>
+</div>

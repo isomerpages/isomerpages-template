@@ -75,7 +75,7 @@
                         </div>
                     {%- elsif navlink.sublinks -%}
                         {%- comment -%} Leftnav page with custom sublinks {%- endcomment -%}
-                        <div class="col is-one-fifth is-hidden-tablet-only is-hidden-mobile padding--bottom--lg is-left">
+                        <div class="col footer-page-links is-one-fifth is-hidden-tablet-only is-hidden-mobile padding--bottom--lg is-left">
                             {%- assign url_input = navlink.url -%}
                             {%- include functions/external_url.html -%}
                             
@@ -97,7 +97,7 @@
                             {%- endfor -%}
                         </div>
                     {%- elsif navlink.resource_room -%}
-                        <div class="col is-one-fifth is-hidden-tablet-only is-hidden-mobile padding--bottom--lg is-left">
+                        <div class="col footer-page-links is-one-fifth is-hidden-tablet-only is-hidden-mobile padding--bottom--lg is-left">
                             <p class="sub-header">
                                 <b><a class="has-text-white" href="/{{site.resources_name}}/">
                                     {{- navlink.title -}}
@@ -138,7 +138,7 @@
                     {%- else -%}
                         {%- comment -%} Single page {%- endcomment -%}
                         
-                        <div class="col is-one-fifth is-hidden-tablet-only is-hidden-mobile padding--bottom--lg is-left">
+                        <div class="col footer-page-links is-one-fifth is-hidden-tablet-only is-hidden-mobile padding--bottom--lg is-left">
                             {%- assign url_input = navlink.url -%}
                             {%- include functions/external_url.html -%}
                             
@@ -167,28 +167,28 @@
                             {%- endif -%}
                         {%- endfor -%}
                     {%- endif -%}
-                    {%- if site.data.footer.faq -%}
+                    {%- if site.data.footer.faq and site.data.footer.faq != "" -%}
                         <li>
                             {%- assign url_input = site.data.footer.faq -%}
                             {%- include functions/external_url.html -%}
                             <p><a {{anchor}}>FAQ</a></p>
                         </li>
                     {%- endif -%}
-                    {%- if site.data.footer.contact_us -%}
+                    {%- if site.data.footer.contact_us and site.data.footer.contact_us != "" -%}
                         <li>
                             {%- assign url_input = site.data.footer.contact_us -%}
                             {%- include functions/external_url.html -%}
                             <p><a {{anchor}}>Contact Us</a></p>
                         </li>
                     {%- endif -%}
-                    {%- if site.data.footer.feedback -%}
+                    {%- if site.data.footer.feedback and site.data.footer.feedback != "" -%}
                         <li>
                             {%- assign url_input = site.data.footer.feedback -%}
                             {%- include functions/external_url.html -%}
                             <p><a {{anchor}}>Feedback</a></p>
                         </li>
                     {%- endif -%}
-                    {%- if site.data.footer.show_reach -%}
+                    {%- if site.data.footer.show_reach and site.data.footer.show_reach != "" -%}
                         <li>
                             {%- assign url_input = "https://www.reach.gov.sg/" -%}
                             {%- include functions/external_url.html -%}
@@ -196,7 +196,7 @@
                         </li>
                     {%- endif -%}
                     <li><p><a href="https://www.tech.gov.sg/report_vulnerability/">Report Vulnerability</a></p></li>
-                    {%- if site.data.footer.privacy_policy -%}
+                    {%- if site.data.footer.privacy_policy and site.data.footer.privacy_policy != "" -%}
                         {%- assign url_input = site.data.footer.privacy_policy -%}
                         {%- include functions/external_url.html -%}
                     {%- else -%}
@@ -205,7 +205,7 @@
                     {%- endif -%}
                     <li><p><a {{anchor}}>Privacy Statement</a></p></li>
                     
-                    {%- if site.data.footer.terms_of_use -%}
+                    {%- if site.data.footer.terms_of_use and site.data.footer.terms_of_use != "" -%}
                         {%- assign url_input = site.data.footer.terms_of_use -%}
                         {%- include functions/external_url.html -%}
                     {%- else -%}
@@ -217,18 +217,18 @@
             </div>
             {%- if social -%}
                 <div class="col social-link-container has-text-right-desktop padding--top--sm padding--bottom--sm is-hidden-tablet-only is-hidden-mobile">
-                    {%- if social.facebook -%}
+                    {%- if social.facebook and social.facebook != "" -%}
                         {%- assign url_input = social.facebook -%}
                         {%- include functions/external_url.html -%}
                         <a {{anchor}} class="social-link padding--left padding--bottom is-inline-block">
                             <span class="sgds-icon sgds-icon-facebook is-size-4" title="Facebook"></span>
                         </a>
                     {%- endif -%}
-                    {%- if social.twitter -%}
+                    {%- if social.twitter and social.twitter != "" -%}
                         {%- assign url_input = social.twitter -%}
                         {%- include functions/external_url.html -%}
                         <a {{anchor}} class="social-link padding--left padding--bottom is-inline-block">
-                            <span class="sgds-icon sgds-icon-twitter is-size-4" title="Twitter"></span>
+                            <img class="social-logo" src="/assets/img/x_logo.svg" alt="Twitter / X Logo">
                         </a>
                     {%- endif -%}
                     {%- if social.youtube -%}
@@ -238,28 +238,28 @@
                             <span class="sgds-icon sgds-icon-youtube is-size-4" title="YouTube"></span>
                         </a>
                     {%- endif -%}
-                    {%- if social.instagram -%}
+                    {%- if social.instagram and social.instagram != "" -%}
                         {%- assign url_input = social.instagram -%}
                         {%- include functions/external_url.html -%}
                         <a {{anchor}} class="social-link padding--left padding--bottom is-inline-block">
                             <span class="bx bxl-instagram-alt is-size-4" title="Instagram"></span>
                         </a>
                     {%- endif -%}
-                    {%- if social.linkedin -%}
+                    {%- if social.linkedin and social.linkedin != "" -%}
                         {%- assign url_input = social.linkedin -%}
                         {%- include functions/external_url.html -%}
                         <a {{anchor}} class="social-link padding--left padding--bottom is-inline-block">
                             <span class="sgds-icon sgds-icon-linkedin is-size-4" title="LinkedIn"></span>
                         </a>
                     {%- endif -%}
-                    {%- if social.telegram -%}
+                    {%- if social.telegram and social.telegram != "" -%}
                         {%- assign url_input = social.telegram -%}
                         {%- include functions/external_url.html -%}
                         <a {{anchor}} class="social-link padding--left padding--bottom is-inline-block">
                             <span class='bx bxl-telegram' style="font-size:24px" title="Telegram"></span>
                         </a>
                     {%- endif -%}
-                    {%- if social.tiktok -%}
+                    {%- if social.tiktok and social.tiktok != "" -%}
                         {%- assign url_input = social.tiktok -%}
                         {%- include functions/external_url.html -%}
                         <a {{anchor}} class="social-link padding--left padding--bottom is-inline-block">
@@ -330,28 +330,28 @@
                             {%- endif -%}
                         {%- endfor -%}
                     {%- endif -%}
-                    {%- if site.data.footer.faq -%}
+                    {%- if site.data.footer.faq and site.data.footer.faq != "" -%}
                             {%- assign url_input = site.data.footer.faq -%}
                             {%- include functions/external_url.html -%}
                             <p><a {{anchor}}>FAQ</a></p>
                     {%- endif -%}
-                    {%- if site.data.footer.contact_us -%}
+                    {%- if site.data.footer.contact_us and site.data.footer.contact_us != "" -%}
                             {%- assign url_input = site.data.footer.contact_us -%}
                             {%- include functions/external_url.html -%}
                             <p><a {{anchor}}>Contact Us</a></p>
                     {%- endif -%}
-                    {%- if site.data.footer.feedback -%}
+                    {%- if site.data.footer.feedback and site.data.footer.feedback != "" -%}
                             {%- assign url_input = site.data.footer.feedback -%}
                             {%- include functions/external_url.html -%}
                             <p><a {{anchor}}>Feedback</a></p>
                     {%- endif -%}
-                    {%- if site.data.footer.show_reach -%}
+                    {%- if site.data.footer.show_reach and site.data.footer.show_reach != "" -%}
                             {%- assign url_input = "https://www.reach.gov.sg/" -%}
                             {%- include functions/external_url.html -%}
                             <p><a {{anchor}} title="Link to reach.gov.sg">REACH</a></p>
                     {%- endif -%}
                     <p><a href="https://www.tech.gov.sg/report_vulnerability/">Report Vulnerability</a></p>
-                    {%- if site.data.footer.privacy_policy -%}
+                    {%- if site.data.footer.privacy_policy and site.data.footer.privacy_policy != "" -%}
                         {%- assign url_input = site.data.footer.privacy_policy -%}
                         {%- include functions/external_url.html -%}
                     {%- else -%}
@@ -360,7 +360,7 @@
                     {%- endif -%}
                     <p><a {{anchor}}>Privacy Statement</a></p>
                     
-                    {%- if site.data.footer.terms_of_use -%}
+                    {%- if site.data.footer.terms_of_use and site.data.footer.terms_of_use != "" -%}
                         {%- assign url_input = site.data.footer.terms_of_use -%}
                         {%- include functions/external_url.html -%}
                     {%- else -%}
@@ -372,7 +372,7 @@
         </div>
         <div class="row">
             <div class="col social-link-container is-hidden-desktop padding--top--lg padding--bottom--none">
-                {%- if social.facebook -%}
+                {%- if social.facebook and social.facebook != "" -%}
                     {%- assign url_input = social.facebook -%}
                     {%- include functions/external_url.html -%}
                     <a {{anchor}} class="social-link padding--right" title="Facebook">
@@ -380,15 +380,15 @@
                     </a>
                 {%- endif -%}
 
-                {%- if social.twitter -%}
+                {%- if social.twitter and social.twitter != "" -%}
                     {%- assign url_input = social.twitter -%}
                     {%- include functions/external_url.html -%}
                     <a {{anchor}} class="social-link padding--right" title="Twitter">
-                        <span class="sgds-icon sgds-icon-twitter is-size-4"></span>
+                        <img class="social-logo" src="/assets/img/x_logo.svg" alt="Twitter / X Logo">
                     </a>
                 {%- endif -%}
 
-                {%- if social.youtube -%}
+                {%- if social.youtube and social.youtube != "" -%}
                     {%- assign url_input = social.youtube -%}
                     {%- include functions/external_url.html -%}
                     <a {{anchor}} class="social-link padding--right" title="YouTube">
@@ -396,7 +396,7 @@
                     </a>
                 {%- endif -%}
 
-                {%- if social.instagram -%}
+                {%- if social.instagram and social.instagram != "" -%}
                     {%- assign url_input = social.instagram -%}
                     {%- include functions/external_url.html -%}
                     <a {{anchor}} class="social-link padding--right" title="Instagram">
@@ -404,7 +404,7 @@
                     </a>
                 {%- endif -%}
 
-                {%- if social.linkedin -%}
+                {%- if social.linkedin and social.linkedin != "" -%}
                     {%- assign url_input = social.linkedin -%}
                     {%- include functions/external_url.html -%}
                     <a {{anchor}} class="social-link padding--right" title="LinkedIn">
@@ -412,7 +412,7 @@
                     </a>
                 {%- endif -%}
 
-                {%- if social.telegram -%}
+                {%- if social.telegram and social.telegram != "" -%}
                     {%- assign url_input = social.telegram -%}
                     {%- include functions/external_url.html -%}
                     <a {{anchor}} class="social-link padding--right">
@@ -420,7 +420,7 @@
                     </a>
                 {%- endif -%}
 
-                {%- if social.tiktok -%}
+                {%- if social.tiktok and social.tiktok != "" -%}
                     {%- assign url_input = social.tiktok -%}
                     {%- include functions/external_url.html -%}
                     <a {{anchor}} class="social-link padding--right">

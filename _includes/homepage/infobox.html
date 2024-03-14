@@ -1,0 +1,12 @@
+<!-- infobox.html - used in infocols.html -->
+<div class="infocols-infobox-body is-flex p-6">
+  <h3 class="h3">
+    {{ include.infobox.title }}
+  </h3>
+  {%- if include.infobox.description -%}
+    <p class="body-1 infocols-infobox-description">
+      {{ include.infobox.description }}
+    </p>
+  {%- endif -%}
+</div>
+  

@@ -3,12 +3,12 @@
         <div class="row">
             <div class="col is-half is-offset-one-quarter has-text-centered padding--top--lg">
                 {%- if section.resources.subtitle -%}
-                    <p class="padding--bottom eyebrow is-uppercase">
+                    <p class="padding--bottom subtitle-2">
                         {{- section.resources.subtitle -}}
                     </p>
                 {%- endif -%}
                 {%- if section.resources.title -%}
-                    <h1 class="has-text-secondary padding--bottom"><b>{{- section.resources.title -}}</b></h1>
+                    <h1 class="has-text-secondary padding--bottom h1">{{- section.resources.title -}}</h1>
                 {%- endif -%}
             </div>
         </div>
@@ -50,8 +50,10 @@
                         </a>
                     </div>
                     {%- else -%}
-                        {%- if post.permalink -%}
-                            <a href="{{- post.url -}}" class="is-media-card">
+                        {%- if post.external -%}
+                            <a href="{{- post.external -}}" class="is-media-card" target="_blank">
+                        {%- elsif post.permalink -%}
+                            <a href="{{- post.permalink -}}" class="is-media-card">
                         {%- else -%}
                             <a href="{{- post.file_url | relative_url -}}" class="is-media-card" target="_blank" rel="noreferrer">
                         {%- endif -%}
@@ -67,6 +69,10 @@
                                     <small class="has-text-white">
                                         <span class="sgds-icon sgds-icon-download align-right is-size-4"></span>
                                     </small>
+                                {%- elsif post.layout == 'link' -%}
+                                    <small class="has-text-white">
+                                        <span class="bx bx-link-external align-right is-size-4"></span>
+                                    </small>
                                 {%- endif -%}
                             </div>
                         </div>
@@ -77,17 +83,15 @@
         </div>
         <div class="row has-text-centered margin--top padding--bottom--lg">
             <div class="col is-offset-one-third is-one-third">
-                <a href="{{- site.baseurl -}}/{{- site.resources_name -}}/" class="bp-sec-button">
-                    <div>
-                        <span>
-                            {%- if section.resources.button -%}
-                                {{- section.resources.button -}}
-                            {%- else -%}
-                                MORE
-                            {%- endif -%}
-                        </span>
-                        <i class="sgds-icon sgds-icon-arrow-right is-size-4" aria-hidden="true"></i>
-                    </div>
+                <a href="{{- site.baseurl -}}/{{- site.resources_name -}}/" class="py-4 link-button remove-after is-flex flex-center is-vh-centered">
+                    <span class="link-button-text">
+                        {%- if section.resources.button -%}
+                            {{- section.resources.button -}}
+                        {%- else -%}
+                            MORE
+                        {%- endif -%}
+                    </span>
+                    <i class="sgds-icon sgds-icon-arrow-right is-size-4 ml-3" aria-hidden="true"></i>
                 </a>
             </div>
         </div>

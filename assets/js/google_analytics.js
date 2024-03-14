@@ -13,7 +13,7 @@ ga('t1.require', 'outboundLinkTracker', {
     events: ['click', 'auxclick', 'contextmenu']
 });
 
-{%- if site.google_analytics -%}
+{%- if site.google_analytics and site.google_analytics != "" -%}
     ga('create', '{{site.google_analytics}}', 'auto', 't2');
 
     ga('t2.require', 'pageVisibilityTracker', {

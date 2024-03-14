@@ -55,10 +55,12 @@ layout: skeleton
                     {%- endfor -%}
 
                     <div class="col is-one-quarter-widescreen is-one-third-desktop is-half-tablet resource-card-element hide" id="{{- post.date | date: "%Y"}}">
-                        {%- if post.permalink -%}
-                            <a href="{{- post.permalink | relative_url -}}" class="is-media-card">
+                        {%- if post.external -%}
+                            <a href="{{- post.external -}}" class="is-media-card" target="_blank">
+                        {%- elsif post.file_url -%}
+                            <a href="{{- post.file_url -}}" class="is-media-card" target="_blank">
                         {%- else -%}
-                            <a href="{{- post.file_url | relative_url -}}" class="is-media-card" target="_blank">
+                            <a href="{{- post.permalink | relative_url -}}" class="is-media-card">
                         {%- endif -%}
                         <div class="media-card-plain bg-media-color-{{category_index}} padding--lg">
                             <div>
@@ -70,6 +72,10 @@ layout: skeleton
                                 {%- if post.file_url -%}
                                     <small class="has-text-white">
                                         <span class="sgds-icon sgds-icon-download align-right is-size-4"></span>
+                                    </small>
+                                {%- elsif post.layout == 'link' -%}
+                                    <small class="has-text-white">
+                                        <span class="bx bx-link-external align-right is-size-4"></span>
                                     </small>
                                 {%- endif -%}
                             </div>
@@ -83,9 +89,14 @@ layout: skeleton
 </section>
 
 
-<div class="search pagination padding--bottom--xl">
-    <span class="sgds-icon sgds-icon-arrow-left is-size-4"></span>
+<div class="px-6 search pagination padding--bottom--xl">
+    <span class="bx bx-chevrons-left is-size-4"></span>
+    <div class="px-1 is-hidden-mobile"></div>
+    <span class="sgds-icon sgds-icon-arrow-left is-size-4 is-hidden-desktop is-hidden-tablet-only"></span>
     {%- comment -%} To insert page selectors {%- endcomment -%}
-    <div id="paginator-pages"></div>
-    <span class="sgds-icon sgds-icon-arrow-right is-size-4"></span>
+    <div id="paginator-pages" class="is-hidden-mobile"></div>
+    <div id="paginator-pages-mobile" class="is-hidden-desktop is-hidden-tablet-only is-full-width"></div>
+    <span class="sgds-icon sgds-icon-arrow-right is-size-4 is-hidden-desktop is-hidden-tablet-only"></span>
+    <div class="px-1 is-hidden-mobile"></div>
+    <span class="bx bx-chevrons-right is-size-4"></span>
 </div>
