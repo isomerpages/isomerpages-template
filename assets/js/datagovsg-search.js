@@ -78,7 +78,8 @@ function databaseSearch(searchTerm, index, callback) {
   //   title: represents human readable field
   let request, columnMetadata
   let formattedSearchField = searchField ? searchField.replace(" ", "_") : ""
-  if (!!defaultField) {
+  const isDgsV2 = !!defaultField // Only dgs-v2 has default field
+  if (isDgsV2) {
     // Datagov-v2 search - query for dataset metadata first to retrieve column info
     request = $.ajax({
       url: `https://api-production.data.gov.sg/v2/public/api/datasets/${resourceId}/metadata`,
