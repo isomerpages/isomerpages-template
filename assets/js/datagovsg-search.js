@@ -124,7 +124,6 @@ function databaseSearch(searchTerm, index, callback) {
         title: field.id,
       }))
     }
-    columnMetadata = columnMetadata || data.result.fields
     if (isFirstRender) {
       pageResults = Array(Math.ceil(datagovsgTotal / PAGINATION_DISPLAY_RESULTS_PER_PAGE)).fill(null);
     } else {
