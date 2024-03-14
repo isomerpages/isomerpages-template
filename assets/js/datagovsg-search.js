@@ -89,12 +89,10 @@ function databaseSearch(searchTerm, index, callback) {
         id: item.name,
         title: item.columnTitle
       }))
-      if (formattedSearchField) {
+      if (formattedSearchField && searchTerm !== "") {
         const filteredSearchColumn = columnMetadata.filter((col) => col.title.toLowerCase() === formattedSearchField.toLowerCase())
         formattedSearchField = filteredSearchColumn[0].id
         data.q = JSON.stringify({[formattedSearchField]: searchTerm})
-      } else {
-        data.q = searchTerm
       }
       return $.ajax({
         url: 'https://data.gov.sg/api/action/datastore_search',
