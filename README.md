@@ -9,4 +9,5 @@ And add this line to your Jekyll site's `_config.yml`:
 ```yaml
 remote_theme: isomerpages/isomerpages-template
 ```
- 
+
+This project is tested with BrowserStack.

@@ -1,7 +1,7 @@
 {%- comment -%} DYN {%- endcomment -%}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha256-0rguYS0qgS6L4qVzANq4kjxPLtvnp5nn2nB5G1lWRv4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha384-LVoNJ6yst/aLxKvxwp6s2GAabqPczfWh6xzm38S/YtjUyZ+3aTKOnD/OJVGYLZDl" crossorigin="anonymous"></script>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.8.3/polyfill.min.js></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.8.3/polyfill.min.js" integrity="sha384-N9GWJ6gGT4pUnJPVgFMCKy3eTg1Xg5NbjqHSoUSazWLr85eR1/JT1BM7Dv2qtFum" crossorigin="anonymous"></script>
 
 {%- comment -%} Carousel {%- endcomment -%}
 {%- if page.layout == 'homepage' -%}
@@ -34,7 +34,7 @@
 
 {%- if page.layout == 'search' -%}
 <script src="https://unpkg.com/lunr@2.3.6/lunr.js" integrity="sha384-WYZhYwlpZbtVuVpKReDUDRhoKr0MubxAfgcS0k8y5lprnl0i482oHTKTBeWTbcaz" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.10/purify.min.js" integrity="sha384-rde2iD+4Po+9TlQo3k7zSYKn29zm1/22iCpWMA9QUzQqlB5+M4gpN5yQxqWvaMon" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.9/purify.min.js" integrity="sha384-3HPB1XT51W3gGRxAmZ+qbZwRpRlFQL632y8x+adAqCr4Wp3TaWwCLSTAJJKbyWEK" crossorigin="anonymous"></script>
 <script src="{{- "/assets/posts.js" | relative_url -}}"></script>
 <script src="{{- "/assets/js/worker.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/pagination-util.js" | relative_url -}}" crossorigin="anonymous"></script>
@@ -43,7 +43,7 @@
 {%- endif -%}
 
 {%- if page.layout == 'datagovsg-search' -%}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.10/purify.min.js" integrity="sha384-rde2iD+4Po+9TlQo3k7zSYKn29zm1/22iCpWMA9QUzQqlB5+M4gpN5yQxqWvaMon" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.9/purify.min.js" integrity="sha384-3HPB1XT51W3gGRxAmZ+qbZwRpRlFQL632y8x+adAqCr4Wp3TaWwCLSTAJJKbyWEK" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/pagination-util.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/search.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/datagovsg-search.js" | relative_url -}}" crossorigin="anonymous"></script>
@@ -55,7 +55,7 @@
 {%- endif -%}
 
 {%- if page.layout == 'post' or page.layout == 'simple-page' or page.layout == 'leftnav-page-content' or page.layout == 'our-team' or page.layout == 'our-journey' -%}
-<script src="https://printjs-4de6.kxcdn.com/print.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.js" integrity="sha512-16cHhHqb1CbkfAWbdF/jgyb/FDZ3SdQacXG8vaOauQrHhpklfptATwMFAc35Cd62CQVN40KDTYo9TIsQhDtMFg==" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/floating-buttons.js" | relative_url -}}" crossorigin="anonymous"></script>
 <script src="{{- "/assets/js/left-nav-interaction.js" | relative_url -}}" crossorigin="anonymous"></script>
   {%- if site.recommender == true -%}
@@ -66,5 +66,9 @@
 {%- include chatbot-scripts.html -%}
 
 {%- assign homepage = site.data.homepage -%}
-{%- comment -%} Google Analytics {%- endcomment -%}
+{%- comment -%} Google Analytics (UA) {%- endcomment -%}
 <script src="{{- site.baseurl -}}/assets/js/google-analytics.js"></script>
+
+{%- comment -%} Isomer's Google Tag (GA4) {%- endcomment -%}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3RT85MXN6L"></script>
+<script src="{{- site.baseurl -}}/assets/js/google-tag.js"></script>
