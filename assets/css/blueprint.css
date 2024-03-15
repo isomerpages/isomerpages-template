@@ -11622,3 +11622,8 @@ h6 center {
 .social-logo:hover {
   filter: brightness(1);
 }
+.hero-button.bp-button {
+  min-height: 2.4rem;
+  height: auto;
+  white-space: normal;
+}
