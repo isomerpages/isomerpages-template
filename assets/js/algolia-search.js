@@ -57,6 +57,16 @@ search.addWidgets([
             <p class="search-content description ml-9">Publish date: ${new Date(
               hit.publishTimestamp
             ).toLocaleDateString("fr-CA")}</p>
+            ${hit.text 
+              ? `<p class="search-content description ml-9">Content: ${instantsearch.snippet(
+                {
+                  attribute: "text",
+                  highlightedTagName: "mark",
+                  hit,
+                }
+              )}</p>`
+              : ""
+            }
             <p>
              </h5>
           `;
