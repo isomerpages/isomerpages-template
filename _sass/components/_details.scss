@@ -1,0 +1,95 @@
+details.isomer-details summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  &:empty {
+    justify-content: flex-end;
+  }
+  font-size: 20px;
+}
+
+details.isomer-details summary::marker {
+  display: none;
+}
+
+details.isomer-details summary::after {
+  // Using sgds-icons.chevron-down
+  content: "\E93C";
+  font-family: "sgds-icons";
+  transition: 0.25s transform ease;
+  margin-left: 0.75rem;
+}
+
+details.isomer-details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+@keyframes details-show {
+  from {
+    opacity: 0;
+    transform: var(--details-translate, translateY(-0.5em));
+  }
+}
+
+details.isomer-details[open] > *:not(summary) {
+  animation: details-show 150ms ease-in-out;
+}
+
+details.isomer-details {
+  display: flex;
+  border-top: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
+
+  > div {
+    flex: 1 1 auto;
+  }
+
+  div.isomer-details-content > * {
+    margin-left: 1rem;
+    margin-right: 1.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+details.isomer-details ~ details.isomer-details {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-top: 0;
+}
+
+.isomer-accordion-group {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.isomer-accordion-group:first-child {
+  margin-top: 0;
+}
+
+.isomer-accordion-group:last-child {
+  margin-bottom: 0;
+}
+
+.isomer-details:last-of-type {
+  margin-bottom: 0;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.isomer-accordion-white > details.isomer-details > summary {
+  background-color: #fff;
+}
+
+.isomer-accordion-white > details.isomer-details[open] > summary {
+  font-weight: 700;
+}
+
+.isomer-accordion-gray > details.isomer-details > summary {
+  background-color: $interaction-support;
+  color: #4372d6;
+}
+
+.isomer-accordion-gray > details.isomer-details > summary:hover {
+  color: #fff;
+  background-color: #4372d6;
+}
