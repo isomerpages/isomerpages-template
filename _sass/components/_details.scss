@@ -6,7 +6,6 @@ details.isomer-details summary {
   &:empty {
     justify-content: flex-end;
   }
-  font-size: 20px;
 }
 
 details.isomer-details summary::marker {
@@ -15,8 +14,8 @@ details.isomer-details summary::marker {
 
 details.isomer-details summary::after {
   // Using sgds-icons.chevron-down
-  content: "\E93C";
   font-family: "sgds-icons";
+  content: "\E93C";
   transition: 0.25s transform ease;
   margin-left: 0.75rem;
 }
@@ -50,9 +49,17 @@ details.isomer-details {
     margin-right: 1.25rem;
     margin-bottom: 1rem;
   }
+
+  .isomer-accordion-grey div.isomer-details-content > * {
+    margin-top: 1rem;
+  }
+
+  .isomer-accordion-white div.isomer-details-content > * {
+    margin-top: 0.25rem;
+  }
 }
 
-details.isomer-details ~ details.isomer-details {
+.isomer-accordion-white details.isomer-details ~ details.isomer-details {
   margin-top: 0;
   margin-bottom: 0;
   border-top: 0;
@@ -80,16 +87,26 @@ details.isomer-details ~ details.isomer-details {
   background-color: #fff;
 }
 
-.isomer-accordion-white > details.isomer-details[open] > summary {
+.isomer-accordion > details.isomer-details > summary {
+  cursor: pointer;
+}
+
+.isomer-accordion > details.isomer-details[open] > summary {
   font-weight: 700;
 }
 
-.isomer-accordion-gray > details.isomer-details > summary {
+.isomer-accordion-grey > details.isomer-details {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+}
+.isomer-accordion-grey > details.isomer-details > summary {
   background-color: $interaction-support;
+
   color: #4372d6;
 }
 
-.isomer-accordion-gray > details.isomer-details > summary:hover {
+.isomer-accordion-grey > details.isomer-details > summary:hover {
   color: #fff;
   background-color: #4372d6;
 }
