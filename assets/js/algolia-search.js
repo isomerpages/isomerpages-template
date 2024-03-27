@@ -4,7 +4,7 @@ const searchClient = algoliasearch(
 );
 
 const search = instantsearch({
-  indexName: "ogp_egazettes_index",
+  indexName: "staging_ogp_egazettes_index",
   searchClient,
 });
 
@@ -13,12 +13,42 @@ search.addWidgets([
   instantsearch.widgets.searchBox({
     container: "#searchbox",
     autofocus: true,
-    placeholder: "Start typing to search"
+    placeholder: "Start typing to search",
   }),
   instantsearch.widgets.poweredBy({
     container: "#poweredby",
-    theme: 'dark',
+    theme: "dark",
   }),
+  instantsearch.widgets.refinementList({
+    container: "#refinement-list-category",
+    attribute: "category",
+  }),
+  instantsearch.widgets.refinementList({
+    container: "#refinement-list-subcategory",
+    attribute: "subCategory",
+  }),
+  instantsearch.widgets.refinementList({
+    container: "#refinement-list-date",
+    attribute: "publishDate",
+
+    transformItems(items) {
+      return items.map((item) => ({
+        ...item,
+        highlighted: item.highlighted.slice(0, 10),
+        label: item.label.slice(0, 10),
+      }));
+    },
+  }),
+  instantsearch.widgets.refinementList({
+    container: "#refinement-list-number",
+    attribute: "notificationNum",
+  }),
+  // instantsearch.widgets.currentRefinements({
+  //   container: "#current-refinements",
+  // }),
+  // instantsearch.widgets.clearRefinements({
+  //   container: "#clear-refinements",
+  // }),
   instantsearch.widgets.hits({
     container: "#hits",
     templates: {
