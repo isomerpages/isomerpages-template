@@ -72,9 +72,9 @@ search.addWidgets([
       delete: "currentRefinementsIsomer",
     },
   }),
-  // instantsearch.widgets.clearRefinements({
-  //   container: "#clear-refinements",
-  // }),
+  instantsearch.widgets.clearRefinements({
+    container: "#clear-refinements",
+  }),
   instantsearch.widgets.hits({
     container: "#hits",
     templates: {
