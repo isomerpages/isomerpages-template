@@ -33,7 +33,7 @@ search.addWidgets([
           content += `no result found`;
         }
 
-        return html`<span>${content}</span>`;
+        return html`<h2>${content}</h2>`;
       },
     },
   }),
