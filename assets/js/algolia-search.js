@@ -15,6 +15,29 @@ search.addWidgets([
     autofocus: true,
     placeholder: "Start typing to search",
   }),
+  instantsearch.widgets.stats({
+    container: "#stats",
+    templates: {
+      text(data, { html }) {
+        let content = "";
+
+        if (data.hasManyResults) {
+          if (data.nbHits > 1000) {
+            content += `More than 1000 results found`;
+          } else {
+            content += `${data.nbHits} results found`;
+          }
+        } else if (data.hasOneResult) {
+          content += `1 result found`;
+        } else {
+          content += `no result found`;
+        }
+
+        return html`<span>${content}</span>`;
+      },
+    },
+  }),
+
   instantsearch.widgets.poweredBy({
     container: "#poweredby",
     theme: "dark",
