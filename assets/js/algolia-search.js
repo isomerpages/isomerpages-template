@@ -4,7 +4,7 @@ const searchClient = algoliasearch(
 );
 
 const search = instantsearch({
-  indexName: "kishore_test_egazettes_index", //"staging_ogp_egazettes_index",
+  indexName: "kishore_test_ogp_egazettes_index", //"staging_ogp_egazettes_index",
   searchClient,
 });
 
@@ -28,16 +28,16 @@ search.addWidgets([
     attribute: "subCategory",
   }),
   instantsearch.widgets.refinementList({
-    container: "#refinement-list-date",
-    attribute: "publishDate",
-
-    transformItems(items) {
-      return items.map((item) => ({
-        ...item,
-        highlighted: item.highlighted.slice(0, 10),
-        label: item.label.slice(0, 10),
-      }));
-    },
+    container: "#refinement-list-day",
+    attribute: "publishDay",
+  }),
+  instantsearch.widgets.refinementList({
+    container: "#refinement-list-month",
+    attribute: "publishMonth",
+  }),
+  instantsearch.widgets.refinementList({
+    container: "#refinement-list-year",
+    attribute: "publishYear",
   }),
   instantsearch.widgets.refinementList({
     container: "#refinement-list-number",
