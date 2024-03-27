@@ -7,4 +7,5 @@ description: ""
 third_nav_title: Advertisements
 default_field: Subject
 infotext: true
+search_breadcrumb: Notices This Week
 ---
