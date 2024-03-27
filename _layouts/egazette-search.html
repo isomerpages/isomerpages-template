@@ -39,48 +39,59 @@ layout: skeleton
     </div>
   </div>
 </section>
-<div style="display: flex; margin: 2rem">
-<div>   
-  <h5>Select category</h5>
-  <div id="refinement-list-category"></div>
-  <h5>Select sub-category test changes</h5>
-  <div id="refinement-list-subcategory"></div>
-  <h5>Select date</h5>
-  <div id="refinement-list-date"></div>
-  <h5>Select number</h5>
-  <div id="refinement-list-number"></div>
-  <!-- <div id="current-refinements"></div>
-  <div id="clear-refinements"></div> -->
-</div>
-  <section class="bp-section">
-    <div class="bp-container search-content">
-      <div class="is-flex col is-offset-2 search-label-options">
-        <h5>Search results</h5>
-        <div class="row search-hits-options">
-          <div id="hits-per-page" class="sgds-selector p-0"></div>
-        </div>
+<section class="bp-section">
+  <div class="bp-container search-content">
+    <div class="row">
+      <div class="col is-3 is-offset-1">   
+        <h5 class="margin--bottom--sm">Select category</h5>
+        <div id="refinement-list-category" class="margin--bottom"></div>
+
+        <h5 class="margin--bottom--sm">Select sub-category</h5>
+        <div id="refinement-list-subcategory" class="margin--bottom"></div>
+
+        <h5 class="margin--bottom--sm">Select day</h5>
+        <div id="refinement-list-day" class="margin--bottom"></div>
+
+        <h5 class="margin--bottom--sm">Select month</h5>
+        <div id="refinement-list-month" class="margin--bottom"></div>
+
+        <h5 class="margin--bottom--sm">Select year</h5>
+        <div id="refinement-list-year" class="margin--bottom"></div>
+
+        <h5 class="margin--bottom--sm">Select number</h5>
+        <div id="refinement-list-number" class="margin--bottom"></div>
+        <!-- <div id="current-refinements"></div>
+        <div id="clear-refinements"></div> -->
       </div>
-      <div class="row">
-        <div id="range-input"></div>
-        <!-- TODO -->
-        <div id="loading-spinner">
-        </div>
-        <div class="col is-8 is-offset-2 search-results-display">
-          <div>
-            <div class="search-summary">
-              <!-- Not including total search results - we can only retrieve up to 1000 so the number might be inaccurate -->
-              <h4 class="search-results-count" id="search-results-count"></h4>
-              <small id="search-page-indicator"></small>
+
+      <div class="col is-8 margin--left">
+        <div class="is-flex row">
+            <div class="col is-9">
+              <h3>Search results</h3>
+              <div id="stats"></div>
+              <div id="current-refinements"></div>
+              <div id="clear-refinements"></div>
             </div>
-            <br />
-            <h5 class="search-results" id="hits"></h5>
+            <div class="col">
+              <div id="hits-per-page"></div>
+            </div>
+        </div>
+        <div class="row">
+          <div id="range-input"></div>
+          <!-- TODO -->
+          <div id="loading-spinner">
           </div>
-          
+          <div class="col search-results-display">
+            <div>
+              <h5 class="search-results" id="hits"></h5>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+     </div>
   </section>
-</div>
+
 <div id="paginator-pages">
   <div id="pagination"></div>
 </div>
