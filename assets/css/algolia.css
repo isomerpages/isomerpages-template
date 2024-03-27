@@ -66,3 +66,7 @@
   min-height: 1.5rem;
   padding: 0.05rem 0.5rem;
 }
+
+.ais-ClearRefinements-button[disabled] {
+  display: hidden;
+}
