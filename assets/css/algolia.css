@@ -48,25 +48,10 @@
 
 /* copying over from ais-ClearRefinements-item */
 .ais-ClearRefinements-button {
-  margin-top: 1rem;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #f5f5fa;
-  border: 1px solid #b6b7d5;
-  border-radius: 3px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  min-height: 1.5rem;
-  padding: 0.05rem 0.5rem;
+  width: auto;
+  height: auto;
 }
 
 .ais-ClearRefinements-button[disabled] {
-  display: hidden;
+  display: none;
 }
