@@ -41,3 +41,18 @@
   display: flex;
   align-items: center;
 }
+
+.ais-CurrentRefinements-delete {
+  height: auto;
+}
+
+/* copying over from ais-ClearRefinements-item */
+.ais-ClearRefinements-button {
+  width: auto;
+  height: auto;
+  margin-top: 0.5rem;
+}
+
+.ais-ClearRefinements-button[disabled] {
+  display: none;
+}
