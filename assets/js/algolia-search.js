@@ -68,6 +68,9 @@ search.addWidgets([
   }),
   instantsearch.widgets.currentRefinements({
     container: "#current-refinements",
+    cssClasses: {
+      delete: "currentRefinementsIsomer",
+    },
   }),
   // instantsearch.widgets.clearRefinements({
   //   container: "#clear-refinements",
