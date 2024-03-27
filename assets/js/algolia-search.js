@@ -66,9 +66,9 @@ search.addWidgets([
     container: "#refinement-list-number",
     attribute: "notificationNum",
   }),
-  // instantsearch.widgets.currentRefinements({
-  //   container: "#current-refinements",
-  // }),
+  instantsearch.widgets.currentRefinements({
+    container: "#current-refinements",
+  }),
   // instantsearch.widgets.clearRefinements({
   //   container: "#clear-refinements",
   // }),
