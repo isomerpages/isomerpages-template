@@ -39,8 +39,8 @@ layout: skeleton
     </div>
   </div>
 </section>
-  <section class="bp-section">
-    <div class="bp-container search-content">
+<section class="bp-section">
+  <div class="bp-container search-content">
     <div class="row">
       <div class="col is-2">   
         <h5>Select category</h5>
@@ -59,33 +59,34 @@ layout: skeleton
         <div id="clear-refinements"></div> -->
       </div>
 
-    
-      <div class="is-flex col search-label-options is-offset-2">
-          <h5>Search results</h5>
-        <div class="row search-hits-options">
-          <div id="hits-per-page" class="sgds-selector p-0"></div>
-        </div>
-      </div>
-      <div class="col is-offset-2">
-        <div id="stats"></div>
-      </div>
-    </div>
-      <div class="row">
-        <div id="range-input"></div>
-        <!-- TODO -->
-        <div id="loading-spinner">
-        </div>
-        <div class="col is-8 is-offset-2 search-results-display">
-          <div>
-            <div class="search-summary">
-              <!-- Not including total search results - we can only retrieve up to 1000 so the number might be inaccurate -->
-              <h4 class="search-results-count" id="search-results-count"></h4>
-              <small id="search-page-indicator"></small>
-            </div>
-            <br />
-            <h5 class="search-results" id="hits"></h5>
+      <div class="col">
+        <div class="is-flex col search-label-options is-offset-2">
+            <h5>Search results</h5>
+          <div class="row search-hits-options">
+            <div id="hits-per-page" class="sgds-selector p-0"></div>
           </div>
-          
+        </div>
+        <div class="col is-offset-2">
+          <div id="stats"></div>
+        </div>
+
+        <div class="row">
+          <div id="range-input"></div>
+          <!-- TODO -->
+          <div id="loading-spinner">
+          </div>
+          <div class="col is-8 is-offset-2 search-results-display">
+            <div>
+              <div class="search-summary">
+                <!-- Not including total search results - we can only retrieve up to 1000 so the number might be inaccurate -->
+                <h4 class="search-results-count" id="search-results-count"></h4>
+                <small id="search-page-indicator"></small>
+              </div>
+              <br />
+              <h5 class="search-results" id="hits"></h5>
+            </div>
+            
+          </div>
         </div>
       </div>
     </div>
