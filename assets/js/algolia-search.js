@@ -51,16 +51,9 @@ search.addWidgets([
     attribute: "subCategory",
   }),
   instantsearch.widgets.refinementList({
-    container: "#refinement-list-day",
-    attribute: "publishDay",
-  }),
-  instantsearch.widgets.refinementList({
-    container: "#refinement-list-month",
-    attribute: "publishMonth",
-  }),
-  instantsearch.widgets.refinementList({
     container: "#refinement-list-year",
     attribute: "publishYear",
+    searchable: true,
   }),
   instantsearch.widgets.refinementList({
     container: "#refinement-list-number",
