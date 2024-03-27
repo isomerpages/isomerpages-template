@@ -73,18 +73,28 @@ function databaseSearch(searchTerm, index, callback) {
     offset
   };
 
-  let request
+  // columnMetadata:
+  //   id: represents searchable field
+  //   title: represents human readable field
+  let request, columnMetadata
   let formattedSearchField = searchField ? searchField.replace(" ", "_") : ""
-  if (!!searchField) {
-    // Datagov-v2 search
+  const isDgsV2 = !!defaultField // Only dgs-v2 has default field
+  if (isDgsV2) {
+    // Datagov-v2 search - query for dataset metadata first to retrieve column info
     request = $.ajax({
       url: `https://api-production.data.gov.sg/v2/public/api/datasets/${resourceId}/metadata`,
       dataType: 'json'
     }).then((resp) => {
-      const columnNames = Object.values(resp.data.columnMetadata.map)
-      const filteredSearchColumn = columnNames.filter((colName) => colName.toLowerCase() === formattedSearchField.toLowerCase())
-      formattedSearchField = filteredSearchColumn[0]
-      data.q = JSON.stringify({[formattedSearchField]: searchTerm})
+      const respData = Object.values(resp.data.columnMetadata.metaMapping)
+      columnMetadata = respData.map(item => ({
+        id: item.name,
+        title: item.columnTitle
+      }))
+      if (formattedSearchField && searchTerm !== "") {
+        const filteredSearchColumn = columnMetadata.filter((col) => col.title.toLowerCase() === formattedSearchField.toLowerCase())
+        formattedSearchField = filteredSearchColumn[0].id
+        data.q = JSON.stringify({[formattedSearchField]: searchTerm})
+      }
       return $.ajax({
         url: 'https://data.gov.sg/api/action/datastore_search',
         data: data,
@@ -106,6 +116,13 @@ function databaseSearch(searchTerm, index, callback) {
 
   request.done(function (data) {
     datagovsgTotal = data.result.total;
+    if (!columnMetadata) {
+      // V1 search, id and title are the same
+      columnMetadata = data.result.fields.map(field => ({
+        id: field.id,
+        title: field.id,
+      }))
+    }
     if (isFirstRender) {
       pageResults = Array(Math.ceil(datagovsgTotal / PAGINATION_DISPLAY_RESULTS_PER_PAGE)).fill(null);
     } else {
@@ -115,12 +132,12 @@ function databaseSearch(searchTerm, index, callback) {
 
     // The fieldArray is the array containing the field names in the data.gov.sg table
     const removableFields = ["_id", "_full_count", "rank", `rank ${formattedSearchField}`]
-    fieldArray = remove(data.result.fields, removableFields);
+    fieldArray = remove(columnMetadata, removableFields);
     const pageResultArray = splitPages(data.result.records, PAGINATION_DISPLAY_RESULTS_PER_PAGE)
     const startingPage = offset / PAGINATION_DISPLAY_RESULTS_PER_PAGE
     const possibleSearchField = formattedSearchField || defaultField
     if (!hasPopulatedFields && possibleSearchField) {
-      displaySearchFilterDropdown(fieldArray.map(item => item.id), possibleSearchField);
+      displaySearchFilterDropdown(fieldArray, possibleSearchField);
       hasPopulatedFields = true
     }
     pageResultArray.forEach((pageData, idx) => {
@@ -158,7 +175,7 @@ function displayTable(chunk, fields) {
 
   var resultString = "<div><table class=\"table-h\"><tr>";
   for (var fieldIndex in fields) {
-    var fieldId = fields[fieldIndex].id;
+    var fieldId = fields[fieldIndex].title;
     resultString += '<td><h6 class=\"margin--none\"><b>' + fieldId.replace(/_/g, ' ').toUpperCase() + '</b></h6></td>';
   }
   resultString += '</tr>';
@@ -197,8 +214,8 @@ function displaySearchFilterDropdown(fields, startingField) {
   var fieldFilterDesktop = document.getElementById('field-filter-desktop');
   var fieldFilterMobile = document.getElementById('field-filter-mobile');
 
-  for (let raw_field of fields) {
-    const field = deslugify(raw_field)
+  for (let fieldMetadata of fields) {
+    const field = deslugify(fieldMetadata.title)
     const deslugifiedStartingField = deslugify(startingField)
     // Creating the select element for mobile view
     var option = document.createElement("option");
