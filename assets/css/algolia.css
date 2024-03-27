@@ -41,3 +41,9 @@
   display: flex;
   align-items: center;
 }
+
+.ais-CurrentRefinements-delete {
+  color: #9698c3;
+  margin-left: 0.25rem;
+  outline-width: 0;
+}
