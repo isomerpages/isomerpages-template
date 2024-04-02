@@ -13,11 +13,60 @@ search.addWidgets([
   instantsearch.widgets.searchBox({
     container: "#searchbox",
     autofocus: true,
-    placeholder: "Start typing to search"
+    placeholder: "Start typing to search",
   }),
+  instantsearch.widgets.stats({
+    container: "#stats",
+    templates: {
+      text(data, { html }) {
+        let content = "";
+
+        if (data.hasManyResults) {
+          if (data.nbHits > 1000) {
+            content += `More than 1000 results found`;
+          } else {
+            content += `${data.nbHits} results found`;
+          }
+        } else if (data.hasOneResult) {
+          content += `1 result found`;
+        } else {
+          content += `no result found`;
+        }
+
+        return html`<p>${content}</p>`;
+      },
+    },
+  }),
+
   instantsearch.widgets.poweredBy({
     container: "#poweredby",
-    theme: 'dark',
+    theme: "dark",
+  }),
+  instantsearch.widgets.refinementList({
+    container: "#refinement-list-category",
+    attribute: "category",
+  }),
+  instantsearch.widgets.refinementList({
+    container: "#refinement-list-subcategory",
+    attribute: "subCategory",
+  }),
+  instantsearch.widgets.refinementList({
+    container: "#refinement-list-year",
+    attribute: "publishYear",
+    searchable: true,
+  }),
+  instantsearch.widgets.refinementList({
+    container: "#refinement-list-number",
+    attribute: "notificationNum",
+  }),
+  instantsearch.widgets.currentRefinements({
+    container: "#current-refinements",
+    cssClasses: {
+      delete: "currentRefinementsIsomer",
+    },
+  }),
+  instantsearch.widgets.clearRefinements({
+    container: "#clear-refinements",
   }),
   instantsearch.widgets.hits({
     container: "#hits",
@@ -57,18 +106,19 @@ search.addWidgets([
             <p class="search-content description ml-9">Publish date: ${new Date(
               hit.publishTimestamp
             ).toLocaleDateString("fr-CA")}</p>
-            ${hit.text 
-              ? `<p class="search-content description ml-9">Content: ${instantsearch.snippet(
-                {
-                  attribute: "text",
-                  highlightedTagName: "mark",
-                  hit,
-                }
-              )}</p>`
-              : ""
+            ${
+              hit.text
+                ? `<p class="search-content description ml-9">Content: ${instantsearch.snippet(
+                    {
+                      attribute: "text",
+                      highlightedTagName: "mark",
+                      hit,
+                    }
+                  )}</p>`
+                : ""
             }
             <p>
-             </h5>
+            </h5>
           `;
       },
     },
