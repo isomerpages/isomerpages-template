@@ -57,6 +57,6 @@
   display: none;
 }
 
-.ais-RefinementList-item--selected {
+.ais-RefinementList-item--selected .ais-RefinementList-checkbox {
   background-image: url("https://raw.githubusercontent.com/atisawd/boxicons/master/svg/regular/bx-check.svg");
 }
