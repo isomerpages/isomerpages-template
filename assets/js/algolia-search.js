@@ -69,6 +69,7 @@ search.addWidgets([
   instantsearch.widgets.clearRefinements({
     container: "#clear-refinements",
   }),
+
   instantsearch.widgets.hits({
     container: "#hits",
     templates: {
