@@ -56,3 +56,13 @@
 .ais-ClearRefinements-button[disabled] {
   display: none;
 }
+
+.ais-RefinementList-item--selected {
+  background-image: none;
+}
+
+.ais-RefinementList-item--selected::after {
+  /* Using the SGDS icon for the checkmark */
+  content: "\E93B";
+  font-family: "sgds-icons";
+}
