@@ -78,7 +78,7 @@ function databaseSearch(searchTerm, index, callback) {
   if (!!searchField) {
     // Datagov-v2 search
     request = $.ajax({
-      url: `https://api-production.data.gov.sg/v2/public/api/datasets/${resourceId}/metadata`,
+      url: `https://api-staging.data.gov.sg/v2/public/api/datasets/${resourceId}/metadata`,
       dataType: 'json'
     }).then((resp) => {
       const columnNames = Object.values(resp.data.columnMetadata.map)
@@ -86,7 +86,7 @@ function databaseSearch(searchTerm, index, callback) {
       formattedSearchField = filteredSearchColumn[0]
       data.q = JSON.stringify({[formattedSearchField]: searchTerm})
       return $.ajax({
-        url: 'https://data.gov.sg/api/action/datastore_search',
+        url: 'https://35q3y4991j.execute-api.ap-southeast-1.amazonaws.com/api/action/datastore_search',
         data: data,
         dataType: 'json',
         success: callback
@@ -96,7 +96,7 @@ function databaseSearch(searchTerm, index, callback) {
   } else {
     data.q = searchTerm
     request = $.ajax({
-      url: 'https://data.gov.sg/api/action/datastore_search',
+      url: 'https://35q3y4991j.execute-api.ap-southeast-1.amazonaws.com/api/action/datastore_search',
       data: data,
       dataType: 'json',
       success: callback

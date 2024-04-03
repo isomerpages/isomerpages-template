@@ -124,7 +124,7 @@ search.addWidgets([
                 : ""
             }
             <p>
-             </h5>
+            </h5>
           `;
       },
     },
