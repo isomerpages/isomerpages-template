@@ -3,8 +3,14 @@ const searchClient = algoliasearch(
   "0ba2c5f100ff5fd004415e4abbcf9b9c"
 );
 
+const PROD_URL = "https://www.egazette.gov.sg";
+const isProd = window.location.origin === PROD_URL;
+const algoliaIndexName = isProd
+  ? "ogp_egazettes_index"
+  : "staging_ogp_egazettes_index";
+
 const search = instantsearch({
-  indexName: "staging_ogp_egazettes_index",
+  indexName: algoliaIndexName,
   searchClient,
 });
 
