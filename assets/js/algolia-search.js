@@ -75,7 +75,6 @@ search.addWidgets([
     templates: {
       item(hit) {
         console.log({ hit });
-
         return `
             <h5 class="search-results">
             <a class="search-content mb-4" href=${
