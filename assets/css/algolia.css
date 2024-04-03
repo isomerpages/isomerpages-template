@@ -58,10 +58,10 @@
 }
 
 .ais-RefinementList-item--selected {
-  background-image: none;
+  display: none;
 }
 
-.ais-RefinementList-item--selected::after {
+.ais-RefinementList-item--selected::before {
   /* Using the SGDS icon for the checkmark */
   content: "\E93B";
   font-family: "sgds-icons";
