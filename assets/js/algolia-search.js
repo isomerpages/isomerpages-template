@@ -59,11 +59,6 @@ search.addWidgets([
   instantsearch.widgets.refinementList({
     container: "#refinement-list-year",
     attribute: "publishYear",
-    searchable: true,
-  }),
-  instantsearch.widgets.refinementList({
-    container: "#refinement-list-number",
-    attribute: "notificationNum",
   }),
   instantsearch.widgets.currentRefinements({
     container: "#current-refinements",
