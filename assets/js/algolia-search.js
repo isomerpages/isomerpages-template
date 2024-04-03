@@ -75,7 +75,7 @@ search.addWidgets([
     templates: {
       item(hit) {
         console.log({ hit });
-        console.log(instantsearch.highlight.toString());
+        console.log(instantsearch.snippet.toString());
         return `
             <h5 class="search-results">
             <a class="search-content mb-4" href=${
