@@ -10,7 +10,7 @@ const algoliaIndexName = isProd
   : "staging_ogp_egazettes_index";
 
 const search = instantsearch({
-  indexName: "ogp_egazettes_index",
+  indexName: algoliaIndexName,
   searchClient,
 });
 
