@@ -51,6 +51,7 @@ search.addWidgets([
   instantsearch.widgets.refinementList({
     container: "#refinement-list-category",
     attribute: "category",
+    limit: 20,
   }),
   instantsearch.widgets.refinementList({
     container: "#refinement-list-subcategory",
