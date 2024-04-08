@@ -5,10 +5,10 @@ const searchClient = algoliasearch(
 
 const PROD_URL = "https://www.egazette.gov.sg";
 const isProd = window.location.origin === PROD_URL;
-const algoliaIndexName = isProd
-  ? "ogp_egazettes_index"
-  : "staging_ogp_egazettes_index";
-
+// const algoliaIndexName = isProd
+//   ? "ogp_egazettes_index"
+//   : "staging_ogp_egazettes_index";
+const algoliaIndexName = "test_snippet_1";
 const search = instantsearch({
   indexName: algoliaIndexName,
   searchClient,
