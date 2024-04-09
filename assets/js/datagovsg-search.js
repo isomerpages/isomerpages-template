@@ -118,6 +118,7 @@ function databaseSearch(searchTerm, index, callback) {
     datagovsgTotal = data.result.total;
     if (!columnMetadata) {
       // V1 search, id and title are the same
+      // We already have the data from the earlier request because we wait for request.done
       columnMetadata = data.result.fields.map(field => ({
         id: field.id,
         title: field.id,
