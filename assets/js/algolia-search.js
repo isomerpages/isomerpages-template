@@ -163,9 +163,9 @@ search.start();
 const toggleSortedVisibility = () => {
   const component = document.querySelector('#sorted-by');
   if (searchInput.value.trim() === '') {
-    component.style.display = 'block';
+    component.textContent = 'Sorted by most recent';
   } else {
-    component.style.display = 'none';
+    component.textContent = 'Sorted by relevancy';
   }
 }
 
