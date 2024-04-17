@@ -126,16 +126,6 @@ search.addWidgets([
       },
     },
   }),
-  instantsearch.widgets.hitsPerPage({
-    container: "#hits-per-page",
-    items: [
-      { value: 10, label: "10 per page", default: true },
-      { value: 20, label: "20 per page" },
-      { value: 30, label: "30 per page" },
-      { value: 40, label: "40 per page" },
-      { value: 50, label: "50 per page" },
-    ],
-  }),
   instantsearch.widgets.pagination({
     container: "#pagination",
     showFirst: true,
@@ -167,3 +157,15 @@ search.start();
 // searchbox.addEventListener("keyup", () => {
 //   console.log(searchbox.value);
 // });
+
+const toggleSortedVisibility = () => {
+  const component = document.querySelector('#sorted-by');
+  if (searchInput.value.trim() === '') {
+    component.style.display = 'block';
+  } else {
+    component.style.display = 'none';
+  }
+}
+
+const searchInput = document.querySelector('.ais-SearchBox-input');
+searchInput.addEventListener('input', toggleSortedVisibility)
