@@ -36,7 +36,7 @@ search.addWidgets([
         } else if (data.hasOneResult) {
           content += `1 result found`;
         } else {
-          content += `no result found`;
+          content += `No results found`;
         }
 
         return html`<p>${content}</p>`;
@@ -46,7 +46,7 @@ search.addWidgets([
 
   instantsearch.widgets.poweredBy({
     container: "#poweredby",
-    theme: "dark",
+    theme: "light",
   }),
   instantsearch.widgets.refinementList({
     container: "#refinement-list-category",
@@ -84,7 +84,7 @@ search.addWidgets([
           highlightedTagName: "mark",
           hit,
         })}</a>
-            <p class="search-content description ml-9">Category: ${instantsearch.highlight(
+            <p class="search-content description ml-9 body-2">Category: ${instantsearch.highlight(
               {
                 attribute: "category",
                 highlightedTagName: "mark",
@@ -99,19 +99,19 @@ search.addWidgets([
               })}`
             : ""
         }</p>
-            <p class="search-content description ml-9">Notification number: ${instantsearch.highlight(
+            <p class="search-content description ml-9 body-2">Notification number: ${instantsearch.highlight(
               {
                 attribute: "notificationNum",
                 highlightedTagName: "mark",
                 hit,
               }
             )}</p>
-            <p class="search-content description ml-9">Publish date: ${new Date(
+            <p class="search-content description ml-9 body-2">Publish date: ${new Date(
               hit.publishTimestamp
             ).toLocaleDateString("fr-CA")}</p>
             ${
               hit.text
-                ? `<p class="search-content description ml-9">Content: ${instantsearch.snippet(
+                ? `<p class="search-content description ml-9 body-2">Content: ${instantsearch.snippet(
                     {
                       attribute: "text",
                       highlightedTagName: "mark",

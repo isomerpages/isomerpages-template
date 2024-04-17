@@ -2,30 +2,17 @@
 layout: skeleton
 ---
 
-<section class="bp-section is-small search-section bp-section-pagetitle">
-  <div class="bp-container">
-    <div class="row">
-      <div class="col is-8 is-offset-2">
-        <p class="has-text-white">{%- include header-breadcrumb.html -%}</p>
-      </div>
-    </div>
+<section class="bp-section">
+  <div id="search-title" class="col is-8 is-offset-2">
+    <h5><b>{{- page.title -}}</b></h5>
   </div>
-  <div class="bp-container">
-    <div class="row">
-      <div id="search-title" class="col is-8 is-offset-2">
-        <h1 class="has-text-white"><b>{{- page.title -}}</b></h1>
-      </div>
-    </div>
-  </div>
-  <div class="bp-container">
-    <div>
       <div class="row">
         <div
           id="search-container"
           class="col is-8 right-padding-zero is-offset-2"
         >
           <div
-            class="field has-addons control has-icons-left is-expanded input is-fullwidth is-large"
+            class="field has-addons control has-icons-left is-expanded input is-fullwidth is-large algolia-searchbar"
             id="searchbox"
           >
             <span class="is-large is-left">
@@ -36,19 +23,20 @@ layout: skeleton
           </div>
         </div>
       </div>
-    </div>
-  </div>
 </section>
+<hr class="my-0"/>
 <section class="bp-section">
   <div class="bp-container search-content">
     <div class="row">
       <div class="col is-3 is-offset-1">   
-        <h5 class="margin--bottom--sm">Filter by category</h5>
+        <h5 class="margin--bottom--sm"><b>Refine your search</b></h5>
+        <hr class="algolia-search-divider"/>
+        <h5 class="margin--bottom--sm subtitle-1">Filter by category</h5>
         <div id="refinement-list-category" class="margin--bottom"></div>
 
-        <h5 class="margin--bottom--sm">Filter by sub-category</h5>
+        <h5 class="margin--bottom--sm subtitle-1">Filter by sub-category</h5>
         <div id="refinement-list-subcategory" class="margin--bottom"></div>
-        <h5 class="margin--bottom--sm">Filter by year</h5>
+        <h5 class="margin--bottom--sm subtitle-1">Filter by year</h5>
         <div id="refinement-list-year" class="margin--bottom"></div>
       </div>
 
@@ -60,8 +48,7 @@ layout: skeleton
               <div id="clear-refinements"></div>
             </div>
             <div id="sorted-by" class="col">
-              <div>Sorted by</div>
-              <div>most recent</div>
+              <div>Sorted by most recent</div>
             </div>
         </div>
         <div class="row">
