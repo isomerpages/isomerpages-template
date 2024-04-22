@@ -1,0 +1,36 @@
+---
+layout: skeleton
+---
+
+<section class="bp-section is-small search-section bp-section-pagetitle">
+  <div class="bp-container">
+    <div class="row">
+      <div class="col">
+        <h1 class="has-text-white"><b>{{- page.title -}}</b></h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bp-section">
+  <div class="bp-container search-content">
+    <form id="categoryForm" data-url="{{ page.searchUrl }}">
+      <div class="algolia-search-query-container">
+        <label class="h2 py-4" for="category">By Keyword</label>
+        <input class="input is-fullwidth is-large" id="algolia-search-box-landing" type="text" placeholder="What are you looking for?" name="query" autocomplete="off">
+        <p class="subtitle-1 has-text-grey">You can search by keyword, title, or notification number</p>
+      </div>
+      <div class="algolia-search-category-container pb-8 pt-4">
+        <div>
+          <div class="h3 pb-4">Category</div>
+        <div id="category" class="algolia-search-category-items-container"></div>
+        </div>
+        <div><div class="h3 pb-4">Year</div>
+        <div id="publishYear" class="algolia-search-category-items-container"></div></div>
+        
+      </div>
+    </form>
+    <button id="submitButton" class="bp-button is-secondary is-medium has-text-white search-button">Search</button>
+  </div>
+</section>
+  
