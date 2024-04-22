@@ -76,3 +76,27 @@
   margin-bottom: 0.5rem;
   height: 1px;
 }
+.algolia-search-query-container {
+  display: flex;
+  flex-direction: column;
+}
+.algolia-search-category-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#algolia-search-box-landing {
+  border: 1px solid;
+  border-radius: 4px;
+  border-color: var(--color-divider-medium, #D0D0D0);
+}
+.algolia-search-category-items-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem 1.25rem;
+}
+.algolia-search-category-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
