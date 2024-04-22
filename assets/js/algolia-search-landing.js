@@ -26,7 +26,7 @@ async function fetchCategoryEntries(categoryName) {
 
 // Function to populate options for each category
 async function populateOptions() {
-  await Promise.all(searchCategories.map(async (category) => {
+  for (const category of searchCategories) {
     const categoryContent = await fetchCategoryEntries(category)
     const categoryFieldset = document.getElementById(category);
     categoryContent.forEach(categoryItem => {
@@ -45,7 +45,7 @@ async function populateOptions() {
       itemWrapper.appendChild(label);
       // itemWrapper.appendChild(document.createElement('br'));
     })
-  }));
+  }
 }
 
 populateOptions();
