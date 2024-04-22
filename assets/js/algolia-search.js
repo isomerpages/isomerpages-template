@@ -9,9 +9,20 @@ const isProd = window.location.origin === PROD_URL;
 //   ? "ogp_egazettes_index"
 //   : "staging_ogp_egazettes_index";
 const algoliaIndexName = "test_snippet_1";
+
+const queryParams = new URLSearchParams(window.location.search);
+const parsedParams = {};
+for (const [key, value] of queryParams.entries()) {
+  if (key === "query") continue
+  const valuesSelected = value.split(",")
+  parsedParams[key] = valuesSelected;
+}
+const queryTerm = queryParams.get("query")
+
 const search = instantsearch({
   indexName: algoliaIndexName,
   searchClient,
+  routing: true
 });
 
 // Note: Publish date is formatted as YYYY-MM-DD
@@ -69,6 +80,11 @@ search.addWidgets([
   }),
   instantsearch.widgets.clearRefinements({
     container: "#clear-refinements",
+  }),
+  // This needs to be after the refinement list has been declared
+  instantsearch.widgets.configure({
+    query: queryTerm || "" ,
+    disjunctiveFacetsRefinements: parsedParams,
   }),
 
   instantsearch.widgets.hits({
