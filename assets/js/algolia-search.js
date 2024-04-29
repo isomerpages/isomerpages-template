@@ -64,7 +64,7 @@ search.addWidgets([
         } else if (data.hasOneResult) {
           content += `1 result found`;
         } else {
-          content += `No results found`;
+          content += `No results found for ${data.query}`;
         }
 
         return html`<p>${content}</p>`;
