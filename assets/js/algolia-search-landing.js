@@ -43,14 +43,13 @@ async function populateOptions() {
       categoryFieldset.appendChild(itemWrapper)
       itemWrapper.appendChild(checkbox);
       itemWrapper.appendChild(label);
-      // itemWrapper.appendChild(document.createElement('br'));
     })
   }));
 }
 
 populateOptions();
 
-document.getElementById("submitButton").addEventListener("click", function() {
+function processSearch() {
   let selectedCategories = {};
   const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
   checkboxes.forEach(checkbox => {
@@ -80,4 +79,12 @@ document.getElementById("submitButton").addEventListener("click", function() {
       
   // Redirect to results page
   window.location.href = url;
+}
+
+document.getElementById("submitButton").addEventListener("click", processSearch);
+document.getElementById("algolia-search-box-landing").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault(); // Prevent the default form submission behavior
+    processSearch();
+  }
 });
