@@ -69,11 +69,13 @@ document.getElementById("submitButton").addEventListener("click", function() {
 
   // Search term
   const queryInput = document.getElementById("algolia-search-box-landing")
-  url += `query=${queryInput.value ? queryInput.value : ""}`
+  url += `q=${queryInput.value ? queryInput.value : ""}`
 
   // Category filters
   for (const [category, values] of Object.entries(selectedCategories)) {
-    url += `&${category}=${values.map(entry => encodeURIComponent(entry)).join(",")}`
+    values.map((entry, index) => {
+      url += `&${category}%5B${index}%5D=${encodeURIComponent(entry)}`
+    })
   }
       
   // Redirect to results page
