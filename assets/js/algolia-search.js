@@ -72,10 +72,6 @@ search.addWidgets([
     },
   }),
 
-  instantsearch.widgets.poweredBy({
-    container: "#poweredby",
-    theme: "light",
-  }),
   instantsearch.widgets.refinementList({
     container: "#refinement-list-category",
     attribute: "category",

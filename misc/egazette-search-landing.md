@@ -1,6 +1,6 @@
 ---
 layout: egazette-search-landing
-title: Search e-Gazettes
+title: E-Gazette Search
 permalink: /egazette-search-landing/
 searchUrl: /egazette-search/
 ---

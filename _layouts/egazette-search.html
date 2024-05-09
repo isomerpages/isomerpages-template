@@ -3,41 +3,36 @@ layout: skeleton
 ---
 
 <section class="bp-section">
-  <div id="search-title" class="col is-8 is-offset-2">
-    <h5><b>{{- page.title -}}</b></h5>
+  <div class="bp-container pb-16">
+    <div id="search-title" class="col is-8 is-offset-1 px-0">
+      <h2 class="h2">{{- page.title -}}</h5>
+    </div>
   </div>
-      <div class="row">
-        <div
-          id="search-container"
-          class="col is-8 right-padding-zero is-offset-2"
-        >
-          <div
-            class="field has-addons control has-icons-left is-expanded input is-fullwidth is-large algolia-searchbar"
-            id="searchbox"
-          >
-            <span class="is-large is-left">
-                <i class="sgds-icon sgds-icon-search is-size-4 search-bar"></i>
-            </span>
-          </div>
-          <div id="poweredby"></div>
-          </div>
-        </div>
-      </div>
-</section>
-<hr class="algolia-search-divider my-0"/>
-<section class="bp-section">
   <div class="bp-container search-content">
     <div class="row">
       <div class="col is-3 is-offset-1">   
-        <h5 class="margin--bottom--sm"><b>Refine your search</b></h5>
+        <h5 class="margin--bottom--sm"><b>Search</b></h5>
+        <div
+          class="field has-addons control has-icons-left is-expanded input is-fullwidth is-large algolia-searchbar"
+          id="searchbox"
+        >
+          <span class="is-large is-left">
+              <i class="sgds-icon sgds-icon-search is-size-4 search-bar"></i>
+          </span>
+        </div>
+        <h5 class="margin--bottom--sm subtitle-1 pt-4"><b>Filter by</b></h5>
         <hr class="algolia-search-divider"/>
-        <h5 class="margin--bottom--sm subtitle-1">Filter by category</h5>
+        <h5 class="margin--bottom--sm subtitle-1">Category</h5>
         <div id="refinement-list-category" class="margin--bottom"></div>
+        <hr class="algolia-search-divider"/>
 
-        <h5 class="margin--bottom--sm subtitle-1">Filter by sub-category</h5>
+        <h5 class="margin--bottom--sm subtitle-1">Sub-category</h5>
         <div id="refinement-list-subcategory" class="margin--bottom"></div>
-        <h5 class="margin--bottom--sm subtitle-1">Filter by year</h5>
+        <hr class="algolia-search-divider"/>
+
+        <h5 class="margin--bottom--sm subtitle-1">Year</h5>
         <div id="refinement-list-year" class="margin--bottom"></div>
+        <hr class="algolia-search-divider"/>
       </div>
 
       <div class="col is-8 margin--left">
