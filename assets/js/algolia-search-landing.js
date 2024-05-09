@@ -11,7 +11,10 @@ const algoliaIndexName = isProd
 
 const searchIndex = searchClient.initIndex(algoliaIndexName);
 
-const searchCategories = ["category", "publishYear"] // TODO: add agency
+const searchCategories = [] // TODO: add agency
+const governmentGazetteSubcategories = ["Advertisements", "Appointments", "Audited Reports", "Cessation of Service", "Corrigendum", "Death", "Dismissals", "Leave", "Bankruptcy Act Notice", "Companies Act Notice", "Notices under the Constitution", "Notices under other Acts", "Others", "Revocation", "Tenders", "Termination of Service", "Vacation of Service"]
+const legislativeSupplementsSubcategories = ["Bills Supplement", "Acts Supplement", "Revised Acts", "Subsidiary Legislation Supplement", "Revised Subsidiary Legislation"]
+const otherSupplementsSubcategories = ["Government Gazette Supplement", "Industrial Relations Supplement", "Trade Marks Supplement", "Treaties Supplement"]
 
 async function fetchCategoryEntries(categoryName) {
   try {
@@ -22,6 +25,25 @@ async function fetchCategoryEntries(categoryName) {
     console.error('Error fetching categories and entries:', error);
     return {};
   }
+}
+
+function createCheckboxes(container, categories, searchCategoryName) {
+  categories.forEach(categoryItem => {
+    const itemWrapper = document.createElement('div');
+    itemWrapper.classList.add("algolia-search-category-item")
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.name = categoryItem;
+    checkbox.value = categoryItem;
+    checkbox.id = `${categoryItem}_${categoryItem}`;
+    checkbox.dataset.category = searchCategoryName
+    const label = document.createElement('label');
+    label.htmlFor = checkbox.id;
+    label.textContent = categoryItem;
+    container.appendChild(itemWrapper)
+    itemWrapper.appendChild(checkbox);
+    itemWrapper.appendChild(label);
+  })
 }
 
 // Function to populate options for each category
@@ -53,14 +75,22 @@ function processSearch() {
   let selectedCategories = {};
   const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
   checkboxes.forEach(checkbox => {
-    const category = checkbox.parentNode.parentNode.id;
+    const category = checkbox.dataset.category;
     const entry = checkbox.value;
     if (!selectedCategories[category]) {
       selectedCategories[category] = [];
     }
     selectedCategories[category].push(entry);
   });
-  
+
+  const startDateInput = document.getElementById("input-start-date").value
+  const endDateInput = document.getElementById("input-end-date").value
+  if (startDateInput && endDateInput) {
+    selectedCategories.publishYear = []
+    for (let i = parseInt(startDateInput); i <= parseInt(endDateInput); i++) {
+      selectedCategories.publishYear.push(i)
+    }
+  }
   // Construct URL with query params
   const categoryFormElement = document.querySelector("#categoryForm");
   const searchPageUrl = categoryFormElement.dataset.url
@@ -76,11 +106,36 @@ function processSearch() {
       url += `&${category}%5B${index}%5D=${encodeURIComponent(entry)}`
     })
   }
-      
+
   // Redirect to results page
   window.location.href = url;
 }
 
+function clearFilters() {
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(function(checkbox) {
+    checkbox.checked = false;
+  });
+  const textInput = document.querySelectorAll('input[type="text"]');
+  textInput.forEach(function(textInput) {
+    textInput.value = "";
+  });
+}
+
+function generateCheckChildren(parentCheckbox, category) {
+  return () => {
+      const categoryContainerElement = document.getElementById(category);
+      const childCheckboxes = categoryContainerElement.querySelectorAll('input[type="checkbox"]');
+      childCheckboxes.forEach((checkbox) => {
+        checkbox.checked = parentCheckbox.checked
+      })
+  }
+}
+
+const governmentCheckbox = document.getElementById('category-government');
+const legislativeCheckbox = document.getElementById('category-legislative');
+const otherCheckbox = document.getElementById('category-other');
+document.getElementById("clearFiltersButton").addEventListener("click", clearFilters)
 document.getElementById("submitButton").addEventListener("click", processSearch);
 document.getElementById("algolia-search-box-landing").addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
@@ -88,3 +143,6 @@ document.getElementById("algolia-search-box-landing").addEventListener("keydown"
     processSearch();
   }
 });
+governmentCheckbox.addEventListener('click', generateCheckChildren(governmentCheckbox, "government-gazette"))
+legislativeCheckbox.addEventListener('click', generateCheckChildren(legislativeCheckbox, "legislative-supplements"))
+otherCheckbox.addEventListener('click', generateCheckChildren(otherCheckbox, "other-supplements"))

@@ -1,36 +1,60 @@
 ---
 layout: skeleton
 ---
-
-<section class="bp-section is-small search-section bp-section-pagetitle">
-  <div class="bp-container">
-    <div class="row">
-      <div class="col">
-        <h1 class="has-text-white"><b>{{- page.title -}}</b></h1>
-      </div>
+<section class="bp-section">
+  <div class="bp-container px-8 py-6">
+    <h2 class="h2 pb-3"><b>{{- page.title -}}</b></h2>
+    <div class="algolia-search-landing-subtitle-container">
+      <p class="algolia-search-landing-subtitle">Find a Gazette by keyword</p>
+      <a href="{{ page.searchUrl }}" class="link-button">
+        <span class="link-button-text">Browse all Gazettes</span>
+        <i class="sgds-icon sgds-icon-arrow-right is-size-4 ml-3" aria-hidden="true"></i>
+      </a>
     </div>
   </div>
-</section>
-
-<section class="bp-section">
-  <div class="bp-container search-content">
+  <div class="bp-container search-content algolia-search-landing-container px-8">
     <form id="categoryForm" data-url="{{ page.searchUrl }}">
       <div class="algolia-search-query-container">
-        <label class="h2 py-4" for="category">By Keyword</label>
-        <input class="input is-fullwidth is-large" id="algolia-search-box-landing" type="text" placeholder="What are you looking for?" name="query" autocomplete="off">
-        <p class="subtitle-1 has-text-grey">You can search by keyword, title, or notification number</p>
+        <label class="subhead-1 py-4" for="category"><b>Keyword</b></label>
+        <input class="input is-fullwidth" id="algolia-search-box-landing" type="text" placeholder="What are you looking for?" name="query" autocomplete="off">
       </div>
       <div class="algolia-search-category-container pb-8 pt-4">
-        <div>
-          <div class="h3 pb-4">Category</div>
-        <div id="category" class="algolia-search-category-items-container"></div>
+        <div class="subhead-1"><b>Year</b></div>
+        <div class="is-flex algolia-landing-date-container">
+          <input class="input date-input" id="input-start-date" type="text" inputmode="numeric" placeholder="Start year" name="start-date" autocomplete="off" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+          <p>~</p>
+          <input class="input date-input" id="input-end-date" type="text" inputmode="numeric" placeholder="End year" name="end-date" autocomplete="off" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
         </div>
-        <div><div class="h3 pb-4">Year</div>
-        <div id="publishYear" class="algolia-search-category-items-container"></div></div>
-        
+        <div>
+          <div class="subhead-1 pb-4"><b>Category</b></div>
+        <div id="category" class="algolia-search-category-items-container">
+          <div>
+            <div class="algolia-search-category-item">
+              <input id="category-government" type="checkbox" data-category="category" value="Government Gazette">
+              <label for="category-government"><b>Government Gazette</b></label>
+            </div>
+            <div id="government-gazette" class="pl-7"></div>
+          </div>
+          <div>
+            <div class="algolia-search-category-item">
+              <input id="category-legislative" type="checkbox" data-category="category" value="Legislative Supplements">
+              <label for="category-legislative"><b>Legislative Supplements</b></label>
+            </div>
+            <div id="legislative-supplements" class="pl-7"></div>
+          </div>
+          <div>
+            <div class="algolia-search-category-item">
+              <input id="category-other" type="checkbox" data-category="category" value="Other Supplements">
+              <label for="category-other"><b>Other Supplements</b></label>
+            </div>
+            <div id="other-supplements" class="pl-7"></div>
+          </div>
+        </div>
       </div>
     </form>
-    <button id="submitButton" class="bp-button is-secondary is-medium has-text-white search-button">Search</button>
   </div>
 </section>
-  
+<div class="algolia-search-landing-footer">
+  <button id="clearFiltersButton" class="bp-button is-medium search-button">Clear filters</button>
+  <button id="submitButton" class="bp-button is-secondary is-medium has-text-white search-button">Search</button>
+</div>
