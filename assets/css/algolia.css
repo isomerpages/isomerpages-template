@@ -84,19 +84,51 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  .date-input {
+    width: 10rem;
+  }
 }
-#algolia-search-box-landing {
+.algolia-landing-date-container {
+  gap: 0.75rem;
+}
+#algolia-search-box-landing, #input-start-date, #input-end-date {
   border: 1px solid;
   border-radius: 4px;
   border-color: var(--color-divider-medium, #D0D0D0);
 }
 .algolia-search-category-items-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0.75rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
 }
 .algolia-search-category-item {
   display: flex;
   gap: 0.5rem;
   align-items: center;
+}
+.algolia-search-landing-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1.5rem 3rem;
+  position: sticky;
+  bottom: 0;
+  border-top: 1px solid #CECECE;
+  background: #FFFFFF;
+}
+.algolia-search-landing-container {
+  background: #FCFCFC;
+}
+.algolia-search-landing-subtitle-container {
+  justify-content: space-between;
+  display:flex;
+
+  .link-button-text {
+    text-transform: none;
+  }
+
+  .algolia-search-landing-subtitle {
+    color: #666C7A;
+    font-size: 1.125rem;
+  }
 }
