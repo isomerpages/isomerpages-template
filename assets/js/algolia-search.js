@@ -77,9 +77,6 @@ search.addWidgets([
   instantsearch.widgets.refinementList({
     container: "#refinement-list-category",
     attribute: "category",
-    templates: {
-      count: `display: none;`,
-    },
     limit: 20,
   }),
   instantsearch.widgets.refinementList({

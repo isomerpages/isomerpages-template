@@ -63,13 +63,13 @@
 
 .algolia-searchbar {
   border-radius: 4px;
-  border: 1px solid var(--color-divider-medium, #D0D0D0);
-  background: var(--color-utility-ui-bg, #FFF);
+  border: 1px solid var(--color-divider-medium, #d0d0d0);
+  background: var(--color-utility-ui-bg, #fff);
 }
 .algolia-searchbar:hover {
   border-radius: 4px;
-  border: 1px solid var(--color-divider-medium, #D0D0D0);
-  background: var(--color-utility-ui-bg, #FFF);
+  border: 1px solid var(--color-divider-medium, #d0d0d0);
+  background: var(--color-utility-ui-bg, #fff);
 }
 .algolia-search-divider {
   margin-top: 0.5rem;
@@ -92,10 +92,12 @@
 .algolia-landing-date-container {
   gap: 0.75rem;
 }
-#algolia-search-box-landing, #input-start-date, #input-end-date {
+#algolia-search-box-landing,
+#input-start-date,
+#input-end-date {
   border: 1px solid;
   border-radius: 4px;
-  border-color: var(--color-divider-medium, #D0D0D0);
+  border-color: var(--color-divider-medium, #d0d0d0);
 }
 .algolia-search-category-items-container {
   display: flex;
@@ -113,22 +115,26 @@
   padding: 1.5rem 3rem;
   position: sticky;
   bottom: 0;
-  border-top: 1px solid #CECECE;
-  background: #FFFFFF;
+  border-top: 1px solid #cecece;
+  background: #ffffff;
 }
 .algolia-search-landing-container {
-  background: #FCFCFC;
+  background: #fcfcfc;
 }
 .algolia-search-landing-subtitle-container {
   justify-content: space-between;
-  display:flex;
+  display: flex;
 
   .link-button-text {
     text-transform: none;
   }
 
   .algolia-search-landing-subtitle {
-    color: #666C7A;
+    color: #666c7a;
     font-size: 1.125rem;
   }
+}
+
+.ais-RefinementList-count {
+  display: none;
 }
