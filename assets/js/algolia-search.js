@@ -9,7 +9,6 @@ const algoliaIndexName = isProd
   ? "ogp_egazettes_index"
   : "staging_ogp_egazettes_index";
 
-
 const search = instantsearch({
   indexName: algoliaIndexName,
   searchClient,
@@ -19,11 +18,15 @@ const search = instantsearch({
         const indexUiState = uiState[algoliaIndexName];
         return {
           q: indexUiState.query,
-          category: indexUiState.refinementList && indexUiState.refinementList.category,
+          category:
+            indexUiState.refinementList && indexUiState.refinementList.category,
           subCategory:
-          indexUiState.refinementList && indexUiState.refinementList.subCategory,
-          publishYear: indexUiState.refinementList && indexUiState.refinementList.publishYear,
-        }
+            indexUiState.refinementList &&
+            indexUiState.refinementList.subCategory,
+          publishYear:
+            indexUiState.refinementList &&
+            indexUiState.refinementList.publishYear,
+        };
       },
       routeToState(routeState) {
         return {
@@ -31,15 +34,14 @@ const search = instantsearch({
             query: routeState.q,
             refinementList: {
               category: routeState.category,
-              subCategory:
-                routeState.subCategory,
+              subCategory: routeState.subCategory,
               publishYear: routeState.publishYear,
             },
           },
         };
       },
     },
-  }
+  },
 });
 
 // Note: Publish date is formatted as YYYY-MM-DD
@@ -75,6 +77,9 @@ search.addWidgets([
   instantsearch.widgets.refinementList({
     container: "#refinement-list-category",
     attribute: "category",
+    templates: {
+      count: `display: none;`,
+    },
     limit: 20,
   }),
   instantsearch.widgets.refinementList({
@@ -183,14 +188,14 @@ search.start();
 // });
 
 const toggleSortedVisibility = () => {
-  const component = document.querySelector('#sorted-by');
-  if (searchInput.value.trim() === '') {
-    component.textContent = 'Sorted by most recent';
+  const component = document.querySelector("#sorted-by");
+  if (searchInput.value.trim() === "") {
+    component.textContent = "Sorted by most recent";
   } else {
-    component.textContent = 'Sorted by relevancy';
+    component.textContent = "Sorted by relevancy";
   }
-}
+};
 
-const searchInput = document.querySelector('.ais-SearchBox-input');
-searchInput.addEventListener('input', toggleSortedVisibility)
-toggleSortedVisibility()
+const searchInput = document.querySelector(".ais-SearchBox-input");
+searchInput.addEventListener("input", toggleSortedVisibility);
+toggleSortedVisibility();
