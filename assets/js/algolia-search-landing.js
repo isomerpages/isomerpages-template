@@ -15,6 +15,11 @@ const searchCategories = [] // TODO: add agency
 const governmentGazetteSubcategories = ["Advertisements", "Appointments", "Audited Reports", "Cessation of Service", "Corrigendum", "Death", "Dismissals", "Leave", "Bankruptcy Act Notice", "Companies Act Notice", "Notices under the Constitution", "Notices under other Acts", "Others", "Revocation", "Tenders", "Termination of Service", "Vacation of Service"]
 const legislativeSupplementsSubcategories = ["Bills Supplement", "Acts Supplement", "Revised Acts", "Subsidiary Legislation Supplement", "Revised Subsidiary Legislation"]
 const otherSupplementsSubcategories = ["Government Gazette Supplement", "Industrial Relations Supplement", "Trade Marks Supplement", "Treaties Supplement"]
+const subcategoryMapping = {}
+governmentGazetteSubcategories.forEach(subcat => subcategoryMapping[subcat] = "Government Gazette")
+legislativeSupplementsSubcategories.forEach(subcat => subcategoryMapping[subcat] = "Legislative Supplements")
+otherSupplementsSubcategories.forEach(subcat => subcategoryMapping[subcat] = "Other Supplements")
+const gazetteCategories = ["Government Gazette", "Legislative Supplements", "Other Supplements"]
 
 async function fetchCategoryEntries(categoryName) {
   try {
@@ -74,6 +79,13 @@ function processSearch() {
     }
     selectedCategories[category].push(entry);
   });
+  if (!selectedCategories.category) selectedCategories.category = []
+  selectedCategories.subCategory.forEach(selectedSubcategory => {
+    const parentCat = subcategoryMapping[selectedSubcategory]
+    if (!(parentCat in selectedCategories["category"])) {
+      selectedCategories["category"].push(parentCat)
+    }
+  })
 
   const startDateInput = document.getElementById("input-start-date").value
   const endDateInput = document.getElementById("input-end-date").value
