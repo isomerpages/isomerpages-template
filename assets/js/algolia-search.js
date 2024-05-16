@@ -125,21 +125,24 @@ search.addWidgets([
     attribute: "subCategory",
     limit: 100,
     transformItems(items, { results }) {
+      const currentSubcategoryRefinements = search.renderState[algoliaIndexName].currentRefinements.items.filter(item => item.attribute === "subCategory")
+      let selectedSubcategories = []
+      if (currentSubcategoryRefinements.length > 0) {
+        selectedSubcategories = currentSubcategoryRefinements[0].refinements.map(item => item.label)
+      }
       const currentItemsMap = new Map(items.map(item => [item.label, item]));
 
       const selectedCategories = results._state.disjunctiveFacetsRefinements.category;
       const availableSubcategories = getSubcategories(selectedCategories)
       const orderedItems = availableSubcategories.map(value => {
         const res = currentItemsMap.get(value)
-        if (!res) {
-          return { highlighted: `${value} (No results)`, value, label: value, count: 0, isRefined: false }
+        if (currentItemsMap.has(value)) {
+          return { ...res, highlighted: `${res.count === 0 ? `${value} (No results)` : value}`}
+        } else if (selectedSubcategories.includes(value)) {
+          return { highlighted: `${value} (No results)`, value, label: value, count: 0, isRefined: true }
         }
-        if (res.count === 0) {
-          return { ...res, highlighted: `${value} (No results)`}
-        }
-        return res
-      }
-      );
+        return { highlighted: `${value} (No results)`, value, label: value, count: 0, isRefined: false }
+      });
       return orderedItems;
     }
   }),
