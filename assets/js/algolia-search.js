@@ -30,6 +30,20 @@ function getSubcategories(selectedCategories) {
   return filteredValues;
 }
 
+const createToggleVisibilityWidget = (containerSelector, attribute) => ({
+  init({ helper }) {
+    this.container = document.querySelector(containerSelector);
+    this.attribute = attribute;
+    this.helper = helper;
+    this.render();
+  },
+  render(_renderOptions) {
+    const hasResults = search.renderState[algoliaIndexName].currentRefinements.items.filter(item => item.attribute === "category").length > 0
+    
+    this.container.style.display = hasResults ? 'block' : 'none';
+  },
+});
+
 const search = instantsearch({
   indexName: algoliaIndexName,
   searchClient,
@@ -221,6 +235,9 @@ search.addWidgets([
     showLast: true,
   }),
 ]);
+search.addWidget(
+  createToggleVisibilityWidget('#refinement-list-subcategory-container', 'subcategory')
+);
 
 // TODO: Loading spinner
 // search.on("render", () => {
