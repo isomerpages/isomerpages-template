@@ -138,3 +138,7 @@
 .ais-RefinementList-count {
   display: none;
 }
+
+.algolia-search-item-disabled {
+  color: #cdcdc7;
+}
