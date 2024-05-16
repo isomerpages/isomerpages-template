@@ -9,22 +9,55 @@ const algoliaIndexName = isProd
   ? "ogp_egazettes_index"
   : "staging_ogp_egazettes_index";
 
-const categories = ["Government Gazette", "Legislative Supplements", "Other Supplements"]
-const governmentGazetteSubcategories = ["Advertisements", "Appointments", "Audited Reports", "Cessation of Service", "Corrigendum", "Death", "Dismissals", "Leave", "Bankruptcy Act Notice", "Companies Act Notice", "Notices under the Constitution", "Notices under other Acts", "Others", "Revocation", "Tenders", "Termination of Service", "Vacation of Service"]
-const legislativeSupplementsSubcategories = ["Bills Supplement", "Acts Supplement", "Revised Acts", "Subsidiary Legislation Supplement", "Revised Subsidiary Legislation"]
-const otherSupplementsSubcategories = ["Government Gazette Supplement", "Industrial Relations Supplement", "Trade Marks Supplement", "Treaties Supplement"]
+const categories = [
+  "Government Gazette",
+  "Legislative Supplements",
+  "Other Supplements",
+];
+const governmentGazetteSubcategories = [
+  "Advertisements",
+  "Appointments",
+  "Audited Reports",
+  "Cessation of Service",
+  "Corrigendum",
+  "Death",
+  "Dismissals",
+  "Leave",
+  "Bankruptcy Act Notice",
+  "Companies Act Notice",
+  "Notices under the Constitution",
+  "Notices under other Acts",
+  "Others",
+  "Revocation",
+  "Tenders",
+  "Termination of Service",
+  "Vacation of Service",
+];
+const legislativeSupplementsSubcategories = [
+  "Bills Supplement",
+  "Acts Supplement",
+  "Revised Acts",
+  "Subsidiary Legislation Supplement",
+  "Revised Subsidiary Legislation",
+];
+const otherSupplementsSubcategories = [
+  "Government Gazette Supplement",
+  "Industrial Relations Supplement",
+  "Trade Marks Supplement",
+  "Treaties Supplement",
+];
 
 const categoryMapping = {
   "Government Gazette": governmentGazetteSubcategories,
   "Legislative Supplements": legislativeSupplementsSubcategories,
-  "Other Supplements": otherSupplementsSubcategories
-}
+  "Other Supplements": otherSupplementsSubcategories,
+};
 
 function getSubcategories(selectedCategories) {
   let filteredValues = [];
 
-  selectedCategories.forEach(value => {
-    filteredValues = filteredValues.concat(categoryMapping[value])
+  selectedCategories.forEach((value) => {
+    filteredValues = filteredValues.concat(categoryMapping[value]);
   });
 
   return filteredValues;
@@ -100,29 +133,45 @@ search.addWidgets([
     attribute: "category",
     limit: 20,
     transformItems(items) {
-      const currentItemsMap = new Map(items.map(item => [item.label, item]));
+      const currentItemsMap = new Map(items.map((item) => [item.label, item]));
 
       // Map all possible values to their corresponding item or a default item with count 0
-      const orderedItems = categories.map(value => 
-        currentItemsMap.get(value) || { highlighted:value, value, label: value, count: 0, isRefined: false }
+      const orderedItems = categories.map(
+        (value) =>
+          currentItemsMap.get(value) || {
+            highlighted: value,
+            value,
+            label: value,
+            count: 0,
+            isRefined: false,
+          }
       );
 
       return orderedItems;
-    }
+    },
   }),
   instantsearch.widgets.refinementList({
     container: "#refinement-list-subcategory",
     attribute: "subCategory",
     transformItems(items, { results }) {
-      const currentItemsMap = new Map(items.map(item => [item.label, item]));
+      const currentItemsMap = new Map(items.map((item) => [item.label, item]));
 
-      const selectedCategories = results._state.disjunctiveFacetsRefinements.category;
-      const availableSubcategories = getSubcategories(selectedCategories)
-      const orderedItems = availableSubcategories.map(value => 
-        currentItemsMap.get(value) || { highlighted:value, value, label: value, count: 0, isRefined: false }
+      const selectedCategories =
+        results._state.disjunctiveFacetsRefinements.category;
+      const availableSubcategories = getSubcategories(selectedCategories);
+      const orderedItems = availableSubcategories.map(
+        (value) =>
+          currentItemsMap.get(value) || {
+            highlighted: value,
+            value,
+            label: value,
+            count: 0,
+            isRefined: false,
+          }
       );
+      console.log({ items, results, orderedItems });
       return orderedItems;
-    }
+    },
   }),
   instantsearch.widgets.refinementList({
     container: "#refinement-list-year",
