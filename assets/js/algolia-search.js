@@ -101,6 +101,7 @@ search.addWidgets([
     limit: 20,
     transformItems(items) {
       const currentItemsMap = new Map(items.map(item => [item.label, item]));
+      console.log(currentItemsMap) 
 
       // Map all possible values to their corresponding item or a default item with count 0
       const orderedItems = categories.map(value => 
@@ -113,13 +114,23 @@ search.addWidgets([
   instantsearch.widgets.refinementList({
     container: "#refinement-list-subcategory",
     attribute: "subCategory",
+    limit: 100,
     transformItems(items, { results }) {
       const currentItemsMap = new Map(items.map(item => [item.label, item]));
+      console.log(currentItemsMap)
 
       const selectedCategories = results._state.disjunctiveFacetsRefinements.category;
       const availableSubcategories = getSubcategories(selectedCategories)
-      const orderedItems = availableSubcategories.map(value => 
-        currentItemsMap.get(value) || { highlighted:value, value, label: value, count: 0, isRefined: false }
+      const orderedItems = availableSubcategories.map(value => {
+        const res = currentItemsMap.get(value)
+        if (!res) {
+          return { highlighted: `${value} (No results)`, value, label: value, count: 0, isRefined: false }
+        }
+        if (res.count === 0) {
+          return { ...res, highlighted: `${value} (No results)`}
+        }
+        return res
+      }
       );
       return orderedItems;
     }
@@ -220,6 +231,14 @@ search.addWidgets([
 
 search.start();
 
+search.on('render', () => {
+  document.querySelectorAll('#refinement-list-subcategory .ais-RefinementList-item').forEach(item => {
+    const count = parseInt(item.querySelector('.ais-RefinementList-count').textContent, 10);
+    if (count === 0) {
+      item.classList.add('algolia-search-item-disabled');
+    }
+  });
+});
 // const searchbox = document.getElementById("searchbox");
 // searchbox.addEventListener("keyup", () => {
 //   console.log(searchbox.value);
