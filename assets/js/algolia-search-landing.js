@@ -87,13 +87,15 @@ function processSearch() {
     }
     selectedCategories[category].push(entry);
   });
-  if (!selectedCategories.category) selectedCategories.category = []
-  selectedCategories.subCategory.forEach(selectedSubcategory => {
-    const parentCat = subcategoryMapping[selectedSubcategory]
-    if (!(parentCat in selectedCategories["category"])) {
-      selectedCategories["category"].push(parentCat)
-    }
-  })
+  if (selectedCategories.subCategory) {
+    if (!selectedCategories.category) selectedCategories.category = []
+    selectedCategories.subCategory.forEach(selectedSubcategory => {
+      const parentCat = subcategoryMapping[selectedSubcategory]
+      if (!(parentCat in selectedCategories["category"])) {
+        selectedCategories["category"].push(parentCat)
+      }
+    })
+  }
 
   const startDateInput = document.getElementById("input-start-date").value
   const endDateInput = document.getElementById("input-end-date").value
