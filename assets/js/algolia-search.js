@@ -100,13 +100,22 @@ search.addWidgets([
     attribute: "category",
     limit: 20,
     transformItems(items) {
+      const currentCategoryRefinements = search.renderState[algoliaIndexName].currentRefinements.items.filter(item => item.attribute === "category")
+      let selectedCategories = []
+      if (currentCategoryRefinements.length > 0) {
+        selectedCategories = currentCategoryRefinements[0].refinements.map(item => item.label)
+      }
       const currentItemsMap = new Map(items.map(item => [item.label, item]));
-      console.log(currentItemsMap) 
 
       // Map all possible values to their corresponding item or a default item with count 0
-      const orderedItems = categories.map(value => 
-        currentItemsMap.get(value) || { highlighted:value, value, label: value, count: 0, isRefined: false }
-      );
+      const orderedItems = categories.map(value => {
+        if (currentItemsMap.has(value)) {
+          return currentItemsMap.get(value)
+        } else if (selectedCategories.includes(value)) {
+          return { highlighted:value, value, label: value, count: 0, isRefined: true }
+        }
+        return { highlighted:value, value, label: value, count: 0, isRefined: false }
+      });
 
       return orderedItems;
     }
@@ -117,7 +126,6 @@ search.addWidgets([
     limit: 100,
     transformItems(items, { results }) {
       const currentItemsMap = new Map(items.map(item => [item.label, item]));
-      console.log(currentItemsMap)
 
       const selectedCategories = results._state.disjunctiveFacetsRefinements.category;
       const availableSubcategories = getSubcategories(selectedCategories)
