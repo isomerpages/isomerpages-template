@@ -170,7 +170,6 @@ search.addWidgets([
           }
       );
       console.log({ items, results, orderedItems });
-
       return orderedItems;
     },
   }),
