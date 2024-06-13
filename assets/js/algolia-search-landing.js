@@ -3,11 +3,10 @@ const searchClient = algoliasearch(
   "0ba2c5f100ff5fd004415e4abbcf9b9c"
 );
 
-const PROD_URL = "https://www.egazette.gov.sg";
-const isProd = window.location.origin === PROD_URL;
-const algoliaIndexName = isProd
-  ? "ogp_egazettes_index"
-  : "staging_ogp_egazettes_index";
+
+// this is in vapt branch 
+
+const algoliaIndexName = "vapt_ogp_egazettes_index";
 
 const searchIndex = searchClient.initIndex(algoliaIndexName);
 
