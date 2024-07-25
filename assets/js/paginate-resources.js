@@ -23,7 +23,6 @@ document.getElementById('year-filter-mobile').addEventListener('change', functio
 // Main function to paginate resource page
 function paginateResources() {
   resourceCardArray = Array.prototype.slice.call(document.getElementsByClassName("resource-card-element")); // Convert NodeList into Array
-  console.log(resourceCardArray);
   // 1. Display the years that are available
   var earliestYear = findEarliestYear();
   var currYear = new Date().getFullYear();
@@ -40,6 +39,9 @@ function applyFilter(selectedYear) {
   filteredArray = extractPostsByYear(selectedYear);
 
   pageResults = splitPages(filteredArray, PAGE_SIZE);
+
+  // Reset the current page index to 0
+  currentPageIndex = 0;
   unhideChunk(currentPageIndex, currentPageIndex);
 
   var filterDropdownDesktop = document.getElementById('sgds-selector-text-desktop');
