@@ -40,6 +40,9 @@ function applyFilter(selectedYear) {
   filteredArray = extractPostsByYear(selectedYear);
 
   pageResults = splitPages(filteredArray, PAGE_SIZE);
+
+  // Reset the current page index to 0
+  currentPageIndex = 0;
   unhideChunk(currentPageIndex, currentPageIndex);
 
   var filterDropdownDesktop = document.getElementById('sgds-selector-text-desktop');
