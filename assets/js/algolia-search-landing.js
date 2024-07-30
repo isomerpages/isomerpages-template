@@ -6,14 +6,14 @@ const searchClient = algoliasearch(
 const PROD_URL = "https://www.egazette.gov.sg";
 const isProd = window.location.origin === PROD_URL;
 const algoliaIndexName = isProd
-  ? "ogp_egazettes_index"
+  ? "prod_ogp_egazettes_index"
   : "staging_ogp_egazettes_index";
 
 const searchIndex = searchClient.initIndex(algoliaIndexName);
 
 const searchCategories = [] // TODO: add agency
-const governmentGazetteSubcategories = ["Advertisements", "Appointments", "Audited Reports", "Cessation of Service", "Corrigendum", "Death", "Dismissals", "Leave", "Bankruptcy Act Notice", "Companies Act Notice", "Notices under the Constitution", "Notices under other Acts", "Others", "Revocation", "Tenders", "Termination of Service", "Vacation of Service"]
-const legislativeSupplementsSubcategories = ["Bills Supplement", "Acts Supplement", "Revised Acts", "Subsidiary Legislation Supplement", "Revised Subsidiary Legislation"]
+const governmentGazetteSubcategories = ["Advertisements", "Appointments", "Audited Reports", "Cessation of Service", "Corrigendum", "Death", "Dismissals", "Leave", "Bankruptcy Act Notice", "Companies Act Notice", "Notices under the Constitution", "Notices under other Acts", "Revocation", "Tenders", "Termination of Service", "Vacation of Service", "Others"]
+const legislativeSupplementsSubcategories = ["Bills Supplement", "Acts Supplement", "Subsidiary Legislation Supplement", "Revised Acts", "Revised Subsidiary Legislation"]
 const otherSupplementsSubcategories = ["Government Gazette Supplement", "Industrial Relations Supplement", "Trade Marks Supplement", "Treaties Supplement"]
 const subcategoryMapping = {}
 governmentGazetteSubcategories.forEach(subcat => subcategoryMapping[subcat] = "Government Gazette")
