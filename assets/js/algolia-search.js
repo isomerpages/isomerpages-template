@@ -160,9 +160,14 @@ search.addWidgets([
       return orderedItems;
     }
   }),
-  instantsearch.widgets.refinementList({
-    container: "#refinement-list-year",
-    attribute: "publishYear",
+  instantsearch.widgets.rangeInput({
+    container: '#refinement-list-year',
+    attribute: 'publishYear',
+    min: 1998,
+    templates: {
+      separatorText: 'to',
+      submitText: 'Go',
+    },
   }),
   instantsearch.widgets.currentRefinements({
     container: "#current-refinements",
@@ -238,6 +243,7 @@ search.addWidgets([
 search.addWidget(
   createToggleVisibilityWidget('#refinement-list-subcategory-container', 'subcategory')
 );
+
 
 // TODO: Loading spinner
 // search.on("render", () => {
