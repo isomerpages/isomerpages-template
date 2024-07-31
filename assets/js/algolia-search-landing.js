@@ -91,12 +91,7 @@ function processSearch() {
 
   const startDateInput = document.getElementById("input-start-date").value
   const endDateInput = document.getElementById("input-end-date").value
-  if (startDateInput && endDateInput) {
-    selectedCategories.publishYear = []
-    for (let i = parseInt(startDateInput); i <= parseInt(endDateInput); i++) {
-      selectedCategories.publishYear.push(i)
-    }
-  }
+
   // Construct URL with query params
   const categoryFormElement = document.querySelector("#categoryForm");
   const searchPageUrl = categoryFormElement.dataset.url
@@ -112,6 +107,10 @@ function processSearch() {
       url += `&${category}%5B${index}%5D=${encodeURIComponent(entry)}`
     })
   }
+
+  // Date range filters
+  if (startDateInput) url += `&minYear=${startDateInput}`
+  if (endDateInput) url += `&maxYear=${endDateInput}`
 
   // Redirect to results page
   window.location.href = url;
