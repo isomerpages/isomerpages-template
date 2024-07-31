@@ -51,6 +51,10 @@ const search = instantsearch({
     stateMapping: {
       stateToRoute(uiState) {
         const indexUiState = uiState[algoliaIndexName];
+        const yearData = indexUiState.range?.publishYear ? indexUiState.range.publishYear.split(":") : undefined
+        const minYear = (yearData && yearData[0]) ? yearData[0] : undefined
+        const maxYear = (yearData && yearData[1]) ? yearData[1] : undefined
+        console.log(minYear,maxYear)
         return {
           q: indexUiState.query,
           category:
@@ -58,19 +62,22 @@ const search = instantsearch({
           subCategory:
             indexUiState.refinementList &&
             indexUiState.refinementList.subCategory,
-          publishYear:
-            indexUiState.refinementList &&
-            indexUiState.refinementList.publishYear,
+          minYear,
+          maxYear,
         };
       },
       routeToState(routeState) {
+        const hasPublishYear = routeState.minYear || routeState.maxYear
+        const publishYear = hasPublishYear ? `${routeState.minYear || ""}: ${routeState.maxYear || ""}` : ""
         return {
           [algoliaIndexName]: {
             query: routeState.q,
             refinementList: {
               category: routeState.category,
               subCategory: routeState.subCategory,
-              publishYear: routeState.publishYear,
+            },
+            range: {
+              publishYear
             },
           },
         };
