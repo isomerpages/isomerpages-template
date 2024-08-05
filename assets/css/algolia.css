@@ -92,6 +92,17 @@
 .algolia-landing-date-container {
   gap: 0.75rem;
 }
+@media screen and (max-width: 769px) {
+  .algolia-landing-date-container {
+    flex-direction: column;
+    gap: 0;
+    width: 10rem;
+
+    .date-dash {
+      align-self: center;
+    }
+  }
+}
 #algolia-search-box-landing,
 #input-start-date,
 #input-end-date {
