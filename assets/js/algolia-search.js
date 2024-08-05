@@ -171,10 +171,6 @@ search.addWidgets([
     container: '#refinement-list-year',
     attribute: 'publishYear',
     min: 1998,
-    templates: {
-      separatorText: 'to',
-      submitText: 'Go',
-    },
   }),
   instantsearch.widgets.currentRefinements({
     container: "#current-refinements",
