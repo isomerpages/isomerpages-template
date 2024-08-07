@@ -210,14 +210,14 @@ search.addWidgets([
               })}`
             : ""
         }</p>
-            <p class="search-content description ml-9 body-2">Notification number: ${instantsearch.highlight(
+            <p class="search-content description ml-9 body-2">Number: ${instantsearch.highlight(
               {
                 attribute: "notificationNum",
                 highlightedTagName: "mark",
                 hit,
               }
             )}</p>
-            <p class="search-content description ml-9 body-2">Publish date: ${new Date(
+            <p class="search-content description ml-9 body-2">Date of publication: ${new Date(
               hit.publishTimestamp
             ).toLocaleDateString("fr-CA")}</p>
             ${
