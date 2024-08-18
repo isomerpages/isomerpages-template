@@ -1,3 +1,35 @@
+const CATEGORY_INTERNAL_MAPPING = {
+  "Government Gazette": "Government Gazette",
+  "Legislative Supplements": "Legislation Supplements",
+  "Other Supplements": "Other Supplements",
+  "Advertisements": "Advertisements",
+  "Appointments": "Appointments",
+  "Audited Reports": "Audited Reports",
+  "Cessation of Service": "Cessation of Service",
+  "Corrigendum": "Corrigendum",
+  "Death": "Death",
+  "Dismissals": "Dismissals",
+  "Leave": "Leave",
+  "Bankruptcy Act Notice": "Notices (Bankruptcy Act)",
+  "Companies Act Notice": "Notices (Companies Act)",
+  "Notices under the Constitution": "Notices (Constitution)",
+  "Notices under other Acts": "Notices (other Acts)",
+  "Revocation": "Revocation",
+  "Tenders": "Tenders",
+  "Termination of Service": "Termination of Service",
+  "Vacation of Service": "Vacation of Service",
+  "Others": "Others",
+  "Bills Supplement": "Bills Supplement",
+  "Acts Supplement": "Acts Supplement",
+  "Subsidiary Legislation Supplement": "Subsidiary Legislation Supplement",
+  "Revised Acts": "Revised Acts",
+  "Revised Subsidiary Legislation": "Revised Subsidiary Legislation",
+  "Government Gazette Supplement": "Government Gazette Supplement",
+  "Industrial Relations Supplement": "Industrial Relations Supplement",
+  "Trade Marks Supplement": "Trade Marks Supplement",
+  "Treaties Supplement": "Treaties Supplement"
+}
+
 const searchClient = algoliasearch(
   "1V7DZGZJKK",
   "0ba2c5f100ff5fd004415e4abbcf9b9c"
@@ -131,7 +163,8 @@ search.addWidgets([
       // Map all possible values to their corresponding item or a default item with count 0
       const orderedItems = categories.map(value => {
         if (currentItemsMap.has(value)) {
-          return currentItemsMap.get(value)
+          const adjustedMapping = { ...currentItemsMap.get(value), highlighted: CATEGORY_INTERNAL_MAPPING[value] }
+          return adjustedMapping
         } else if (selectedCategories.includes(value)) {
           return { highlighted:value, value, label: value, count: 0, isRefined: true }
         }
@@ -158,11 +191,11 @@ search.addWidgets([
       const orderedItems = availableSubcategories.map(value => {
         const res = currentItemsMap.get(value)
         if (currentItemsMap.has(value)) {
-          return { ...res, highlighted: `${res.count === 0 ? `${value} (No results)` : value}`}
+          return { ...res, highlighted: `${res.count === 0 ? `${CATEGORY_INTERNAL_MAPPING[value]} (No results)` : CATEGORY_INTERNAL_MAPPING[value]}`}
         } else if (selectedSubcategories.includes(value)) {
-          return { highlighted: `${value} (No results)`, value, label: value, count: 0, isRefined: true }
+          return { highlighted: `${CATEGORY_INTERNAL_MAPPING[value]} (No results)`, value, label: value, count: 0, isRefined: true }
         }
-        return { highlighted: `${value} (No results)`, value, label: value, count: 0, isRefined: false }
+        return { highlighted: `${CATEGORY_INTERNAL_MAPPING[value]} (No results)`, value, label: value, count: 0, isRefined: false }
       });
       return orderedItems;
     }
@@ -177,6 +210,15 @@ search.addWidgets([
     cssClasses: {
       delete: "currentRefinementsIsomer",
     },
+    transformItems(items) {
+      return items.map(item => ({
+        ...item,
+        refinements: item.refinements.map(refinement => ({
+          ...refinement,
+          label: CATEGORY_INTERNAL_MAPPING[refinement.label] || refinement.label, // Map the label using internalMapping
+        }))
+      }));
+    }
   }),
   instantsearch.widgets.clearRefinements({
     container: "#clear-refinements",
