@@ -61,6 +61,38 @@
   background-image: url("https://raw.githubusercontent.com/atisawd/boxicons/master/svg/regular/bx-check.svg");
 }
 
+.ais-RangeInput-input {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .ais-RangeInput-input {
+    width: inherit;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1280px) {
+  .ais-RangeInput-form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+  }
+
+  .ais-RangeInput-label {
+    width: 100%;
+  }
+
+  .ais-RangeInput-submit {
+    margin-top: 0.25rem;
+    margin-left: 0;
+  }
+}
+
+.ais-SearchBox-input {
+  padding-right: 2.5rem;
+}
+
 .algolia-searchbar {
   border-radius: 4px;
   border: 1px solid var(--color-divider-medium, #d0d0d0);
