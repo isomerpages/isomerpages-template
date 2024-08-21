@@ -203,7 +203,6 @@ search.addWidgets([
   instantsearch.widgets.rangeInput({
     container: '#refinement-list-year',
     attribute: 'publishYear',
-    min: 1998,
   }),
   instantsearch.widgets.currentRefinements({
     container: "#current-refinements",
