@@ -261,7 +261,7 @@ search.addWidgets([
             )}</p>
             <p class="search-content description ml-9 body-2">Date of publication: ${new Date(
               hit.publishTimestamp
-            ).toLocaleDateString("fr-CA")}</p>
+            ).toLocaleDateString("en-SG")}</p>
             ${
               hit.text
                 ? `<p class="search-content description ml-9 body-2">Content: ${instantsearch.snippet(
