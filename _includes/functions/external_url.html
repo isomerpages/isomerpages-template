@@ -31,7 +31,7 @@
 {%- endif -%}
 
 {%- if external -%}
-    {%- capture anchor -%}href="{{url_input}}" target="_blank" rel="strict-origin-when-cross-origin"{%- endcapture -%}
+    {%- capture anchor -%}href="{{url_input}}" target="_blank" referrerpolicy="strict-origin-when-cross-origin"{%- endcapture -%}
 {%- else -%
     {%- capture anchor -%}href="{{site.baseurl}}{{url_input}}"{%- endcapture -%}
 {%- endif -%}
