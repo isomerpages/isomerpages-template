@@ -281,6 +281,7 @@ search.addWidgets([
     container: "#pagination",
     showFirst: true,
     showLast: true,
+    padding: 2
   }),
 ]);
 search.addWidget(

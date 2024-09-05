@@ -17,6 +17,9 @@
 }
 
 /* General styling for the pagination container */
+.ais-Pagination {
+  overflow: hidden;
+}
 .ais-Pagination-list {
   display: flex;
   list-style-type: none;
