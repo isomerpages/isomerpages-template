@@ -86,9 +86,8 @@ const search = instantsearch({
         const yearData = indexUiState.range?.publishYear ? indexUiState.range.publishYear.split(":") : undefined
         const minYear = (yearData && yearData[0]) ? yearData[0] : undefined
         const maxYear = (yearData && yearData[1]) ? yearData[1] : undefined
-        console.log(minYear,maxYear)
         return {
-          q: indexUiState.query,
+          q: indexUiState.query ? encodeURIComponent(indexUiState.query) : undefined,
           category:
             indexUiState.refinementList && indexUiState.refinementList.category,
           subCategory:

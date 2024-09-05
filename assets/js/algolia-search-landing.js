@@ -131,7 +131,7 @@ function processSearch() {
 
   // Search term
   const queryInput = document.getElementById("algolia-search-box-landing")
-  url += `q=${queryInput.value ? queryInput.value : ""}`
+  url += `q=${queryInput.value ? encodeURIComponent(queryInput.value) : ""}`
 
   // Category filters
   for (const [category, values] of Object.entries(selectedCategories)) {
