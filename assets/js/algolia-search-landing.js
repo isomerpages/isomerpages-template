@@ -141,8 +141,8 @@ function processSearch() {
   }
 
   // Date range filters
-  if (startDateInput) url += `&minYear=${startDateInput}`
-  if (endDateInput) url += `&maxYear=${endDateInput}`
+  if (startDateInput) url += `&minYear=${encodeURIComponent(startDateInput)}`
+  if (endDateInput) url += `&maxYear=${encodeURIComponent(endDateInput)}`
 
   // Redirect to results page
   window.location.href = url;
