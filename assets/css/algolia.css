@@ -70,7 +70,20 @@
 
 @media (max-width: 768px) {
   .ais-RangeInput-input {
-    width: inherit;
+    width: 100%;
+  }
+  .ais-RangeInput-label {
+    width: 33%;
+    max-width: 6.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ais-RangeInput-input {
+    width: 100%;
+  }
+  .ais-RangeInput-label {
+    width: 33%;
   }
 }
 
