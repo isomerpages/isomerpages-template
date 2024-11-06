@@ -62,6 +62,10 @@ function getSubcategories(selectedCategories) {
   return filteredValues;
 }
 
+// Used for debouncing
+let timerId;
+let timeout = 250;
+
 const createToggleVisibilityWidget = (containerSelector, attribute) => ({
   init({ helper }) {
     this.container = document.querySelector(containerSelector);
@@ -123,6 +127,10 @@ search.addWidgets([
     container: "#searchbox",
     autofocus: true,
     placeholder: "Start typing to search",
+    queryHook(query, refine) {
+      clearTimeout(timerId);
+      timerId = setTimeout(() => refine(query), timeout);
+    },
   }),
   instantsearch.widgets.stats({
     container: "#stats",
