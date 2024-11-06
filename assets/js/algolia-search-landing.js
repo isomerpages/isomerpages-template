@@ -123,6 +123,8 @@ function processSearch() {
 
   const startDateInput = document.getElementById("input-start-date").value
   const endDateInput = document.getElementById("input-end-date").value
+  const startMonthInput = document.getElementById("input-start-month").value
+  const endMonthInput = document.getElementById("input-end-month").value
 
   // Construct URL with query params
   const categoryFormElement = document.querySelector("#categoryForm");
@@ -143,6 +145,8 @@ function processSearch() {
   // Date range filters
   if (startDateInput) url += `&minYear=${encodeURIComponent(startDateInput)}`
   if (endDateInput) url += `&maxYear=${encodeURIComponent(endDateInput)}`
+  if (startMonthInput) url += `&minMonth=${encodeURIComponent(startMonthInput)}`
+  if (endMonthInput) url += `&maxMonth=${encodeURIComponent(endMonthInput)}`
 
   // Redirect to results page
   window.location.href = url;

@@ -25,6 +25,12 @@ layout: skeleton
           <p class="date-dash">~</p>
           <input class="input date-input" id="input-end-date" type="text" inputmode="numeric" placeholder="End year" name="end-date" autocomplete="off" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
         </div>
+        <div class="subhead-1"><b>Month</b></div>
+        <div class="is-flex algolia-landing-date-container">
+          <input class="input date-input" id="input-start-month" type="text" inputmode="numeric" placeholder="Start month (e.g. 1)" name="start-month" autocomplete="off" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+          <p class="date-dash">~</p>
+          <input class="input date-input" id="input-end-month" type="text" inputmode="numeric" placeholder="End month (e.g. 12)" name="end-month" autocomplete="off" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+        </div>
         <div>
           <div class="subhead-1"><b>Category</b></div>
           <div class="datagov-v2-browsing pb-4">Please refer to the FAQ on the sub-categories below</div>

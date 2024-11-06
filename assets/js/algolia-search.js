@@ -90,6 +90,9 @@ const search = instantsearch({
         const yearData = indexUiState.range?.publishYear ? indexUiState.range.publishYear.split(":") : undefined
         const minYear = (yearData && yearData[0]) ? yearData[0] : undefined
         const maxYear = (yearData && yearData[1]) ? yearData[1] : undefined
+        const monthData = indexUiState.range?.publishMonth ? indexUiState.range.publishMonth.split(":") : undefined
+        const minMonth = (monthData && monthData[0]) ? monthData[0] : undefined
+        const maxMonth = (monthData && monthData[1]) ? monthData[1] : undefined
         return {
           q: indexUiState.query ? encodeURIComponent(indexUiState.query) : undefined,
           category:
@@ -99,11 +102,15 @@ const search = instantsearch({
             indexUiState.refinementList.subCategory,
           minYear,
           maxYear,
+          minMonth,
+          maxMonth
         };
       },
       routeToState(routeState) {
         const hasPublishYear = routeState.minYear || routeState.maxYear
         const publishYear = hasPublishYear ? `${routeState.minYear || ""}: ${routeState.maxYear || ""}` : ""
+        const hasPublishMonth = routeState.minMonth || routeState.maxMonth
+        const publishMonth = hasPublishMonth ? `${routeState.minMonth || ""}: ${routeState.maxMonth || ""}` : ""
         return {
           [algoliaIndexName]: {
             query: routeState.q,
@@ -112,7 +119,8 @@ const search = instantsearch({
               subCategory: routeState.subCategory,
             },
             range: {
-              publishYear
+              publishYear,
+              publishMonth
             },
           },
         };
@@ -210,6 +218,10 @@ search.addWidgets([
   instantsearch.widgets.rangeInput({
     container: '#refinement-list-year',
     attribute: 'publishYear',
+  }),
+  instantsearch.widgets.rangeInput({
+    container: '#refinement-list-month',
+    attribute: 'publishMonth',
   }),
   instantsearch.widgets.currentRefinements({
     container: "#current-refinements",
