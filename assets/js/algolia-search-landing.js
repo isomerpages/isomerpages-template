@@ -32,7 +32,7 @@ const CATEGORY_INTERNAL_MAPPING = {
 
 const searchClient = algoliasearch(
   "1V7DZGZJKK",
-  "0ba2c5f100ff5fd004415e4abbcf9b9c"
+  "ff6219a3539653aa48773bf03199b95e"
 );
 
 const PROD_URL = "https://www.egazette.gov.sg";
