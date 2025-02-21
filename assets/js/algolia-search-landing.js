@@ -37,9 +37,7 @@ const searchClient = algoliasearch(
 
 const PROD_URL = "https://www.egazette.gov.sg";
 const isProd = window.location.origin === PROD_URL;
-const algoliaIndexName = isProd
-  ? "prod_ogp_egazettes_index"
-  : "staging_ogp_egazettes_index";
+const algoliaIndexName = "prod_ogp_egazettes_index"
 
 const searchIndex = searchClient.initIndex(algoliaIndexName);
 
