@@ -30,13 +30,12 @@ const CATEGORY_INTERNAL_MAPPING = {
   "Treaties Supplement": "Treaties Supplement"
 }
 
+const PROD_URL = "https://www.egazette.gov.sg";
+const isProd = window.location.origin === PROD_URL;
 const searchClient = algoliasearch(
   "1V7DZGZJKK",
   isProd ? "ff6219a3539653aa48773bf03199b95e" : "bbc5751b3f9b7fdfc08c99712adfa397"
 );
-
-const PROD_URL = "https://www.egazette.gov.sg";
-const isProd = window.location.origin === PROD_URL;
 const algoliaIndexName = isProd
   ? "prod_ogp_egazettes_index"
   : "staging_ogp_egazettes_index";
