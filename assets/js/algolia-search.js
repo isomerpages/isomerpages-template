@@ -37,9 +37,7 @@ const searchClient = algoliasearch(
 
 const PROD_URL = "https://www.egazette.gov.sg";
 const isProd = window.location.origin === PROD_URL;
-const algoliaIndexName = isProd
-  ? "prod_ogp_egazettes_index"
-  : "staging_ogp_egazettes_index";
+const algoliaIndexName = "prod_ogp_egazettes_index"
 
 const categories = ["Government Gazette", "Legislative Supplements", "Other Supplements"]
 const governmentGazetteSubcategories = ["Advertisements", "Appointments", "Audited Reports", "Cessation of Service", "Corrigendum", "Death", "Dismissals", "Leave", "Bankruptcy Act Notice", "Companies Act Notice", "Notices under the Constitution", "Notices under other Acts", "Revocation", "Tenders", "Termination of Service", "Vacation of Service", "Others"]
