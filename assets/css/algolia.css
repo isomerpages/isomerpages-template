@@ -4,7 +4,7 @@
   .ais-SearchBox-input {
     outline: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     box-shadow: none;
   }
 }
@@ -17,6 +17,9 @@
 }
 
 /* General styling for the pagination container */
+.ais-Pagination {
+  overflow: hidden;
+}
 .ais-Pagination-list {
   display: flex;
   list-style-type: none;
@@ -40,4 +43,181 @@
 .ais-PoweredBy a {
   display: flex;
   align-items: center;
+}
+
+.ais-CurrentRefinements-delete {
+  height: auto;
+}
+
+/* copying over from ais-ClearRefinements-item */
+.ais-ClearRefinements-button {
+  width: auto;
+  height: auto;
+  margin-top: 0.5rem;
+}
+
+.ais-ClearRefinements-button[disabled] {
+  display: none;
+}
+
+.ais-RefinementList-item--selected .ais-RefinementList-checkbox {
+  background-image: url("https://raw.githubusercontent.com/atisawd/boxicons/master/svg/regular/bx-check.svg");
+}
+
+.ais-RangeInput-input {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .ais-RangeInput-input {
+    width: 100%;
+  }
+  .ais-RangeInput-label {
+    width: 33%;
+    max-width: 6.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ais-RangeInput-input {
+    width: 100%;
+  }
+  .ais-RangeInput-label {
+    width: 33%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1280px) {
+  .ais-RangeInput-form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+  }
+
+  .ais-RangeInput-label {
+    width: 100%;
+  }
+
+  .ais-RangeInput-submit {
+    margin-top: 0.25rem;
+    margin-left: 0;
+  }
+}
+
+.ais-SearchBox-input {
+  padding-right: 2.5rem;
+}
+
+.algolia-searchbar {
+  border-radius: 4px;
+  border: 1px solid var(--color-divider-medium, #d0d0d0);
+  background: var(--color-utility-ui-bg, #fff);
+}
+.algolia-searchbar:hover {
+  border-radius: 4px;
+  border: 1px solid var(--color-divider-medium, #d0d0d0);
+  background: var(--color-utility-ui-bg, #fff);
+}
+.algolia-search-divider {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  height: 1px;
+}
+.algolia-search-query-container {
+  display: flex;
+  flex-direction: column;
+}
+.algolia-search-category-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .date-input {
+    width: 10rem;
+  }
+}
+.algolia-landing-date-container {
+  gap: 0.75rem;
+}
+@media screen and (max-width: 769px) {
+  .algolia-landing-date-container {
+    flex-direction: column;
+    gap: 0;
+    width: 10rem;
+
+    .date-dash {
+      align-self: center;
+    }
+  }
+}
+#algolia-search-box-landing,
+#input-start-date,
+#input-end-date,
+#input-start-month,
+#input-end-month {
+  border: 1px solid;
+  border-radius: 4px;
+  border-color: var(--color-divider-medium, #d0d0d0);
+}
+.algolia-search-category-items-container {
+  justify-content: space-between;
+  display: flex;
+}
+@media screen and (max-width: 769px) {
+  .algolia-search-category-items-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+.algolia-search-category-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.algolia-search-landing-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1.5rem 3rem;
+  position: sticky;
+  bottom: 0;
+  border-top: 1px solid #cecece;
+  background: #ffffff;
+}
+.algolia-search-landing-container {
+  background: #fcfcfc;
+}
+.algolia-search-landing-subtitle-container {
+  justify-content: space-between;
+  display: flex;
+
+  .link-button-text {
+    text-transform: none;
+  }
+
+  .algolia-search-landing-subtitle {
+    color: #666c7a;
+    font-size: 1.125rem;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .algolia-search-landing-subtitle-container {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: start;
+  }
+}
+
+.ais-RefinementList-count {
+  display: none;
+}
+
+.ais-RangeInput-label {
+  flex: 1;
+}
+
+.algolia-search-item-disabled {
+  color: #cdcdc7;
 }
