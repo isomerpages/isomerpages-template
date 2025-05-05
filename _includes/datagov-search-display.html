@@ -9,7 +9,10 @@
         <i class="sgds-icon sgds-icon-chevron-right is-size-5 px-1" aria-hidden="true"></i>
         {{- page.third_nav_title -}}
       {%- endif -%}
-      {%- if page.title -%}
+      {%- if page.search_breadcrumb -%}
+        <i class="sgds-icon sgds-icon-chevron-right is-size-5 px-1" aria-hidden="true"></i>
+        {{- page.search_breadcrumb -}}
+      {%- elsif page.title -%}
         <i class="sgds-icon sgds-icon-chevron-right is-size-5 px-1" aria-hidden="true"></i>
         {{- page.title -}}
       {%- endif -%}
